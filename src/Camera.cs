@@ -26,13 +26,22 @@ namespace Controller_test
         private float sidespeed = 0.05f;
 
 
+        /// <summary>
+        /// Creates a third person camera. standard viewdirection along the z axis
+        /// </summary>
+        /// <param name="pos">position of the point the camera is looking at</param>
+        /// <param name="fov">field of view: recommended PiOverFour</param>
+        /// <param name="aspectRatio">the aspectratio, may be: GraphicsDevice.Viewport.AspectRatio</param>
+        /// <param name="nearPlane">distance of the nearPlane</param>
+        /// <param name="farPlane">distance of the farPlane</param>
+
         public Camera(Vector3 pos, float fov, float aspectRatio, float nearPlane, float farPlane ) 
         {
             upangle = -0.5f;
             rotation = 0.0f;
             centerposition = pos;
             updatevMatrix();
-            projectionMatrix = Matrix.CreatePerspectiveFieldOfView(fov, aspectRatio, nearPlane, farPlane);    
+            projectionMatrix = Matrix.CreatePerspectiveFieldOfView(fov, aspectRatio, nearPlane, farPlane);
         }
        
         /// <summary>
@@ -47,14 +56,15 @@ namespace Controller_test
         /// <summary>
         /// Used to update the Camera direction and position
         /// </summary>
-        /// <param name="pos"></param>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
+        /// <param name="pos">position of the point the camera is looking at</param>
+        /// <param name="x">rotation around the y axis</param>
+        /// <param name="y">height rotation</param>
         public  void update(Vector3 pos, float x, float y) 
         {
             changeposition(pos);
             changeAngle(x, y);
         }
+        
         
         public void changeposition(Vector3 pos) 
         {
