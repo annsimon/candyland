@@ -12,5 +12,9 @@ namespace Candyland
     {
         String ID;
         bool isActivated;
+
+        public PlatformSwitch()
+        {
+        }
     }
 }

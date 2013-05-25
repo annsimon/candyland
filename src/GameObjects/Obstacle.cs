@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Candyland
 {
@@ -11,5 +14,26 @@ namespace Candyland
     /// </summary>
     class Obstacle : GameObject
     {
+        public Obstacle()
+        {
+        }
+        public Obstacle(Vector3 pos)
+        {
+            this.Position = pos;
+            this.isActive = false;
+        }
+
+        public override void Initialize()
+        {
+        }
+
+        public override void Load(ContentManager content)
+        {
+            
+        }
+
+        public override void Update()
+        {
+        }
     }
 }

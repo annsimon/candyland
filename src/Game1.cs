@@ -19,6 +19,10 @@ namespace Candyland
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        //Camera and Platform for first Testing
+        Camera gameCamera;
+        Platform firstPlatform;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -33,7 +37,9 @@ namespace Candyland
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            // belongs to first Test
+            gameCamera = new Camera(Vector3.Zero,(float)(Math.PI)/4.0f, GraphicsDevice.Viewport.AspectRatio, 1.0f, 1000.0f);
+            firstPlatform = new Platform(Vector3.Zero);
 
             base.Initialize();
         }
@@ -47,7 +53,8 @@ namespace Candyland
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
+            // belongs to first Test
+            firstPlatform.Load(this.Content);
         }
 
         /// <summary>
@@ -83,7 +90,8 @@ namespace Candyland
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            // belongs to first Test
+            firstPlatform.Draw(gameCamera.getviewMatrix(), gameCamera.getProjectionMatrix());
 
             base.Draw(gameTime);
         }
