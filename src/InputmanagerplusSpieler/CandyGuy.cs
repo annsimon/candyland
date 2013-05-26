@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
 
-namespace Controller_test
+namespace Candyland
 {
     class CandyGuy : Playable
     {
