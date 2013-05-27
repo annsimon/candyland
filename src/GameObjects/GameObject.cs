@@ -11,7 +11,7 @@ namespace Candyland
     /// <summary>
     /// Parent Class for all Objects that appear in the Game World (Platforms, Obstacles, Characters...)
     /// </summary>
-    abstract class GameObject : GameElement
+    public abstract class GameObject : GameElement
     {
         protected Vector3 Position {get; set;}
         protected Model Model;

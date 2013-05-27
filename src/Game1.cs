@@ -18,10 +18,9 @@ namespace Candyland
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
-        //Camera and Platform for first Testing
-        Camera gameCamera;
-        Platform firstPlatform;
+        
+        // the scene manager, most stuff happens in there
+        SceneManager m_sceneManager;
 
         public Game1()
         {
@@ -37,9 +36,7 @@ namespace Candyland
         /// </summary>
         protected override void Initialize()
         {
-            // belongs to first Test
-            gameCamera = new Camera(Vector3.Zero,(float)(Math.PI)/4.0f, GraphicsDevice.Viewport.AspectRatio, 1.0f, 1000.0f);
-            firstPlatform = new Platform(Vector3.Zero);
+            m_sceneManager = new SceneManager(new Camera(Vector3.Zero, (float)(Math.PI) / 4.0f, GraphicsDevice.Viewport.AspectRatio, 1.0f, 1000.0f));
 
             base.Initialize();
         }
@@ -53,8 +50,8 @@ namespace Candyland
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // belongs to first Test
-            firstPlatform.Load(this.Content);
+            // Load all content required by the scene
+            m_sceneManager.Load(this.Content);
         }
 
         /// <summary>
@@ -77,7 +74,7 @@ namespace Candyland
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            // TODO: Add your update logic here
+            m_sceneManager.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -90,8 +87,7 @@ namespace Candyland
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // belongs to first Test
-            firstPlatform.Draw(gameCamera.getviewMatrix(), gameCamera.getProjectionMatrix());
+            m_sceneManager.Draw(gameTime);
 
             base.Draw(gameTime);
         }

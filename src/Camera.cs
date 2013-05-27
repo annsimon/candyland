@@ -13,9 +13,8 @@ using Microsoft.Xna.Framework.Media;
 namespace Candyland
 {
 
-    class Camera
+    public class Camera
     {
-
         private  Matrix viewMatrix;
         private  Matrix projectionMatrix;
         private float upangle;
