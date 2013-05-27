@@ -29,7 +29,7 @@ namespace Candyland
 
         public override void Load(ContentManager content)
         {
-            
+            this.Model = content.Load<Model>("chocolate(unmovable)"); // nothing is drawn. something different with this model?
         }
 
         public override void Update()
