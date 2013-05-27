@@ -8,13 +8,18 @@ namespace Candyland
     /// <summary>
     /// Platform, that works as a switch, when the Player steps on it.
     /// </summary>
-    class PlatformSwitch : Platform
+    abstract class PlatformSwitch : Platform
     {
-        String ID;
-        bool isActivated;
+        protected String ID;
+        public String getID() { return this.ID; }
 
-        public PlatformSwitch()
-        {
-        }
+        protected bool isActivated;
+        public bool getActivated() { return this.isActivated; }
+        public void setActivated(bool value) { this.isActivated = value; }
+
+        protected bool isTouched;
+        public bool getTouched() { return this.isTouched; }
+        public void setTouched(bool value) { this.isTouched = value; }
+
     }
 }
