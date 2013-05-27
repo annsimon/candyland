@@ -39,7 +39,7 @@ namespace Candyland
         public  Vector3 getPosition(){ return position; }
 
         // todo: FIX THIS!
-        public float getCameraDir() { return 0.5f /*cam.getDirection()*/; }
+        public float getCameraDir() { return cam.getDirection(); }
 
         public  Matrix getProjectionM(){return cam.getProjectionMatrix();}
 
