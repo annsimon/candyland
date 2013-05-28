@@ -1,1 +1,0 @@
-Hier sollen alle Ressourcen (Models, Texturen, Grafiken, Sounds usw.) rein. Bitte sinnvoll in Ordner einsortieren. Für die Einbindung in das Projekt ist dann jeder selbst zuständig, aber das bisschen Copy+Paste sollte ja machbar sein ;)
