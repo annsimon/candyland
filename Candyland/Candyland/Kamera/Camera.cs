@@ -25,8 +25,8 @@ namespace Candyland
         private float upspeed = 0.01f;
         private float sidespeed = 0.1f;
 
-        private bool topdownactive = false;
-        private float topdownoffset;
+        public bool topdownactive = false;
+        private float topdownoffset = 20;
         private Vector3 topdownposition;
         private Matrix topdownViewM;
 
@@ -94,8 +94,8 @@ namespace Candyland
         {
             if (topdownactive)
             {
-                topdownposition.X += x;
-                topdownposition.Z += y;
+                topdownposition.X += x *(float)Math.Cos(rotation) - y * (float)Math.Sin(rotation);
+                topdownposition.Z += x *(float)Math.Sin(rotation) + y * (float)Math.Cos(rotation);
             }
 
             else
