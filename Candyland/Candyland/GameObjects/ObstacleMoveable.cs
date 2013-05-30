@@ -15,18 +15,18 @@ namespace Candyland
     {
         public ObstacleMoveable(Vector3 pos)
         {
-            this.Position = pos;
+            this.position = pos;
             this.isActive = false;
         }
 
 
-        public override void Load(ContentManager content)
+        public override void load(ContentManager content)
         {
-            this.Model = content.Load<Model>("wunderkugelmovable"); ;
+            this.model = content.Load<Model>("wunderkugelmovable"); ;
         }
 
 
-        public override void Update()
+        public override void update()
         {
             // TODO Decide when to call move and with what parameters or maybe make different methodes like push and slide
             // this.move(...);

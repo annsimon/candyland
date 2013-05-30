@@ -16,22 +16,22 @@ namespace Candyland
         public PlatformSwitchTemporary(String id, Vector3 pos)
         {
             this.ID = id;
-            this.Position = pos;
+            this.position = pos;
             this.isActive = false;
             this.isActivated = false;
         }
 
-        public override void Load(ContentManager content)
+        public override void load(ContentManager content)
         {
-            this.Model = content.Load<Model>("plattformschalter");
-            this.BoundingBox = calculateBoundingBox(this.Model, this.Position);
+            this.model = content.Load<Model>("plattformschalter");
+            this.calculateBoundingBox();
         }
 
 
         /// <summary>
         /// Updates the Switch's states.
         /// </summary>
-        public override void Update()
+        public override void update()
         {
             // TODO Decide when switch is being touched
 

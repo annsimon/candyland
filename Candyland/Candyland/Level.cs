@@ -34,16 +34,16 @@ namespace Candyland
         public void Load(ContentManager manager)
         {
             foreach (var gameObject in m_gameObjects)
-                gameObject.Value.Load(manager);
+                gameObject.Value.load(manager);
             foreach (GameObject staticObject in m_staticObjects)
-                staticObject.Load(manager);
+                staticObject.load(manager);
         }
 
         public void Update(GameTime gameTime)
         {
             foreach (var gameObject in m_gameObjects)
             {
-                gameObject.Value.Update();
+                gameObject.Value.update();
             }
         }
 
@@ -51,11 +51,11 @@ namespace Candyland
         {
             foreach (GameObject staticObject in m_staticObjects)
             {
-                staticObject.Draw(m_camera.getviewMatrix(), m_camera.getProjectionMatrix());
+                staticObject.draw(m_camera.getviewMatrix(), m_camera.getProjectionMatrix());
             }
             foreach (var gameObject in m_gameObjects)
             {
-                gameObject.Value.Draw(m_camera.getviewMatrix(), m_camera.getProjectionMatrix());
+                gameObject.Value.draw(m_camera.getviewMatrix(), m_camera.getProjectionMatrix());
             }
         }
     }

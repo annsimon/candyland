@@ -25,22 +25,22 @@ namespace Candyland
 
         public Platform(Vector3 pos)
         {
-            this.Position = pos;
+            this.position = pos;
             this.isActive = false;
         }
 
-        public override void Initialize()
+        public override void initialize()
         {
         }
 
-        public override void Load(ContentManager content)
+        public override void load(ContentManager content)
         {
-            this.Model = content.Load<Model>("plattform");
-            this.BoundingBox = calculateBoundingBox(this.Model, this.Position);
+            this.model = content.Load<Model>("plattform");
+            this.calculateBoundingBox();
             //this.BoundingBox = new BoundingBox(new Vector3(-0.5f,-0.5f,-0.5f), new Vector3(0.5f,0.5f,0.5f));
         }
 
-        public override void Update()
+        public override void update()
         {
         }
     }

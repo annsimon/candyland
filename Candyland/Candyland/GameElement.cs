@@ -10,7 +10,7 @@ namespace Candyland
     /// </summary>
     public abstract class GameElement
     {
-        public abstract void Initialize();
-        public abstract void Update();
+        public abstract void initialize();
+        public abstract void update();
     }
 }

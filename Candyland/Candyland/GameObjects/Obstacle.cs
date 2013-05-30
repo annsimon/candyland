@@ -19,20 +19,20 @@ namespace Candyland
         }
         public Obstacle(Vector3 pos)
         {
-            this.Position = pos;
+            this.position = pos;
             this.isActive = false;
         }
 
-        public override void Initialize()
+        public override void initialize()
         {
         }
 
-        public override void Load(ContentManager content)
+        public override void load(ContentManager content)
         {
-            this.Model = content.Load<Model>("chocolate(unmovable)"); // nothing is drawn. something different with this model?
+            this.model = content.Load<Model>("chocolate(unmovable)"); // nothing is drawn. something different with this model?
         }
 
-        public override void Update()
+        public override void update()
         {
         }
     }
