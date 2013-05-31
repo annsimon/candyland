@@ -36,8 +36,9 @@ namespace Candyland
         public override void load(ContentManager content)
         {
             this.m_model = content.Load<Model>("plattform");
+
             this.calculateBoundingBox();
-            //this.BoundingBox = new BoundingBox(new Vector3(-0.5f,-0.5f,-0.5f), new Vector3(0.5f,0.5f,0.5f));
+            Console.WriteLine("Min " + this.m_boundingBox.Min + " Max " + this.m_boundingBox.Max);
         }
 
         public override void collide(GameObject obj)

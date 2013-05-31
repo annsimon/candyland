@@ -22,7 +22,7 @@ namespace Candyland
         public static List<GameObject> ParseStatics()
         {
             List<GameObject> objectList = new List<GameObject>();
-            objectList.Add(new Platform(Vector3.Zero));
+            objectList.Add(new PlatformSwitchPermanent("",Vector3.Zero));
             return objectList;
         }
     }

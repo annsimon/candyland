@@ -22,7 +22,10 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
-            this.m_model = content.Load<Model>("wunderkugelmovable"); ;
+            this.m_model = content.Load<Model>("wunderkugelmovable");
+
+            this.calculateBoundingBox();
+            Console.WriteLine("Min " + this.m_boundingBox.Min + " Max " + this.m_boundingBox.Max);
         }
 
 
@@ -45,28 +48,26 @@ namespace Candyland
             //TODO This is only a first try and should be changed, when we are clear on how this might work
 
             Vector3 newPosition;
+            Vector3 translate;
 
             // Obstacle moves with constant speed, while on slippery Platforms and not colliding
             if (slipperyGround)
             {
-                newPosition = this.getPosition() + 0.3f * direction; // TODO add speed constant to Game Constants Class
+                translate = 0.3f * direction;
+                newPosition = this.getPosition() + translate; // TODO add speed constant to Game Constants Class
                 this.setPosition(newPosition);
             }
             // Obstacle moves with the same speed as the Player, who is pushing it
             else
             {
-                newPosition = this.getPosition() + playerSpeed * direction;
+                translate = playerSpeed * direction;
+                newPosition = this.getPosition() + translate;
                 this.setPosition(newPosition);
             }
 
             // move Bounding Box at the same time
-            Matrix translateMatrix = Matrix.CreateTranslation(newPosition);
-
-            Vector3[] boxCorners = this.getBoundingBox().GetCorners();
-            foreach (Vector3 element in this.getBoundingBox().GetCorners())
-            {
-                Vector3.Transform(element, translateMatrix);
-            }
+            this.m_boundingBox.Min += translate;
+            this.m_boundingBox.Max += translate;
         }
 
 

@@ -34,6 +34,7 @@
       <Name>chocolateUnmovable</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.3</ProcessorParameters_Scale>
     </Compile>
     <Compile Include="plattform.fbx">
       <Name>plattform</Name>
@@ -45,11 +46,44 @@
       <Name>player</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.1</ProcessorParameters_Scale>
     </Compile>
     <Compile Include="schokolinse.fbx">
       <Name>schokolinse</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="spielerbeta.fbx">
+      <Name>spielerbeta</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.1</ProcessorParameters_Scale>
+      <ProcessorParameters_RotationY>180</ProcessorParameters_RotationY>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="chocolatebreakable.fbx">
+      <Name>chocolatebreakable</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="plattformschalter.fbx">
+      <Name>plattformschalter</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.4</ProcessorParameters_Scale>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="wunderkugelmovable.fbx">
+      <Name>wunderkugelmovable</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.5</ProcessorParameters_Scale>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

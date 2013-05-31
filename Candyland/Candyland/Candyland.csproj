@@ -75,6 +75,7 @@
     <Compile Include="Area.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameElement.cs" />
+    <Compile Include="GameObjects\BoundingBoxRenderer.cs" />
     <Compile Include="GameObjects\GameObject.cs" />
     <Compile Include="GameObjects\Obstacle.cs" />
     <Compile Include="GameObjects\ObstacleBreakable.cs" />

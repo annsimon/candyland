@@ -47,15 +47,15 @@ namespace Candyland
             }
         }
 
-        public void Draw()
+        public void Draw(GraphicsDevice graphics)
         {
             foreach (GameObject staticObject in m_staticObjects)
             {
-                staticObject.draw(m_camera.getviewMatrix(), m_camera.getProjectionMatrix());
+                staticObject.draw(m_camera.getviewMatrix(), m_camera.getProjectionMatrix(), graphics);
             }
             foreach (var gameObject in m_gameObjects)
             {
-                gameObject.Value.draw(m_camera.getviewMatrix(), m_camera.getProjectionMatrix());
+                gameObject.Value.draw(m_camera.getviewMatrix(), m_camera.getProjectionMatrix(), graphics);
             }
         }
     }

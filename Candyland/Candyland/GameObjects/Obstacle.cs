@@ -29,7 +29,10 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
-            this.m_model = content.Load<Model>("chocolateUnmovable"); // nothing is drawn. something different with this model?
+            this.m_model = content.Load<Model>("chocolateUnmovable");
+
+            this.calculateBoundingBox();
+            Console.WriteLine("Min " + this.m_boundingBox.Min + " Max " + this.m_boundingBox.Max);
         }
 
         public override void collide(GameObject obj)

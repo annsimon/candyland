@@ -24,7 +24,9 @@ namespace Candyland
         public override void load(ContentManager content)
         {
             this.m_model = content.Load<Model>("plattformschalter");
+
             this.calculateBoundingBox();
+            Console.WriteLine("Min " + this.m_boundingBox.Min + " Max " + this.m_boundingBox.Max);
         }
 
 

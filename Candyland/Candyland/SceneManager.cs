@@ -25,10 +25,20 @@ namespace Candyland
         // the camera
         Camera m_gameCamera;
 
-        public SceneManager(Camera camera)
+        // the player
+        CandyGuy player;
+
+        // graphics device needed for drawing the bounding boxes
+        GraphicsDevice m_graphics;
+
+        public SceneManager(Camera camera, GraphicsDevice graphics)
         {
             m_gameCamera = camera;
             m_updateInfo = new UpdateInfo();
+
+            m_graphics = graphics;
+
+            player = new CandyGuy(new Vector3(0,2,0), Vector3.Up, 1.0f);
 
             m_areas = AreaParser.ParseAreas(m_updateInfo, m_gameCamera);
         }
@@ -37,6 +47,8 @@ namespace Candyland
         {
             foreach (var area in m_areas)
                 area.Value.Load(manager);
+
+            player.loadContent(manager);
         }
 
         public void Update(GameTime gameTime)
@@ -54,10 +66,12 @@ namespace Candyland
             // adjacent ones
             int currentArea = m_updateInfo.currentAreaID;
             if (currentArea > 0)
-                m_areas[currentArea-1].Draw();
-            m_areas[currentArea].Draw();
+                m_areas[currentArea-1].Draw(m_graphics);
+            m_areas[currentArea].Draw(m_graphics);
             if (currentArea < m_areas.Count-1 )
-                m_areas[currentArea + 1].Draw();
+                m_areas[currentArea + 1].Draw(m_graphics);
+
+            //player.Draw();
         }
     }
 }
