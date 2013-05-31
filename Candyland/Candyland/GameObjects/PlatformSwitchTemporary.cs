@@ -16,14 +16,14 @@ namespace Candyland
         public PlatformSwitchTemporary(String id, Vector3 pos)
         {
             this.ID = id;
-            this.position = pos;
+            this.m_position = pos;
             this.isActive = false;
             this.isActivated = false;
         }
 
         public override void load(ContentManager content)
         {
-            this.model = content.Load<Model>("plattformschalter");
+            this.m_model = content.Load<Model>("plattformschalter");
             this.calculateBoundingBox();
         }
 

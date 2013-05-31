@@ -25,7 +25,7 @@ namespace Candyland
 
         public Platform(Vector3 pos)
         {
-            this.position = pos;
+            this.m_position = pos;
             this.isActive = false;
         }
 
@@ -35,9 +35,14 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
-            this.model = content.Load<Model>("plattform");
+            this.m_model = content.Load<Model>("plattform");
             this.calculateBoundingBox();
             //this.BoundingBox = new BoundingBox(new Vector3(-0.5f,-0.5f,-0.5f), new Vector3(0.5f,0.5f,0.5f));
+        }
+
+        public override void collide(GameObject obj)
+        {
+            throw new NotImplementedException();
         }
 
         public override void update()

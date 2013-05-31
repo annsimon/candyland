@@ -88,6 +88,7 @@
     <Compile Include="InputManagerplusSpieler\Playable.cs" />
     <Compile Include="Kamera\Camera.cs" />
     <Compile Include="Level.cs" />
+    <Compile Include="MyModel.cs" />
     <Compile Include="Parsers\AreaParser.cs" />
     <Compile Include="Parsers\LevelParser.cs" />
     <Compile Include="Parsers\ObjectParser.cs" />

@@ -15,14 +15,14 @@ namespace Candyland
     {
         public ObstacleBreakable(Vector3 pos)
         {
-            this.position = pos;
+            this.m_position = pos;
             this.isActive = false;
         }
 
 
         public override void load(ContentManager content)
         {
-            this.model = content.Load<Model>("chocolatebreakable"); ;
+            this.m_model = content.Load<Model>("chocolatebreakable"); ;
         }
 
 

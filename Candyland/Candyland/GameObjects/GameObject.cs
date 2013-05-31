@@ -13,17 +13,19 @@ namespace Candyland
     /// </summary>
     public abstract class GameObject : GameElement
     {
-        protected Vector3 position;
-        public Vector3 getPosition() { return this.position; }
-        public void setPosition(float x, float y, float z) { this.position = new Vector3(x,y,z); }
-        public void setPosition(Vector3 newVector) { this.position = newVector; }
+        protected Vector3 m_position;
+        public Vector3 getPosition() { return this.m_position; }
+        public void setPosition(float x, float y, float z) { this.m_position = new Vector3(x,y,z); }
+        public void setPosition(Vector3 newVector) { this.m_position = newVector; }
 
-        protected Model model;
-        public Model getModel() { return this.model; }
+        protected Model m_model;
+        public Model getModel() { return this.m_model; }
 
-        protected BoundingBox boundingBox;
-        public BoundingBox getBoundingBox() { return this.boundingBox; }
-        public void setBoundingBox(BoundingBox box) { this.boundingBox = box; }
+        protected BoundingBox m_boundingBox;
+        public BoundingBox getBoundingBox() { return this.m_boundingBox; }
+        public void setBoundingBox(BoundingBox box) { this.m_boundingBox = box; }
+
+        protected UpdateInfo m_updateInfo;
 
         // True at times when the Object is taking an active role in the Game (like a selected Player or moving Objects)
         protected bool isActive;
@@ -32,6 +34,8 @@ namespace Candyland
 
 
         public abstract void load(ContentManager content);
+
+        public abstract void collide(GameObject obj);
 
         //TODO test if, this works
         /// <summary>
@@ -44,7 +48,7 @@ namespace Candyland
            Vector3 meshMax = new Vector3(float.MinValue, float.MinValue, float.MinValue);
            Vector3 meshMin = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
 
-           foreach (ModelMesh mesh in this.model.Meshes)
+           foreach (ModelMesh mesh in this.m_model.Meshes)
            {
               // There may be multiple parts in a mesh (different materials etc.) so loop through each
                foreach (ModelMeshPart part in mesh.MeshParts)
@@ -71,7 +75,7 @@ namespace Candyland
                    }
                }
            }
-           this.boundingBox = new BoundingBox(this.position + meshMin + (meshMax - meshMin)/2, this.position + meshMax + (meshMax - meshMin)/2);
+           this.m_boundingBox = new BoundingBox(this.m_position + meshMin + (meshMax - meshMin)/2, this.m_position + meshMax + (meshMax - meshMin)/2);
         }
 
 
@@ -83,14 +87,14 @@ namespace Candyland
         public void draw(Matrix view, Matrix projection)
         {
             // Copy any parent transforms.
-            Matrix[] transforms = new Matrix[model.Bones.Count];
-            model.CopyAbsoluteBoneTransformsTo(transforms);
+            Matrix[] transforms = new Matrix[m_model.Bones.Count];
+            m_model.CopyAbsoluteBoneTransformsTo(transforms);
 
-            Matrix translateMatrix = Matrix.CreateTranslation(position);
+            Matrix translateMatrix = Matrix.CreateTranslation(m_position);
             Matrix worldMatrix = translateMatrix;
 
             // Draw the model. A model can have multiple meshes, so loop.
-            foreach (ModelMesh mesh in model.Meshes)
+            foreach (ModelMesh mesh in m_model.Meshes)
             {
                 foreach (BasicEffect effect in mesh.Effects)
                 {
