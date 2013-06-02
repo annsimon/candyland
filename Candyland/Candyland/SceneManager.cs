@@ -53,6 +53,12 @@ namespace Candyland
 
         public void Update(GameTime gameTime)
         {
+            // check for Collision between the Player and all Game Objects in the current Level
+
+
+            // check for Collision between all Objects in the currentObjectsToBeCollided List inside UpdateInfo
+
+
             // update the area the player currently is in
             // and the next area if the player is about to leave the current area
             m_areas[m_updateInfo.currentAreaID].Update(gameTime);

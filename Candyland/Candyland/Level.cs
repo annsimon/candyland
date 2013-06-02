@@ -61,5 +61,10 @@ namespace Candyland
                 gameObject.Value.draw(m_camera.getviewMatrix(), m_camera.getProjectionMatrix(), graphics);
             }
         }
+
+        public void Collide(GameObject obj)
+        {
+
+        }
     }
 }

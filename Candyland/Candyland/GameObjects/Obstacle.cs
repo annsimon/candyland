@@ -17,11 +17,12 @@ namespace Candyland
         public Obstacle()
         {
         }
-        public Obstacle(String id, Vector3 pos)
+        public Obstacle(String id, Vector3 pos, UpdateInfo updateInfo)
         {
             this.ID = id;
             this.m_position = pos;
             this.isActive = false;
+            this.m_updateInfo = updateInfo;
         }
 
         public override void initialize()

@@ -33,11 +33,13 @@ namespace Candyland
         {
         }
 
-        public Platform(String id, Vector3 pos, string areaDoorID, string levelDoorID)
+        public Platform(String id, Vector3 pos, string areaDoorID, string levelDoorID, UpdateInfo updateInfo)
         {
             this.ID = id;
             this.m_position = pos;
             this.isActive = false;
+            this.m_updateInfo = updateInfo;
+
             if (areaDoorID == "x")
                 this.isDoorToArea = false;
             else
@@ -52,9 +54,6 @@ namespace Candyland
                 this.isDoorToLevel = true;
                 this.doorToLevelID = levelDoorID;
             }
-
-            //Add Platforms with door function to currentObjectsToBeCollided List in UpdateInfo
-
         }
 
         public override void initialize()
