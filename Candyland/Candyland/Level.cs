@@ -62,7 +62,14 @@ namespace Candyland
 
         public void Collide(GameObject obj)
         {
-
+            foreach (GameObject staticObject in m_staticObjects)
+            {
+                obj.collide(staticObject);
+            }
+            foreach (var gameObject in m_gameObjects)
+            {
+                obj.collide(gameObject.Value);
+            }
         }
     }
 }

@@ -57,5 +57,10 @@ namespace Candyland
                 lvl.Value.Draw(graphics);
             }
         }
+
+        public void Collide(GameObject obj)
+        {
+            m_levels[m_updateInfo.currentLevelID].Collide(obj);
+        }
     }
 }
