@@ -40,6 +40,9 @@ namespace Candyland
 
         public abstract void collide(GameObject obj);
 
+        public abstract void hasCollidedWith(GameObject obj);
+        public abstract void hasStoppedCollidingWith(GameObject obj);
+
         //TODO test if, this works
         /// <summary>
         /// Calculates the Bounding Box for a Model by looping over all vertices and finding the min and max coordinates

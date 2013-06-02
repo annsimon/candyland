@@ -25,8 +25,10 @@ namespace Candyland
         // the player
         CandyGuy player;
 
+        /*************************************************************/
         // graphics device needed for drawing the bounding boxes
         GraphicsDevice m_graphics;
+        /*************************************************************/
 
         InputManager m_inputManager;
 
@@ -35,8 +37,9 @@ namespace Candyland
             m_inputManager = new InputManager(0, graphicDeviceManager);
 
             m_updateInfo = new UpdateInfo(graphics);
-
+            /****************************************************************/
             m_graphics = graphics;
+            /****************************************************************/
 
             player = new CandyGuy(new Vector3(0,0.2f,0), Vector3.Up, 1.0f,m_updateInfo);
 
