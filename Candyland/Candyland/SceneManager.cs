@@ -40,7 +40,7 @@ namespace Candyland
 
             player = new CandyGuy(new Vector3(0,2,0), Vector3.Up, 1.0f);
 
-            m_areas = AreaParser.ParseAreas(m_updateInfo, m_gameCamera);
+            m_areas = AreaParser.ParseAreas(m_updateInfo);
         }
 
         public void Load(ContentManager manager)
@@ -48,11 +48,18 @@ namespace Candyland
             foreach (var area in m_areas)
                 area.Value.Load(manager);
 
-            player.loadContent(manager);
+            player.load(manager);
         }
 
         public void Update(GameTime gameTime)
         {
+            // check for Collision between the Player and all Game Objects in the current Level
+                
+
+
+            // check for Collision between all Objects in the currentObjectsToBeCollided List inside UpdateInfo
+
+
             // update the area the player currently is in
             // and the next area if the player is about to leave the current area
             m_areas[m_updateInfo.currentAreaID].Update(gameTime);

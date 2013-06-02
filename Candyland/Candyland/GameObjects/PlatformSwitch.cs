@@ -10,9 +10,6 @@ namespace Candyland
     /// </summary>
     abstract class PlatformSwitch : Platform
     {
-        protected String ID;
-        public String getID() { return this.ID; }
-
         protected bool isActivated;
         public bool getActivated() { return this.isActivated; }
         public void setActivated(bool value) { this.isActivated = value; }

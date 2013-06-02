@@ -13,6 +13,9 @@ namespace Candyland
     /// </summary>
     public abstract class GameObject : GameElement
     {
+        protected String ID;
+        public String getID() { return this.ID; }
+
         protected Vector3 m_position;
         public Vector3 getPosition() { return this.m_position; }
         public void setPosition(float x, float y, float z) { this.m_position = new Vector3(x,y,z); }
@@ -138,8 +141,10 @@ namespace Candyland
         /// </summary>
         /// <param name="view">Camera.viewMatrix</param>
         /// <param name="projection">Camera.projectionMatrix</param>
-        public void draw(Matrix view, Matrix projection, GraphicsDevice graphics)
+        public void draw(GraphicsDevice graphics)
         {
+            Matrix view = m_updateInfo.viewMatrix;
+            Matrix projection = m_updateInfo.projectionMatrix;
             // Copy any parent transforms.
             Matrix[] transforms = new Matrix[m_model.Bones.Count];
             m_model.CopyAbsoluteBoneTransformsTo(transforms);

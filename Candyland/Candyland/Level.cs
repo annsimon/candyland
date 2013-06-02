@@ -17,21 +17,19 @@ namespace Candyland
         public Vector3 start { get; set; }
 
         UpdateInfo m_updateInfo;
-        Camera m_camera;
         // this dictionary contains all game objects of the level
         // with which the player can interact
-        Dictionary<int, GameObject> m_gameObjects;
+        Dictionary<string, GameObject> m_gameObjects;
         // this list contains all game objects of the level
         // which are static (e.g. platforms)
         List<GameObject> m_staticObjects;
 
-        public Level( string id, Vector3 level_start, UpdateInfo info, Camera camera, string xml )
+        public Level( string id, Vector3 level_start, UpdateInfo info, string xml )
         {
             m_updateInfo = info;
-            m_camera = camera;
             this.start = level_start;
-            m_gameObjects = ObjectParser.ParseObjects(level_start, xml);
-            m_staticObjects = ObjectParser.ParseStatics(level_start, xml);
+            m_gameObjects = ObjectParser.ParseObjects(level_start, xml, info);
+            m_staticObjects = ObjectParser.ParseStatics(level_start, xml, info);
         }
 
         public void Load(ContentManager manager)
@@ -54,12 +52,17 @@ namespace Candyland
         {
             foreach (GameObject staticObject in m_staticObjects)
             {
-                staticObject.draw(m_camera.getviewMatrix(), m_camera.getProjectionMatrix(), graphics);
+                staticObject.draw(graphics);
             }
             foreach (var gameObject in m_gameObjects)
             {
-                gameObject.Value.draw(m_camera.getviewMatrix(), m_camera.getProjectionMatrix(), graphics);
+                gameObject.Value.draw(graphics);
             }
+        }
+
+        public void Collide(GameObject obj)
+        {
+
         }
     }
 }

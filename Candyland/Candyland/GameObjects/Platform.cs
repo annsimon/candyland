@@ -18,15 +18,42 @@ namespace Candyland
         public bool getSlippery() { return this.isSlippery; }
         public void setSlippery(bool value) { this.isSlippery = value; }
 
+        protected bool isDoorToArea;
+        public bool getIsDoorToArea() { return this.isDoorToArea; }
+        protected string doorToAreaID;
+        public string getDoorToAreaID() { return this.doorToAreaID; }
+
+        protected bool isDoorToLevel;
+        public bool getIsDoorToLevel() { return this.isDoorToLevel; }
+        protected string doorToLevelID;
+        public string getDoorToLevelID() { return this.doorToLevelID; }
+
 
         public Platform()
         {
         }
 
-        public Platform(Vector3 pos)
+        public Platform(String id, Vector3 pos, string areaDoorID, string levelDoorID, UpdateInfo updateInfo)
         {
+            this.ID = id;
             this.m_position = pos;
             this.isActive = false;
+            this.m_updateInfo = updateInfo;
+
+            if (areaDoorID == "x")
+                this.isDoorToArea = false;
+            else
+            {
+                this.isDoorToArea = true;
+                this.doorToAreaID = areaDoorID;
+            }
+            if (levelDoorID == "x")
+                this.isDoorToLevel = false;
+            else
+            {
+                this.isDoorToLevel = true;
+                this.doorToLevelID = levelDoorID;
+            }
         }
 
         public override void initialize()

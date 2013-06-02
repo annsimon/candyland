@@ -35,7 +35,17 @@ namespace Candyland
 
 
 
-        public override void loadContent(ContentManager content)
+        public override void update()
+        {
+             throw new NotImplementedException();
+        }
+
+        public override void initialize()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void load(ContentManager content)
         {
             model = content.Load<Model>("spielerbeta");
         }
