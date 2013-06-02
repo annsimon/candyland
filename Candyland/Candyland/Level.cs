@@ -20,7 +20,7 @@ namespace Candyland
         Camera m_camera;
         // this dictionary contains all game objects of the level
         // with which the player can interact
-        Dictionary<int, GameObject> m_gameObjects;
+        Dictionary<string, GameObject> m_gameObjects;
         // this list contains all game objects of the level
         // which are static (e.g. platforms)
         List<GameObject> m_staticObjects;

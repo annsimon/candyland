@@ -13,6 +13,9 @@ namespace Candyland
     /// </summary>
     public abstract class GameObject : GameElement
     {
+        protected String ID;
+        public String getID() { return this.ID; }
+
         protected Vector3 m_position;
         public Vector3 getPosition() { return this.m_position; }
         public void setPosition(float x, float y, float z) { this.m_position = new Vector3(x,y,z); }

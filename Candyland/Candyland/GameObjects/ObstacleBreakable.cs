@@ -13,8 +13,9 @@ namespace Candyland
     /// </summary>
     class ObstacleBreakable : Obstacle
     {
-        public ObstacleBreakable(Vector3 pos)
+        public ObstacleBreakable(String id, Vector3 pos)
         {
+            this.ID = id;
             this.m_position = pos;
             this.isActive = false;
         }

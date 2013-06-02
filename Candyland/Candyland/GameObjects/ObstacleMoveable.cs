@@ -13,8 +13,9 @@ namespace Candyland
     /// </summary>
     class ObstacleMoveable : Obstacle
     {
-        public ObstacleMoveable(Vector3 pos)
+        public ObstacleMoveable(String id, Vector3 pos)
         {
+            this.ID = id;
             this.m_position = pos;
             this.isActive = false;
         }

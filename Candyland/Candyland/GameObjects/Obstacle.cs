@@ -17,8 +17,9 @@ namespace Candyland
         public Obstacle()
         {
         }
-        public Obstacle(Vector3 pos)
+        public Obstacle(String id, Vector3 pos)
         {
+            this.ID = id;
             this.m_position = pos;
             this.isActive = false;
         }
