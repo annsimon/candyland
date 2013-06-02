@@ -26,13 +26,13 @@ namespace Candyland
 
         // the update info, this object is used for communication
         UpdateInfo m_updateInfo;
-        public Area(string id, Vector3 area_start, UpdateInfo info, Camera camera, string xml )
+        public Area(string id, Vector3 area_start, UpdateInfo info, string xml )
         {
             this.id = id;
             m_updateInfo = info;
             this.start = area_start;
 
-            m_levels = LevelParser.ParseLevels(xml, start, info, camera);
+            m_levels = LevelParser.ParseLevels(xml, start, info);
         }
         
         public void Load(ContentManager manager)

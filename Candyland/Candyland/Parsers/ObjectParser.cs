@@ -15,7 +15,7 @@ namespace Candyland
     /// </summary>
     public class ObjectParser
     {
-        public static Dictionary<string, GameObject> ParseObjects(Vector3 lvl_start, string xml)
+        public static Dictionary<string, GameObject> ParseObjects(Vector3 lvl_start, string xml, UpdateInfo info)
         {
             Dictionary<string, GameObject> dynamicObjects = new Dictionary<string, GameObject>();
 
@@ -49,7 +49,7 @@ namespace Candyland
 
                 if (object_type == "platform")
                 {
-                    Platform obj = new Platform(node.InnerText, pos, door_to_area[count].InnerText, door_to_level[count].InnerText);
+                    Platform obj = new Platform(node.InnerText, pos, door_to_area[count].InnerText, door_to_level[count].InnerText, info);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
 
@@ -61,7 +61,7 @@ namespace Candyland
             return dynamicObjects;
         }
 
-        public static List<GameObject> ParseStatics(Vector3 lvl_start, string xml)
+        public static List<GameObject> ParseStatics(Vector3 lvl_start, string xml, UpdateInfo info)
         {
             List<GameObject> objectList = new List<GameObject>();
             XmlDocument scene = new XmlDocument();
@@ -92,7 +92,7 @@ namespace Candyland
 
                 if (object_type == "platform")
                 {
-                    Platform obj = new Platform(node.InnerText, pos, "x", "x");
+                    Platform obj = new Platform(node.InnerText, pos, "x", "x", info);
                     objectList.Add(obj);
                 }
 
