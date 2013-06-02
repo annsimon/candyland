@@ -19,9 +19,7 @@ namespace Candyland
         protected float currentspeed;       //Momentane geschwindigkeit
         protected float gravity;            //beschleinigungsfaktor in y richtung  
         protected float upvelocity;         //beschleinigungsfaktor un y richtung
-        protected Model model;              //CharacterModel
 
-        abstract public void Draw();
 
         public abstract void jump();
 
@@ -66,6 +64,9 @@ namespace Candyland
                 currentspeed = length * 0.1f;                       //Scale MovementVector for different walking speeds
                 m_position += direction * currentspeed;             //Change PLayerPosition
                 cam.changeposition(m_position);                     //Change CameraPosition
+
+                m_boundingBox.Min += direction * currentspeed;
+                m_boundingBox.Max += direction * currentspeed;
             }
         }
 
