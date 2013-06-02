@@ -38,7 +38,7 @@ namespace Candyland
 
             m_graphics = graphics;
 
-            player = new CandyGuy(new Vector3(0,0.2f,0), Vector3.Up, 1.0f,m_updateInfo);
+            player = new CandyGuy(new Vector3(0, 0.2245f, 0), Vector3.Up,graphics.Viewport.AspectRatio, m_updateInfo);
 
             m_areas = AreaParser.ParseAreas(m_updateInfo);
         }
@@ -55,7 +55,7 @@ namespace Candyland
         {
 
             m_inputManager.movePlayable(player, GamePad.GetState(0), Mouse.GetState(), Keyboard.GetState());
-
+            player.startIntersection();
             // check for Collision between the Player and all Game Objects in the current Level
             m_areas[m_updateInfo.currentAreaID].Collide(player);  
 

@@ -46,7 +46,7 @@ namespace Candyland
 
         public Matrix getViewM() { return cam.getviewMatrix(); }
 
-
+        public abstract void startIntersection();
 
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace Candyland
                 float length = (float)Math.Sqrt(x * x + y * y);     //Calculate length of MovementVector
                 direction = new Vector3(x, 0, y);                   //Movement Vector
                 direction.Normalize();                              //Normalize MovementVector
-                currentspeed = length * 0.1f;                       //Scale MovementVector for different walking speeds
+                currentspeed = length * 0.01f;                       //Scale MovementVector for different walking speeds
                 m_position += direction * currentspeed;             //Change PLayerPosition
                 cam.changeposition(m_position);                     //Change CameraPosition
 

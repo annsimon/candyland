@@ -65,6 +65,7 @@ namespace Candyland
             if(keystate.IsKeyDown(Keys.S))      dmoveytemp -= 0.7f;
             if(keystate.IsKeyDown(Keys.A))      dmovextemp += 0.7f;
             if(keystate.IsKeyDown(Keys.D))      dmovextemp -= 0.7f;
+            if(keystate.IsKeyDown(Keys.Space))  player.jump();
 
 
             //Get the direction of the players camera
