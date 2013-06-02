@@ -16,22 +16,24 @@ namespace Candyland
         public PlatformSwitchPermanent(String id, Vector3 pos)
         {
             this.ID = id;
-            this.Position = pos;
+            this.m_position = pos;
             this.isActive = false;
             this.isActivated = false;
         }
 
-        public override void Load(ContentManager content)
+        public override void load(ContentManager content)
         {
-            this.Model = content.Load<Model>("plattformschalter");
-            this.BoundingBox = calculateBoundingBox(this.Model, this.Position);
+            this.m_model = content.Load<Model>("plattformschalter");
+
+            this.calculateBoundingBox();
+            Console.WriteLine("Min " + this.m_boundingBox.Min + " Max " + this.m_boundingBox.Max);
         }
 
 
         /// <summary>
         /// Updates the Switch's states.
         /// </summary>
-        public override void Update()
+        public override void update()
         {
             // TODO Decide when switch is being touched
 
@@ -45,6 +47,7 @@ namespace Candyland
             {
                 this.setActivated(false);
             }
-        }
+        }
+
     }
 }

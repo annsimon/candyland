@@ -40,7 +40,7 @@ namespace Candyland
 
         public override void loadContent(ContentManager content)
         {
-            model = content.Load<Model>("player");
+            model = content.Load<Model>("spielerbeta");
         }
 
         

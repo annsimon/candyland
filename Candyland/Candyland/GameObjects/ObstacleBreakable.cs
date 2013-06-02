@@ -15,18 +15,21 @@ namespace Candyland
     {
         public ObstacleBreakable(Vector3 pos)
         {
-            this.Position = pos;
+            this.m_position = pos;
             this.isActive = false;
         }
 
 
-        public override void Load(ContentManager content)
+        public override void load(ContentManager content)
         {
-            this.Model = content.Load<Model>("chocolatebreakable"); ;
+            this.m_model = content.Load<Model>("chocolatebreakable");
+
+            this.calculateBoundingBox();
+            Console.WriteLine("Min " + this.m_boundingBox.Min + " Max " + this.m_boundingBox.Max);
         }
 
 
-        public override void Update()
+        public override void update()
         {
             // TODO decide when Obstacle should be broken
             //this.breakObstacle();          

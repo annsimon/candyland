@@ -19,20 +19,28 @@ namespace Candyland
         }
         public Obstacle(Vector3 pos)
         {
-            this.Position = pos;
+            this.m_position = pos;
             this.isActive = false;
         }
 
-        public override void Initialize()
+        public override void initialize()
         {
         }
 
-        public override void Load(ContentManager content)
+        public override void load(ContentManager content)
         {
-            this.Model = content.Load<Model>("chocolate(unmovable)"); // nothing is drawn. something different with this model?
+            this.m_model = content.Load<Model>("chocolateUnmovable");
+
+            this.calculateBoundingBox();
+            Console.WriteLine("Min " + this.m_boundingBox.Min + " Max " + this.m_boundingBox.Max);
         }
 
-        public override void Update()
+        public override void collide(GameObject obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void update()
         {
         }
     }

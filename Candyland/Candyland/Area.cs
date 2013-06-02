@@ -50,11 +50,11 @@ namespace Candyland
                 m_levels[m_updateInfo.levelAfterExitID].Update(gameTime);
         }
 
-        public void Draw()
+        public void Draw(GraphicsDevice graphics)
         {
             foreach (var lvl in m_levels)
             {
-                lvl.Value.Draw();
+                lvl.Value.Draw(graphics);
             }
         }
     }
