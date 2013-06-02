@@ -36,7 +36,7 @@ namespace Candyland
         /// </summary>
         protected override void Initialize()
         {
-            m_sceneManager = new SceneManager(new Camera(Vector3.Zero, (float)(Math.PI) / 4.0f, GraphicsDevice.Viewport.AspectRatio, 1.0f, 1000.0f));
+            m_sceneManager = new SceneManager(new Camera(new Vector3(2,0,0), (float)(Math.PI) / 4.0f, GraphicsDevice.Viewport.AspectRatio, 1.0f, 1000.0f));
 
             base.Initialize();
         }

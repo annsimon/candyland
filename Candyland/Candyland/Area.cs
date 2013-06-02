@@ -14,18 +14,27 @@ namespace Candyland
     /// </summary>
     public class Area
     {
+        public string id { get; set; }
+        public bool hasPrevious { get; set; }
+        public string previousID { get; set; }
+        public bool hasNext { get; set; }
+        public string nextID { get; set; }
+        public Vector3 start { get; set; }
+
         // every level can be accessed by its id
-        Dictionary<int, Level> m_levels;
+        Dictionary<string, Level> m_levels;
 
         // the update info, this object is used for communication
         UpdateInfo m_updateInfo;
-        public Area(UpdateInfo info, Camera camera)
+        public Area(string id, Vector3 area_start, UpdateInfo info, Camera camera, string xml )
         {
+            this.id = id;
             m_updateInfo = info;
+            this.start = area_start;
 
-            m_levels = LevelParser.ParseLevels(info, camera);
+            m_levels = LevelParser.ParseLevels(xml, start, info, camera);
         }
-
+        
         public void Load(ContentManager manager)
         {
             foreach (var lvl in m_levels)
