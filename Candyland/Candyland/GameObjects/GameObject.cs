@@ -41,7 +41,7 @@ namespace Candyland
         public abstract void collide(GameObject obj);
 
         public abstract void hasCollidedWith(GameObject obj);
-        public abstract void hasStoppedCollidingWith(GameObject obj);
+        public abstract void isNotCollidingWith(GameObject obj);
 
         //TODO test if, this works
         /// <summary>

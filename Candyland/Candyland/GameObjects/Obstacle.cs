@@ -29,6 +29,16 @@ namespace Candyland
         {
         }
 
+        public override void isNotCollidingWith(GameObject obj)
+        {
+
+        }
+
+        public override void hasCollidedWith(GameObject obj)
+        {
+           
+        }
+
         public override void load(ContentManager content)
         {
             this.m_model = content.Load<Model>("chocolateUnmovable");

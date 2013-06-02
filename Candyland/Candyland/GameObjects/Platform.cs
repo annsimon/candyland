@@ -28,11 +28,21 @@ namespace Candyland
         protected string doorToLevelID;
         public string getDoorToLevelID() { return this.doorToLevelID; }
 
+        public override void isNotCollidingWith(GameObject obj)
+        {
+            
+        }
 
         public Platform()
         {
         }
 
+        
+
+        public override void collide(GameObject obj)
+        {
+           
+        }
 
         public Platform(String id, Vector3 pos, string areaDoorID, string levelDoorID, UpdateInfo updateInfo)
         {
@@ -81,19 +91,24 @@ namespace Candyland
         {
             // When the Player steps on a Platform, that functions as a Door to the next Level or Area,
             // UpdateInfo needs to be updated
-            if (obj.GetType() == typeof(Playable))
+            if (obj.GetType() == typeof(CandyGuy))
             {
-                this.m_updateInfo.playerIsOnAreaExit = false;
-                this.m_updateInfo.playerIsOnLevelExit = false;
+                string[] idParts = this.ID.Split('.');
                 if (this.isDoorToArea)
                 {
                     this.m_updateInfo.playerIsOnAreaExit = true;
                     this.m_updateInfo.areaAfterExitID = this.doorToAreaID;
+
+                    this.m_updateInfo.currentAreaID = idParts[0];
+                    this.m_updateInfo.currentLevelID = idParts[0]+"."+idParts[1];
                 }
                 if(this.isDoorToLevel)
                 {
                     this.m_updateInfo.playerIsOnLevelExit = true;
                     this.m_updateInfo.levelAfterExitID = this.doorToLevelID;
+
+                    this.m_updateInfo.currentAreaID = idParts[0];
+                    this.m_updateInfo.currentLevelID = idParts[0] + "." + idParts[1];
                 }
             }
         }

@@ -56,11 +56,19 @@ namespace Candyland
 
         public void Update(GameTime gameTime)
         {
+            System.Console.Out.WriteLine("currLevel = " + m_updateInfo.currentLevelID);
+            if( m_updateInfo.playerIsOnLevelExit)
+                System.Console.Out.WriteLine("nextLevel = " + m_updateInfo.levelAfterExitID);
+
 
             m_inputManager.movePlayable(player, GamePad.GetState(0), Mouse.GetState(), Keyboard.GetState());
+
+
             player.startIntersection();
             // check for Collision between the Player and all Game Objects in the current Level
-            m_areas[m_updateInfo.currentAreaID].Collide(player);  
+            m_areas[m_updateInfo.currentAreaID].Collide(player);
+            if (m_updateInfo.playerIsOnAreaExit)
+                m_areas[m_updateInfo.areaAfterExitID].Collide(player);
 
             // check for Collision between all Objects in the currentObjectsToBeCollided List inside UpdateInfo
             Dictionary<String, GameObject> currentObjectsToBeCollided = m_updateInfo.currentObjectsToBeCollided;

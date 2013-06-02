@@ -33,7 +33,15 @@ namespace Candyland
             this.upvelocity = 0;
         }
 
+        public override void isNotCollidingWith(GameObject obj)
+        {
 
+        }
+
+        public override void hasCollidedWith(GameObject obj)
+        {
+
+        }
 
         public override void update()
         {
@@ -83,9 +91,13 @@ namespace Candyland
                     this.m_position.Y -= upvec;
                     this.m_boundingBox.Max.Y -= upvec;
                     this.m_boundingBox.Min.Y -= upvec;
+                    obj.hasCollidedWith(this);
                 }
                 else
-                { isonground = isonground || false; }
+                { 
+                    isonground = isonground || false;
+                    obj.isNotCollidingWith(this);
+                }
 
                 if (obj.GetType() == typeof(PlatformSwitch)){}
             }
