@@ -29,6 +29,12 @@ namespace Candyland
         public bool playerIsOnLevelExit { get; set; }
         public string levelAfterExitID { get; set; }
 
+        public Matrix viewMatrix { get; set; }
+        public Matrix projectionMatrix { get ; set; }
+
+        public Dictionary<String, GameObject> currentObjectsToBeCollided;
+
+
 
         public UpdateInfo()
         {
@@ -40,6 +46,8 @@ namespace Candyland
 
             playerIsOnLevelExit = false;
             levelAfterExitID = "";
+
+            currentObjectsToBeCollided = new Dictionary<String, GameObject>();
         }
 
     }

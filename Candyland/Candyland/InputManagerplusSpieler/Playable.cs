@@ -21,8 +21,6 @@ namespace Candyland
         protected float upvelocity;         //beschleinigungsfaktor un y richtung
         protected Model model;              //CharacterModel
 
-        abstract public void loadContent(ContentManager content);
-
         abstract public void Draw();
 
         public abstract void jump();

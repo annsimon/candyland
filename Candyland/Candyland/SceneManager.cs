@@ -48,7 +48,7 @@ namespace Candyland
             foreach (var area in m_areas)
                 area.Value.Load(manager);
 
-            player.loadContent(manager);
+            player.load(manager);
         }
 
         public void Update(GameTime gameTime)
