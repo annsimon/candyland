@@ -19,7 +19,7 @@ namespace Candyland
         protected float currentspeed;       //Momentane geschwindigkeit
         protected float gravity;            //beschleinigungsfaktor in y richtung  
         protected float upvelocity;         //beschleinigungsfaktor un y richtung
-
+        protected bool isthirdpersoncam = true;
 
         public abstract void jump();
 
@@ -47,6 +47,23 @@ namespace Candyland
         public Matrix getViewM() { return cam.getviewMatrix(); }
 
         public abstract void startIntersection();
+
+        /// <summary>
+        /// Switches between ThirdPerson- and Top-Down-Perspective
+        /// </summary>
+        public void switchCameraPerspective() 
+        {
+            if (isthirdpersoncam) 
+            { 
+                cam.changeToTopDown();
+                isthirdpersoncam = !isthirdpersoncam;
+            }
+            else 
+            {
+                cam.changeToThirdPP();
+                isthirdpersoncam = !isthirdpersoncam;
+            }
+        }
 
 
         /// <summary>

@@ -66,7 +66,8 @@ namespace Candyland
             if(keystate.IsKeyDown(Keys.A))      dmovextemp += 0.7f;
             if(keystate.IsKeyDown(Keys.D))      dmovextemp -= 0.7f;
             if(keystate.IsKeyDown(Keys.Space))  player.jump();
-
+            if (keystate.IsKeyDown(Keys.LeftAlt)
+                && oldKeyboardState != keystate) player.switchCameraPerspective(); 
 
             //Get the direction of the players camera
             float alpha = player.getCameraDir();
@@ -78,6 +79,9 @@ namespace Candyland
             player.movementInput(dmovex, dmovey, dcamx, dcamy);
             //reset mouse to the center of the screen, to rotate freely
             Mouse.SetPosition(graphicDevice.PreferredBackBufferWidth / 2, graphicDevice.PreferredBackBufferHeight / 2);
+
+            oldKeyboardState = keystate;
+            oldMouseState = mousestate;
         }
         
 

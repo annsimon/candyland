@@ -27,7 +27,7 @@ namespace Candyland
         private UpdateInfo m_updateInfo;
 
         public bool topdownactive = false;
-        private float topdownoffset = 20;
+        private float topdownoffset = 10;
         private Vector3 topdownposition;
         private Matrix topdownViewM;
 
@@ -96,8 +96,15 @@ namespace Candyland
         {
             if (topdownactive)
             {
-                topdownposition.X += x *(float)Math.Cos(rotation) - y * (float)Math.Sin(rotation);
-                topdownposition.Z += x *(float)Math.Sin(rotation) + y * (float)Math.Cos(rotation);
+                float newx = topdownposition.X + ( x * (float)Math.Cos(rotation) - y * (float)Math.Sin(rotation));
+                float newy = topdownposition.Z + ( x * (float)Math.Sin(rotation) + y * (float)Math.Cos(rotation));
+                
+                if(Math.Abs(centerposition.X - newx) 
+                    + Math.Abs( centerposition.Y - newy) < 10  )
+                {
+                    topdownposition.X = newx;
+                    topdownposition.Z = newy;
+                }
             }
 
             else
@@ -133,8 +140,18 @@ namespace Candyland
                 viewMatrix = Matrix.CreateLookAt(centerposition - posdiff, centerposition, Vector3.Up);
             }
 
-            m_updateInfo.viewMatrix = viewMatrix;
-            m_updateInfo.projectionMatrix = projectionMatrix;
+
+            if (topdownactive) 
+            {
+                m_updateInfo.viewMatrix = topdownViewM;
+                m_updateInfo.projectionMatrix = projectionMatrix;
+            }
+
+            else
+            {
+                m_updateInfo.viewMatrix = viewMatrix;
+                m_updateInfo.projectionMatrix = projectionMatrix;
+            }
         }
 
 

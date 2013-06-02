@@ -20,6 +20,7 @@ namespace Candyland
         bool isonground = false;
         bool istargeting;
         Vector3 target;
+       
 
 
         public CandyGuy(Vector3 position, Vector3 direction, float aspectRatio, UpdateInfo info)
@@ -113,6 +114,8 @@ namespace Candyland
         {
             this.isonground = false;
         }
+
+        
 
         public override void movementInput(float movex, float movey, float camx, float camy)
         {
