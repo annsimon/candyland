@@ -20,19 +20,16 @@ namespace Candyland
         bool isonground = true;
         bool istargeting;
         Vector3 target;
-      //  bool iswalking;
-
-       
 
 
         public CandyGuy(Vector3 position, Vector3 direction, float aspectRatio)
         {
-            this.position = position;
+            this.m_position = position;
             this.direction = direction;
-            this.bbox = new BoundingBox(position,position+new Vector3(1,2,1));
+            this.m_boundingBox = new BoundingBox(position,position+new Vector3(1,2,1));
             this.cam = new Camera(position, MathHelper.PiOver4, aspectRatio, 0.1f, 100);
             this.currentspeed = 0;
-            this.gravity = 1;
+            this.gravity = -0.01f;
             this.upvelocity = 0;
         }
 
@@ -50,7 +47,7 @@ namespace Candyland
             {
                 foreach (BasicEffect effect in mesh.Effects)
                 {
-                    effect.World = Matrix.CreateTranslation(position);
+                    effect.World = Matrix.CreateTranslation(m_position);
                     effect.View = cam.getviewMatrix();
                     effect.Projection = cam.getProjectionMatrix();
                     effect.EnableDefaultLighting();
@@ -63,12 +60,12 @@ namespace Candyland
 
         public override void jump()
         {
-            if (!isonground)
+            if (isonground)
             {
-                position.Y += upvelocity + gravity;
-                upvelocity -= 0.1f;
+                upvelocity = 0.02f;
+                isonground = false;
             }
-            if (upvelocity < 0) upvelocity = 0;
+
         }
 
 
@@ -78,6 +75,21 @@ namespace Candyland
             target = goalpoint;
         }
 
+        public override void collide(GameObject obj)
+        {
+            if (obj.GetType() == typeof(Platform)) 
+            {
+                if (obj.getPosition().Y < this.m_position.Y) isonground = true;
+
+                if (obj.GetType() == typeof(PlatformSwitch)){}
+            }
+
+            if (obj.GetType() == typeof(Obstacle)) 
+            {
+                if(obj.GetType() == typeof(ObstacleBreakable)){}
+                if(obj.GetType() == typeof(ObstacleMoveable)){}
+            }
+        }
        
         
 
@@ -85,20 +97,29 @@ namespace Candyland
         {
             if (istargeting)
             {
-                float dx = target.X - position.X;
-                float dz = target.Z - position.Z;
-                float len = (float)Math.Sqrt(dx * dx + dz * dz);
-                move(0.8f * dx / len, 0.8f * dz / len);
-                if (len < 1) istargeting = false;
+                float dx = target.X - m_position.X;
+                float dz = target.Z - m_position.Z;
+                float length = (float)Math.Sqrt(dx * dx + dz * dz);
+                move(0.8f * dx / length, 0.8f * dz / length);
+                if (length < 1) istargeting = false;
+                fall();
             }
             else
             {
+                fall();
                 move(movex, movey);
                 cam.changeAngle(camx, camy);
             }
         }
 
-        
+        private void fall() 
+        {
+
+            upvelocity += gravity;
+            if (isonground) upvelocity = 0;
+            this.m_position.Y += upvelocity;
+            if (upvelocity < 0) cam.changeposition(m_position);
+        }
      
 
 
