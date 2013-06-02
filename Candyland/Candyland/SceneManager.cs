@@ -22,23 +22,23 @@ namespace Candyland
         // the update info, this object is used for communication
         UpdateInfo m_updateInfo;
 
-        // the camera
-        Camera m_gameCamera;
-
         // the player
         CandyGuy player;
 
         // graphics device needed for drawing the bounding boxes
         GraphicsDevice m_graphics;
 
-        public SceneManager(Camera camera, GraphicsDevice graphics)
+        InputManager m_inputManager;
+
+        public SceneManager(GraphicsDevice graphics, GraphicsDeviceManager graphicDeviceManager)
         {
-            m_gameCamera = camera;
+            m_inputManager = new InputManager(0, graphicDeviceManager);
+
             m_updateInfo = new UpdateInfo();
 
             m_graphics = graphics;
 
-            player = new CandyGuy(new Vector3(0,2,0), Vector3.Up, 1.0f);
+            player = new CandyGuy(new Vector3(0,0.2f,0), Vector3.Up, 1.0f,m_updateInfo);
 
             m_areas = AreaParser.ParseAreas(m_updateInfo);
         }
@@ -53,12 +53,16 @@ namespace Candyland
 
         public void Update(GameTime gameTime)
         {
-            // check for Collision between the Player and all Game Objects in the current Level
-                
 
+            m_inputManager.movePlayable(player, GamePad.GetState(0), Mouse.GetState(), Keyboard.GetState());
+
+            // check for Collision between the Player and all Game Objects in the current Level
+            m_areas[m_updateInfo.currentAreaID].Collide(player);  
 
             // check for Collision between all Objects in the currentObjectsToBeCollided List inside UpdateInfo
-
+            Dictionary<String, GameObject> currentObjectsToBeCollided = m_updateInfo.currentObjectsToBeCollided;
+            foreach (var obj in currentObjectsToBeCollided )
+                m_areas[m_updateInfo.currentAreaID].Collide(obj.Value); 
 
             // update the area the player currently is in
             // and the next area if the player is about to leave the current area
@@ -69,6 +73,9 @@ namespace Candyland
 
         public void Draw(GameTime gameTime)
         {
+            player.draw(m_graphics);
+
+
             // draw the area the player currently is in and the two
             // adjacent ones
             string currentArea = m_updateInfo.currentAreaID;

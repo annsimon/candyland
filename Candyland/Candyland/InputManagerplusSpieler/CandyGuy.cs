@@ -22,12 +22,12 @@ namespace Candyland
         Vector3 target;
 
 
-        public CandyGuy(Vector3 position, Vector3 direction, float aspectRatio)
+        public CandyGuy(Vector3 position, Vector3 direction, float aspectRatio, UpdateInfo info)
         {
+            m_updateInfo = info;
             this.m_position = position;
             this.direction = direction;
-            this.m_boundingBox = new BoundingBox(position,position+new Vector3(1,2,1));
-            this.cam = new Camera(position, MathHelper.PiOver4, aspectRatio, 0.1f, 100);
+            this.cam = new Camera(position, MathHelper.PiOver4, aspectRatio, 0.1f, 100, m_updateInfo);
             this.currentspeed = 0;
             this.gravity = -0.01f;
             this.upvelocity = 0;
@@ -47,26 +47,11 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
-            model = content.Load<Model>("spielerbeta");
+            m_model = content.Load<Model>("spielerbeta");
+            calculateBoundingBox();
         }
 
         
-        public override void Draw()
-        {
-            foreach (ModelMesh mesh in model.Meshes)
-            {
-                foreach (BasicEffect effect in mesh.Effects)
-                {
-                    effect.World = Matrix.CreateTranslation(m_position);
-                    effect.View = cam.getviewMatrix();
-                    effect.Projection = cam.getProjectionMatrix();
-                    effect.EnableDefaultLighting();
-                }
-
-                mesh.Draw();
-            }
-        }
-
 
         public override void jump()
         {

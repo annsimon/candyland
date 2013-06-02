@@ -32,7 +32,7 @@ namespace Candyland
         public Matrix viewMatrix { get; set; }
         public Matrix projectionMatrix { get ; set; }
 
-        public Dictionary<String, GameObject> currentObjectsToBeCollided;
+        public Dictionary<String, GameObject> currentObjectsToBeCollided { get; set; }
 
 
 

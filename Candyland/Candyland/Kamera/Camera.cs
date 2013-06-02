@@ -24,6 +24,7 @@ namespace Candyland
         private float offset = 3;
         private float upspeed = 0.01f;
         private float sidespeed = 0.1f;
+        private UpdateInfo m_updateInfo;
 
         public bool topdownactive = false;
         private float topdownoffset = 20;
@@ -38,13 +39,14 @@ namespace Candyland
         /// <param name="aspectRatio">the aspectratio, may be: GraphicsDevice.Viewport.AspectRatio</param>
         /// <param name="nearPlane">distance of the nearPlane</param>
         /// <param name="farPlane">distance of the farPlane</param>
-        public Camera(Vector3 pos, float fov, float aspectRatio, float nearPlane, float farPlane ) 
+        public Camera(Vector3 pos, float fov, float aspectRatio, float nearPlane, float farPlane, UpdateInfo info ) 
         {
             upangle = -0.5f;
             rotation = 0.0f;
             centerposition = pos;
-            updatevMatrix();
+            m_updateInfo = info;
             projectionMatrix = Matrix.CreatePerspectiveFieldOfView(fov, aspectRatio, nearPlane, farPlane);
+            updatevMatrix();
         }
        
         /// <summary>
@@ -130,6 +132,9 @@ namespace Candyland
 
                 viewMatrix = Matrix.CreateLookAt(centerposition - posdiff, centerposition, Vector3.Up);
             }
+
+            m_updateInfo.viewMatrix = viewMatrix;
+            m_updateInfo.projectionMatrix = projectionMatrix;
         }
 
 
