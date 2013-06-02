@@ -17,7 +17,7 @@ namespace Candyland
     {
         // areas is a dictionary (works like a map) that saves the area
         // every area can be accessed by its id
-        Dictionary<int, Area> m_areas;
+        Dictionary<string, Area> m_areas;
 
         // the update info, this object is used for communication
         UpdateInfo m_updateInfo;
@@ -64,14 +64,13 @@ namespace Candyland
         {
             // draw the area the player currently is in and the two
             // adjacent ones
-            int currentArea = m_updateInfo.currentAreaID;
-            if (currentArea > 0)
-                m_areas[currentArea-1].Draw(m_graphics);
-            m_areas[currentArea].Draw(m_graphics);
-            if (currentArea < m_areas.Count-1 )
-                m_areas[currentArea + 1].Draw(m_graphics);
-
-            //player.Draw();
+            string currentArea = m_updateInfo.currentAreaID;
+            Area currArea = m_areas[currentArea];
+            currArea.Draw(m_graphics);
+            if (m_areas[currentArea].hasPrevious)
+                m_areas[currArea.previousID].Draw(m_graphics);
+            if (m_areas[currentArea].hasNext)
+                m_areas[currArea.nextID].Draw(m_graphics);
         }
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Xml;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -17,10 +18,39 @@ namespace Candyland
     /// </summary>
     public class LevelParser
     {
-        public static Dictionary<int, Level> ParseLevels(UpdateInfo info, Camera cam)
+        public static Dictionary<string, Level> ParseLevels(string xml, Vector3 area_start, UpdateInfo info, Camera cam)
         {
-            Dictionary<int, Level> levelList = new Dictionary<int, Level>();
-            levelList.Add(0, new Level(info, cam));
+            Dictionary<string, Level> levelList = new Dictionary<string, Level>();
+
+            XmlDocument scene = new XmlDocument();
+
+            scene.LoadXml(xml);
+
+            XmlNodeList id = scene.GetElementsByTagName("level_id");
+            XmlNodeList start = scene.GetElementsByTagName("level_starting_position");
+            XmlNodeList levelContent = scene.GetElementsByTagName("objects");
+
+            int count = 0;
+
+            foreach (XmlNode node in id)
+            {
+                // create Vector3 from contents of "area_starting_position" (x,y,z)
+                Vector3 startPos = new Vector3();
+                startPos.X = float.Parse(start[count].SelectSingleNode("x").InnerText);
+                startPos.Y = float.Parse(start[count].SelectSingleNode("y").InnerText);
+                startPos.Z = float.Parse(start[count].SelectSingleNode("z").InnerText);
+                startPos += area_start; // add area position for correct global position
+
+                // create a new area of id, starting position, update info, camera and the xml in "levels"
+                Level level = new Level(node.InnerText, startPos, info, cam, levelContent[count].InnerXml);
+                // add completed level to level list
+                levelList.Add(node.InnerText, level);
+
+                // increase count as it is used to access the not-id xml elements of the correct level
+                // (the one currently being parsed)
+                count++;
+            }
+
             return levelList;
         }
     }
