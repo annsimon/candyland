@@ -34,7 +34,7 @@ namespace Candyland
         {
             m_inputManager = new InputManager(0, graphicDeviceManager);
 
-            m_updateInfo = new UpdateInfo();
+            m_updateInfo = new UpdateInfo(graphics);
 
             m_graphics = graphics;
 
@@ -73,7 +73,7 @@ namespace Candyland
 
         public void Draw(GameTime gameTime)
         {
-            player.draw(m_graphics);
+            player.draw();
 
 
             // draw the area the player currently is in and the two

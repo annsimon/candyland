@@ -34,9 +34,17 @@ namespace Candyland
 
         public Dictionary<String, GameObject> currentObjectsToBeCollided { get; set; }
 
+        /********************************************************************************
+        Debugging Area
+         * GraphicsDevice needed to render the Bounding Boxes
+         * Parameter in Constructor can be removed, when rendering is no longer needed*/
+
+        public GraphicsDevice graphics;
+
+        /********************************************************************************/
 
 
-        public UpdateInfo()
+        public UpdateInfo(GraphicsDevice graphicsDevice)
         {
             currentAreaID = "0";
             currentLevelID = "0.0";
@@ -48,6 +56,10 @@ namespace Candyland
             levelAfterExitID = "";
 
             currentObjectsToBeCollided = new Dictionary<String, GameObject>();
+
+            /**********************************************************************/
+            graphics = graphicsDevice;
+            /**********************************************************************/
         }
 
     }
