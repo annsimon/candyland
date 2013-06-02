@@ -52,11 +52,11 @@ namespace Candyland
         {
             foreach (GameObject staticObject in m_staticObjects)
             {
-                staticObject.draw(graphics);
+                staticObject.draw();
             }
             foreach (var gameObject in m_gameObjects)
             {
-                gameObject.Value.draw(graphics);
+                gameObject.Value.draw();
             }
         }
 

@@ -25,8 +25,10 @@ namespace Candyland
         // the player
         CandyGuy player;
 
+        /*************************************************************/
         // graphics device needed for drawing the bounding boxes
         GraphicsDevice m_graphics;
+        /*************************************************************/
 
         InputManager m_inputManager;
 
@@ -34,9 +36,10 @@ namespace Candyland
         {
             m_inputManager = new InputManager(0, graphicDeviceManager);
 
-            m_updateInfo = new UpdateInfo();
-
+            m_updateInfo = new UpdateInfo(graphics);
+            /****************************************************************/
             m_graphics = graphics;
+            /****************************************************************/
 
             player = new CandyGuy(new Vector3(0, 0.2245f, 0), Vector3.Up,graphics.Viewport.AspectRatio, m_updateInfo);
 
@@ -73,7 +76,7 @@ namespace Candyland
 
         public void Draw(GameTime gameTime)
         {
-            player.draw(m_graphics);
+            player.draw();
 
 
             // draw the area the player currently is in and the two

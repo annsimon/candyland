@@ -33,6 +33,7 @@ namespace Candyland
         {
         }
 
+
         public Platform(String id, Vector3 pos, string areaDoorID, string levelDoorID, UpdateInfo updateInfo)
         {
             this.ID = id;
@@ -56,9 +57,11 @@ namespace Candyland
             }
         }
 
+
         public override void initialize()
         {
         }
+
 
         public override void load(ContentManager content)
         {
@@ -68,13 +71,31 @@ namespace Candyland
             Console.WriteLine("Min " + this.m_boundingBox.Min + " Max " + this.m_boundingBox.Max);
         }
 
-        public override void collide(GameObject obj)
-        {
-            throw new NotImplementedException();
-        }
 
         public override void update()
         {
+        }
+
+
+        public override void hasCollidedWith(GameObject obj)
+        {
+            // When the Player steps on a Platform, that functions as a Door to the next Level or Area,
+            // UpdateInfo needs to be updated
+            if (obj.GetType() == typeof(Playable))
+            {
+                this.m_updateInfo.playerIsOnAreaExit = false;
+                this.m_updateInfo.playerIsOnLevelExit = false;
+                if (this.isDoorToArea)
+                {
+                    this.m_updateInfo.playerIsOnAreaExit = true;
+                    this.m_updateInfo.areaAfterExitID = this.doorToAreaID;
+                }
+                if(this.isDoorToLevel)
+                {
+                    this.m_updateInfo.playerIsOnLevelExit = true;
+                    this.m_updateInfo.levelAfterExitID = this.doorToLevelID;
+                }
+            }
         }
     }
 }
