@@ -69,7 +69,6 @@ namespace Candyland
                 upvelocity = 0.02f;
                 isonground = false;
             }
-
         }
 
 

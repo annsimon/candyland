@@ -98,6 +98,7 @@ namespace Candyland
                 {
                     this.m_updateInfo.playerIsOnAreaExit = true;
                     this.m_updateInfo.areaAfterExitID = this.doorToAreaID;
+                    this.m_updateInfo.levelAfterExitID = this.doorToLevelID;
 
                     this.m_updateInfo.currentAreaID = idParts[0];
                     this.m_updateInfo.currentLevelID = idParts[0]+"."+idParts[1];

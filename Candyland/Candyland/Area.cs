@@ -45,9 +45,9 @@ namespace Candyland
         {
             // update the level the player currently is in
             // and the next level if the player is about to leave the current level
-            if (!m_updateInfo.playerIsOnAreaExit)
+            if( m_levels.ContainsKey(m_updateInfo.currentLevelID) )
                 m_levels[m_updateInfo.currentLevelID].Update(gameTime);
-            if (m_updateInfo.playerIsOnLevelExit && !m_updateInfo.playerIsOnAreaExit)
+            if (m_updateInfo.playerIsOnLevelExit && m_levels.ContainsKey(m_updateInfo.levelAfterExitID))
                 m_levels[m_updateInfo.levelAfterExitID].Update(gameTime);
         }
 
@@ -61,9 +61,9 @@ namespace Candyland
 
         public void Collide(GameObject obj)
         {
-            if( !m_updateInfo.playerIsOnAreaExit )
+            if (m_levels.ContainsKey(m_updateInfo.currentLevelID))
                 m_levels[m_updateInfo.currentLevelID].Collide(obj);
-            if (m_updateInfo.playerIsOnLevelExit && !m_updateInfo.playerIsOnAreaExit)
+            if (m_levels.ContainsKey(m_updateInfo.levelAfterExitID))
                 m_levels[m_updateInfo.levelAfterExitID].Collide(obj);
         }
     }
