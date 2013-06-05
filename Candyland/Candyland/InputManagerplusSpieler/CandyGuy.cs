@@ -56,7 +56,7 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
-            m_model = content.Load<Model>("spielerbeta");
+            m_model = content.Load<Model>("spielerneu");
             calculateBoundingBox();
         }
 

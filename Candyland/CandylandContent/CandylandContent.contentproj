@@ -42,25 +42,10 @@
       <Processor>ModelProcessor</Processor>
       <ProcessorParameters_Scale>0.3</ProcessorParameters_Scale>
     </Compile>
-    <Compile Include="player.fbx">
-      <Name>player</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.1</ProcessorParameters_Scale>
-    </Compile>
     <Compile Include="schokolinse.fbx">
       <Name>schokolinse</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="spielerbeta.fbx">
-      <Name>spielerbeta</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.1</ProcessorParameters_Scale>
-      <ProcessorParameters_RotationY>180</ProcessorParameters_RotationY>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -87,6 +72,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="partnerneu.fbx">
+      <Name>partnerneu</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
     <None Include="SceneTest.xml">
       <Name>SceneTest</Name>
       <Importer>XmlImporter</Importer>
@@ -94,6 +84,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </None>
+    <Compile Include="spielerneu.fbx">
+      <Name>spielerneu</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.1</ProcessorParameters_Scale>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 
