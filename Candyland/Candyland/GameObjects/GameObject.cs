@@ -40,6 +40,9 @@ namespace Candyland
 
         public abstract void collide(GameObject obj);
 
+        public abstract void hasCollidedWith(GameObject obj);
+        public abstract void isNotCollidingWith(GameObject obj);
+
         //TODO test if, this works
         /// <summary>
         /// Calculates the Bounding Box for a Model by looping over all vertices and finding the min and max coordinates
@@ -141,7 +144,7 @@ namespace Candyland
         /// </summary>
         /// <param name="view">Camera.viewMatrix</param>
         /// <param name="projection">Camera.projectionMatrix</param>
-        public void draw(GraphicsDevice graphics)
+        public void draw()
         {
             Matrix view = m_updateInfo.viewMatrix;
             Matrix projection = m_updateInfo.projectionMatrix;
@@ -169,8 +172,13 @@ namespace Candyland
                 mesh.Draw();
             }
 
+            /***************************************************************************************
+             * For Debugging Purposes */
+       
             // Render a Primitive to show the BoundingBox
-            BoundingBoxRenderer.Render(this.m_boundingBox,graphics,view,projection,Color.White);
+            BoundingBoxRenderer.Render(this.m_boundingBox,m_updateInfo.graphics,view,projection,Color.White);
+
+            /***************************************************************************************/
         }
 
 

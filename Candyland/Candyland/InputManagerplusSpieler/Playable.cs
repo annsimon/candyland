@@ -19,7 +19,7 @@ namespace Candyland
         protected float currentspeed;       //Momentane geschwindigkeit
         protected float gravity;            //beschleinigungsfaktor in y richtung  
         protected float upvelocity;         //beschleinigungsfaktor un y richtung
-
+        protected bool isthirdpersoncam = true;
 
         public abstract void jump();
 
@@ -46,7 +46,24 @@ namespace Candyland
 
         public Matrix getViewM() { return cam.getviewMatrix(); }
 
+        public abstract void startIntersection();
 
+        /// <summary>
+        /// Switches between ThirdPerson- and Top-Down-Perspective
+        /// </summary>
+        public void switchCameraPerspective() 
+        {
+            if (isthirdpersoncam) 
+            { 
+                cam.changeToTopDown();
+                isthirdpersoncam = !isthirdpersoncam;
+            }
+            else 
+            {
+                cam.changeToThirdPP();
+                isthirdpersoncam = !isthirdpersoncam;
+            }
+        }
 
 
         /// <summary>
@@ -61,7 +78,7 @@ namespace Candyland
                 float length = (float)Math.Sqrt(x * x + y * y);     //Calculate length of MovementVector
                 direction = new Vector3(x, 0, y);                   //Movement Vector
                 direction.Normalize();                              //Normalize MovementVector
-                currentspeed = length * 0.1f;                       //Scale MovementVector for different walking speeds
+                currentspeed = length * 0.04f;                       //Scale MovementVector for different walking speeds
                 m_position += direction * currentspeed;             //Change PLayerPosition
                 cam.changeposition(m_position);                     //Change CameraPosition
 

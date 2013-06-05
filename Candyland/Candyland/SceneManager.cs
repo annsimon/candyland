@@ -25,8 +25,10 @@ namespace Candyland
         // the player
         CandyGuy player;
 
+        /*************************************************************/
         // graphics device needed for drawing the bounding boxes
         GraphicsDevice m_graphics;
+        /*************************************************************/
 
         InputManager m_inputManager;
 
@@ -34,11 +36,12 @@ namespace Candyland
         {
             m_inputManager = new InputManager(0, graphicDeviceManager);
 
-            m_updateInfo = new UpdateInfo();
-
+            m_updateInfo = new UpdateInfo(graphics);
+            /****************************************************************/
             m_graphics = graphics;
+            /****************************************************************/
 
-            player = new CandyGuy(new Vector3(0,0.2f,0), Vector3.Up, 1.0f,m_updateInfo);
+            player = new CandyGuy(new Vector3(0, 0.2245f, 0), Vector3.Up,graphics.Viewport.AspectRatio, m_updateInfo);
 
             m_areas = AreaParser.ParseAreas(m_updateInfo);
         }
@@ -53,11 +56,19 @@ namespace Candyland
 
         public void Update(GameTime gameTime)
         {
+            System.Console.Out.WriteLine("currLevel = " + m_updateInfo.currentLevelID);
+            if( m_updateInfo.playerIsOnLevelExit)
+                System.Console.Out.WriteLine("nextLevel = " + m_updateInfo.levelAfterExitID);
+
 
             m_inputManager.movePlayable(player, GamePad.GetState(0), Mouse.GetState(), Keyboard.GetState());
 
+
+            player.startIntersection();
             // check for Collision between the Player and all Game Objects in the current Level
-            m_areas[m_updateInfo.currentAreaID].Collide(player);  
+            m_areas[m_updateInfo.currentAreaID].Collide(player);
+            if (m_updateInfo.playerIsOnAreaExit)
+                m_areas[m_updateInfo.areaAfterExitID].Collide(player);
 
             // check for Collision between all Objects in the currentObjectsToBeCollided List inside UpdateInfo
             Dictionary<String, GameObject> currentObjectsToBeCollided = m_updateInfo.currentObjectsToBeCollided;
@@ -73,7 +84,7 @@ namespace Candyland
 
         public void Draw(GameTime gameTime)
         {
-            player.draw(m_graphics);
+            player.draw();
 
 
             // draw the area the player currently is in and the two

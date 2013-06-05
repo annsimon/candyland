@@ -17,9 +17,10 @@ namespace Candyland
 {
     class CandyGuy : Playable
     {
-        bool isonground = true;
+        bool isonground = false;
         bool istargeting;
         Vector3 target;
+       
 
 
         public CandyGuy(Vector3 position, Vector3 direction, float aspectRatio, UpdateInfo info)
@@ -29,11 +30,19 @@ namespace Candyland
             this.direction = direction;
             this.cam = new Camera(position, MathHelper.PiOver4, aspectRatio, 0.1f, 100, m_updateInfo);
             this.currentspeed = 0;
-            this.gravity = -0.01f;
+            this.gravity = -0.0005f;
             this.upvelocity = 0;
         }
 
+        public override void isNotCollidingWith(GameObject obj)
+        {
 
+        }
+
+        public override void hasCollidedWith(GameObject obj)
+        {
+
+        }
 
         public override void update()
         {
@@ -74,7 +83,22 @@ namespace Candyland
         {
             if (obj.GetType() == typeof(Platform)) 
             {
-                if (obj.getPosition().Y < this.m_position.Y) isonground = true;
+                ContainmentType contain = obj.getBoundingBox().Contains(this.m_boundingBox);
+                if ( contain == ContainmentType.Intersects
+                    && obj.getPosition().Y < this.m_position.Y) 
+                { 
+                    isonground = true;
+                    float upvec = this.m_boundingBox.Min.Y - obj.getBoundingBox().Max.Y;
+                    this.m_position.Y -= upvec;
+                    this.m_boundingBox.Max.Y -= upvec;
+                    this.m_boundingBox.Min.Y -= upvec;
+                    obj.hasCollidedWith(this);
+                }
+                else
+                { 
+                    isonground = isonground || false;
+                    obj.isNotCollidingWith(this);
+                }
 
                 if (obj.GetType() == typeof(PlatformSwitch)){}
             }
@@ -85,7 +109,12 @@ namespace Candyland
                 if(obj.GetType() == typeof(ObstacleMoveable)){}
             }
         }
-       
+
+        public override void startIntersection()
+        {
+            this.isonground = false;
+        }
+
         
 
         public override void movementInput(float movex, float movey, float camx, float camy)
@@ -113,7 +142,9 @@ namespace Candyland
             upvelocity += gravity;
             if (isonground) upvelocity = 0;
             this.m_position.Y += upvelocity;
-            if (upvelocity < 0) cam.changeposition(m_position);
+            this.m_boundingBox.Max.Y += upvelocity;
+            this.m_boundingBox.Min.Y += upvelocity;
+            if (/*upvelocity < 0*/ true) cam.changeposition(m_position);
         }
      
 
