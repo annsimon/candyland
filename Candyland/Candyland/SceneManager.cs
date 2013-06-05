@@ -86,7 +86,6 @@ namespace Candyland
         {
             player.draw();
 
-
             // draw the area the player currently is in and the two
             // adjacent ones
             string currentArea = m_updateInfo.currentAreaID;
