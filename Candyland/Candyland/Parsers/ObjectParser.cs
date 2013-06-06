@@ -53,6 +53,11 @@ namespace Candyland
                     dynamicObjects.Add(node.InnerText, obj);
                 }
 
+                if (object_type == "movableObstacle")
+                {
+                    ObstacleMoveable obj = new ObstacleMoveable(node.InnerText, pos, info);
+                    dynamicObjects.Add(node.InnerText, obj);
+                }
                 if (object_type == "chocoChip")
                 {
                     ChocoChip obj = new ChocoChip(node.InnerText, pos, info, bonusTracker);

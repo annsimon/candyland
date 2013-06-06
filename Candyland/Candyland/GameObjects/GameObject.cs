@@ -116,12 +116,19 @@ namespace Candyland
             {
                 foreach (ModelMeshPart meshPart in mesh.MeshParts)
                 {
+
+                //ModelMeshPart meshPart = mesh.MeshParts.ElementAt(2);
+                    //int vertexOffset = meshPart.VertexOffset;
+
+                    //Console.WriteLine("Offset" + vertexOffset);
+
                     // Vertex buffer parameters
-                    int vertexStride = meshPart.VertexBuffer.VertexDeclaration.VertexStride;
-                    int vertexBufferSize = meshPart.NumVertices * vertexStride;
+                    int vertexStride = meshPart.VertexBuffer.VertexDeclaration.VertexStride; //number of bytes for each vertex
+                    int vertexBufferSize = meshPart.NumVertices * vertexStride; // vertex buffer size in bytes
 
                     // Get vertex data as float
                     float[] vertexData = new float[vertexBufferSize / sizeof(float)];
+                    //meshPart.VertexBuffer.GetData<float>(meshPart.VertexOffset * vertexStride,vertexData,0,meshPart.NumVertices,vertexStride);
                     meshPart.VertexBuffer.GetData<float>(vertexData);
 
                     // Iterate through vertices (possibly) growing bounding box, all calculations are done in world space

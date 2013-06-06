@@ -72,6 +72,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="partnerneu.fbx">
+      <Name>partnerneu</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
     <Compile Include="MainText.spritefont">
       <Name>MainText</Name>
       <Importer>FontDescriptionImporter</Importer>
