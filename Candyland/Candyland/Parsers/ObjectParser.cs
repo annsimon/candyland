@@ -53,6 +53,12 @@ namespace Candyland
                     dynamicObjects.Add(node.InnerText, obj);
                 }
 
+                if (object_type == "movableObstacle")
+                {
+                    ObstacleMoveable obj = new ObstacleMoveable(node.InnerText, pos, info);
+                    dynamicObjects.Add(node.InnerText, obj);
+                }
+
                 // increase count as it is used to access the not-id xml elements of the correct level
                 // (the one currently being parsed)
                 count++;
