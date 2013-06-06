@@ -99,10 +99,16 @@ namespace Candyland
                 if (obj.GetType() == typeof(PlatformSwitch)){}
             }
 
-            if (obj.GetType() == typeof(Obstacle)) 
+            // test for "Obstacle" unfortunately doesn't work (at least not like that)
+            if (obj.GetType() == typeof(ObstacleBreakable)) { }
+
+            if (obj.GetType() == typeof(ObstacleMoveable))
             {
-                if(obj.GetType() == typeof(ObstacleBreakable)){}
-                if(obj.GetType() == typeof(ObstacleMoveable)){}
+                ContainmentType contain = obj.getBoundingBox().Contains(this.m_boundingBox);
+                if (contain == ContainmentType.Intersects)
+                {
+                    obj.hasCollidedWith(this);
+                }
             }
 
             if (obj.GetType() == typeof(ChocoChip))

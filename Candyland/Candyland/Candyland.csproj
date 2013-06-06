@@ -74,7 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Area.cs" />
-    <Compile Include="GameObjects\BonusTracker.cs" />
+    <Compile Include="BonusTracker.cs" />
     <Compile Include="GameObjects\ChocoChip.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameElement.cs" />
