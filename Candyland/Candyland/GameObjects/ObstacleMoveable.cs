@@ -27,7 +27,6 @@ namespace Candyland
             this.m_model = content.Load<Model>("wunderkugelmovable");
 
             this.calculateBoundingBox();
-            Console.WriteLine("Min " + this.m_boundingBox.Min + " Max " + this.m_boundingBox.Max);
         }
 
 
@@ -36,6 +35,22 @@ namespace Candyland
             // TODO Decide when to call move and with what parameters or maybe make different methodes like push and slide
             // this.move(...);
             // this.setActive(true); // when obstacle is moving
+        }
+
+        public override void collide(GameObject obj)
+        {
+            // TODO Test for Collison
+        }
+
+        public override void hasCollidedWith(GameObject obj)
+        {
+            // getting pushed by the player
+            if (obj.GetType() == typeof(CandyGuy))
+            {
+                CandyGuy player = (CandyGuy)obj; /*TODO this is really ugly and should be changed.
+                                                  * Maybe make speed and direction GameObject attributes*/
+                move(false, player.getCurrentSpeed(),player.getDirection());
+            }
         }
 
 

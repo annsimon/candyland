@@ -16,7 +16,9 @@ namespace Candyland
     {
         protected Camera cam;               //Kamera
         protected Vector3 direction;        //Laufrichtung des Spielers x-z Ebene
+        public Vector3 getDirection() { return direction; }
         protected float currentspeed;       //Momentane geschwindigkeit
+        public float getCurrentSpeed() { return currentspeed; }
         protected float gravity;            //beschleinigungsfaktor in y richtung  
         protected float upvelocity;         //beschleinigungsfaktor un y richtung
         protected bool isthirdpersoncam = true;
