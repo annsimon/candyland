@@ -15,7 +15,7 @@ namespace Candyland
     /// </summary>
     public class ObjectParser
     {
-        public static Dictionary<string, GameObject> ParseObjects(Vector3 lvl_start, string xml, UpdateInfo info)
+        public static Dictionary<string, GameObject> ParseObjects(Vector3 lvl_start, string xml, UpdateInfo info, BonusTracker bonusTracker)
         {
             Dictionary<string, GameObject> dynamicObjects = new Dictionary<string, GameObject>();
 
@@ -50,6 +50,12 @@ namespace Candyland
                 if (object_type == "platform")
                 {
                     Platform obj = new Platform(node.InnerText, pos, door_to_area[count].InnerText, door_to_level[count].InnerText, info);
+                    dynamicObjects.Add(node.InnerText, obj);
+                }
+
+                if (object_type == "chocoChip")
+                {
+                    ChocoChip obj = new ChocoChip(node.InnerText, pos, info, bonusTracker);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
 

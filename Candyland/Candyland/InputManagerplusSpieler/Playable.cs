@@ -15,6 +15,7 @@ namespace Candyland
     abstract class Playable : GameObject
     {
         protected Camera cam;               //Kamera
+        protected BonusTracker m_bonusTracker;
         protected Vector3 direction;        //Laufrichtung des Spielers x-z Ebene
         protected float currentspeed;       //Momentane geschwindigkeit
         protected float gravity;            //beschleinigungsfaktor in y richtung  

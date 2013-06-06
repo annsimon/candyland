@@ -89,6 +89,7 @@ namespace Candyland
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             m_sceneManager.Draw(gameTime);
+            m_sceneManager.Draw2D(spriteBatch);
 
             base.Draw(gameTime);
         }

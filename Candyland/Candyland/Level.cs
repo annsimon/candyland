@@ -24,11 +24,11 @@ namespace Candyland
         // which are static (e.g. platforms)
         List<GameObject> m_staticObjects;
 
-        public Level( string id, Vector3 level_start, UpdateInfo info, string xml )
+        public Level( string id, Vector3 level_start, UpdateInfo info, string xml, BonusTracker bonusTracker )
         {
             m_updateInfo = info;
             this.start = level_start;
-            m_gameObjects = ObjectParser.ParseObjects(level_start, xml, info);
+            m_gameObjects = ObjectParser.ParseObjects(level_start, xml, info, bonusTracker);
             m_staticObjects = ObjectParser.ParseStatics(level_start, xml, info);
         }
 

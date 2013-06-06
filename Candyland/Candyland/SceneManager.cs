@@ -19,6 +19,10 @@ namespace Candyland
         // every area can be accessed by its id
         Dictionary<string, Area> m_areas;
 
+        // this object is used to keep track of 
+        // the ChocoChip collection and of which extras the player activated
+        BonusTracker m_bonusTracker;
+
         // the update info, this object is used for communication
         UpdateInfo m_updateInfo;
 
@@ -30,20 +34,25 @@ namespace Candyland
         GraphicsDevice m_graphics;
         /*************************************************************/
 
+        // font used for writing tests to screen
+        SpriteFont screenFont;
+
         InputManager m_inputManager;
 
         public SceneManager(GraphicsDevice graphics, GraphicsDeviceManager graphicDeviceManager)
         {
             m_inputManager = new InputManager(0, graphicDeviceManager);
 
+            m_bonusTracker = new BonusTracker(); // load this one from xml as serialized object?
+
             m_updateInfo = new UpdateInfo(graphics);
             /****************************************************************/
             m_graphics = graphics;
             /****************************************************************/
 
-            player = new CandyGuy(new Vector3(0, 0.2245f, 0), Vector3.Up,graphics.Viewport.AspectRatio, m_updateInfo);
+            player = new CandyGuy(new Vector3(0, 0.2245f, 0), Vector3.Up,graphics.Viewport.AspectRatio, m_updateInfo, m_bonusTracker);
 
-            m_areas = AreaParser.ParseAreas(m_updateInfo);
+            m_areas = AreaParser.ParseAreas(m_updateInfo, m_bonusTracker);
         }
 
         public void Load(ContentManager manager)
@@ -52,6 +61,8 @@ namespace Candyland
                 area.Value.Load(manager);
 
             player.load(manager);
+
+            screenFont = manager.Load<SpriteFont>("MainText");
         }
 
         public void Update(GameTime gameTime)
@@ -95,6 +106,19 @@ namespace Candyland
                 m_areas[currArea.previousID].Draw(m_graphics);
             if (m_areas[currentArea].hasNext)
                 m_areas[currArea.nextID].Draw(m_graphics);
+        }
+
+        public void Draw2D(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Begin();
+            spriteBatch.DrawString(screenFont, "Linsen: " + m_bonusTracker.chocoCount.ToString()
+               + "/" + m_bonusTracker.chocoTotal.ToString(), new Vector2(5f, 5f), Color.White);
+            spriteBatch.End();
+
+            // we need the following as spriteBatch.Begin() sets them to None and AlphaBlend
+            // which breaks our model rendering
+            m_graphics.DepthStencilState = DepthStencilState.Default;
+            m_graphics.BlendState = BlendState.Opaque;
         }
     }
 }

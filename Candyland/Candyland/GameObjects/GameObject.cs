@@ -144,7 +144,7 @@ namespace Candyland
         /// </summary>
         /// <param name="view">Camera.viewMatrix</param>
         /// <param name="projection">Camera.projectionMatrix</param>
-        public void draw()
+        public virtual void draw()
         {
             Matrix view = m_updateInfo.viewMatrix;
             Matrix projection = m_updateInfo.projectionMatrix;

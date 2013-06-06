@@ -72,6 +72,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MainText.spritefont">
+      <Name>MainText</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
     <None Include="SceneTest.xml">
       <Name>SceneTest</Name>
       <Importer>XmlImporter</Importer>

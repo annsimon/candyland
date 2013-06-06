@@ -1,6 +1,4 @@
-﻿
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,11 +19,10 @@ namespace Candyland
         bool istargeting;
         Vector3 target;
        
-
-
-        public CandyGuy(Vector3 position, Vector3 direction, float aspectRatio, UpdateInfo info)
+        public CandyGuy(Vector3 position, Vector3 direction, float aspectRatio, UpdateInfo info, BonusTracker bonusTracker)
         {
             m_updateInfo = info;
+            m_bonusTracker = bonusTracker;
             this.m_position = position;
             this.direction = direction;
             this.cam = new Camera(position, MathHelper.PiOver4, aspectRatio, 0.1f, 100, m_updateInfo);
@@ -106,6 +103,15 @@ namespace Candyland
             {
                 if(obj.GetType() == typeof(ObstacleBreakable)){}
                 if(obj.GetType() == typeof(ObstacleMoveable)){}
+            }
+
+            if (obj.GetType() == typeof(ChocoChip))
+            {
+                ContainmentType contain = obj.getBoundingBox().Contains(this.m_boundingBox);
+                if (contain == ContainmentType.Intersects)
+                {
+                    obj.hasCollidedWith(this);
+                }
             }
         }
 
