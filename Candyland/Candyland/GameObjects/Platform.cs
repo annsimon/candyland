@@ -44,12 +44,13 @@ namespace Candyland
            
         }
 
-        public Platform(String id, Vector3 pos, string areaDoorID, string levelDoorID, UpdateInfo updateInfo)
+        public Platform(String id, Vector3 pos, bool slippery, string areaDoorID, string levelDoorID, UpdateInfo updateInfo)
         {
             this.ID = id;
             this.m_position = pos;
             this.isActive = false;
             this.m_updateInfo = updateInfo;
+            this.isSlippery = slippery;
 
             if (areaDoorID == "x")
                 this.isDoorToArea = false;

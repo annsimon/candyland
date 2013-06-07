@@ -21,6 +21,11 @@ namespace Candyland
         public void setPosition(float x, float y, float z) { this.m_position = new Vector3(x,y,z); }
         public void setPosition(Vector3 newVector) { this.m_position = newVector; }
 
+        protected Vector3 direction;        //Laufrichtung in x-z Ebene
+        public Vector3 getDirection() { return direction; }
+        protected float currentspeed;       //Momentane geschwindigkeit
+        public float getCurrentSpeed() { return currentspeed; }
+
         protected Model m_model;
         public Model getModel() { return this.m_model; }
 
