@@ -651,8 +651,8 @@
                   <object>
                     <object_type>chocoChip</object_type>
                     <object_id>1.0.0.Choco</object_id>
-                    <is_door_to_area>0</is_door_to_area>
-                    <is_door_to_lvl>0.1</is_door_to_lvl>
+                    <is_door_to_area>x</is_door_to_area>
+                    <is_door_to_lvl>x</is_door_to_lvl>
                     <object_position>
                       <x>0</x>
                       <y>0,5</y>
@@ -662,8 +662,8 @@
                   <object>
                     <object_type>chocoChip</object_type>
                     <object_id>1.0.1.Choco</object_id>
-                    <is_door_to_area>0</is_door_to_area>
-                    <is_door_to_lvl>0.1</is_door_to_lvl>
+                    <is_door_to_area>x</is_door_to_area>
+                    <is_door_to_lvl>x</is_door_to_lvl>
                     <object_position>
                       <x>6</x>
                       <y>2,75</y>
