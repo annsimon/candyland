@@ -54,15 +54,6 @@
                       <z>1</z>
                     </object_position>
                   </object>
-                  <object>
-                    <object_type>movableObstacle</object_type>
-                    <object_id>0.0.2</object_id>
-                    <object_position>
-                      <x>0</x>
-                      <y>0,25</y>
-                      <z>1</z>
-                    </object_position>
-                  </object>
                   <!--- ChocoChips-->
                 </dynamics>
               </dynamic_objects>
@@ -230,6 +221,16 @@
                       <x>5</x>
                       <y>0,5</y>
                       <z>1</z>
+                    </object_position>
+                  </object>
+                  <!-- Moveables -->
+                  <object>
+                    <object_type>movableObstacle</object_type>
+                    <object_id>0.1.2</object_id>
+                    <object_position>
+                      <x>0</x>
+                      <y>0,25</y>
+                      <z>0</z>
                     </object_position>
                   </object>
                   <!--- ChocoChips-->
