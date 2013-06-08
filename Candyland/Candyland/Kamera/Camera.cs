@@ -99,8 +99,8 @@ namespace Candyland
                 float newx = topdownposition.X + ( x * (float)Math.Cos(rotation) - y * (float)Math.Sin(rotation));
                 float newy = topdownposition.Z + ( x * (float)Math.Sin(rotation) + y * (float)Math.Cos(rotation));
                 
-                if(Math.Abs(centerposition.X - newx) 
-                    + Math.Abs( centerposition.Y - newy) < 10  )
+                if(Math.Max(Math.Abs(centerposition.X - newx), 
+                    Math.Abs( centerposition.Y - newy)) < 5  )
                 {
                     topdownposition.X = newx;
                     topdownposition.Z = newy;

@@ -15,7 +15,6 @@ namespace Candyland
 {
     class CandyGuy : Playable
     {
-        bool isonground = false;
         bool istargeting;
         Vector3 target;
        
@@ -27,7 +26,7 @@ namespace Candyland
             this.direction = direction;
             this.cam = new Camera(position, MathHelper.PiOver4, aspectRatio, 0.1f, 100, m_updateInfo);
             this.currentspeed = 0;
-            this.gravity = -0.0005f;
+            this.gravity = -0.004f;
             this.upvelocity = 0;
         }
 
@@ -41,15 +40,9 @@ namespace Candyland
 
         }
 
-        public override void update()
-        {
-             throw new NotImplementedException();
-        }
+        public override void update() { }
 
-        public override void initialize()
-        {
-            throw new NotImplementedException();
-        }
+        public override void initialize(){ }
 
         public override void load(ContentManager content)
         {
@@ -63,7 +56,7 @@ namespace Candyland
         {
             if (isonground)
             {
-                upvelocity = 0.02f;
+                upvelocity = 0.08f;
                 isonground = false;
             }
         }
@@ -73,52 +66,6 @@ namespace Candyland
         {
             istargeting = true;
             target = goalpoint;
-        }
-
-        public override void collide(GameObject obj)
-        {
-            if (obj.GetType() == typeof(Platform)) 
-            {
-                ContainmentType contain = obj.getBoundingBox().Contains(this.m_boundingBox);
-                if ( contain == ContainmentType.Intersects
-                    && obj.getPosition().Y < this.m_position.Y) 
-                { 
-                    isonground = true;
-                    float upvec = this.m_boundingBox.Min.Y - obj.getBoundingBox().Max.Y;
-                    this.m_position.Y -= upvec;
-                    this.m_boundingBox.Max.Y -= upvec;
-                    this.m_boundingBox.Min.Y -= upvec;
-                    obj.hasCollidedWith(this);
-                }
-                else
-                { 
-                    isonground = isonground || false;
-                    obj.isNotCollidingWith(this);
-                }
-
-                if (obj.GetType() == typeof(PlatformSwitch)){}
-            }
-
-            // test for "Obstacle" unfortunately doesn't work (at least not like that)
-            if (obj.GetType() == typeof(ObstacleBreakable)) { }
-
-            if (obj.GetType() == typeof(ObstacleMoveable))
-            {
-                ContainmentType contain = obj.getBoundingBox().Contains(this.m_boundingBox);
-                if (contain == ContainmentType.Intersects)
-                {
-                    obj.hasCollidedWith(this);
-                }
-            }
-
-            if (obj.GetType() == typeof(ChocoChip))
-            {
-                ContainmentType contain = obj.getBoundingBox().Contains(this.m_boundingBox);
-                if (contain == ContainmentType.Intersects)
-                {
-                    obj.hasCollidedWith(this);
-                }
-            }
         }
 
         public override void startIntersection()
@@ -157,8 +104,227 @@ namespace Candyland
             this.m_boundingBox.Min.Y += upvelocity;
             if (/*upvelocity < 0*/ true) cam.changeposition(m_position);
         }
-     
 
 
+        #region collision
+
+        public override void collide(GameObject obj)
+        {
+            if (obj.GetType() == typeof(Platform)) collideWithPlatform(obj);
+            if (obj.GetType() == typeof(Obstacle)) collideWithObstacle(obj);
+            if (obj.GetType() == typeof(ObstacleBreakable)) collideWithBreakable(obj);
+            if (obj.GetType() == typeof(ObstacleMoveable)) collideWithMovable(obj);
+            if (obj.GetType() == typeof(PlatformSwitchPermanent)) collideWithSwitchPermanent(obj);
+            if (obj.GetType() == typeof(PlatformSwitchTemporary)) collideWithSwitchTemporary(obj);
+            if (obj.GetType() == typeof(ChocoChip)) collideWithChocoChip(obj); 
+        }
+
+        private void collideWithPlatform(GameObject obj)
+        {
+            ContainmentType contain = obj.getBoundingBox().Contains(m_boundingBox);
+
+            if (contain == ContainmentType.Intersects)
+            {
+                preventIntersection(obj);
+                obj.hasCollidedWith(this);
+            }
+            else
+            {
+                isonground = isonground || false;
+                obj.isNotCollidingWith(this);
+            }
+        }
+        private void collideWithObstacle(GameObject obj) {
+            if (obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                preventIntersection(obj);
+                obj.hasCollidedWith(this);
+            }
+            else
+            {
+                obj.isNotCollidingWith(this);
+            }
+        }
+        private void collideWithSwitchPermanent(GameObject obj) {
+            if (obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                preventIntersection(obj);
+                obj.hasCollidedWith(this);
+            }
+            else
+            {
+                obj.isNotCollidingWith(this);
+            }
+        }
+        private void collideWithSwitchTemporary(GameObject obj) {
+            if (obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                preventIntersection(obj);
+                obj.hasCollidedWith(this);
+            }
+            else
+            {
+                obj.isNotCollidingWith(this);
+            }
+        }
+        private void collideWithBreakable(GameObject obj) {
+            if (obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                preventIntersection(obj);
+                obj.hasCollidedWith(this);
+            }
+            else
+            {
+                obj.isNotCollidingWith(this);
+            }
+        }
+        private void collideWithMovable(GameObject obj) {
+            if (obj.getBoundingBox().Intersects(m_boundingBox)) {
+                preventIntersection(obj);
+                obj.hasCollidedWith(this);
+            }
+            else
+            {
+                obj.isNotCollidingWith(this);
+            }
+        }
+
+        private void collideWithChocoChip(GameObject obj) {
+            if (obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                obj.hasCollidedWith(this);
+            } else {
+                obj.isNotCollidingWith(this);
+            }
+        }
+
+        private void preventIntersection(GameObject obj)
+        {
+            if (obj.getBoundingBox().Intersects(m_boundingBox)) {
+
+
+                float m_minX = Math.Min(m_boundingBox.Min.X, m_boundingBox.Max.X);
+                float m_minY = Math.Min(m_boundingBox.Min.Y, m_boundingBox.Max.Y);
+                float m_minZ = Math.Min(m_boundingBox.Min.Z, m_boundingBox.Max.Z);
+                float m_maxX = Math.Max(m_boundingBox.Min.X, m_boundingBox.Max.X);
+                float m_maxY = Math.Max(m_boundingBox.Min.Y, m_boundingBox.Max.Y);
+                float m_maxZ = Math.Max(m_boundingBox.Min.Z, m_boundingBox.Max.Z);
+                float minX = Math.Min(obj.getBoundingBox().Min.X, obj.getBoundingBox().Max.X);
+                float minY = Math.Min(obj.getBoundingBox().Min.Y, obj.getBoundingBox().Max.Y);
+                float minZ = Math.Min(obj.getBoundingBox().Min.Z, obj.getBoundingBox().Max.Z);
+                float maxX = Math.Max(obj.getBoundingBox().Min.X, obj.getBoundingBox().Max.X);
+                float maxY = Math.Max(obj.getBoundingBox().Min.Y, obj.getBoundingBox().Max.Y);
+                float maxZ = Math.Max(obj.getBoundingBox().Min.Z, obj.getBoundingBox().Max.Z);
+
+                float m_minXold = m_minX - direction.X * currentspeed;
+                float m_minYold = m_minY - direction.Y * currentspeed;
+                float m_minZold = m_minZ - direction.Z * currentspeed;
+                float m_maxXold = m_maxX - direction.X * currentspeed;
+                float m_maxYold = m_maxY - direction.Y * currentspeed;
+                float m_maxZold = m_maxZ - direction.Z * currentspeed;
+
+                if (!isonground) m_minYold -= upvelocity;
+                if (!isonground) m_maxYold -= upvelocity;
+
+                if (m_minYold >= maxY)
+                {
+                    isonground = true;
+
+                    float upvec = m_minY - maxY;
+
+                    m_position.Y -= upvec;
+                    m_boundingBox.Max.Y -= upvec;
+                    m_boundingBox.Min.Y -= upvec;
+                }
+
+                if (m_maxYold <= minY) {
+                    float upvec = minY - m_maxY;
+                    m_position.Y -= upvec;
+                    m_boundingBox.Max.Y -= upvec;
+                    m_boundingBox.Min.Y -= upvec;
+                    upvelocity = 0;
+                }
+
+                if (m_minXold >= maxX
+                    && !((m_minY >= maxY) || (m_maxY <= minY)))
+                {
+                    float xvector = maxX - m_minX;
+
+                    m_position.X += xvector;
+                    m_boundingBox.Max.X += xvector;
+                    m_boundingBox.Min.X += xvector;
+                }
+                if (m_maxXold <= minX
+                    && !((m_minY >= maxY) || (m_maxY <= minY)))
+                {
+                    float xvector = minX - m_maxX;
+
+                    m_position.X += xvector;
+                    m_boundingBox.Max.X += xvector;
+                    m_boundingBox.Min.X += xvector;
+                }
+                
+                if (m_minZold >= maxZ
+                    && !((m_minY >= maxY) || (m_maxY <= minY))){
+                    float zvector = maxZ - m_minZ;
+
+                    m_position.Z += zvector;
+                    m_boundingBox.Max.Z += zvector;
+                    m_boundingBox.Min.Z += zvector;
+                }
+                if (m_maxZold <= minZ
+                    && !((m_minY >= maxY) || (m_maxY <= minY))) {
+                    float zvector = minZ - m_maxZ;
+
+                    m_position.Z += zvector;
+                    m_boundingBox.Max.Z += zvector;
+                    m_boundingBox.Min.Z += zvector;
+                }
+
+                obj.hasCollidedWith(this);
+            }
+        }
+
+
+        public override void draw()
+        {
+            Matrix view = m_updateInfo.viewMatrix;
+            Matrix projection = m_updateInfo.projectionMatrix;
+            // Copy any parent transforms.
+            Matrix[] transforms = new Matrix[m_model.Bones.Count];
+            m_model.CopyAbsoluteBoneTransformsTo(transforms);
+
+            Matrix translateMatrix = Matrix.CreateTranslation(m_position);
+            Matrix worldMatrix = translateMatrix;
+
+
+            // Draw the model. A model can have multiple meshes, so loop.
+            foreach (ModelMesh mesh in m_model.Meshes)
+            {
+                foreach (BasicEffect effect in mesh.Effects)
+                {
+                    Matrix rotation;
+                    if (direction.X > 0)
+                    {
+                        rotation = Matrix.CreateRotationY((float)Math.Acos(direction.Z));
+                    }else { 
+                        rotation = Matrix.CreateRotationY((float)-Math.Acos(direction.Z));
+                    }
+
+                    effect.World = rotation *
+                        worldMatrix * transforms[mesh.ParentBone.Index];
+                    effect.View = view;
+                    effect.Projection = projection;
+
+                    effect.EnableDefaultLighting();
+                    effect.PreferPerPixelLighting = true;
+                }
+                // Draw the mesh, using the effects set above.
+                mesh.Draw();
+                BoundingBoxRenderer.Render(this.m_boundingBox, m_updateInfo.graphics, view, projection, Color.White);
+
+            }
+        }
+        #endregion
     }
 }
