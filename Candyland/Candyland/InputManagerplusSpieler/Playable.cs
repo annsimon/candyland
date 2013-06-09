@@ -19,6 +19,7 @@ namespace Candyland
         protected float gravity;            //beschleinigungsfaktor in y richtung  
         protected float upvelocity;         //beschleinigungsfaktor un y richtung
         protected bool isthirdpersoncam = true;
+        protected bool isonground = false;
 
         public abstract void jump();
 
