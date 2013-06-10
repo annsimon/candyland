@@ -75,6 +75,7 @@
   <ItemGroup>
     <Compile Include="Area.cs" />
     <Compile Include="BonusTracker.cs" />
+    <Compile Include="CandyHelper.cs" />
     <Compile Include="GameConstants.cs" />
     <Compile Include="GameObjects\ChocoChip.cs" />
     <Compile Include="Game1.cs" />

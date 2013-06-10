@@ -91,6 +91,7 @@ namespace Candyland
             m_areas[m_updateInfo.currentAreaID].Update(gameTime);
             if (m_updateInfo.playerIsOnAreaExit)
                 m_areas[m_updateInfo.areaAfterExitID].Update(gameTime);
+            player.endIntersection();
         }
 
         public void Draw(GameTime gameTime)
