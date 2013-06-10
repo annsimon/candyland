@@ -70,7 +70,7 @@ namespace Candyland
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (this.IsActive)
+            if (this.IsActive && gameTime.TotalGameTime.Milliseconds % 1 ==0 )
             {
                 // Allows the game to exit
                 if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed

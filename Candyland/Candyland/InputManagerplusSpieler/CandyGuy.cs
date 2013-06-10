@@ -211,64 +211,71 @@ namespace Candyland
                 float m_maxYold = maxOld.Y;
                 float m_maxZold = maxOld.Z;
 
-
                 if (m_minYold >= maxY)
                 {
                     isonground = true;
 
-                    float upvec = m_minY - maxY;
+                    float m_boxheight = m_maxY - m_minY;
+                    float upvec = m_position.Y - m_minY;
 
-                    m_position.Y -= upvec;
-                    m_boundingBox.Max.Y -= upvec;
-                    m_boundingBox.Min.Y -= upvec;
+                    m_boundingBox.Max.Y = maxY + m_boxheight ;
+                    m_boundingBox.Min.Y = maxY;
+                    m_position.Y = m_boundingBox.Min.Y + upvec;
                 }
 
                 if (m_maxYold <= minY) {
 
-                    float upvec = minY - m_maxY;
+                    float m_boxheight = m_maxY - m_minY;
+                    float upvec = m_position.Y - m_minY;
 
-                    m_position.Y -= upvec;
-                    m_boundingBox.Max.Y -= upvec;
-                    m_boundingBox.Min.Y -= upvec;
+                    m_boundingBox.Max.Y = minY;
+                    m_boundingBox.Min.Y = minY - m_boxheight;
+                    m_position.Y = m_boundingBox.Min.Y + upvec;
                     upvelocity = 0;
                 }
 
                 if (m_minXold >= maxX
                     && !((m_minY >= maxY) || (m_maxY <= minY)))
                 {
-                    float xvector = maxX - m_minX;
+                    float m_boxwidth = m_maxX - m_minX;
+                    float xvector = m_position.X - m_minX;
 
-                    m_position.X += xvector;
-                    m_boundingBox.Max.X += xvector;
-                    m_boundingBox.Min.X += xvector;
+                   
+                    m_boundingBox.Max.X = maxX + m_boxwidth;
+                    m_boundingBox.Min.X = maxX;
+                    m_position.X = m_boundingBox.Min.X + xvector;
                 }
                 if (m_maxXold <= minX
                     && !((m_minY >= maxY) || (m_maxY <= minY)))
                 {
-                    float xvector = minX - m_maxX;
+                    float m_boxwidth = m_maxX - m_minX;
+                    float xvector = m_position.X - m_minX;
 
-                    m_position.X += xvector;
-                    m_boundingBox.Max.X += xvector;
-                    m_boundingBox.Min.X += xvector;
+
+                    m_boundingBox.Max.X = minX;
+                    m_boundingBox.Min.X = minX - m_boxwidth;
+                    m_position.X = m_boundingBox.Min.X + xvector;
                 }
                 
                 if (m_minZold >= maxZ
                     && !((m_minY >= maxY) || (m_maxY <= minY)))
                 {
-                    float zvector = maxZ - m_minZ;
+                    float m_boxdepth = m_maxZ - m_minZ; 
+                    float zvector = m_position.Z - m_minZ;
 
-                    m_position.Z += zvector;
-                    m_boundingBox.Max.Z += zvector;
-                    m_boundingBox.Min.Z += zvector;
+                    m_boundingBox.Max.Z = maxZ + m_boxdepth;
+                    m_boundingBox.Min.Z = maxZ;
+                    m_position.Z = m_boundingBox.Min.Z + zvector;
                 }
                 if (m_maxZold <= minZ
                     && !((m_minY >= maxY) || (m_maxY <= minY))) 
                 {
-                    float zvector = minZ - m_maxZ;
+                    float m_boxdepth = m_maxZ - m_minZ;
+                    float zvector = m_position.Z - m_minZ;
 
-                    m_position.Z += zvector;
-                    m_boundingBox.Max.Z += zvector;
-                    m_boundingBox.Min.Z += zvector;
+                    m_boundingBox.Max.Z = minZ ;
+                    m_boundingBox.Min.Z = minZ - m_boxdepth;
+                    m_position.Z = m_boundingBox.Min.Z + zvector;
                 }
             }
         }
