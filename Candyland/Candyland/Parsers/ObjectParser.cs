@@ -46,14 +46,14 @@ namespace Candyland
                 pos += lvl_start; // add level position for correct global position
 
                 // get bool value for slippery
-                //bool slip = bool.Parse(slippery[count].InnerText);
+                bool slip = bool.Parse(slippery[count].InnerText);
 
                 // create the new object
                 string object_type = type[count].InnerText;
 
                 if (object_type == "platform")
                 {
-                    Platform obj = new Platform(node.InnerText, pos, false, door_to_area[count].InnerText, door_to_level[count].InnerText, info);
+                    Platform obj = new Platform(node.InnerText, pos, slip, door_to_area[count].InnerText, door_to_level[count].InnerText, info);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
 
