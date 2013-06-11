@@ -14,12 +14,14 @@ namespace Candyland
 {
     abstract class Playable : GameObject
     {
-        protected Camera cam;               //Kamera
+        protected Camera cam;                   //Kamera
         protected BonusTracker m_bonusTracker;
-        protected float gravity;            //beschleinigungsfaktor in y richtung  
-        protected float upvelocity;         //beschleinigungsfaktor un y richtung
+        protected float gravity;                //beschleinigungsfaktor in y richtung  
+        protected float upvelocity;             //beschleinigungsfaktor un y richtung
         protected bool isthirdpersoncam = true;
         protected bool isonground = false;
+        protected Vector3 minOld;
+        protected Vector3 maxOld;
 
         public abstract void jump();
 
@@ -46,7 +48,7 @@ namespace Candyland
 
         public Matrix getViewM() { return cam.getviewMatrix(); }
 
-        public abstract void startIntersection();
+     
 
         /// <summary>
         /// Switches between ThirdPerson- and Top-Down-Perspective
@@ -57,8 +59,7 @@ namespace Candyland
             { 
                 cam.changeToTopDown();
                 isthirdpersoncam = !isthirdpersoncam;
-            }
-            else 
+            }else 
             {
                 cam.changeToThirdPP();
                 isthirdpersoncam = !isthirdpersoncam;
@@ -71,7 +72,7 @@ namespace Candyland
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
-        public void move(float x, float y)
+        protected void move(float x, float y)
         {
             if (x != 0 && y != 0)
             {
@@ -87,7 +88,17 @@ namespace Candyland
             }
         }
 
+        public void startIntersection()
+        {
+            this.isonground = false;
+            cam.startCollision();
+        }
 
+        public void endIntersection()
+        {
+            minOld = m_boundingBox.Min;
+            maxOld = m_boundingBox.Max;
+        }
 
     }
 }

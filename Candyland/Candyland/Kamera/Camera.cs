@@ -18,18 +18,26 @@ namespace Candyland
 
         private  Matrix viewMatrix;
         private  Matrix projectionMatrix;
+
         private float upangle;
         private float rotation;
         private Vector3 centerposition;
-        private float offset = 3;
-        private float upspeed = 0.01f;
-        private float sidespeed = 0.1f;
-        private UpdateInfo m_updateInfo;
+        private float offset = 4;
 
-        public bool topdownactive = false;
+        private const float MAXOFFSET = 4;
+
+        private float upspeed = 0.02f;
+        private float sidespeed = 0.1f;
+
+        private bool topdownactive = false;
         private float topdownoffset = 10;
         private Vector3 topdownposition;
         private Matrix topdownViewM;
+
+        private UpdateInfo m_updateInfo;
+        private BoundingSphere boundingSphere;
+       
+        private float currentMinOffset = MAXOFFSET;
 
         /// <summary>
         /// Creates a third person camera. standard viewdirection along the z axis
@@ -46,6 +54,7 @@ namespace Candyland
             centerposition = pos;
             m_updateInfo = info;
             projectionMatrix = Matrix.CreatePerspectiveFieldOfView(fov, aspectRatio, nearPlane, farPlane);
+            boundingSphere = new BoundingSphere(centerposition,0.1f);
             updatevMatrix();
         }
        
@@ -99,8 +108,8 @@ namespace Candyland
                 float newx = topdownposition.X + ( x * (float)Math.Cos(rotation) - y * (float)Math.Sin(rotation));
                 float newy = topdownposition.Z + ( x * (float)Math.Sin(rotation) + y * (float)Math.Cos(rotation));
                 
-                if(Math.Max(Math.Abs(centerposition.X - newx), 
-                    Math.Abs( centerposition.Y - newy)) < 5  )
+                if( Math.Max( Math.Abs(centerposition.X - newx), 
+                        Math.Abs( centerposition.Y - newy) ) < 5  )
                 {
                     topdownposition.X = newx;
                     topdownposition.Z = newy;
@@ -113,7 +122,7 @@ namespace Candyland
                 rotation += sidespeed * x;
 
                 if (upangle < -Math.PI * 0.35f) upangle = (float)-Math.PI * 0.35f;
-                if (upangle > Math.PI * 0.01f) upangle = (float)Math.PI * 0.01f;
+                if (upangle > Math.PI * 0.05f) upangle = (float)Math.PI * 0.05f;
             }
             updatevMatrix();
         }
@@ -128,6 +137,9 @@ namespace Candyland
                                               (float)Math.Sin(upangle),
                                               (float)Math.Cos(rotation) * (float)Math.Cos(upangle));
                 topdownViewM = Matrix.CreateLookAt(topdownposition, topdownposition - new Vector3(0,topdownoffset,0), upVec);
+
+                m_updateInfo.viewMatrix = topdownViewM;
+                m_updateInfo.projectionMatrix = projectionMatrix;
             }
             
             
@@ -138,23 +150,48 @@ namespace Candyland
                                                         (float)Math.Cos(rotation) * (float)Math.Cos(upangle));
 
                 viewMatrix = Matrix.CreateLookAt(centerposition - posdiff, centerposition, Vector3.Up);
-            }
 
+                boundingSphere.Center = centerposition - posdiff;
 
-            if (topdownactive) 
-            {
-                m_updateInfo.viewMatrix = topdownViewM;
-                m_updateInfo.projectionMatrix = projectionMatrix;
-            }
-
-            else
-            {
                 m_updateInfo.viewMatrix = viewMatrix;
                 m_updateInfo.projectionMatrix = projectionMatrix;
             }
+           
         }
 
 
+        public void startCollision() { currentMinOffset = MAXOFFSET; }
+
+        public void collideWith(GameObject obj) 
+        {
+            float offsetWithObject = offset;
+
+            while(!boundingSphere.Intersects(obj.getBoundingBox())
+                    && offsetWithObject <= MAXOFFSET)
+            {
+                offsetWithObject += 0.01f;
+                Vector3 posdiff = offsetWithObject * new Vector3((float)-Math.Sin(rotation) * (float)Math.Cos(upangle),
+                                                                 (float)Math.Sin(upangle),
+                                                                 (float)Math.Cos(rotation) * (float)Math.Cos(upangle));
+                boundingSphere.Center = centerposition - posdiff;
+            }
+
+            while (boundingSphere.Intersects(obj.getBoundingBox()) 
+                    && offsetWithObject >0.01f)
+            {
+                offsetWithObject -= 0.01f;
+                Vector3 posdiff = offsetWithObject * new Vector3((float)-Math.Sin(rotation) * (float)Math.Cos(upangle),
+                                                                 (float)Math.Sin(upangle),
+                                                                 (float)Math.Cos(rotation) * (float)Math.Cos(upangle));
+                boundingSphere.Center = centerposition - posdiff;
+            }
+
+            if (offsetWithObject < currentMinOffset)
+                currentMinOffset = offsetWithObject;
+
+            offset = currentMinOffset;
+            updatevMatrix();
+        }
 
         public Matrix getviewMatrix() 
         {

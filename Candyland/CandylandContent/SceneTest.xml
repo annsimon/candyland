@@ -38,6 +38,18 @@
                     </object_position>
                     <slippery>false</slippery>
                   </object>
+                  <object>
+                    <object_type>platform</object_type>
+                    <object_id>0.0.3</object_id>
+                    <is_door_to_area>x</is_door_to_area>
+                    <is_door_to_lvl>x</is_door_to_lvl>
+                    <object_position>
+                      <x>0</x>
+                      <y>0,5</y>
+                      <z>1</z>
+                    </object_position>
+                    <slippery>false</slippery>
+                  </object>
                 </statics>
               </static_objects>
               <!--- DYNAMIC-->
@@ -86,18 +98,6 @@
                       <x>0</x>
                       <y>0</y>
                       <z>1</z>
-                    </object_position>
-                    <slippery>false</slippery>
-                  </object>
-                  <object>
-                    <object_type>platform</object_type>
-                    <object_id>0.1.2</object_id>
-                    <is_door_to_area>x</is_door_to_area>
-                    <is_door_to_lvl>x</is_door_to_lvl>
-                    <object_position>
-                      <x>1</x>
-                      <y>1</y>
-                      <z>0</z>
                     </object_position>
                     <slippery>false</slippery>
                   </object>
