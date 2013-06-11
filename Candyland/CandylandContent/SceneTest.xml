@@ -254,12 +254,15 @@
                   <!--- Moveables -->
                   <object>
                     <object_type>movableObstacle</object_type>
-                    <object_id>0.1.2</object_id>
+                    <object_id>0.1.0.Mov</object_id>
+                    <is_door_to_area>x</is_door_to_area>
+                    <is_door_to_lvl>x</is_door_to_lvl>
                     <object_position>
                       <x>0</x>
                       <y>0,25</y>
                       <z>0</z>
                     </object_position>
+                    <slippery>false</slippery>
                   </object>
                   <!--- ChocoChips-->
                 </dynamics>
@@ -722,6 +725,7 @@
                       <y>0,5</y>
                       <z>-1</z>
                     </object_position>
+                    <slippery>false</slippery>
                   </object>
                   <object>
                     <object_type>chocoChip</object_type>
@@ -733,6 +737,7 @@
                       <y>2,75</y>
                       <z>0</z>
                     </object_position>
+                    <slippery>false</slippery>
                   </object>
                 </dynamics>
               </dynamic_objects>
