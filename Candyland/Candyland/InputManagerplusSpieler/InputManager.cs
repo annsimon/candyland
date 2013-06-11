@@ -31,7 +31,7 @@ namespace Candyland
             this.graphicDevice = graphicDevice;
         }
 
-        public void movePlayable(Playable player, GamePadState padstate, MouseState mousestate, KeyboardState keystate) 
+        private void movePlayable(Playable player, GamePadState padstate, MouseState mousestate, KeyboardState keystate) 
         {
             switch (inputMode){
             case 0: mouseMovement(player, keystate,mousestate); break;
@@ -40,6 +40,17 @@ namespace Candyland
             }
         }
 
+        public void update(Playable candy, Playable helper) {
+
+            KeyboardState keystate = Keyboard.GetState();
+            GamePadState padstate = GamePad.GetState(0);
+            MouseState mousestate = Mouse.GetState();
+
+            /*add if-statements*/
+
+            movePlayable(candy, padstate, mousestate, keystate);
+
+        }
         
         /// <summary>
         /// Moves the player with keybourd and mouse input
