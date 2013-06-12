@@ -39,6 +39,7 @@ namespace Candyland
         {
             ID = id;
             m_position = pos;
+            m_position.Y += 0.25f;
             m_updateInfo = updateInfo;
             m_bonusTracker = bonusTracker;
 
@@ -89,6 +90,10 @@ namespace Candyland
         {
             if( !isCollected )
                 base.draw();
+        }
+
+        public override void Reset()
+        {
         }
     }
 }

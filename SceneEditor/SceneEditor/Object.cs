@@ -27,14 +27,15 @@ namespace SceneEditor
 
         public void InitializeNewObject()
         {
-            textBoxType.Text = "";
-            textBoxID.Text = "";
-            textBoxPosX.Text = "";
-            textBoxPosY.Text = "";
-            textBoxPosZ.Text = "";
-            textBoxDoorArea.Text = "";
-            textBoxDoorLevel.Text = "";
-            checkBoxSlippery.Checked = false;
+            // keep the old data for convenience, don't change anything
+            //textBoxType.Text = "platform";
+            //textBoxID.Text = "";
+            //textBoxPosX.Text = "";
+            //textBoxPosY.Text = "";
+            //textBoxPosZ.Text = "";
+            //textBoxDoorArea.Text = "";
+            //textBoxDoorLevel.Text = "";
+            //checkBoxSlippery.Checked = false;
         }
 
         public void InitializeWithObject( Object obj )
@@ -84,7 +85,7 @@ namespace SceneEditor
 
         public override string ToString()
         {
-            return id;
+            return "ID: "+ id + "; X: " + posX + ", Y: " + posY + ", Z: " + posZ;
         }
 
         public string Write()

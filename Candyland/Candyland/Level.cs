@@ -71,5 +71,13 @@ namespace Candyland
                 obj.collide(gameObject.Value);
             }
         }
+
+        public void Reset()
+        {
+            foreach (var gameObject in m_gameObjects)
+            {
+                gameObject.Value.Reset();
+            }
+        }
     }
 }

@@ -179,7 +179,7 @@ namespace SceneEditor
 
         public override string ToString()
         {
-            return id;
+            return "ID: " + id + "; X: " + posX + ", Y: " + posY + ", Z: " + posZ;
         }
 
         List<Object> ParseDetails(string xml)
@@ -193,7 +193,7 @@ namespace SceneEditor
             XmlNodeList type = scene.GetElementsByTagName("object_type");
             XmlNodeList position = scene.GetElementsByTagName("object_position");
             XmlNodeList door_to_area = scene.GetElementsByTagName("is_door_to_area");
-            XmlNodeList door_to_level = scene.GetElementsByTagName("is_door_to_lvl");
+            XmlNodeList door_to_level = scene.GetElementsByTagName("is_door_to_level");
             XmlNodeList slippery = scene.GetElementsByTagName("slippery");
 
             int count = 0;

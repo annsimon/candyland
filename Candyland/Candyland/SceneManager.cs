@@ -67,10 +67,25 @@ namespace Candyland
 
         public void Update(GameTime gameTime)
         {
+            /*
             System.Console.Out.WriteLine("currLevel = " + m_updateInfo.currentLevelID);
             if( m_updateInfo.playerIsOnLevelExit)
                 System.Console.Out.WriteLine("nextLevel = " + m_updateInfo.levelAfterExitID);
+            */
 
+            if (m_updateInfo.reset)
+            {
+                // reset player to start position of current level
+                Vector3 resetPos = m_areas[m_updateInfo.currentAreaID].GetStartingPosition();
+                resetPos.Y += 0.6f;
+                player.setPosition(resetPos);
+
+                // reset world
+                foreach (var area in m_areas)
+                    area.Value.Reset();
+
+                m_updateInfo.reset = false;
+            }
 
             m_inputManager.update(player,player/*enter candyhelper here*/);
 

@@ -62,7 +62,7 @@
             this.layout.Controls.Add(this.acceptButton);
             this.layout.Location = new System.Drawing.Point(12, 12);
             this.layout.Name = "layout";
-            this.layout.Size = new System.Drawing.Size(496, 346);
+            this.layout.Size = new System.Drawing.Size(496, 503);
             this.layout.TabIndex = 1;
             // 
             // label1
@@ -118,12 +118,12 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(3, 29);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(490, 95);
+            this.listBox1.Size = new System.Drawing.Size(490, 251);
             this.listBox1.TabIndex = 10;
             // 
             // addStaticButton
             // 
-            this.addStaticButton.Location = new System.Drawing.Point(3, 130);
+            this.addStaticButton.Location = new System.Drawing.Point(3, 286);
             this.addStaticButton.Name = "addStaticButton";
             this.addStaticButton.Size = new System.Drawing.Size(243, 32);
             this.addStaticButton.TabIndex = 11;
@@ -133,7 +133,7 @@
             // 
             // editStaticButton
             // 
-            this.editStaticButton.Location = new System.Drawing.Point(252, 130);
+            this.editStaticButton.Location = new System.Drawing.Point(252, 286);
             this.editStaticButton.Name = "editStaticButton";
             this.editStaticButton.Size = new System.Drawing.Size(241, 32);
             this.editStaticButton.TabIndex = 13;
@@ -144,14 +144,14 @@
             // listBox2
             // 
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(3, 168);
+            this.listBox2.Location = new System.Drawing.Point(3, 324);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(490, 95);
             this.listBox2.TabIndex = 14;
             // 
             // addDynamicButton
             // 
-            this.addDynamicButton.Location = new System.Drawing.Point(3, 269);
+            this.addDynamicButton.Location = new System.Drawing.Point(3, 425);
             this.addDynamicButton.Name = "addDynamicButton";
             this.addDynamicButton.Size = new System.Drawing.Size(243, 32);
             this.addDynamicButton.TabIndex = 15;
@@ -161,7 +161,7 @@
             // 
             // editDynamicButton
             // 
-            this.editDynamicButton.Location = new System.Drawing.Point(252, 269);
+            this.editDynamicButton.Location = new System.Drawing.Point(252, 425);
             this.editDynamicButton.Name = "editDynamicButton";
             this.editDynamicButton.Size = new System.Drawing.Size(241, 32);
             this.editDynamicButton.TabIndex = 16;
@@ -171,7 +171,7 @@
             // 
             // acceptButton
             // 
-            this.acceptButton.Location = new System.Drawing.Point(3, 307);
+            this.acceptButton.Location = new System.Drawing.Point(3, 463);
             this.acceptButton.Name = "acceptButton";
             this.acceptButton.Size = new System.Drawing.Size(490, 32);
             this.acceptButton.TabIndex = 12;
@@ -183,7 +183,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(520, 370);
+            this.ClientSize = new System.Drawing.Size(520, 527);
             this.Controls.Add(this.layout);
             this.Name = "LevelGenerator";
             this.Text = "SceneGenerator - Edit Level";

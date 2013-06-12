@@ -78,7 +78,9 @@ namespace Candyland
             if(keystate.IsKeyDown(Keys.D))      dmovextemp -= 0.7f;
             if(keystate.IsKeyDown(Keys.Space))  player.jump();
             if (keystate.IsKeyDown(Keys.LeftAlt)
-                && oldKeyboardState != keystate) player.switchCameraPerspective(); 
+                && oldKeyboardState != keystate) player.switchCameraPerspective();
+
+            if (keystate.IsKeyDown(Keys.R)) player.reset();
 
             //Get the direction of the players camera
             float alpha = player.getCameraDir();
