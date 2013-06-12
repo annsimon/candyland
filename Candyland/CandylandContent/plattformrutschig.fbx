@@ -12,8 +12,8 @@ FBXHeaderExtension:  {
 		Month: 06
 		Day: 12
 		Hour: 08
-		Minute: 02
-		Second: 52
+		Minute: 24
+		Second: 34
 		Millisecond: 0
 	}
 	Creator: "FBX SDK/FBX Plugins build 20070228"
@@ -21,7 +21,7 @@ FBXHeaderExtension:  {
 		FlagPLE: 0
 	}
 }
-CreationTime: "2013-06-12 08:02:52:000"
+CreationTime: "2013-06-12 08:24:34:000"
 Creator: "Blender version 2.66 (sub 1)"
 
 ; Object definitions
@@ -318,7 +318,7 @@ Objects:  {
 			}
 		}
 	}
-	Material: "Material::Material_002__untitled", "" {
+	Material: "Material::Material_002__glatt", "" {
 		Version: 102
 		ShadingModel: "lambert"
 		MultiLayer: 0
@@ -348,14 +348,14 @@ Objects:  {
 			Property: "Reflectivity", "double", "",0
 		}
 	}
-	Video: "Video::untitled", "Clip" {
+	Video: "Video::glatt", "Clip" {
 		Type: "Clip"
 		Properties60:  {
 			Property: "FrameRate", "double", "",0
 			Property: "LastFrame", "int", "",0
 			Property: "Width", "int", "",0
 			Property: "Height", "int", "",0
-			Property: "Path", "charptr", "", "."
+			Property: "Path", "charptr", "", "rutschigtextur.png"
 			Property: "StartFrame", "int", "",0
 			Property: "StopFrame", "int", "",0
 			Property: "PlaySpeed", "double", "",1
@@ -366,13 +366,13 @@ Objects:  {
 			Property: "AccessMode", "enum", "",0
 		}
 		UseMipMap: 0
-		Filename: "."
-		RelativeFilename: "plattformtextur.png"
+		Filename: "rutschigtextur.png"
+		RelativeFilename: "rutschigtextur.png"
 	}
-	Texture: "Texture::untitled", "TextureVideoClip" {
+	Texture: "Texture::glatt", "TextureVideoClip" {
 		Type: "TextureVideoClip"
 		Version: 202
-		TextureName: "Texture::untitled"
+		TextureName: "Texture::glatt"
 		Properties60:  {
 			Property: "Translation", "Vector", "A+",0,0,0
 			Property: "Rotation", "Vector", "A+",0,0,0
@@ -390,9 +390,9 @@ Objects:  {
 			Property: "TextureScalingPivot", "Vector3D", "",0,0,0
 			Property: "VideoProperty", "object", ""
 		}
-		Media: "Video::untitled"
-		FileName: "."
-		RelativeFilename: "plattformtextur.png"
+		Media: "Video::glatt"
+		FileName: "rutschigtextur.png"
+		RelativeFilename: "rutschigtextur.png"
 		ModelUVTranslation: 0,0
 		ModelUVScaling: 1,1
 		Texture_Alpha_Source: "None"
@@ -445,11 +445,11 @@ Relations:  {
 	}
 	Model: "Model::Camera Switcher", "CameraSwitcher" {
 	}
-	Material: "Material::Material_002__untitled", "" {
+	Material: "Material::Material_002__glatt", "" {
 	}
-	Texture: "Texture::untitled", "TextureVideoClip" {
+	Texture: "Texture::glatt", "TextureVideoClip" {
 	}
-	Video: "Video::untitled", "Clip" {
+	Video: "Video::glatt", "Clip" {
 	}
 }
 
@@ -458,9 +458,9 @@ Relations:  {
 
 Connections:  {
 	Connect: "OO", "Model::Cube", "Model::Scene"
-	Connect: "OO", "Material::Material_002__untitled", "Model::Cube"
-	Connect: "OO", "Texture::untitled", "Model::Cube"
-	Connect: "OO", "Video::untitled", "Texture::untitled"
+	Connect: "OO", "Material::Material_002__glatt", "Model::Cube"
+	Connect: "OO", "Texture::glatt", "Model::Cube"
+	Connect: "OO", "Video::glatt", "Texture::glatt"
 }
 ;Takes and animation section
 ;----------------------------------------------------
