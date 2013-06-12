@@ -50,8 +50,8 @@ namespace Candyland
             m_graphics = graphics;
             /****************************************************************/
 
-            player = new CandyGuy(new Vector3(0, 1, 0), Vector3.Up,graphics.Viewport.AspectRatio, m_updateInfo, m_bonusTracker);
-
+            player = new CandyGuy(new Vector3(0, 0.4f, 0), Vector3.Up,graphics.Viewport.AspectRatio, m_updateInfo, m_bonusTracker);
+            
             m_areas = AreaParser.ParseAreas(m_updateInfo, m_bonusTracker);
         }
 
@@ -72,7 +72,7 @@ namespace Candyland
                 System.Console.Out.WriteLine("nextLevel = " + m_updateInfo.levelAfterExitID);
 
 
-            m_inputManager.movePlayable(player, GamePad.GetState(0), Mouse.GetState(), Keyboard.GetState());
+            m_inputManager.update(player,player/*enter candyhelper here*/);
 
 
             player.startIntersection();
