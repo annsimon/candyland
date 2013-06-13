@@ -32,6 +32,14 @@ namespace Candyland
         public Matrix viewMatrix { get; set; }
         public Matrix projectionMatrix { get ; set; }
 
+        public bool candyselected { get; set; }
+        public void switchPlayer() { candyselected = !candyselected; }
+        public bool helperavailable { get; set; }
+        public void togglehelper() { helperavailable = !helperavailable; }
+
+        public List<Keys> currentpushedKeys { get; set; }
+
+
         public Dictionary<String, GameObject> currentObjectsToBeCollided { get; set; }
 
         /********************************************************************************
@@ -55,7 +63,11 @@ namespace Candyland
             playerIsOnLevelExit = false;
             levelAfterExitID = "";
 
+            currentpushedKeys = new List<Keys>();
             currentObjectsToBeCollided = new Dictionary<String, GameObject>();
+
+            candyselected = true;
+            helperavailable = true;
 
             /**********************************************************************/
             graphics = graphicsDevice;

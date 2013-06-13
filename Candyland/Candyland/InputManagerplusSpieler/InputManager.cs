@@ -23,12 +23,14 @@ namespace Candyland
         public const int GAMEPADBOARD = 2;
         private int inputMode = 0;
         GraphicsDeviceManager graphicDevice;
+        UpdateInfo updateinfo;
 
-        public InputManager(int initialInputmode, GraphicsDeviceManager graphicDevice) 
+        public InputManager(int initialInputmode, GraphicsDeviceManager graphicDevice,UpdateInfo info) 
         
         {
             inputMode = initialInputmode;
             this.graphicDevice = graphicDevice;
+            updateinfo = info;
         }
 
         private void movePlayable(Playable player, GamePadState padstate, MouseState mousestate, KeyboardState keystate) 
@@ -46,10 +48,15 @@ namespace Candyland
             GamePadState padstate = GamePad.GetState(0);
             MouseState mousestate = Mouse.GetState();
 
+            updateinfo.currentpushedKeys.Clear();
+            
+            
             /*add if-statements*/
 
-            movePlayable(candy, padstate, mousestate, keystate);
-
+            if(updateinfo.candyselected)
+                movePlayable(candy, padstate, mousestate, keystate);
+            else
+                movePlayable(helper, padstate, mousestate, keystate);
         }
         
         /// <summary>
@@ -76,9 +83,18 @@ namespace Candyland
             if(keystate.IsKeyDown(Keys.S))      dmoveytemp -= 0.7f;
             if(keystate.IsKeyDown(Keys.A))      dmovextemp += 0.7f;
             if(keystate.IsKeyDown(Keys.D))      dmovextemp -= 0.7f;
-            if(keystate.IsKeyDown(Keys.Space))  player.jump();
-            if (keystate.IsKeyDown(Keys.LeftAlt)
+            if (keystate.IsKeyDown(Keys.Space)) {
+                updateinfo.currentpushedKeys.Add(Keys.Space);
+                player.uniqueskill();
+            }
+            if (keystate.IsKeyDown(Keys.M)
                 && oldKeyboardState != keystate) player.switchCameraPerspective(); 
+            if(keystate.IsKeyDown(Keys.LeftAlt)
+                && oldKeyboardState != keystate) updateinfo.currentpushedKeys.Add(Keys.LeftAlt);
+            if (keystate.IsKeyDown(Keys.Q)
+                && oldKeyboardState != keystate) updateinfo.currentpushedKeys.Add(Keys.Q);
+            if (keystate.IsKeyDown(Keys.Tab)
+                && oldKeyboardState != keystate) updateinfo.switchPlayer();
 
             //Get the direction of the players camera
             float alpha = player.getCameraDir();

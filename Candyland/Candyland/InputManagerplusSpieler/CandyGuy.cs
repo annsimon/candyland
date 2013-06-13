@@ -35,7 +35,11 @@ namespace Candyland
 
         public override void hasCollidedWith(GameObject obj){ }
 
-        public override void update() { }
+        public override void update() {
+            fall();
+            if (m_updateInfo.candyselected)
+            cam.updatevMatrix();
+        }
 
         public override void initialize(){ }
 
@@ -47,9 +51,9 @@ namespace Candyland
             maxOld = m_boundingBox.Max;
         }
 
-        public override void jump()
+        public override void uniqueskill()
         {
-            if (isonground)
+             if (isonground)
             {
                 upvelocity = 0.08f;
                 isonground = false;
@@ -71,11 +75,9 @@ namespace Candyland
                 float length = (float)Math.Sqrt(dx * dx + dz * dz);
                 move(0.8f * dx / length, 0.8f * dz / length);
                 if (length < 1) istargeting = false;
-                fall();
             }
             else
             {
-                fall();
                 move(movex, movey);
                 cam.changeAngle(camx, camy);
             }
@@ -156,7 +158,7 @@ namespace Candyland
             }
         }
         private void collideWithBreakable(GameObject obj) {
-            if (obj.getBoundingBox().Intersects(m_boundingBox))
+            if (obj.getBoundingBox().Intersects(m_boundingBox) && !obj.isdestroyed)
             {
                 preventIntersection(obj);
                 obj.hasCollidedWith(this);

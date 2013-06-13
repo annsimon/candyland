@@ -35,7 +35,11 @@ namespace Candyland
 
         public override void hasCollidedWith(GameObject obj) { }
 
-        public override void update() { }
+        public override void update() {
+            fall();
+            if(!m_updateInfo.candyselected)
+            cam.updatevMatrix();
+        }
 
         public override void initialize() { }
 
@@ -80,7 +84,7 @@ namespace Candyland
             cam.changeposition(m_position);
         }
 
-        public override void jump(){ }
+        public override void uniqueskill(){ }
 
         #region collision
 
@@ -148,7 +152,7 @@ namespace Candyland
         }
         private void collideWithBreakable(GameObject obj)
         {
-            if (obj.getBoundingBox().Intersects(m_boundingBox))
+            if (obj.getBoundingBox().Intersects(m_boundingBox) && !obj.isdestroyed)
             {
                 preventIntersection(obj);
                 obj.hasCollidedWith(this);

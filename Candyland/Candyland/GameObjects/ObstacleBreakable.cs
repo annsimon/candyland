@@ -13,6 +13,7 @@ namespace Candyland
     /// </summary>
     class ObstacleBreakable : Obstacle
     {
+
         public ObstacleBreakable(String id, Vector3 pos, UpdateInfo updateInfo)
         {
             this.ID = id;
@@ -30,6 +31,14 @@ namespace Candyland
             Console.WriteLine("Min " + this.m_boundingBox.Min + " Max " + this.m_boundingBox.Max);
         }
 
+        public override void hasCollidedWith(GameObject obj)
+        {
+            if (obj.GetType() == typeof(CandyHelper)
+                && m_updateInfo.currentpushedKeys.Contains(Microsoft.Xna.Framework.Input.Keys.Space)
+                && !m_updateInfo.candyselected) {
+                    breakObstacle();
+            }
+        }
 
         public override void update()
         {
@@ -38,9 +47,10 @@ namespace Candyland
         }
 
 
-        public void breakObstacle()
+        private void breakObstacle()
         {
             // TODO start animation and get rid of Obstacle, so the Player can move forward
+            isdestroyed = true;
         }
     }
 }

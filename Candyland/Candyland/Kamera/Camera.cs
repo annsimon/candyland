@@ -83,7 +83,7 @@ namespace Candyland
         {
             topdownactive = true;
             topdownposition = centerposition + new Vector3(0, topdownoffset, 0);
-            updatevMatrix();
+            //updatevMatrix();
         }
 
         public void changeToThirdPP() { topdownactive = false; }
@@ -91,7 +91,7 @@ namespace Candyland
         public void changeposition(Vector3 pos) 
         {
             centerposition = pos;
-            updatevMatrix();
+            //updatevMatrix();
         }
 
         /// <summary>
@@ -124,11 +124,11 @@ namespace Candyland
                 if (upangle < -Math.PI * 0.35f) upangle = (float)-Math.PI * 0.35f;
                 if (upangle > Math.PI * 0.05f) upangle = (float)Math.PI * 0.05f;
             }
-            updatevMatrix();
+            //updatevMatrix();
         }
 
 
-        private void updatevMatrix() 
+        public void updatevMatrix() 
         {
 
             if (topdownactive) 
@@ -190,7 +190,6 @@ namespace Candyland
                 currentMinOffset = offsetWithObject;
 
             offset = currentMinOffset;
-            updatevMatrix();
         }
 
         public Matrix getviewMatrix() 

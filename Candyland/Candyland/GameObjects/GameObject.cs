@@ -40,6 +40,7 @@ namespace Candyland
         public bool getActive() { return this.isActive; }
         public void setActive(bool value) { this.isActive = value; }
 
+        public bool isdestroyed = false;
 
         public abstract void load(ContentManager content);
 
@@ -167,21 +168,24 @@ namespace Candyland
             Matrix translateMatrix = Matrix.CreateTranslation(m_position);
             Matrix worldMatrix = translateMatrix;
 
-            // Draw the model. A model can have multiple meshes, so loop.
-            foreach (ModelMesh mesh in m_model.Meshes)
+            if (!isdestroyed)
             {
-                foreach (BasicEffect effect in mesh.Effects)
+                // Draw the model. A model can have multiple meshes, so loop.
+                foreach (ModelMesh mesh in m_model.Meshes)
                 {
-                    effect.World =
-                        worldMatrix * transforms[mesh.ParentBone.Index];
-                    effect.View = view;
-                    effect.Projection = projection;
+                    foreach (BasicEffect effect in mesh.Effects)
+                    {
+                        effect.World =
+                            worldMatrix * transforms[mesh.ParentBone.Index];
+                        effect.View = view;
+                        effect.Projection = projection;
 
-                    effect.EnableDefaultLighting();
-                    effect.PreferPerPixelLighting = true;
+                        effect.EnableDefaultLighting();
+                        effect.PreferPerPixelLighting = true;
+                    }
+                    // Draw the mesh, using the effects set above.
+                    mesh.Draw();
                 }
-                // Draw the mesh, using the effects set above.
-                mesh.Draw();
             }
 
             /***************************************************************************************

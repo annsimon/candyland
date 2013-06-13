@@ -23,7 +23,7 @@ namespace Candyland
         protected Vector3 minOld;
         protected Vector3 maxOld;
 
-        public abstract void jump();
+        public abstract void uniqueskill();
 
         public abstract void moveTo(Vector3 goalpoint);
 
