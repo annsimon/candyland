@@ -10,8 +10,8 @@ using Microsoft.Xna.Framework.Media;
 namespace Candyland
 {
     /// <summary>
-    /// This class takes care of the game, this includes visual aspects (Area) and
-    /// the game's logic (Communications).
+    /// This class tracks the bonus items/abilities that can be collected/obtained during the game.
+    /// It is saved.
     /// </summary>
     public class BonusTracker
     {
