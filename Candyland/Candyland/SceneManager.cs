@@ -22,9 +22,11 @@ namespace Candyland
         // this object is used to keep track of 
         // the ChocoChip collection and of which extras the player activated
         BonusTracker m_bonusTracker;
+        public BonusTracker getBonusTracker() { return m_bonusTracker; }
 
         // the update info, this object is used for communication
         UpdateInfo m_updateInfo;
+        public UpdateInfo getUpdateInfo() { return m_updateInfo; }
 
         // the player
         CandyGuy player;
