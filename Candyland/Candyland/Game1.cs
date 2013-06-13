@@ -8,6 +8,11 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Storage;
+using System.IO;
+using System.Xml.Serialization;
+using Microsoft.Xna.Framework.Content.Pipeline.Serialization.Intermediate;
+using System.Xml;
 
 namespace Candyland
 {
@@ -22,10 +27,18 @@ namespace Candyland
         // the scene manager, most stuff happens in there
         SceneManager m_sceneManager;
 
+        // Used to get storage device
+        Object stateobj;
+        StorageDevice storeDevice;
+        bool saveRequested;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
+            // Used to get storage device (only needed for Xbox?)
+            this.Components.Add(new GamerServicesComponent(this));
         }
 
         /// <summary>
@@ -79,6 +92,35 @@ namespace Candyland
 
                 m_sceneManager.Update(gameTime);
             }
+
+            // Save, when F5 is pressed
+            if (Keyboard.GetState().IsKeyDown(Keys.F5))
+            {
+                if (!Guide.IsVisible)
+                {
+                    saveRequested = true;
+                    // Reset the device
+                    storeDevice = null;
+                    stateobj = (Object)"GetDevice for Player One";
+                    StorageDevice.BeginShowSelector(
+                            PlayerIndex.One, this.GetDevice, stateobj);
+                }
+            }
+
+            // Load last savegame with F6
+            if (Keyboard.GetState().IsKeyDown(Keys.F6))
+            {
+                if (!Guide.IsVisible)
+                {
+                    saveRequested = false;
+                    // Reset the device
+                    storeDevice = null;
+                    stateobj = (Object)"GetDevice for Player One";
+                    StorageDevice.BeginShowSelector(
+                            PlayerIndex.One, this.GetDevice, stateobj);
+                }
+            }
+
             base.Update(gameTime);
         }
 
@@ -94,6 +136,111 @@ namespace Candyland
             m_sceneManager.Draw2D(spriteBatch);
 
             base.Draw(gameTime);
+        }
+
+        // Get a storage device
+        void GetDevice(IAsyncResult result)
+        {
+            storeDevice = StorageDevice.EndShowSelector(result);
+            if (storeDevice != null && storeDevice.IsConnected)
+            {
+                if (saveRequested)
+                {
+                    Save(storeDevice);
+                }
+                else Load(storeDevice);
+            }
+        }
+
+        // Save to chosen device
+        protected void Save(StorageDevice device)
+        {
+            // Create the data to save.
+            SaveGameData data = new SaveGameData();
+            data.currentAreaID = m_sceneManager.getUpdateInfo().currentAreaID;
+            data.currentLevelID = m_sceneManager.getUpdateInfo().currentLevelID;
+            data.chocoChipState = m_sceneManager.getBonusTracker().chocoChipState;
+            data.chocoCount = m_sceneManager.getBonusTracker().chocoCount;
+            data.chocoTotal = m_sceneManager.getBonusTracker().chocoTotal;
+
+            // Open a storage container.
+            IAsyncResult result =
+                device.BeginOpenContainer("LastSave", null, null);
+
+            // Wait for the WaitHandle to become signaled.
+            result.AsyncWaitHandle.WaitOne();
+
+            StorageContainer container = device.EndOpenContainer(result);
+
+            // Close the wait handle.
+            result.AsyncWaitHandle.Close();
+
+            string filename = "savegame.sav";
+
+            // Check to see whether the save exists.
+            if (container.FileExists(filename))
+                // Delete it so that we can create one fresh.
+                container.DeleteFile(filename);
+
+            // Convert the object to XML data
+            XmlWriterSettings settings = new XmlWriterSettings();
+            settings.Indent = true;
+
+            using (XmlWriter writer = XmlWriter.Create(filename, settings))
+            {
+                IntermediateSerializer.Serialize(writer, data, null);
+            }
+
+            // Dispose the container, to commit changes.
+            container.Dispose();
+        }
+
+        // Load from chosen device
+        protected void Load(StorageDevice device)
+        {
+            // Open a storage container.
+            IAsyncResult result =
+                device.BeginOpenContainer("LastSave", null, null);
+
+            // Wait for the WaitHandle to become signaled.
+            result.AsyncWaitHandle.WaitOne();
+
+            StorageContainer container = device.EndOpenContainer(result);
+
+            // Close the wait handle.
+            result.AsyncWaitHandle.Close();
+
+            string filename = "savegame.sav";
+
+            // Check to see whether the save exists.
+            //if (!container.FileExists(filename))
+            //{
+            //    // If not, dispose of the container and return.
+            //    container.Dispose();
+            //    return;
+            //}
+
+            // Open the file.
+            XmlReaderSettings settings = new XmlReaderSettings();
+            SaveGameData data;
+            using (XmlReader reader =
+                XmlReader.Create(filename, settings))
+            {
+                data = IntermediateSerializer.
+                    Deserialize<SaveGameData>
+                    (reader, null);
+            }
+
+            // Use saved data to put Game into the last saved state
+            m_sceneManager.getUpdateInfo().currentAreaID = data.currentAreaID;
+            m_sceneManager.getUpdateInfo().currentLevelID = data.currentLevelID;
+            m_sceneManager.getUpdateInfo().reset = true; //everything should be reset, when game is loaded
+            m_sceneManager.getBonusTracker().chocoChipState = data.chocoChipState;
+            m_sceneManager.getBonusTracker().chocoCount = data.chocoCount;
+            m_sceneManager.getBonusTracker().chocoTotal = data.chocoTotal;
+
+            // Dispose the container.
+            container.Dispose();
         }
     }
 }
