@@ -4,7 +4,7 @@ using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.GamerServices;
+//using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
@@ -23,22 +23,16 @@ namespace Candyland
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+
+        KeyboardState oldState;
         
         // the scene manager, most stuff happens in there
         SceneManager m_sceneManager;
-
-        // Used to get storage device
-        Object stateobj;
-        StorageDevice storeDevice;
-        bool saveRequested;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-
-            // Used to get storage device (only needed for Xbox?)
-            this.Components.Add(new GamerServicesComponent(this));
         }
 
         /// <summary>
@@ -93,33 +87,23 @@ namespace Candyland
                 m_sceneManager.Update(gameTime);
             }
 
-            // Save, when F5 is pressed
-            if (Keyboard.GetState().IsKeyDown(Keys.F5))
+            KeyboardState newState = Keyboard.GetState();
+
+            // Save, when F5 was pressed and now released
+            if (oldState.IsKeyDown(Keys.F5) && newState.IsKeyUp(Keys.F5))
             {
-                if (!Guide.IsVisible)
-                {
-                    saveRequested = true;
-                    // Reset the device
-                    storeDevice = null;
-                    stateobj = (Object)"GetDevice for Player One";
-                    StorageDevice.BeginShowSelector(
-                            PlayerIndex.One, this.GetDevice, stateobj);
-                }
+                System.Diagnostics.Debug.WriteLine("Saving");
+                Save();
             }
 
-            // Load last savegame with F6
-            if (Keyboard.GetState().IsKeyDown(Keys.F6))
+            // Load last savegame, when F6 was pressed and now released
+            if (oldState.IsKeyDown(Keys.F6) && newState.IsKeyUp(Keys.F6))
             {
-                if (!Guide.IsVisible)
-                {
-                    saveRequested = false;
-                    // Reset the device
-                    storeDevice = null;
-                    stateobj = (Object)"GetDevice for Player One";
-                    StorageDevice.BeginShowSelector(
-                            PlayerIndex.One, this.GetDevice, stateobj);
-                }
+                Load();
             }
+
+            // Update saved state.
+            oldState = newState;
 
             base.Update(gameTime);
         }
@@ -138,22 +122,9 @@ namespace Candyland
             base.Draw(gameTime);
         }
 
-        // Get a storage device
-        void GetDevice(IAsyncResult result)
-        {
-            storeDevice = StorageDevice.EndShowSelector(result);
-            if (storeDevice != null && storeDevice.IsConnected)
-            {
-                if (saveRequested)
-                {
-                    Save(storeDevice);
-                }
-                else Load(storeDevice);
-            }
-        }
 
-        // Save to chosen device
-        protected void Save(StorageDevice device)
+        // Save Game
+        protected void Save()
         {
             // Create the data to save.
             SaveGameData data = new SaveGameData();
@@ -163,24 +134,7 @@ namespace Candyland
             data.chocoCount = m_sceneManager.getBonusTracker().chocoCount;
             data.chocoTotal = m_sceneManager.getBonusTracker().chocoTotal;
 
-            // Open a storage container.
-            IAsyncResult result =
-                device.BeginOpenContainer("LastSave", null, null);
-
-            // Wait for the WaitHandle to become signaled.
-            result.AsyncWaitHandle.WaitOne();
-
-            StorageContainer container = device.EndOpenContainer(result);
-
-            // Close the wait handle.
-            result.AsyncWaitHandle.Close();
-
             string filename = "savegame.sav";
-
-            // Check to see whether the save exists.
-            if (container.FileExists(filename))
-                // Delete it so that we can create one fresh.
-                container.DeleteFile(filename);
 
             // Convert the object to XML data
             XmlWriterSettings settings = new XmlWriterSettings();
@@ -190,57 +144,33 @@ namespace Candyland
             {
                 IntermediateSerializer.Serialize(writer, data, null);
             }
-
-            // Dispose the container, to commit changes.
-            container.Dispose();
         }
 
-        // Load from chosen device
-        protected void Load(StorageDevice device)
+        // Load savedGame
+        protected void Load()
         {
-            // Open a storage container.
-            IAsyncResult result =
-                device.BeginOpenContainer("LastSave", null, null);
-
-            // Wait for the WaitHandle to become signaled.
-            result.AsyncWaitHandle.WaitOne();
-
-            StorageContainer container = device.EndOpenContainer(result);
-
-            // Close the wait handle.
-            result.AsyncWaitHandle.Close();
-
             string filename = "savegame.sav";
 
-            // Check to see whether the save exists.
-            //if (!container.FileExists(filename))
-            //{
-            //    // If not, dispose of the container and return.
-            //    container.Dispose();
-            //    return;
-            //}
-
-            // Open the file.
             XmlReaderSettings settings = new XmlReaderSettings();
             SaveGameData data;
-            using (XmlReader reader =
-                XmlReader.Create(filename, settings))
-            {
-                data = IntermediateSerializer.
-                    Deserialize<SaveGameData>
-                    (reader, null);
+            XmlReader reader;
+//TODO Needs to be changed to testing if the savefile exists
+            if (true)
+                reader = XmlReader.Create(filename, settings);
+                using (reader)
+                {
+                    data = IntermediateSerializer.
+                        Deserialize<SaveGameData>
+                        (reader, null);
+                }
+
+                // Use saved data to put Game into the last saved state
+                m_sceneManager.getUpdateInfo().currentAreaID = data.currentAreaID;
+                m_sceneManager.getUpdateInfo().currentLevelID = data.currentLevelID;
+                m_sceneManager.getUpdateInfo().reset = true; //everything should be reset, when game is loaded
+                m_sceneManager.getBonusTracker().chocoChipState = data.chocoChipState;
+                m_sceneManager.getBonusTracker().chocoCount = data.chocoCount;
+                m_sceneManager.getBonusTracker().chocoTotal = data.chocoTotal;
             }
-
-            // Use saved data to put Game into the last saved state
-            m_sceneManager.getUpdateInfo().currentAreaID = data.currentAreaID;
-            m_sceneManager.getUpdateInfo().currentLevelID = data.currentLevelID;
-            m_sceneManager.getUpdateInfo().reset = true; //everything should be reset, when game is loaded
-            m_sceneManager.getBonusTracker().chocoChipState = data.chocoChipState;
-            m_sceneManager.getBonusTracker().chocoCount = data.chocoCount;
-            m_sceneManager.getBonusTracker().chocoTotal = data.chocoTotal;
-
-            // Dispose the container.
-            container.Dispose();
-        }
     }
 }
