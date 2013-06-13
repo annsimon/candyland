@@ -11,6 +11,8 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Storage;
 using System.IO;
 using System.Xml.Serialization;
+using Microsoft.Xna.Framework.Content.Pipeline.Serialization.Intermediate;
+using System.Xml;
 
 namespace Candyland
 {
@@ -28,6 +30,7 @@ namespace Candyland
         // Used to get storage device
         Object stateobj;
         StorageDevice storeDevice;
+        bool saveRequested;
 
         public Game1()
         {
@@ -95,6 +98,7 @@ namespace Candyland
             {
                 if (!Guide.IsVisible)
                 {
+                    saveRequested = true;
                     // Reset the device
                     storeDevice = null;
                     stateobj = (Object)"GetDevice for Player One";
@@ -106,9 +110,14 @@ namespace Candyland
             // Load last savegame with F6
             if (Keyboard.GetState().IsKeyDown(Keys.F6))
             {
-                if (storeDevice != null)
+                if (!Guide.IsVisible)
                 {
-                    Load(storeDevice);
+                    saveRequested = false;
+                    // Reset the device
+                    storeDevice = null;
+                    stateobj = (Object)"GetDevice for Player One";
+                    StorageDevice.BeginShowSelector(
+                            PlayerIndex.One, this.GetDevice, stateobj);
                 }
             }
 
@@ -135,7 +144,11 @@ namespace Candyland
             storeDevice = StorageDevice.EndShowSelector(result);
             if (storeDevice != null && storeDevice.IsConnected)
             {
-                Save(storeDevice);
+                if (saveRequested)
+                {
+                    Save(storeDevice);
+                }
+                else Load(storeDevice);
             }
         }
 
@@ -146,11 +159,13 @@ namespace Candyland
             SaveGameData data = new SaveGameData();
             data.currentAreaID = m_sceneManager.getUpdateInfo().currentAreaID;
             data.currentLevelID = m_sceneManager.getUpdateInfo().currentLevelID;
-           // data.chocoChipState = m_sceneManager.getBonusTracker().chocoChipState;
+            data.chocoChipState = m_sceneManager.getBonusTracker().chocoChipState;
+            data.chocoCount = m_sceneManager.getBonusTracker().chocoCount;
+            data.chocoTotal = m_sceneManager.getBonusTracker().chocoTotal;
 
             // Open a storage container.
             IAsyncResult result =
-                device.BeginOpenContainer("StorageDemo", null, null);
+                device.BeginOpenContainer("LastSave", null, null);
 
             // Wait for the WaitHandle to become signaled.
             result.AsyncWaitHandle.WaitOne();
@@ -167,16 +182,14 @@ namespace Candyland
                 // Delete it so that we can create one fresh.
                 container.DeleteFile(filename);
 
-            // Create the file.
-            Stream stream = container.CreateFile(filename);
+            // Convert the object to XML data
+            XmlWriterSettings settings = new XmlWriterSettings();
+            settings.Indent = true;
 
-            // Convert the object to XML data and put it in the stream.
-            XmlSerializer serializer = new XmlSerializer(typeof(SaveGameData));
-
-            serializer.Serialize(stream, data);
-
-            // Close the file.
-            stream.Close();
+            using (XmlWriter writer = XmlWriter.Create(filename, settings))
+            {
+                IntermediateSerializer.Serialize(writer, data, null);
+            }
 
             // Dispose the container, to commit changes.
             container.Dispose();
@@ -187,7 +200,7 @@ namespace Candyland
         {
             // Open a storage container.
             IAsyncResult result =
-                device.BeginOpenContainer("StorageDemo", null, null);
+                device.BeginOpenContainer("LastSave", null, null);
 
             // Wait for the WaitHandle to become signaled.
             result.AsyncWaitHandle.WaitOne();
@@ -200,27 +213,31 @@ namespace Candyland
             string filename = "savegame.sav";
 
             // Check to see whether the save exists.
-            if (!container.FileExists(filename))
-            {
-                // If not, dispose of the container and return.
-                container.Dispose();
-                return;
-            }
+            //if (!container.FileExists(filename))
+            //{
+            //    // If not, dispose of the container and return.
+            //    container.Dispose();
+            //    return;
+            //}
 
             // Open the file.
-            Stream stream = container.OpenFile(filename, FileMode.Open);
-
-            XmlSerializer serializer = new XmlSerializer(typeof(SaveGameData));
-
-            SaveGameData data = (SaveGameData)serializer.Deserialize(stream);
+            XmlReaderSettings settings = new XmlReaderSettings();
+            SaveGameData data;
+            using (XmlReader reader =
+                XmlReader.Create(filename, settings))
+            {
+                data = IntermediateSerializer.
+                    Deserialize<SaveGameData>
+                    (reader, null);
+            }
 
             // Use saved data to put Game into the last saved state
             m_sceneManager.getUpdateInfo().currentAreaID = data.currentAreaID;
             m_sceneManager.getUpdateInfo().currentLevelID = data.currentLevelID;
             m_sceneManager.getUpdateInfo().reset = true; //everything should be reset, when game is loaded
-
-            // Close the file.
-            stream.Close();
+            m_sceneManager.getBonusTracker().chocoChipState = data.chocoChipState;
+            m_sceneManager.getBonusTracker().chocoCount = data.chocoCount;
+            m_sceneManager.getBonusTracker().chocoTotal = data.chocoTotal;
 
             // Dispose the container.
             container.Dispose();

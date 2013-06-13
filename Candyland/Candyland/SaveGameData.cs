@@ -9,6 +9,8 @@ namespace Candyland
     {
         public string currentAreaID;
         public string currentLevelID;
-       // public Dictionary<string, bool> chocoChipState;
+        public Dictionary<string, bool> chocoChipState;
+        public int chocoCount;
+        public int chocoTotal;
     }
 }
