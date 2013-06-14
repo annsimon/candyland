@@ -46,7 +46,7 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
-            effect = content.Load<Effect>("Toon");
+            effect = content.Load<Effect>("ToonCandyGuy");
             texture = content.Load<Texture2D>("spielertextur");
             m_model = content.Load<Model>("spielerneu");
             calculateBoundingBox();
@@ -223,6 +223,7 @@ namespace Candyland
                     {
                         part.Effect = effect;
                         effect.Parameters["World"].SetValue(rotation*worldMatrix * mesh.ParentBone.Transform);
+                        effect.Parameters["DiffuseLightDirection"].SetValue(new Vector3(rotation.M13, rotation.M23, rotation.M33));
                         effect.Parameters["View"].SetValue(view);
                         effect.Parameters["Projection"].SetValue(projection);
                         effect.Parameters["WorldInverseTranspose"].SetValue(
