@@ -6,6 +6,8 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using System.Xml;
+using Microsoft.Xna.Framework.Content.Pipeline.Serialization.Intermediate;
 
 namespace Candyland
 {
@@ -152,10 +154,60 @@ namespace Candyland
             m_graphics.BlendState = BlendState.Opaque;
         }
 
+
+        // Save Game
+        public void Save()
+        {
+            // Create the data to save.
+            SaveGameData data = new SaveGameData();
+            data.currentAreaID = m_updateInfo.currentAreaID;
+            data.currentLevelID = m_updateInfo.currentLevelID;
+            data.chocoChipState = m_bonusTracker.chocoChipState;
+            data.chocoCount = m_bonusTracker.chocoCount;
+            data.chocoTotal = m_bonusTracker.chocoTotal;
+
+            string filename = "savegame.sav";
+
+            // Convert the object to XML data
+            XmlWriterSettings settings = new XmlWriterSettings();
+            settings.Indent = true;
+
+            using (XmlWriter writer = XmlWriter.Create(filename, settings))
+            {
+                IntermediateSerializer.Serialize(writer, data, null);
+            }
+        }
+
+        // Load savedGame
         public void Load()
         {
+            string filename = "savegame.sav";
+
+            XmlReaderSettings settings = new XmlReaderSettings();
+            SaveGameData data;
+            XmlReader reader;
+            //TODO Needs to be changed to testing if the savefile exists
+            if (true)
+                reader = XmlReader.Create(filename, settings);
+            using (reader)
+            {
+                data = IntermediateSerializer.
+                    Deserialize<SaveGameData>
+                    (reader, null);
+            }
+
+            // Use saved data to put Game into the last saved state
+            m_updateInfo.currentAreaID = data.currentAreaID;
+            m_updateInfo.currentLevelID = data.currentLevelID;
+            m_updateInfo.reset = true; //everything should be reset, when game is loaded
+            m_bonusTracker.chocoChipState = data.chocoChipState;
+            m_bonusTracker.chocoCount = data.chocoCount;
+            m_bonusTracker.chocoTotal = data.chocoTotal;
+
+            // Update ChocoChips to savegame
             foreach (var area in m_areas)
                 area.Value.Load();
         }
+
     }
 }
