@@ -16,11 +16,12 @@ namespace Candyland
         protected String ID;
         public String getID() { return this.ID; }
 
+
         protected Vector3 m_position;
         protected Vector3 m_original_position;
         public Vector3 getPosition() { return this.m_position; }
         public void setPosition(float x, float y, float z) { this.m_position = new Vector3(x,y,z); }
-        public void setPosition(Vector3 newVector) 
+        public void setPosition(Vector3 newVector)
         { 
             this.m_position = newVector;
             calculateBoundingBox();
@@ -37,6 +38,14 @@ namespace Candyland
         protected Model m_original_model;
         public Model getModel() { return this.m_model; }
 
+        protected Texture2D m_texture;
+        protected Texture2D m_original_texture;
+        public Texture2D getTexture2D() { return this.m_texture; }
+
+        protected Effect effect;
+        public Effect getEffect() { return this.effect; }
+
+
         protected BoundingBox m_boundingBox;
         public BoundingBox getBoundingBox() { return this.m_boundingBox; }
         public void setBoundingBox(BoundingBox box) { this.m_boundingBox = box; }
@@ -49,8 +58,6 @@ namespace Candyland
         public bool getActive() { return this.isActive; }
         public void setActive(bool value) { this.isActive = value; }
 
-        public bool isdestroyed = false;
-
         public abstract void load(ContentManager content);
 
         public abstract void collide(GameObject obj);
@@ -58,6 +65,7 @@ namespace Candyland
         public abstract void hasCollidedWith(GameObject obj);
         public abstract void isNotCollidingWith(GameObject obj);
 
+        public bool isdestroyed = false;
         //TODO test if, this works
         /// <summary>
         /// Calculates the Bounding Box for a Model by looping over all vertices and finding the min and max coordinates
@@ -189,24 +197,21 @@ namespace Candyland
             Matrix translateMatrix = Matrix.CreateTranslation(m_position);
             Matrix worldMatrix = translateMatrix;
 
-            if (!isdestroyed)
+            // Draw the model. A model can have multiple meshes, so loop.
+            foreach (ModelMesh mesh in m_model.Meshes)
             {
-                // Draw the model. A model can have multiple meshes, so loop.
-                foreach (ModelMesh mesh in m_model.Meshes)
+                foreach (ModelMeshPart part in mesh.MeshParts)
                 {
-                    foreach (BasicEffect effect in mesh.Effects)
-                    {
-                        effect.World =
-                            worldMatrix * transforms[mesh.ParentBone.Index];
-                        effect.View = view;
-                        effect.Projection = projection;
-
-                        effect.EnableDefaultLighting();
-                        effect.PreferPerPixelLighting = true;
-                    }
-                    // Draw the mesh, using the effects set above.
-                    mesh.Draw();
+                    part.Effect = effect;
+                    effect.Parameters["World"].SetValue(worldMatrix * mesh.ParentBone.Transform);
+                    effect.Parameters["View"].SetValue(view);
+                    effect.Parameters["Projection"].SetValue(projection);
+                    effect.Parameters["WorldInverseTranspose"].SetValue(
+                    Matrix.Transpose(Matrix.Invert(worldMatrix * mesh.ParentBone.Transform)));
+                    effect.Parameters["Texture"].SetValue(m_texture);
                 }
+                // Draw the mesh, using the effects set above.
+                mesh.Draw();
             }
 
             /***************************************************************************************

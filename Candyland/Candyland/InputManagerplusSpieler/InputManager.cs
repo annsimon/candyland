@@ -83,7 +83,8 @@ namespace Candyland
             if(keystate.IsKeyDown(Keys.S))      dmoveytemp -= 0.7f;
             if(keystate.IsKeyDown(Keys.A))      dmovextemp += 0.7f;
             if(keystate.IsKeyDown(Keys.D))      dmovextemp -= 0.7f;
-            if (keystate.IsKeyDown(Keys.Space)) {
+            if (keystate.IsKeyDown(Keys.Space)
+                && keystate.IsKeyDown(Keys.Space) != oldKeyboardState.IsKeyDown(Keys.Space)){
                 updateinfo.currentpushedKeys.Add(Keys.Space);
                 player.uniqueskill();
             }
