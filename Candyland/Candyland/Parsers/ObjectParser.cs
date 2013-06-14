@@ -56,7 +56,11 @@ namespace Candyland
                     Platform obj = new Platform(node.InnerText, pos, slip, door_to_area[count].InnerText, door_to_level[count].InnerText, info);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
-
+                if (object_type == "breakable")
+                {
+                    ObstacleBreakable obj = new ObstacleBreakable(node.InnerText, pos, info);
+                    dynamicObjects.Add(node.InnerText, obj);
+                }
                 if (object_type == "movableObstacle")
                 {
                     ObstacleMoveable obj = new ObstacleMoveable(node.InnerText, pos, info);

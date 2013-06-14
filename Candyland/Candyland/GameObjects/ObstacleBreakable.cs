@@ -14,6 +14,7 @@ namespace Candyland
     class ObstacleBreakable : Obstacle
     {
 
+
         public ObstacleBreakable(String id, Vector3 pos, UpdateInfo updateInfo)
         {
             this.ID = id;
@@ -25,7 +26,11 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
-            this.m_model = content.Load<Model>("chocolatebreakable");
+            this.m_texture = content.Load<Texture2D>("plattformtextur");
+            this.m_original_texture = this.m_texture;
+            this.effect = content.Load<Effect>("Toon");
+            this.m_model = content.Load<Model>("plattform");
+            this.m_original_model = this.m_model;
 
             this.calculateBoundingBox();
             Console.WriteLine("Min " + this.m_boundingBox.Min + " Max " + this.m_boundingBox.Max);
@@ -51,6 +56,13 @@ namespace Candyland
         {
             // TODO start animation and get rid of Obstacle, so the Player can move forward
             isdestroyed = true;
+        }
+        public override void draw()
+        {
+            if (!isdestroyed)
+            {
+                base.draw();
+            }
         }
     }
 }

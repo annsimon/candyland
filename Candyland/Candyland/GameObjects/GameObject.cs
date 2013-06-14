@@ -196,24 +196,24 @@ namespace Candyland
 
             Matrix translateMatrix = Matrix.CreateTranslation(m_position);
             Matrix worldMatrix = translateMatrix;
-
-            // Draw the model. A model can have multiple meshes, so loop.
-            foreach (ModelMesh mesh in m_model.Meshes)
-            {
-                foreach (ModelMeshPart part in mesh.MeshParts)
+            
+                // Draw the model. A model can have multiple meshes, so loop.
+                foreach (ModelMesh mesh in m_model.Meshes)
                 {
-                    part.Effect = effect;
-                    effect.Parameters["World"].SetValue(worldMatrix * mesh.ParentBone.Transform);
-                    effect.Parameters["View"].SetValue(view);
-                    effect.Parameters["Projection"].SetValue(projection);
-                    effect.Parameters["WorldInverseTranspose"].SetValue(
-                    Matrix.Transpose(Matrix.Invert(worldMatrix * mesh.ParentBone.Transform)));
-                    effect.Parameters["Texture"].SetValue(m_texture);
+                    foreach (ModelMeshPart part in mesh.MeshParts)
+                    {
+                        part.Effect = effect;
+                        effect.Parameters["World"].SetValue(worldMatrix * mesh.ParentBone.Transform);
+                        effect.Parameters["View"].SetValue(view);
+                        effect.Parameters["Projection"].SetValue(projection);
+                        effect.Parameters["WorldInverseTranspose"].SetValue(
+                        Matrix.Transpose(Matrix.Invert(worldMatrix * mesh.ParentBone.Transform)));
+                        effect.Parameters["Texture"].SetValue(m_texture);
+                    }
+                    // Draw the mesh, using the effects set above.
+                    mesh.Draw();
                 }
-                // Draw the mesh, using the effects set above.
-                mesh.Draw();
-            }
-
+            
             /***************************************************************************************
              * For Debugging Purposes */
        

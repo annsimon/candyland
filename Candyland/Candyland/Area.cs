@@ -77,5 +77,11 @@ namespace Candyland
             foreach (var lvl in m_levels)
                 lvl.Value.Reset();
         }
+
+        public void Load()
+        {
+            foreach (var lvl in m_levels)
+                lvl.Value.Load();
+        }
     }
 }
