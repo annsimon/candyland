@@ -1501,7 +1501,7 @@
                     <is_door_to_level>x</is_door_to_level>
                     <object_position>
                       <x>4</x>
-                      <y>1</y>
+                      <y>1,5</y>
                       <z>-4</z>
                     </object_position>
                     <slippery>False</slippery>

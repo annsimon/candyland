@@ -12,16 +12,11 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Candyland
 {
-    abstract class Playable : GameObject
+    abstract class Playable : DynamicGameObjects
     {
         protected Camera cam;                   //Kamera
         protected BonusTracker m_bonusTracker;
-        protected float gravity;                //beschleinigungsfaktor in y richtung  
-        protected float upvelocity;             //beschleinigungsfaktor un y richtung
         protected bool isthirdpersoncam = true;
-        protected bool isonground = false;
-        protected Vector3 minOld;
-        protected Vector3 maxOld;
 
         public abstract void uniqueskill();
 

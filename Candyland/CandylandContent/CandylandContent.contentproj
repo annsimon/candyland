@@ -78,6 +78,11 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
     </Compile>
+    <Compile Include="ToonObjects.fx">
+      <Name>ToonObjects</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+    </Compile>
     <None Include="SceneTest.xml">
       <Name>SceneTest</Name>
       <Importer>XmlImporter</Importer>
@@ -91,8 +96,8 @@
       <Processor>ModelProcessor</Processor>
       <ProcessorParameters_Scale>0.15</ProcessorParameters_Scale>
     </Compile>
-    <Compile Include="Toon.fx">
-      <Name>Toon</Name>
+    <Compile Include="ToonCandyGuy.fx">
+      <Name>ToonCandyGuy</Name>
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
     </Compile>

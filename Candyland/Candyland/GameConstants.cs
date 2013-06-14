@@ -13,6 +13,11 @@ namespace Candyland
         public const float endOfWorld_Y = -4.0f;
 
         /// <summary>
+        /// Gravity of all dynamic Objects
+        /// </summary>
+        public const float gravity = -0.004f;
+
+        /// <summary>
         /// bounding box rendering on/off
         /// </summary>
         public const bool boundingBoxRendering = false;

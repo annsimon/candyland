@@ -51,7 +51,7 @@ namespace ToonShader
 
             texture = Content.Load<Texture2D>("plattformtextur");
             model = Content.Load<Model>("plattform");
-            effect = Content.Load<Effect>("Toon");
+            effect = Content.Load<Effect>("Shader2");
         }
 
         protected override void UnloadContent()
@@ -110,7 +110,7 @@ namespace ToonShader
                     effect.Parameters["Projection"].SetValue(projection);
                     effect.Parameters["WorldInverseTranspose"].SetValue(
                     Matrix.Transpose(Matrix.Invert(world * mesh.ParentBone.Transform)));
-                    effect.Parameters["Texture"].SetValue(texture);
+                    //effect.Parameters["Texture"].SetValue(texture);
                 }
                 mesh.Draw();
             }
