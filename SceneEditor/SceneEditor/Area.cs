@@ -104,8 +104,14 @@ namespace SceneEditor
         private void acceptButton_Click(object sender, EventArgs e)
         {
             id = textBoxID.Text;
-            idNext = textBoxNextID.Text;
-            idPrev = textBoxPrevID.Text;
+            if (textBoxNextID.Text == "")
+                idNext = "x";
+            else
+                idNext = textBoxNextID.Text;
+            if (textBoxPrevID.Text == "")
+                idPrev = "x";
+            else
+                idPrev = textBoxPrevID.Text;
             posX = textBoxPosX.Text;
             posY = textBoxPosY.Text;
             posZ = textBoxPosZ.Text;
@@ -167,6 +173,41 @@ namespace SceneEditor
         public override string ToString()
         {
             return id;
+        }
+
+        public string[] Write()
+        {
+            string[] retArr = new string[ levels.Count() + 2];
+            int count = 0;
+
+            string ret = "";
+            ret += "  <!--- AREA " + id + " -->\n";
+            ret += "  <area>\n";
+            ret += "    <area_id>" + id + "</area_id>\n";
+            ret += "    <area_prev>" + idPrev + "</area_prev>\n";
+            ret += "    <area_next>" + idNext + "</area_next>\n";
+            ret += "    <area_starting_position>\n";
+            ret += "      <x>" + posX + "</x>\n";
+            ret += "      <y>" + posY + "</y>\n";
+            ret += "      <z>" + posZ + "</z>\n";
+            ret += "    </area_starting_position>\n";
+            ret += "    <levels>\n";
+            ret += "      <the_levels>\n";
+            retArr[count] = ret;
+
+
+            foreach (Level lvl in levels)
+            {
+                count++;
+                retArr[count] = lvl.Write();
+            }
+
+            string ret2 = "      </the_levels>\n";
+            ret2 += "    </levels>\n";
+            ret2 += "  </area>\n";
+            retArr[count+1] = ret2;
+
+            return retArr;
         }
     }
 }

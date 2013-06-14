@@ -29,6 +29,11 @@ namespace Candyland
         public bool playerIsOnLevelExit { get; set; }
         public string levelAfterExitID { get; set; }
 
+        // if this is true we are currently processing a reset
+        // which moves the player to the level start position
+        // and resets the dynamic elements in the level
+        public bool reset { get; set; }
+
         public Matrix viewMatrix { get; set; }
         public Matrix projectionMatrix { get ; set; }
 
@@ -63,7 +68,9 @@ namespace Candyland
             playerIsOnLevelExit = false;
             levelAfterExitID = "";
 
+            reset = false;
             currentpushedKeys = new List<Keys>();
+
             currentObjectsToBeCollided = new Dictionary<String, GameObject>();
 
             candyselected = true;

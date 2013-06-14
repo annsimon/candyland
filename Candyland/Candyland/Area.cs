@@ -66,5 +66,16 @@ namespace Candyland
             if (m_levels.ContainsKey(m_updateInfo.levelAfterExitID))
                 m_levels[m_updateInfo.levelAfterExitID].Collide(obj);
         }
+
+        public Vector3 GetStartingPosition()
+        {
+            return m_levels[m_updateInfo.currentLevelID].start;
+        }
+
+        public void Reset()
+        {
+            foreach (var lvl in m_levels)
+                lvl.Value.Reset();
+        }
     }
 }

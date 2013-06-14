@@ -17,16 +17,24 @@ namespace Candyland
         public String getID() { return this.ID; }
 
         protected Vector3 m_position;
+        protected Vector3 m_original_position;
         public Vector3 getPosition() { return this.m_position; }
         public void setPosition(float x, float y, float z) { this.m_position = new Vector3(x,y,z); }
-        public void setPosition(Vector3 newVector) { this.m_position = newVector; }
+        public void setPosition(Vector3 newVector) 
+        { 
+            this.m_position = newVector;
+            calculateBoundingBox();
+        }
 
         protected Vector3 direction;        //Laufrichtung in x-z Ebene
+        protected Vector3 original_direction;        //Laufrichtung in x-z Ebene
         public Vector3 getDirection() { return direction; }
         protected float currentspeed;       //Momentane geschwindigkeit
+        protected float original_currentspeed;       //Momentane geschwindigkeit
         public float getCurrentSpeed() { return currentspeed; }
 
         protected Model m_model;
+        protected Model m_original_model;
         public Model getModel() { return this.m_model; }
 
         protected BoundingBox m_boundingBox;
@@ -37,6 +45,7 @@ namespace Candyland
 
         // True at times when the Object is taking an active role in the Game (like a selected Player or moving Objects)
         protected bool isActive;
+        protected bool original_isActive;
         public bool getActive() { return this.isActive; }
         public void setActive(bool value) { this.isActive = value; }
 
@@ -151,6 +160,18 @@ namespace Candyland
             // Create the Bounding Box with calculated minVertex and maxVertex
             this.m_boundingBox = new BoundingBox(this.m_position + minVertex, this.m_position + maxVertex);
         }
+
+
+        public virtual void Reset()
+        {
+            m_position = m_original_position;
+            calculateBoundingBox();
+            isActive = original_isActive;
+            m_model = m_original_model;
+            direction = original_direction;
+            currentspeed = original_currentspeed;
+        }
+
 
         /// <summary>
         /// Draws the Game Object, using the View and Projection Matrix of the Camera Class

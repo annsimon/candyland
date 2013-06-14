@@ -179,7 +179,7 @@ namespace SceneEditor
 
         public override string ToString()
         {
-            return id;
+            return "ID: " + id + "; X: " + posX + ", Y: " + posY + ", Z: " + posZ;
         }
 
         List<Object> ParseDetails(string xml)
@@ -193,7 +193,7 @@ namespace SceneEditor
             XmlNodeList type = scene.GetElementsByTagName("object_type");
             XmlNodeList position = scene.GetElementsByTagName("object_position");
             XmlNodeList door_to_area = scene.GetElementsByTagName("is_door_to_area");
-            XmlNodeList door_to_level = scene.GetElementsByTagName("is_door_to_lvl");
+            XmlNodeList door_to_level = scene.GetElementsByTagName("is_door_to_level");
             XmlNodeList slippery = scene.GetElementsByTagName("slippery");
 
             int count = 0;
@@ -231,6 +231,40 @@ namespace SceneEditor
             }
 
             return returnList;
+        }
+
+        public string Write()
+        {
+            string ret = "";
+            ret += "        <!--- LEVEL "+id+" -->\n";
+            ret += "        <level>\n";
+            ret += "          <level_id>" + id + "</level_id>\n";
+            ret += "          <level_starting_position>\n";
+            ret += "            <x>" + posX + "</x>\n";
+            ret += "            <y>" + posY + "</y>\n";
+            ret += "            <z>" + posZ + "</z>\n";
+            ret += "          </level_starting_position>\n";
+            ret += "          <objects>\n";
+            ret += "            <the_objects>\n";
+            ret += "            <!--- OBJECTS OF LEVEL "+id+" -->\n";
+            ret += "            <!--- STATIC-->\n";
+            ret += "              <static_objects>\n";
+            ret += "                <statics>\n";
+            foreach (Object obj in staticObjects)
+                ret += obj.Write();
+            ret += "                </statics>\n";
+            ret += "              </static_objects>\n";
+            ret += "            <!--- DYNAMIC-->\n";
+            ret += "              <dynamic_objects>\n";
+            ret += "                <dynamics>\n";
+            foreach (Object obj in dynamicObjects)
+                ret += obj.Write();
+            ret += "                </dynamics>\n";
+            ret += "              </dynamic_objects>\n";
+            ret += "            </the_objects>\n";
+            ret += "          </objects>\n";
+            ret += "        </level>\n";
+            return ret;
         }
     }
 }

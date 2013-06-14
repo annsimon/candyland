@@ -19,7 +19,10 @@ namespace Candyland
         {
             this.ID = id;
             this.m_position = pos;
+            this.m_position.Y += 0.2f;
+            this.m_original_position = pos;
             this.isActive = false;
+            this.original_isActive = false;
             this.m_updateInfo = updateInfo;
             this.isOnSlipperyGround = false;
         }
@@ -28,6 +31,7 @@ namespace Candyland
         public override void load(ContentManager content)
         {
             this.m_model = content.Load<Model>("wunderkugelmovable");
+            this.m_original_model = this.m_model;
 
             this.calculateBoundingBox();
         }

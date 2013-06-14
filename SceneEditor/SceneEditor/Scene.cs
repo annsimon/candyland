@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Windows.Forms;
 
 namespace SceneEditor
@@ -67,54 +68,78 @@ namespace SceneEditor
 
         private void Parse()
         {
-            XmlDocument scene = new XmlDocument();
-            scene.Load("SceneTest.xml");
-
-            XmlNodeList id = scene.GetElementsByTagName("area_id");
-            XmlNodeList prev = scene.GetElementsByTagName("area_prev");
-            XmlNodeList next = scene.GetElementsByTagName("area_next");
-            XmlNodeList start = scene.GetElementsByTagName("area_starting_position");
-            XmlNodeList areaContent = scene.GetElementsByTagName("levels");
-
-            int count = 0;
-
-            foreach (XmlNode node in id)
+            try
             {
-                Area area = new Area();
+                XmlDocument scene = new XmlDocument();
+                scene.Load("SceneTest.xml");
 
-                // set id
-                area.id = node.InnerText;
+                XmlNodeList id = scene.GetElementsByTagName("area_id");
+                XmlNodeList prev = scene.GetElementsByTagName("area_prev");
+                XmlNodeList next = scene.GetElementsByTagName("area_next");
+                XmlNodeList start = scene.GetElementsByTagName("area_starting_position");
+                XmlNodeList areaContent = scene.GetElementsByTagName("levels");
 
-                // get x, y, z position
-                area.posX = start[count].SelectSingleNode("x").InnerText;
-                area.posY = start[count].SelectSingleNode("y").InnerText;
-                area.posZ = start[count].SelectSingleNode("z").InnerText;
+                int count = 0;
 
-                // set previous
-                string prevID = prev[count].InnerText;
-                area.idPrev = prevID;
+                foreach (XmlNode node in id)
+                {
+                    Area area = new Area();
 
-                // set next
-                string nextID = next[count].InnerText;
-                area.idNext = nextID;
+                    // set id
+                    area.id = node.InnerText;
 
-                // let area parse its levels
-                area.Parse(areaContent[count].InnerXml);
+                    // get x, y, z position
+                    area.posX = start[count].SelectSingleNode("x").InnerText;
+                    area.posY = start[count].SelectSingleNode("y").InnerText;
+                    area.posZ = start[count].SelectSingleNode("z").InnerText;
 
-                // add completed area to area list
-                m_areas.Add(area);
-                listBox1.Items.Add(area);
+                    // set previous
+                    string prevID = prev[count].InnerText;
+                    area.idPrev = prevID;
 
-                // increase count as it is used to access the not-id xml elements of the correct area
-                // (the one currently being parsed)
-                count++;
+                    // set next
+                    string nextID = next[count].InnerText;
+                    area.idNext = nextID;
+
+                    // let area parse its levels
+                    area.Parse(areaContent[count].InnerXml);
+
+                    // add completed area to area list
+                    m_areas.Add(area);
+                    listBox1.Items.Add(area);
+
+                    // increase count as it is used to access the not-id xml elements of the correct area
+                    // (the one currently being parsed)
+                    count++;
+                }
             }
+            catch
+            {
 
+            }
         }
 
         private void generateButton_Click(object sender, EventArgs e)
         {
+            using (StreamWriter outfile = new StreamWriter("SceneTest.xml"))
+            {
+                string xml = "<?xml version=\"1.0\"?>\n";
+                xml += "<areas>";
+                outfile.Write(xml);
 
+                foreach (Area area in m_areas)
+                {
+                    string[] strArr = area.Write();
+                    int count = 0;
+                    while (count < strArr.Length)
+                    {
+                        outfile.Write(strArr[count]);
+                        count++;
+                    }
+                }
+
+                outfile.Write("</areas>");
+            }
         }
     }
 }

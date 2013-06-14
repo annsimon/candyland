@@ -22,9 +22,11 @@ namespace Candyland
         // this object is used to keep track of 
         // the ChocoChip collection and of which extras the player activated
         BonusTracker m_bonusTracker;
+        public BonusTracker getBonusTracker() { return m_bonusTracker; }
 
         // the update info, this object is used for communication
         UpdateInfo m_updateInfo;
+        public UpdateInfo getUpdateInfo() { return m_updateInfo; }
 
         // the player
         CandyGuy player;
@@ -53,7 +55,7 @@ namespace Candyland
             /****************************************************************/
 
             player = new CandyGuy(new Vector3(0, 0.4f, 0), Vector3.Up,graphics.Viewport.AspectRatio, m_updateInfo, m_bonusTracker);
-            player2 = new CandyHelper(new Vector3(0, 0.4f, 0.8f), Vector3.Up, graphics.Viewport.AspectRatio, m_updateInfo,m_bonusTracker);
+            player2 = new CandyHelper(new Vector3(0, 0.4f, 0.2f), Vector3.Up, graphics.Viewport.AspectRatio, m_updateInfo,m_bonusTracker);
             
             m_areas = AreaParser.ParseAreas(m_updateInfo, m_bonusTracker);
         }
@@ -71,10 +73,25 @@ namespace Candyland
 
         public void Update(GameTime gameTime)
         {
+            /*
             System.Console.Out.WriteLine("currLevel = " + m_updateInfo.currentLevelID);
             if( m_updateInfo.playerIsOnLevelExit)
                 System.Console.Out.WriteLine("nextLevel = " + m_updateInfo.levelAfterExitID);
+            */
 
+            if (m_updateInfo.reset)
+            {
+                // reset player to start position of current level
+                Vector3 resetPos = m_areas[m_updateInfo.currentAreaID].GetStartingPosition();
+                resetPos.Y += 0.6f;
+                player.setPosition(resetPos);
+
+                // reset world
+                foreach (var area in m_areas)
+                    area.Value.Reset();
+
+                m_updateInfo.reset = false;
+            }
 
             m_inputManager.update(player,player2);
             player.update();

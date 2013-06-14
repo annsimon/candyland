@@ -21,7 +21,9 @@ namespace Candyland
         {
             this.ID = id;
             this.m_position = pos;
+            this.m_original_position = pos;
             this.isActive = false;
+            this.original_isActive = false;
             this.m_updateInfo = updateInfo;
         }
 
@@ -42,6 +44,7 @@ namespace Candyland
         public override void load(ContentManager content)
         {
             this.m_model = content.Load<Model>("chocolateUnmovable");
+            this.m_original_model = this.m_model;
 
             this.calculateBoundingBox();
             Console.WriteLine("Min " + this.m_boundingBox.Min + " Max " + this.m_boundingBox.Max);

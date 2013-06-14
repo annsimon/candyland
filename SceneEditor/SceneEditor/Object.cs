@@ -27,14 +27,15 @@ namespace SceneEditor
 
         public void InitializeNewObject()
         {
-            textBoxType.Text = "";
-            textBoxID.Text = "";
-            textBoxPosX.Text = "";
-            textBoxPosY.Text = "";
-            textBoxPosZ.Text = "";
-            textBoxDoorArea.Text = "";
-            textBoxDoorLevel.Text = "";
-            checkBoxSlippery.Checked = false;
+            // keep the old data for convenience, don't change anything
+            //textBoxType.Text = "platform";
+            //textBoxID.Text = "";
+            //textBoxPosX.Text = "";
+            //textBoxPosY.Text = "";
+            //textBoxPosZ.Text = "";
+            //textBoxDoorArea.Text = "";
+            //textBoxDoorLevel.Text = "";
+            //checkBoxSlippery.Checked = false;
         }
 
         public void InitializeWithObject( Object obj )
@@ -56,8 +57,14 @@ namespace SceneEditor
             posX = textBoxPosX.Text;
             posY = textBoxPosY.Text;
             posZ = textBoxPosZ.Text;
-            doorArea = textBoxDoorArea.Text;
-            doorLevel = textBoxDoorLevel.Text;
+            if (textBoxDoorArea.Text == "")
+                doorArea = "x";
+            else
+                doorArea = textBoxDoorArea.Text;
+            if (textBoxDoorLevel.Text == "")
+                doorLevel = "x";
+            else
+                doorLevel = textBoxDoorLevel.Text;
             isSlippery = checkBoxSlippery.Checked;
             this.DialogResult = DialogResult.OK;
         }
@@ -78,7 +85,25 @@ namespace SceneEditor
 
         public override string ToString()
         {
-            return id;
+            return "ID: "+ id + "; X: " + posX + ", Y: " + posY + ", Z: " + posZ;
+        }
+
+        public string Write()
+        {
+            string ret = "";
+            ret += "                  <object>\n";
+            ret += "                    <object_type>" + type + "</object_type>\n";
+            ret += "                    <object_id>" + id + "</object_id>\n";
+            ret += "                    <is_door_to_area>" + doorArea + "</is_door_to_area>\n";
+            ret += "                    <is_door_to_level>" + doorLevel + "</is_door_to_level>\n";
+            ret += "                    <object_position>\n";
+            ret += "                      <x>" + posX + "</x>\n";
+            ret += "                      <y>" + posY + "</y>\n";
+            ret += "                      <z>" + posZ + "</z>\n";
+            ret += "                    </object_position>\n";
+            ret += "                    <slippery>" + isSlippery.ToString() + "</slippery>\n";
+            ret += "                  </object>\n";
+            return ret;
         }
     }
 }

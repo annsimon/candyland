@@ -10,6 +10,6 @@ namespace Candyland
         /// <summary>
         /// Y Coordinate for Lower Boundary of the Game World
         /// </summary>
-        public const float endOfWorld_Y = -1.0f;
+        public const float endOfWorld_Y = -4.0f;
     }
 }

@@ -78,11 +78,6 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
     </Compile>
-    <Compile Include="chocolateunmovable.fbx">
-      <Name>chocolateunmovable</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-    </Compile>
     <None Include="SceneTest.xml">
       <Name>SceneTest</Name>
       <Importer>XmlImporter</Importer>
