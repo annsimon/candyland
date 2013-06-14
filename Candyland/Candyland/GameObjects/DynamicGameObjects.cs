@@ -8,7 +8,6 @@ namespace Candyland
 {
     public abstract class DynamicGameObjects : GameObject
     {
-        protected float gravity;                //beschleinigungsfaktor in y richtung  
         protected float upvelocity;             //beschleinigungsfaktor un y richtung
         protected bool isonground = false;
         protected Vector3 minOld;
@@ -16,7 +15,7 @@ namespace Candyland
 
         protected virtual void fall()
         {
-            upvelocity += gravity;
+            upvelocity += GameConstants.gravity;
             if (isonground) upvelocity = 0;
             this.m_position.Y += upvelocity;
             this.m_boundingBox.Max.Y += upvelocity;
