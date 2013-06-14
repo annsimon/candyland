@@ -905,8 +905,8 @@ Objects:  {
 			Property: "AccessMode", "enum", "",0
 		}
 		UseMipMap: 0
-		Filename: "wunderkugelmovable.png"
-		RelativeFilename: "wunderkugelmovable.png"
+		Filename: "wunderkugeltextur.png"
+		RelativeFilename: "wunderkugeltextur.png"
 	}
 	Texture: "Texture::untitled", "TextureVideoClip" {
 		Type: "TextureVideoClip"
@@ -930,8 +930,8 @@ Objects:  {
 			Property: "VideoProperty", "object", ""
 		}
 		Media: "Video::untitled"
-		FileName: "wunderkugelmovable.png"
-		RelativeFilename: "wunderkugelmovable.png"
+		FileName: "wunderkugeltextur.png"
+		RelativeFilename: "wunderkugeltextur.png"
 		ModelUVTranslation: 0,0
 		ModelUVScaling: 1,1
 		Texture_Alpha_Source: "None"
