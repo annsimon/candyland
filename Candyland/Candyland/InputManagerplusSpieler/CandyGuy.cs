@@ -297,7 +297,7 @@ namespace Candyland
             Matrix translateMatrix = Matrix.CreateTranslation(m_position);
             Matrix worldMatrix = translateMatrix;
 
-                                Matrix rotation;
+            Matrix rotation;
                     if (direction.X > 0)
                     {
                         rotation = Matrix.CreateRotationY((float)Math.Acos(direction.Z));

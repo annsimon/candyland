@@ -178,6 +178,7 @@ namespace Candyland
             m_model = m_original_model;
             direction = original_direction;
             currentspeed = original_currentspeed;
+            isdestroyed = false;
         }
 
 
