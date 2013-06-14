@@ -54,40 +54,41 @@ namespace Candyland
             Matrix projection,
             Color color)
         {
-            /*
-            if (effect == null)
+            if (GameConstants.boundingBoxRendering)
             {
-                effect = new BasicEffect(graphicsDevice);
-                effect.VertexColorEnabled = true;
-                effect.LightingEnabled = false;
+                if (effect == null)
+                {
+                    effect = new BasicEffect(graphicsDevice);
+                    effect.VertexColorEnabled = true;
+                    effect.LightingEnabled = false;
+                }
+
+                Vector3[] corners = box.GetCorners();
+                for (int i = 0; i < 8; i++)
+                {
+                    verts[i].Position = corners[i];
+                    verts[i].Color = color;
+                }
+
+                effect.View = view;
+                effect.Projection = projection;
+
+                foreach (EffectPass pass in effect.CurrentTechnique.Passes)
+                {
+                    pass.Apply();
+
+                    graphicsDevice.DrawUserIndexedPrimitives(
+                        PrimitiveType.LineList,
+                        verts,
+                        0,
+                        8,
+                        indices,
+                        0,
+                        12);
+
+                }
+
             }
-
-            Vector3[] corners = box.GetCorners();
-            for (int i = 0; i < 8; i++)
-            {
-                verts[i].Position = corners[i];
-                verts[i].Color = color;
-            }
-
-            effect.View = view;
-            effect.Projection = projection;
-
-            foreach (EffectPass pass in effect.CurrentTechnique.Passes)
-            {
-                pass.Apply();
-
-                graphicsDevice.DrawUserIndexedPrimitives(
-                    PrimitiveType.LineList,
-                    verts,
-                    0,
-                    8,
-                    indices,
-                    0,
-                    12);
-
-            }
-             * */
-
         }
     }
 }
