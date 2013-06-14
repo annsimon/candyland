@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 
 namespace Candyland
-{
+{ 
     // from http://www.xnawiki.com/index.php/Rendering_Bounding_Boxes
     // (it's for an older XNA Version, so I had to make a couple of changes)
 
@@ -54,6 +54,7 @@ namespace Candyland
             Matrix projection,
             Color color)
         {
+            /*
             if (effect == null)
             {
                 effect = new BasicEffect(graphicsDevice);
@@ -85,6 +86,7 @@ namespace Candyland
                     12);
 
             }
+             * */
 
         }
     }

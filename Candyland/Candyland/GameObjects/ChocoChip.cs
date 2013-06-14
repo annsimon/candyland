@@ -51,7 +51,7 @@ namespace Candyland
 
         public override void initialize()
         {
-            throw new NotImplementedException();
+            isCollected = m_bonusTracker.chocoChipState[ID];
         }
 
         public void initialize(bool collected)

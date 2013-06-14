@@ -171,6 +171,7 @@ namespace Candyland
                 m_sceneManager.getBonusTracker().chocoChipState = data.chocoChipState;
                 m_sceneManager.getBonusTracker().chocoCount = data.chocoCount;
                 m_sceneManager.getBonusTracker().chocoTotal = data.chocoTotal;
+                m_sceneManager.Load();
             }
     }
 }

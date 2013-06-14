@@ -138,5 +138,11 @@ namespace Candyland
             m_graphics.DepthStencilState = DepthStencilState.Default;
             m_graphics.BlendState = BlendState.Opaque;
         }
+
+        public void Load()
+        {
+            foreach (var area in m_areas)
+                area.Value.Load();
+        }
     }
 }

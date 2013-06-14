@@ -79,5 +79,17 @@ namespace Candyland
                 gameObject.Value.Reset();
             }
         }
+
+        // called when a savegame is being loaded to update the isCollected Attribute of the ChocoChips
+        public void Load()
+        {
+            foreach (var gameObject in m_gameObjects)
+            {
+                if (gameObject.Value.GetType() == typeof(ChocoChip))
+                {
+                    gameObject.Value.initialize();
+                }
+            }
+        }
     }
 }
