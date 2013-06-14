@@ -8,11 +8,6 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
-using Microsoft.Xna.Framework.Storage;
-using System.IO;
-using System.Xml.Serialization;
-using Microsoft.Xna.Framework.Content.Pipeline.Serialization.Intermediate;
-using System.Xml;
 
 namespace Candyland
 {
@@ -93,13 +88,13 @@ namespace Candyland
             if (oldState.IsKeyDown(Keys.F5) && newState.IsKeyUp(Keys.F5))
             {
                 System.Diagnostics.Debug.WriteLine("Saving");
-                Save();
+                m_sceneManager.Save();
             }
 
             // Load last savegame, when F6 was pressed and now released
             if (oldState.IsKeyDown(Keys.F6) && newState.IsKeyUp(Keys.F6))
             {
-                Load();
+                m_sceneManager.Load();
             }
 
             // Update saved state.
@@ -122,56 +117,5 @@ namespace Candyland
             base.Draw(gameTime);
         }
 
-
-        // Save Game
-        protected void Save()
-        {
-            // Create the data to save.
-            SaveGameData data = new SaveGameData();
-            data.currentAreaID = m_sceneManager.getUpdateInfo().currentAreaID;
-            data.currentLevelID = m_sceneManager.getUpdateInfo().currentLevelID;
-            data.chocoChipState = m_sceneManager.getBonusTracker().chocoChipState;
-            data.chocoCount = m_sceneManager.getBonusTracker().chocoCount;
-            data.chocoTotal = m_sceneManager.getBonusTracker().chocoTotal;
-
-            string filename = "savegame.sav";
-
-            // Convert the object to XML data
-            XmlWriterSettings settings = new XmlWriterSettings();
-            settings.Indent = true;
-
-            using (XmlWriter writer = XmlWriter.Create(filename, settings))
-            {
-                IntermediateSerializer.Serialize(writer, data, null);
-            }
-        }
-
-        // Load savedGame
-        protected void Load()
-        {
-            string filename = "savegame.sav";
-
-            XmlReaderSettings settings = new XmlReaderSettings();
-            SaveGameData data;
-            XmlReader reader;
-//TODO Needs to be changed to testing if the savefile exists
-            if (true)
-                reader = XmlReader.Create(filename, settings);
-                using (reader)
-                {
-                    data = IntermediateSerializer.
-                        Deserialize<SaveGameData>
-                        (reader, null);
-                }
-
-                // Use saved data to put Game into the last saved state
-                m_sceneManager.getUpdateInfo().currentAreaID = data.currentAreaID;
-                m_sceneManager.getUpdateInfo().currentLevelID = data.currentLevelID;
-                m_sceneManager.getUpdateInfo().reset = true; //everything should be reset, when game is loaded
-                m_sceneManager.getBonusTracker().chocoChipState = data.chocoChipState;
-                m_sceneManager.getBonusTracker().chocoCount = data.chocoCount;
-                m_sceneManager.getBonusTracker().chocoTotal = data.chocoTotal;
-                m_sceneManager.Load();
-            }
     }
 }
