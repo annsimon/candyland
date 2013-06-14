@@ -66,64 +66,7 @@ namespace Candyland
         public abstract void isNotCollidingWith(GameObject obj);
 
         public bool isdestroyed = false;
-        //TODO test if, this works
-        /// <summary>
-        /// Calculates the Bounding Box for a Model by looping over all vertices and finding the min and max coordinates
-        /// We can probably do this an easier way, if there aren't gonna be such complex models
-        /// </summary>
-        //protected void calculateBoundingBox()
-        //{
-        //    // Copy any parent transforms.
-        //    Matrix[] transforms = new Matrix[m_model.Bones.Count];
-        //    m_model.CopyAbsoluteBoneTransformsTo(transforms);
-
-        //    // Create variables to keep min and max xyz values for the model
-        //    Vector3 modelMax = new Vector3(float.MinValue, float.MinValue, float.MinValue);
-        //    Vector3 modelMin = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
-
-        //    foreach (ModelMesh mesh in m_model.Meshes)
-        //    {
-        //        //Create variables to hold min and max xyz values for the mesh
-        //        Vector3 meshMax = new Vector3(float.MinValue, float.MinValue, float.MinValue);
-        //        Vector3 meshMin = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
-
-        //        // There may be multiple parts in a mesh (different materials etc.) so loop through each
-        //        foreach (ModelMeshPart part in mesh.MeshParts)
-        //        {
-        //            // The stride is how big, in bytes, one vertex is in the vertex buffer
-        //            int stride = part.VertexBuffer.VertexDeclaration.VertexStride;
-
-        //            byte[] vertexData = new byte[stride * part.NumVertices];
-        //            part.VertexBuffer.GetData(part.VertexOffset * stride, vertexData, 0, part.NumVertices, 1); // fixed 13/4/11
-
-        //            // Find minimum and maximum xyz values for this mesh part
-        //            // We know the position will always be the first 3 float values of the vertex data
-        //            Vector3 vertPosition = new Vector3();
-        //            for (int ndx = 0; ndx < vertexData.Length; ndx += stride)
-        //            {
-        //                vertPosition.X = BitConverter.ToSingle(vertexData, ndx);
-        //                vertPosition.Y = BitConverter.ToSingle(vertexData, ndx + sizeof(float));
-        //                vertPosition.Z = BitConverter.ToSingle(vertexData, ndx + sizeof(float) * 2);
-
-        //                // update our running values from this vertex
-        //                meshMin = Vector3.Min(meshMin, vertPosition);
-        //                meshMax = Vector3.Max(meshMax, vertPosition);
-        //            }
-        //        }
-
-        //        // transform by mesh bone transforms
-        //        meshMin = Vector3.Transform(meshMin, transforms[mesh.ParentBone.Index]);
-        //        meshMax = Vector3.Transform(meshMax, transforms[mesh.ParentBone.Index]);
-
-        //        // Expand model extents by the ones from this mesh
-        //        modelMin = Vector3.Min(modelMin, meshMin);
-        //        modelMax = Vector3.Max(modelMax, meshMax);
-        //    }
-
-        //    // Create the Bounding Box with calculated meshMin and meshMax
-        //    this.m_boundingBox = new BoundingBox(this.m_position + modelMin, this.m_position + modelMax);
-        //    //Console.WriteLine("Min " + meshMin + " Max " + meshMax);
-        //}
+        
 
         protected void calculateBoundingBox()
         {

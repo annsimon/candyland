@@ -25,6 +25,10 @@ namespace Candyland
             this.original_isActive = false;
             this.m_updateInfo = updateInfo;
             this.isOnSlipperyGround = false;
+            minOld = m_boundingBox.Min;
+            maxOld = m_boundingBox.Max;
+            this.currentspeed = 0;
+            this.upvelocity = 0;
         }
 
 
@@ -37,6 +41,8 @@ namespace Candyland
             this.m_original_model = this.m_model;
 
             this.calculateBoundingBox();
+            minOld = m_boundingBox.Min;
+            maxOld = m_boundingBox.Max;
         }
 
 
@@ -45,6 +51,8 @@ namespace Candyland
             // TODO Decide when to call move and with what parameters or maybe make different methodes like push and slide
             // this.move(...);
             // this.setActive(true); // when obstacle is moving
+
+            fall();
 
             // Obstacle is sliding
             if (currentspeed != 0 && isOnSlipperyGround)
@@ -59,14 +67,17 @@ namespace Candyland
 
             if (obj.GetType() == typeof(Platform))
             {
-                ContainmentType contain = obj.getBoundingBox().Contains(this.m_boundingBox);
                 // Obstacle sits on a Platform
-                if (contain == ContainmentType.Intersects
-                    && obj.getPosition().Y < this.m_position.Y)
+                if (obj.getBoundingBox().Intersects(m_boundingBox))
                 {
+                    preventIntersection(obj);
                     Platform platform = (Platform) obj;
                     isOnSlipperyGround = platform.getSlippery();
                 }
+                else
+                {
+                    isonground = isonground || false;
+                } 
             }
         }
 

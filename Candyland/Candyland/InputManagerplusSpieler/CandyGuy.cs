@@ -28,7 +28,6 @@ namespace Candyland
             this.direction = direction;
             this.cam = new Camera(position, MathHelper.PiOver4, aspectRatio, 0.1f, 100, m_updateInfo);
             this.currentspeed = 0;
-            this.gravity = -0.004f;
             this.upvelocity = 0;
         }
 
@@ -89,7 +88,7 @@ namespace Candyland
         protected override void fall() 
         {
 
-            upvelocity += gravity;
+            upvelocity += GameConstants.gravity;
             if (isonground) upvelocity = 0;
             this.m_position.Y += upvelocity;
             this.m_boundingBox.Max.Y += upvelocity;
