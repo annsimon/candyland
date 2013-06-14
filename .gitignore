@@ -5,3 +5,5 @@ obj
 bin
 /Candyland/Candyland/Candyland.csproj.user
 /Candyland/Candyland/Candyland.csproj.Debug.cachefile
+/ToonShader/ToonShader.suo
+/ToonShader/ToonShader/ToonShader/ToonShader.csproj.Debug.cachefile
