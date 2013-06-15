@@ -43,7 +43,7 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
-            this.m_model = content.Load<Model>("chocolateUnmovable");
+            this.m_model = content.Load<Model>("chocolatebreakable");
             this.m_original_model = this.m_model;
 
             this.calculateBoundingBox();
@@ -52,7 +52,6 @@ namespace Candyland
 
         public override void collide(GameObject obj)
         {
-            throw new NotImplementedException();
         }
 
         public override void update()

@@ -97,7 +97,7 @@ namespace Candyland
             if (keystate.IsKeyDown(Keys.Tab)
                 && oldKeyboardState != keystate) updateinfo.switchPlayer();
 
-            if (keystate.IsKeyDown(Keys.R)) player.reset();
+            if (keystate.IsKeyDown(Keys.R)) player.Reset();
 
             //Get the direction of the players camera
             float alpha = player.getCameraDir();

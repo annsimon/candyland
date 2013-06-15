@@ -56,16 +56,31 @@ namespace Candyland
                     Platform obj = new Platform(node.InnerText, pos, slip, door_to_area[count].InnerText, door_to_level[count].InnerText, info);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
+                else
                 if (object_type == "breakable")
                 {
                     ObstacleBreakable obj = new ObstacleBreakable(node.InnerText, pos, info);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
+                else
+                if (object_type == "obstacleForSwitch")
+                {
+                    Obstacle obj = new Obstacle(node.InnerText, pos, info);
+                    dynamicObjects.Add(node.InnerText, obj);
+                }
+                else
                 if (object_type == "movableObstacle")
                 {
                     ObstacleMoveable obj = new ObstacleMoveable(node.InnerText, pos, info);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
+                else
+                if (object_type == "switchPermanent")
+                {
+                    PlatformSwitch obj = new PlatformSwitchPermanent(node.InnerText, pos, info);
+                    dynamicObjects.Add(node.InnerText, obj);
+                }
+                else
                 if (object_type == "chocoChip")
                 {
                     ChocoChip obj = new ChocoChip(node.InnerText, pos, info, bonusTracker);

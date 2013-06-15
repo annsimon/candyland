@@ -97,6 +97,8 @@
     <Compile Include="InputManagerplusSpieler\InputManager.cs" />
     <Compile Include="InputManagerplusSpieler\Playable.cs" />
     <Compile Include="Kamera\Camera.cs" />
+    <Compile Include="Logical\Event.cs" />
+    <Compile Include="Logical\SwitchGroup.cs" />
     <Compile Include="MyModel.cs" />
     <Compile Include="Parsers\AreaParser.cs" />
     <Compile Include="Parsers\LevelParser.cs" />
@@ -149,9 +151,7 @@
   <ItemGroup>
     <None Include="app.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Logical\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
   <!--

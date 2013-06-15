@@ -32,7 +32,6 @@ namespace Candyland
 
         public override void collide(GameObject obj)
         {
-            throw new NotImplementedException();
         }
 
         public ChocoChip(String id, Vector3 pos, UpdateInfo updateInfo, BonusTracker bonusTracker)

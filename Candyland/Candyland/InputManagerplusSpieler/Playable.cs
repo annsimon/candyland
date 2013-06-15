@@ -86,7 +86,7 @@ namespace Candyland
         // resets player position to level start and triggers level reset
         // ToDo: use Fade-Out so level reset has time to happen
         // ToDo: trigger reset() after player has been falling for a set time (e.g. 5 seconds)
-        public void reset()
+        public override void Reset()
         {
             m_updateInfo.reset = true;
             upvelocity = 0;
