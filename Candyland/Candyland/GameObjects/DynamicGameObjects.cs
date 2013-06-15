@@ -118,5 +118,11 @@ namespace Candyland
             }
         }
 
+        public override void Reset()
+        {
+            base.Reset();
+            upvelocity = 0;
+        }
+
     }
 }

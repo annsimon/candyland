@@ -30,7 +30,6 @@ namespace Candyland
             this.upvelocity = 0;
         }
 
-
         public override void isNotCollidingWith(GameObject obj) { }
 
         public override void hasCollidedWith(GameObject obj) { }
@@ -55,7 +54,6 @@ namespace Candyland
         {
             throw new NotImplementedException();
         }
-
 
         public override void movementInput(float movex, float movey, float camx, float camy)
         {
@@ -169,6 +167,7 @@ namespace Candyland
             if (obj.getBoundingBox().Intersects(m_boundingBox))
             {
                 preventIntersection(obj);
+                if(minOld.Y < obj.getBoundingBox().Max.Y)
                 obj.hasCollidedWith(this);
             }
             else
@@ -176,7 +175,6 @@ namespace Candyland
                 obj.isNotCollidingWith(this);
             }
         }
-
         private void collideWithChocoChip(GameObject obj)
         {
             if (obj.getBoundingBox().Intersects(m_boundingBox))

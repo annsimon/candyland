@@ -51,7 +51,8 @@ namespace Candyland
 
             m_updateInfo = new UpdateInfo(graphics);
 
-            m_inputManager = new InputManager(0, graphicDeviceManager, m_updateInfo);
+   
+            m_inputManager = new InputManager(InputManager.GAMEPADONLY, graphicDeviceManager, m_updateInfo);
             /****************************************************************/
             m_graphics = graphics;
             /****************************************************************/
