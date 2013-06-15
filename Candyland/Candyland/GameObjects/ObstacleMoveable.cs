@@ -19,7 +19,7 @@ namespace Candyland
         {
             this.ID = id;
             this.m_position = pos;
-            this.m_position.Y += 0.2f;
+            this.m_position.Y += 0.23f;
             this.m_original_position = this.m_position;
             this.isActive = false;
             this.original_isActive = false;
@@ -48,7 +48,9 @@ namespace Candyland
 
         public override void update()
         {
+            // let the Object fall, if no collision with lower Objects
             fall();
+            isonground = false;
 
             // Obstacle is sliding
             if (currentspeed != 0 && isOnSlipperyGround)
@@ -69,10 +71,6 @@ namespace Candyland
                     preventIntersection(obj);
                     Platform platform = (Platform) obj;
                     isOnSlipperyGround = platform.getSlippery();
-                }
-                else
-                {
-                    isonground = isonground || false;
                 } 
             }
         }
@@ -83,21 +81,24 @@ namespace Candyland
             if (obj.GetType() == typeof(CandyGuy))
             {
                 this.isActive = true;
-                this.currentspeed = obj.getCurrentSpeed();
 
                 // Find out on which boundingbox side the collision occurs
 
                     BoundingBox bbSwitch = m_boundingBox;
                     float playerX = obj.getPosition().X;
                     float playerZ = obj.getPosition().Z;
+                    float playerY = obj.getPosition().Y;
 
                     // Obstacle should only be moved, if collided from the side
 
+                    // Test if Player is beside the Obstacle and not on top
+                    if (playerY < bbSwitch.Max.Y && playerY > bbSwitch.Min.Y)
+                    {
                         //Test if collison in X direction
-                        if ( (playerX < bbSwitch.Min.X || playerX > bbSwitch.Max.X)
-                            && playerZ < bbSwitch.Max.Z && playerZ > bbSwitch.Min.Z )
+                        if ((playerX < bbSwitch.Min.X || playerX > bbSwitch.Max.X)
+                            && playerZ < bbSwitch.Max.Z && playerZ > bbSwitch.Min.Z)
                         {
-                            this.direction = new Vector3(obj.getDirection().X,0,0);
+                            this.direction = new Vector3(obj.getDirection().X, 0, 0);
                             move();
                         }
                         // Test if collision in Z direction
@@ -107,8 +108,7 @@ namespace Candyland
                             this.direction = new Vector3(0, 0, obj.getDirection().Z);
                             move();
                         }
-
-
+                    }
             }
         }
 
@@ -125,13 +125,9 @@ namespace Candyland
             Vector3 translate;
 
             // move Obstacle
-                translate = currentspeed * direction;
+                translate = GameConstants.obstacleSpeed * direction;
                 newPosition = this.getPosition() + translate;
                 this.setPosition(newPosition);
-
-            // move Bounding Box at the same time
-            this.m_boundingBox.Min += translate;
-            this.m_boundingBox.Max += translate;
         }
 
 
