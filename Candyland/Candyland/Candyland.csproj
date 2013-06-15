@@ -80,6 +80,8 @@
     <Compile Include="Data\SaveGameData.cs" />
     <Compile Include="Data\UpdateInfo.cs" />
     <Compile Include="GameObjects\DynamicGameObjects.cs" />
+    <Compile Include="GameObjects\MovingPlatform.cs" />
+    <Compile Include="InputManagerplusSpieler\BossObjects.cs" />
     <Compile Include="InputManagerplusSpieler\CandyHelper.cs" />
     <Compile Include="GameObjects\ChocoChip.cs" />
     <Compile Include="Game1.cs" />
@@ -95,7 +97,9 @@
     <Compile Include="GameObjects\PlatformSwitchTemporary.cs" />
     <Compile Include="InputManagerplusSpieler\CandyGuy.cs" />
     <Compile Include="InputManagerplusSpieler\InputManager.cs" />
+    <Compile Include="InputManagerplusSpieler\liquoriceBlobs.cs" />
     <Compile Include="InputManagerplusSpieler\Playable.cs" />
+    <Compile Include="InputManagerplusSpieler\Turret.cs" />
     <Compile Include="Kamera\Camera.cs" />
     <Compile Include="MyModel.cs" />
     <Compile Include="Parsers\AreaParser.cs" />
