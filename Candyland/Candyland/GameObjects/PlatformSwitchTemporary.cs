@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 namespace Candyland
 {
     /// <summary>
-    /// Switch is only activated, when a Player is standing on the Platform.
+    /// Switch is only activated, when a Player (or an Obstacle) is standing on the Platform.
     /// </summary>
     class PlatformSwitchTemporary : PlatformSwitch
     {
@@ -27,11 +27,10 @@ namespace Candyland
             this.m_texture = content.Load<Texture2D>("schaltertextur");
             this.m_original_texture = this.m_texture;
             this.effect = content.Load<Effect>("Toon");
-            this.m_model = content.Load<Model>("plattformschalter");
+            this.m_model = content.Load<Model>("schalterplattform");
             this.m_original_model = this.m_model;
 
             this.calculateBoundingBox();
-            Console.WriteLine("Min " + this.m_boundingBox.Min + " Max " + this.m_boundingBox.Max);
         }
 
 
@@ -40,20 +39,16 @@ namespace Candyland
         /// </summary>
         public override void update()
         {
-            // TODO Decide when switch is being touched
-
-            
             if (this.isTouched)
             {
                 // Activate when touch occurs and was deactivated before
                 if(!this.isActivated)
                     this.setActivated(true);
-                // Deactivate when touch occurs and was activated before
-                else
-                    this.setActivated(false);
             }
+            // Deactivate when not touched
+            else
+                this.setActivated(false);
         }
-
 
     }
 }

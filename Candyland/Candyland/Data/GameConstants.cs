@@ -20,7 +20,7 @@ namespace Candyland
         /// <summary>
         /// bounding box rendering on/off
         /// </summary>
-        public const bool boundingBoxRendering = false;
+        public const bool boundingBoxRendering = true;
 
         
     }
