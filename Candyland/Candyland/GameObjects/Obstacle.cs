@@ -43,7 +43,10 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
-            this.m_model = content.Load<Model>("chocolateUnmovable");
+            this.m_texture = content.Load<Texture2D>("lakritztextur");
+            this.m_original_texture = this.m_texture;
+            this.effect = content.Load<Effect>("Toon");
+            this.m_model = content.Load<Model>("lakritzblock");
             this.m_original_model = this.m_model;
 
             this.calculateBoundingBox();

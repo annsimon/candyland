@@ -330,18 +330,6 @@
                     </object_position>
                     <slippery>False</slippery>
                   </object>
-                  <object>
-                    <object_type>breakable</object_type>
-                    <object_id>0.0.0.break</object_id>
-                    <is_door_to_area>x</is_door_to_area>
-                    <is_door_to_level>x</is_door_to_level>
-                    <object_position>
-                      <x>3</x>
-                      <y>0,1</y>
-                      <z>-1</z>
-                    </object_position>
-                    <slippery>False</slippery>
-                  </object>
                 </dynamics>
               </dynamic_objects>
             </the_objects>
@@ -1501,8 +1489,32 @@
                     <is_door_to_level>x</is_door_to_level>
                     <object_position>
                       <x>4</x>
-                      <y>1,5</y>
+                      <y>1</y>
                       <z>-4</z>
+                    </object_position>
+                    <slippery>False</slippery>
+                  </object>
+                  <object>
+                    <object_type>obstacleForSwitch</object_type>
+                    <object_id>0.1.0.obstacle</object_id>
+                    <is_door_to_area>x</is_door_to_area>
+                    <is_door_to_level>x</is_door_to_level>
+                    <object_position>
+                      <x>4</x>
+                      <y>1</y>
+                      <z>-4</z>
+                    </object_position>
+                    <slippery>False</slippery>
+                  </object>
+                  <object>
+                    <object_type>obstacleForSwitch</object_type>
+                    <object_id>0.1.0.switchPermanent</object_id>
+                    <is_door_to_area>x</is_door_to_area>
+                    <is_door_to_level>x</is_door_to_level>
+                    <object_position>
+                      <x>4</x>
+                      <y>1</y>
+                      <z>-1</z>
                     </object_position>
                     <slippery>False</slippery>
                   </object>

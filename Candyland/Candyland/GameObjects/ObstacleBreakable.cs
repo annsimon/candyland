@@ -14,13 +14,13 @@ namespace Candyland
     class ObstacleBreakable : Obstacle
     {
 
-
         public ObstacleBreakable(String id, Vector3 pos, UpdateInfo updateInfo)
         {
             this.ID = id;
             this.m_position = pos;
             this.isActive = false;
             this.m_updateInfo = updateInfo;
+            m_original_position = pos;
         }
 
 

@@ -83,6 +83,12 @@
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
     </Compile>
+    <Compile Include="lakritzblock.fbx">
+      <Name>lakritzblock</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.5</ProcessorParameters_Scale>
+    </Compile>
     <None Include="SceneTest.xml">
       <Name>SceneTest</Name>
       <Importer>XmlImporter</Importer>
@@ -127,6 +133,20 @@
     </Compile>
     <Compile Include="wunderkugeltextur.png">
       <Name>wunderkugeltextur</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="partnertextur.png">
+      <Name>partnertextur</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="lakritztextur.png">
+      <Name>lakritztextur</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
