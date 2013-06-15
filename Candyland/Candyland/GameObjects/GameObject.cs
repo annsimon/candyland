@@ -147,6 +147,7 @@ namespace Candyland
                     {
                         part.Effect = effect;
                         effect.Parameters["World"].SetValue(worldMatrix * mesh.ParentBone.Transform);
+                        effect.Parameters["DiffuseLightDirection"].SetValue(new Vector3(0,0,1));
                         effect.Parameters["View"].SetValue(view);
                         effect.Parameters["Projection"].SetValue(projection);
                         effect.Parameters["WorldInverseTranspose"].SetValue(
