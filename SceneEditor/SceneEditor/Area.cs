@@ -86,23 +86,27 @@ namespace SceneEditor
 
         private void editLevelButton_Click(object sender, EventArgs e)
         {
-            Level current = (Level)listBox1.SelectedItem;
-            m_levelGenerator.InitializeWithLevel(current);
-            if (m_levelGenerator.ShowDialog() == DialogResult.OK)
+            try
             {
-                current.id = m_levelGenerator.id;
-                current.posX = m_levelGenerator.posX;
-                current.posY = m_levelGenerator.posY;
-                current.posZ = m_levelGenerator.posZ;
-                current.startMainID = m_levelGenerator.startMainID;
-                current.startSecondaryID = m_levelGenerator.startSecondaryID;
-                current.dynamicObjects = new List<Object>();
-                foreach (Object obj in m_levelGenerator.dynamicObjects)
-                    current.dynamicObjects.Add(obj);
-                current.staticObjects = new List<Object>();
-                foreach (Object obj in m_levelGenerator.staticObjects)
-                    current.staticObjects.Add(obj);
+                Level current = (Level)listBox1.SelectedItem;
+                m_levelGenerator.InitializeWithLevel(current);
+                if (m_levelGenerator.ShowDialog() == DialogResult.OK)
+                {
+                    current.id = m_levelGenerator.id;
+                    current.posX = m_levelGenerator.posX;
+                    current.posY = m_levelGenerator.posY;
+                    current.posZ = m_levelGenerator.posZ;
+                    current.startMainID = m_levelGenerator.startMainID;
+                    current.startSecondaryID = m_levelGenerator.startSecondaryID;
+                    current.dynamicObjects = new List<Object>();
+                    foreach (Object obj in m_levelGenerator.dynamicObjects)
+                        current.dynamicObjects.Add(obj);
+                    current.staticObjects = new List<Object>();
+                    foreach (Object obj in m_levelGenerator.staticObjects)
+                        current.staticObjects.Add(obj);
+                }
             }
+            catch { }
         }
 
         private void acceptButton_Click(object sender, EventArgs e)

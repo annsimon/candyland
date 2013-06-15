@@ -32,14 +32,20 @@ namespace Candyland
         public override void hasCollidedWith(GameObject obj)
         {
             // Position of the collided object (and therefore it's middle) is on the switch
-            if (obj.getPosition().X > m_boundingBox.Max.X
-                && obj.getPosition().X < m_boundingBox.Min.X
-                && obj.getPosition().Y > m_boundingBox.Max.Y
-                && obj.getPosition().Y < m_boundingBox.Min.Y)
+            if (obj.getPosition().X < m_boundingBox.Max.X
+                && obj.getPosition().X > m_boundingBox.Min.X
+                && obj.getPosition().Z < m_boundingBox.Max.Z
+                && obj.getPosition().Z > m_boundingBox.Min.Z)
             {
                 isTouched = true;
             }
-            else isTouched = isTouched || false; // TODO Find out what this does :)
+        }
+
+        public override void Reset()
+        {
+            isActivated = false;
+            isTouched = false;
+            base.Reset();
         }
 
     }

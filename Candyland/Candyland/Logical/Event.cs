@@ -20,7 +20,7 @@ namespace Candyland
 
         private SwitchGroup m_switchGroup;
 
-        private bool triggered;
+        private bool m_triggered;
         
         public Event( Dictionary<string,GameObject> objects )
         {
@@ -31,7 +31,14 @@ namespace Candyland
 
         public void Trigger()
         {
+            m_triggered = true;
             m_triggerable.isdestroyed = true;
+        }
+
+        public void Reset()
+        {
+            m_switchGroup.Reset();
+            m_triggered = false;
         }
     }
 }

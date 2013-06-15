@@ -128,7 +128,7 @@ namespace Candyland
             }   
         }
         private void collideWithObstacle(GameObject obj) {
-            if (obj.getBoundingBox().Intersects(m_boundingBox))
+            if (!obj.isdestroyed && obj.getBoundingBox().Intersects(m_boundingBox))
             {
                 preventIntersection(obj);
                 obj.hasCollidedWith(this);

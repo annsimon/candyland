@@ -50,20 +50,24 @@ namespace SceneEditor
 
         private void editAreaButton_Click(object sender, EventArgs e)
         {
-            Area current = (Area)listBox1.SelectedItem;
-            m_areaGenerator.InitializeWithArea(current);
-            if (m_areaGenerator.ShowDialog() == DialogResult.OK)
+            try
             {
-                current.id = m_areaGenerator.id;
-                current.idNext = m_areaGenerator.idNext;
-                current.idPrev = m_areaGenerator.idPrev;
-                current.posX = m_areaGenerator.posX;
-                current.posY = m_areaGenerator.posY;
-                current.posZ = m_areaGenerator.posZ;
-                current.levels = new List<Level>();
-                foreach (Level lvl in m_areaGenerator.levels)
-                    current.levels.Add(lvl);
+                Area current = (Area)listBox1.SelectedItem;
+                m_areaGenerator.InitializeWithArea(current);
+                if (m_areaGenerator.ShowDialog() == DialogResult.OK)
+                {
+                    current.id = m_areaGenerator.id;
+                    current.idNext = m_areaGenerator.idNext;
+                    current.idPrev = m_areaGenerator.idPrev;
+                    current.posX = m_areaGenerator.posX;
+                    current.posY = m_areaGenerator.posY;
+                    current.posZ = m_areaGenerator.posZ;
+                    current.levels = new List<Level>();
+                    foreach (Level lvl in m_areaGenerator.levels)
+                        current.levels.Add(lvl);
+                }
             }
+            catch { }
         }
 
         private void Parse()

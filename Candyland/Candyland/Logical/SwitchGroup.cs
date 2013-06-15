@@ -57,5 +57,10 @@ namespace Candyland
                 m_parentEvent.Trigger();
             }
         }
+
+        public void Reset()
+        {
+            m_conditionMet = false;
+        }
     }
 }
