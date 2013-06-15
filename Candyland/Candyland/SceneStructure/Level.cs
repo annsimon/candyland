@@ -74,8 +74,7 @@ namespace Candyland
             foreach (var gameObject in m_gameObjects)
             {
                 obj.collide(gameObject.Value);
-            }
-        
+            }      
         }
 
         public void Reset()
@@ -83,6 +82,15 @@ namespace Candyland
             foreach (var gameObject in m_gameObjects)
             {
                 gameObject.Value.Reset();
+            }
+        }
+
+        // might be called for too many objects (only those which use preventIntersection need it)
+        public void endIntersection()
+        {
+            foreach (var gameObject in m_gameObjects)
+            {
+                    gameObject.Value.endIntersection();
             }
         }
 

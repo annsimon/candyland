@@ -21,10 +21,16 @@ namespace Candyland
         protected Vector3 m_original_position;
         public Vector3 getPosition() { return this.m_position; }
         public void setPosition(float x, float y, float z) { this.m_position = new Vector3(x,y,z); }
+
+        /// <summary>
+        /// sets the Position of a Game Object to the specified Point and translates the BoundingBox
+        /// </summary>
         public void setPosition(Vector3 newVector)
-        { 
+        {
+            Vector3 translate = newVector - m_position;
             this.m_position = newVector;
-            calculateBoundingBox();
+            this.m_boundingBox.Min += translate;
+            this.m_boundingBox.Max += translate;
         }
 
         protected Vector3 direction;        //Laufrichtung in x-z Ebene
@@ -122,6 +128,10 @@ namespace Candyland
             direction = original_direction;
             currentspeed = original_currentspeed;
             isdestroyed = false;
+        }
+
+        public virtual void endIntersection()
+        {
         }
 
 
