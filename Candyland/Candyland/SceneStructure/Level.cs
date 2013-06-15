@@ -46,6 +46,11 @@ namespace Candyland
             {
                 gameObject.Value.update();
             }
+
+            foreach( var gameObject in m_gameObjects )
+            {
+                Collide(gameObject.Value);
+            }
         }
 
         public void Draw(GraphicsDevice graphics)
@@ -70,6 +75,7 @@ namespace Candyland
             {
                 obj.collide(gameObject.Value);
             }
+        
         }
 
         public void Reset()

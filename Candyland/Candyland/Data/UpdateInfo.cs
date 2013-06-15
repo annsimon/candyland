@@ -44,8 +44,8 @@ namespace Candyland
 
         public List<Keys> currentpushedKeys { get; set; }
 
-
-        public Dictionary<String, GameObject> currentObjectsToBeCollided { get; set; }
+        // we do not use this after all, probably; remove later!
+        //public Dictionary<String, GameObject> currentObjectsToBeCollided { get; set; }
 
         /********************************************************************************
         Debugging Area
@@ -71,7 +71,8 @@ namespace Candyland
             reset = false;
             currentpushedKeys = new List<Keys>();
 
-            currentObjectsToBeCollided = new Dictionary<String, GameObject>();
+            // currently not in use, remove later!
+            //currentObjectsToBeCollided = new Dictionary<String, GameObject>();
 
             candyselected = true;
             helperavailable = true;

@@ -52,7 +52,6 @@ namespace Candyland
 
         public override void collide(GameObject obj)
         {
-            throw new NotImplementedException();
         }
 
         public override void update()
