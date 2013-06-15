@@ -22,11 +22,11 @@ namespace Candyland
 
         private bool m_triggered;
         
-        public Event( Dictionary<string,GameObject> objects )
+        public Event( string triggerableID, List<String> switchIDs, Dictionary<string,GameObject> objects )
         {
-            string triggerableID = "0.1.0.obstacle";
+            //string triggerableID = "0.1.0.obstacle";
             m_triggerable = objects[triggerableID];
-            m_switchGroup = new SwitchGroup(objects, this);
+            m_switchGroup = new SwitchGroup(switchIDs, objects, this);
         }
 
         public void Trigger()

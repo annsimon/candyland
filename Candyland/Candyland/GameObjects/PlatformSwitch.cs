@@ -15,17 +15,21 @@ namespace Candyland
         public void setActivated(bool value) 
         { 
             this.isActivated = value;
-            m_switchGroup.Changed();
+            try{
+                foreach( SwitchGroup grp in m_switchGroups )
+                    grp.Changed();
+            }
+            catch{}
         }
 
         protected bool isTouched = false;
         public bool getTouched() { return this.isTouched; }
         public void setTouched(bool value) { this.isTouched = value; }
 
-        protected SwitchGroup m_switchGroup;
+        protected List<SwitchGroup> m_switchGroups;
         public void setGroup( SwitchGroup group )
         {
-            m_switchGroup = group;
+            m_switchGroups.Add(group);
         }
 
 

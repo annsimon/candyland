@@ -23,17 +23,24 @@ namespace Candyland
 
         protected bool m_conditionMet;
 
-        public SwitchGroup(Dictionary<string, GameObject> objects, Event parentEvent)
+        public SwitchGroup(List<string> switchIds, Dictionary<string, GameObject> objects, Event parentEvent)
         {
             m_switches = new Dictionary<string, PlatformSwitch>();
             m_parentEvent = parentEvent;
             m_conditionMet = false;
 
-            string switchID = "0.1.0.switchPermanent";
+            foreach( string switchID in switchIds )
+            {
+                PlatformSwitch currSwitch = (PlatformSwitch)objects[switchID];
+                currSwitch.setGroup(this);
+                m_switches.Add(switchID, currSwitch);
+            }
 
-            PlatformSwitch currSwitch = (PlatformSwitch)objects[switchID];
-            currSwitch.setGroup(this);
-            m_switches.Add(switchID, currSwitch);
+            //string switchID = "0.1.0.switchPermanent";
+
+            //PlatformSwitch currSwitch = (PlatformSwitch)objects[switchID];
+            //currSwitch.setGroup(this);
+            //m_switches.Add(switchID, currSwitch);
         }
 
         public void Changed()

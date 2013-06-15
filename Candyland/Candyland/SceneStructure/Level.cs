@@ -36,8 +36,17 @@ namespace Candyland
             m_gameObjects = ObjectParser.ParseObjects(level_start, xml, info, bonusTracker);
             m_staticObjects = ObjectParser.ParseStatics(level_start, xml, info);
             m_events = new List<Event>();
-            if( id == "0.1" )
-                m_events.Add(new Event(m_gameObjects));
+
+            try 
+            {
+                m_events = EventParser.ParseEvents(id, m_gameObjects);
+            }
+            catch(Exception e) 
+            {
+                e.GetType();
+            }
+            //if( id == "0.1" )
+            //    m_events.Add(new Event(m_gameObjects));
         }
 
         public void Load(ContentManager manager)
