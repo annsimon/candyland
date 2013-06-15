@@ -51,14 +51,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="plattformschalter.fbx">
-      <Name>plattformschalter</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.4</ProcessorParameters_Scale>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="wunderkugelmovable.fbx">
       <Name>wunderkugelmovable</Name>
       <Importer>FbxImporter</Importer>
@@ -101,6 +93,12 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <ProcessorParameters_Scale>0.15</ProcessorParameters_Scale>
+    </Compile>
+    <Compile Include="schalterplattform.fbx">
+      <Name>schalterplattform</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.3</ProcessorParameters_Scale>
     </Compile>
   </ItemGroup>
   <ItemGroup>
