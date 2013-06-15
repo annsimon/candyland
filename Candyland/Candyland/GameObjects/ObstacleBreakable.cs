@@ -45,7 +45,7 @@ namespace Candyland
             }
         }
 
-        public override void update(GameTime gameTime)
+        public override void update()
         {
             // TODO decide when Obstacle should be broken
             //this.breakObstacle();          

@@ -58,7 +58,7 @@ namespace Candyland.GameObjects
             base.Reset();
         }
 
-        public override void update(GameTime gameTime)
+        public override void update()
         {
             Vector3 direction = end - start;
             direction.Normalize();

@@ -34,7 +34,7 @@ namespace Candyland
 
         public override void hasCollidedWith(GameObject obj) { }
 
-        public override void update(GameTime gameTime)
+        public override void update()
         {
             fall();
             if(!m_updateInfo.candyselected)

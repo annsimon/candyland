@@ -12,6 +12,6 @@ namespace Candyland
     public abstract class GameElement
     {
         public abstract void initialize();
-        public abstract void update(GameTime gameTime);
+        public abstract void update();
     }
 }

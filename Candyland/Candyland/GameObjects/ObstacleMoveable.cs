@@ -46,7 +46,7 @@ namespace Candyland
         }
 
 
-        public override void update(GameTime gameTime)
+        public override void update()
         {
             // let the Object fall, if no collision with lower Objects
             fall();

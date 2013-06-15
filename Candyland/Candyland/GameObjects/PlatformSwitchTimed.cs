@@ -33,10 +33,10 @@ namespace Candyland
         /// <summary>
         /// Updates the Switch's states.
         /// </summary>
-        public override void update(GameTime gameTime)
+        public override void update()
         {
             if (this.isActivated)
-                activeTime += gameTime.ElapsedGameTime.TotalSeconds;
+                activeTime += m_updateInfo.gameTime.ElapsedGameTime.TotalSeconds;
 
             // Activate when first touch occurs
             if (!this.isActivated && this.isTouched)

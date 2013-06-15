@@ -100,8 +100,8 @@ namespace Candyland
             }
 
             m_inputManager.update(player,player2);
-            player.update(gameTime);
-            player2.update(gameTime);
+            player.update();
+            player2.update();
 
             player.startIntersection();
             player2.startIntersection();
