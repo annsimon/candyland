@@ -100,6 +100,7 @@ namespace Candyland
 
         public override void collide(GameObject obj)
         {
+           
             cam.collideWith(obj);
 
             if (obj.GetType() == typeof(Platform)) collideWithPlatform(obj);

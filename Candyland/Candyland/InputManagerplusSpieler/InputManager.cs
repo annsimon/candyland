@@ -97,7 +97,7 @@ namespace Candyland
             if (keystate.IsKeyDown(Keys.Tab)
                 && oldKeyboardState != keystate) updateinfo.switchPlayer();
 
-            if (keystate.IsKeyDown(Keys.R)) player.reset();
+            if (keystate.IsKeyDown(Keys.R)) player.Reset();
 
             //Get the direction of the players camera
             float alpha = player.getCameraDir();
@@ -136,9 +136,9 @@ namespace Candyland
             if (padstate.IsButtonDown(Buttons.X)
                 && oldGamepadstate != padstate) updateinfo.currentpushedKeys.Add(Keys.Q);
             if (padstate.Triggers.Left > 0.7f
-                && oldGamepadstate.Triggers.Left < 0.5f) updateinfo.switchPlayer();
+                && oldGamepadstate.Triggers.Left < 0.5f && player.isInThirdP()) updateinfo.switchPlayer();
 
-            if (padstate.IsButtonDown(Buttons.LeftShoulder) && padstate.IsButtonDown(Buttons.RightShoulder)) player.reset();
+            if (padstate.IsButtonDown(Buttons.LeftShoulder) && padstate.IsButtonDown(Buttons.RightShoulder)) player.Reset();
 
             //Get the direction of the players camera
             float alpha = player.getCameraDir();

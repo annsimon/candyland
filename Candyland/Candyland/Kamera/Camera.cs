@@ -101,6 +101,7 @@ namespace Candyland
             //updatevMatrix();
         }
 
+        public bool isInThirdP() { return !topdownactive; }
         /// <summary>
         /// Changes the ViewAngle of the Camera towards the Player /
         /// Changes CameraPosition while in TopDown Perspective
