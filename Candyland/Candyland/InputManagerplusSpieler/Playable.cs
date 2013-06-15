@@ -70,7 +70,7 @@ namespace Candyland
         protected void move(float x, float y)
         {
             
-            if (x != 0 && y != 0 && cam.isInThirdP())
+            if ((x != 0 || y != 0) && cam.isInThirdP())
             {
                 float length = (float)Math.Sqrt(x * x + y * y);     //Calculate length of MovementVector
                 direction = new Vector3(x, 0, y);                   //Movement Vector
