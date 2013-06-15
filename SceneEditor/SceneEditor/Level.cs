@@ -13,6 +13,8 @@ namespace SceneEditor
     public partial class LevelGenerator : Form
     {
         public string id { get; set; }
+        public string startMainID { get; set; }
+        public string startSecondaryID { get; set; }
         public string posX { get; set; }
         public string posY { get; set; }
         public string posZ { get; set; }
@@ -35,6 +37,8 @@ namespace SceneEditor
             textBoxPosX.Text = "";
             textBoxPosY.Text = "";
             textBoxPosZ.Text = "";
+            textBoxStartMain.Text = "";
+            textBoxStartSecondary.Text = "";
 
             listBox1.Items.Clear();
             staticObjects.Clear();
@@ -53,6 +57,8 @@ namespace SceneEditor
             textBoxPosX.Text = level.posX;
             textBoxPosY.Text = level.posY;
             textBoxPosZ.Text = level.posZ;
+            textBoxStartMain.Text = level.startMainID;
+            textBoxStartSecondary.Text = level.startSecondaryID;
 
             foreach( Object obj in level.staticObjects )
             {
@@ -144,6 +150,14 @@ namespace SceneEditor
             posX = textBoxPosX.Text;
             posY = textBoxPosY.Text;
             posZ = textBoxPosZ.Text;
+            if (textBoxStartMain.Text == "")
+                startMainID = "x";
+            else
+                startMainID = textBoxStartMain.Text;
+            if (textBoxStartSecondary.Text == "")
+                startSecondaryID = "x";
+            else
+                startSecondaryID = textBoxStartSecondary.Text;
             this.DialogResult = DialogResult.OK;
         }
     }
@@ -154,6 +168,8 @@ namespace SceneEditor
         public string posX { get; set; }
         public string posY { get; set; }
         public string posZ { get; set; }
+        public string startMainID { get; set; }
+        public string startSecondaryID { get; set; }
         public List<Object> staticObjects { get; set; }
         public List<Object> dynamicObjects { get; set; }
 
@@ -240,6 +256,8 @@ namespace SceneEditor
             ret += "        <level>\n";
             ret += "          <level_id>" + id + "</level_id>\n";
             ret += "          <level_starting_position>\n";
+            ret += "          <main_start_platform>" + startMainID + "</main_start_platform>\n";
+            ret += "          <secondary_start_platform>" + startSecondaryID + "</secondary_start_platform>\n";
             ret += "            <x>" + posX + "</x>\n";
             ret += "            <y>" + posY + "</y>\n";
             ret += "            <z>" + posZ + "</z>\n";

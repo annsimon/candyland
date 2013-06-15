@@ -84,9 +84,13 @@ namespace Candyland
             if (m_updateInfo.reset)
             {
                 // reset player to start position of current level
-                Vector3 resetPos = m_areas[m_updateInfo.currentAreaID].GetStartingPosition();
+                Vector3 resetPos = m_areas[m_updateInfo.currentAreaID].GetPlayerStartingPosition();
                 resetPos.Y += 0.6f;
                 player.setPosition(resetPos);
+
+                Vector3 resetPos2 = m_areas[m_updateInfo.currentAreaID].GetCompanionStartingPosition();
+                resetPos.Y += 0.6f;
+                player2.setPosition(resetPos);
 
                 // reset world
                 foreach (var area in m_areas)

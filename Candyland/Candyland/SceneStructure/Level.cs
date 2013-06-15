@@ -24,6 +24,9 @@ namespace Candyland
         // which are static (e.g. platforms)
         List<GameObject> m_staticObjects;
 
+        Platform m_start_player;
+        Platform m_start_companion;
+
         public Level( string id, Vector3 level_start, UpdateInfo info, string xml, BonusTracker bonusTracker )
         {
             m_updateInfo = info;
@@ -96,6 +99,23 @@ namespace Candyland
                     gameObject.Value.initialize();
                 }
             }
+        }
+
+        // called to set the platform the player and companion each start at (for reset)
+        public void setStartPositions(string playerStartID, string companionStartID)
+        {
+            m_start_player = (Platform)m_gameObjects[playerStartID];
+            m_start_companion = (Platform)m_gameObjects[companionStartID];
+        }
+
+        public Vector3 getPlayerStartingPosition()
+        {
+            return m_start_player.getPosition();
+        }
+
+        public Vector3 getCompanionStartingPosition()
+        {
+            return m_start_companion.getPosition();
         }
     }
 }

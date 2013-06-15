@@ -28,6 +28,8 @@ namespace Candyland
 
             XmlNodeList id = scene.GetElementsByTagName("level_id");
             XmlNodeList start = scene.GetElementsByTagName("level_starting_position");
+            XmlNodeList idStartMain = scene.GetElementsByTagName("main_start_platform");
+            XmlNodeList idStartSecondary = scene.GetElementsByTagName("secondary_start_platform");
             XmlNodeList levelContent = scene.GetElementsByTagName("objects");
 
             int count = 0;
@@ -43,6 +45,10 @@ namespace Candyland
 
                 // create a new area of id, starting position, update info, camera and the xml in "levels"
                 Level level = new Level(node.InnerText, startPos, info, levelContent[count].InnerXml, bonusTracker);
+                
+                // set start platform for player and companion
+                level.setStartPositions(idStartMain[count].InnerText, idStartSecondary[count].InnerText);
+
                 // add completed level to level list
                 levelList.Add(node.InnerText, level);
 

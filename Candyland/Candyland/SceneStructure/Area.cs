@@ -67,9 +67,14 @@ namespace Candyland
                 m_levels[m_updateInfo.levelAfterExitID].Collide(obj);
         }
 
-        public Vector3 GetStartingPosition()
+        public Vector3 GetPlayerStartingPosition()
         {
-            return m_levels[m_updateInfo.currentLevelID].start;
+            return m_levels[m_updateInfo.currentLevelID].getPlayerStartingPosition();
+        }
+
+        public Vector3 GetCompanionStartingPosition()
+        {
+            return m_levels[m_updateInfo.currentLevelID].getCompanionStartingPosition();
         }
 
         public void Reset()
