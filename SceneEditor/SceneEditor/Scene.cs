@@ -28,23 +28,29 @@ namespace SceneEditor
 
         private void addAreaButton_Click(object sender, EventArgs e)
         {
-            m_areaGenerator.InitializeNewArea();
-            if (m_areaGenerator.ShowDialog() == DialogResult.OK)
+            try
             {
-                Area area = new Area();
-                area.id = m_areaGenerator.id;
-                area.idNext = m_areaGenerator.idNext;
-                area.idPrev = m_areaGenerator.idPrev;
-                area.posX = m_areaGenerator.posX;
-                area.posY = m_areaGenerator.posY;
-                area.posZ = m_areaGenerator.posZ;
+                m_areaGenerator.InitializeNewArea();
+                if (m_areaGenerator.ShowDialog() == DialogResult.OK)
+                {
+                    Area area = new Area();
+                    area.id = m_areaGenerator.id;
+                    area.idNext = m_areaGenerator.idNext;
+                    area.idPrev = m_areaGenerator.idPrev;
+                    area.posX = m_areaGenerator.posX;
+                    area.posY = m_areaGenerator.posY;
+                    area.posZ = m_areaGenerator.posZ;
 
-                area.levels = new List<Level>();
-                foreach (Level lvl in m_areaGenerator.levels)
-                    area.levels.Add(lvl);
+                    area.levels = new List<Level>();
+                    foreach (Level lvl in m_areaGenerator.levels)
+                        area.levels.Add(lvl);
 
-                m_areas.Add(area);
-                listBox1.Items.Add(area);
+                    m_areas.Add(area);
+                    listBox1.Items.Add(area);
+                }
+            }
+            catch
+            {
             }
         }
 

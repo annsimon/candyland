@@ -130,6 +130,10 @@ namespace Candyland
             isdestroyed = false;
         }
 
+        public virtual void endIntersection()
+        {
+        }
+
 
         /// <summary>
         /// Draws the Game Object, using the View and Projection Matrix of the Camera Class

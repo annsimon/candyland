@@ -73,6 +73,7 @@ namespace Candyland
                     isOnSlipperyGround = platform.getSlippery();
                 } 
             }
+
         }
 
         public override void hasCollidedWith(GameObject obj)

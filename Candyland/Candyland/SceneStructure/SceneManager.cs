@@ -129,7 +129,8 @@ namespace Candyland
            
             player.endIntersection();
             player2.endIntersection();
-          
+
+            m_areas[m_updateInfo.currentAreaID].endIntersection();
         }
 
         public void Draw(GameTime gameTime)

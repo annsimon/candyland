@@ -22,6 +22,14 @@ namespace Candyland
             this.m_boundingBox.Min.Y += upvelocity;
         }
 
+        public override void  endIntersection()
+        {
+ 	         base.endIntersection();
+             minOld = m_boundingBox.Min;
+             maxOld = m_boundingBox.Max;
+        }
+
+
         protected void preventIntersection(GameObject obj)
         {
             if (obj.getBoundingBox().Intersects(m_boundingBox))
