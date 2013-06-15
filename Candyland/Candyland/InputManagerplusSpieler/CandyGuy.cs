@@ -45,7 +45,7 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
-            effect = content.Load<Effect>("ToonCandyGuy");
+            effect = content.Load<Effect>("Toon");
             texture = content.Load<Texture2D>("spielertextur");
             m_model = content.Load<Model>("spielerneu");
             calculateBoundingBox();
@@ -100,6 +100,7 @@ namespace Candyland
 
         public override void collide(GameObject obj)
         {
+           
             cam.collideWith(obj);
 
             if (obj.GetType() == typeof(Platform)) collideWithPlatform(obj);
@@ -204,7 +205,7 @@ namespace Candyland
             Matrix translateMatrix = Matrix.CreateTranslation(m_position);
             Matrix worldMatrix = translateMatrix;
 
-                                Matrix rotation;
+            Matrix rotation;
                     if (direction.X > 0)
                     {
                         rotation = Matrix.CreateRotationY((float)Math.Acos(direction.Z));

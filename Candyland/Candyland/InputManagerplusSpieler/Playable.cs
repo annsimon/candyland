@@ -69,7 +69,8 @@ namespace Candyland
         /// <param name="y"></param>
         protected void move(float x, float y)
         {
-            if (x != 0 && y != 0)
+            
+            if (x != 0 && y != 0 && cam.isInThirdP())
             {
                 float length = (float)Math.Sqrt(x * x + y * y);     //Calculate length of MovementVector
                 direction = new Vector3(x, 0, y);                   //Movement Vector
@@ -90,7 +91,10 @@ namespace Candyland
         {
             m_updateInfo.reset = true;
             upvelocity = 0;
+            cam.changeToThirdPP();
         }
+
+        public bool isInThirdP() { return cam.isInThirdP(); }
 
         public void startIntersection()
         {

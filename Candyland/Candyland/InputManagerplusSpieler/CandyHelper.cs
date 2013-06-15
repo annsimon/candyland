@@ -16,6 +16,7 @@ namespace Candyland
     {
         private bool istargeting = false;
         private Vector3 target;
+        Texture2D texture;
 
 
         public CandyHelper(Vector3 position, Vector3 direction, float aspectRatio, UpdateInfo info, BonusTracker bonusTracker)
@@ -44,6 +45,8 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
+            effect = content.Load<Effect>("Toon");
+            texture = content.Load<Texture2D>("partnertextur");
             m_model = content.Load<Model>("partnerneu");
             calculateBoundingBox();
         }
@@ -198,30 +201,30 @@ namespace Candyland
 
             Matrix translateMatrix = Matrix.CreateTranslation(m_position);
             Matrix worldMatrix = translateMatrix;
-
+            Matrix rotation;
+            if (direction.X > 0)
+            {
+                rotation = Matrix.CreateRotationY((float)Math.Acos(direction.Z));
+            }
+            else
+            {
+                rotation = Matrix.CreateRotationY((float)-Math.Acos(direction.Z));
+            }
 
             // Draw the model. A model can have multiple meshes, so loop.
             foreach (ModelMesh mesh in m_model.Meshes)
             {
-                foreach (BasicEffect effect in mesh.Effects)
+
+                foreach (ModelMeshPart part in mesh.MeshParts)
                 {
-                    Matrix rotation;
-                    if (direction.X > 0)
-                    {
-                        rotation = Matrix.CreateRotationY((float)Math.Acos(direction.Z));
-                    }
-                    else
-                    {
-                        rotation = Matrix.CreateRotationY((float)-Math.Acos(direction.Z));
-                    }
-
-                    effect.World = rotation *
-                        worldMatrix * transforms[mesh.ParentBone.Index];
-                    effect.View = view;
-                    effect.Projection = projection;
-
-                    effect.EnableDefaultLighting();
-                    effect.PreferPerPixelLighting = true;
+                    part.Effect = effect;
+                    effect.Parameters["World"].SetValue(rotation * worldMatrix * mesh.ParentBone.Transform);
+                    effect.Parameters["DiffuseLightDirection"].SetValue(new Vector3(rotation.M13, rotation.M23, rotation.M33));
+                    effect.Parameters["View"].SetValue(view);
+                    effect.Parameters["Projection"].SetValue(projection);
+                    effect.Parameters["WorldInverseTranspose"].SetValue(
+                    Matrix.Transpose(Matrix.Invert(worldMatrix * mesh.ParentBone.Transform)));
+                    effect.Parameters["Texture"].SetValue(texture);
                 }
                 // Draw the mesh, using the effects set above.
                 mesh.Draw();

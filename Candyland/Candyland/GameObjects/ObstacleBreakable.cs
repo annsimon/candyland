@@ -14,13 +14,13 @@ namespace Candyland
     class ObstacleBreakable : Obstacle
     {
 
-
         public ObstacleBreakable(String id, Vector3 pos, UpdateInfo updateInfo)
         {
             this.ID = id;
             this.m_position = pos;
             this.isActive = false;
             this.m_updateInfo = updateInfo;
+            m_original_position = pos;
         }
 
 
@@ -28,7 +28,7 @@ namespace Candyland
         {
             this.m_texture = content.Load<Texture2D>("plattformtextur");
             this.m_original_texture = this.m_texture;
-            this.effect = content.Load<Effect>("ToonObjects");
+            this.effect = content.Load<Effect>("Toon");
             this.m_model = content.Load<Model>("plattform");
             this.m_original_model = this.m_model;
 

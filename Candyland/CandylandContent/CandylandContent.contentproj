@@ -78,8 +78,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
     </Compile>
-    <Compile Include="ToonObjects.fx">
-      <Name>ToonObjects</Name>
+    <Compile Include="Toon.fx">
+      <Name>Toon</Name>
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
     </Compile>
@@ -95,11 +95,6 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <ProcessorParameters_Scale>0.15</ProcessorParameters_Scale>
-    </Compile>
-    <Compile Include="ToonCandyGuy.fx">
-      <Name>ToonCandyGuy</Name>
-      <Importer>EffectImporter</Importer>
-      <Processor>EffectProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -132,6 +127,13 @@
     </Compile>
     <Compile Include="wunderkugeltextur.png">
       <Name>wunderkugeltextur</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="partnertextur.png">
+      <Name>partnertextur</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

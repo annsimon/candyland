@@ -26,8 +26,8 @@ namespace Candyland
 
         private const float MAXOFFSET = 4;
 
-        private float upspeed = 0.02f;
-        private float sidespeed = 0.1f;
+        private float upspeed = 0.2f;
+        private float sidespeed = 0.3f;
 
         private bool topdownactive = false;
         private float topdownoffset = 10;
@@ -67,6 +67,13 @@ namespace Candyland
             return rotation;
         }
 
+        public Vector3 getDirectionVec() {
+            Vector3 posdiff =  new Vector3((float)-Math.Sin(rotation) * (float)Math.Cos(upangle),
+                                                        (float)Math.Sin(upangle),
+                                                        (float)Math.Cos(rotation) * (float)Math.Cos(upangle));
+            return posdiff;
+        }
+
         /// <summary>
         /// Used to update the Camera direction and position
         /// </summary>
@@ -94,6 +101,7 @@ namespace Candyland
             //updatevMatrix();
         }
 
+        public bool isInThirdP() { return !topdownactive; }
         /// <summary>
         /// Changes the ViewAngle of the Camera towards the Player /
         /// Changes CameraPosition while in TopDown Perspective
