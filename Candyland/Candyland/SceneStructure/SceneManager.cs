@@ -110,9 +110,10 @@ namespace Candyland
             if (m_updateInfo.playerIsOnAreaExit)
                 m_areas[m_updateInfo.areaAfterExitID].Collide(player2);
             // check for Collision between all Objects in the currentObjectsToBeCollided List inside UpdateInfo
-            Dictionary<String, GameObject> currentObjectsToBeCollided = m_updateInfo.currentObjectsToBeCollided;
-            foreach (var obj in currentObjectsToBeCollided )
-                m_areas[m_updateInfo.currentAreaID].Collide(obj.Value); 
+            // REMOVED: ALL dynamic objects are collided in level
+            //Dictionary<String, GameObject> currentObjectsToBeCollided = m_updateInfo.currentObjectsToBeCollided;
+            //foreach (var obj in currentObjectsToBeCollided )
+            //    m_areas[m_updateInfo.currentAreaID].Collide(obj.Value); 
 
             // update the area the player currently is in
             // and the next area if the player is about to leave the current area
