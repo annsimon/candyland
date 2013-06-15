@@ -45,6 +45,10 @@
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.checkBoxSlippery = new System.Windows.Forms.CheckBox();
             this.acceptButton = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBoxEndX = new System.Windows.Forms.TextBox();
+            this.textBoxEndY = new System.Windows.Forms.TextBox();
+            this.textBoxEndZ = new System.Windows.Forms.TextBox();
             this.editDynamicButton.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -64,6 +68,10 @@
             this.editDynamicButton.Controls.Add(this.label5);
             this.editDynamicButton.Controls.Add(this.textBoxDoorLevel);
             this.editDynamicButton.Controls.Add(this.flowLayoutPanel2);
+            this.editDynamicButton.Controls.Add(this.label6);
+            this.editDynamicButton.Controls.Add(this.textBoxEndX);
+            this.editDynamicButton.Controls.Add(this.textBoxEndY);
+            this.editDynamicButton.Controls.Add(this.textBoxEndZ);
             this.editDynamicButton.Controls.Add(this.acceptButton);
             this.editDynamicButton.Location = new System.Drawing.Point(12, 12);
             this.editDynamicButton.Name = "editDynamicButton";
@@ -198,13 +206,44 @@
             // 
             // acceptButton
             // 
-            this.acceptButton.Location = new System.Drawing.Point(3, 122);
+            this.acceptButton.Location = new System.Drawing.Point(3, 148);
             this.acceptButton.Name = "acceptButton";
             this.acceptButton.Size = new System.Drawing.Size(490, 32);
             this.acceptButton.TabIndex = 12;
             this.acceptButton.Text = "OK";
             this.acceptButton.UseVisualStyleBackColor = true;
             this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 119);
+            this.label6.Name = "label6";
+            this.label6.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
+            this.label6.Size = new System.Drawing.Size(93, 19);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "EndPosition (x,y,z)";
+            // 
+            // textBoxEndX
+            // 
+            this.textBoxEndX.Location = new System.Drawing.Point(102, 122);
+            this.textBoxEndX.Name = "textBoxEndX";
+            this.textBoxEndX.Size = new System.Drawing.Size(35, 20);
+            this.textBoxEndX.TabIndex = 21;
+            // 
+            // textBoxEndY
+            // 
+            this.textBoxEndY.Location = new System.Drawing.Point(143, 122);
+            this.textBoxEndY.Name = "textBoxEndY";
+            this.textBoxEndY.Size = new System.Drawing.Size(37, 20);
+            this.textBoxEndY.TabIndex = 22;
+            // 
+            // textBoxEndZ
+            // 
+            this.textBoxEndZ.Location = new System.Drawing.Point(186, 122);
+            this.textBoxEndZ.Name = "textBoxEndZ";
+            this.textBoxEndZ.Size = new System.Drawing.Size(38, 20);
+            this.textBoxEndZ.TabIndex = 23;
             // 
             // ObjectGenerator
             // 
@@ -243,5 +282,9 @@
         private System.Windows.Forms.TextBox textBoxDoorLevel;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.CheckBox checkBoxSlippery;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBoxEndX;
+        private System.Windows.Forms.TextBox textBoxEndY;
+        private System.Windows.Forms.TextBox textBoxEndZ;
     }
 }

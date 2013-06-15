@@ -52,7 +52,7 @@ namespace Candyland
             m_updateInfo = new UpdateInfo(graphics);
 
    
-            m_inputManager = new InputManager(InputManager.GAMEPADONLY, graphicDeviceManager, m_updateInfo);
+            m_inputManager = new InputManager(InputManager.KEYBOARDMOUSE, graphicDeviceManager, m_updateInfo);
             /****************************************************************/
             m_graphics = graphics;
             /****************************************************************/
@@ -99,6 +99,7 @@ namespace Candyland
             m_inputManager.update(player,player2);
             player.update();
             player2.update();
+            m_areas[m_updateInfo.currentAreaID].Update(gameTime);
 
             player.startIntersection();
             player2.startIntersection();
@@ -119,7 +120,7 @@ namespace Candyland
 
             // update the area the player currently is in
             // and the next area if the player is about to leave the current area
-            m_areas[m_updateInfo.currentAreaID].Update(gameTime);
+            
             if (m_updateInfo.playerIsOnAreaExit)
                 m_areas[m_updateInfo.areaAfterExitID].Update(gameTime);
            

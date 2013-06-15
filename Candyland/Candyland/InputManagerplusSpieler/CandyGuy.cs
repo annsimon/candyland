@@ -109,7 +109,8 @@ namespace Candyland
             if (obj.GetType() == typeof(ObstacleMoveable)) collideWithMovable(obj);
             if (obj.GetType() == typeof(PlatformSwitchPermanent)) collideWithSwitchPermanent(obj);
             if (obj.GetType() == typeof(PlatformSwitchTemporary)) collideWithSwitchTemporary(obj);
-            if (obj.GetType() == typeof(ChocoChip)) collideWithChocoChip(obj); 
+            if (obj.GetType() == typeof(ChocoChip)) collideWithChocoChip(obj);
+            if (obj.GetType() == typeof(MovingPlatform)) collideWithMovingPlatform(obj);
         }
 
         private void collideWithPlatform(GameObject obj)
@@ -138,6 +139,18 @@ namespace Candyland
                 obj.isNotCollidingWith(this);
             }
         }
+
+        private void collideWithMovingPlatform(GameObject obj) {
+            preventIntersection(obj);
+           if (m_boundingBox.Intersects(obj.getBoundingBox())){
+            this.m_position += obj.getDirection();
+            m_boundingBox.Min += obj.getDirection();
+            m_boundingBox.Max += obj.getDirection();
+            }
+            
+            
+        }
+
         private void collideWithSwitchPermanent(GameObject obj) {
             if (obj.getBoundingBox().Intersects(m_boundingBox))
             {

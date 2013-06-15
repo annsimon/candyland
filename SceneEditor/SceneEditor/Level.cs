@@ -77,6 +77,9 @@ namespace SceneEditor
                 obj.posX = m_objectGenerator.posX;
                 obj.posY = m_objectGenerator.posY;
                 obj.posZ = m_objectGenerator.posZ;
+                obj.endPosX = m_objectGenerator.endPosX;
+                obj.endPosY = m_objectGenerator.endPosY;
+                obj.endPosZ = m_objectGenerator.endPosZ;
                 obj.doorArea = m_objectGenerator.doorArea;
                 obj.doorLevel = m_objectGenerator.doorLevel;
                 obj.isSlippery = m_objectGenerator.isSlippery;
@@ -96,6 +99,9 @@ namespace SceneEditor
                 current.posX = m_objectGenerator.posX;
                 current.posY = m_objectGenerator.posY;
                 current.posZ = m_objectGenerator.posZ;
+                current.endPosX = m_objectGenerator.endPosX;
+                current.endPosY = m_objectGenerator.endPosY;
+                current.endPosZ = m_objectGenerator.endPosZ;
                 current.doorArea = m_objectGenerator.doorArea;
                 current.doorLevel = m_objectGenerator.doorLevel;
                 current.isSlippery = m_objectGenerator.isSlippery;
@@ -113,6 +119,9 @@ namespace SceneEditor
                 obj.posX = m_objectGenerator.posX;
                 obj.posY = m_objectGenerator.posY;
                 obj.posZ = m_objectGenerator.posZ;
+                obj.endPosX = m_objectGenerator.endPosX;
+                obj.endPosY = m_objectGenerator.endPosY;
+                obj.endPosZ = m_objectGenerator.endPosZ;
                 obj.doorArea = m_objectGenerator.doorArea;
                 obj.doorLevel = m_objectGenerator.doorLevel;
                 obj.isSlippery = m_objectGenerator.isSlippery;
@@ -132,6 +141,9 @@ namespace SceneEditor
                 current.posX = m_objectGenerator.posX;
                 current.posY = m_objectGenerator.posY;
                 current.posZ = m_objectGenerator.posZ;
+                current.endPosX = m_objectGenerator.endPosX;
+                current.endPosY = m_objectGenerator.endPosY;
+                current.endPosZ = m_objectGenerator.endPosZ;
                 current.doorArea = m_objectGenerator.doorArea;
                 current.doorLevel = m_objectGenerator.doorLevel;
                 current.isSlippery = m_objectGenerator.isSlippery;
@@ -195,7 +207,7 @@ namespace SceneEditor
             XmlNodeList door_to_area = scene.GetElementsByTagName("is_door_to_area");
             XmlNodeList door_to_level = scene.GetElementsByTagName("is_door_to_level");
             XmlNodeList slippery = scene.GetElementsByTagName("slippery");
-
+            XmlNodeList endPosition = scene.GetElementsByTagName("object_endposition");
             int count = 0;
 
             foreach (XmlNode node in id)
@@ -212,6 +224,15 @@ namespace SceneEditor
                 obj.posX = position[count].SelectSingleNode("x").InnerText;
                 obj.posY = position[count].SelectSingleNode("y").InnerText;
                 obj.posZ = position[count].SelectSingleNode("z").InnerText;
+
+                try
+                {
+                    // get x, y, z position
+                    obj.endPosX = endPosition[count].SelectSingleNode("x").InnerText;
+                    obj.endPosY = endPosition[count].SelectSingleNode("y").InnerText;
+                    obj.endPosZ = endPosition[count].SelectSingleNode("z").InnerText;
+                }
+                catch { }
 
                 // get bool value for slippery
                 obj.isSlippery = bool.Parse(slippery[count].InnerText);

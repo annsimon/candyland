@@ -19,6 +19,9 @@ namespace SceneEditor
         public string doorArea { get; set; }
         public string doorLevel { get; set; }
         public bool isSlippery { get; set; }
+        public string endPosX { get; set; }
+        public string endPosY { get; set; }
+        public string endPosZ { get; set; }
 
         public ObjectGenerator()
         {
@@ -36,6 +39,9 @@ namespace SceneEditor
             //textBoxDoorArea.Text = "";
             //textBoxDoorLevel.Text = "";
             //checkBoxSlippery.Checked = false;
+            textBoxEndX.Text = "";
+            textBoxEndY.Text = "";
+            textBoxEndZ.Text = "";
         }
 
         public void InitializeWithObject( Object obj )
@@ -48,6 +54,9 @@ namespace SceneEditor
             textBoxDoorArea.Text = obj.doorArea;
             textBoxDoorLevel.Text = obj.doorLevel;
             checkBoxSlippery.Checked = obj.isSlippery;
+            textBoxEndX.Text = obj.endPosX;
+            textBoxEndY.Text = obj.endPosY;
+            textBoxEndZ.Text = obj.endPosZ;
         }
 
         private void acceptButton_Click(object sender, EventArgs e)
@@ -57,6 +66,9 @@ namespace SceneEditor
             posX = textBoxPosX.Text;
             posY = textBoxPosY.Text;
             posZ = textBoxPosZ.Text;
+            endPosX = textBoxEndX.Text;
+            endPosY = textBoxEndY.Text;
+            endPosZ = textBoxEndZ.Text;
             if (textBoxDoorArea.Text == "")
                 doorArea = "x";
             else
@@ -81,6 +93,10 @@ namespace SceneEditor
         public string doorLevel { get; set; }
         public bool isSlippery { get; set; }
 
+        public string endPosX { get; set; }
+        public string endPosY { get; set; }
+        public string endPosZ { get; set; }
+        
         public Object() { }
 
         public override string ToString()
@@ -101,6 +117,11 @@ namespace SceneEditor
             ret += "                      <y>" + posY + "</y>\n";
             ret += "                      <z>" + posZ + "</z>\n";
             ret += "                    </object_position>\n";
+            ret += "                    <object_endposition>\n";
+            ret += "                      <x>" + endPosX + "</x>\n";
+            ret += "                      <y>" + endPosY + "</y>\n";
+            ret += "                      <z>" + endPosZ + "</z>\n";
+            ret += "                    </object_endposition>\n";
             ret += "                    <slippery>" + isSlippery.ToString() + "</slippery>\n";
             ret += "                  </object>\n";
             return ret;

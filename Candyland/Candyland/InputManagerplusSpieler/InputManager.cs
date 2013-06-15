@@ -79,10 +79,10 @@ namespace Candyland
             float dmovextemp = 0;
             float dmoveytemp = 0;
 
-            if(keystate.IsKeyDown(Keys.W))      dmoveytemp += 0.7f;
-            if(keystate.IsKeyDown(Keys.S))      dmoveytemp -= 0.7f;
-            if(keystate.IsKeyDown(Keys.A))      dmovextemp += 0.7f;
-            if(keystate.IsKeyDown(Keys.D))      dmovextemp -= 0.7f;
+            if(keystate.IsKeyDown(Keys.W))      dmoveytemp += 1f;
+            if(keystate.IsKeyDown(Keys.S))      dmoveytemp -= 1f;
+            if(keystate.IsKeyDown(Keys.A))      dmovextemp += 1f;
+            if(keystate.IsKeyDown(Keys.D))      dmovextemp -= 1f;
             if (keystate.IsKeyDown(Keys.Space)
                 && keystate.IsKeyDown(Keys.Space) != oldKeyboardState.IsKeyDown(Keys.Space)){
                 updateinfo.currentpushedKeys.Add(Keys.Space);
