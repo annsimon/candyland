@@ -71,6 +71,8 @@ namespace SceneEditor
                 level.posX = m_levelGenerator.posX;
                 level.posY = m_levelGenerator.posY;
                 level.posZ = m_levelGenerator.posZ;
+                level.startMainID = m_levelGenerator.startMainID;
+                level.startSecondaryID = m_levelGenerator.startSecondaryID;
                 level.dynamicObjects = new List<Object>();
                 foreach (Object obj in m_levelGenerator.dynamicObjects)
                     level.dynamicObjects.Add(obj);
@@ -84,21 +86,27 @@ namespace SceneEditor
 
         private void editLevelButton_Click(object sender, EventArgs e)
         {
-            Level current = (Level)listBox1.SelectedItem;
-            m_levelGenerator.InitializeWithLevel(current);
-            if (m_levelGenerator.ShowDialog() == DialogResult.OK)
+            try
             {
-                current.id = m_levelGenerator.id;
-                current.posX = m_levelGenerator.posX;
-                current.posY = m_levelGenerator.posY;
-                current.posZ = m_levelGenerator.posZ;
-                current.dynamicObjects = new List<Object>();
-                foreach (Object obj in m_levelGenerator.dynamicObjects)
-                    current.dynamicObjects.Add(obj);
-                current.staticObjects = new List<Object>();
-                foreach (Object obj in m_levelGenerator.staticObjects)
-                    current.staticObjects.Add(obj);
+                Level current = (Level)listBox1.SelectedItem;
+                m_levelGenerator.InitializeWithLevel(current);
+                if (m_levelGenerator.ShowDialog() == DialogResult.OK)
+                {
+                    current.id = m_levelGenerator.id;
+                    current.posX = m_levelGenerator.posX;
+                    current.posY = m_levelGenerator.posY;
+                    current.posZ = m_levelGenerator.posZ;
+                    current.startMainID = m_levelGenerator.startMainID;
+                    current.startSecondaryID = m_levelGenerator.startSecondaryID;
+                    current.dynamicObjects = new List<Object>();
+                    foreach (Object obj in m_levelGenerator.dynamicObjects)
+                        current.dynamicObjects.Add(obj);
+                    current.staticObjects = new List<Object>();
+                    foreach (Object obj in m_levelGenerator.staticObjects)
+                        current.staticObjects.Add(obj);
+                }
             }
+            catch { }
         }
 
         private void acceptButton_Click(object sender, EventArgs e)
@@ -142,6 +150,8 @@ namespace SceneEditor
 
             XmlNodeList id = scene.GetElementsByTagName("level_id");
             XmlNodeList start = scene.GetElementsByTagName("level_starting_position");
+            XmlNodeList idStartMain = scene.GetElementsByTagName("main_start_platform");
+            XmlNodeList idStartSecondary = scene.GetElementsByTagName("secondary_start_platform");
             XmlNodeList levelContent = scene.GetElementsByTagName("objects");
 
             int count = 0;
@@ -157,6 +167,16 @@ namespace SceneEditor
                 level.posX = start[count].SelectSingleNode("x").InnerText;
                 level.posY = start[count].SelectSingleNode("y").InnerText;
                 level.posZ = start[count].SelectSingleNode("z").InnerText;
+
+                // get start positions for player and support
+                if( idStartMain[count] == null )
+                    level.startMainID = "x";
+                else
+                    level.startMainID = idStartMain[count].InnerText;
+                if (idStartSecondary[count] == null)
+                    level.startSecondaryID = "x";
+                else
+                    level.startSecondaryID = idStartSecondary[count].InnerText;
 
                 // let level parse its objects
                 level.Parse(levelContent[count].InnerXml);

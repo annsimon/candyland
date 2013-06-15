@@ -73,9 +73,7 @@ namespace SceneEditor
                         current.levels.Add(lvl);
                 }
             }
-            catch
-            {
-            }
+            catch { }
         }
 
         private void Parse()

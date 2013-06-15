@@ -20,6 +20,7 @@ namespace Candyland
             this.isActive = false;
             this.isActivated = false;
             this.m_updateInfo = updateInfo;
+            this.m_switchGroups = new List<SwitchGroup>();
             activeTime = 0;
         }
 

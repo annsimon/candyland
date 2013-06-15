@@ -21,7 +21,8 @@ namespace Candyland
         {
             this.ID = id;
             this.m_position = pos;
-            this.m_original_position = pos;
+            this.m_position.Y += .5f;
+            this.m_original_position = this.m_position;
             this.isActive = false;
             this.original_isActive = false;
             this.m_updateInfo = updateInfo;
@@ -39,6 +40,12 @@ namespace Candyland
         public override void hasCollidedWith(GameObject obj)
         {
            
+        }
+
+        public override void draw()
+        {
+            if( !isdestroyed )
+                base.draw();
         }
 
         public override void load(ContentManager content)

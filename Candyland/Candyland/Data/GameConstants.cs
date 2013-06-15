@@ -32,6 +32,8 @@ namespace Candyland
         /// </summary>
         public const bool boundingBoxRendering = false;
 
+        public const int inputManagerMode = InputManager.KEYBOARDMOUSE;
+
         
     }
 }

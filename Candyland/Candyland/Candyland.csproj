@@ -103,6 +103,7 @@
     <Compile Include="Logical\SwitchGroup.cs" />
     <Compile Include="MyModel.cs" />
     <Compile Include="Parsers\AreaParser.cs" />
+    <Compile Include="Parsers\EventParser.cs" />
     <Compile Include="Parsers\LevelParser.cs" />
     <Compile Include="Parsers\ObjectParser.cs" />
     <Compile Include="Program.cs" />

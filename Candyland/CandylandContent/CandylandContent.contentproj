@@ -150,6 +150,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="EventTest.xml">
+      <Name>EventTest</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
     <None Include="SpurwechselTest.xml">
       <Name>SpurwechselTest</Name>
       <Importer>XmlImporter</Importer>

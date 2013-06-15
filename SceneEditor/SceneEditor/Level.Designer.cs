@@ -42,7 +42,13 @@
             this.addDynamicButton = new System.Windows.Forms.Button();
             this.editDynamicButton = new System.Windows.Forms.Button();
             this.acceptButton = new System.Windows.Forms.Button();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBoxStartMain = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBoxStartSecondary = new System.Windows.Forms.TextBox();
             this.layout.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // layout
@@ -53,6 +59,7 @@
             this.layout.Controls.Add(this.textBoxPosX);
             this.layout.Controls.Add(this.textBoxPosY);
             this.layout.Controls.Add(this.textBoxPosZ);
+            this.layout.Controls.Add(this.flowLayoutPanel1);
             this.layout.Controls.Add(this.listBox1);
             this.layout.Controls.Add(this.addStaticButton);
             this.layout.Controls.Add(this.editStaticButton);
@@ -62,7 +69,7 @@
             this.layout.Controls.Add(this.acceptButton);
             this.layout.Location = new System.Drawing.Point(12, 12);
             this.layout.Name = "layout";
-            this.layout.Size = new System.Drawing.Size(496, 503);
+            this.layout.Size = new System.Drawing.Size(496, 535);
             this.layout.TabIndex = 1;
             // 
             // label1
@@ -116,14 +123,14 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(3, 29);
+            this.listBox1.Location = new System.Drawing.Point(3, 64);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(490, 251);
             this.listBox1.TabIndex = 10;
             // 
             // addStaticButton
             // 
-            this.addStaticButton.Location = new System.Drawing.Point(3, 286);
+            this.addStaticButton.Location = new System.Drawing.Point(3, 321);
             this.addStaticButton.Name = "addStaticButton";
             this.addStaticButton.Size = new System.Drawing.Size(243, 32);
             this.addStaticButton.TabIndex = 11;
@@ -133,7 +140,7 @@
             // 
             // editStaticButton
             // 
-            this.editStaticButton.Location = new System.Drawing.Point(252, 286);
+            this.editStaticButton.Location = new System.Drawing.Point(252, 321);
             this.editStaticButton.Name = "editStaticButton";
             this.editStaticButton.Size = new System.Drawing.Size(241, 32);
             this.editStaticButton.TabIndex = 13;
@@ -144,14 +151,14 @@
             // listBox2
             // 
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(3, 324);
+            this.listBox2.Location = new System.Drawing.Point(3, 359);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(490, 95);
             this.listBox2.TabIndex = 14;
             // 
             // addDynamicButton
             // 
-            this.addDynamicButton.Location = new System.Drawing.Point(3, 425);
+            this.addDynamicButton.Location = new System.Drawing.Point(3, 460);
             this.addDynamicButton.Name = "addDynamicButton";
             this.addDynamicButton.Size = new System.Drawing.Size(243, 32);
             this.addDynamicButton.TabIndex = 15;
@@ -161,7 +168,7 @@
             // 
             // editDynamicButton
             // 
-            this.editDynamicButton.Location = new System.Drawing.Point(252, 425);
+            this.editDynamicButton.Location = new System.Drawing.Point(252, 460);
             this.editDynamicButton.Name = "editDynamicButton";
             this.editDynamicButton.Size = new System.Drawing.Size(241, 32);
             this.editDynamicButton.TabIndex = 16;
@@ -171,7 +178,7 @@
             // 
             // acceptButton
             // 
-            this.acceptButton.Location = new System.Drawing.Point(3, 463);
+            this.acceptButton.Location = new System.Drawing.Point(3, 498);
             this.acceptButton.Name = "acceptButton";
             this.acceptButton.Size = new System.Drawing.Size(490, 32);
             this.acceptButton.TabIndex = 12;
@@ -179,16 +186,63 @@
             this.acceptButton.UseVisualStyleBackColor = true;
             this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.label6);
+            this.flowLayoutPanel1.Controls.Add(this.textBoxStartMain);
+            this.flowLayoutPanel1.Controls.Add(this.label7);
+            this.flowLayoutPanel1.Controls.Add(this.textBoxStartSecondary);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 29);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(488, 29);
+            this.flowLayoutPanel1.TabIndex = 22;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 0);
+            this.label6.Name = "label6";
+            this.label6.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
+            this.label6.Size = new System.Drawing.Size(129, 19);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "Start MainChar PlatformID";
+            // 
+            // textBoxStartMain
+            // 
+            this.textBoxStartMain.Location = new System.Drawing.Point(138, 3);
+            this.textBoxStartMain.Name = "textBoxStartMain";
+            this.textBoxStartMain.Size = new System.Drawing.Size(64, 20);
+            this.textBoxStartMain.TabIndex = 23;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(208, 0);
+            this.label7.Name = "label7";
+            this.label7.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
+            this.label7.Size = new System.Drawing.Size(157, 19);
+            this.label7.TabIndex = 24;
+            this.label7.Text = "Start SecondaryChar PlatformID";
+            // 
+            // textBoxStartSecondary
+            // 
+            this.textBoxStartSecondary.Location = new System.Drawing.Point(371, 3);
+            this.textBoxStartSecondary.Name = "textBoxStartSecondary";
+            this.textBoxStartSecondary.Size = new System.Drawing.Size(67, 20);
+            this.textBoxStartSecondary.TabIndex = 25;
+            // 
             // LevelGenerator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(520, 527);
+            this.ClientSize = new System.Drawing.Size(520, 559);
             this.Controls.Add(this.layout);
             this.Name = "LevelGenerator";
             this.Text = "SceneGenerator - Edit Level";
             this.layout.ResumeLayout(false);
             this.layout.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -209,5 +263,10 @@
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Button addDynamicButton;
         private System.Windows.Forms.Button editDynamicButton;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBoxStartMain;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBoxStartSecondary;
     }
 }

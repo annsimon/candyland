@@ -17,9 +17,11 @@ namespace Candyland
         {
             this.ID = id;
             this.m_position = pos;
+            this.m_original_position = pos;
             this.isActive = false;
             this.isActivated = false;
             this.m_updateInfo = updateInfo;
+            this.m_switchGroups = new List<SwitchGroup>();
         }
 
         public override void load(ContentManager content)
@@ -45,10 +47,10 @@ namespace Candyland
                 this.setActivated(true);
             }
             // Deactivate when touch ends
-            if (this.isActivated && !this.isTouched)
-            {
-                this.setActivated(false);
-            }
+            //if (this.isActivated && !this.isTouched)
+            //{
+            //    this.setActivated(false);
+            //}
         }
 
     }
