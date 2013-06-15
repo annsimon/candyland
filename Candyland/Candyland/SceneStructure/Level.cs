@@ -44,7 +44,7 @@ namespace Candyland
         {
             foreach (var gameObject in m_gameObjects)
             {
-                gameObject.Value.update();
+                gameObject.Value.update(gameTime);
             }
 
             foreach( var gameObject in m_gameObjects )

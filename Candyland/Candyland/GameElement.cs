@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
 
 namespace Candyland
 {
@@ -11,6 +12,6 @@ namespace Candyland
     public abstract class GameElement
     {
         public abstract void initialize();
-        public abstract void update();
+        public abstract void update(GameTime gameTime);
     }
 }

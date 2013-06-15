@@ -37,7 +37,7 @@ namespace Candyland
         /// <summary>
         /// Updates the Switch's states.
         /// </summary>
-        public override void update()
+        public override void update(GameTime gameTime)
         {
             // Activate when first touch occurs
             if (!this.isActivated && this.isTouched)

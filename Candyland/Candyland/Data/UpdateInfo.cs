@@ -44,6 +44,8 @@ namespace Candyland
 
         public List<Keys> currentpushedKeys { get; set; }
 
+        public GameTime gameTime { get; set; }
+
         // we do not use this after all, probably; remove later!
         //public Dictionary<String, GameObject> currentObjectsToBeCollided { get; set; }
 

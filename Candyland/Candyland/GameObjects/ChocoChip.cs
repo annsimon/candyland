@@ -71,7 +71,7 @@ namespace Candyland
         }
 
 
-        public override void update()
+        public override void update(GameTime gameTime)
         {
         }
 

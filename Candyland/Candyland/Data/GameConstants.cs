@@ -23,9 +23,14 @@ namespace Candyland
         public const float obstacleSpeed = 0.2f;
 
         /// <summary>
+        /// time a timed switch stays activated
+        /// </summary>
+        public const double switchActiveTime = 15;
+
+        /// <summary>
         /// bounding box rendering on/off
         /// </summary>
-        public const bool boundingBoxRendering = true;
+        public const bool boundingBoxRendering = false;
 
         
     }

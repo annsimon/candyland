@@ -37,7 +37,7 @@ namespace Candyland
         /// <summary>
         /// Updates the Switch's states.
         /// </summary>
-        public override void update()
+        public override void update(GameTime gameTime)
         {
             if (this.isTouched)
             {
