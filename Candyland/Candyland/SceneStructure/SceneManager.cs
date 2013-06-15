@@ -51,8 +51,8 @@ namespace Candyland
 
             m_updateInfo = new UpdateInfo(graphics);
 
-   
-            m_inputManager = new InputManager(InputManager.GAMEPADONLY, graphicDeviceManager, m_updateInfo);
+
+            m_inputManager = new InputManager(InputManager.KEYBOARDMOUSE, graphicDeviceManager, m_updateInfo);
             /****************************************************************/
             m_graphics = graphics;
             /****************************************************************/
@@ -125,7 +125,8 @@ namespace Candyland
            
             player.endIntersection();
             player2.endIntersection();
-          
+
+            m_areas[m_updateInfo.currentAreaID].endIntersection();
         }
 
         public void Draw(GameTime gameTime)

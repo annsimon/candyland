@@ -78,6 +78,12 @@ namespace Candyland
                 lvl.Value.Reset();
         }
 
+        public void endIntersection()
+        {
+            foreach (var lvl in m_levels)
+                lvl.Value.endIntersection();
+        }
+
         public void Load()
         {
             foreach (var lvl in m_levels)

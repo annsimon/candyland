@@ -102,7 +102,7 @@ namespace Candyland
             cam.startCollision();
         }
 
-        public void endIntersection()
+        public override void endIntersection()
         {
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
