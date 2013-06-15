@@ -64,7 +64,7 @@ namespace Candyland
         public override void collide(GameObject obj)
         {
             if (obj.GetType() == typeof(Platform)) collideWithPlatform(obj);
-            if (obj.GetType() == typeof(Obstacle)) collideWithObstacle(obj);
+            //if (obj.GetType() == typeof(Obstacle)) collideWithObstacle(obj); // may not be called for itself!!!
             if (obj.GetType() == typeof(ObstacleBreakable)) collideWithBreakable(obj);
             if (obj.GetType() == typeof(ObstacleMoveable)) collideWithMovable(obj);
             if (obj.GetType() == typeof(PlatformSwitchPermanent)) collideWithSwitchPermanent(obj);
