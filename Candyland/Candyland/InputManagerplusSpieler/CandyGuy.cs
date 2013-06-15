@@ -45,7 +45,7 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
-            effect = content.Load<Effect>("ToonCandyGuy");
+            effect = content.Load<Effect>("Toon");
             texture = content.Load<Texture2D>("spielertextur");
             m_model = content.Load<Model>("spielerneu");
             calculateBoundingBox();

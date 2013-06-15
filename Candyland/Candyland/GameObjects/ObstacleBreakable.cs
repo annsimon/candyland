@@ -28,7 +28,7 @@ namespace Candyland
         {
             this.m_texture = content.Load<Texture2D>("plattformtextur");
             this.m_original_texture = this.m_texture;
-            this.effect = content.Load<Effect>("ToonObjects");
+            this.effect = content.Load<Effect>("Toon");
             this.m_model = content.Load<Model>("plattform");
             this.m_original_model = this.m_model;
 
