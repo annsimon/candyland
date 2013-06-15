@@ -18,7 +18,7 @@ namespace Candyland
             m_switchGroup.Changed();
         }
 
-        protected bool isTouched;
+        protected bool isTouched = false;
         public bool getTouched() { return this.isTouched; }
         public void setTouched(bool value) { this.isTouched = value; }
 
@@ -26,6 +26,20 @@ namespace Candyland
         public void setGroup( SwitchGroup group )
         {
             m_switchGroup = group;
+        }
+
+
+        public override void hasCollidedWith(GameObject obj)
+        {
+            // Position of the collided object (and therefore it's middle) is on the switch
+            if (obj.getPosition().X > m_boundingBox.Max.X
+                && obj.getPosition().X < m_boundingBox.Min.X
+                && obj.getPosition().Y > m_boundingBox.Max.Y
+                && obj.getPosition().Y < m_boundingBox.Min.Y)
+            {
+                isTouched = true;
+            }
+            else isTouched = isTouched || false; // TODO Find out what this does :)
         }
 
     }
