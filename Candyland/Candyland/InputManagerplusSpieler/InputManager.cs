@@ -37,7 +37,7 @@ namespace Candyland
         {
             switch (inputMode){
             case 0: mouseMovement(player, keystate,mousestate); break;
-            case 1: gamePadMovement(player); break;
+            case 1: gamePadMovement(player, padstate); break;
             case 2: boardMovement(player); break;
             }
         }
@@ -45,7 +45,7 @@ namespace Candyland
         public void update(Playable candy, Playable helper) {
 
             KeyboardState keystate = Keyboard.GetState();
-            GamePadState padstate = GamePad.GetState(0);
+            GamePadState padstate = GamePad.GetState(PlayerIndex.One);
             MouseState mousestate = Mouse.GetState();
 
             updateinfo.currentpushedKeys.Clear();
@@ -120,9 +120,41 @@ namespace Candyland
             throw new NotImplementedException();
         }
 
-        private void gamePadMovement(Playable player)
+        private void gamePadMovement(Playable player, GamePadState padstate)
         {
-            throw new NotImplementedException();
+            if (padstate.IsButtonDown(Buttons.A)
+                && padstate.IsButtonDown(Buttons.A) != oldGamepadstate.IsButtonDown(Buttons.A))
+            {
+                updateinfo.currentpushedKeys.Add(Keys.Space); //SPace because its the epuivalent to Buttons.A
+                player.uniqueskill();
+            }
+            if (padstate.IsButtonDown(Buttons.Y)
+                && oldGamepadstate.IsButtonDown(Buttons.Y) 
+                != padstate.IsButtonDown(Buttons.Y)) player.switchCameraPerspective();
+            if (padstate.IsButtonDown(Buttons.B)
+                && oldGamepadstate != padstate) updateinfo.currentpushedKeys.Add(Keys.LeftAlt);
+            if (padstate.IsButtonDown(Buttons.X)
+                && oldGamepadstate != padstate) updateinfo.currentpushedKeys.Add(Keys.Q);
+            if (padstate.Triggers.Left > 0.7f
+                && oldGamepadstate.Triggers.Left < 0.5f) updateinfo.switchPlayer();
+
+            if (padstate.IsButtonDown(Buttons.LeftShoulder) && padstate.IsButtonDown(Buttons.RightShoulder)) player.reset();
+
+            //Get the direction of the players camera
+            float alpha = player.getCameraDir();
+
+            //rotate the movementvector to kamerakoordinates
+            float dmovex = (float)Math.Cos(alpha) * -padstate.ThumbSticks.Left.X 
+                - (float)Math.Sin(alpha) * padstate.ThumbSticks.Left.Y;
+            float dmovey = (float)Math.Sin(alpha) * -padstate.ThumbSticks.Left.X
+                + (float)Math.Cos(alpha) * padstate.ThumbSticks.Left.Y;
+            //move the player
+            player.movementInput(dmovex, dmovey,
+                0.6f * -padstate.ThumbSticks.Right.X, 0.6f * padstate.ThumbSticks.Right.Y);
+            //reset mouse to the center of the screen, to rotate freely
+
+            oldGamepadstate = padstate;
+            
         }
 
 
