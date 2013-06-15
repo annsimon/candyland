@@ -18,9 +18,14 @@ namespace Candyland
         public const float gravity = -0.004f;
 
         /// <summary>
+        /// speed of moving obstacles
+        /// </summary>
+        public const float obstacleSpeed = 0.2f;
+
+        /// <summary>
         /// bounding box rendering on/off
         /// </summary>
-        public const bool boundingBoxRendering = false;
+        public const bool boundingBoxRendering = true;
 
         
     }

@@ -8,7 +8,7 @@ namespace Candyland
 {
     public abstract class DynamicGameObjects : GameObject
     {
-        protected float upvelocity;             //beschleinigungsfaktor un y richtung
+        protected float upvelocity;             //beschleinigungsfaktor in y richtung
         protected bool isonground = false;
         protected Vector3 minOld;
         protected Vector3 maxOld;
@@ -116,6 +116,12 @@ namespace Candyland
                     m_position.Z = m_boundingBox.Min.Z + zvector;
                 }
             }
+        }
+
+        public override void Reset()
+        {
+            base.Reset();
+            upvelocity = 0;
         }
 
     }
