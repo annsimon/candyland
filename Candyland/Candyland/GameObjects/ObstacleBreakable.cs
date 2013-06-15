@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 namespace Candyland
 {
     /// <summary>
-    /// Obstacle, that can be destroyed by the Player. Under which Condition?
+    /// Obstacle, that can be destroyed by the PlayerHelper.
     /// </summary>
     class ObstacleBreakable : Obstacle
     {

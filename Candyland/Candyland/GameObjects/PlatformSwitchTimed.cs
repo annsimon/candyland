@@ -6,14 +6,12 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
+
 namespace Candyland
 {
-    /// <summary>
-    /// Switch is only activated, when a Player (or an Obstacle) is standing on the Platform.
-    /// </summary>
-    class PlatformSwitchTemporary : PlatformSwitch
+    class PlatformSwitchTimed : PlatformSwitch
     {
-        public PlatformSwitchTemporary(String id, Vector3 pos, UpdateInfo updateInfo)
+                public PlatformSwitchTimed(String id, Vector3 pos, UpdateInfo updateInfo)
         {
             this.ID = id;
             this.m_position = pos;
@@ -34,15 +32,18 @@ namespace Candyland
         /// </summary>
         public override void update()
         {
-            if (this.isTouched)
+            // TODO insert timeout
+
+            // Activate when first touch occurs
+            if (!this.isActivated && this.isTouched)
             {
-                // Activate when touch occurs and was deactivated before
-                if(!this.isActivated)
-                    this.setActivated(true);
+                this.setActivated(true);
             }
-            // Deactivate when not touched
-            else
+            // Deactivate when touch ends
+            if (this.isActivated && !this.isTouched)
+            {
                 this.setActivated(false);
+            }
         }
 
     }

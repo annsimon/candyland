@@ -48,10 +48,6 @@ namespace Candyland
 
         public override void update()
         {
-            // TODO Decide when to call move and with what parameters or maybe make different methodes like push and slide
-            // this.move(...);
-            // this.setActive(true); // when obstacle is moving
-
             fall();
 
             // Obstacle is sliding
@@ -88,7 +84,27 @@ namespace Candyland
             {
                 this.isActive = true;
                 this.currentspeed = obj.getCurrentSpeed();
-                this.direction = obj.getDirection();
+
+                // Find out on which boundingbox side the collision occurs
+
+                    // Obstacle should only be moved, if collided from the side
+                    // Test if no collision in Y direction
+                    if(obj.getBoundingBox().Min.Y > m_boundingBox.Max.Y
+                        || obj.getBoundingBox().Max.Y < m_boundingBox.Min.Y)
+                    {
+                        //Test if collison in X direction
+                        if (obj.getBoundingBox().Min.X < m_boundingBox.Max.X
+                            || obj.getBoundingBox().Max.X > m_boundingBox.Min.X)
+                        {
+                            this.direction = new Vector3(obj.getDirection().X,0,0);
+                        }
+                        // Test if collision in Z direction
+                        if (obj.getBoundingBox().Min.Z < m_boundingBox.Max.Z
+                            || obj.getBoundingBox().Max.Z > m_boundingBox.Min.Z)
+                        {
+                            this.direction = new Vector3(0, 0, obj.getDirection().Z);
+                        }
+                    }
                 move();
             }
         }

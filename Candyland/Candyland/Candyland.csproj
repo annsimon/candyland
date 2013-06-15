@@ -78,6 +78,7 @@
     <Compile Include="Area.cs" />
     <Compile Include="BonusTracker.cs" />
     <Compile Include="GameObjects\DynamicGameObjects.cs" />
+    <Compile Include="GameObjects\PlatformSwitchTimed.cs" />
     <Compile Include="InputManagerplusSpieler\CandyHelper.cs" />
     <Compile Include="GameConstants.cs" />
     <Compile Include="GameObjects\ChocoChip.cs" />
