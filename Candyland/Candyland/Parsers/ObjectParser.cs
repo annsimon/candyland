@@ -76,13 +76,13 @@ namespace Candyland
                 else
                 if (object_type == "obstacleForSwitch")
                 {
-                    Obstacle obj = new Obstacle(node.InnerText, pos, info);
+                    ObstacleForSwitch obj = new ObstacleForSwitch(node.InnerText, pos, info);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
                 else
                 if (object_type == "obstacleForFalling")
                 {
-                    Obstacle obj = new Obstacle(node.InnerText, pos, info);
+                    ObstacleForSwitch obj = new ObstacleForSwitch(node.InnerText, pos, info);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
                 else

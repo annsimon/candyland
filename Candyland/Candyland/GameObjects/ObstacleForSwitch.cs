@@ -14,6 +14,8 @@ namespace Candyland
         {
             this.ID = id;
             this.m_position = pos;
+            this.m_position.Y += 1.25f;
+            this.m_original_position = this.m_position;
             this.isActive = false;
             this.m_updateInfo = updateInfo;
             m_original_position = pos;
@@ -21,10 +23,10 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
-            this.m_texture = content.Load<Texture2D>("plattformtextur");
+            this.m_texture = content.Load<Texture2D>("blockmovabletextur");
             this.m_original_texture = this.m_texture;
             this.effect = content.Load<Effect>("Toon");
-            this.m_model = content.Load<Model>("plattform");
+            this.m_model = content.Load<Model>("blockmovable");
             this.m_original_model = this.m_model;
 
             this.calculateBoundingBox();
