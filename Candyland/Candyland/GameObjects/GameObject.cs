@@ -68,6 +68,8 @@ namespace Candyland
 
         public abstract void collide(GameObject obj);
 
+        protected Vector3 minOld;
+        protected Vector3 maxOld;
         public abstract void hasCollidedWith(GameObject obj);
         public abstract void isNotCollidingWith(GameObject obj);
 

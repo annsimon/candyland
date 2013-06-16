@@ -10,8 +10,6 @@ namespace Candyland
     {
         protected float upvelocity;             //beschleinigungsfaktor in y richtung
         protected bool isonground = false;
-        protected Vector3 minOld;
-        protected Vector3 maxOld;
 
         protected virtual void fall()
         {
