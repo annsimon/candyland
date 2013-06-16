@@ -44,6 +44,8 @@ namespace Candyland
 
         public List<Keys> currentpushedKeys { get; set; }
 
+        public GameTime gameTime { get; set; }
+
         // we do not use this after all, probably; remove later!
         //public Dictionary<String, GameObject> currentObjectsToBeCollided { get; set; }
 
@@ -59,8 +61,8 @@ namespace Candyland
 
         public UpdateInfo(GraphicsDevice graphicsDevice)
         {
-            currentAreaID = "0";
-            currentLevelID = "0.0";
+            currentAreaID = "255";
+            currentLevelID = "255.0";
 
             playerIsOnAreaExit = false;
             areaAfterExitID = "";

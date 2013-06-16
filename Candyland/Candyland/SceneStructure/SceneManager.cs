@@ -52,12 +52,12 @@ namespace Candyland
             m_updateInfo = new UpdateInfo(graphics);
 
    
-            m_inputManager = new InputManager(InputManager.KEYBOARDMOUSE, graphicDeviceManager, m_updateInfo);
+            m_inputManager = new InputManager(GameConstants.inputManagerMode, graphicDeviceManager, m_updateInfo);
             /****************************************************************/
             m_graphics = graphics;
             /****************************************************************/
 
-            player = new CandyGuy(new Vector3(0, 0.4f, 0), Vector3.Up,graphics.Viewport.AspectRatio, m_updateInfo, m_bonusTracker);
+            player = new CandyGuy(new Vector3(255, 255.4f, 255), Vector3.Up,graphics.Viewport.AspectRatio, m_updateInfo, m_bonusTracker);
             player2 = new CandyHelper(new Vector3(0, 0.4f, 0.2f), Vector3.Up, graphics.Viewport.AspectRatio, m_updateInfo,m_bonusTracker);
             
             m_areas = AreaParser.ParseAreas(m_updateInfo, m_bonusTracker);
@@ -82,12 +82,19 @@ namespace Candyland
                 System.Console.Out.WriteLine("nextLevel = " + m_updateInfo.levelAfterExitID);
             */
 
+            // Update gameTime in UpdateInfo
+            m_updateInfo.gameTime = gameTime;
+
             if (m_updateInfo.reset)
             {
                 // reset player to start position of current level
-                Vector3 resetPos = m_areas[m_updateInfo.currentAreaID].GetStartingPosition();
+                Vector3 resetPos = m_areas[m_updateInfo.currentAreaID].GetPlayerStartingPosition();
                 resetPos.Y += 0.6f;
                 player.setPosition(resetPos);
+
+                Vector3 resetPos2 = m_areas[m_updateInfo.currentAreaID].GetCompanionStartingPosition();
+                resetPos.Y += 0.6f;
+                player2.setPosition(resetPos);
 
                 // reset world
                 foreach (var area in m_areas)
@@ -126,7 +133,8 @@ namespace Candyland
            
             player.endIntersection();
             player2.endIntersection();
-          
+
+            m_areas[m_updateInfo.currentAreaID].endIntersection();
         }
 
         public void Draw(GameTime gameTime)

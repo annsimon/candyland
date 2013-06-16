@@ -35,7 +35,8 @@ namespace Candyland
 
         public override void hasCollidedWith(GameObject obj){ }
 
-        public override void update() {
+        public override void update()
+        {
             fall();
             if (m_updateInfo.candyselected)
             cam.updatevMatrix();
@@ -129,7 +130,7 @@ namespace Candyland
             }   
         }
         private void collideWithObstacle(GameObject obj) {
-            if (obj.getBoundingBox().Intersects(m_boundingBox))
+            if (!obj.isdestroyed && obj.getBoundingBox().Intersects(m_boundingBox))
             {
                 preventIntersection(obj);
                 obj.hasCollidedWith(this);

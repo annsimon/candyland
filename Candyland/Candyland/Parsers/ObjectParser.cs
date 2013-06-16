@@ -76,6 +76,12 @@ namespace Candyland
                     dynamicObjects.Add(node.InnerText, obj);
                 }
                 else
+                if (object_type == "obstacle")
+                {
+                    Obstacle obj = new Obstacle(node.InnerText, pos, info);
+                    dynamicObjects.Add(node.InnerText, obj);
+                }
+                else
                 if (object_type == "breakable")
                 {
                     ObstacleBreakable obj = new ObstacleBreakable(node.InnerText, pos, info);
@@ -149,8 +155,16 @@ namespace Candyland
 
                 if (object_type == "platform")
                 {
-                    Platform obj = new Platform(node.InnerText, pos, false , "x", "x", info);
+                    Platform obj = new Platform(node.InnerText, pos, false, "x", "x", info);
                     objectList.Add(obj);
+                }
+                else
+                {
+                    if (object_type == "obstacle")
+                    {
+                        Obstacle obj = new Obstacle(node.InnerText, pos, info);
+                        objectList.Add(obj);
+                    }
                 }
 
                 // increase count as it is used to access the not-id xml elements of the correct level

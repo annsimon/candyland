@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<levels>
+  <L0.1>
+    <level_inner>
+      <event>
+        <event_inner>
+          <triggerable>0.1.0.obstacle</triggerable>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>0.1.0.switchPermanent</switch_id>
+              <switch_id>0.1.1.switchPermanent</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+    </level_inner>
+  </L0.1>
+</levels>

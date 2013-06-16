@@ -13,6 +13,8 @@ namespace SceneEditor
     public partial class LevelGenerator : Form
     {
         public string id { get; set; }
+        public string startMainID { get; set; }
+        public string startSecondaryID { get; set; }
         public string posX { get; set; }
         public string posY { get; set; }
         public string posZ { get; set; }
@@ -35,6 +37,8 @@ namespace SceneEditor
             textBoxPosX.Text = "";
             textBoxPosY.Text = "";
             textBoxPosZ.Text = "";
+            textBoxStartMain.Text = "";
+            textBoxStartSecondary.Text = "";
 
             listBox1.Items.Clear();
             staticObjects.Clear();
@@ -53,6 +57,8 @@ namespace SceneEditor
             textBoxPosX.Text = level.posX;
             textBoxPosY.Text = level.posY;
             textBoxPosZ.Text = level.posZ;
+            textBoxStartMain.Text = level.startMainID;
+            textBoxStartSecondary.Text = level.startSecondaryID;
 
             foreach( Object obj in level.staticObjects )
             {
@@ -66,23 +72,29 @@ namespace SceneEditor
             }
         }
 
+        private void initObject( Object obj )
+        {
+            obj.type = m_objectGenerator.type;
+            obj.id = m_objectGenerator.id;
+            obj.posX = m_objectGenerator.posX;
+            obj.posY = m_objectGenerator.posY;
+            obj.posZ = m_objectGenerator.posZ;
+            obj.doorArea = m_objectGenerator.doorArea;
+            obj.doorLevel = m_objectGenerator.doorLevel;
+            obj.isSlippery = m_objectGenerator.isSlippery;
+			obj.endPosX = m_objectGenerator.endPosX;
+            obj.endPosY = m_objectGenerator.endPosY;
+            obj.endPosZ = m_objectGenerator.endPosZ;
+                
+        }
+
         private void addStaticButton_Click(object sender, EventArgs e)
         {
             m_objectGenerator.InitializeNewObject();
             if (m_objectGenerator.ShowDialog() == DialogResult.OK)
             {
                 Object obj = new Object();
-                obj.type = m_objectGenerator.type;
-                obj.id = m_objectGenerator.id;
-                obj.posX = m_objectGenerator.posX;
-                obj.posY = m_objectGenerator.posY;
-                obj.posZ = m_objectGenerator.posZ;
-                obj.endPosX = m_objectGenerator.endPosX;
-                obj.endPosY = m_objectGenerator.endPosY;
-                obj.endPosZ = m_objectGenerator.endPosZ;
-                obj.doorArea = m_objectGenerator.doorArea;
-                obj.doorLevel = m_objectGenerator.doorLevel;
-                obj.isSlippery = m_objectGenerator.isSlippery;
+                initObject(obj);
                 staticObjects.Add(obj);
                 listBox1.Items.Add(obj);
             }
@@ -90,22 +102,16 @@ namespace SceneEditor
 
         private void editStaticButton_Click(object sender, EventArgs e)
         {
-            Object current = (Object)listBox1.SelectedItem;
-            m_objectGenerator.InitializeWithObject(current);
-            if (m_objectGenerator.ShowDialog() == DialogResult.OK)
+            try
             {
-                current.type = m_objectGenerator.type;
-                current.id = m_objectGenerator.id;
-                current.posX = m_objectGenerator.posX;
-                current.posY = m_objectGenerator.posY;
-                current.posZ = m_objectGenerator.posZ;
-                current.endPosX = m_objectGenerator.endPosX;
-                current.endPosY = m_objectGenerator.endPosY;
-                current.endPosZ = m_objectGenerator.endPosZ;
-                current.doorArea = m_objectGenerator.doorArea;
-                current.doorLevel = m_objectGenerator.doorLevel;
-                current.isSlippery = m_objectGenerator.isSlippery;
+                Object current = (Object)listBox1.SelectedItem;
+                m_objectGenerator.InitializeWithObject(current);
+                if (m_objectGenerator.ShowDialog() == DialogResult.OK)
+                {
+                    initObject(current);
+                }
             }
+            catch { }
         }
 
         private void addDynamicButton_Click(object sender, EventArgs e)
@@ -114,17 +120,7 @@ namespace SceneEditor
             if (m_objectGenerator.ShowDialog() == DialogResult.OK)
             {
                 Object obj = new Object();
-                obj.type = m_objectGenerator.type;
-                obj.id = m_objectGenerator.id;
-                obj.posX = m_objectGenerator.posX;
-                obj.posY = m_objectGenerator.posY;
-                obj.posZ = m_objectGenerator.posZ;
-                obj.endPosX = m_objectGenerator.endPosX;
-                obj.endPosY = m_objectGenerator.endPosY;
-                obj.endPosZ = m_objectGenerator.endPosZ;
-                obj.doorArea = m_objectGenerator.doorArea;
-                obj.doorLevel = m_objectGenerator.doorLevel;
-                obj.isSlippery = m_objectGenerator.isSlippery;
+                initObject(obj);
                 dynamicObjects.Add(obj);
                 listBox2.Items.Add(obj);
             }
@@ -132,22 +128,16 @@ namespace SceneEditor
 
         private void editDynamicButton_Click(object sender, EventArgs e)
         {
-            Object current = (Object)listBox2.SelectedItem;
-            m_objectGenerator.InitializeWithObject(current);
-            if (m_objectGenerator.ShowDialog() == DialogResult.OK)
+            try
             {
-                current.type = m_objectGenerator.type;
-                current.id = m_objectGenerator.id;
-                current.posX = m_objectGenerator.posX;
-                current.posY = m_objectGenerator.posY;
-                current.posZ = m_objectGenerator.posZ;
-                current.endPosX = m_objectGenerator.endPosX;
-                current.endPosY = m_objectGenerator.endPosY;
-                current.endPosZ = m_objectGenerator.endPosZ;
-                current.doorArea = m_objectGenerator.doorArea;
-                current.doorLevel = m_objectGenerator.doorLevel;
-                current.isSlippery = m_objectGenerator.isSlippery;
+                Object current = (Object)listBox2.SelectedItem;
+                m_objectGenerator.InitializeWithObject(current);
+                if (m_objectGenerator.ShowDialog() == DialogResult.OK)
+                {
+                    initObject(current);
+                }
             }
+            catch { }
         }
 
         private void acceptButton_Click(object sender, EventArgs e)
@@ -156,6 +146,14 @@ namespace SceneEditor
             posX = textBoxPosX.Text;
             posY = textBoxPosY.Text;
             posZ = textBoxPosZ.Text;
+            if (textBoxStartMain.Text == "")
+                startMainID = "x";
+            else
+                startMainID = textBoxStartMain.Text;
+            if (textBoxStartSecondary.Text == "")
+                startSecondaryID = "x";
+            else
+                startSecondaryID = textBoxStartSecondary.Text;
             this.DialogResult = DialogResult.OK;
         }
     }
@@ -166,6 +164,8 @@ namespace SceneEditor
         public string posX { get; set; }
         public string posY { get; set; }
         public string posZ { get; set; }
+        public string startMainID { get; set; }
+        public string startSecondaryID { get; set; }
         public List<Object> staticObjects { get; set; }
         public List<Object> dynamicObjects { get; set; }
 
@@ -261,6 +261,8 @@ namespace SceneEditor
             ret += "        <level>\n";
             ret += "          <level_id>" + id + "</level_id>\n";
             ret += "          <level_starting_position>\n";
+            ret += "          <main_start_platform>" + startMainID + "</main_start_platform>\n";
+            ret += "          <secondary_start_platform>" + startSecondaryID + "</secondary_start_platform>\n";
             ret += "            <x>" + posX + "</x>\n";
             ret += "            <y>" + posY + "</y>\n";
             ret += "            <z>" + posZ + "</z>\n";

@@ -23,6 +23,11 @@ namespace Candyland
         // this list contains all game objects of the level
         // which are static (e.g. platforms)
         List<GameObject> m_staticObjects;
+        // this list contains all events of the level
+        List<Event> m_events;
+
+        Platform m_start_player;
+        Platform m_start_companion;
 
         public Level( string id, Vector3 level_start, UpdateInfo info, string xml, BonusTracker bonusTracker )
         {
@@ -30,6 +35,18 @@ namespace Candyland
             this.start = level_start;
             m_gameObjects = ObjectParser.ParseObjects(level_start, xml, info, bonusTracker);
             m_staticObjects = ObjectParser.ParseStatics(level_start, xml, info);
+            m_events = new List<Event>();
+
+            try 
+            {
+                m_events = EventParser.ParseEvents(id, m_gameObjects);
+            }
+            catch(Exception e) 
+            {
+                e.GetType();
+            }
+            //if( id == "0.1" )
+            //    m_events.Add(new Event(m_gameObjects));
         }
 
         public void Load(ContentManager manager)
@@ -74,8 +91,7 @@ namespace Candyland
             foreach (var gameObject in m_gameObjects)
             {
                 obj.collide(gameObject.Value);
-            }
-        
+            }      
         }
 
         public void Reset()
@@ -83,6 +99,19 @@ namespace Candyland
             foreach (var gameObject in m_gameObjects)
             {
                 gameObject.Value.Reset();
+            }
+            foreach( Event currEvent in m_events )
+            {
+                currEvent.Reset();
+            }
+        }
+
+        // might be called for too many objects (only those which use preventIntersection need it)
+        public void endIntersection()
+        {
+            foreach (var gameObject in m_gameObjects)
+            {
+                    gameObject.Value.endIntersection();
             }
         }
 
@@ -96,6 +125,23 @@ namespace Candyland
                     gameObject.Value.initialize();
                 }
             }
+        }
+
+        // called to set the platform the player and companion each start at (for reset)
+        public void setStartPositions(string playerStartID, string companionStartID)
+        {
+            m_start_player = (Platform)m_gameObjects[playerStartID];
+            m_start_companion = (Platform)m_gameObjects[companionStartID];
+        }
+
+        public Vector3 getPlayerStartingPosition()
+        {
+            return m_start_player.getPosition();
+        }
+
+        public Vector3 getCompanionStartingPosition()
+        {
+            return m_start_companion.getPosition();
         }
     }
 }

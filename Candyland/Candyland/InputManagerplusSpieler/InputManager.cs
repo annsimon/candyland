@@ -21,6 +21,7 @@ namespace Candyland
         public const int KEYBOARDMOUSE = 0; //Bewegungsstates
         public const int GAMEPADONLY = 1;
         public const int GAMEPADBOARD = 2;
+        public const int RUN = 3;
         private int inputMode = 0;
         GraphicsDeviceManager graphicDevice;
         UpdateInfo updateinfo;
@@ -35,10 +36,15 @@ namespace Candyland
 
         private void movePlayable(Playable player, GamePadState padstate, MouseState mousestate, KeyboardState keystate) 
         {
+            if (updateinfo.currentAreaID.Equals("5"))
+            {
+                inputMode = 3;
+            }
             switch (inputMode){
             case 0: mouseMovement(player, keystate,mousestate); break;
             case 1: gamePadMovement(player, padstate); break;
             case 2: boardMovement(player); break;
+            case 3: mouseMovementRun(player, keystate, mousestate); break;
             }
         }
 
@@ -65,6 +71,59 @@ namespace Candyland
         /// <param name="player"></param>
         /// <param name="keystate"></param>
         /// <param name="mousestate"></param>
+        /// 
+
+        private void mouseMovementRun(Playable player, KeyboardState keystate, MouseState mousestate)
+        {
+
+            //Calculate the difference for Camera Movement and normalize it
+            float dcamx = mousestate.X - graphicDevice.PreferredBackBufferWidth / 2;
+            float dcamy = mousestate.Y - graphicDevice.PreferredBackBufferHeight / 2;
+            //normalize the movement difference
+            dcamx /= graphicDevice.PreferredBackBufferWidth / 4;
+            dcamy /= graphicDevice.PreferredBackBufferHeight / 4;
+
+
+            //get the Keyboard Input to Move the player
+            float dmovextemp = 0;
+            float dmoveytemp = 0;
+
+            if ((keystate.IsKeyDown(Keys.W))||(keystate.IsKeyUp(Keys.W))) dmoveytemp += 1;
+            if(keystate.IsKeyDown(Keys.S))      dmoveytemp -= 1f;
+            if(keystate.IsKeyDown(Keys.A))      dmovextemp += 1f;
+            if (keystate.IsKeyDown(Keys.Space)
+                && keystate.IsKeyDown(Keys.Space) != oldKeyboardState.IsKeyDown(Keys.Space))
+            {
+                updateinfo.currentpushedKeys.Add(Keys.Space);
+                player.uniqueskill();
+            }
+            if (keystate.IsKeyDown(Keys.M)
+                && oldKeyboardState != keystate) player.switchCameraPerspective();
+            if (keystate.IsKeyDown(Keys.LeftAlt)
+                && oldKeyboardState != keystate) updateinfo.currentpushedKeys.Add(Keys.LeftAlt);
+            if (keystate.IsKeyDown(Keys.Q)
+                && oldKeyboardState != keystate) updateinfo.currentpushedKeys.Add(Keys.Q);
+            if (keystate.IsKeyDown(Keys.Tab)
+                && oldKeyboardState != keystate) updateinfo.switchPlayer();
+
+            if (keystate.IsKeyDown(Keys.R)) player.Reset();
+
+            //Get the direction of the players camera
+            float alpha = player.getCameraDir();
+
+            //rotate the movementvector to kamerakoordinates
+            float dmovex = (float)Math.Cos(alpha) * dmovextemp - (float)Math.Sin(alpha) * dmoveytemp;
+            float dmovey = (float)Math.Sin(alpha) * dmovextemp + (float)Math.Cos(alpha) * dmoveytemp;
+            //move the player
+            player.movementInput(dmovex, dmovey, 0, 0);
+            //reset mouse to the center of the screen, to rotate freely
+            Mouse.SetPosition(graphicDevice.PreferredBackBufferWidth / 2, graphicDevice.PreferredBackBufferHeight / 2);
+
+            oldKeyboardState = keystate;
+            oldMouseState = mousestate;
+        }
+
+
         private void mouseMovement(Playable player, KeyboardState keystate, MouseState mousestate)
         {
             //Calculate the difference for Camera Movement and normalize it
@@ -79,15 +138,16 @@ namespace Candyland
             float dmovextemp = 0;
             float dmoveytemp = 0;
 
-            if(keystate.IsKeyDown(Keys.W))      dmoveytemp += 1f;
-            if(keystate.IsKeyDown(Keys.S))      dmoveytemp -= 1f;
-            if(keystate.IsKeyDown(Keys.A))      dmovextemp += 1f;
-            if(keystate.IsKeyDown(Keys.D))      dmovextemp -= 1f;
-            if (keystate.IsKeyDown(Keys.Space)
-                && keystate.IsKeyDown(Keys.Space) != oldKeyboardState.IsKeyDown(Keys.Space)){
-                updateinfo.currentpushedKeys.Add(Keys.Space);
-                player.uniqueskill();
-            }
+                if (keystate.IsKeyDown(Keys.W)) dmoveytemp += 0.7f;
+                if (keystate.IsKeyDown(Keys.S)) dmoveytemp -= 0.7f;
+                if (keystate.IsKeyDown(Keys.A)) dmovextemp += 0.7f;
+                if (keystate.IsKeyDown(Keys.D)) dmovextemp -= 0.7f;
+                if (keystate.IsKeyDown(Keys.Space)
+                    && keystate.IsKeyDown(Keys.Space) != oldKeyboardState.IsKeyDown(Keys.Space))
+                {
+                    updateinfo.currentpushedKeys.Add(Keys.Space);
+                    player.uniqueskill();
+                }
             if (keystate.IsKeyDown(Keys.M)
                 && oldKeyboardState != keystate) player.switchCameraPerspective(); 
             if(keystate.IsKeyDown(Keys.LeftAlt)
