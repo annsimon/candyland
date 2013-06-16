@@ -56,7 +56,7 @@ namespace Candyland
                 float m_maxYold = maxOld.Y;
                 float m_maxZold = maxOld.Z;
 
-                if (m_minYold >= maxY)
+                if (m_minYold >= maxY-0.1f)
                 {
                     isonground = true;
 

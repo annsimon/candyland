@@ -85,7 +85,7 @@
       <Name>blockmovable</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.45</ProcessorParameters_Scale>
+      <ProcessorParameters_Scale>0.496</ProcessorParameters_Scale>
     </Compile>
     <None Include="SceneTest.xml">
       <Name>SceneTest</Name>
@@ -203,6 +203,18 @@
       <Processor>PassThroughProcessor</Processor>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="blockbreakabletextur.png">
+      <Name>blockbreakabletextur</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="blocktextur.png">
+      <Name>blocktextur</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 

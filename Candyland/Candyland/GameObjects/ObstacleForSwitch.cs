@@ -14,7 +14,7 @@ namespace Candyland
         {
             this.ID = id;
             this.m_position = pos;
-            this.m_position.Y += 1.25f;
+            this.m_position.Y += 2.25f;
             this.m_original_position = this.m_position;
             this.isActive = false;
             this.m_updateInfo = updateInfo;

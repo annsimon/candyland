@@ -20,7 +20,7 @@ namespace Candyland
         /// <summary>
         /// speed of moving obstacles
         /// </summary>
-        public const float obstacleSpeed = 0.2f;
+        public const float obstacleSpeed = 0.1f;
 
         /// <summary>
         /// time a timed switch stays activated

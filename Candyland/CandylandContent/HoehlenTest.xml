@@ -1481,6 +1481,18 @@
                   </object>
                   <object>
                     <object_type>platform</object_type>
+                    <object_id>6.0.1226</object_id>
+                    <is_door_to_area>x</is_door_to_area>
+                    <is_door_to_level>x</is_door_to_level>
+                    <object_position>
+                      <x>4</x>
+                      <y>6</y>
+                      <z>-10</z>
+                    </object_position>
+                    <slippery>False</slippery>
+                  </object>
+                  <object>
+                    <object_type>platform</object_type>
                     <object_id>6.0.122</object_id>
                     <is_door_to_area>x</is_door_to_area>
                     <is_door_to_level>x</is_door_to_level>
