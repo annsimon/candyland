@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using Microsoft.Xna.Framework.Graphics;
+
 namespace Candyland
 {
     /// <summary>
@@ -10,6 +12,8 @@ namespace Candyland
     /// </summary>
     abstract class PlatformSwitch : Platform
     {
+        protected Texture2D m_activated_texture;
+        protected Texture2D m_notActivated_texture;
         protected bool isActivated;
         public bool getActivated() { return this.isActivated; }
         public void setActivated(bool value) 
@@ -43,12 +47,15 @@ namespace Candyland
             {
                 isTouched = true;
             }
+            else
+                isTouched = false;
         }
 
         public override void Reset()
         {
             isActivated = false;
             isTouched = false;
+            m_texture = m_notActivated_texture;
             base.Reset();
         }
 
