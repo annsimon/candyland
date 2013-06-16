@@ -65,9 +65,6 @@ namespace Candyland
 
         public override void update()
         {
-            // let the Object fall, if no collision with lower Objects
-            fall();
-            isonground = false;
         }
     }
 }
