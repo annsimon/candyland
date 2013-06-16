@@ -198,6 +198,7 @@ namespace Candyland
         {
             if (obj.getBoundingBox().Intersects(m_boundingBox))
             {
+                preventIntersection(obj);
                 obj.hasCollidedWith(this);
             }
             else
