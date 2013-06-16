@@ -8,13 +8,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Candyland
 {
-    /// <summary>
-    /// Obstacle, that can be destroyed by the PlayerHelper.
-    /// </summary>
-    class ObstacleBreakable : Obstacle
+    class ObstacleForSwitch : Obstacle
     {
-
-        public ObstacleBreakable(String id, Vector3 pos, UpdateInfo updateInfo)
+        public ObstacleForSwitch(String id, Vector3 pos, UpdateInfo updateInfo)
         {
             this.ID = id;
             this.m_position = pos;
@@ -22,7 +18,6 @@ namespace Candyland
             this.m_updateInfo = updateInfo;
             m_original_position = pos;
         }
-
 
         public override void load(ContentManager content)
         {
@@ -35,20 +30,12 @@ namespace Candyland
             this.calculateBoundingBox();
         }
 
-        public override void hasCollidedWith(GameObject obj)
-        {
-            if (obj.GetType() == typeof(CandyHelper)
-                && m_updateInfo.currentpushedKeys.Contains(Microsoft.Xna.Framework.Input.Keys.Space)
-                && !m_updateInfo.candyselected) {
-                    breakObstacle();
-            }
-        }
 
         public override void update()
         {
             // let the Object fall, if no collision with lower Objects
             fall();
-            isonground = false;    
+            isonground = false;
         }
 
         #region collision
@@ -56,7 +43,7 @@ namespace Candyland
         public override void collide(GameObject obj)
         {
             if (obj.GetType() == typeof(Platform)) collideWithPlatform(obj);
-            if (obj.GetType() == typeof(Obstacle)) collideWithObstacle(obj); // may not be called for itself!!!
+            if (obj.GetType() == typeof(Obstacle)) collideWithObstacle(obj);
             if (obj.GetType() == typeof(ObstacleBreakable)) collideWithBreakable(obj);
             if (obj.GetType() == typeof(ObstacleMoveable)) collideWithMovable(obj);
             if (obj.GetType() == typeof(PlatformSwitchPermanent)) collideWithSwitchPermanent(obj);
@@ -75,7 +62,7 @@ namespace Candyland
         }
         private void collideWithObstacle(GameObject obj)
         {
-            if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+            if (obj.getBoundingBox().Intersects(m_boundingBox))
             {
                 preventIntersection(obj);
             }
@@ -106,7 +93,7 @@ namespace Candyland
         }
         private void collideWithBreakable(GameObject obj)
         {
-            if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox) && !obj.isdestroyed)
+            if (obj.getBoundingBox().Intersects(m_boundingBox) && !obj.isdestroyed)
             {
                 preventIntersection(obj);
             }
@@ -132,28 +119,14 @@ namespace Candyland
             }
         }
 
-
         private void collideWithObstacleForSwitch(GameObject obj)
         {
-            if (obj.getBoundingBox().Intersects(m_boundingBox))
+            if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
             {
                 preventIntersection(obj);
             }
         }
 
         #endregion
-
-        private void breakObstacle()
-        {
-            // TODO start animation and get rid of Obstacle, so the Player can move forward
-            isdestroyed = true;
-        }
-        public override void draw()
-        {
-            if (!isdestroyed)
-            {
-                base.draw();
-            }
-        }
     }
 }
