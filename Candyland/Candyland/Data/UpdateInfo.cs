@@ -38,7 +38,7 @@ namespace Candyland
         public Matrix projectionMatrix { get ; set; }
 
         public bool candyselected { get; set; }
-        public void switchPlayer() { candyselected = !candyselected; }
+        public void switchPlayer() { if(helperavailable) candyselected = !candyselected; }
         public bool helperavailable { get; set; }
         public void togglehelper() { helperavailable = !helperavailable; }
 
@@ -61,8 +61,8 @@ namespace Candyland
 
         public UpdateInfo(GraphicsDevice graphicsDevice)
         {
-            currentAreaID = "255";
-            currentLevelID = "255.0";
+            currentAreaID = "0";
+            currentLevelID = "0.0";
 
             playerIsOnAreaExit = false;
             areaAfterExitID = "";
@@ -77,7 +77,7 @@ namespace Candyland
             //currentObjectsToBeCollided = new Dictionary<String, GameObject>();
 
             candyselected = true;
-            helperavailable = true;
+            helperavailable = false;
 
             /**********************************************************************/
             graphics = graphicsDevice;

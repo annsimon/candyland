@@ -21,7 +21,6 @@ namespace Candyland
         public const int KEYBOARDMOUSE = 0; //Bewegungsstates
         public const int GAMEPADONLY = 1;
         public const int GAMEPADBOARD = 2;
-        public const int RUN = 3;
         private int inputMode = 0;
         GraphicsDeviceManager graphicDevice;
         UpdateInfo updateinfo;
@@ -36,15 +35,19 @@ namespace Candyland
 
         private void movePlayable(Playable player, GamePadState padstate, MouseState mousestate, KeyboardState keystate) 
         {
-            if (updateinfo.currentAreaID.Equals("5"))
+            if (updateinfo.currentLevelID.Equals("5.0"))
             {
-                inputMode = 3;
+                mouseMovementRun(player, keystate, mousestate);
             }
-            switch (inputMode){
-            case 0: mouseMovement(player, keystate,mousestate); break;
-            case 1: gamePadMovement(player, padstate); break;
-            case 2: boardMovement(player); break;
-            case 3: mouseMovementRun(player, keystate, mousestate); break;
+            else
+            {
+
+                switch (inputMode)
+                {
+                    case 0: mouseMovement(player, keystate, mousestate); break;
+                    case 1: gamePadMovement(player, padstate); break;
+                    case 2: boardMovement(player); break;
+                }
             }
         }
 

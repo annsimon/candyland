@@ -192,43 +192,46 @@ namespace Candyland
 
         public override void draw()
         {
-            Matrix view = m_updateInfo.viewMatrix;
-            Matrix projection = m_updateInfo.projectionMatrix;
-            // Copy any parent transforms.
-            Matrix[] transforms = new Matrix[m_model.Bones.Count];
-            m_model.CopyAbsoluteBoneTransformsTo(transforms);
-
-            Matrix translateMatrix = Matrix.CreateTranslation(m_position);
-            Matrix worldMatrix = translateMatrix;
-            Matrix rotation;
-            if (direction.X > 0)
+            if (m_updateInfo.helperavailable)
             {
-                rotation = Matrix.CreateRotationY((float)Math.Acos(direction.Z));
-            }
-            else
-            {
-                rotation = Matrix.CreateRotationY((float)-Math.Acos(direction.Z));
-            }
+                Matrix view = m_updateInfo.viewMatrix;
+                Matrix projection = m_updateInfo.projectionMatrix;
+                // Copy any parent transforms.
+                Matrix[] transforms = new Matrix[m_model.Bones.Count];
+                m_model.CopyAbsoluteBoneTransformsTo(transforms);
 
-            // Draw the model. A model can have multiple meshes, so loop.
-            foreach (ModelMesh mesh in m_model.Meshes)
-            {
-
-                foreach (ModelMeshPart part in mesh.MeshParts)
+                Matrix translateMatrix = Matrix.CreateTranslation(m_position);
+                Matrix worldMatrix = translateMatrix;
+                Matrix rotation;
+                if (direction.X > 0)
                 {
-                    part.Effect = effect;
-                    effect.Parameters["World"].SetValue(rotation * worldMatrix * mesh.ParentBone.Transform);
-                    effect.Parameters["DiffuseLightDirection"].SetValue(new Vector3(rotation.M13, rotation.M23, rotation.M33));
-                    effect.Parameters["View"].SetValue(view);
-                    effect.Parameters["Projection"].SetValue(projection);
-                    effect.Parameters["WorldInverseTranspose"].SetValue(
-                    Matrix.Transpose(Matrix.Invert(worldMatrix * mesh.ParentBone.Transform)));
-                    effect.Parameters["Texture"].SetValue(texture);
+                    rotation = Matrix.CreateRotationY((float)Math.Acos(direction.Z));
                 }
-                // Draw the mesh, using the effects set above.
-                mesh.Draw();
-                BoundingBoxRenderer.Render(this.m_boundingBox, m_updateInfo.graphics, view, projection, Color.White);
+                else
+                {
+                    rotation = Matrix.CreateRotationY((float)-Math.Acos(direction.Z));
+                }
 
+                // Draw the model. A model can have multiple meshes, so loop.
+                foreach (ModelMesh mesh in m_model.Meshes)
+                {
+
+                    foreach (ModelMeshPart part in mesh.MeshParts)
+                    {
+                        part.Effect = effect;
+                        effect.Parameters["World"].SetValue(rotation * worldMatrix * mesh.ParentBone.Transform);
+                        effect.Parameters["DiffuseLightDirection"].SetValue(new Vector3(rotation.M13, rotation.M23, rotation.M33));
+                        effect.Parameters["View"].SetValue(view);
+                        effect.Parameters["Projection"].SetValue(projection);
+                        effect.Parameters["WorldInverseTranspose"].SetValue(
+                        Matrix.Transpose(Matrix.Invert(worldMatrix * mesh.ParentBone.Transform)));
+                        effect.Parameters["Texture"].SetValue(texture);
+                    }
+                    // Draw the mesh, using the effects set above.
+                    mesh.Draw();
+                    BoundingBoxRenderer.Render(this.m_boundingBox, m_updateInfo.graphics, view, projection, Color.White);
+
+                }
             }
         }
         
