@@ -80,6 +80,12 @@ namespace Candyland
                     dynamicObjects.Add(node.InnerText, obj);
                 }
                 else
+                if (object_type == "obstacleForFalling")
+                {
+                    Obstacle obj = new Obstacle(node.InnerText, pos, info);
+                    dynamicObjects.Add(node.InnerText, obj);
+                }
+                else
                 if (object_type == "movableObstacle")
                 {
                     ObstacleMoveable obj = new ObstacleMoveable(node.InnerText, pos, info);
@@ -89,6 +95,11 @@ namespace Candyland
                 if (object_type == "switchPermanent")
                 {
                     PlatformSwitch obj = new PlatformSwitchPermanent(node.InnerText, pos, info);
+                    dynamicObjects.Add(node.InnerText, obj);
+                }
+                if (object_type == "switchTemporary")
+                {
+                    PlatformSwitch obj = new PlatformSwitchTemporary(node.InnerText, pos, info);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
                 else
