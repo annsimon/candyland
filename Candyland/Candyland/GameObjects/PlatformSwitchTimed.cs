@@ -11,7 +11,9 @@ namespace Candyland
 {
     class PlatformSwitchTimed : PlatformSwitch
     {
-                public PlatformSwitchTimed(String id, Vector3 pos, UpdateInfo updateInfo)
+        protected double activeTime;
+
+        public PlatformSwitchTimed(String id, Vector3 pos, UpdateInfo updateInfo)
         {
             this.ID = id;
             this.m_position = pos;
@@ -19,6 +21,7 @@ namespace Candyland
             this.isActivated = false;
             this.m_updateInfo = updateInfo;
             this.m_switchGroups = new List<SwitchGroup>();
+            activeTime = 0;
         }
 
         public override void load(ContentManager content)
@@ -33,15 +36,17 @@ namespace Candyland
         /// </summary>
         public override void update()
         {
-            // TODO insert timeout
+            if (this.isActivated)
+                activeTime += m_updateInfo.gameTime.ElapsedGameTime.TotalSeconds;
 
             // Activate when first touch occurs
             if (!this.isActivated && this.isTouched)
             {
                 this.setActivated(true);
+                activeTime = 0;
             }
-            // Deactivate when touch ends
-            if (this.isActivated && !this.isTouched)
+            // Deactivate when touch ends or timeout
+            if ((activeTime > GameConstants.switchActiveTime) || this.isActivated && !this.isTouched)
             {
                 this.setActivated(false);
             }

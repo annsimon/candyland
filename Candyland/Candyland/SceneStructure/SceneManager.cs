@@ -82,6 +82,9 @@ namespace Candyland
                 System.Console.Out.WriteLine("nextLevel = " + m_updateInfo.levelAfterExitID);
             */
 
+            // Update gameTime in UpdateInfo
+            m_updateInfo.gameTime = gameTime;
+
             if (m_updateInfo.reset)
             {
                 // reset player to start position of current level

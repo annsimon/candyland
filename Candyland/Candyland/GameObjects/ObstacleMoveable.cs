@@ -19,7 +19,7 @@ namespace Candyland
         {
             this.ID = id;
             this.m_position = pos;
-            this.m_position.Y += 0.23f;
+            this.m_position.Y += 0.55f;
             this.m_original_position = this.m_position;
             this.isActive = false;
             this.original_isActive = false;
@@ -48,10 +48,7 @@ namespace Candyland
 
         public override void update()
         {
-            // let the Object fall, if no collision with lower Objects
-            fall();
-            isonground = false;
-
+            base.update();
             // Obstacle is sliding
             if (currentspeed != 0 && isOnSlipperyGround)
             {
@@ -59,11 +56,20 @@ namespace Candyland
             }
         }
 
+        #region collision
+
         public override void collide(GameObject obj)
         {
-            // TODO Test for Collison
+            if (obj.GetType() == typeof(Platform)) collideWithPlatform(obj);
+            //if (obj.GetType() == typeof(Obstacle)) collideWithObstacle(obj); // may not be called for itself!!!
+            if (obj.GetType() == typeof(ObstacleBreakable)) collideWithBreakable(obj);
+            if (obj.GetType() == typeof(ObstacleMoveable)) collideWithMovable(obj);
+            if (obj.GetType() == typeof(PlatformSwitchPermanent)) collideWithSwitchPermanent(obj);
+            if (obj.GetType() == typeof(PlatformSwitchTemporary)) collideWithSwitchTemporary(obj);
+            if (obj.GetType() == typeof(ChocoChip)) collideWithChocoChip(obj); 
+        }
 
-            if (obj.GetType() == typeof(Platform))
+             private void collideWithPlatform(GameObject obj)
             {
                 // Obstacle sits on a Platform
                 if (obj.getBoundingBox().Intersects(m_boundingBox))
@@ -73,8 +79,59 @@ namespace Candyland
                     isOnSlipperyGround = platform.getSlippery();
                 } 
             }
+            private void collideWithObstacle(GameObject obj) {
+                if (obj.getBoundingBox().Intersects(m_boundingBox))
+                {
+                    preventIntersection(obj);
+                }
+            }
+            private void collideWithSwitchPermanent(GameObject obj) {
+                if (obj.getBoundingBox().Intersects(m_boundingBox))
+                {
+                    preventIntersection(obj);
+                    obj.hasCollidedWith(this);
+                }
+                else
+                {
+                    obj.isNotCollidingWith(this);
+                }
+            }
+            private void collideWithSwitchTemporary(GameObject obj) {
+                if (obj.getBoundingBox().Intersects(m_boundingBox))
+                {
+                    preventIntersection(obj);
+                    obj.hasCollidedWith(this);
+                }
+                else
+                {
+                    obj.isNotCollidingWith(this);
+                }
+            }
+            private void collideWithBreakable(GameObject obj) {
+                if (obj.getBoundingBox().Intersects(m_boundingBox) && !obj.isdestroyed)
+                {
+                    preventIntersection(obj);
+                }
+            }
+            private void collideWithMovable(GameObject obj) {
+                if (obj.getBoundingBox().Intersects(m_boundingBox)) {
+                    preventIntersection(obj);
+                    obj.hasCollidedWith(this);
+                }
+                else
+                {
+                    obj.isNotCollidingWith(this);
+                }
+            }
 
-        }
+            private void collideWithChocoChip(GameObject obj) {
+                if (obj.getBoundingBox().Intersects(m_boundingBox))
+                {
+                    preventIntersection(obj);
+                }
+            }
+
+        #endregion
 
         public override void hasCollidedWith(GameObject obj)
         {
@@ -86,25 +143,28 @@ namespace Candyland
                 // Find out on which boundingbox side the collision occurs
 
                     BoundingBox bbSwitch = m_boundingBox;
-                    float playerX = obj.getPosition().X;
-                    float playerZ = obj.getPosition().Z;
-                    float playerY = obj.getPosition().Y;
+                    float playerRight = obj.getPosition().X + (m_boundingBox.Max.X - m_boundingBox.Min.X) / 2;
+                    float playerLeft = obj.getPosition().X - (m_boundingBox.Max.X - m_boundingBox.Min.X) / 2;
+                    float playerFront = obj.getPosition().Z + (m_boundingBox.Max.Z - m_boundingBox.Min.Z) / 2;
+                    float playerBack = obj.getPosition().Z - (m_boundingBox.Max.Z - m_boundingBox.Min.Z) / 2;
+                    float playerTop = obj.getPosition().Y + (m_boundingBox.Max.Y - m_boundingBox.Min.Y) / 2;
+                    float playerBottom = obj.getPosition().Y - (m_boundingBox.Max.Y - m_boundingBox.Min.Y) / 2;
 
                     // Obstacle should only be moved, if collided from the side
 
                     // Test if Player is beside the Obstacle and not on top
-                    if (playerY < bbSwitch.Max.Y && playerY > bbSwitch.Min.Y)
+                    if (playerBottom < bbSwitch.Max.Y && playerTop > bbSwitch.Min.Y)
                     {
                         //Test if collison in X direction
-                        if ((playerX < bbSwitch.Min.X || playerX > bbSwitch.Max.X)
-                            && playerZ < bbSwitch.Max.Z && playerZ > bbSwitch.Min.Z)
+                        if ((playerLeft < bbSwitch.Min.X || playerRight > bbSwitch.Max.X)
+                            && playerBack < bbSwitch.Max.Z && playerFront > bbSwitch.Min.Z)
                         {
                             this.direction = new Vector3(obj.getDirection().X, 0, 0);
                             move();
                         }
                         // Test if collision in Z direction
-                        if ((playerZ < bbSwitch.Min.Z || playerZ > bbSwitch.Max.Z)
-                            && playerX < bbSwitch.Max.X && playerX > bbSwitch.Min.X)
+                        if ((playerBack < bbSwitch.Min.Z || playerFront > bbSwitch.Max.Z)
+                            && playerLeft < bbSwitch.Max.X && playerRight > bbSwitch.Min.X)
                         {
                             this.direction = new Vector3(0, 0, obj.getDirection().Z);
                             move();
