@@ -12,7 +12,13 @@ namespace Candyland
 
         public PlatformTeleporter(String id, Vector3 pos, UpdateInfo updateInfo, Vector3 target)
         {
-
+            this.ID = id;
+            this.m_position = pos;
+            this.m_original_position = pos;
+            this.isActive = false;
+            this.original_isActive = false;
+            this.m_updateInfo = updateInfo;
+            this.teleportTarget = target;
         }
             
 
