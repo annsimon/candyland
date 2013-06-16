@@ -182,6 +182,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="plattformtexturslippery.png">
+      <Name>plattformtexturslippery</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <None Include="SceneSchieberaetselPrototyp.xml">
       <Name>SceneSchieberaetselPrototyp</Name>
       <Importer>XmlImporter</Importer>
