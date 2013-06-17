@@ -59,10 +59,6 @@ namespace Candyland
             this.calculateBoundingBox();
         }
 
-        public override void collide(GameObject obj)
-        {
-        }
-
         public override void update()
         {
         }

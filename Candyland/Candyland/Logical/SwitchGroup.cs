@@ -19,11 +19,11 @@ namespace Candyland
         Dictionary<string, PlatformSwitch> m_switches;
 
         // event ths group belongs to
-        Event m_parentEvent;
+        SwitchEvent m_parentEvent;
 
         protected bool m_conditionMet;
 
-        public SwitchGroup(List<string> switchIds, Dictionary<string, GameObject> objects, Event parentEvent)
+        public SwitchGroup(List<string> switchIds, Dictionary<string, GameObject> objects, SwitchEvent parentEvent)
         {
             m_switches = new Dictionary<string, PlatformSwitch>();
             m_parentEvent = parentEvent;
@@ -35,35 +35,26 @@ namespace Candyland
                 currSwitch.setGroup(this);
                 m_switches.Add(switchID, currSwitch);
             }
-
-            //string switchID = "0.1.0.switchPermanent";
-
-            //PlatformSwitch currSwitch = (PlatformSwitch)objects[switchID];
-            //currSwitch.setGroup(this);
-            //m_switches.Add(switchID, currSwitch);
         }
 
         public void Changed()
         {
-            //if(!m_conditionMet)
-            //{
-                // check if condition for this group is met:
-                // all switches are active
-                foreach( var curSwitch in m_switches )
+            // check if condition for this group is met:
+            // all switches are active
+            foreach( var curSwitch in m_switches )
+            {
+                if (curSwitch.Value.getActivated())
                 {
-                    if (curSwitch.Value.getActivated())
-                    {
-                        m_conditionMet = true;
-                    }
-                    else
-                    {
-                        m_conditionMet = false;
-                        m_parentEvent.ResetTrigger();
-                        return;
-                    }    
+                    m_conditionMet = true;
                 }
-                m_parentEvent.Trigger();
-            //}
+                else
+                {
+                    m_conditionMet = false;
+                    m_parentEvent.ResetTrigger();
+                    return;
+                }    
+            }
+            m_parentEvent.Trigger();
         }
 
         public void Reset()

@@ -80,7 +80,8 @@ namespace Candyland
         {
             // When the Player steps on a Platform, that functions as a Door to the next Level or Area,
             // UpdateInfo needs to be updated
-            if (!isCollected && (obj.GetType() == typeof(CandyGuy) || obj.GetType() == typeof(CandyHelper)))
+            if (!isCollected && 
+                (obj.GetType() == typeof(CandyGuy) || obj.GetType() == typeof(CandyHelper)))
             {
                 isCollected = true;
                 m_bonusTracker.chocoChipState[ID] = true;

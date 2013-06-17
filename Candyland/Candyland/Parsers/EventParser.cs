@@ -16,9 +16,9 @@ namespace Candyland
     /// </summary>
     public class EventParser
     {
-        public static List<Event> ParseEvents(string levelID, Dictionary<string,GameObject> objects)
+        public static List<SwitchEvent> ParseEvents(string levelID, Dictionary<string,GameObject> objects)
         {
-            List<Event> eventList = new List<Event>();
+            List<SwitchEvent> eventList = new List<SwitchEvent>();
 
             XmlDocument events = new XmlDocument();
             XmlDocument switchGroups = new XmlDocument();
@@ -46,7 +46,7 @@ namespace Candyland
                     switchIDs.Add(node.InnerText);
                 }
 
-                Event evnt = new Event(triggerableID.InnerText, switchIDs, objects);
+                SwitchEvent evnt = new SwitchEvent(triggerableID.InnerText, switchIDs, objects);
 
                 eventList.Add(evnt);
 

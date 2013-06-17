@@ -89,71 +89,8 @@ namespace Candyland
 
         #region collision
 
-        public override void collide(GameObject obj)
-        {
-            if (obj.GetType() == typeof(Platform)) collideWithPlatform(obj);
-            if (obj.GetType() == typeof(Obstacle)) collideWithObstacle(obj);
-            if (obj.GetType() == typeof(ObstacleBreakable)) collideWithBreakable(obj);
-            if (obj.GetType() == typeof(ObstacleMoveable)) collideWithMovable(obj);
-            if (obj.GetType() == typeof(PlatformSwitchPermanent)) collideWithSwitchPermanent(obj);
-            if (obj.GetType() == typeof(PlatformSwitchTemporary)) collideWithSwitchTemporary(obj);
-            if (obj.GetType() == typeof(ChocoChip)) collideWithChocoChip(obj);
-            if (obj.GetType() == typeof(PlatformTeleporter)) collideWithTeleporter(obj);
-            if (obj.GetType() == typeof(ObstacleForSwitch)) collideWithObstacleForSwitch(obj);
-        }
-
-        private void collideWithPlatform(GameObject obj)
-        {
-            ContainmentType contain = obj.getBoundingBox().Contains(m_boundingBox);
-
-            if (contain == ContainmentType.Intersects)
-            {
-                preventIntersection(obj);
-                obj.hasCollidedWith(this);
-            }
-            else
-            {
-                isonground = isonground || false;
-                obj.isNotCollidingWith(this);
-            }
-        }
-        private void collideWithObstacle(GameObject obj)
-        {
-            if (obj.getBoundingBox().Intersects(m_boundingBox))
-            {
-                preventIntersection(obj);
-                obj.hasCollidedWith(this);
-            }
-            else
-            {
-                obj.isNotCollidingWith(this);
-            }
-        }
-        private void collideWithSwitchPermanent(GameObject obj)
-        {
-            if (obj.getBoundingBox().Intersects(m_boundingBox))
-            {
-                preventIntersection(obj);
-                obj.hasCollidedWith(this);
-            }
-            else
-            {
-                obj.isNotCollidingWith(this);
-            }
-        }
-        private void collideWithSwitchTemporary(GameObject obj)
-        {
-            if (obj.getBoundingBox().Intersects(m_boundingBox))
-            {
-                preventIntersection(obj);
-                obj.hasCollidedWith(this);
-            }
-            else
-            {
-                obj.isNotCollidingWith(this);
-            }
-        }
-        private void collideWithBreakable(GameObject obj)
+        // Needed for destruction^^
+        protected override void collideWithBreakable(GameObject obj)
         {
             if (obj.getBoundingBox().Intersects(m_boundingBox) && !obj.isdestroyed)
             {
@@ -165,56 +102,25 @@ namespace Candyland
                 obj.isNotCollidingWith(this);
             }
         }
-        private void collideWithMovable(GameObject obj)
-        {
-            if (obj.getBoundingBox().Intersects(m_boundingBox))
-            {
-                preventIntersection(obj);
-                if(minOld.Y < obj.getBoundingBox().Max.Y)
-                obj.hasCollidedWith(this);
-            }
-            else
-            {
-                obj.isNotCollidingWith(this);
-            }
-        }
-        private void collideWithChocoChip(GameObject obj)
-        {
-            if (obj.getBoundingBox().Intersects(m_boundingBox))
-            {
-                obj.hasCollidedWith(this);
-            }
-            else
-            {
-                obj.isNotCollidingWith(this);
-            }
-        }
+        //private void collideWithMovable(GameObject obj)
+        //{
+        //    if (obj.getBoundingBox().Intersects(m_boundingBox))
+        //    {
+        //        preventIntersection(obj);
+        //        if(minOld.Y < obj.getBoundingBox().Max.Y) // Do we need this here?
+        //        obj.hasCollidedWith(this);
+        //    }
+        //    else
+        //    {
+        //        obj.isNotCollidingWith(this);
+        //    }
+        //}
 
-        private void collideWithObstacleForSwitch(GameObject obj)
+        // Needs to be able to collect the chips
+        protected override void collideWithChocoChip(GameObject obj)
         {
             if( !obj.isdestroyed )
             {
-                if (obj.getBoundingBox().Intersects(m_boundingBox))
-                {
-                    preventIntersection(obj);
-                    obj.hasCollidedWith(this);
-                }
-                else
-                {
-                    obj.isNotCollidingWith(this);
-                }
-            }
-        }
-
-        private void collideWithTeleporter(GameObject obj)
-        {
-            if (obj.getBoundingBox().Intersects(m_boundingBox))
-            {
-                obj.hasCollidedWith(this);
-            }
-            else
-            {
-                obj.isNotCollidingWith(this);
             }
         }
 
