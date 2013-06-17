@@ -38,8 +38,6 @@ namespace Candyland
         {
         }
 
-        
-
         public override void collide(GameObject obj)
         {
            

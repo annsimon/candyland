@@ -22,6 +22,108 @@ namespace Candyland
             this.m_boundingBox.Min.Y += upvelocity;
         }
 
+        #region collision
+
+        public override void collide(GameObject obj)
+        {
+            // may not be called for itself!!!
+            if (obj.GetType() == typeof(Platform)) this.collideWithPlatform(obj);
+            if (obj.GetType() == typeof(Obstacle)) this.collideWithObstacle(obj);
+            if (obj.GetType() == typeof(ObstacleBreakable)) this.collideWithBreakable(obj);
+            if (obj.GetType() == typeof(ObstacleMoveable)) this.collideWithMovable(obj);
+            if (obj.GetType() == typeof(ObstacleForSwitch)) this.collideWithObstacleForSwitch(obj);
+            if (obj.GetType() == typeof(PlatformSwitchPermanent)) this.collideWithSwitchPermanent(obj);
+            if (obj.GetType() == typeof(PlatformSwitchTemporary)) this.collideWithSwitchTemporary(obj);
+            if (obj.GetType() == typeof(ChocoChip)) this.collideWithChocoChip(obj);
+            if (obj.GetType() == typeof(PlatformTeleporter)) this.collideWithTeleporter(obj);
+        }
+
+        protected virtual void collideWithPlatform(GameObject obj)
+        {
+            // Object sits on a Platform
+            if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                preventIntersection(obj);
+            }
+        }
+        protected virtual void collideWithObstacle(GameObject obj)
+        {
+            if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                preventIntersection(obj);
+            }
+        }
+        protected virtual void collideWithSwitchPermanent(GameObject obj)
+        {
+            if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                preventIntersection(obj);
+                obj.hasCollidedWith(this);
+            }
+            else
+            {
+                obj.isNotCollidingWith(this);
+            }
+        }
+        protected virtual void collideWithSwitchTemporary(GameObject obj)
+        {
+            if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                preventIntersection(obj);
+                obj.hasCollidedWith(this);
+            }
+            else
+            {
+                obj.isNotCollidingWith(this);
+            }
+        }
+        protected virtual void collideWithBreakable(GameObject obj)
+        {
+            if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox) && !obj.isdestroyed)
+            {
+                preventIntersection(obj);
+            }
+        }
+        protected virtual void collideWithMovable(GameObject obj)
+        {
+            if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                preventIntersection(obj);
+                obj.hasCollidedWith(this);
+            }
+            else
+            {
+                obj.isNotCollidingWith(this);
+            }
+        }
+        protected virtual void collideWithChocoChip(GameObject obj)
+        {
+            if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                preventIntersection(obj);
+            }
+        }
+        protected virtual void collideWithObstacleForSwitch(GameObject obj)
+        {
+            if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                preventIntersection(obj);
+            }
+        }
+        protected virtual void collideWithTeleporter(GameObject obj)
+        {
+            if (obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                obj.hasCollidedWith(this);
+            }
+            else
+            {
+                obj.isNotCollidingWith(this);
+            }
+        }
+
+        #endregion
+
         public override void  endIntersection()
         {
  	         base.endIntersection();
