@@ -45,8 +45,6 @@ namespace Candyland
 
         public SceneManager(GraphicsDevice graphics, GraphicsDeviceManager graphicDeviceManager)
         {
-           
-
             m_bonusTracker = new BonusTracker(); // load this one from xml as serialized object?
 
             m_updateInfo = new UpdateInfo(graphics);
@@ -56,11 +54,19 @@ namespace Candyland
             /****************************************************************/
             m_graphics = graphics;
             /****************************************************************/
-
-            player = new CandyGuy(new Vector3(0, 0.4f, 0), Vector3.Up,graphics.Viewport.AspectRatio, m_updateInfo, m_bonusTracker);
-            player2 = new CandyHelper(new Vector3(0, 0.4f, 0.2f), Vector3.Up, graphics.Viewport.AspectRatio, m_updateInfo,m_bonusTracker);
-            
+                        
             m_areas = AreaParser.ParseAreas(m_updateInfo, m_bonusTracker);
+
+            player = new CandyGuy(new Vector3(0, 0.4f, 0), Vector3.Up, graphics.Viewport.AspectRatio, m_updateInfo, m_bonusTracker);
+            player2 = new CandyHelper(new Vector3(0, 0.4f, 0.2f), Vector3.Up, graphics.Viewport.AspectRatio, m_updateInfo, m_bonusTracker);
+
+            Vector3 playerStartPos = m_areas[m_updateInfo.currentAreaID].GetPlayerStartingPosition();
+            playerStartPos.Y += 0.6f;
+            player.setPosition(playerStartPos);
+            Vector3 player2StartPos = m_areas[m_updateInfo.currentAreaID].GetPlayerStartingPosition();
+            player2StartPos.Y += 0.6f;
+            player.setPosition(player2StartPos);
+        
         }
 
         public void Load(ContentManager manager)
@@ -117,12 +123,6 @@ namespace Candyland
             m_areas[m_updateInfo.currentAreaID].Collide(player2);
             if (m_updateInfo.playerIsOnAreaExit)
                 m_areas[m_updateInfo.areaAfterExitID].Collide(player2);
-
-            // check for Collision between all Objects in the currentObjectsToBeCollided List inside UpdateInfo
-            // REMOVED: ALL dynamic objects are collided in level
-            //Dictionary<String, GameObject> currentObjectsToBeCollided = m_updateInfo.currentObjectsToBeCollided;
-            //foreach (var obj in currentObjectsToBeCollided )
-            //    m_areas[m_updateInfo.currentAreaID].Collide(obj.Value); 
 
             // update the area the player currently is in
             // and the next area if the player is about to leave the current area

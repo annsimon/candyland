@@ -17,13 +17,8 @@ namespace Candyland
 
         public ObstacleMoveable(String id, Vector3 pos, UpdateInfo updateInfo)
         {
-            this.ID = id;
-            this.m_position = pos;
-            this.m_position.Y += 2.25f;
-            this.m_original_position = this.m_position;
-            this.isActive = false;
-            this.original_isActive = false;
-            this.m_updateInfo = updateInfo;
+            base.initialize(id, pos, updateInfo);
+
             this.isOnSlipperyGround = false;
             this.currentspeed = 0;
             this.upvelocity = 0;

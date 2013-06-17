@@ -14,9 +14,9 @@
         <!--- LEVEL 6.0 -->
         <level>
           <level_id>6.0</level_id>
-          <level_starting_position>
           <main_start_platform>6.0.1.dyn</main_start_platform>
           <secondary_start_platform>6.0.0.dyn</secondary_start_platform>
+          <level_starting_position>
             <x>0</x>
             <y>0</y>
             <z>0</z>
@@ -3212,7 +3212,6 @@
                     </object_position>
                     <slippery>False</slippery>
                   </object>
-                  
                   <object>
                     <object_type>breakable</object_type>
                     <object_id>6.0.1.breakable</object_id>

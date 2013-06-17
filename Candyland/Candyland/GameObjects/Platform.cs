@@ -96,7 +96,7 @@ namespace Candyland
 
         public override void hasCollidedWith(GameObject obj)
         {
-            // When the Player steps on a Platform, that functions as a Door to the next Level or Area,
+            // When the Player steps on a Platform that functions as a Door to the next Level or Area,
             // UpdateInfo needs to be updated
             if (obj.GetType() == typeof(CandyGuy))
             {

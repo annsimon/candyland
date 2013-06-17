@@ -247,9 +247,9 @@ namespace SceneEditor
             ret += "        <!--- LEVEL "+id+" -->\n";
             ret += "        <level>\n";
             ret += "          <level_id>" + id + "</level_id>\n";
-            ret += "          <level_starting_position>\n";
             ret += "          <main_start_platform>" + startMainID + "</main_start_platform>\n";
             ret += "          <secondary_start_platform>" + startSecondaryID + "</secondary_start_platform>\n";
+            ret += "          <level_starting_position>\n";
             ret += "            <x>" + posX + "</x>\n";
             ret += "            <y>" + posY + "</y>\n";
             ret += "            <z>" + posZ + "</z>\n";

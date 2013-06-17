@@ -11,10 +11,13 @@ using System.Windows.Forms;
 
 namespace SceneEditor
 {
+
     public partial class SceneGenerator : Form
     {
         List<Area> m_areas;
         AreaGenerator m_areaGenerator;
+
+        string currentFile = "SceneTest.xml";
 
         public SceneGenerator()
         {
@@ -81,7 +84,7 @@ namespace SceneEditor
             try
             {
                 XmlDocument scene = new XmlDocument();
-                scene.Load("SceneTest.xml");
+                scene.Load(currentFile);
 
                 XmlNodeList id = scene.GetElementsByTagName("area_id");
                 XmlNodeList prev = scene.GetElementsByTagName("area_prev");
@@ -131,7 +134,7 @@ namespace SceneEditor
 
         private void generateButton_Click(object sender, EventArgs e)
         {
-            using (StreamWriter outfile = new StreamWriter("SceneTest.xml"))
+            using (StreamWriter outfile = new StreamWriter(currentFile))
             {
                 string xml = "<?xml version=\"1.0\"?>\n";
                 xml += "<areas>";
