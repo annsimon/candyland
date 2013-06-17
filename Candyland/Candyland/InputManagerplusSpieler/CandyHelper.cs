@@ -102,32 +102,6 @@ namespace Candyland
                 obj.isNotCollidingWith(this);
             }
         }
-        //private void collideWithMovable(GameObject obj)
-        //{
-        //    if (obj.getBoundingBox().Intersects(m_boundingBox))
-        //    {
-        //        preventIntersection(obj);
-        //        if(minOld.Y < obj.getBoundingBox().Max.Y) // Do we need this here?
-        //        obj.hasCollidedWith(this);
-        //    }
-        //    else
-        //    {
-        //        obj.isNotCollidingWith(this);
-        //    }
-        //}
-
-        // Needs to be able to collect the chips
-        protected override void collideWithChocoChip(GameObject obj)
-        {
-            if (obj.getBoundingBox().Intersects(m_boundingBox))
-            {
-                obj.hasCollidedWith(this);
-            }
-            else
-            {
-                obj.isNotCollidingWith(this);
-            }
-        }
 
         #endregion
 
