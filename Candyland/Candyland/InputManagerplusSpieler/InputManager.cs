@@ -92,8 +92,8 @@ namespace Candyland
             float dmoveytemp = 0;
 
             if ((keystate.IsKeyDown(Keys.W))||(keystate.IsKeyUp(Keys.W))) dmoveytemp += 1;
-            if (keystate.IsKeyDown(Keys.A)) dmovextemp += 0.7f;
-            if (keystate.IsKeyDown(Keys.D)) dmovextemp -= 0.7f;
+            if(keystate.IsKeyDown(Keys.S))      dmoveytemp -= 1f;
+            if(keystate.IsKeyDown(Keys.A))      dmovextemp += 1f;
             if (keystate.IsKeyDown(Keys.Space)
                 && keystate.IsKeyDown(Keys.Space) != oldKeyboardState.IsKeyDown(Keys.Space))
             {
@@ -109,7 +109,7 @@ namespace Candyland
             if (keystate.IsKeyDown(Keys.Tab)
                 && oldKeyboardState != keystate) updateinfo.switchPlayer();
 
-            if (keystate.IsKeyDown(Keys.R)) player.Reset();
+            if (keystate.IsKeyDown(Keys.R)) updateinfo.reset = true;
 
             //Get the direction of the players camera
             float alpha = player.getCameraDir();
@@ -141,10 +141,10 @@ namespace Candyland
             float dmovextemp = 0;
             float dmoveytemp = 0;
 
-                if (keystate.IsKeyDown(Keys.W)) dmoveytemp += 0.7f;
-                if (keystate.IsKeyDown(Keys.S)) dmoveytemp -= 0.7f;
-                if (keystate.IsKeyDown(Keys.A)) dmovextemp += 0.7f;
-                if (keystate.IsKeyDown(Keys.D)) dmovextemp -= 0.7f;
+                if (keystate.IsKeyDown(Keys.W)) dmoveytemp += 1f;
+                if (keystate.IsKeyDown(Keys.S)) dmoveytemp -= 1f;
+                if (keystate.IsKeyDown(Keys.A)) dmovextemp += 1f;
+                if (keystate.IsKeyDown(Keys.D)) dmovextemp -= 1f;
                 if (keystate.IsKeyDown(Keys.Space)
                     && keystate.IsKeyDown(Keys.Space) != oldKeyboardState.IsKeyDown(Keys.Space))
                 {
@@ -158,9 +158,10 @@ namespace Candyland
             if (keystate.IsKeyDown(Keys.Q)
                 && oldKeyboardState != keystate) updateinfo.currentpushedKeys.Add(Keys.Q);
             if (keystate.IsKeyDown(Keys.Tab)
-                && oldKeyboardState != keystate) updateinfo.switchPlayer();
+                && oldKeyboardState != keystate
+                &&player.isInThirdP()) updateinfo.switchPlayer();
 
-            if (keystate.IsKeyDown(Keys.R)) player.Reset();
+            if (keystate.IsKeyDown(Keys.R)) updateinfo.reset = true;
 
             //Get the direction of the players camera
             float alpha = player.getCameraDir();

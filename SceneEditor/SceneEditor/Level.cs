@@ -82,6 +82,10 @@ namespace SceneEditor
             obj.doorArea = m_objectGenerator.doorArea;
             obj.doorLevel = m_objectGenerator.doorLevel;
             obj.isSlippery = m_objectGenerator.isSlippery;
+			obj.endPosX = m_objectGenerator.endPosX;
+            obj.endPosY = m_objectGenerator.endPosY;
+            obj.endPosZ = m_objectGenerator.endPosZ;
+                
         }
 
         private void addStaticButton_Click(object sender, EventArgs e)
@@ -203,7 +207,7 @@ namespace SceneEditor
             XmlNodeList door_to_area = scene.GetElementsByTagName("is_door_to_area");
             XmlNodeList door_to_level = scene.GetElementsByTagName("is_door_to_level");
             XmlNodeList slippery = scene.GetElementsByTagName("slippery");
-
+            XmlNodeList endPosition = scene.GetElementsByTagName("object_endposition");
             int count = 0;
 
             foreach (XmlNode node in id)
@@ -220,6 +224,15 @@ namespace SceneEditor
                 obj.posX = position[count].SelectSingleNode("x").InnerText;
                 obj.posY = position[count].SelectSingleNode("y").InnerText;
                 obj.posZ = position[count].SelectSingleNode("z").InnerText;
+
+                try
+                {
+                    // get x, y, z position
+                    obj.endPosX = endPosition[count].SelectSingleNode("x").InnerText;
+                    obj.endPosY = endPosition[count].SelectSingleNode("y").InnerText;
+                    obj.endPosZ = endPosition[count].SelectSingleNode("z").InnerText;
+                }
+                catch { }
 
                 // get bool value for slippery
                 obj.isSlippery = bool.Parse(slippery[count].InnerText);

@@ -70,6 +70,8 @@ namespace Candyland
         protected void move(float x, float y)
         {
             
+
+            
             if ((x != 0 || y != 0) && cam.isInThirdP())
             {
                 float length = (float)Math.Sqrt(x * x + y * y);     //Calculate length of MovementVector
@@ -89,7 +91,6 @@ namespace Candyland
         // ToDo: trigger reset() after player has been falling for a set time (e.g. 5 seconds)
         public override void Reset()
         {
-            m_updateInfo.reset = true;
             upvelocity = 0;
             cam.changeToThirdPP();
         }
@@ -116,15 +117,7 @@ namespace Candyland
 
             cam.collideWith(obj);
 
-            if (obj.GetType() == typeof(Platform)) collideWithPlatform(obj);
-            if (obj.GetType() == typeof(Obstacle)) collideWithObstacle(obj);
-            if (obj.GetType() == typeof(ObstacleBreakable)) collideWithBreakable(obj);
-            if (obj.GetType() == typeof(ObstacleMoveable)) collideWithMovable(obj);
-            if (obj.GetType() == typeof(ObstacleForSwitch)) collideWithObstacleForSwitch(obj);
-            if (obj.GetType() == typeof(PlatformSwitchPermanent)) collideWithSwitchPermanent(obj);
-            if (obj.GetType() == typeof(PlatformSwitchTemporary)) collideWithSwitchTemporary(obj);
-            if (obj.GetType() == typeof(ChocoChip)) collideWithChocoChip(obj);
-            if (obj.GetType() == typeof(PlatformTeleporter)) collideWithTeleporter(obj);
+            base.collide(obj);
         }
 
         //private void collideWithMovable(GameObject obj)

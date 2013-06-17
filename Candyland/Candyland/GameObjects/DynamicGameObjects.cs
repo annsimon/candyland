@@ -10,8 +10,6 @@ namespace Candyland
     {
         protected float upvelocity;             //beschleunigungsfaktor in y richtung
         protected bool isonground = false;
-        protected Vector3 minOld;
-        protected Vector3 maxOld;
 
         protected virtual void fall()
         {
@@ -29,7 +27,7 @@ namespace Candyland
             if (!this.isdestroyed)
             {
                 // may not be called for itself!!!
-                if (obj.GetType() == typeof(Platform)) this.collideWithPlatform(obj);
+                if (obj is Platform) this.collideWithPlatform(obj);
                 if (obj.GetType() == typeof(Obstacle)) this.collideWithObstacle(obj);
                 if (obj.GetType() == typeof(ObstacleBreakable)) this.collideWithBreakable(obj);
                 if (obj.GetType() == typeof(ObstacleMoveable)) this.collideWithMovable(obj);
@@ -38,6 +36,25 @@ namespace Candyland
                 if (obj.GetType() == typeof(PlatformSwitchTemporary)) this.collideWithSwitchTemporary(obj);
                 if (obj.GetType() == typeof(ChocoChip)) this.collideWithChocoChip(obj);
                 if (obj.GetType() == typeof(PlatformTeleporter)) this.collideWithTeleporter(obj);
+                if (obj is MovingPlatform) this.collideWithMovingPlatform(obj);
+            }
+        }
+
+        protected virtual void collideWithMovingPlatform(GameObject obj)
+        {
+            // Object sits on a Platform
+            if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                preventIntersection(obj);
+                Vector3 diff = obj.getDirection();
+
+                if (diff.Y > 0) diff.Y = 0;
+
+                m_boundingBox.Min += diff;
+                m_boundingBox.Max += diff;
+                m_position += diff;
+
+                obj.hasCollidedWith(this);
             }
         }
 
@@ -50,6 +67,7 @@ namespace Candyland
                 obj.hasCollidedWith(this);
             }
         }
+
         protected virtual void collideWithObstacle(GameObject obj)
         {
             if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
@@ -146,12 +164,12 @@ namespace Candyland
                 float m_maxX = Math.Max(m_boundingBox.Min.X, m_boundingBox.Max.X);
                 float m_maxY = Math.Max(m_boundingBox.Min.Y, m_boundingBox.Max.Y);
                 float m_maxZ = Math.Max(m_boundingBox.Min.Z, m_boundingBox.Max.Z);
-                float minX = Math.Min(obj.getBoundingBox().Min.X, obj.getBoundingBox().Max.X);
-                float minY = Math.Min(obj.getBoundingBox().Min.Y, obj.getBoundingBox().Max.Y);
-                float minZ = Math.Min(obj.getBoundingBox().Min.Z, obj.getBoundingBox().Max.Z);
-                float maxX = Math.Max(obj.getBoundingBox().Min.X, obj.getBoundingBox().Max.X);
-                float maxY = Math.Max(obj.getBoundingBox().Min.Y, obj.getBoundingBox().Max.Y);
-                float maxZ = Math.Max(obj.getBoundingBox().Min.Z, obj.getBoundingBox().Max.Z);
+                float minX = Math.Min(obj.minOld.X, obj.maxOld.X);
+                float minY = Math.Min(obj.minOld.Y, obj.maxOld.Y);
+                float minZ = Math.Min(obj.minOld.Z, obj.maxOld.Z);
+                float maxX = Math.Max(obj.minOld.X, obj.maxOld.X);
+                float maxY = Math.Max(obj.minOld.Y, obj.maxOld.Y);
+                float maxZ = Math.Max(obj.minOld.Z, obj.maxOld.Z);
 
                 float m_minXold = minOld.X;
                 float m_minYold = minOld.Y;

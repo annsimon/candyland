@@ -63,7 +63,7 @@ namespace Candyland
             Vector3 playerStartPos = m_areas[m_updateInfo.currentAreaID].GetPlayerStartingPosition();
             playerStartPos.Y += 0.6f;
             player.setPosition(playerStartPos);
-            Vector3 player2StartPos = m_areas[m_updateInfo.currentAreaID].GetPlayerStartingPosition();
+            Vector3 player2StartPos = m_areas[m_updateInfo.currentAreaID].GetCompanionStartingPosition();
             player2StartPos.Y += 0.6f;
             player.setPosition(player2StartPos);
         
@@ -93,6 +93,8 @@ namespace Candyland
 
             if (m_updateInfo.reset)
             {
+                player.Reset();
+                player2.Reset();
                 // reset player to start position of current level
                 Vector3 resetPos = m_areas[m_updateInfo.currentAreaID].GetPlayerStartingPosition();
                 resetPos.Y += 0.6f;
