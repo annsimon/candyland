@@ -12,13 +12,7 @@ namespace Candyland
     {
         public ObstacleForSwitch(String id, Vector3 pos, UpdateInfo updateInfo)
         {
-            this.ID = id;
-            this.m_position = pos;
-            this.m_position.Y += 2.25f;
-            this.m_original_position = this.m_position;
-            this.isActive = false;
-            this.m_updateInfo = updateInfo;
-            m_original_position = pos;
+            base.initialize(id, pos, updateInfo);
         }
 
         public override void load(ContentManager content)

@@ -93,7 +93,7 @@ namespace Candyland
                 player.setPosition(resetPos);
 
                 Vector3 resetPos2 = m_areas[m_updateInfo.currentAreaID].GetCompanionStartingPosition();
-                resetPos.Y += 0.6f;
+                resetPos2.Y += 0.6f;
                 player2.setPosition(resetPos2);
 
                 // reset world
@@ -117,12 +117,6 @@ namespace Candyland
             m_areas[m_updateInfo.currentAreaID].Collide(player2);
             if (m_updateInfo.playerIsOnAreaExit)
                 m_areas[m_updateInfo.areaAfterExitID].Collide(player2);
-
-            // check for Collision between all Objects in the currentObjectsToBeCollided List inside UpdateInfo
-            // REMOVED: ALL dynamic objects are collided in level
-            //Dictionary<String, GameObject> currentObjectsToBeCollided = m_updateInfo.currentObjectsToBeCollided;
-            //foreach (var obj in currentObjectsToBeCollided )
-            //    m_areas[m_updateInfo.currentAreaID].Collide(obj.Value); 
 
             // update the area the player currently is in
             // and the next area if the player is about to leave the current area

@@ -8,7 +8,7 @@ namespace Candyland
 {
     public abstract class DynamicGameObjects : GameObject
     {
-        protected float upvelocity;             //beschleinigungsfaktor in y richtung
+        protected float upvelocity;             //beschleunigungsfaktor in y richtung
         protected bool isonground = false;
         protected Vector3 minOld;
         protected Vector3 maxOld;
@@ -233,6 +233,12 @@ namespace Candyland
         {
             base.Reset();
             upvelocity = 0;
+        }
+
+        public override void draw()
+        {
+            if( !isdestroyed )
+                base.draw();
         }
 
     }
