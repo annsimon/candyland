@@ -47,6 +47,7 @@ namespace Candyland
             if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
             {
                 preventIntersection(obj);
+                obj.hasCollidedWith(this);
             }
         }
         protected virtual void collideWithObstacle(GameObject obj)

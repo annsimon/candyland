@@ -33,5 +33,10 @@ namespace Candyland
         public const bool boundingBoxRendering = true;
 
         public const int inputManagerMode = InputManager.KEYBOARDMOUSE;
+
+        // data regarding the scene
+        public const string sceneFile = "Content\\SceneTest.xml";
+        public const string startAreaID = "0";
+        public const string startLevelID = "0.0";
     }
 }

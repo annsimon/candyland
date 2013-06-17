@@ -61,8 +61,8 @@ namespace Candyland
 
         public UpdateInfo(GraphicsDevice graphicsDevice)
         {
-            currentAreaID = "6";
-            currentLevelID = "6.0";
+            currentAreaID = GameConstants.startAreaID;
+            currentLevelID = GameConstants.startLevelID;
 
             playerIsOnAreaExit = false;
             areaAfterExitID = "";
