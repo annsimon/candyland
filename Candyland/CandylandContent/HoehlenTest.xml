@@ -3212,18 +3212,7 @@
                     </object_position>
                     <slippery>False</slippery>
                   </object>
-                  <object>
-                    <object_type>obstacleForSwitch</object_type>
-                    <object_id>6.0.2.obstacleForSwitch</object_id>
-                    <is_door_to_area>x</is_door_to_area>
-                    <is_door_to_level>x</is_door_to_level>
-                    <object_position>
-                      <x>25</x>
-                      <y>0</y>
-                      <z>1</z>
-                    </object_position>
-                    <slippery>False</slippery>
-                  </object>
+                  
                   <object>
                     <object_type>breakable</object_type>
                     <object_id>6.0.1.breakable</object_id>
@@ -3393,13 +3382,13 @@
                     <slippery>False</slippery>
                   </object>
                   <object>
-                    <object_type>obstacleForSwitch</object_type>
-                    <object_id>6.0.4.obstacleForSwitch</object_id>
+                    <object_type>breakable</object_type>
+                    <object_id>6.0.14.breakable</object_id>
                     <is_door_to_area>x</is_door_to_area>
                     <is_door_to_level>x</is_door_to_level>
                     <object_position>
                       <x>31</x>
-                      <y>3</y>
+                      <y>4</y>
                       <z>-2</z>
                     </object_position>
                     <slippery>False</slippery>

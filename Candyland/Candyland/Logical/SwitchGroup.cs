@@ -45,8 +45,8 @@ namespace Candyland
 
         public void Changed()
         {
-            if(!m_conditionMet)
-            {
+            //if(!m_conditionMet)
+            //{
                 // check if condition for this group is met:
                 // all switches are active
                 foreach( var curSwitch in m_switches )
@@ -58,11 +58,12 @@ namespace Candyland
                     else
                     {
                         m_conditionMet = false;
+                        m_parentEvent.ResetTrigger();
                         return;
                     }    
                 }
                 m_parentEvent.Trigger();
-            }
+            //}
         }
 
         public void Reset()

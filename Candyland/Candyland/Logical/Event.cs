@@ -35,6 +35,12 @@ namespace Candyland
             m_triggerable.isdestroyed = true;
         }
 
+        public void ResetTrigger()
+        {
+            m_triggered = false;
+            m_triggerable.isdestroyed = false;
+        }
+
         public void Reset()
         {
             m_switchGroup.Reset();

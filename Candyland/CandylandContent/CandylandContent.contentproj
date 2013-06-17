@@ -85,7 +85,7 @@
       <Name>blockmovable</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.496</ProcessorParameters_Scale>
+      <ProcessorParameters_Scale>0.48</ProcessorParameters_Scale>
     </Compile>
     <None Include="SceneTest.xml">
       <Name>SceneTest</Name>
