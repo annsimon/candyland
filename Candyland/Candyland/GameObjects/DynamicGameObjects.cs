@@ -26,16 +26,19 @@ namespace Candyland
 
         public override void collide(GameObject obj)
         {
-            // may not be called for itself!!!
-            if (obj.GetType() == typeof(Platform)) this.collideWithPlatform(obj);
-            if (obj.GetType() == typeof(Obstacle)) this.collideWithObstacle(obj);
-            if (obj.GetType() == typeof(ObstacleBreakable)) this.collideWithBreakable(obj);
-            if (obj.GetType() == typeof(ObstacleMoveable)) this.collideWithMovable(obj);
-            if (obj.GetType() == typeof(ObstacleForSwitch)) this.collideWithObstacleForSwitch(obj);
-            if (obj.GetType() == typeof(PlatformSwitchPermanent)) this.collideWithSwitchPermanent(obj);
-            if (obj.GetType() == typeof(PlatformSwitchTemporary)) this.collideWithSwitchTemporary(obj);
-            if (obj.GetType() == typeof(ChocoChip)) this.collideWithChocoChip(obj);
-            if (obj.GetType() == typeof(PlatformTeleporter)) this.collideWithTeleporter(obj);
+            if (!this.isdestroyed)
+            {
+                // may not be called for itself!!!
+                if (obj.GetType() == typeof(Platform)) this.collideWithPlatform(obj);
+                if (obj.GetType() == typeof(Obstacle)) this.collideWithObstacle(obj);
+                if (obj.GetType() == typeof(ObstacleBreakable)) this.collideWithBreakable(obj);
+                if (obj.GetType() == typeof(ObstacleMoveable)) this.collideWithMovable(obj);
+                if (obj.GetType() == typeof(ObstacleForSwitch)) this.collideWithObstacleForSwitch(obj);
+                if (obj.GetType() == typeof(PlatformSwitchPermanent)) this.collideWithSwitchPermanent(obj);
+                if (obj.GetType() == typeof(PlatformSwitchTemporary)) this.collideWithSwitchTemporary(obj);
+                if (obj.GetType() == typeof(ChocoChip)) this.collideWithChocoChip(obj);
+                if (obj.GetType() == typeof(PlatformTeleporter)) this.collideWithTeleporter(obj);
+            }
         }
 
         protected virtual void collideWithPlatform(GameObject obj)
@@ -136,8 +139,6 @@ namespace Candyland
         {
             if (obj.getBoundingBox().Intersects(m_boundingBox))
             {
-
-
                 float m_minX = Math.Min(m_boundingBox.Min.X, m_boundingBox.Max.X);
                 float m_minY = Math.Min(m_boundingBox.Min.Y, m_boundingBox.Max.Y);
                 float m_minZ = Math.Min(m_boundingBox.Min.Z, m_boundingBox.Max.Z);
@@ -158,7 +159,7 @@ namespace Candyland
                 float m_maxYold = maxOld.Y;
                 float m_maxZold = maxOld.Z;
 
-                if (m_minYold >= maxY)
+                if (m_minYold >= maxY-0.1f)
                 {
                     isonground = true;
 

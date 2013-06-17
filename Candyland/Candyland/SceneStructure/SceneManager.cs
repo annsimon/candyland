@@ -94,7 +94,7 @@ namespace Candyland
 
                 Vector3 resetPos2 = m_areas[m_updateInfo.currentAreaID].GetCompanionStartingPosition();
                 resetPos.Y += 0.6f;
-                player2.setPosition(resetPos);
+                player2.setPosition(resetPos2);
 
                 // reset world
                 foreach (var area in m_areas)
