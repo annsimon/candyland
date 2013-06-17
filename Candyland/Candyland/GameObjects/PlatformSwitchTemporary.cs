@@ -15,12 +15,8 @@ namespace Candyland
     {
         public PlatformSwitchTemporary(String id, Vector3 pos, UpdateInfo updateInfo)
         {
-            this.ID = id;
-            this.m_position = pos;
-            this.m_original_position = pos;
-            this.isActive = false;
+            base.init(id, pos, updateInfo);
             this.isActivated = false;
-            this.m_updateInfo = updateInfo;
             this.m_switchGroups = new List<SwitchGroup>();
         }
 
@@ -53,7 +49,7 @@ namespace Candyland
                 }
             }
             // Deactivate when not touched
-            else
+            else if(this.isActivated && !this.isTouched)
             {
                 this.setActivated(false);
                 this.m_texture = m_notActivated_texture;

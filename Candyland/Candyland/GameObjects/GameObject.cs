@@ -71,8 +71,17 @@ namespace Candyland
         public abstract void hasCollidedWith(GameObject obj);
         public abstract void isNotCollidingWith(GameObject obj);
 
-        public bool isdestroyed = false;
-        
+        public bool isdestroyed {get; set;}
+
+        public virtual void init(String id, Vector3 pos, UpdateInfo updateInfo)
+        {
+            this.ID = id;
+            this.m_position = pos;
+            this.m_original_position = pos;
+            this.isActive = false;
+            this.original_isActive = false;
+            this.m_updateInfo = updateInfo;
+        }
 
         protected void calculateBoundingBox()
         {
