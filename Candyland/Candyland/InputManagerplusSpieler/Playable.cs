@@ -108,5 +108,53 @@ namespace Candyland
             maxOld = m_boundingBox.Max;
         }
 
+
+        #region collision
+
+        public override void collide(GameObject obj)
+        {
+
+            cam.collideWith(obj);
+
+            if (obj.GetType() == typeof(Platform)) collideWithPlatform(obj);
+            if (obj.GetType() == typeof(Obstacle)) collideWithObstacle(obj);
+            if (obj.GetType() == typeof(ObstacleBreakable)) collideWithBreakable(obj);
+            if (obj.GetType() == typeof(ObstacleMoveable)) collideWithMovable(obj);
+            if (obj.GetType() == typeof(ObstacleForSwitch)) collideWithObstacleForSwitch(obj);
+            if (obj.GetType() == typeof(PlatformSwitchPermanent)) collideWithSwitchPermanent(obj);
+            if (obj.GetType() == typeof(PlatformSwitchTemporary)) collideWithSwitchTemporary(obj);
+            if (obj.GetType() == typeof(ChocoChip)) collideWithChocoChip(obj);
+            if (obj.GetType() == typeof(PlatformTeleporter)) collideWithTeleporter(obj);
+        }
+
+        //private void collideWithMovable(GameObject obj)
+        //{
+        //    if (obj.getBoundingBox().Intersects(m_boundingBox))
+        //    {
+        //        preventIntersection(obj);
+        //        if(minOld.Y < obj.getBoundingBox().Max.Y) // Do we need this here?
+        //        obj.hasCollidedWith(this);
+        //    }
+        //    else
+        //    {
+        //        obj.isNotCollidingWith(this);
+        //    }
+        //}
+
+        // Needs to be able to collect the chips
+        protected override void collideWithChocoChip(GameObject obj)
+        {
+            if (obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                obj.hasCollidedWith(this);
+            }
+            else
+            {
+                obj.isNotCollidingWith(this);
+            }
+        }
+
+        #endregion
+
     }
 }

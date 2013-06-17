@@ -99,32 +99,8 @@ namespace Candyland
 
         #region collision
 
-        public override void collide(GameObject obj)
-        {
-           
-            cam.collideWith(obj);
+       // no special collision needs yet
 
-            if (obj.GetType() == typeof(Platform)) collideWithPlatform(obj);
-            if (obj.GetType() == typeof(Obstacle)) collideWithObstacle(obj);
-            if (obj.GetType() == typeof(ObstacleBreakable)) collideWithBreakable(obj);
-            if (obj.GetType() == typeof(ObstacleMoveable)) collideWithMovable(obj);
-            if (obj.GetType() == typeof(ObstacleForSwitch)) collideWithObstacleForSwitch(obj);
-            if (obj.GetType() == typeof(PlatformSwitchPermanent)) collideWithSwitchPermanent(obj);
-            if (obj.GetType() == typeof(PlatformSwitchTemporary)) collideWithSwitchTemporary(obj);
-            if (obj.GetType() == typeof(ChocoChip)) collideWithChocoChip(obj);
-            if (obj.GetType() == typeof(PlatformTeleporter)) collideWithTeleporter(obj);
-        }
-
-        // Needs to be able to collect the chips
-        protected override void collideWithChocoChip(GameObject obj) {
-            if (obj.getBoundingBox().Intersects(m_boundingBox))
-            {
-                obj.hasCollidedWith(this);
-            } else {
-                obj.isNotCollidingWith(this);
-            }
-        }
-       
         #endregion
 
         public override void draw()
