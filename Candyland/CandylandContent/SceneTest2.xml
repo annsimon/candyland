@@ -2905,6 +2905,23 @@
                     </object_endposition>
                     <slippery>False</slippery>
                   </object>
+                  <object>
+                    <object_type>movingPlatform</object_type>
+                    <object_id>255.0.6.movp</object_id>
+                    <is_door_to_area>x</is_door_to_area>
+                    <is_door_to_level>x</is_door_to_level>
+                    <object_position>
+                      <x>2</x>
+                      <y>0</y>
+                      <z>1</z>
+                    </object_position>
+                    <object_endposition>
+                      <x>3</x>
+                      <y>1</y>
+                      <z>1</z>
+                    </object_endposition>
+                    <slippery>False</slippery>
+                  </object>
                 </dynamics>
               </dynamic_objects>
             </the_objects>

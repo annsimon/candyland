@@ -111,6 +111,12 @@ namespace Candyland
                     ChocoChip obj = new ChocoChip(node.InnerText, pos, info, bonusTracker);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
+                else
+                if (object_type == "teleformPlatform")
+                {
+                    PlatformTeleporter obj = new PlatformTeleporter(node.InnerText, pos, info, new Vector3(10,1,10)); //TODO add new parameter in editor
+                    dynamicObjects.Add(node.InnerText, obj);
+                }
 
                 // increase count as it is used to access the not-id xml elements of the correct level
                 // (the one currently being parsed)

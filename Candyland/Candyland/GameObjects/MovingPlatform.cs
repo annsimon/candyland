@@ -64,6 +64,8 @@ namespace Candyland
             this.m_model = content.Load<Model>("plattform");
             this.m_original_model = this.m_model;
             this.calculateBoundingBox();
+            minOld = m_boundingBox.Min;
+            maxOld = m_boundingBox.Max;
         }
 
         public override void Reset()

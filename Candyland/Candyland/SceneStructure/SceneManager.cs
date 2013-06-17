@@ -57,7 +57,7 @@ namespace Candyland
             m_graphics = graphics;
             /****************************************************************/
 
-            player = new CandyGuy(new Vector3(0, 0.4f, 0), Vector3.Up,graphics.Viewport.AspectRatio, m_updateInfo, m_bonusTracker);
+            player = new CandyGuy(new Vector3(255, 255.4f, 255), Vector3.Up,graphics.Viewport.AspectRatio, m_updateInfo, m_bonusTracker);
             player2 = new CandyHelper(new Vector3(0, 0.4f, 0.2f), Vector3.Up, graphics.Viewport.AspectRatio, m_updateInfo,m_bonusTracker);
             
             m_areas = AreaParser.ParseAreas(m_updateInfo, m_bonusTracker);

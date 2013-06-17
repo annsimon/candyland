@@ -81,7 +81,9 @@
     <Compile Include="Data\UpdateInfo.cs" />
     <Compile Include="GameObjects\DynamicGameObjects.cs" />
     <Compile Include="GameObjects\MovingPlatform.cs" />
+    <Compile Include="GameObjects\ObstacleForSwitch.cs" />
     <Compile Include="GameObjects\PlatformSwitchTimed.cs" />
+    <Compile Include="GameObjects\PlatformTeleporter.cs" />
     <Compile Include="InputManagerplusSpieler\CandyHelper.cs" />
     <Compile Include="GameObjects\ChocoChip.cs" />
     <Compile Include="Game1.cs" />

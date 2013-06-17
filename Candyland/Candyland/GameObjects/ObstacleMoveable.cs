@@ -34,10 +34,10 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
-            this.m_texture = content.Load<Texture2D>("wunderkugeltextur");
+            this.m_texture = content.Load<Texture2D>("blocktextur");
             this.m_original_texture = this.m_texture;
             this.effect = content.Load<Effect>("Toon");
-            this.m_model = content.Load<Model>("wunderkugelmovable");
+            this.m_model = content.Load<Model>("blockmovable");
             this.m_original_model = this.m_model;
 
             this.calculateBoundingBox();
@@ -48,7 +48,10 @@ namespace Candyland
 
         public override void update()
         {
-            base.update();
+            // let the Object fall, if no collision with lower Objects
+            fall();
+            isonground = false;
+
             // Obstacle is sliding
             if (currentspeed != 0 && isOnSlipperyGround)
             {
@@ -61,12 +64,13 @@ namespace Candyland
         public override void collide(GameObject obj)
         {
             if (obj.GetType() == typeof(Platform)) collideWithPlatform(obj);
-            //if (obj.GetType() == typeof(Obstacle)) collideWithObstacle(obj); // may not be called for itself!!!
+            if (obj.GetType() == typeof(Obstacle)) collideWithObstacle(obj); // may not be called for itself!!!
             if (obj.GetType() == typeof(ObstacleBreakable)) collideWithBreakable(obj);
             if (obj.GetType() == typeof(ObstacleMoveable)) collideWithMovable(obj);
             if (obj.GetType() == typeof(PlatformSwitchPermanent)) collideWithSwitchPermanent(obj);
             if (obj.GetType() == typeof(PlatformSwitchTemporary)) collideWithSwitchTemporary(obj);
-            if (obj.GetType() == typeof(ChocoChip)) collideWithChocoChip(obj); 
+            if (obj.GetType() == typeof(ChocoChip)) collideWithChocoChip(obj);
+            if (obj.GetType() == typeof(ObstacleForSwitch)) collideWithObstacleForSwitch(obj);
         }
 
              private void collideWithPlatform(GameObject obj)
@@ -80,7 +84,7 @@ namespace Candyland
                 } 
             }
             private void collideWithObstacle(GameObject obj) {
-                if (obj.getBoundingBox().Intersects(m_boundingBox))
+                if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
                 {
                     preventIntersection(obj);
                 }
@@ -125,6 +129,15 @@ namespace Candyland
             }
 
             private void collideWithChocoChip(GameObject obj) {
+                if (obj.getBoundingBox().Intersects(m_boundingBox))
+                {
+                    preventIntersection(obj);
+                }
+            }
+
+
+            private void collideWithObstacleForSwitch(GameObject obj)
+            {
                 if (obj.getBoundingBox().Intersects(m_boundingBox))
                 {
                     preventIntersection(obj);

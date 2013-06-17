@@ -68,8 +68,8 @@ namespace Candyland
 
         public abstract void collide(GameObject obj);
 
-        protected Vector3 minOld;
-        protected Vector3 maxOld;
+        public Vector3 minOld { get; set; }
+        public Vector3 maxOld { get; set; }
         public abstract void hasCollidedWith(GameObject obj);
         public abstract void isNotCollidingWith(GameObject obj);
 
@@ -131,9 +131,11 @@ namespace Candyland
             currentspeed = original_currentspeed;
             isdestroyed = false;
         }
-
+         
         public virtual void endIntersection()
         {
+            minOld = m_boundingBox.Min;
+            maxOld = m_boundingBox.Max;
         }
 
 
