@@ -8,7 +8,7 @@ namespace Candyland
 {
     public abstract class DynamicGameObjects : GameObject
     {
-        protected float upvelocity;             //beschleinigungsfaktor in y richtung
+        protected float upvelocity;             //beschleunigungsfaktor in y richtung
         protected bool isonground = false;
 
         protected virtual void fall()
@@ -19,6 +19,132 @@ namespace Candyland
             this.m_boundingBox.Max.Y += upvelocity;
             this.m_boundingBox.Min.Y += upvelocity;
         }
+
+        #region collision
+
+        public override void collide(GameObject obj)
+        {
+            if (!this.isdestroyed)
+            {
+                // may not be called for itself!!!
+                if (obj is Platform) this.collideWithPlatform(obj);
+                if (obj.GetType() == typeof(Obstacle)) this.collideWithObstacle(obj);
+                if (obj.GetType() == typeof(ObstacleBreakable)) this.collideWithBreakable(obj);
+                if (obj.GetType() == typeof(ObstacleMoveable)) this.collideWithMovable(obj);
+                if (obj.GetType() == typeof(ObstacleForSwitch)) this.collideWithObstacleForSwitch(obj);
+                if (obj.GetType() == typeof(PlatformSwitchPermanent)) this.collideWithSwitchPermanent(obj);
+                if (obj.GetType() == typeof(PlatformSwitchTemporary)) this.collideWithSwitchTemporary(obj);
+                if (obj.GetType() == typeof(ChocoChip)) this.collideWithChocoChip(obj);
+                if (obj.GetType() == typeof(PlatformTeleporter)) this.collideWithTeleporter(obj);
+                if (obj is MovingPlatform) this.collideWithMovingPlatform(obj);
+            }
+        }
+
+        protected virtual void collideWithMovingPlatform(GameObject obj)
+        {
+            // Object sits on a Platform
+            if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                preventIntersection(obj);
+                Vector3 diff = obj.getDirection();
+
+                if (diff.Y > 0) diff.Y = 0;
+
+                m_boundingBox.Min += diff;
+                m_boundingBox.Max += diff;
+                m_position += diff;
+
+                obj.hasCollidedWith(this);
+            }
+        }
+
+        protected virtual void collideWithPlatform(GameObject obj)
+        {
+            // Object sits on a Platform
+            if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                preventIntersection(obj);
+                obj.hasCollidedWith(this);
+            }
+        }
+
+        protected virtual void collideWithObstacle(GameObject obj)
+        {
+            if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                preventIntersection(obj);
+            }
+        }
+        protected virtual void collideWithSwitchPermanent(GameObject obj)
+        {
+            if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                preventIntersection(obj);
+                obj.hasCollidedWith(this);
+            }
+            else
+            {
+                obj.isNotCollidingWith(this);
+            }
+        }
+        protected virtual void collideWithSwitchTemporary(GameObject obj)
+        {
+            if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                preventIntersection(obj);
+                obj.hasCollidedWith(this);
+            }
+            else
+            {
+                obj.isNotCollidingWith(this);
+            }
+        }
+        protected virtual void collideWithBreakable(GameObject obj)
+        {
+            if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox) && !obj.isdestroyed)
+            {
+                preventIntersection(obj);
+            }
+        }
+        protected virtual void collideWithMovable(GameObject obj)
+        {
+            if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                preventIntersection(obj);
+                obj.hasCollidedWith(this);
+            }
+            else
+            {
+                obj.isNotCollidingWith(this);
+            }
+        }
+        protected virtual void collideWithChocoChip(GameObject obj)
+        {
+            if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                preventIntersection(obj);
+            }
+        }
+        protected virtual void collideWithObstacleForSwitch(GameObject obj)
+        {
+            if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                preventIntersection(obj);
+            }
+        }
+        protected virtual void collideWithTeleporter(GameObject obj)
+        {
+            if (obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                obj.hasCollidedWith(this);
+            }
+            else
+            {
+                obj.isNotCollidingWith(this);
+            }
+        }
+
+        #endregion
 
         public override void  endIntersection()
         {
@@ -52,7 +178,7 @@ namespace Candyland
                 float m_maxYold = maxOld.Y;
                 float m_maxZold = maxOld.Z;
 
-                if (m_minYold >= maxY)
+                if (m_minYold >= maxY-0.1f)
                 {
                     isonground = true;
 
@@ -126,6 +252,12 @@ namespace Candyland
         {
             base.Reset();
             upvelocity = 0;
+        }
+
+        public override void draw()
+        {
+            if( !isdestroyed )
+                base.draw();
         }
 
     }

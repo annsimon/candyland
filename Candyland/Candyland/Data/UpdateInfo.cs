@@ -61,8 +61,8 @@ namespace Candyland
 
         public UpdateInfo(GraphicsDevice graphicsDevice)
         {
-            currentAreaID = "255";
-            currentLevelID = "255.0";
+            currentAreaID = GameConstants.startAreaID;
+            currentLevelID = GameConstants.startLevelID;
 
             playerIsOnAreaExit = false;
             areaAfterExitID = "";
@@ -77,7 +77,7 @@ namespace Candyland
             //currentObjectsToBeCollided = new Dictionary<String, GameObject>();
 
             candyselected = true;
-            helperavailable = false;
+            helperavailable = true;
 
             /**********************************************************************/
             graphics = graphicsDevice;

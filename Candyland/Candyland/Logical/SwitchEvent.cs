@@ -14,17 +14,18 @@ namespace Candyland
     /// <summary>
     /// Basic Class from which all GameObjects, UI-Elements and the Camera are derived
     /// </summary>
-    public class Event
+    public class SwitchEvent
     {
         private GameObject m_triggerable;
 
         private SwitchGroup m_switchGroup;
 
         private bool m_triggered;
+
+        private bool permanent;
         
-        public Event( string triggerableID, List<String> switchIDs, Dictionary<string,GameObject> objects )
+        public SwitchEvent( string triggerableID, List<String> switchIDs, Dictionary<string,GameObject> objects )
         {
-            //string triggerableID = "0.1.0.obstacle";
             m_triggerable = objects[triggerableID];
             m_switchGroup = new SwitchGroup(switchIDs, objects, this);
         }
@@ -33,6 +34,12 @@ namespace Candyland
         {
             m_triggered = true;
             m_triggerable.isdestroyed = true;
+        }
+
+        public void ResetTrigger()
+        {
+            m_triggered = false;
+            m_triggerable.isdestroyed = false;
         }
 
         public void Reset()

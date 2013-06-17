@@ -54,7 +54,7 @@ namespace Candyland
             centerposition = pos;
             m_updateInfo = info;
             projectionMatrix = Matrix.CreatePerspectiveFieldOfView(fov, aspectRatio, nearPlane, farPlane);
-            boundingSphere = new BoundingSphere(centerposition,0.1f);
+            boundingSphere = new BoundingSphere(centerposition,0.2f);
             updatevMatrix();
         }
        

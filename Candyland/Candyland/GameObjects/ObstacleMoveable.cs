@@ -17,13 +17,8 @@ namespace Candyland
 
         public ObstacleMoveable(String id, Vector3 pos, UpdateInfo updateInfo)
         {
-            this.ID = id;
-            this.m_position = pos;
-            this.m_position.Y += 0.55f;
-            this.m_original_position = this.m_position;
-            this.isActive = false;
-            this.original_isActive = false;
-            this.m_updateInfo = updateInfo;
+            base.initialize(id, pos, updateInfo);
+
             this.isOnSlipperyGround = false;
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
@@ -34,7 +29,7 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
-            this.m_texture = content.Load<Texture2D>("blocktextur");
+            this.m_texture = content.Load<Texture2D>("blockmovabletextur");
             this.m_original_texture = this.m_texture;
             this.effect = content.Load<Effect>("Toon");
             this.m_model = content.Load<Model>("blockmovable");
@@ -55,93 +50,21 @@ namespace Candyland
             // Obstacle is sliding
             if (currentspeed != 0 && isOnSlipperyGround)
             {
-                move();
+                slide();
             }
         }
 
         #region collision
 
-        public override void collide(GameObject obj)
-        {
-            if (obj.GetType() == typeof(Platform)) collideWithPlatform(obj);
-            if (obj.GetType() == typeof(Obstacle)) collideWithObstacle(obj); // may not be called for itself!!!
-            if (obj.GetType() == typeof(ObstacleBreakable)) collideWithBreakable(obj);
-            if (obj.GetType() == typeof(ObstacleMoveable)) collideWithMovable(obj);
-            if (obj.GetType() == typeof(PlatformSwitchPermanent)) collideWithSwitchPermanent(obj);
-            if (obj.GetType() == typeof(PlatformSwitchTemporary)) collideWithSwitchTemporary(obj);
-            if (obj.GetType() == typeof(ChocoChip)) collideWithChocoChip(obj);
-            if (obj.GetType() == typeof(ObstacleForSwitch)) collideWithObstacleForSwitch(obj);
-        }
-
-             private void collideWithPlatform(GameObject obj)
+             protected override void collideWithPlatform(GameObject obj)
             {
-                // Obstacle sits on a Platform
+                // Obstacle sits on a Platform, that can be slippery
                 if (obj.getBoundingBox().Intersects(m_boundingBox))
                 {
                     preventIntersection(obj);
                     Platform platform = (Platform) obj;
                     isOnSlipperyGround = platform.getSlippery();
                 } 
-            }
-            private void collideWithObstacle(GameObject obj) {
-                if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
-                {
-                    preventIntersection(obj);
-                }
-            }
-            private void collideWithSwitchPermanent(GameObject obj) {
-                if (obj.getBoundingBox().Intersects(m_boundingBox))
-                {
-                    preventIntersection(obj);
-                    obj.hasCollidedWith(this);
-                }
-                else
-                {
-                    obj.isNotCollidingWith(this);
-                }
-            }
-            private void collideWithSwitchTemporary(GameObject obj) {
-                if (obj.getBoundingBox().Intersects(m_boundingBox))
-                {
-                    preventIntersection(obj);
-                    obj.hasCollidedWith(this);
-                }
-                else
-                {
-                    obj.isNotCollidingWith(this);
-                }
-            }
-            private void collideWithBreakable(GameObject obj) {
-                if (obj.getBoundingBox().Intersects(m_boundingBox) && !obj.isdestroyed)
-                {
-                    preventIntersection(obj);
-                }
-            }
-            private void collideWithMovable(GameObject obj) {
-                if (obj.getBoundingBox().Intersects(m_boundingBox)) {
-                    preventIntersection(obj);
-                    obj.hasCollidedWith(this);
-                }
-                else
-                {
-                    obj.isNotCollidingWith(this);
-                }
-            }
-
-            private void collideWithChocoChip(GameObject obj) {
-                if (obj.getBoundingBox().Intersects(m_boundingBox))
-                {
-                    preventIntersection(obj);
-                }
-            }
-
-
-            private void collideWithObstacleForSwitch(GameObject obj)
-            {
-                if (obj.getBoundingBox().Intersects(m_boundingBox))
-                {
-                    preventIntersection(obj);
-                }
             }
 
         #endregion
@@ -151,17 +74,15 @@ namespace Candyland
             // getting pushed by the player
             if (obj.GetType() == typeof(CandyGuy))
             {
-                this.isActive = true;
-
                 // Find out on which boundingbox side the collision occurs
 
                     BoundingBox bbSwitch = m_boundingBox;
-                    float playerRight = obj.getPosition().X + (m_boundingBox.Max.X - m_boundingBox.Min.X) / 2;
-                    float playerLeft = obj.getPosition().X - (m_boundingBox.Max.X - m_boundingBox.Min.X) / 2;
-                    float playerFront = obj.getPosition().Z + (m_boundingBox.Max.Z - m_boundingBox.Min.Z) / 2;
-                    float playerBack = obj.getPosition().Z - (m_boundingBox.Max.Z - m_boundingBox.Min.Z) / 2;
-                    float playerTop = obj.getPosition().Y + (m_boundingBox.Max.Y - m_boundingBox.Min.Y) / 2;
-                    float playerBottom = obj.getPosition().Y - (m_boundingBox.Max.Y - m_boundingBox.Min.Y) / 2;
+                    float playerRight = obj.getPosition().X + (m_boundingBox.Max.X - m_boundingBox.Min.X) / 4;
+                    float playerLeft = obj.getPosition().X - (m_boundingBox.Max.X - m_boundingBox.Min.X) / 4;
+                    float playerFront = obj.getPosition().Z + (m_boundingBox.Max.Z - m_boundingBox.Min.Z) / 4;
+                    float playerBack = obj.getPosition().Z - (m_boundingBox.Max.Z - m_boundingBox.Min.Z) / 4;
+                    float playerTop = obj.getPosition().Y + (m_boundingBox.Max.Y - m_boundingBox.Min.Y) / 4;
+                    float playerBottom = obj.getPosition().Y - (m_boundingBox.Max.Y - m_boundingBox.Min.Y) / 4;
 
                     // Obstacle should only be moved, if collided from the side
 
@@ -173,6 +94,11 @@ namespace Candyland
                             && playerBack < bbSwitch.Max.Z && playerFront > bbSwitch.Min.Z)
                         {
                             this.direction = new Vector3(obj.getDirection().X, 0, 0);
+                            this.direction.Normalize();
+                            if (isOnSlipperyGround)
+                            {
+                                currentspeed = GameConstants.obstacleSpeed;
+                            }
                             move();
                         }
                         // Test if collision in Z direction
@@ -180,6 +106,11 @@ namespace Candyland
                             && playerLeft < bbSwitch.Max.X && playerRight > bbSwitch.Min.X)
                         {
                             this.direction = new Vector3(0, 0, obj.getDirection().Z);
+                            this.direction.Normalize();
+                            if (isOnSlipperyGround)
+                            {
+                                currentspeed = GameConstants.obstacleSpeed;
+                            }
                             move();
                         }
                     }
@@ -202,6 +133,17 @@ namespace Candyland
                 translate = GameConstants.obstacleSpeed * direction;
                 newPosition = this.getPosition() + translate;
                 this.setPosition(newPosition);
+        }
+
+        public void slide()
+        {
+            Vector3 newPosition;
+            Vector3 translate;
+
+            // move Obstacle
+            translate = currentspeed * direction;
+            newPosition = this.getPosition() + translate;
+            this.setPosition(newPosition);
         }
 
 

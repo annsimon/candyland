@@ -20,7 +20,7 @@ namespace Candyland
         /// <summary>
         /// speed of moving obstacles
         /// </summary>
-        public const float obstacleSpeed = 0.2f;
+        public const float obstacleSpeed = 0.1f;
 
         /// <summary>
         /// time a timed switch stays activated
@@ -30,10 +30,13 @@ namespace Candyland
         /// <summary>
         /// bounding box rendering on/off
         /// </summary>
-        public const bool boundingBoxRendering = false;
+        public const bool boundingBoxRendering = true;
 
         public const int inputManagerMode = InputManager.KEYBOARDMOUSE;
 
-        
+        // data regarding the scene
+        public const string sceneFile = "Content\\HoehlenTest.xml";
+        public const string startAreaID = "6";
+        public const string startLevelID = "6.0";
     }
 }

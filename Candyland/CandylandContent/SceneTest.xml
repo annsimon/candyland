@@ -14,9 +14,9 @@
         <!--- LEVEL 0.0 -->
         <level>
           <level_id>0.0</level_id>
-          <level_starting_position>
           <main_start_platform>0.0.1.dyn</main_start_platform>
           <secondary_start_platform>0.0.1.dyn</secondary_start_platform>
+          <level_starting_position>
             <x>0</x>
             <y>0</y>
             <z>0</z>
@@ -352,9 +352,9 @@
         <!--- LEVEL 0.1 -->
         <level>
           <level_id>0.1</level_id>
-          <level_starting_position>
           <main_start_platform>0.1.0.dyn</main_start_platform>
           <secondary_start_platform>0.1.0.dyn</secondary_start_platform>
+          <level_starting_position>
             <x>9</x>
             <y>1,5</y>
             <z>0</z>
@@ -1569,9 +1569,9 @@
         <!--- LEVEL 1.0 -->
         <level>
           <level_id>1.0</level_id>
-          <level_starting_position>
           <main_start_platform>1.0.0.dyn</main_start_platform>
           <secondary_start_platform>1.0.0.dyn</secondary_start_platform>
+          <level_starting_position>
             <x>0</x>
             <y>0</y>
             <z>0</z>
@@ -1967,9 +1967,9 @@
         <!--- LEVEL 1.1 -->
         <level>
           <level_id>1.1</level_id>
-          <level_starting_position>
           <main_start_platform>1.1.0.dyn</main_start_platform>
           <secondary_start_platform>1.1.0.dyn</secondary_start_platform>
+          <level_starting_position>
             <x>9,5</x>
             <y>-1</y>
             <z>0</z>

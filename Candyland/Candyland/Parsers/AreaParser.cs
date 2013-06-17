@@ -24,7 +24,7 @@ namespace Candyland
 
             XmlDocument scene = new XmlDocument();
 
-            scene.Load("Content\\SceneTest2.xml");
+            scene.Load(GameConstants.sceneFile);
 
             XmlNodeList id = scene.GetElementsByTagName("area_id");
             XmlNodeList prev = scene.GetElementsByTagName("area_prev");

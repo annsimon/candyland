@@ -38,8 +38,6 @@ namespace Candyland
         {
         }
 
-        
-
         public override void collide(GameObject obj)
         {
            
@@ -79,7 +77,10 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
-            this.m_texture = content.Load<Texture2D>("plattformtextur");
+            if(isSlippery)
+                this.m_texture = content.Load<Texture2D>("rutschigtextur");
+            else
+                this.m_texture = content.Load<Texture2D>("plattformtextur");
             this.m_original_texture = this.m_texture;
             this.effect = content.Load<Effect>("Toon");
             this.m_model = content.Load<Model>("plattform");
@@ -97,7 +98,7 @@ namespace Candyland
 
         public override void hasCollidedWith(GameObject obj)
         {
-            // When the Player steps on a Platform, that functions as a Door to the next Level or Area,
+            // When the Player steps on a Platform that functions as a Door to the next Level or Area,
             // UpdateInfo needs to be updated
             if (obj.GetType() == typeof(CandyGuy))
             {

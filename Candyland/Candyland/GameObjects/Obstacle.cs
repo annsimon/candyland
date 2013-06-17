@@ -19,17 +19,22 @@ namespace Candyland
         }
         public Obstacle(String id, Vector3 pos, UpdateInfo updateInfo)
         {
-            this.ID = id;
-            this.m_position = pos;
-            this.m_position.Y += .5f;
-            this.m_original_position = this.m_position;
-            this.isActive = false;
-            this.original_isActive = false;
-            this.m_updateInfo = updateInfo;
+            initialize(id, pos, updateInfo);
         }
 
         public override void initialize()
         {
+        }
+
+        public void initialize(String id, Vector3 pos, UpdateInfo updateInfo)
+        {
+            this.ID = id;
+            this.m_position = pos;
+            this.m_position.Y += 1f;
+            this.m_original_position = this.m_position;
+            this.isActive = false;
+            this.original_isActive = false;
+            this.m_updateInfo = updateInfo;
         }
 
         public override void isNotCollidingWith(GameObject obj)
@@ -44,8 +49,7 @@ namespace Candyland
 
         public override void draw()
         {
-            if( !isdestroyed )
-                base.draw();
+            base.draw();
         }
 
         public override void load(ContentManager content)
@@ -57,10 +61,6 @@ namespace Candyland
             this.m_original_model = this.m_model;
 
             this.calculateBoundingBox();
-        }
-
-        public override void collide(GameObject obj)
-        {
         }
 
         public override void update()

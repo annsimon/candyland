@@ -85,7 +85,7 @@
       <Name>blockmovable</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.5</ProcessorParameters_Scale>
+      <ProcessorParameters_Scale>0.48</ProcessorParameters_Scale>
     </Compile>
     <None Include="SceneTest.xml">
       <Name>SceneTest</Name>
@@ -161,6 +161,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="HoehlenTest.xml">
+      <Name>HoehlenTest</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="schaltertexturinaktiv.png">
       <Name>schaltertexturinaktiv</Name>
       <Importer>TextureImporter</Importer>
@@ -214,6 +222,7 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

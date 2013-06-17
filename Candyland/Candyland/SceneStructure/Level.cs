@@ -24,7 +24,7 @@ namespace Candyland
         // which are static (e.g. platforms)
         List<GameObject> m_staticObjects;
         // this list contains all events of the level
-        List<Event> m_events;
+        List<SwitchEvent> m_events;
 
         Platform m_start_player;
         Platform m_start_companion;
@@ -35,7 +35,7 @@ namespace Candyland
             this.start = level_start;
             m_gameObjects = ObjectParser.ParseObjects(level_start, xml, info, bonusTracker);
             m_staticObjects = ObjectParser.ParseStatics(level_start, xml, info);
-            m_events = new List<Event>();
+            m_events = new List<SwitchEvent>();
 
             try 
             {
@@ -100,7 +100,7 @@ namespace Candyland
             {
                 gameObject.Value.Reset();
             }
-            foreach( Event currEvent in m_events )
+            foreach( SwitchEvent currEvent in m_events )
             {
                 currEvent.Reset();
             }

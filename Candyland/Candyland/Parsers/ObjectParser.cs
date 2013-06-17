@@ -90,7 +90,13 @@ namespace Candyland
                 else
                 if (object_type == "obstacleForSwitch")
                 {
-                    Obstacle obj = new Obstacle(node.InnerText, pos, info);
+                    ObstacleForSwitch obj = new ObstacleForSwitch(node.InnerText, pos, info);
+                    dynamicObjects.Add(node.InnerText, obj);
+                }
+                else
+                if (object_type == "obstacleForFalling")
+                {
+                    ObstacleForSwitch obj = new ObstacleForSwitch(node.InnerText, pos, info);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
                 else
@@ -103,6 +109,11 @@ namespace Candyland
                 if (object_type == "switchPermanent")
                 {
                     PlatformSwitch obj = new PlatformSwitchPermanent(node.InnerText, pos, info);
+                    dynamicObjects.Add(node.InnerText, obj);
+                }
+                if (object_type == "switchTemporary")
+                {
+                    PlatformSwitch obj = new PlatformSwitchTemporary(node.InnerText, pos, info);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
                 else
@@ -140,7 +151,7 @@ namespace Candyland
             XmlNodeList id = scene.GetElementsByTagName("object_id");
             XmlNodeList type = scene.GetElementsByTagName("object_type");
             XmlNodeList position = scene.GetElementsByTagName("object_position");
-            XmlNodeList slippery = scene.GetElementsByTagName("object_slippery");
+            XmlNodeList slippery = scene.GetElementsByTagName("slippery");
 
             int count = 0;
 
@@ -154,14 +165,14 @@ namespace Candyland
                 pos += lvl_start; // add level position for correct global position
 
                 // get bool value for slippery
-                //bool slip = bool.Parse(slippery[count].InnerText);
+                bool slip = bool.Parse(slippery[count].InnerText);
 
                 // create the new object
                 string object_type = type[count].InnerText;
 
                 if (object_type == "platform")
                 {
-                    Platform obj = new Platform(node.InnerText, pos, false, "x", "x", info);
+                    Platform obj = new Platform(node.InnerText, pos, slip, "x", "x", info);
                     objectList.Add(obj);
                 }
                 else

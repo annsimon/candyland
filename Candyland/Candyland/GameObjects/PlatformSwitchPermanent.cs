@@ -26,8 +26,9 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
-
-            this.m_texture = content.Load<Texture2D>("schaltertexturinaktiv");
+            this.m_activated_texture = content.Load<Texture2D>("schaltertextur");
+            this.m_notActivated_texture = content.Load<Texture2D>("schaltertexturinaktiv");
+            this.m_texture = this.m_notActivated_texture;
             this.m_original_texture = this.m_texture;
             this.effect = content.Load<Effect>("Toon");
             this.m_model = content.Load<Model>("plattform");
@@ -46,6 +47,7 @@ namespace Candyland
             if (!this.isActivated && this.isTouched)
             {
                 this.setActivated(true);
+                this.m_texture = m_activated_texture;
             }
             // Deactivate when touch ends
             //if (this.isActivated && !this.isTouched)
