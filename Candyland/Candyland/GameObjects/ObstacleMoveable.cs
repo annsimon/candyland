@@ -25,8 +25,6 @@ namespace Candyland
             this.original_isActive = false;
             this.m_updateInfo = updateInfo;
             this.isOnSlipperyGround = false;
-            minOld = m_boundingBox.Min;
-            maxOld = m_boundingBox.Max;
             this.currentspeed = 0;
             this.upvelocity = 0;
         }

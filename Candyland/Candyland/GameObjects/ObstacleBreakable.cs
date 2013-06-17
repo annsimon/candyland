@@ -35,6 +35,8 @@ namespace Candyland
             this.m_original_model = this.m_model;
 
             this.calculateBoundingBox();
+            minOld = m_boundingBox.Min;
+            maxOld = m_boundingBox.Max;
         }
 
         public override void hasCollidedWith(GameObject obj)
