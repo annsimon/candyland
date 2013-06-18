@@ -72,7 +72,10 @@ namespace Candyland
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (this.IsActive && gameTime.TotalGameTime.Milliseconds % 1 ==0 )
+            KeyboardState newState = Keyboard.GetState();
+
+            if (this.IsActive && (gameTime.TotalGameTime.Milliseconds % GameConstants.framerate == 0 )
+                && ((newState.IsKeyDown(Keys.Enter)&& newState != oldState) || GameConstants.singlestepperOFF))
             {
                 // Allows the game to exit
                 if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed
@@ -82,7 +85,7 @@ namespace Candyland
                 m_sceneManager.Update(gameTime);
             }
 
-            KeyboardState newState = Keyboard.GetState();
+           newState = Keyboard.GetState();
 
             // Save, when F5 was pressed and now released
             if (oldState.IsKeyDown(Keys.F5) && newState.IsKeyUp(Keys.F5))

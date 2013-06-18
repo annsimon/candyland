@@ -129,7 +129,7 @@ namespace Candyland
                 else
                 if (object_type == "teleportPlatform")
                 {
-                    PlatformTeleporter obj = new PlatformTeleporter(node.InnerText, pos, info, isVisible, new Vector3(10,1,10)); //TODO add new parameter in editor
+                    PlatformTeleporter obj = new PlatformTeleporter(node.InnerText, pos, info, endpos);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
 
@@ -184,6 +184,7 @@ namespace Candyland
                     objectList.Add(obj);
                 }
                 else
+                if (object_type == "obstacle")
                 {
                     if (object_type == "obstacle")
                     {
