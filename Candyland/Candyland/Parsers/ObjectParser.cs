@@ -123,9 +123,9 @@ namespace Candyland
                     dynamicObjects.Add(node.InnerText, obj);
                 }
                 else
-                if (object_type == "teleformPlatform")
+                if (object_type == "teleportPlatform")
                 {
-                    PlatformTeleporter obj = new PlatformTeleporter(node.InnerText, pos, info, new Vector3(10,1,10)); //TODO add new parameter in editor
+                    PlatformTeleporter obj = new PlatformTeleporter(node.InnerText, pos, info, endpos);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
 
@@ -176,12 +176,10 @@ namespace Candyland
                     objectList.Add(obj);
                 }
                 else
+                if (object_type == "obstacle")
                 {
-                    if (object_type == "obstacle")
-                    {
-                        Obstacle obj = new Obstacle(node.InnerText, pos, info);
-                        objectList.Add(obj);
-                    }
+                    Obstacle obj = new Obstacle(node.InnerText, pos, info);
+                    objectList.Add(obj);
                 }
 
                 // increase count as it is used to access the not-id xml elements of the correct level

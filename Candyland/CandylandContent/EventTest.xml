@@ -16,6 +16,33 @@
     </level_inner>
   </L0.1>
 
+  <L3.0>
+    <level_inner>
+      <event>
+        <event_inner>
+          <triggerable>3.0.0.obstacleForSwitch</triggerable>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>3.0.0.switchTemporary</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+      <event>
+        <event_inner>
+          <triggerable>3.0.1.obstacleForSwitch</triggerable>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>3.0.0.switchTemporary</switch_id>
+              <switch_id>3.0.0.switchPermanent</switch_id>
+              <switch_id>3.0.1.switchPermanent</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+    </level_inner>
+  </L3.0>
+
   <L6.0>
     <level_inner>
       <event>
