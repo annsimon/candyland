@@ -27,7 +27,7 @@ namespace Candyland
             if (!this.isDestroyed)
             {
                 // may not be called for itself!!!
-                if (obj is Platform) this.collideWithPlatform(obj);
+                if (obj.GetType() == typeof(Platform)) this.collideWithPlatform(obj);
                 if (obj.GetType() == typeof(Obstacle)) this.collideWithObstacle(obj);
                 if (obj.GetType() == typeof(ObstacleBreakable)) this.collideWithBreakable(obj);
                 if (obj.GetType() == typeof(ObstacleMoveable)) this.collideWithMovable(obj);
@@ -36,7 +36,7 @@ namespace Candyland
                 if (obj.GetType() == typeof(PlatformSwitchTemporary)) this.collideWithSwitchTemporary(obj);
                 if (obj.GetType() == typeof(ChocoChip)) this.collideWithChocoChip(obj);
                 if (obj.GetType() == typeof(PlatformTeleporter)) this.collideWithTeleporter(obj);
-                if (obj is MovingPlatform) this.collideWithMovingPlatform(obj);
+                if (obj.GetType() == typeof(MovingPlatform)) this.collideWithMovingPlatform(obj);
             }
         }
 
@@ -110,6 +110,8 @@ namespace Candyland
         {
             if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
             {
+                if (!(obj is Playable))
+                    System.Console.WriteLine("collideMovable");
                 preventIntersection(obj);
                 obj.hasCollidedWith(this);
             }
@@ -157,6 +159,8 @@ namespace Candyland
 
         protected void preventIntersection(GameObject obj)
         {
+            if (obj.isDestroyed)
+                return;
             if (obj.getBoundingBox().Intersects(m_boundingBox))
             {
                 float m_minX = Math.Min(m_boundingBox.Min.X, m_boundingBox.Max.X);
