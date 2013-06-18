@@ -1663,7 +1663,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>True</slippery>
-                    <visible>True</visible>
+                    <visible>False</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
