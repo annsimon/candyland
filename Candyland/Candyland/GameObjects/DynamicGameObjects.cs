@@ -146,13 +146,14 @@ namespace Candyland
 
         #endregion
 
-        public override void  endIntersection()
+        #region collision related
+
+        public override void endIntersection()
         {
  	         base.endIntersection();
              minOld = m_boundingBox.Min;
              maxOld = m_boundingBox.Max;
         }
-
 
         protected void preventIntersection(GameObject obj)
         {
@@ -247,6 +248,8 @@ namespace Candyland
                 }
             }
         }
+
+        #endregion
 
         public override void Reset()
         {

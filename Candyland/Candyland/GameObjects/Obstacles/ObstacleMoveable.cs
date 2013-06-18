@@ -17,6 +17,12 @@ namespace Candyland
 
         public ObstacleMoveable(String id, Vector3 pos, UpdateInfo updateInfo)
         {
+            initialize(id, pos, updateInfo);
+        }
+
+        #region initialization
+        protected override void initialize(String id, Vector3 pos, UpdateInfo updateInfo)
+        {
             base.initialize(id, pos, updateInfo);
 
             this.isOnSlipperyGround = false;
@@ -25,8 +31,7 @@ namespace Candyland
             this.currentspeed = 0;
             this.upvelocity = 0;
         }
-
-
+        
         public override void load(ContentManager content)
         {
             this.m_texture = content.Load<Texture2D>("blockmovabletextur");
@@ -39,7 +44,7 @@ namespace Candyland
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
         }
-
+        #endregion
 
         public override void update()
         {
@@ -69,6 +74,8 @@ namespace Candyland
 
         #endregion
 
+        #region collision related
+
         public override void hasCollidedWith(GameObject obj)
         {
             // getting pushed by the player
@@ -76,47 +83,54 @@ namespace Candyland
             {
                 // Find out on which boundingbox side the collision occurs
 
-                    BoundingBox bbSwitch = m_boundingBox;
-                    float playerRight = obj.getPosition().X + (m_boundingBox.Max.X - m_boundingBox.Min.X) / 4;
-                    float playerLeft = obj.getPosition().X - (m_boundingBox.Max.X - m_boundingBox.Min.X) / 4;
-                    float playerFront = obj.getPosition().Z + (m_boundingBox.Max.Z - m_boundingBox.Min.Z) / 4;
-                    float playerBack = obj.getPosition().Z - (m_boundingBox.Max.Z - m_boundingBox.Min.Z) / 4;
-                    float playerTop = obj.getPosition().Y + (m_boundingBox.Max.Y - m_boundingBox.Min.Y) / 4;
-                    float playerBottom = obj.getPosition().Y - (m_boundingBox.Max.Y - m_boundingBox.Min.Y) / 4;
+                BoundingBox bbSwitch = m_boundingBox;
+                float playerRight = obj.getPosition().X + (m_boundingBox.Max.X - m_boundingBox.Min.X) / 4;
+                float playerLeft = obj.getPosition().X - (m_boundingBox.Max.X - m_boundingBox.Min.X) / 4;
+                float playerFront = obj.getPosition().Z + (m_boundingBox.Max.Z - m_boundingBox.Min.Z) / 4;
+                float playerBack = obj.getPosition().Z - (m_boundingBox.Max.Z - m_boundingBox.Min.Z) / 4;
+                float playerTop = obj.getPosition().Y + (m_boundingBox.Max.Y - m_boundingBox.Min.Y) / 4;
+                float playerBottom = obj.getPosition().Y - (m_boundingBox.Max.Y - m_boundingBox.Min.Y) / 4;
 
-                    // Obstacle should only be moved, if collided from the side
+                // Obstacle should only be moved, if collided from the side
 
-                    // Test if Player is beside the Obstacle and not on top
-                    if (playerBottom < bbSwitch.Max.Y && playerTop > bbSwitch.Min.Y)
+                // Test if Player is beside the Obstacle and not on top
+                if (playerBottom < bbSwitch.Max.Y && playerTop > bbSwitch.Min.Y)
+                {
+                    //Test if collison in X direction
+                    if ((playerLeft < bbSwitch.Min.X || playerRight > bbSwitch.Max.X)
+                        && playerBack < bbSwitch.Max.Z && playerFront > bbSwitch.Min.Z)
                     {
-                        //Test if collison in X direction
-                        if ((playerLeft < bbSwitch.Min.X || playerRight > bbSwitch.Max.X)
-                            && playerBack < bbSwitch.Max.Z && playerFront > bbSwitch.Min.Z)
+                        this.direction = new Vector3(obj.getDirection().X, 0, 0);
+                        this.direction.Normalize();
+                        if (isOnSlipperyGround)
                         {
-                            this.direction = new Vector3(obj.getDirection().X, 0, 0);
-                            this.direction.Normalize();
-                            if (isOnSlipperyGround)
-                            {
-                                currentspeed = GameConstants.obstacleSpeed;
-                            }
-                            move();
+                            currentspeed = GameConstants.obstacleSpeed;
                         }
-                        // Test if collision in Z direction
-                        if ((playerBack < bbSwitch.Min.Z || playerFront > bbSwitch.Max.Z)
-                            && playerLeft < bbSwitch.Max.X && playerRight > bbSwitch.Min.X)
-                        {
-                            this.direction = new Vector3(0, 0, obj.getDirection().Z);
-                            this.direction.Normalize();
-                            if (isOnSlipperyGround)
-                            {
-                                currentspeed = GameConstants.obstacleSpeed;
-                            }
-                            move();
-                        }
+                        move();
                     }
+                    // Test if collision in Z direction
+                    if ((playerBack < bbSwitch.Min.Z || playerFront > bbSwitch.Max.Z)
+                        && playerLeft < bbSwitch.Max.X && playerRight > bbSwitch.Min.X)
+                    {
+                        this.direction = new Vector3(0, 0, obj.getDirection().Z);
+                        this.direction.Normalize();
+                        if (isOnSlipperyGround)
+                        {
+                            currentspeed = GameConstants.obstacleSpeed;
+                        }
+                        move();
+                    }
+                }
             }
         }
 
+        public override void isNotCollidingWith(GameObject obj)
+        {
+        }
+
+        #endregion
+
+        #region actions
 
         /// <summary>
         /// Obstacle starts moving, when pushed by a Player
@@ -146,6 +160,7 @@ namespace Candyland
             this.setPosition(newPosition);
         }
 
+        #endregion
 
     }
 }

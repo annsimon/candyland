@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -13,6 +10,7 @@ namespace Candyland
 {
     class MovingPlatform : Platform
     {
+        #region properties
 
         Vector3 start;
         Vector3 end;
@@ -20,40 +18,27 @@ namespace Candyland
         int m_originalsign = 1;
         bool nowchangingdirection = false;
 
-        public MovingPlatform(String id, Vector3 start, Vector3 end, UpdateInfo info) {
-            this.ID = id;
-            this.m_position = start;
+        #endregion
+
+        public MovingPlatform(String id, Vector3 start, Vector3 end, UpdateInfo updateInfo) 
+        {
+            initialize(id, start, end, updateInfo);
+        }
+
+        #region initialization
+
+        public void initialize(String id, Vector3 start, Vector3 end, UpdateInfo updateInfo)
+        {
+            base.init(id, start, updateInfo);
+
             this.start = start;
             this.end = end;
-            this.m_original_position = start;
-            m_updateInfo = info;
             currentspeed = 0.01f;
-            direction =  start - end;
+            direction = start - end;
             direction.Normalize();
             direction *= currentspeed;
             original_currentspeed = currentspeed;
             original_direction = direction;
-
-        }
-
-        public override void collide(GameObject obj) { }
-
-        public override void draw()
-        {
-            base.draw();
-        }
-
-        public override void hasCollidedWith(GameObject obj) {
-        }
-
-        public override void initialize()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void isNotCollidingWith(GameObject obj)
-        {
-            throw new NotImplementedException();
         }
 
         public override void load(ContentManager content)
@@ -68,19 +53,17 @@ namespace Candyland
             maxOld = m_boundingBox.Max;
         }
 
-        public override void Reset()
-        {
-            base.Reset();
-        }
+        #endregion
 
         public override void update()
         {
             nowchangingdirection = false;
             if (Math.Round(m_position.X, 2) == Math.Round(start.X, 2)
                && Math.Round(m_position.Y, 2) == Math.Round(start.Y, 2)
-               && Math.Round(m_position.Z, 2) == Math.Round(start.Z, 2)) {
-                   nowchangingdirection = true;
-                   direction *= -1;
+               && Math.Round(m_position.Z, 2) == Math.Round(start.Z, 2))
+            {
+                nowchangingdirection = true;
+                direction *= -1;
             }
 
             else if (Math.Round(m_position.X, 2) == Math.Round(end.X, 2)
@@ -90,13 +73,38 @@ namespace Candyland
                 nowchangingdirection = true;
                 direction *= -1;
             }
-            m_position += direction;
-            m_boundingBox.Min+= direction;
-            m_boundingBox.Max += direction;
 
-            
+            m_position += direction;
+            m_boundingBox.Min += direction;
+            m_boundingBox.Max += direction;
         }
 
+        #region collision
+
+        public override void collide(GameObject obj) { }
+
+        #endregion
+
+        #region collision related
+
+        public override void hasCollidedWith(GameObject obj) {
+        }
+
+        public override void isNotCollidingWith(GameObject obj)
+        {
+        }
+
+        #endregion
+
+        public override void draw()
+        {
+            base.draw();
+        }
+
+        public override void Reset()
+        {
+            base.Reset();
+        }
 
     }
 }

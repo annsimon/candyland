@@ -12,23 +12,27 @@ namespace Candyland
     /// </summary>
     abstract class PlatformSwitch : Platform
     {
+        #region properties
+
         protected Texture2D m_activated_texture;
         protected Texture2D m_notActivated_texture;
-        protected bool isActivated;
-        public bool getActivated() { return this.isActivated; }
-        public void setActivated(bool value) 
-        { 
-            this.isActivated = value;
-            try{
-                foreach( SwitchGroup grp in m_switchGroups )
-                    grp.Changed();
-            }
-            catch{}
-        }
 
         protected bool isTouched = false;
         public bool getTouched() { return this.isTouched; }
         public void setTouched(bool value) { this.isTouched = value; }
+
+        protected bool isActivated;
+        public bool getActivated() { return this.isActivated; }
+        public void setActivated(bool value)
+        {
+            this.isActivated = value;
+            try
+            {
+                foreach (SwitchGroup grp in m_switchGroups)
+                    grp.Changed();
+            }
+            catch { }
+        }
 
         protected List<SwitchGroup> m_switchGroups;
         public void setGroup( SwitchGroup group )
@@ -36,6 +40,9 @@ namespace Candyland
             m_switchGroups.Add(group);
         }
 
+        #endregion
+
+        #region collision related
 
         public override void hasCollidedWith(GameObject obj)
         {
@@ -50,6 +57,8 @@ namespace Candyland
             else
                 isTouched = false;
         }
+
+        #endregion
 
         public override void Reset()
         {

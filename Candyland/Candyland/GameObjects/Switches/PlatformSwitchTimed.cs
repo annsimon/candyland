@@ -15,11 +15,16 @@ namespace Candyland
 
         public PlatformSwitchTimed(String id, Vector3 pos, UpdateInfo updateInfo)
         {
-            this.ID = id;
-            this.m_position = pos;
-            this.isActive = false;
+            initialize(id, pos, updateInfo);
+        }
+
+        #region initialization
+
+        public void initialize(String id, Vector3 pos, UpdateInfo updateInfo)
+        {
+            base.init(id, pos, updateInfo);
+
             this.isActivated = false;
-            this.m_updateInfo = updateInfo;
             this.m_switchGroups = new List<SwitchGroup>();
             activeTime = 0;
         }
@@ -29,6 +34,8 @@ namespace Candyland
             this.m_model = content.Load<Model>("plattformschalter");
             this.calculateBoundingBox();
         }
+
+        #endregion
 
 
         /// <summary>

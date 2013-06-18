@@ -13,32 +13,39 @@ namespace Candyland
     /// </summary>
     public abstract class GameObject : GameElement
     {
+        #region member variables
+
+        #region general
+
         protected String ID;
         public String getID() { return this.ID; }
 
+        protected UpdateInfo m_updateInfo;
+
+        protected BoundingBox m_boundingBox;
+        public BoundingBox getBoundingBox() { return this.m_boundingBox; }
+        public void setBoundingBox(BoundingBox box) { this.m_boundingBox = box; }
+
+        #endregion
+
+        #region position, direction, speed
 
         protected Vector3 m_position;
         protected Vector3 m_original_position;
         public Vector3 getPosition() { return this.m_position; }
-        public void setPosition(float x, float y, float z) { this.m_position = new Vector3(x,y,z); }
-
-        /// <summary>
-        /// sets the Position of a Game Object to the specified Point and translates the BoundingBox
-        /// </summary>
-        public void setPosition(Vector3 newVector)
-        {
-            Vector3 translate = newVector - m_position;
-            this.m_position = newVector;
-            this.m_boundingBox.Min += translate;
-            this.m_boundingBox.Max += translate;
-        }
+        public void setPosition(float x, float y, float z) { this.m_position = new Vector3(x, y, z); }
 
         protected Vector3 direction;        //Laufrichtung in x-z Ebene
         protected Vector3 original_direction;        //Laufrichtung in x-z Ebene
         public Vector3 getDirection() { return direction; }
+
         protected float currentspeed;       //Momentane geschwindigkeit
         protected float original_currentspeed;       //Momentane geschwindigkeit
         public float getCurrentSpeed() { return currentspeed; }
+
+        #endregion
+
+        #region graphics
 
         protected Model m_model;
         protected Model m_original_model;
@@ -51,12 +58,9 @@ namespace Candyland
         protected Effect effect;
         public Effect getEffect() { return this.effect; }
 
+        #endregion
 
-        protected BoundingBox m_boundingBox;
-        public BoundingBox getBoundingBox() { return this.m_boundingBox; }
-        public void setBoundingBox(BoundingBox box) { this.m_boundingBox = box; }
-
-        protected UpdateInfo m_updateInfo;
+        #region interaction
 
         // True at times when the Object is taking an active role in the Game (like a selected Player or moving Objects)
         protected bool isActive;
@@ -64,16 +68,36 @@ namespace Candyland
         public bool getActive() { return this.isActive; }
         public void setActive(bool value) { this.isActive = value; }
 
+        public Vector3 minOld { get; set; }
+        public Vector3 maxOld { get; set; }
+
+        public bool isdestroyed { get; set; }
+
+        #endregion
+
+        #endregion
+
+        #region abstract methods
+
         public abstract void load(ContentManager content);
 
         public abstract void collide(GameObject obj);
 
-        public Vector3 minOld { get; set; }
-        public Vector3 maxOld { get; set; }
         public abstract void hasCollidedWith(GameObject obj);
         public abstract void isNotCollidingWith(GameObject obj);
 
-        public bool isdestroyed {get; set;}
+        #endregion
+
+        /// <summary>
+        /// sets the Position of a Game Object to the specified Point and translates the BoundingBox
+        /// </summary>
+        public void setPosition(Vector3 newVector)
+        {
+            Vector3 translate = newVector - m_position;
+            this.m_position = newVector;
+            this.m_boundingBox.Min += translate;
+            this.m_boundingBox.Max += translate;
+        }
 
         public virtual void init(String id, Vector3 pos, UpdateInfo updateInfo)
         {
@@ -83,6 +107,23 @@ namespace Candyland
             this.isActive = false;
             this.original_isActive = false;
             this.m_updateInfo = updateInfo;
+        }
+
+        public virtual void Reset()
+        {
+            m_position = m_original_position;
+            calculateBoundingBox();
+            isActive = original_isActive;
+            m_model = m_original_model;
+            direction = original_direction;
+            currentspeed = original_currentspeed;
+            isdestroyed = false;
+        }
+
+        public virtual void endIntersection()
+        {
+            minOld = m_boundingBox.Min;
+            maxOld = m_boundingBox.Max;
         }
 
         protected void calculateBoundingBox()
@@ -129,30 +170,9 @@ namespace Candyland
             this.m_boundingBox = new BoundingBox(this.m_position + minVertex, this.m_position + maxVertex);
         }
 
-
-        public virtual void Reset()
-        {
-            m_position = m_original_position;
-            calculateBoundingBox();
-            isActive = original_isActive;
-            m_model = m_original_model;
-            direction = original_direction;
-            currentspeed = original_currentspeed;
-            isdestroyed = false;
-        }
-         
-        public virtual void endIntersection()
-        {
-            minOld = m_boundingBox.Min;
-            maxOld = m_boundingBox.Max;
-        }
-
-
         /// <summary>
         /// Draws the Game Object, using the View and Projection Matrix of the Camera Class
         /// </summary>
-        /// <param name="view">Camera.viewMatrix</param>
-        /// <param name="projection">Camera.projectionMatrix</param>
         public virtual void draw()
         {
             Matrix view = m_updateInfo.viewMatrix;

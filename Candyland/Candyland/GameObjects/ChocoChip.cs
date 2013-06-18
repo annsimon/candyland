@@ -18,32 +18,25 @@ namespace Candyland
 
         private BonusTracker m_bonusTracker;
 
-
-        public override void isNotCollidingWith(GameObject obj)
-        {
-            
-        }
-
         public ChocoChip()
-        {
-        }
-
-        
-
-        public override void collide(GameObject obj)
         {
         }
 
         public ChocoChip(String id, Vector3 pos, UpdateInfo updateInfo, BonusTracker bonusTracker)
         {
-            ID = id;
-            m_position = pos;
-            m_position.Y += 0.25f;
-            m_updateInfo = updateInfo;
-            m_bonusTracker = bonusTracker;
+            initialize(id, pos, updateInfo, bonusTracker);
+        }
 
+        #region initialization
+
+        public void initialize(String id, Vector3 pos, UpdateInfo updateInfo, BonusTracker bonusTracker)
+        {
+            base.init(id, pos, updateInfo);
+            m_position.Y += 0.25f;
+            m_original_position = m_position;
             this.isActive = true;
 
+            m_bonusTracker = bonusTracker;
             m_bonusTracker.chocoChipState.Add(ID, false);
             m_bonusTracker.chocoTotal++;
         }
@@ -70,11 +63,27 @@ namespace Candyland
             Console.WriteLine("Min " + this.m_boundingBox.Min + " Max " + this.m_boundingBox.Max);
         }
 
+        #endregion
 
         public override void update()
         {
         }
 
+        #region collision
+
+        public override void collide(GameObject obj)
+        {
+        }
+
+        #endregion
+
+
+        #region collision related
+
+        public override void isNotCollidingWith(GameObject obj)
+        {
+
+        }
 
         public override void hasCollidedWith(GameObject obj)
         {
@@ -88,6 +97,8 @@ namespace Candyland
                 m_bonusTracker.chocoCount++;
             }
         }
+
+        #endregion
 
         public override void draw()
         {

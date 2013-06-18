@@ -9,13 +9,21 @@ using Microsoft.Xna.Framework.Graphics;
 namespace Candyland
 {
     /// <summary>
-    /// Switch is only activated, when a Player (or an Obstacle) is standing on the Platform.
+    /// Once stepped on this Switch, it stays activated or deactivated.
     /// </summary>
-    class PlatformSwitchTemporary : PlatformSwitch
+    class PlatformSwitchPermanent : PlatformSwitch
     {
-        public PlatformSwitchTemporary(String id, Vector3 pos, UpdateInfo updateInfo)
+        public PlatformSwitchPermanent(String id, Vector3 pos, UpdateInfo updateInfo)
+        {
+            initialize(id, pos, updateInfo);
+        }
+
+        #region initialization
+
+        protected void initialize(String id, Vector3 pos, UpdateInfo updateInfo)
         {
             base.init(id, pos, updateInfo);
+
             this.isActivated = false;
             this.m_switchGroups = new List<SwitchGroup>();
         }
@@ -33,26 +41,18 @@ namespace Candyland
             this.calculateBoundingBox();
         }
 
+        #endregion
 
         /// <summary>
         /// Updates the Switch's states.
         /// </summary>
         public override void update()
         {
-            if (this.isTouched)
+            // Activate when first touch occurs
+            if (!this.isActivated && this.isTouched)
             {
-                // Activate when touch occurs and was deactivated before
-                if(!this.isActivated)
-                {
-                    this.setActivated(true);
-                    this.m_texture = m_activated_texture;
-                }
-            }
-            // Deactivate when not touched
-            else if(this.isActivated && !this.isTouched)
-            {
-                this.setActivated(false);
-                this.m_texture = m_notActivated_texture;
+                this.setActivated(true);
+                this.m_texture = m_activated_texture;
             }
         }
 
