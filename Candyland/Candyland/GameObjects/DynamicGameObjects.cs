@@ -165,12 +165,12 @@ namespace Candyland
                 float m_maxX = Math.Max(m_boundingBox.Min.X, m_boundingBox.Max.X);
                 float m_maxY = Math.Max(m_boundingBox.Min.Y, m_boundingBox.Max.Y);
                 float m_maxZ = Math.Max(m_boundingBox.Min.Z, m_boundingBox.Max.Z);
-                float minX = Math.Min(obj.minOld.X, obj.maxOld.X);
-                float minY = Math.Min(obj.minOld.Y, obj.maxOld.Y);
-                float minZ = Math.Min(obj.minOld.Z, obj.maxOld.Z);
-                float maxX = Math.Max(obj.minOld.X, obj.maxOld.X);
-                float maxY = Math.Max(obj.minOld.Y, obj.maxOld.Y);
-                float maxZ = Math.Max(obj.minOld.Z, obj.maxOld.Z);
+                float minX = Math.Min(obj.getBoundingBox().Min.X, obj.getBoundingBox().Max.X);
+                float minY = Math.Min(obj.getBoundingBox().Min.Y, obj.getBoundingBox().Max.Y);
+                float minZ = Math.Min(obj.getBoundingBox().Min.Z, obj.getBoundingBox().Max.Z);
+                float maxX = Math.Max(obj.getBoundingBox().Min.X, obj.getBoundingBox().Max.X);
+                float maxY = Math.Max(obj.getBoundingBox().Min.Y, obj.getBoundingBox().Max.Y);
+                float maxZ = Math.Max(obj.getBoundingBox().Min.Z, obj.getBoundingBox().Max.Z);
 
                 float m_minXold = minOld.X;
                 float m_minYold = minOld.Y;
@@ -196,7 +196,7 @@ namespace Candyland
 
                     float m_boxheight = m_maxY - m_minY;
                     float upvec = m_position.Y - m_minY;
-
+                    
                     m_boundingBox.Max.Y = minY;
                     m_boundingBox.Min.Y = minY - m_boxheight;
                     m_position.Y = m_boundingBox.Min.Y + upvec;
