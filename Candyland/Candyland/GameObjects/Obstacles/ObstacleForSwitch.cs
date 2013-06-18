@@ -10,16 +10,16 @@ namespace Candyland
 {
     class ObstacleForSwitch : Obstacle
     {
-        public ObstacleForSwitch(String id, Vector3 pos, UpdateInfo updateInfo)
+        public ObstacleForSwitch(String id, Vector3 pos, UpdateInfo updateInfo, bool visible)
         {
-            initialize(id, pos, updateInfo);
+            initialize(id, pos, updateInfo, visible);
         }
 
         #region initialization
 
-        protected override void initialize(string id, Vector3 pos, UpdateInfo updateInfo)
+        protected override void initialize(string id, Vector3 pos, UpdateInfo updateInfo, bool visible)
         {
-            base.initialize(id, pos, updateInfo);
+            base.initialize(id, pos, updateInfo, visible);
         }
 
         public override void load(ContentManager content)
@@ -40,7 +40,7 @@ namespace Candyland
         public override void update()
         {
             // let the Object fall, if no collision with lower Objects
-            if (!isDestroyed)
+            if (isVisible)
             {
                 fall();
                 isonground = false;

@@ -13,16 +13,16 @@ namespace Candyland
     /// </summary>
     class PlatformSwitchPermanent : PlatformSwitch
     {
-        public PlatformSwitchPermanent(String id, Vector3 pos, UpdateInfo updateInfo)
+        public PlatformSwitchPermanent(String id, Vector3 pos, UpdateInfo updateInfo, bool visible)
         {
-            initialize(id, pos, updateInfo);
+            initialize(id, pos, updateInfo, visible);
         }
 
         #region initialization
 
-        protected void initialize(String id, Vector3 pos, UpdateInfo updateInfo)
+        protected void initialize(String id, Vector3 pos, UpdateInfo updateInfo, bool visible)
         {
-            base.init(id, pos, updateInfo);
+            base.init(id, pos, updateInfo, visible);
 
             this.isActivated = false;
             this.m_switchGroups = new List<SwitchGroup>();
@@ -48,11 +48,14 @@ namespace Candyland
         /// </summary>
         public override void update()
         {
-            // Activate when first touch occurs
-            if (!this.isActivated && this.isTouched)
+            if (isVisible)
             {
-                this.setActivated(true);
-                this.m_texture = m_activated_texture;
+                // Activate when first touch occurs
+                if (!this.isActivated && this.isTouched)
+                {
+                    this.setActivated(true);
+                    this.m_texture = m_activated_texture;
+                }
             }
         }
 

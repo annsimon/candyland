@@ -18,19 +18,18 @@ namespace Candyland
         {
         }
 
-        public Obstacle(String id, Vector3 pos, UpdateInfo updateInfo)
+        public Obstacle(String id, Vector3 pos, UpdateInfo updateInfo, bool visible)
         {
-            initialize(id, pos, updateInfo);
+            initialize(id, pos, updateInfo, visible);
         }
 
         #region initialization
 
-        protected virtual void initialize(String id, Vector3 pos, UpdateInfo updateInfo)
+        protected virtual void initialize(String id, Vector3 pos, UpdateInfo updateInfo, bool visible)
         {
-            base.init(id, pos, updateInfo);
+            base.init(id, pos, updateInfo, visible);
             this.m_position.Y += 1f;
             this.m_original_position = this.m_position;
-            this.original_isActive = false;
         }
 
         public override void load(ContentManager content)

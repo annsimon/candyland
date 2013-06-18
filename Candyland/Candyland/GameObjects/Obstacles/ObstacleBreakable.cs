@@ -14,16 +14,16 @@ namespace Candyland
     class ObstacleBreakable : Obstacle
     {
 
-        public ObstacleBreakable(String id, Vector3 pos, UpdateInfo updateInfo)
+        public ObstacleBreakable(String id, Vector3 pos, UpdateInfo updateInfo, bool visible)
         {
-            initialize(id, pos, updateInfo);
+            initialize(id, pos, updateInfo, visible);
         }
 
         #region initialization
 
-        protected override void initialize(string id, Vector3 pos, UpdateInfo updateInfo)
+        protected override void initialize(string id, Vector3 pos, UpdateInfo updateInfo, bool visible)
         {
-            base.initialize(id, pos, updateInfo);
+            base.initialize(id, pos, updateInfo, visible);
         }
 
         public override void load(ContentManager content)
@@ -43,9 +43,12 @@ namespace Candyland
 
         public override void update()
         {
-            // let the Object fall, if no collision with lower Objects
-            fall();
-            isonground = false;    
+            if (isVisible)
+            {
+                // let the Object fall, if no collision with lower Objects
+                fall();
+                isonground = false;
+            }
         }
 
         #region collision
@@ -77,17 +80,9 @@ namespace Candyland
         private void breakObstacle()
         {
             // TODO start animation and get rid of Obstacle, so the Player can move forward
-            isDestroyed = true;
+            isVisible = false;
         }
 
         #endregion
-
-        public override void draw()
-        {
-            if (!isDestroyed)
-            {
-                base.draw();
-            }
-        }
     }
 }

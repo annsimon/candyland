@@ -20,16 +20,16 @@ namespace Candyland
 
         #endregion
 
-        public MovingPlatform(String id, Vector3 start, Vector3 end, UpdateInfo updateInfo) 
+        public MovingPlatform(String id, Vector3 start, Vector3 end, UpdateInfo updateInfo, bool visible) 
         {
-            initialize(id, start, end, updateInfo);
+            initialize(id, start, end, updateInfo, visible);
         }
 
         #region initialization
 
-        public void initialize(String id, Vector3 start, Vector3 end, UpdateInfo updateInfo)
+        public void initialize(String id, Vector3 start, Vector3 end, UpdateInfo updateInfo, bool visible)
         {
-            base.init(id, start, updateInfo);
+            base.init(id, start, updateInfo, visible);
 
             this.start = start;
             this.end = end;

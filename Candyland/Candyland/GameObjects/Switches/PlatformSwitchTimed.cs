@@ -13,16 +13,16 @@ namespace Candyland
     {
         protected double activeTime;
 
-        public PlatformSwitchTimed(String id, Vector3 pos, UpdateInfo updateInfo)
+        public PlatformSwitchTimed(String id, Vector3 pos, UpdateInfo updateInfo, bool visible)
         {
-            initialize(id, pos, updateInfo);
+            initialize(id, pos, updateInfo, visible);
         }
 
         #region initialization
 
-        public void initialize(String id, Vector3 pos, UpdateInfo updateInfo)
+        public void initialize(String id, Vector3 pos, UpdateInfo updateInfo, bool visible)
         {
-            base.init(id, pos, updateInfo);
+            base.init(id, pos, updateInfo, visible);
 
             this.isActivated = false;
             this.m_switchGroups = new List<SwitchGroup>();
@@ -43,19 +43,22 @@ namespace Candyland
         /// </summary>
         public override void update()
         {
-            if (this.isActivated)
-                activeTime += m_updateInfo.gameTime.ElapsedGameTime.TotalSeconds;
+            if (isVisible)
+            {
+                if (this.isActivated)
+                    activeTime += m_updateInfo.gameTime.ElapsedGameTime.TotalSeconds;
 
-            // Activate when first touch occurs
-            if (!this.isActivated && this.isTouched)
-            {
-                this.setActivated(true);
-                activeTime = 0;
-            }
-            // Deactivate when touch ends or timeout
-            if ((activeTime > GameConstants.switchActiveTime) || this.isActivated && !this.isTouched)
-            {
-                this.setActivated(false);
+                // Activate when first touch occurs
+                if (!this.isActivated && this.isTouched)
+                {
+                    this.setActivated(true);
+                    activeTime = 0;
+                }
+                // Deactivate when touch ends or timeout
+                if ((activeTime > GameConstants.switchActiveTime) || this.isActivated && !this.isTouched)
+                {
+                    this.setActivated(false);
+                }
             }
         }
 

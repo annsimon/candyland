@@ -44,11 +44,12 @@
             this.textBoxDoorLevel = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.checkBoxSlippery = new System.Windows.Forms.CheckBox();
-            this.acceptButton = new System.Windows.Forms.Button();
+            this.checkBoxVisible = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxEndX = new System.Windows.Forms.TextBox();
             this.textBoxEndY = new System.Windows.Forms.TextBox();
             this.textBoxEndZ = new System.Windows.Forms.TextBox();
+            this.acceptButton = new System.Windows.Forms.Button();
             this.editDynamicButton.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -189,6 +190,7 @@
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.checkBoxSlippery);
+            this.flowLayoutPanel2.Controls.Add(this.checkBoxVisible);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 88);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(489, 28);
@@ -204,15 +206,17 @@
             this.checkBoxSlippery.Text = "Is Slippery";
             this.checkBoxSlippery.UseVisualStyleBackColor = true;
             // 
-            // acceptButton
+            // checkBoxVisible
             // 
-            this.acceptButton.Location = new System.Drawing.Point(3, 148);
-            this.acceptButton.Name = "acceptButton";
-            this.acceptButton.Size = new System.Drawing.Size(490, 32);
-            this.acceptButton.TabIndex = 12;
-            this.acceptButton.Text = "OK";
-            this.acceptButton.UseVisualStyleBackColor = true;
-            this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
+            this.checkBoxVisible.AutoSize = true;
+            this.checkBoxVisible.Checked = true;
+            this.checkBoxVisible.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxVisible.Location = new System.Drawing.Point(83, 3);
+            this.checkBoxVisible.Name = "checkBoxVisible";
+            this.checkBoxVisible.Size = new System.Drawing.Size(67, 17);
+            this.checkBoxVisible.TabIndex = 18;
+            this.checkBoxVisible.Text = "Is Visible";
+            this.checkBoxVisible.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -244,6 +248,16 @@
             this.textBoxEndZ.Name = "textBoxEndZ";
             this.textBoxEndZ.Size = new System.Drawing.Size(38, 20);
             this.textBoxEndZ.TabIndex = 23;
+            // 
+            // acceptButton
+            // 
+            this.acceptButton.Location = new System.Drawing.Point(3, 148);
+            this.acceptButton.Name = "acceptButton";
+            this.acceptButton.Size = new System.Drawing.Size(490, 32);
+            this.acceptButton.TabIndex = 12;
+            this.acceptButton.Text = "OK";
+            this.acceptButton.UseVisualStyleBackColor = true;
+            this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
             // 
             // ObjectGenerator
             // 
@@ -282,6 +296,7 @@
         private System.Windows.Forms.TextBox textBoxDoorLevel;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.CheckBox checkBoxSlippery;
+        private System.Windows.Forms.CheckBox checkBoxVisible;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxEndX;
         private System.Windows.Forms.TextBox textBoxEndY;

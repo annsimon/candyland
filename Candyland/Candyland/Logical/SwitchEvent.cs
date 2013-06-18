@@ -31,13 +31,13 @@ namespace Candyland
         public void Trigger()
         {
             m_triggered = true;
-            m_triggerable.isDestroyed = true;
+            m_triggerable.isVisible = false;
         }
 
         public void ResetTrigger()
         {
             m_triggered = false;
-            m_triggerable.isDestroyed = false;
+            m_triggerable.isVisible = true;
         }
 
         public void Reset()

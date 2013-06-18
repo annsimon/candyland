@@ -24,7 +24,7 @@ namespace Candyland
 
         public override void collide(GameObject obj)
         {
-            if (!this.isDestroyed)
+            if (this.isVisible)
             {
                 // may not be called for itself!!!
                 if (obj is Platform) collideWithPlatform(obj);
@@ -61,7 +61,7 @@ namespace Candyland
         protected virtual void collideWithPlatform(GameObject obj)
         {
             // Object sits on a Platform
-            if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+            if (obj.isVisible && !obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
             {
                 preventIntersection(obj);
                 obj.hasCollidedWith(this);
@@ -70,14 +70,14 @@ namespace Candyland
 
         protected virtual void collideWithObstacle(GameObject obj)
         {
-            if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+            if (obj.isVisible && !obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
             {
                 preventIntersection(obj);
             }
         }
         protected virtual void collideWithSwitchPermanent(GameObject obj)
         {
-            if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+            if (obj.isVisible && !obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
             {
                 preventIntersection(obj);
                 obj.hasCollidedWith(this);
@@ -89,7 +89,7 @@ namespace Candyland
         }
         protected virtual void collideWithSwitchTemporary(GameObject obj)
         {
-            if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+            if (obj.isVisible && !obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
             {
                 preventIntersection(obj);
                 obj.hasCollidedWith(this);
@@ -101,14 +101,14 @@ namespace Candyland
         }
         protected virtual void collideWithBreakable(GameObject obj)
         {
-            if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox) && !obj.isDestroyed)
+            if (obj.isVisible && !obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
             {
                 preventIntersection(obj);
             }
         }
         protected virtual void collideWithMovable(GameObject obj)
         {
-            if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+            if (obj.isVisible && !obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
             {
                 preventIntersection(obj);
                 obj.hasCollidedWith(this);
@@ -120,21 +120,21 @@ namespace Candyland
         }
         protected virtual void collideWithChocoChip(GameObject obj)
         {
-            if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+            if (obj.isVisible && !obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
             {
                 preventIntersection(obj);
             }
         }
         protected virtual void collideWithObstacleForSwitch(GameObject obj)
         {
-            if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+            if (obj.isVisible && !obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
             {
                 preventIntersection(obj);
             }
         }
         protected virtual void collideWithTeleporter(GameObject obj)
         {
-            if (obj.getBoundingBox().Intersects(m_boundingBox))
+            if (obj.isVisible && obj.getBoundingBox().Intersects(m_boundingBox))
             {
                 obj.hasCollidedWith(this);
             }
@@ -253,12 +253,6 @@ namespace Candyland
         {
             base.Reset();
             upvelocity = 0;
-        }
-
-        public override void draw()
-        {
-            if( !isDestroyed )
-                base.draw();
         }
 
     }

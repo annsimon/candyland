@@ -10,16 +10,16 @@ namespace Candyland
     {
         protected Vector3 teleportTarget;
 
-        public PlatformTeleporter(String id, Vector3 pos, UpdateInfo updateInfo, Vector3 target)
+        public PlatformTeleporter(String id, Vector3 pos, UpdateInfo updateInfo, bool visible, Vector3 target)
         {
-            initialize(id, pos, updateInfo, target);
+            initialize(id, pos, updateInfo, visible, target);
         }
 
         #region initialization
 
-        public void initialize(String id, Vector3 pos, UpdateInfo updateInfo, Vector3 target)
+        public void initialize(String id, Vector3 pos, UpdateInfo updateInfo, bool visible, Vector3 target)
         {
-            base.init(id, pos, updateInfo);
+            base.init(id, pos, updateInfo, visible);
 
             this.teleportTarget = target;
         }
