@@ -45,8 +45,6 @@ namespace Candyland
             {
                 e.GetType();
             }
-            //if( id == "0.1" )
-            //    m_events.Add(new Event(m_gameObjects));
         }
 
         public void Load(ContentManager manager)

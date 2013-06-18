@@ -65,7 +65,7 @@ namespace Candyland
             player.setPosition(playerStartPos);
             Vector3 player2StartPos = m_areas[m_updateInfo.currentAreaID].GetCompanionStartingPosition();
             player2StartPos.Y += 0.6f;
-            player.setPosition(player2StartPos);
+            player2.setPosition(player2StartPos);
         
         }
 
