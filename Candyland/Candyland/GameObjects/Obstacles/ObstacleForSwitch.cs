@@ -12,6 +12,13 @@ namespace Candyland
     {
         public ObstacleForSwitch(String id, Vector3 pos, UpdateInfo updateInfo)
         {
+            initialize(id, pos, updateInfo);
+        }
+
+        #region initialization
+
+        protected override void initialize(string id, Vector3 pos, UpdateInfo updateInfo)
+        {
             base.initialize(id, pos, updateInfo);
         }
 
@@ -28,17 +35,33 @@ namespace Candyland
             maxOld = m_boundingBox.Max;
         }
 
+        #endregion
 
         public override void update()
         {
             // let the Object fall, if no collision with lower Objects
-            fall();
-            isonground = false;
+            if (!isDestroyed)
+            {
+                fall();
+                isonground = false;
+            }
         }
 
         #region collision
 
         // nothing to do here so far
+
+        #endregion
+
+        #region collision related
+
+        public override void isNotCollidingWith(GameObject obj)
+        {
+        }
+
+        public override void hasCollidedWith(GameObject obj)
+        {
+        }
 
         #endregion
     }

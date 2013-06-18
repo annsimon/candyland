@@ -30,6 +30,7 @@ namespace Candyland
             XmlNodeList id = scene.GetElementsByTagName("object_id");
             XmlNodeList type = scene.GetElementsByTagName("object_type");
             XmlNodeList position = scene.GetElementsByTagName("object_position");
+            XmlNodeList endPosition = scene.GetElementsByTagName("object_endposition");
             XmlNodeList door_to_area = scene.GetElementsByTagName("is_door_to_area");
             XmlNodeList door_to_level = scene.GetElementsByTagName("is_door_to_level");
             XmlNodeList slippery = scene.GetElementsByTagName("slippery");
@@ -45,6 +46,18 @@ namespace Candyland
                 pos.Z = float.Parse(position[count].SelectSingleNode("z").InnerText);
                 pos += lvl_start; // add level position for correct global position
 
+                //create vector for endposition of MovingPlatform
+                Vector3 endpos = new Vector3(0,0,0);
+                try
+                {
+                    endpos.X = float.Parse(endPosition[count].SelectSingleNode("x").InnerText);
+                    endpos.Y = float.Parse(endPosition[count].SelectSingleNode("y").InnerText);
+                    endpos.Z = float.Parse(endPosition[count].SelectSingleNode("z").InnerText);
+                    endpos += lvl_start; // add level position for correct global position
+                }
+                catch { }
+
+
                 // get bool value for slippery
                 bool slip = bool.Parse(slippery[count].InnerText);
 
@@ -57,9 +70,10 @@ namespace Candyland
                     dynamicObjects.Add(node.InnerText, obj);
                 }
 				else
-                if (object_type == "movingplatform")
+                if (object_type == "movingPlatform")
                 {
-                    
+                    MovingPlatform obj = new MovingPlatform(node.InnerText, pos, endpos, info);
+                    dynamicObjects.Add(node.InnerText, obj);
                 }
                 else
                 if (object_type == "obstacle")

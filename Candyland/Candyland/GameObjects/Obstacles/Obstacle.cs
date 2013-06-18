@@ -17,39 +17,20 @@ namespace Candyland
         public Obstacle()
         {
         }
+
         public Obstacle(String id, Vector3 pos, UpdateInfo updateInfo)
         {
             initialize(id, pos, updateInfo);
         }
 
-        public override void initialize()
-        {
-        }
+        #region initialization
 
-        public void initialize(String id, Vector3 pos, UpdateInfo updateInfo)
+        protected virtual void initialize(String id, Vector3 pos, UpdateInfo updateInfo)
         {
-            this.ID = id;
-            this.m_position = pos;
+            base.init(id, pos, updateInfo);
             this.m_position.Y += 1f;
             this.m_original_position = this.m_position;
-            this.isActive = false;
             this.original_isActive = false;
-            this.m_updateInfo = updateInfo;
-        }
-
-        public override void isNotCollidingWith(GameObject obj)
-        {
-
-        }
-
-        public override void hasCollidedWith(GameObject obj)
-        {
-           
-        }
-
-        public override void draw()
-        {
-            base.draw();
         }
 
         public override void load(ContentManager content)
@@ -63,8 +44,30 @@ namespace Candyland
             this.calculateBoundingBox();
         }
 
+        #endregion
+
         public override void update()
         {
         }
+
+        #region collision related
+
+        public override void isNotCollidingWith(GameObject obj)
+        {
+        }
+
+        public override void hasCollidedWith(GameObject obj)
+        {
+        }
+
+        #endregion
+
+        public override void draw()
+        {
+            base.draw();
+        }
+
+        
+
     }
 }

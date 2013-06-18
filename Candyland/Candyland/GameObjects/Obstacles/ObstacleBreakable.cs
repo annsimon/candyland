@@ -16,9 +16,15 @@ namespace Candyland
 
         public ObstacleBreakable(String id, Vector3 pos, UpdateInfo updateInfo)
         {
-            base.initialize(id, pos, updateInfo);
+            initialize(id, pos, updateInfo);
         }
 
+        #region initialization
+
+        protected override void initialize(string id, Vector3 pos, UpdateInfo updateInfo)
+        {
+            base.initialize(id, pos, updateInfo);
+        }
 
         public override void load(ContentManager content)
         {
@@ -33,14 +39,7 @@ namespace Candyland
             maxOld = m_boundingBox.Max;
         }
 
-        public override void hasCollidedWith(GameObject obj)
-        {
-            if (obj.GetType() == typeof(CandyHelper)
-                && m_updateInfo.currentpushedKeys.Contains(Microsoft.Xna.Framework.Input.Keys.Space)
-                && !m_updateInfo.candyselected) {
-                    breakObstacle();
-            }
-        }
+        #endregion
 
         public override void update()
         {
@@ -55,14 +54,37 @@ namespace Candyland
 
         #endregion
 
+        #region collision related
+
+        public override void hasCollidedWith(GameObject obj)
+        {
+            if (obj.GetType() == typeof(CandyHelper)
+                && m_updateInfo.currentpushedKeys.Contains(Microsoft.Xna.Framework.Input.Keys.Space)
+                && !m_updateInfo.candyselected)
+            {
+                breakObstacle();
+            }
+        }
+
+        public override void isNotCollidingWith(GameObject obj)
+        {
+        }
+
+        #endregion
+
+        #region actions
+
         private void breakObstacle()
         {
             // TODO start animation and get rid of Obstacle, so the Player can move forward
-            isdestroyed = true;
+            isDestroyed = true;
         }
+
+        #endregion
+
         public override void draw()
         {
-            if (!isdestroyed)
+            if (!isDestroyed)
             {
                 base.draw();
             }

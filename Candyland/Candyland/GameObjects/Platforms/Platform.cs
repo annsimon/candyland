@@ -13,6 +13,7 @@ namespace Candyland
     /// </summary>
     class Platform : GameObject
     {
+        #region properties
 
         // Obstacles will slide over slippery platforms, when being pushed
         protected bool isSlippery;
@@ -29,28 +30,23 @@ namespace Candyland
         protected string doorToLevelID;
         public string getDoorToLevelID() { return this.doorToLevelID; }
 
-        public override void isNotCollidingWith(GameObject obj)
-        {
-            
-        }
+        #endregion
 
         public Platform()
         {
         }
 
-        public override void collide(GameObject obj)
-        {
-           
-        }
-
         public Platform(String id, Vector3 pos, bool slippery, string areaDoorID, string levelDoorID, UpdateInfo updateInfo)
         {
-            this.ID = id;
-            this.m_position = pos;
-            this.m_original_position = pos;
-            this.isActive = false;
-            this.original_isActive = false;
-            this.m_updateInfo = updateInfo;
+            initialize(id, pos, slippery, areaDoorID, levelDoorID, updateInfo);
+        }
+
+        #region initialization
+
+        public void initialize(String id, Vector3 pos, bool slippery, string areaDoorID, string levelDoorID, UpdateInfo updateInfo)
+        {
+            base.init(id, pos, updateInfo);
+
             this.isSlippery = slippery;
 
             if (areaDoorID == "x")
@@ -70,11 +66,6 @@ namespace Candyland
         }
 
 
-        public override void initialize()
-        {
-        }
-
-
         public override void load(ContentManager content)
         {
             if(isSlippery)
@@ -86,13 +77,31 @@ namespace Candyland
             this.m_model = content.Load<Model>("plattform");
             this.m_original_model = this.m_model;
             this.calculateBoundingBox();
+            minOld = m_boundingBox.Min;
+            maxOld = m_boundingBox.Max;
         }
 
+        #endregion
 
         public override void update()
         {
         }
 
+        #region collision
+
+        public override void collide(GameObject obj)
+        {
+
+        }
+
+        #endregion
+
+        #region collision related
+
+        public override void isNotCollidingWith(GameObject obj)
+        {
+
+        }
 
         public override void hasCollidedWith(GameObject obj)
         {
@@ -120,5 +129,7 @@ namespace Candyland
                 }
             }
         }
+
+        #endregion
     }
 }
