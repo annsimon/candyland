@@ -26,8 +26,6 @@ namespace Candyland
             base.initialize(id, pos, updateInfo);
 
             this.isOnSlipperyGround = false;
-            minOld = m_boundingBox.Min;
-            maxOld = m_boundingBox.Max;
             this.currentspeed = 0;
             this.upvelocity = 0;
         }

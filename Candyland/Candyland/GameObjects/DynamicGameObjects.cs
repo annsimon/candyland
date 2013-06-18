@@ -27,16 +27,16 @@ namespace Candyland
             if (!this.isDestroyed)
             {
                 // may not be called for itself!!!
-                if (obj is Platform) this.collideWithPlatform(obj);
-                if (obj.GetType() == typeof(Obstacle)) this.collideWithObstacle(obj);
-                if (obj.GetType() == typeof(ObstacleBreakable)) this.collideWithBreakable(obj);
-                if (obj.GetType() == typeof(ObstacleMoveable)) this.collideWithMovable(obj);
-                if (obj.GetType() == typeof(ObstacleForSwitch)) this.collideWithObstacleForSwitch(obj);
-                if (obj.GetType() == typeof(PlatformSwitchPermanent)) this.collideWithSwitchPermanent(obj);
-                if (obj.GetType() == typeof(PlatformSwitchTemporary)) this.collideWithSwitchTemporary(obj);
-                if (obj.GetType() == typeof(ChocoChip)) this.collideWithChocoChip(obj);
-                if (obj.GetType() == typeof(PlatformTeleporter)) this.collideWithTeleporter(obj);
-                if (obj is MovingPlatform) this.collideWithMovingPlatform(obj);
+                if (obj is Platform) collideWithPlatform(obj);
+                if (obj.GetType() == typeof(Obstacle)) collideWithObstacle(obj);
+                if (obj.GetType() == typeof(ObstacleBreakable)) collideWithBreakable(obj);
+                if (obj.GetType() == typeof(ObstacleMoveable)) collideWithMovable(obj);
+                if (obj.GetType() == typeof(ObstacleForSwitch)) collideWithObstacleForSwitch(obj);
+                if (obj.GetType() == typeof(PlatformSwitchPermanent)) collideWithSwitchPermanent(obj);
+                if (obj.GetType() == typeof(PlatformSwitchTemporary)) collideWithSwitchTemporary(obj);
+                if (obj.GetType() == typeof(ChocoChip)) collideWithChocoChip(obj);
+                if (obj.GetType() == typeof(PlatformTeleporter)) collideWithTeleporter(obj);
+                if (obj is MovingPlatform) collideWithMovingPlatform(obj);
             }
         }
 
@@ -151,8 +151,6 @@ namespace Candyland
         public override void endIntersection()
         {
  	         base.endIntersection();
-             minOld = m_boundingBox.Min;
-             maxOld = m_boundingBox.Max;
         }
 
         protected void preventIntersection(GameObject obj)
