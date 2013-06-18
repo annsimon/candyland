@@ -62,16 +62,14 @@ namespace Candyland
 
         #region interaction
 
-        // True at times when the Object is taking an active role in the Game (like a selected Player or moving Objects)
-        protected bool isActive;
-        protected bool original_isActive;
-        public bool getActive() { return this.isActive; }
-        public void setActive(bool value) { this.isActive = value; }
+        // True when the Object should be visible for the Player
+        public bool isVisible { get; set; }
+        protected bool original_isVisible;
+        public bool getVisible() { return this.isVisible; }
+        public void setVisible(bool value) { this.isVisible = value; }
 
         public Vector3 minOld { get; set; }
         public Vector3 maxOld { get; set; }
-
-        public bool isDestroyed { get; set; }
 
         #endregion
 
@@ -99,13 +97,13 @@ namespace Candyland
             this.m_boundingBox.Max += translate;
         }
 
-        public virtual void init(String id, Vector3 pos, UpdateInfo updateInfo)
+        public virtual void init(String id, Vector3 pos, UpdateInfo updateInfo, bool visible)
         {
             this.ID = id;
             this.m_position = pos;
             this.m_original_position = pos;
-            this.isActive = false;
-            this.original_isActive = false;
+            this.isVisible = visible;
+            this.original_isVisible = isVisible;
             this.m_updateInfo = updateInfo;
         }
 
@@ -113,11 +111,10 @@ namespace Candyland
         {
             m_position = m_original_position;
             calculateBoundingBox();
-            isActive = original_isActive;
+            isVisible = original_isVisible;
             m_model = m_original_model;
             direction = original_direction;
             currentspeed = original_currentspeed;
-            isDestroyed = false;
         }
 
         public virtual void endIntersection()
@@ -175,15 +172,17 @@ namespace Candyland
         /// </summary>
         public virtual void draw()
         {
-            Matrix view = m_updateInfo.viewMatrix;
-            Matrix projection = m_updateInfo.projectionMatrix;
-            // Copy any parent transforms.
-            Matrix[] transforms = new Matrix[m_model.Bones.Count];
-            m_model.CopyAbsoluteBoneTransformsTo(transforms);
+            if (isVisible)
+            {
+                Matrix view = m_updateInfo.viewMatrix;
+                Matrix projection = m_updateInfo.projectionMatrix;
+                // Copy any parent transforms.
+                Matrix[] transforms = new Matrix[m_model.Bones.Count];
+                m_model.CopyAbsoluteBoneTransformsTo(transforms);
 
-            Matrix translateMatrix = Matrix.CreateTranslation(m_position);
-            Matrix worldMatrix = translateMatrix;
-            
+                Matrix translateMatrix = Matrix.CreateTranslation(m_position);
+                Matrix worldMatrix = translateMatrix;
+
                 // Draw the model. A model can have multiple meshes, so loop.
                 foreach (ModelMesh mesh in m_model.Meshes)
                 {
@@ -191,7 +190,7 @@ namespace Candyland
                     {
                         part.Effect = effect;
                         effect.Parameters["World"].SetValue(worldMatrix * mesh.ParentBone.Transform);
-                        effect.Parameters["DiffuseLightDirection"].SetValue(new Vector3(0,0,1));
+                        effect.Parameters["DiffuseLightDirection"].SetValue(new Vector3(0, 0, 1));
                         effect.Parameters["View"].SetValue(view);
                         effect.Parameters["Projection"].SetValue(projection);
                         effect.Parameters["WorldInverseTranspose"].SetValue(
@@ -201,14 +200,15 @@ namespace Candyland
                     // Draw the mesh, using the effects set above.
                     mesh.Draw();
                 }
-            
-            /***************************************************************************************
-             * For Debugging Purposes */
-       
-            // Render a Primitive to show the BoundingBox
-            BoundingBoxRenderer.Render(this.m_boundingBox,m_updateInfo.graphics,view,projection,Color.White);
 
-            /***************************************************************************************/
+                /***************************************************************************************
+                 * For Debugging Purposes */
+
+                // Render a Primitive to show the BoundingBox
+                BoundingBoxRenderer.Render(this.m_boundingBox, m_updateInfo.graphics, view, projection, Color.White);
+
+                /***************************************************************************************/
+            }
         }
 
 

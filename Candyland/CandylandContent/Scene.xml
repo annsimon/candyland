@@ -43,6 +43,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -60,6 +61,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -77,6 +79,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -94,6 +97,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -111,6 +115,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -128,6 +133,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -145,6 +151,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -162,6 +169,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -179,6 +187,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -196,6 +205,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -213,6 +223,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -230,6 +241,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -247,6 +259,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -264,6 +277,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -281,6 +295,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -298,6 +313,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -315,6 +331,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -332,6 +349,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -349,6 +367,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -366,6 +385,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -383,6 +403,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -400,6 +421,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -417,6 +439,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -434,6 +457,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -451,6 +475,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -468,6 +493,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -485,6 +511,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -502,6 +529,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>obstacle</object_type>
@@ -519,6 +547,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                 </statics>
               </static_objects>
@@ -541,6 +570,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>obstacleForFalling</object_type>
@@ -558,6 +588,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>obstacleForFalling</object_type>
@@ -575,6 +606,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>obstacleForFalling</object_type>
@@ -592,6 +624,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>obstacleForFalling</object_type>
@@ -609,6 +642,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>obstacleForFalling</object_type>
@@ -626,6 +660,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>obstacleForFalling</object_type>
@@ -643,6 +678,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>obstacleForFalling</object_type>
@@ -660,6 +696,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>chocoChip</object_type>
@@ -677,6 +714,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>movableObstacle</object_type>
@@ -694,6 +732,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>movableObstacle</object_type>
@@ -711,6 +750,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>movingPlatform</object_type>
@@ -728,6 +768,7 @@
                       <z>4</z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>movingPlatform</object_type>
@@ -745,6 +786,7 @@
                       <z>-1</z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>teleportPlatform</object_type>
@@ -762,6 +804,7 @@
                       <z>0</z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>switchTemporary</object_type>
@@ -779,6 +822,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>obstacleForSwitch</object_type>
@@ -796,6 +840,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>breakable</object_type>
@@ -813,6 +858,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>switchPermanent</object_type>
@@ -830,6 +876,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>switchPermanent</object_type>
@@ -847,6 +894,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>obstacleForSwitch</object_type>
@@ -864,6 +912,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>switchTimed</object_type>
@@ -881,6 +930,7 @@
                       <z></z>
                     </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                 </dynamics>
               </dynamic_objects>

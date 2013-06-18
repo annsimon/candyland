@@ -34,6 +34,7 @@ namespace Candyland
             XmlNodeList door_to_area = scene.GetElementsByTagName("is_door_to_area");
             XmlNodeList door_to_level = scene.GetElementsByTagName("is_door_to_level");
             XmlNodeList slippery = scene.GetElementsByTagName("slippery");
+            XmlNodeList visible = scene.GetElementsByTagName("visible");
 
             int count = 0;
 
@@ -61,78 +62,81 @@ namespace Candyland
                 // get bool value for slippery
                 bool slip = bool.Parse(slippery[count].InnerText);
 
+                // get bool value for visible
+                bool isVisible = bool.Parse(visible[count].InnerText);
+
                 // create the new object
                 string object_type = type[count].InnerText;
 
                 if (object_type == "platform")
                 {
-                    Platform obj = new Platform(node.InnerText, pos, slip, door_to_area[count].InnerText, door_to_level[count].InnerText, info);
+                    Platform obj = new Platform(node.InnerText, pos, slip, door_to_area[count].InnerText, door_to_level[count].InnerText, info, isVisible);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
 				else
                 if (object_type == "movingPlatform")
                 {
-                    MovingPlatform obj = new MovingPlatform(node.InnerText, pos, endpos, info);
+                    MovingPlatform obj = new MovingPlatform(node.InnerText, pos, endpos, info, isVisible);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
                 else
                 if (object_type == "obstacle")
                 {
-                    Obstacle obj = new Obstacle(node.InnerText, pos, info);
+                    Obstacle obj = new Obstacle(node.InnerText, pos, info, isVisible);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
                 else
                 if (object_type == "breakable")
                 {
-                    ObstacleBreakable obj = new ObstacleBreakable(node.InnerText, pos, info);
+                    ObstacleBreakable obj = new ObstacleBreakable(node.InnerText, pos, info, isVisible);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
                 else
                 if (object_type == "obstacleForSwitch")
                 {
-                    ObstacleForSwitch obj = new ObstacleForSwitch(node.InnerText, pos, info);
+                    ObstacleForSwitch obj = new ObstacleForSwitch(node.InnerText, pos, info, isVisible);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
                 else
                 if (object_type == "obstacleForFalling")
                 {
-                    ObstacleForSwitch obj = new ObstacleForSwitch(node.InnerText, pos, info);
+                    ObstacleForSwitch obj = new ObstacleForSwitch(node.InnerText, pos, info, isVisible);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
                 else
                 if (object_type == "movableObstacle")
                 {
-                    ObstacleMoveable obj = new ObstacleMoveable(node.InnerText, pos, info);
+                    ObstacleMoveable obj = new ObstacleMoveable(node.InnerText, pos, info, isVisible);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
                 else
                 if (object_type == "switchPermanent")
                 {
-                    PlatformSwitch obj = new PlatformSwitchPermanent(node.InnerText, pos, info);
+                    PlatformSwitch obj = new PlatformSwitchPermanent(node.InnerText, pos, info, isVisible);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
                 else
                 if (object_type == "switchTimed")
                 {
-                    PlatformSwitch obj = new PlatformSwitchTimed(node.InnerText, pos, info);
+                    PlatformSwitch obj = new PlatformSwitchTimed(node.InnerText, pos, info, isVisible);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
                 else
                 if (object_type == "switchTemporary")
                 {
-                    PlatformSwitch obj = new PlatformSwitchTemporary(node.InnerText, pos, info);
+                    PlatformSwitch obj = new PlatformSwitchTemporary(node.InnerText, pos, info, isVisible);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
                 else
                 if (object_type == "chocoChip")
                 {
-                    ChocoChip obj = new ChocoChip(node.InnerText, pos, info, bonusTracker);
+                    ChocoChip obj = new ChocoChip(node.InnerText, pos, info,  isVisible,bonusTracker);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
                 else
                 if (object_type == "teleportPlatform")
                 {
-                    PlatformTeleporter obj = new PlatformTeleporter(node.InnerText, pos, info, endpos);
+                    PlatformTeleporter obj = new PlatformTeleporter(node.InnerText, pos, info, isVisible, endpos);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
 
@@ -159,6 +163,7 @@ namespace Candyland
             XmlNodeList type = scene.GetElementsByTagName("object_type");
             XmlNodeList position = scene.GetElementsByTagName("object_position");
             XmlNodeList slippery = scene.GetElementsByTagName("slippery");
+            XmlNodeList visible = scene.GetElementsByTagName("visible");
 
             int count = 0;
 
@@ -174,19 +179,25 @@ namespace Candyland
                 // get bool value for slippery
                 bool slip = bool.Parse(slippery[count].InnerText);
 
+                // get bool value for visible
+                bool isVisible = bool.Parse(visible[count].InnerText);
+
                 // create the new object
                 string object_type = type[count].InnerText;
 
                 if (object_type == "platform")
                 {
-                    Platform obj = new Platform(node.InnerText, pos, slip, "x", "x", info);
+                    Platform obj = new Platform(node.InnerText, pos, slip, "x", "x", info, isVisible);
                     objectList.Add(obj);
                 }
                 else
                 if (object_type == "obstacle")
                 {
-                    Obstacle obj = new Obstacle(node.InnerText, pos, info);
-                    objectList.Add(obj);
+                    if (object_type == "obstacle")
+                    {
+                        Obstacle obj = new Obstacle(node.InnerText, pos, info, isVisible);
+                        objectList.Add(obj);
+                    }
                 }
 
                 // increase count as it is used to access the not-id xml elements of the correct level

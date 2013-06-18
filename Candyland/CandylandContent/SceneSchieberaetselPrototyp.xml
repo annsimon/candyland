@@ -37,7 +37,13 @@
                       <y>0</y>
                       <z>0</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -49,7 +55,13 @@
                       <y>0</y>
                       <z>1</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -61,7 +73,13 @@
                       <y>0</y>
                       <z>1</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -73,7 +91,13 @@
                       <y>0</y>
                       <z>1</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -85,7 +109,13 @@
                       <y>0</y>
                       <z>2</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -97,7 +127,13 @@
                       <y>0</y>
                       <z>2</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -109,7 +145,13 @@
                       <y>0</y>
                       <z>4</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -121,7 +163,13 @@
                       <y>0</y>
                       <z>4</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -133,7 +181,13 @@
                       <y>0</y>
                       <z>5</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -145,7 +199,13 @@
                       <y>0</y>
                       <z>5</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -157,7 +217,13 @@
                       <y>0</y>
                       <z>6</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -169,7 +235,13 @@
                       <y>0</y>
                       <z>6</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -181,7 +253,13 @@
                       <y>0</y>
                       <z>6</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -193,7 +271,13 @@
                       <y>0</y>
                       <z>7</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -205,7 +289,13 @@
                       <y>0</y>
                       <z>7</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -217,7 +307,13 @@
                       <y>0</y>
                       <z>7</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -229,7 +325,13 @@
                       <y>0</y>
                       <z>7</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -241,7 +343,13 @@
                       <y>0</y>
                       <z>7</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -253,7 +361,13 @@
                       <y>0</y>
                       <z>7</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -265,7 +379,13 @@
                       <y>0</y>
                       <z>8</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -277,7 +397,13 @@
                       <y>0</y>
                       <z>8</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -289,7 +415,13 @@
                       <y>0</y>
                       <z>8</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -301,7 +433,13 @@
                       <y>0</y>
                       <z>8</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -313,7 +451,13 @@
                       <y>0</y>
                       <z>9</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -325,7 +469,13 @@
                       <y>0</y>
                       <z>9</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -337,7 +487,13 @@
                       <y>0</y>
                       <z>9</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -349,7 +505,13 @@
                       <y>0</y>
                       <z>9</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -361,7 +523,13 @@
                       <y>0</y>
                       <z>9</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -373,7 +541,13 @@
                       <y>0</y>
                       <z>9</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -385,7 +559,13 @@
                       <y>0</y>
                       <z>9</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -397,7 +577,13 @@
                       <y>0</y>
                       <z>9</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -409,7 +595,13 @@
                       <y>0</y>
                       <z>9</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -421,7 +613,13 @@
                       <y>0</y>
                       <z>10</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -433,7 +631,13 @@
                       <y>0</y>
                       <z>10</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -445,7 +649,13 @@
                       <y>0</y>
                       <z>10</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -457,7 +667,13 @@
                       <y>0</y>
                       <z>10</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -469,7 +685,13 @@
                       <y>0</y>
                       <z>10</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -481,7 +703,13 @@
                       <y>0</y>
                       <z>10</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -493,7 +721,13 @@
                       <y>0</y>
                       <z>10</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -505,7 +739,13 @@
                       <y>0</y>
                       <z>10</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -517,7 +757,13 @@
                       <y>0</y>
                       <z>10</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -529,7 +775,13 @@
                       <y>0</y>
                       <z>10</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -541,7 +793,13 @@
                       <y>0</y>
                       <z>11</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -553,7 +811,13 @@
                       <y>0</y>
                       <z>11</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -565,7 +829,13 @@
                       <y>0</y>
                       <z>11</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -577,7 +847,13 @@
                       <y>0</y>
                       <z>11</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -589,7 +865,13 @@
                       <y>0</y>
                       <z>11</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -601,7 +883,13 @@
                       <y>0</y>
                       <z>11</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -613,7 +901,13 @@
                       <y>0</y>
                       <z>11</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -625,7 +919,13 @@
                       <y>0</y>
                       <z>11</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -637,7 +937,13 @@
                       <y>0</y>
                       <z>11</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -649,7 +955,13 @@
                       <y>0</y>
                       <z>11</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -661,7 +973,13 @@
                       <y>0</y>
                       <z>12</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -673,7 +991,13 @@
                       <y>0</y>
                       <z>12</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -685,7 +1009,13 @@
                       <y>0</y>
                       <z>12</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -697,7 +1027,13 @@
                       <y>0</y>
                       <z>12</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -709,7 +1045,13 @@
                       <y>0</y>
                       <z>12</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -721,7 +1063,13 @@
                       <y>0</y>
                       <z>12</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -733,7 +1081,13 @@
                       <y>0</y>
                       <z>12</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -745,7 +1099,13 @@
                       <y>0</y>
                       <z>12</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -757,7 +1117,13 @@
                       <y>0</y>
                       <z>14</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -769,7 +1135,13 @@
                       <y>0</y>
                       <z>13</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -781,7 +1153,13 @@
                       <y>0</y>
                       <z>13</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -793,7 +1171,13 @@
                       <y>0</y>
                       <z>13</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -805,7 +1189,13 @@
                       <y>0</y>
                       <z>13</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -817,7 +1207,13 @@
                       <y>0</y>
                       <z>13</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -829,7 +1225,13 @@
                       <y>0</y>
                       <z>13</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -841,7 +1243,13 @@
                       <y>0</y>
                       <z>14</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -853,7 +1261,13 @@
                       <y>0</y>
                       <z>14</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -865,7 +1279,13 @@
                       <y>0</y>
                       <z>14</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -877,7 +1297,13 @@
                       <y>0</y>
                       <z>14</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -889,7 +1315,13 @@
                       <y>0</y>
                       <z>14</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -901,7 +1333,13 @@
                       <y>0</y>
                       <z>15</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -913,7 +1351,13 @@
                       <y>0</y>
                       <z>15</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -925,7 +1369,13 @@
                       <y>0</y>
                       <z>15</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -937,7 +1387,13 @@
                       <y>0</y>
                       <z>15</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -949,7 +1405,13 @@
                       <y>0</y>
                       <z>15</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -961,7 +1423,13 @@
                       <y>0</y>
                       <z>16</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -973,7 +1441,13 @@
                       <y>0</y>
                       <z>16</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -985,7 +1459,13 @@
                       <y>0</y>
                       <z>16</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -997,7 +1477,13 @@
                       <y>0</y>
                       <z>16</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -1009,7 +1495,13 @@
                       <y>0</y>
                       <z>16</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -1021,7 +1513,13 @@
                       <y>0</y>
                       <z>17</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -1033,7 +1531,13 @@
                       <y>0</y>
                       <z>18</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -1045,7 +1549,13 @@
                       <y>0</y>
                       <z>20</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>obstacle</object_type>
@@ -1057,7 +1567,13 @@
                       <y>0</y>
                       <z>4</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>obstacle</object_type>
@@ -1069,7 +1585,13 @@
                       <y>0</y>
                       <z>4</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>obstacle</object_type>
@@ -1081,7 +1603,13 @@
                       <y>0</y>
                       <z>5</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>obstacle</object_type>
@@ -1093,7 +1621,13 @@
                       <y>0</y>
                       <z>16</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -1105,7 +1639,13 @@
                       <y>0</y>
                       <z>7</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>False</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -1117,7 +1657,13 @@
                       <y>0</y>
                       <z>17</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -1129,7 +1675,13 @@
                       <y>0,5</y>
                       <z>18</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>False</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -1141,7 +1693,13 @@
                       <y>1</y>
                       <z>19</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>False</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -1153,7 +1711,13 @@
                       <y>1,5</y>
                       <z>20</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>True</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -1162,10 +1726,16 @@
                     <is_door_to_level>x</is_door_to_level>
                     <object_position>
                       <x>7</x>
-                      <y>1</y>
+                      <y>0,5</y>
                       <z>9</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -1174,10 +1744,16 @@
                     <is_door_to_level>x</is_door_to_level>
                     <object_position>
                       <x>7</x>
-                      <y>1</y>
+                      <y>0,5</y>
                       <z>10</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -1186,10 +1762,16 @@
                     <is_door_to_level>x</is_door_to_level>
                     <object_position>
                       <x>7</x>
-                      <y>1</y>
+                      <y>0,5</y>
                       <z>11</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -1198,10 +1780,16 @@
                     <is_door_to_level>x</is_door_to_level>
                     <object_position>
                       <x>7</x>
-                      <y>1</y>
+                      <y>0,5</y>
                       <z>12</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -1213,7 +1801,13 @@
                       <y>-1</y>
                       <z>12</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>obstacleForSwitch</object_type>
@@ -1225,7 +1819,13 @@
                       <y>0</y>
                       <z>16</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                 </statics>
               </static_objects>
@@ -1242,7 +1842,13 @@
                       <y>0</y>
                       <z>0</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>platform</object_type>
@@ -1254,7 +1860,13 @@
                       <y>0</y>
                       <z>0</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>obstacleForSwitch</object_type>
@@ -1266,7 +1878,13 @@
                       <y>0</y>
                       <z>10</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>False</visible>
                   </object>
                   <object>
                     <object_type>obstacleForSwitch</object_type>
@@ -1278,7 +1896,13 @@
                       <y>0</y>
                       <z>14</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>obstacleForSwitch</object_type>
@@ -1290,7 +1914,13 @@
                       <y>0</y>
                       <z>13</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>switchPermanent</object_type>
@@ -1302,7 +1932,13 @@
                       <y>0</y>
                       <z>4</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>switchTemporary</object_type>
@@ -1314,7 +1950,13 @@
                       <y>0</y>
                       <z>9</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>switchTemporary</object_type>
@@ -1326,7 +1968,13 @@
                       <y>0</y>
                       <z>11</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>switchTemporary</object_type>
@@ -1338,7 +1986,13 @@
                       <y>0</y>
                       <z>14</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>switchTemporary</object_type>
@@ -1350,7 +2004,13 @@
                       <y>0</y>
                       <z>15</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>movableObstacle</object_type>
@@ -1362,7 +2022,13 @@
                       <y>0</y>
                       <z>6</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>movableObstacle</object_type>
@@ -1374,7 +2040,13 @@
                       <y>0</y>
                       <z>7</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>movableObstacle</object_type>
@@ -1383,13 +2055,19 @@
                     <is_door_to_level>x</is_door_to_level>
                     <object_position>
                       <x>7</x>
-                      <y>3</y>
+                      <y>0,5</y>
                       <z>11</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
-                    <object_type>teleformPlatform</object_type>
+                    <object_type>teleportPlatform</object_type>
                     <object_id>7.0.1.teleport</object_id>
                     <is_door_to_area>x</is_door_to_area>
                     <is_door_to_level>x</is_door_to_level>
@@ -1398,7 +2076,13 @@
                       <y>0</y>
                       <z>2</z>
                     </object_position>
+                    <object_endposition>
+                      <x>10</x>
+                      <y>0,5</y>
+                      <z>10</z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>obstacleForSwitch</object_type>
@@ -1410,7 +2094,13 @@
                       <y>0</y>
                       <z>16</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>chocoChip</object_type>
@@ -1422,7 +2112,13 @@
                       <y>0</y>
                       <z>7</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>chocoChip</object_type>
@@ -1434,7 +2130,13 @@
                       <y>0</y>
                       <z>17</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>chocoChip</object_type>
@@ -1446,7 +2148,13 @@
                       <y>1,5</y>
                       <z>20</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                   <object>
                     <object_type>chocoChip</object_type>
@@ -1458,7 +2166,13 @@
                       <y>01</y>
                       <z>12</z>
                     </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
                     <slippery>False</slippery>
+                    <visible>True</visible>
                   </object>
                 </dynamics>
               </dynamic_objects>

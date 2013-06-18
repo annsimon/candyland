@@ -13,16 +13,16 @@ namespace Candyland
     /// </summary>
     class PlatformSwitchTemporary : PlatformSwitch
     {
-        public PlatformSwitchTemporary(String id, Vector3 pos, UpdateInfo updateInfo)
+        public PlatformSwitchTemporary(String id, Vector3 pos, UpdateInfo updateInfo, bool visible)
         {
-            initialize(id, pos, updateInfo);
+            initialize(id, pos, updateInfo, visible);
         }
 
         #region initialization
 
-        protected void initialize(String id, Vector3 pos, UpdateInfo updateInfo)
+        protected void initialize(String id, Vector3 pos, UpdateInfo updateInfo, bool visible)
         {
-            base.init(id, pos, updateInfo);
+            base.init(id, pos, updateInfo, visible);
             this.isActivated = false;
             this.m_switchGroups = new List<SwitchGroup>();
         }
@@ -48,21 +48,24 @@ namespace Candyland
         /// </summary>
         public override void update()
         {
-            if (this.isTouched)
+            if (isVisible)
             {
-                // Activate when touch occurs and was deactivated before
-                if(!this.isActivated)
+                if (this.isTouched)
                 {
-                    this.setActivated(true);
-                    this.m_texture = m_activated_texture;
+                    // Activate when touch occurs and was deactivated before
+                    if (!this.isActivated)
+                    {
+                        this.setActivated(true);
+                        this.m_texture = m_activated_texture;
+                    }
+                    this.isTouched = false;
                 }
-                this.isTouched = false;
-            }
-            // Deactivate when not touched
-            else if(this.isActivated && !this.isTouched)
-            {
-                this.setActivated(false);
-                this.m_texture = m_notActivated_texture;
+                // Deactivate when not touched
+                else if (this.isActivated && !this.isTouched)
+                {
+                    this.setActivated(false);
+                    this.m_texture = m_notActivated_texture;
+                }
             }
         }
 

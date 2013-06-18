@@ -26,8 +26,8 @@ namespace Candyland
             this.m_position = position;
             this.direction = direction;
             this.m_original_position = this.m_position;
-            this.isActive = false;
-            this.original_isActive = false;
+            this.isVisible = true;
+            this.original_isVisible = isVisible;
             this.cam = new Camera(position, MathHelper.PiOver4, aspectRatio, 0.1f, 100, m_updateInfo);
             this.currentspeed = 0;
             this.upvelocity = 0;
@@ -97,7 +97,7 @@ namespace Candyland
         // Needed for destruction^^
         protected override void collideWithBreakable(GameObject obj)
         {
-            if (obj.getBoundingBox().Intersects(m_boundingBox) && !obj.isDestroyed)
+            if (obj.isVisible && obj.getBoundingBox().Intersects(m_boundingBox))
             {
                 preventIntersection(obj);
                 obj.hasCollidedWith(this);

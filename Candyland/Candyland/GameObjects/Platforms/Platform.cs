@@ -36,16 +36,16 @@ namespace Candyland
         {
         }
 
-        public Platform(String id, Vector3 pos, bool slippery, string areaDoorID, string levelDoorID, UpdateInfo updateInfo)
+        public Platform(String id, Vector3 pos, bool slippery, string areaDoorID, string levelDoorID, UpdateInfo updateInfo, bool visible)
         {
-            initialize(id, pos, slippery, areaDoorID, levelDoorID, updateInfo);
+            initialize(id, pos, slippery, areaDoorID, levelDoorID, updateInfo, visible);
         }
 
         #region initialization
 
-        public void initialize(String id, Vector3 pos, bool slippery, string areaDoorID, string levelDoorID, UpdateInfo updateInfo)
+        public void initialize(String id, Vector3 pos, bool slippery, string areaDoorID, string levelDoorID, UpdateInfo updateInfo, bool visible)
         {
-            base.init(id, pos, updateInfo);
+            base.init(id, pos, updateInfo, visible);
 
             this.isSlippery = slippery;
 

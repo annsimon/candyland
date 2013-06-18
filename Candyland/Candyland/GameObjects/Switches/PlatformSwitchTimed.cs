@@ -13,16 +13,16 @@ namespace Candyland
     {
         protected double m_activeTime;
 
-        public PlatformSwitchTimed(String id, Vector3 pos, UpdateInfo updateInfo)
+        public PlatformSwitchTimed(String id, Vector3 pos, UpdateInfo updateInfo, bool visible)
         {
-            initialize(id, pos, updateInfo);
+            initialize(id, pos, updateInfo, visible);
         }
 
         #region initialization
 
-        public void initialize(String id, Vector3 pos, UpdateInfo updateInfo)
+        public void initialize(String id, Vector3 pos, UpdateInfo updateInfo, bool visible)
         {
-            base.init(id, pos, updateInfo);
+            base.init(id, pos, updateInfo, visible);
 
             this.isActivated = false;
             this.m_switchGroups = new List<SwitchGroup>();

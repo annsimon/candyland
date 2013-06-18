@@ -22,19 +22,18 @@ namespace Candyland
         {
         }
 
-        public ChocoChip(String id, Vector3 pos, UpdateInfo updateInfo, BonusTracker bonusTracker)
+        public ChocoChip(String id, Vector3 pos, UpdateInfo updateInfo, bool visible, BonusTracker bonusTracker)
         {
-            initialize(id, pos, updateInfo, bonusTracker);
+            initialize(id, pos, updateInfo, visible, bonusTracker);
         }
 
         #region initialization
 
-        public void initialize(String id, Vector3 pos, UpdateInfo updateInfo, BonusTracker bonusTracker)
+        public void initialize(String id, Vector3 pos, UpdateInfo updateInfo, bool visible, BonusTracker bonusTracker)
         {
-            base.init(id, pos, updateInfo);
+            base.init(id, pos, updateInfo, visible);
             m_position.Y += 0.25f;
             m_original_position = m_position;
-            this.isActive = true;
 
             m_bonusTracker = bonusTracker;
             m_bonusTracker.chocoChipState.Add(ID, false);
@@ -60,7 +59,8 @@ namespace Candyland
             this.effect = content.Load<Effect>("Toon");
             this.m_model = content.Load<Model>("schokolinse");
             this.calculateBoundingBox();
-            Console.WriteLine("Min " + this.m_boundingBox.Min + " Max " + this.m_boundingBox.Max);
+            minOld = m_boundingBox.Min;
+            maxOld = m_boundingBox.Max;
         }
 
         #endregion
@@ -102,7 +102,7 @@ namespace Candyland
 
         public override void draw()
         {
-            if( !isCollected )
+            if( isVisible && !isCollected )
                 base.draw();
         }
 

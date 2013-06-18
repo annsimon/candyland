@@ -15,15 +15,15 @@ namespace Candyland
     {
         protected bool isOnSlipperyGround;
 
-        public ObstacleMoveable(String id, Vector3 pos, UpdateInfo updateInfo)
+        public ObstacleMoveable(String id, Vector3 pos, UpdateInfo updateInfo, bool visible)
         {
-            initialize(id, pos, updateInfo);
+            initialize(id, pos, updateInfo, visible);
         }
 
         #region initialization
-        protected override void initialize(String id, Vector3 pos, UpdateInfo updateInfo)
+        protected override void initialize(String id, Vector3 pos, UpdateInfo updateInfo, bool visible)
         {
-            base.initialize(id, pos, updateInfo);
+            base.initialize(id, pos, updateInfo, visible);
 
             this.isOnSlipperyGround = false;
             this.currentspeed = 0;
@@ -46,14 +46,22 @@ namespace Candyland
 
         public override void update()
         {
-            // let the Object fall, if no collision with lower Objects
-            fall();
-            isonground = false;
-
-            // Obstacle is sliding
-            if (currentspeed != 0 && isOnSlipperyGround)
+            if (isVisible)
             {
-                slide();
+                // let the Object fall, if no collision with lower Objects
+                fall();
+                isonground = false;
+
+                if (!isOnSlipperyGround)
+                {
+                    currentspeed = 0;
+                }
+
+                // Obstacle is sliding
+                if (currentspeed != 0 && isOnSlipperyGround)
+                {
+                    slide();
+                }
             }
         }
 
@@ -62,7 +70,7 @@ namespace Candyland
              protected override void collideWithPlatform(GameObject obj)
             {
                 // Obstacle sits on a Platform, that can be slippery
-                if (obj.getBoundingBox().Intersects(m_boundingBox))
+                if (isVisible && obj.getBoundingBox().Intersects(m_boundingBox))
                 {
                     preventIntersection(obj);
                     Platform platform = (Platform) obj;

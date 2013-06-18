@@ -82,6 +82,7 @@ namespace SceneEditor
             obj.doorArea = m_objectGenerator.doorArea;
             obj.doorLevel = m_objectGenerator.doorLevel;
             obj.isSlippery = m_objectGenerator.isSlippery;
+            obj.isVisible = m_objectGenerator.isVisible;
 			obj.endPosX = m_objectGenerator.endPosX;
             obj.endPosY = m_objectGenerator.endPosY;
             obj.endPosZ = m_objectGenerator.endPosZ;
@@ -207,6 +208,7 @@ namespace SceneEditor
             XmlNodeList door_to_area = scene.GetElementsByTagName("is_door_to_area");
             XmlNodeList door_to_level = scene.GetElementsByTagName("is_door_to_level");
             XmlNodeList slippery = scene.GetElementsByTagName("slippery");
+            XmlNodeList visible = scene.GetElementsByTagName("visible");
             XmlNodeList endPosition = scene.GetElementsByTagName("object_endposition");
             int count = 0;
 
@@ -236,6 +238,12 @@ namespace SceneEditor
 
                 // get bool value for slippery
                 obj.isSlippery = bool.Parse(slippery[count].InnerText);
+
+                // get bool value for isVisible
+                if( visible[count] != null )
+                    obj.isVisible = bool.Parse(visible[count].InnerText);
+                else
+                    obj.isVisible = true;
 
                 // get isDoorToArea
                 obj.doorArea = door_to_area[count].InnerText;
