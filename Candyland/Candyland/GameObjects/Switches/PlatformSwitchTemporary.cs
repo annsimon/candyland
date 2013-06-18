@@ -56,6 +56,7 @@ namespace Candyland
                     this.setActivated(true);
                     this.m_texture = m_activated_texture;
                 }
+                this.isTouched = false;
             }
             // Deactivate when not touched
             else if(this.isActivated && !this.isTouched)
