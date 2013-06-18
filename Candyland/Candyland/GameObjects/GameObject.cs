@@ -65,8 +65,7 @@ namespace Candyland
         // True when the Object should be visible for the Player
         public bool isVisible { get; set; }
         protected bool original_isVisible;
-        public bool getVisible() { return this.isVisible; }
-        public void setVisible(bool value) { this.isVisible = value; }
+        public bool getOriginalVisibility() { return original_isVisible; }
 
         public Vector3 minOld { get; set; }
         public Vector3 maxOld { get; set; }

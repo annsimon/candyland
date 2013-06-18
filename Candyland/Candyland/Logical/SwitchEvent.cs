@@ -31,13 +31,13 @@ namespace Candyland
         public void Trigger()
         {
             m_triggered = true;
-            m_triggerable.isVisible = false;
+            m_triggerable.isVisible = !m_triggerable.getOriginalVisibility();
         }
 
         public void ResetTrigger()
         {
             m_triggered = false;
-            m_triggerable.isVisible = true;
+            m_triggerable.isVisible = m_triggerable.getOriginalVisibility();
         }
 
         public void Reset()
