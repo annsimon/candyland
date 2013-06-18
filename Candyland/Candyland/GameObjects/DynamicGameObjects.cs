@@ -24,7 +24,7 @@ namespace Candyland
 
         public override void collide(GameObject obj)
         {
-            if (!this.isdestroyed)
+            if (!this.isDestroyed)
             {
                 // may not be called for itself!!!
                 if (obj is Platform) this.collideWithPlatform(obj);
@@ -101,7 +101,7 @@ namespace Candyland
         }
         protected virtual void collideWithBreakable(GameObject obj)
         {
-            if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox) && !obj.isdestroyed)
+            if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox) && !obj.isDestroyed)
             {
                 preventIntersection(obj);
             }
@@ -259,7 +259,7 @@ namespace Candyland
 
         public override void draw()
         {
-            if( !isdestroyed )
+            if( !isDestroyed )
                 base.draw();
         }
 

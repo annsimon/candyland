@@ -75,14 +75,14 @@ namespace Candyland
         private void breakObstacle()
         {
             // TODO start animation and get rid of Obstacle, so the Player can move forward
-            isdestroyed = true;
+            isDestroyed = true;
         }
 
         #endregion
 
         public override void draw()
         {
-            if (!isdestroyed)
+            if (!isDestroyed)
             {
                 base.draw();
             }

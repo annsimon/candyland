@@ -21,8 +21,6 @@ namespace Candyland
         private SwitchGroup m_switchGroup;
 
         private bool m_triggered;
-
-        private bool permanent;
         
         public SwitchEvent( string triggerableID, List<String> switchIDs, Dictionary<string,GameObject> objects )
         {
@@ -33,13 +31,13 @@ namespace Candyland
         public void Trigger()
         {
             m_triggered = true;
-            m_triggerable.isdestroyed = true;
+            m_triggerable.isDestroyed = true;
         }
 
         public void ResetTrigger()
         {
             m_triggered = false;
-            m_triggerable.isdestroyed = false;
+            m_triggerable.isDestroyed = false;
         }
 
         public void Reset()

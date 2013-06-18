@@ -92,7 +92,7 @@ namespace Candyland
         // Needed for destruction^^
         protected override void collideWithBreakable(GameObject obj)
         {
-            if (obj.getBoundingBox().Intersects(m_boundingBox) && !obj.isdestroyed)
+            if (obj.getBoundingBox().Intersects(m_boundingBox) && !obj.isDestroyed)
             {
                 preventIntersection(obj);
                 obj.hasCollidedWith(this);

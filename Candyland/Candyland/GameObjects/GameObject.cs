@@ -71,7 +71,7 @@ namespace Candyland
         public Vector3 minOld { get; set; }
         public Vector3 maxOld { get; set; }
 
-        public bool isdestroyed { get; set; }
+        public bool isDestroyed { get; set; }
 
         #endregion
 
@@ -117,7 +117,7 @@ namespace Candyland
             m_model = m_original_model;
             direction = original_direction;
             currentspeed = original_currentspeed;
-            isdestroyed = false;
+            isDestroyed = false;
         }
 
         public virtual void endIntersection()
