@@ -696,6 +696,23 @@
                     <slippery>False</slippery>
                   </object>
                   <object>
+                    <object_type>movableObstacle</object_type>
+                    <object_id>3.0.1.movableObstacle</object_id>
+                    <is_door_to_area>x</is_door_to_area>
+                    <is_door_to_level>x</is_door_to_level>
+                    <object_position>
+                      <x>4</x>
+                      <y>0</y>
+                      <z>2</z>
+                    </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
+                    <slippery>False</slippery>
+                  </object>
+                  <object>
                     <object_type>movingPlatform</object_type>
                     <object_id>3.0.0.movingPlatform</object_id>
                     <is_door_to_area>x</is_door_to_area>

@@ -25,6 +25,9 @@ namespace Candyland
             m_bonusTracker = bonusTracker;
             this.m_position = position;
             this.direction = direction;
+            this.m_original_position = this.m_position;
+            this.isActive = false;
+            this.original_isActive = false;
             this.cam = new Camera(position, MathHelper.PiOver4, aspectRatio, 0.1f, 100, m_updateInfo);
             this.currentspeed = 0;
             this.upvelocity = 0;
@@ -49,6 +52,8 @@ namespace Candyland
             texture = content.Load<Texture2D>("partnertextur");
             m_model = content.Load<Model>("partnerneu");
             calculateBoundingBox();
+            minOld = m_boundingBox.Min;
+            maxOld = m_boundingBox.Max;
         }
 
         public override void moveTo(Vector3 goalpoint)
