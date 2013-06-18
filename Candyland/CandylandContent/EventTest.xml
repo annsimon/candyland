@@ -94,4 +94,97 @@
       </event>
     </level_inner>
   </L6.0>
+
+  <L7.0>
+    <level_inner>
+      <event>
+        <event_inner>
+          <triggerable>7.0.4.obstacleForSwitch</triggerable>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>7.0.3.switchTemporary</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+
+      <event>
+        <event_inner>
+          <triggerable>7.0.1.obstacleForSwitch</triggerable>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>7.0.1.switchTemporary</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+
+      <event>
+        <event_inner>
+          <triggerable>7.0.2.obstacleForSwitch</triggerable>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>7.0.2.switchTemporary</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+
+      <event>
+        <event_inner>
+          <triggerable>7.0.3.obstacleForSwitch</triggerable>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>7.0.1.switchTemporary</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+
+      <event>
+        <event_inner>
+          <triggerable>7.0.87</triggerable>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>7.0.1.switchPermanent</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+      
+      <event>
+        <event_inner>
+          <triggerable>7.0.88</triggerable>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>7.0.4.switchTemporary</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+
+      <event>
+        <event_inner>
+          <triggerable>7.0.89</triggerable>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>7.0.4.switchTemporary</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+
+      <event>
+        <event_inner>
+          <triggerable>7.0.90</triggerable>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>7.0.4.switchTemporary</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+      
+    </level_inner>
+  </L7.0>
 </levels>

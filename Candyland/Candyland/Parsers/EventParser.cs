@@ -23,7 +23,7 @@ namespace Candyland
             XmlDocument events = new XmlDocument();
             XmlDocument switchGroups = new XmlDocument();
 
-            events.Load("Content\\EventTest.xml");
+            events.Load(GameConstants.eventFile);
 
             events.LoadXml(events.GetElementsByTagName("L"+levelID)[0].InnerXml);
 
