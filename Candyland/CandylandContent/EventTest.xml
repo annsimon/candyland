@@ -153,7 +153,7 @@
 
       <event>
         <event_inner>
-          <triggerable>7.0.87</triggerable>
+          <triggerable>7.0.87.dyn</triggerable>
           <switchGroup>
             <switchGroup_inner>
               <switch_id>7.0.1.switchPermanent</switch_id>
@@ -164,7 +164,7 @@
       
       <event>
         <event_inner>
-          <triggerable>7.0.88</triggerable>
+          <triggerable>7.0.88.dyn</triggerable>
           <switchGroup>
             <switchGroup_inner>
               <switch_id>7.0.4.switchTemporary</switch_id>
@@ -175,7 +175,7 @@
 
       <event>
         <event_inner>
-          <triggerable>7.0.89</triggerable>
+          <triggerable>7.0.89.dyn</triggerable>
           <switchGroup>
             <switchGroup_inner>
               <switch_id>7.0.4.switchTemporary</switch_id>
@@ -186,7 +186,7 @@
 
       <event>
         <event_inner>
-          <triggerable>7.0.90</triggerable>
+          <triggerable>7.0.90.dyn</triggerable>
           <switchGroup>
             <switchGroup_inner>
               <switch_id>7.0.4.switchTemporary</switch_id>
