@@ -2055,7 +2055,7 @@
                     <is_door_to_level>x</is_door_to_level>
                     <object_position>
                       <x>7</x>
-                      <y>1</y>
+                      <y>0,5</y>
                       <z>11</z>
                     </object_position>
                     <object_endposition>
@@ -2078,7 +2078,7 @@
                     </object_position>
                     <object_endposition>
                       <x>10</x>
-                      <y>0</y>
+                      <y>0,5</y>
                       <z>10</z>
                     </object_endposition>
                     <slippery>False</slippery>

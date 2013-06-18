@@ -157,8 +157,8 @@ namespace Candyland
 
         protected void preventIntersection(GameObject obj)
         {
-            if (obj.isDestroyed)
-                return;
+            //if (obj.isVisible)
+            //    return;
             if (obj.getBoundingBox().Intersects(m_boundingBox))
             {
                 float m_minX = Math.Min(m_boundingBox.Min.X, m_boundingBox.Max.X);

@@ -129,7 +129,7 @@ namespace Candyland
                 else
                 if (object_type == "teleportPlatform")
                 {
-                    PlatformTeleporter obj = new PlatformTeleporter(node.InnerText, pos, info, endpos);
+                    PlatformTeleporter obj = new PlatformTeleporter(node.InnerText, pos, info, isVisible, endpos);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
 
