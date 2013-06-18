@@ -52,6 +52,11 @@ namespace Candyland
                 fall();
                 isonground = false;
 
+                if (!isOnSlipperyGround)
+                {
+                    currentspeed = 0;
+                }
+
                 // Obstacle is sliding
                 if (currentspeed != 0 && isOnSlipperyGround)
                 {
