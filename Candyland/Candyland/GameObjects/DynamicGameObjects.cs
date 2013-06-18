@@ -24,27 +24,25 @@ namespace Candyland
 
         public override void collide(GameObject obj)
         {
-            if (this.isVisible)
-            {
-                // may not be called for itself!!!
-                if (obj.GetType() == typeof(Platform)) collideWithPlatform(obj);
-                if (obj.GetType() == typeof(Obstacle)) collideWithObstacle(obj);
-                if (obj.GetType() == typeof(ObstacleBreakable)) collideWithBreakable(obj);
-                if (obj.GetType() == typeof(ObstacleMoveable)) collideWithMovable(obj);
-                if (obj.GetType() == typeof(ObstacleForSwitch)) collideWithObstacleForSwitch(obj);
-                if (obj.GetType() == typeof(PlatformSwitchPermanent)) collideWithSwitchPermanent(obj);
-                if (obj.GetType() == typeof(PlatformSwitchTemporary)) collideWithSwitchTemporary(obj);
-                if (obj.GetType() == typeof(PlatformSwitchTimed)) collideWithSwitchTimed(obj);
-                if (obj.GetType() == typeof(ChocoChip)) collideWithChocoChip(obj);
-                if (obj.GetType() == typeof(PlatformTeleporter)) collideWithTeleporter(obj);
-                if (obj.GetType() == typeof(MovingPlatform)) collideWithMovingPlatform(obj);
-            }
+            // may not be called for itself!!!
+            if (obj.GetType() == typeof(Platform)) collideWithPlatform(obj);
+            if (obj.GetType() == typeof(Obstacle)) collideWithObstacle(obj);
+            if (obj.GetType() == typeof(ObstacleBreakable)) collideWithBreakable(obj);
+            if (obj.GetType() == typeof(ObstacleMoveable)) collideWithMovable(obj);
+            if (obj.GetType() == typeof(ObstacleForSwitch)) collideWithObstacleForSwitch(obj);
+            if (obj.GetType() == typeof(PlatformSwitchPermanent)) collideWithSwitchPermanent(obj);
+            if (obj.GetType() == typeof(PlatformSwitchTemporary)) collideWithSwitchTemporary(obj);
+            if (obj.GetType() == typeof(PlatformSwitchTimed)) collideWithSwitchTimed(obj);
+            if (obj.GetType() == typeof(ChocoChip)) collideWithChocoChip(obj);
+            if (obj.GetType() == typeof(PlatformTeleporter)) collideWithTeleporter(obj);
+            if (obj.GetType() == typeof(MovingPlatform)) collideWithMovingPlatform(obj);
+
         }
 
         protected virtual void collideWithMovingPlatform(GameObject obj)
         {
             // Object sits on a Platform
-            if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+            if (obj.isVisible && !obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
             {
                 preventIntersection(obj);
                 Vector3 diff = obj.getDirection();
@@ -102,7 +100,7 @@ namespace Candyland
         }
         protected virtual void collideWithSwitchTimed(GameObject obj)
         {
-            if (!obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+            if (obj.isVisible && !obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
             {
                 preventIntersection(obj);
                 obj.hasCollidedWith(this);

@@ -46,23 +46,21 @@ namespace Candyland
 
         public override void update()
         {
-            if (isVisible)
+            // let the Object fall, if no collision with lower Objects
+            fall();
+            isonground = false;
+
+            if (!isOnSlipperyGround)
             {
-                // let the Object fall, if no collision with lower Objects
-                fall();
-                isonground = false;
-
-                if (!isOnSlipperyGround)
-                {
-                    currentspeed = 0;
-                }
-
-                // Obstacle is sliding
-                if (currentspeed != 0 && isOnSlipperyGround)
-                {
-                    slide();
-                }
+                currentspeed = 0;
             }
+
+            // Obstacle is sliding
+            if (currentspeed != 0 && isOnSlipperyGround)
+            {
+                slide();
+            }
+
         }
 
         #region collision
@@ -70,7 +68,7 @@ namespace Candyland
              protected override void collideWithPlatform(GameObject obj)
             {
                 // Obstacle sits on a Platform, that can be slippery
-                if (isVisible && obj.getBoundingBox().Intersects(m_boundingBox))
+                if (obj.isVisible && obj.getBoundingBox().Intersects(m_boundingBox))
                 {
                     preventIntersection(obj);
                     Platform platform = (Platform) obj;

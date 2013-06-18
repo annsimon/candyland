@@ -59,12 +59,14 @@ namespace Candyland
         {
             foreach (var gameObject in m_gameObjects)
             {
-                gameObject.Value.update();
+                if(gameObject.Value.isVisible)
+                    gameObject.Value.update();
             }
 
             foreach( var gameObject in m_gameObjects )
             {
-                Collide(gameObject.Value);
+                if (gameObject.Value.isVisible)
+                    Collide(gameObject.Value);
             }
         }
 

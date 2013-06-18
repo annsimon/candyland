@@ -34,7 +34,8 @@ namespace Candyland
             base.init(id, pos, updateInfo, visible);
             m_position.Y += 0.25f;
             m_original_position = m_position;
-
+            isVisible = visible;
+            original_isVisible = isVisible;
             m_bonusTracker = bonusTracker;
             m_bonusTracker.chocoChipState.Add(ID, false);
             m_bonusTracker.chocoTotal++;
@@ -58,6 +59,7 @@ namespace Candyland
             this.m_original_texture = this.m_texture;
             this.effect = content.Load<Effect>("Toon");
             this.m_model = content.Load<Model>("schokolinse");
+            this.m_original_model = this.m_model;
             this.calculateBoundingBox();
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
@@ -87,12 +89,11 @@ namespace Candyland
 
         public override void hasCollidedWith(GameObject obj)
         {
-            // When the Player steps on a Platform, that functions as a Door to the next Level or Area,
-            // UpdateInfo needs to be updated
             if (!isCollected && 
                 (obj.GetType() == typeof(CandyGuy) || obj.GetType() == typeof(CandyHelper)))
             {
                 isCollected = true;
+                isVisible = false;
                 m_bonusTracker.chocoChipState[ID] = true;
                 m_bonusTracker.chocoCount++;
             }
@@ -102,7 +103,7 @@ namespace Candyland
 
         public override void draw()
         {
-            if( isVisible && !isCollected )
+            if(!isCollected )
                 base.draw();
         }
 
