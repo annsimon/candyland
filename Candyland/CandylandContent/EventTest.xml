@@ -40,6 +40,16 @@
           </switchGroup>
         </event_inner>
       </event>
+      <event>
+        <event_inner>
+          <triggerable>3.0.0.obstacleForSwitch</triggerable>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>3.0.0.switchTimed</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
     </level_inner>
   </L3.0>
 

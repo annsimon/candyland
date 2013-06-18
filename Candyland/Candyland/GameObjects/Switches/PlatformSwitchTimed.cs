@@ -11,7 +11,7 @@ namespace Candyland
 {
     class PlatformSwitchTimed : PlatformSwitch
     {
-        protected double activeTime;
+        protected double m_activeTime;
 
         public PlatformSwitchTimed(String id, Vector3 pos, UpdateInfo updateInfo)
         {
@@ -26,12 +26,19 @@ namespace Candyland
 
             this.isActivated = false;
             this.m_switchGroups = new List<SwitchGroup>();
-            activeTime = 0;
+            m_activeTime = 0;
         }
 
         public override void load(ContentManager content)
         {
-            this.m_model = content.Load<Model>("plattformschalter");
+            this.m_activated_texture = content.Load<Texture2D>("schaltertextur");
+            this.m_notActivated_texture = content.Load<Texture2D>("schaltertexturinaktiv");
+            this.m_texture = this.m_notActivated_texture;
+            this.m_original_texture = this.m_texture;
+            this.effect = content.Load<Effect>("Toon");
+            this.m_model = content.Load<Model>("plattform");
+            this.m_original_model = this.m_model;
+
             this.calculateBoundingBox();
         }
 
@@ -44,17 +51,23 @@ namespace Candyland
         public override void update()
         {
             if (this.isActivated)
-                activeTime += m_updateInfo.gameTime.ElapsedGameTime.TotalSeconds;
+                m_activeTime += m_updateInfo.gameTime.ElapsedGameTime.TotalSeconds;
 
             // Activate when first touch occurs
-            if (!this.isActivated && this.isTouched)
+            if (this.isTouched)
             {
-                this.setActivated(true);
-                activeTime = 0;
+                if (!this.isActivated)
+                {
+                    this.setActivated(true);
+                    this.m_texture = m_activated_texture;
+                    m_activeTime = 0;
+                }
+                this.isTouched = false;
             }
-            // Deactivate when touch ends or timeout
-            if ((activeTime > GameConstants.switchActiveTime) || this.isActivated && !this.isTouched)
+            // Deactivate when timeout
+            if ((m_activeTime > GameConstants.switchActiveTime))
             {
+                this.m_texture = m_notActivated_texture;
                 this.setActivated(false);
             }
         }

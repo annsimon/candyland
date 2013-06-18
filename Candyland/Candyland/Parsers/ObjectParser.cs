@@ -111,6 +111,13 @@ namespace Candyland
                     PlatformSwitch obj = new PlatformSwitchPermanent(node.InnerText, pos, info);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
+                else
+                if (object_type == "switchTimed")
+                {
+                    PlatformSwitch obj = new PlatformSwitchTimed(node.InnerText, pos, info);
+                    dynamicObjects.Add(node.InnerText, obj);
+                }
+                else
                 if (object_type == "switchTemporary")
                 {
                     PlatformSwitch obj = new PlatformSwitchTemporary(node.InnerText, pos, info);
