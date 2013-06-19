@@ -43,7 +43,13 @@ namespace Candyland
 
         public Matrix getViewM() { return cam.getviewMatrix(); }
 
-     
+
+        public override void update()
+        {
+            // Reset if Player has fallen down
+            if(m_position.Y < GameConstants.endOfWorld_Y)
+                m_updateInfo.reset = true;
+        }
 
         /// <summary>
         /// Switches between ThirdPerson- and Top-Down-Perspective

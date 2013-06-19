@@ -49,6 +49,7 @@ namespace Candyland
 
         public override void update()
         {
+            base.update();
         }
 
         #region collision related
