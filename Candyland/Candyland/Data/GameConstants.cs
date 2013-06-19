@@ -10,7 +10,7 @@ namespace Candyland
         /// <summary>
         /// Y Coordinate for Lower Boundary of the Game World
         /// </summary>
-        public const float endOfWorld_Y = -4.0f;
+        public const float endOfWorld_Y = -8.0f;
 
         /// <summary>
         /// Gravity of all dynamic Objects

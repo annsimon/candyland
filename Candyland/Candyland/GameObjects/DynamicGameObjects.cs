@@ -11,6 +11,13 @@ namespace Candyland
         protected float upvelocity;             //beschleunigungsfaktor in y richtung
         protected bool isonground = false;
 
+        public override void update()
+        {
+            // set invisible, when fallen too deep
+            if (m_position.Y < GameConstants.endOfWorld_Y)
+                this.isVisible = false;
+        }
+
         protected virtual void fall()
         {
             upvelocity += GameConstants.gravity;

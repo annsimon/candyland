@@ -39,6 +39,7 @@ namespace Candyland
 
         public override void update()
         {
+            base.update();
             fall();
             if(!m_updateInfo.candyselected)
             cam.updatevMatrix();
