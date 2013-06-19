@@ -82,7 +82,7 @@ namespace Candyland
 
         protected override void fall()
         {
-            upvelocity += GameConstants.gravity;
+            upvelocity += GameConstants.gravity ;
             if (isonground) upvelocity = 0;
             this.m_position.Y += upvelocity;
             this.m_boundingBox.Max.Y += upvelocity;
@@ -90,7 +90,7 @@ namespace Candyland
             cam.changeposition(m_position);
         }
 
-        public override void uniqueskill(){ }
+        public override void uniqueskill(){}
 
         #region collision
 
