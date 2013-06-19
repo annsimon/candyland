@@ -76,6 +76,67 @@ namespace Candyland
                 } 
             }
 
+             protected override void collideWithMovingPlatform(GameObject obj)
+             {
+                 // Object sits on a Platform
+                 if (obj.isVisible && !obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+                 {
+                     currentspeed = 0;
+                     preventIntersection(obj);
+                     Vector3 diff = obj.getDirection();
+
+                     if (diff.Y > 0) diff.Y = 0;
+
+                     m_boundingBox.Min += diff;
+                     m_boundingBox.Max += diff;
+                     m_position += diff;
+
+                     obj.hasCollidedWith(this);
+                 }
+             }
+
+             protected override void collideWithObstacle(GameObject obj)
+             {
+                 if (obj.isVisible && !obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+                 {
+                     currentspeed = 0;
+                     preventIntersection(obj);
+                 }
+             }
+
+             protected override void collideWithBreakable(GameObject obj)
+             {
+                 if (obj.isVisible && !obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+                 {
+                     currentspeed = 0;
+                     preventIntersection(obj);
+                 }
+             }
+             protected override void collideWithMovable(GameObject obj)
+             {
+                 if (obj.isVisible && !obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+                 {
+                     if (!(obj is Playable))
+                         System.Console.WriteLine("collideMovable");
+                     currentspeed = 0;
+                     preventIntersection(obj);
+                     obj.hasCollidedWith(this);
+                 }
+                 else
+                 {
+                     obj.isNotCollidingWith(this);
+                 }
+             }
+
+             protected override void collideWithObstacleForSwitch(GameObject obj)
+             {
+                 if (obj.isVisible && !obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+                 {
+                     currentspeed = 0;
+                     preventIntersection(obj);
+                 }
+             }
+
         #endregion
 
         #region collision related
@@ -88,21 +149,12 @@ namespace Candyland
                 // Find out on which boundingbox side the collision occurs
 
                 BoundingBox bbSwitch = m_boundingBox;
-                float playerRight = obj.getPosition().X + (m_boundingBox.Max.X - m_boundingBox.Min.X) / 4;
-                float playerLeft = obj.getPosition().X - (m_boundingBox.Max.X - m_boundingBox.Min.X) / 4;
-                float playerFront = obj.getPosition().Z + (m_boundingBox.Max.Z - m_boundingBox.Min.Z) / 4;
-                float playerBack = obj.getPosition().Z - (m_boundingBox.Max.Z - m_boundingBox.Min.Z) / 4;
-                float playerTop = obj.getPosition().Y + (m_boundingBox.Max.Y - m_boundingBox.Min.Y) / 4;
-                float playerBottom = obj.getPosition().Y - (m_boundingBox.Max.Y - m_boundingBox.Min.Y) / 4;
+                BoundingBox bbPlayer = obj.getBoundingBox();
 
                 // Obstacle should only be moved, if collided from the side
 
-                // Test if Player is beside the Obstacle and not on top
-                if (playerBottom < bbSwitch.Max.Y && playerTop > bbSwitch.Min.Y)
-                {
                     //Test if collison in X direction
-                    if ((playerLeft < bbSwitch.Min.X || playerRight > bbSwitch.Max.X)
-                        && playerBack < bbSwitch.Max.Z && playerFront > bbSwitch.Min.Z)
+                    if ( ( (bbSwitch.Max.X -bbPlayer.Min.X) < 0.01f ) || ( (bbPlayer.Max.X -bbSwitch.Min.X) < 0.1f ) )
                     {
                         this.direction = new Vector3(obj.getDirection().X, 0, 0);
                         this.direction.Normalize();
@@ -113,8 +165,7 @@ namespace Candyland
                         move();
                     }
                     // Test if collision in Z direction
-                    if ((playerBack < bbSwitch.Min.Z || playerFront > bbSwitch.Max.Z)
-                        && playerLeft < bbSwitch.Max.X && playerRight > bbSwitch.Min.X)
+                    if (((bbSwitch.Max.Z - bbPlayer.Min.Z) < 0.01f) || ((bbPlayer.Max.Z - bbSwitch.Min.Z) < 0.1f))
                     {
                         this.direction = new Vector3(0, 0, obj.getDirection().Z);
                         this.direction.Normalize();
@@ -124,7 +175,6 @@ namespace Candyland
                         }
                         move();
                     }
-                }
             }
         }
 
