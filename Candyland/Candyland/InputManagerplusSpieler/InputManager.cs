@@ -94,6 +94,7 @@ namespace Candyland
             if ((keystate.IsKeyDown(Keys.W))||(keystate.IsKeyUp(Keys.W))) dmoveytemp += 1;
             if(keystate.IsKeyDown(Keys.S))      dmoveytemp -= 1f;
             if(keystate.IsKeyDown(Keys.A))      dmovextemp += 1f;
+            if (keystate.IsKeyDown(Keys.D))     dmovextemp -= 1f;
             if (keystate.IsKeyDown(Keys.Space)
                 && keystate.IsKeyDown(Keys.Space) != oldKeyboardState.IsKeyDown(Keys.Space))
             {

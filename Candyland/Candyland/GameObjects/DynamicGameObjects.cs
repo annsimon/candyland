@@ -11,6 +11,13 @@ namespace Candyland
         protected float upvelocity;             //beschleunigungsfaktor in y richtung
         protected bool isonground = false;
 
+        public override void update()
+        {
+            // set invisible, when fallen too deep
+            if (m_position.Y < GameConstants.endOfWorld_Y)
+                this.isVisible = false;
+        }
+
         protected virtual void fall()
         {
             upvelocity += GameConstants.gravity;
@@ -36,7 +43,6 @@ namespace Candyland
             if (obj.GetType() == typeof(ChocoChip)) collideWithChocoChip(obj);
             if (obj.GetType() == typeof(PlatformTeleporter)) collideWithTeleporter(obj);
             if (obj.GetType() == typeof(MovingPlatform)) collideWithMovingPlatform(obj);
-
         }
 
         protected virtual void collideWithMovingPlatform(GameObject obj)
