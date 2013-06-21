@@ -17,9 +17,9 @@ namespace Candyland
         protected Texture2D m_activated_texture;
         protected Texture2D m_notActivated_texture;
 
-        protected bool isTouched = false;
-        public bool getTouched() { return this.isTouched; }
-        public void setTouched(bool value) { this.isTouched = value; }
+        protected GameConstants.TouchedState isTouched = GameConstants.TouchedState.notTouched;
+        public GameConstants.TouchedState getTouched() { return this.isTouched; }
+        public void setTouched(GameConstants.TouchedState value) { this.isTouched = value; }
 
         protected bool isActivated;
         public bool getActivated() { return this.isActivated; }
@@ -29,7 +29,7 @@ namespace Candyland
             try
             {
                 foreach (SwitchGroup grp in m_switchGroups)
-                    grp.Changed();
+                    grp.Changed( this );
             }
             catch { }
         }
@@ -52,10 +52,13 @@ namespace Candyland
                 && obj.getPosition().Z < m_boundingBox.Max.Z
                 && obj.getPosition().Z > m_boundingBox.Min.Z)
             {
-                isTouched = true;
+                if (isTouched == GameConstants.TouchedState.notTouched)
+                    isTouched = GameConstants.TouchedState.touched;
+                else
+                    isTouched = GameConstants.TouchedState.stillTouched;
             }
             else
-                isTouched = false;
+                isTouched = GameConstants.TouchedState.notTouched;
         }
 
         #endregion
@@ -63,9 +66,15 @@ namespace Candyland
         public override void Reset()
         {
             isActivated = false;
-            isTouched = false;
+            isTouched = GameConstants.TouchedState.notTouched;
             m_texture = m_notActivated_texture;
             base.Reset();
+        }
+
+        public void setInactive()
+        {
+            isActivated = false;
+            m_texture = m_notActivated_texture;
         }
 
     }

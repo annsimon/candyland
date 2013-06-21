@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 namespace Candyland
 {
     /// <summary>
-    /// Basic Class from which all GameObjects, UI-Elements and the Camera are derived
+    /// Class that takes care of what has to happen after a switch group was activated.
     /// </summary>
     public class SwitchEvent
     {
@@ -22,10 +22,13 @@ namespace Candyland
 
         private bool m_triggered;
         
-        public SwitchEvent( string triggerableID, List<String> switchIDs, Dictionary<string,GameObject> objects )
+        public SwitchEvent( string triggerableID, string switchGroupType, List<String> switchIDs, Dictionary<string,GameObject> objects )
         {
             m_triggerable = objects[triggerableID];
-            m_switchGroup = new SwitchGroup(switchIDs, objects, this);
+            if( switchGroupType.Equals("ordered") )
+                m_switchGroup = new OrderedSwitchGroup(switchIDs, objects, this);
+            else
+                m_switchGroup = new SwitchGroup(switchIDs, objects, this);
         }
 
         public void Trigger()

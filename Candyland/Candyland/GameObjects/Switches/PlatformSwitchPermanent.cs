@@ -48,14 +48,14 @@ namespace Candyland
         /// </summary>
         public override void update()
         {
-            if (isVisible)
+            if (!isVisible)
+                return;
+            
+            // Activate when first touch occurs
+            if (!this.isActivated && this.isTouched == GameConstants.TouchedState.touched)
             {
-                // Activate when first touch occurs
-                if (!this.isActivated && this.isTouched)
-                {
-                    this.setActivated(true);
-                    this.m_texture = m_activated_texture;
-                }
+                this.setActivated(true);
+                this.m_texture = m_activated_texture;
             }
         }
 

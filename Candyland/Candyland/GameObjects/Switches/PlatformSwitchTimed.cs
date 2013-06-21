@@ -54,15 +54,15 @@ namespace Candyland
                 m_activeTime += m_updateInfo.gameTime.ElapsedGameTime.TotalSeconds;
 
             // Activate when first touch occurs
-            if (this.isTouched)
+            if (this.isTouched == GameConstants.TouchedState.touched)
             {
                 if (!this.isActivated)
                 {
                     this.setActivated(true);
                     this.m_texture = m_activated_texture;
                     m_activeTime = 0;
+                    this.isTouched = GameConstants.TouchedState.stillTouched;
                 }
-                this.isTouched = false;
             }
             // Deactivate when timeout
             if ((m_activeTime > GameConstants.switchActiveTime))

@@ -36,6 +36,8 @@ namespace Candyland
 
                 XmlNode switchGroup = events.GetElementsByTagName("switchGroup")[0];
 
+                XmlNode switchGroupType = events.GetElementsByTagName("switchGroupType")[0];
+
                 switchGroups.LoadXml(switchGroup.InnerXml);
 
                 XmlNodeList switchIDNodes = events.GetElementsByTagName("switch_id");
@@ -46,10 +48,9 @@ namespace Candyland
                     switchIDs.Add(node.InnerText);
                 }
 
-                SwitchEvent evnt = new SwitchEvent(triggerableID.InnerText, switchIDs, objects);
+                SwitchEvent evnt = new SwitchEvent(triggerableID.InnerText, switchGroupType.InnerText, switchIDs, objects);
 
                 eventList.Add(evnt);
-
             }
 
             return eventList;

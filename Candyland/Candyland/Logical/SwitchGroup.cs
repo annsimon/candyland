@@ -13,15 +13,17 @@ namespace Candyland
     /// This class takes care of the game, this includes visual aspects (Area) and
     /// the game's logic (Communications).
     /// </summary>
-    public class SwitchGroup
+    class SwitchGroup
     {
         // switches is a dictionary that keeps all switches belonging to the group
-        Dictionary<string, PlatformSwitch> m_switches;
+        protected Dictionary<string, PlatformSwitch> m_switches;
 
         // event ths group belongs to
-        SwitchEvent m_parentEvent;
+        protected SwitchEvent m_parentEvent;
 
         protected bool m_conditionMet;
+
+        public SwitchGroup() { }
 
         public SwitchGroup(List<string> switchIds, Dictionary<string, GameObject> objects, SwitchEvent parentEvent)
         {
@@ -37,7 +39,7 @@ namespace Candyland
             }
         }
 
-        public void Changed()
+        public virtual void Changed(PlatformSwitch currSwitch)
         {
             // check if condition for this group is met:
             // all switches are active
@@ -57,7 +59,7 @@ namespace Candyland
             m_parentEvent.Trigger();
         }
 
-        public void Reset()
+        public virtual void Reset()
         {
             m_conditionMet = false;
         }

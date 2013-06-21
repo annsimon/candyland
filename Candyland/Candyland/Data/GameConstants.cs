@@ -25,7 +25,17 @@ namespace Candyland
         /// <summary>
         /// time a timed switch stays activated
         /// </summary>
-        public const double switchActiveTime = 15;
+        public const double switchActiveTime = 4;
+
+        /// <summary>
+        /// state a switch is in
+        /// </summary>
+        public enum TouchedState
+        {
+            notTouched = 0,
+            touched = 1,
+            stillTouched = 2
+        }
 
         /// <summary>
         /// bounding box rendering on/off
@@ -37,9 +47,9 @@ namespace Candyland
         public const int inputManagerMode = InputManager.KEYBOARDMOUSE;
 
         // data regarding the scene
-        public const string sceneFile = "Content\\SceneSchieberaetselPrototyp.xml";
+        public const string sceneFile = "Content\\Scene.xml";
         public const string eventFile = "Content\\EventTest.xml";
-        public const string startAreaID = "7";
-        public const string startLevelID = "7.0";
+        public const string startAreaID = "3";
+        public const string startLevelID = "3.0";
     }
 }
