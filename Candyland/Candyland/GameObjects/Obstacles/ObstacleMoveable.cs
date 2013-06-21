@@ -155,7 +155,7 @@ namespace Candyland
                 // Obstacle should only be moved, if collided from the side
 
                     //Test if collison in X direction
-                    if ( ( (bbSwitch.Max.X -bbPlayer.Min.X) < 0.01f ) || ( (bbPlayer.Max.X -bbSwitch.Min.X) < 0.1f ) )
+                    if ( ( (bbSwitch.Max.X -bbPlayer.Min.X) < 0.01f ) || ( (bbPlayer.Max.X -bbSwitch.Min.X) < 0.01f ) )
                     {
                         this.direction = new Vector3(obj.getDirection().X, 0, 0);
                         this.direction.Normalize();
@@ -166,7 +166,7 @@ namespace Candyland
                         move();
                     }
                     // Test if collision in Z direction
-                    if (((bbSwitch.Max.Z - bbPlayer.Min.Z) < 0.01f) || ((bbPlayer.Max.Z - bbSwitch.Min.Z) < 0.1f))
+                    if (((bbSwitch.Max.Z - bbPlayer.Min.Z) < 0.01f) || ((bbPlayer.Max.Z - bbSwitch.Min.Z) < 0.01f))
                     {
                         this.direction = new Vector3(0, 0, obj.getDirection().Z);
                         this.direction.Normalize();

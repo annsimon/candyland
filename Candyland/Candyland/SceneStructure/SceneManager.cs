@@ -95,6 +95,7 @@ namespace Candyland
             {
                 player.Reset();
                 player2.Reset();
+                m_updateInfo.candyselected = true;
                 // reset player to start position of current level
                 Vector3 resetPos = m_areas[m_updateInfo.currentAreaID].GetPlayerStartingPosition();
                 resetPos.Y += 0.6f;

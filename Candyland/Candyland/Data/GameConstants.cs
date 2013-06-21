@@ -30,14 +30,14 @@ namespace Candyland
         /// <summary>
         /// bounding box rendering on/off
         /// </summary>
-        public const bool boundingBoxRendering = true;
+        public const bool boundingBoxRendering = false;
         public const bool singlestepperOFF = true;
         public const int framerate = 1;
 
         public const int inputManagerMode = InputManager.KEYBOARDMOUSE;
 
         // data regarding the scene
-        public const string sceneFile = "Content\\SceneTest2.xml";
+        public const string sceneFile = "Content\\Scenetest2.xml";
         public const string eventFile = "Content\\EventTest.xml";
         public const string startAreaID = "255";
         public const string startLevelID = "255.0";
