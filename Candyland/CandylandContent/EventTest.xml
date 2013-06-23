@@ -18,33 +18,7 @@
   </L0.1>
 
   <L3.0>
-    <level_inner>
-      <!---
-      <event>
-        <event_inner>
-          <triggerable>3.0.0.obstacleForSwitch</triggerable>
-          <switchGroupType>normal</switchGroupType>
-          <switchGroup>
-            <switchGroup_inner>
-              <switch_id>3.0.0.switchTemporary</switch_id>
-            </switchGroup_inner>
-          </switchGroup>
-        </event_inner>
-      </event>
-      <event>
-        <event_inner>
-          <triggerable>3.0.1.obstacleForSwitch</triggerable>
-          <switchGroupType>normal</switchGroupType>
-          <switchGroup>
-            <switchGroup_inner>
-              <switch_id>3.0.0.switchPermanent</switch_id>
-              <switch_id>3.0.1.switchPermanent</switch_id>
-              <switch_id>3.0.0.switchTemporary</switch_id>
-            </switchGroup_inner>
-          </switchGroup>
-        </event_inner>
-      </event>
-       
+    <level_inner>       
       <event>
         <event_inner>
           <triggerable>3.0.1.obstacleForSwitch</triggerable>
@@ -54,10 +28,11 @@
               <switch_id>3.0.0.switchPermanent</switch_id>
               <switch_id>3.0.1.switchPermanent</switch_id>
               <switch_id>3.0.0.switchTemporary</switch_id>
+              <switch_id>3.0.1.switchTimed</switch_id>
             </switchGroup_inner>
           </switchGroup>
         </event_inner>
-      </event>-->
+      </event>
       <event>
         <event_inner>
           <triggerable>3.0.0.obstacleForSwitch</triggerable>
@@ -75,7 +50,7 @@
           <switchGroupType>normal</switchGroupType>
           <switchGroup>
             <switchGroup_inner>
-              <switch_id>3.0.0.switchTemporary</switch_id>
+              <switch_id>3.0.2.switchPermanent</switch_id>
             </switchGroup_inner>
           </switchGroup>
         </event_inner>

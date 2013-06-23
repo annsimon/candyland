@@ -51,13 +51,14 @@ namespace Candyland
             if (!isVisible)
                 return;
 
-            if (this.isTouched == GameConstants.TouchedState.touched)
+            if (this.isTouched == GameConstants.TouchedState.touched
+                || this.isTouched == GameConstants.TouchedState.stillTouched )
             {
                 // Activate when touch occurs and was deactivated before
                 if (!this.isActivated)
                 {
                     this.setActivated(true);
-                    this.m_texture = m_activated_texture;
+
                     this.isTouched = GameConstants.TouchedState.stillTouched;
                 }
             }
@@ -65,7 +66,6 @@ namespace Candyland
             else if (this.isActivated && this.isTouched == GameConstants.TouchedState.notTouched)
             {
                 this.setActivated(false);
-                this.m_texture = m_notActivated_texture;
             }
         }
 

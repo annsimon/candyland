@@ -768,7 +768,7 @@
                       <z>4</z>
                     </object_endposition>
                     <slippery>False</slippery>
-                    <visible>True</visible>
+                    <visible>False</visible>
                   </object>
                   <object>
                     <object_type>movingPlatform</object_type>
@@ -921,6 +921,42 @@
                     <is_door_to_level>x</is_door_to_level>
                     <object_position>
                       <x>5</x>
+                      <y>0</y>
+                      <z>7</z>
+                    </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
+                    <slippery>False</slippery>
+                    <visible>True</visible>
+                  </object>
+                  <object>
+                    <object_type>switchTimed</object_type>
+                    <object_id>3.0.1.switchTimed</object_id>
+                    <is_door_to_area>x</is_door_to_area>
+                    <is_door_to_level>x</is_door_to_level>
+                    <object_position>
+                      <x>7</x>
+                      <y>0</y>
+                      <z>7</z>
+                    </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
+                    <slippery>False</slippery>
+                    <visible>True</visible>
+                  </object>
+                  <object>
+                    <object_type>switchPermanent</object_type>
+                    <object_id>3.0.2.switchPermanent</object_id>
+                    <is_door_to_area>x</is_door_to_area>
+                    <is_door_to_level>x</is_door_to_level>
+                    <object_position>
+                      <x>6</x>
                       <y>0</y>
                       <z>7</z>
                     </object_position>

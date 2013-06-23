@@ -42,13 +42,21 @@ namespace Candyland
         public override void Changed(PlatformSwitch currSwitch)
         {
             if (m_conditionMet)
+            {
+                foreach (var curSwitch in m_switches)
+                    curSwitch.Value.setInactive();
+                m_switchesActivatedInOrder = 0;
+                m_conditionMet = false;
+                m_parentEvent.ResetTrigger();
                 return;
+            }
             try
             {
                 // check if condition for this group is met:
                 // all switches are active and have been activated in the correct order
                 if (!currSwitch.getID().Equals(m_orderedSwitchIDs[m_switchesActivatedInOrder]))
                 {
+                    currSwitch.setTouched(GameConstants.TouchedState.stillTouched);
                     foreach (var curSwitch in m_switches)
                         curSwitch.Value.setInactive();
                     m_switchesActivatedInOrder = 0;
@@ -56,20 +64,11 @@ namespace Candyland
                 else
                 {
                     m_switchesActivatedInOrder++;
-                    foreach (var curSwitch in m_switches)
+                    if(m_switchesActivatedInOrder == m_orderedSwitchIDs.GetLength(0))
                     {
-                        if (curSwitch.Value.getActivated())
-                        {
-                            m_conditionMet = true;
-                        }
-                        else
-                        {
-                            m_conditionMet = false;
-                            m_parentEvent.ResetTrigger();
-                            return;
-                        }
+                        m_conditionMet = true;
+                        m_parentEvent.Trigger();
                     }
-                    m_parentEvent.Trigger();
                 }
             }
             catch

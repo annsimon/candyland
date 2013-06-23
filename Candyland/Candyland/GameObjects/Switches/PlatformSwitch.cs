@@ -23,9 +23,13 @@ namespace Candyland
 
         protected bool isActivated;
         public bool getActivated() { return this.isActivated; }
-        public void setActivated(bool value)
+        public void setActivated(bool activated)
         {
-            this.isActivated = value;
+            this.isActivated = activated;
+            if (activated)
+                this.m_texture = m_activated_texture;
+            else
+                this.m_texture = m_notActivated_texture;
             try
             {
                 foreach (SwitchGroup grp in m_switchGroups)
@@ -74,6 +78,7 @@ namespace Candyland
         public void setInactive()
         {
             isActivated = false;
+            isTouched = GameConstants.TouchedState.notTouched;
             m_texture = m_notActivated_texture;
         }
 

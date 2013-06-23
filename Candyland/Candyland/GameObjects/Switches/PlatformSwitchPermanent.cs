@@ -55,7 +55,7 @@ namespace Candyland
             if (!this.isActivated && this.isTouched == GameConstants.TouchedState.touched)
             {
                 this.setActivated(true);
-                this.m_texture = m_activated_texture;
+                this.isTouched = GameConstants.TouchedState.stillTouched;
             }
         }
 

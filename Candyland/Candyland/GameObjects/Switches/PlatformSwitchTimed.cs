@@ -59,7 +59,6 @@ namespace Candyland
                 if (!this.isActivated)
                 {
                     this.setActivated(true);
-                    this.m_texture = m_activated_texture;
                     m_activeTime = 0;
                     this.isTouched = GameConstants.TouchedState.stillTouched;
                 }
@@ -67,7 +66,6 @@ namespace Candyland
             // Deactivate when timeout
             if ((m_activeTime > GameConstants.switchActiveTime))
             {
-                this.m_texture = m_notActivated_texture;
                 this.setActivated(false);
             }
         }
