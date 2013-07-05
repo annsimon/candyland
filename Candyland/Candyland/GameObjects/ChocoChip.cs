@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -17,6 +18,7 @@ namespace Candyland
         public bool isCollected { get; set; }
 
         private BonusTracker m_bonusTracker;
+        private SoundEffect sound;
 
         public ChocoChip()
         {
@@ -55,6 +57,7 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
+            sound = content.Load<SoundEffect>("coin");  // sound when collecting chocochips
             this.m_texture = content.Load<Texture2D>("schokolinsetextur");
             this.m_original_texture = this.m_texture;
             this.effect = content.Load<Effect>("Toon");
@@ -96,6 +99,11 @@ namespace Candyland
                 isVisible = false;
                 m_bonusTracker.chocoChipState[ID] = true;
                 m_bonusTracker.chocoCount++;
+                // sound options
+                float volume = 0.2f;
+                float pitch = 0.0f;
+                float pan = 0.0f;
+                sound.Play(volume, pitch, pan);
             }
         }
 

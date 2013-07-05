@@ -51,6 +51,9 @@ namespace Candyland
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            Song song = Content.Load<Song>("bgmusic");  // background music from http://longzijun.wordpress.com/2012/12/26/upbeat-background-music-free-instrumentals/
+            MediaPlayer.Play(song);
+            MediaPlayer.IsRepeating = true;
 
             // Load all content required by the scene
             m_sceneManager.Load(this.Content);
@@ -84,6 +87,13 @@ namespace Candyland
 
                 m_sceneManager.Update(gameTime);
             }
+            // Controls to Mute background music
+            if (newState.IsKeyDown(Keys.L) && newState != oldState)
+            {
+                if (MediaPlayer.Volume == 0) MediaPlayer.Volume = 1;
+                else MediaPlayer.Volume = 0;
+            }
+
 
            newState = Keyboard.GetState();
 

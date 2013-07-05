@@ -69,7 +69,7 @@ namespace Candyland
         public override void load(ContentManager content)
         {
             if(isSlippery)
-                this.m_texture = content.Load<Texture2D>("rutschigtextur");
+                this.m_texture = content.Load<Texture2D>("plattformtexturslippery");
             else
                 this.m_texture = content.Load<Texture2D>("plattformtextur");
             this.m_original_texture = this.m_texture;
