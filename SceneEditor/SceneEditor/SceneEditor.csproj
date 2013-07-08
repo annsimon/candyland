@@ -72,6 +72,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TmxParser.cs" />
     <EmbeddedResource Include="Level.resx">
       <DependentUpon>Level.cs</DependentUpon>
     </EmbeddedResource>

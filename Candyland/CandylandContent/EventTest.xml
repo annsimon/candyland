@@ -87,14 +87,14 @@
       <event>
         <event_inner>
           <triggerable>6.0.1.obstacleForSwitch</triggerable>
-          <switchGroupType>normal</switchGroupType>
+          <switchGroupType>ordered</switchGroupType>
           <switchGroup>
             <switchGroup_inner>
-              <switch_id>6.0.1.switchTemporary</switch_id>
               <switch_id>6.0.0.switchPermanent</switch_id>
               <switch_id>6.0.1.switchPermanent</switch_id>
               <switch_id>6.0.3.switchPermanent</switch_id>
               <switch_id>6.0.4.switchPermanent</switch_id>
+              <switch_id>6.0.1.switchTemporary</switch_id>
             </switchGroup_inner>
           </switchGroup>
         </event_inner>

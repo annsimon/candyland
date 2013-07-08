@@ -86,7 +86,6 @@ namespace SceneEditor
 			obj.endPosX = m_objectGenerator.endPosX;
             obj.endPosY = m_objectGenerator.endPosY;
             obj.endPosZ = m_objectGenerator.endPosZ;
-                
         }
 
         private void addStaticButton_Click(object sender, EventArgs e)
@@ -156,6 +155,27 @@ namespace SceneEditor
             else
                 startSecondaryID = textBoxStartSecondary.Text;
             this.DialogResult = DialogResult.OK;
+        }
+
+        private void importButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // replace content with the content specified in chosen tmx file
+                TmxParser.parseObjects(openFileDialog.FileName, textBoxID.Text, staticObjects, dynamicObjects);
+                listBox1.Items.Clear();
+                foreach (Object obj in staticObjects)
+                {
+                    listBox1.Items.Add(obj);
+                }
+                listBox2.Items.Clear();
+                foreach (Object obj in dynamicObjects)
+                {
+                    listBox2.Items.Add(obj);
+                }
+            }
         }
     }
 

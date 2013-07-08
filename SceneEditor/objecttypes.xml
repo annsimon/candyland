@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objecttypes>
+ <objecttype name="platform" color="#b82224"/>
+ <objecttype name="movableObstacle" color="#7c16a4"/>
+ <objecttype name="breakable" color="#3032a4"/>
+ <objecttype name="obstacle" color="#297fa4"/>
+ <objecttype name="switchPermanent" color="#998da4"/>
+ <objecttype name="switchTemporary" color="#7ea491"/>
+ <objecttype name="switchTimed" color="#a2a47a"/>
+ <objecttype name="movingPlatform" color="#a46c50"/>
+ <objecttype name="chocoChip" color="#5b2d00"/>
+ <objecttype name="teleportPlatform" color="#6e10e1"/>
+ <objecttype name="obstacleForSwitch" color="#a49b1b"/>
+</objecttypes>
