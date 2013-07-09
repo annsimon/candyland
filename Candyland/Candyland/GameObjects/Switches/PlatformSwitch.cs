@@ -61,7 +61,7 @@ namespace Candyland
                 else
                     isTouched = GameConstants.TouchedState.stillTouched;
             }
-            else
+            else if (isTouched == GameConstants.TouchedState.notTouched)
                 isTouched = GameConstants.TouchedState.notTouched;
         }
 

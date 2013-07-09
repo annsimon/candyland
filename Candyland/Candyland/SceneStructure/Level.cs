@@ -113,7 +113,7 @@ namespace Candyland
         {
             foreach (var gameObject in m_gameObjects)
             {
-                    gameObject.Value.endIntersection();
+                gameObject.Value.endIntersection();
             }
         }
 
