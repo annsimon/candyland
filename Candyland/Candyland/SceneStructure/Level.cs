@@ -65,6 +65,8 @@ namespace Candyland
 
             foreach( var gameObject in m_gameObjects )
             {
+                if (gameObject.Value is PlatformSwitch)
+                    ((PlatformSwitch)gameObject.Value).setTouched(GameConstants.TouchedState.notTouched);
                 if (gameObject.Value.isVisible)
                     Collide(gameObject.Value);
             }
