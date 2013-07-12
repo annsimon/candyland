@@ -252,8 +252,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="tmxTest.xml">
-      <Name>tmxTest</Name>
+    <None Include="miniTestLevel.xml">
+      <Name>miniTestLevel</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
