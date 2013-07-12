@@ -10,8 +10,6 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Candyland
 {
-    // TODO: Switch fixen (nebenstehen)
-    // TODO: Spieler+Helper merken, wo, Kollision entsprechend
     /// <summary>
     /// This is the main type for your game
     /// </summary>

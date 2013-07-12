@@ -35,22 +35,6 @@
               <locks>false</locks>
             </subaction>
             <subaction>
-              <type>movement</type>
-              <goalX>11</goalX>
-              <goalY>0</goalY>
-              <goalZ>10</goalZ>
-              <text>x</text>
-              <locks>false</locks>
-            </subaction>
-            <subaction>
-              <type>movement</type>
-              <goalX>10</goalX>
-              <goalY>0</goalY>
-              <goalZ>10</goalZ>
-              <text>x</text>
-              <locks>false</locks>
-            </subaction>
-            <subaction>
               <type>disappear</type>
               <goalX>0</goalX>
               <goalY>0</goalY>

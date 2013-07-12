@@ -15,10 +15,11 @@ namespace Candyland
     /// </summary>
     public class ObjectParser
     {
-        public static Dictionary<string, GameObject> ParseObjects(Vector3 lvl_start, string xml, UpdateInfo info, 
+        public static List<Dictionary<string, GameObject>> ParseObjects(Vector3 lvl_start, string xml, UpdateInfo info, 
                                                                   BonusTracker bonusTracker, ActionTracker actionTracker)
         {
             Dictionary<string, GameObject> dynamicObjects = new Dictionary<string, GameObject>();
+            Dictionary<string, GameObject> switches = new Dictionary<string, GameObject>();
 
             XmlDocument scene = new XmlDocument();
 
@@ -143,7 +144,7 @@ namespace Candyland
                         continue;
                     }
                     PlatformSwitch obj = new PlatformSwitchPermanent(node.InnerText, pos, info, isVisible);
-                    dynamicObjects.Add(node.InnerText, obj);
+                    switches.Add(node.InnerText, obj);
                 }
                 else
                 if (object_type == "switchTimed")
@@ -154,7 +155,7 @@ namespace Candyland
                         continue;
                     }
                     PlatformSwitch obj = new PlatformSwitchTimed(node.InnerText, pos, info, isVisible);
-                    dynamicObjects.Add(node.InnerText, obj);
+                    switches.Add(node.InnerText, obj);
                 }
                 else
                 if (object_type == "switchTemporary")
@@ -165,7 +166,7 @@ namespace Candyland
                         continue;
                     }
                     PlatformSwitch obj = new PlatformSwitchTemporary(node.InnerText, pos, info, isVisible);
-                    dynamicObjects.Add(node.InnerText, obj);
+                    switches.Add(node.InnerText, obj);
                 }
                 else
                 if (object_type == "chocoChip")
@@ -206,7 +207,10 @@ namespace Candyland
                 count++;
             }
 
-            return dynamicObjects;
+            List<Dictionary<String, GameObject>> retList = new List<Dictionary<String, GameObject>>();
+            retList.Add(dynamicObjects);
+            retList.Add(switches);
+            return retList;
         }
 
         public static List<GameObject> ParseStatics(Vector3 lvl_start, string xml, UpdateInfo info)
