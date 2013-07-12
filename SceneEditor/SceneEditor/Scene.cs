@@ -17,7 +17,7 @@ namespace SceneEditor
         List<Area> m_areas;
         AreaGenerator m_areaGenerator;
 
-        string currentFile = "tmxTest.xml";
+        string currentFile = "sceneNew.xml";
 
         public SceneGenerator()
         {

@@ -215,6 +215,82 @@
     </level_inner>
   </L7.0>
 
+  <L15.0>
+    <level_inner>
+      <event>
+        <event_inner>
+          <triggerable>15.0.1.movingPlatform</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>15.0.2.switchTemporary</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+      <event>
+        <event_inner>
+          <triggerable>15.0.2.movingPlatform</triggerable>
+          <switchGroupType>ordered</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>15.0.1.switchPermanent</switch_id>
+              <switch_id>15.0.2.switchPermanent</switch_id>
+              <switch_id>15.0.1.switchTemporary</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+
+      <event>
+        <event_inner>
+          <triggerable>15.0.1.obstacleForSwitch</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>15.0.1.switchTimed</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+      <event>
+        <event_inner>
+          <triggerable>15.0.2.obstacleForSwitch</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>15.0.1.switchTimed</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+      <event>
+        <event_inner>
+          <triggerable>15.0.3.obstacleForSwitch</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>15.0.1.switchTimed</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+      <event>
+        <event_inner>
+          <triggerable>15.0.4.obstacleForSwitch</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>15.0.1.switchTimed</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+      
+      
+    </level_inner>
+  </L15.0>
+
   <L255.0>
     <level_inner>
       <event>
