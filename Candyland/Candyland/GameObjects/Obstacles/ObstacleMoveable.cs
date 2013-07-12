@@ -46,6 +46,8 @@ namespace Candyland
 
         public override void update()
         {
+            if (!isVisible)
+                return;
             base.update();
             // let the Object fall, if no collision with lower Objects
             fall();
