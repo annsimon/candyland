@@ -22,13 +22,14 @@ namespace Candyland
 
         private bool m_triggered;
         
-        public SwitchEvent( string triggerableID, string switchGroupType, List<String> switchIDs, Dictionary<string,GameObject> objects )
+        public SwitchEvent( string triggerableID, string switchGroupType, List<String> switchIDs,
+                            Dictionary<string, GameObject> objects, Dictionary<string, GameObject> switches)
         {
             m_triggerable = objects[triggerableID];
             if( switchGroupType.Equals("ordered") )
-                m_switchGroup = new OrderedSwitchGroup(switchIDs, objects, this);
+                m_switchGroup = new OrderedSwitchGroup(switchIDs, switches, this);
             else
-                m_switchGroup = new SwitchGroup(switchIDs, objects, this);
+                m_switchGroup = new SwitchGroup(switchIDs, switches, this);
         }
 
         public void Trigger()

@@ -32,7 +32,12 @@ namespace Candyland
         // if this is true we are currently processing a reset
         // which moves the player to the level start position
         // and resets the dynamic elements in the level
-        public bool reset { get; set; }
+        public bool reset { get; set; }      
+  
+        // if this is true we are watching an action be performed
+        // in "movie mode" and can't move (can click through a conversation though)
+        // movie mode is a TODO!
+        public bool locked { get; set; }
 
         public Matrix viewMatrix { get; set; }
         public Matrix projectionMatrix { get ; set; }

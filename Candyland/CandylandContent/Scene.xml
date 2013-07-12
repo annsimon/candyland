@@ -968,6 +968,42 @@
                     <slippery>False</slippery>
                     <visible>True</visible>
                   </object>
+                  <object>
+                    <object_type>switchTemporary</object_type>
+                    <object_id>3.0.1.switchTemporary</object_id>
+                    <is_door_to_area>x</is_door_to_area>
+                    <is_door_to_level>x</is_door_to_level>
+                    <object_position>
+                      <x>5</x>
+                      <y>0</y>
+                      <z>6</z>
+                    </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
+                    <slippery>False</slippery>
+                    <visible>True</visible>
+                  </object>
+                  <object>
+                    <object_type>HelperTest</object_type>
+                    <object_id>3.0.1.HelperTest</object_id>
+                    <is_door_to_area>x</is_door_to_area>
+                    <is_door_to_level>x</is_door_to_level>
+                    <object_position>
+                      <x>5</x>
+                      <y>2</y>
+                      <z>5</z>
+                    </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
+                    <slippery>False</slippery>
+                    <visible>False</visible>
+                  </object>
                 </dynamics>
               </dynamic_objects>
             </the_objects>

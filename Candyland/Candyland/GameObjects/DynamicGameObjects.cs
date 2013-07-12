@@ -11,11 +11,50 @@ namespace Candyland
         protected float upvelocity;             //beschleunigungsfaktor in y richtung
         protected bool isonground = false;
 
+        // used for moveTo
+        protected bool istargeting = false;
+        protected Vector3 target;
+
+        public virtual void moveTo(Vector3 goalpoint)
+        {
+            istargeting = true;
+            target = goalpoint;
+        }
+
         public override void update()
         {
             // set invisible, when fallen too deep
             if (m_position.Y < GameConstants.endOfWorld_Y)
                 this.isVisible = false;
+            else
+            if (istargeting)
+            {
+                float dx = target.X - m_position.X;
+                float dz = target.Z - m_position.Z;
+                float length = (float)Math.Sqrt(dx * dx + dz * dz);
+                move(0.8f * dx / length, 0.8f * dz / length);
+                if (length < 1) istargeting = false;
+            }
+        }
+
+        /// <summary>
+        /// Moves the Object, input should be between [-1,1]
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        protected virtual void move(float x, float y)
+        {
+            if ((x != 0 || y != 0))
+            {
+                float length = (float)Math.Sqrt(x * x + y * y);     //Calculate length of MovementVector
+                direction = new Vector3(x, 0, y);                   //Movement Vector
+                direction.Normalize();                              //Normalize MovementVector
+                currentspeed = length * 0.04f;                       //Scale MovementVector for different walking speeds
+                m_position += direction * currentspeed;             //Change ObjectPosition
+
+                m_boundingBox.Min += direction * currentspeed;
+                m_boundingBox.Max += direction * currentspeed;
+            }
         }
 
         protected virtual void fall()

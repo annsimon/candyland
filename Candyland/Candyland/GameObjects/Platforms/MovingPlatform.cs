@@ -57,6 +57,9 @@ namespace Candyland
 
         public override void update()
         {
+            if (!isVisible)
+                return;
+
             nowchangingdirection = false;
             if (Math.Round(m_position.X, 2) == Math.Round(start.X, 2)
                && Math.Round(m_position.Y, 2) == Math.Round(start.Y, 2)
@@ -88,6 +91,7 @@ namespace Candyland
         #region collision related
 
         public override void hasCollidedWith(GameObject obj) {
+            base.hasCollidedWith(obj);
         }
 
         public override void isNotCollidingWith(GameObject obj)
