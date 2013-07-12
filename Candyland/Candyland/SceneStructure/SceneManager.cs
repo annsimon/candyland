@@ -26,6 +26,9 @@ namespace Candyland
         BonusTracker m_bonusTracker;
         public BonusTracker getBonusTracker() { return m_bonusTracker; }
 
+        // this object is used to keep track of one-time actions
+        ActionTracker m_actionTracker;
+
         // the update info, this object is used for communication
         UpdateInfo m_updateInfo;
         public UpdateInfo getUpdateInfo() { return m_updateInfo; }
@@ -47,6 +50,8 @@ namespace Candyland
         {
             m_bonusTracker = new BonusTracker(); // load this one from xml as serialized object?
 
+            m_actionTracker = new ActionTracker();
+
             m_updateInfo = new UpdateInfo(graphics);
 
    
@@ -55,7 +60,7 @@ namespace Candyland
             m_graphics = graphics;
             /****************************************************************/
                         
-            m_areas = AreaParser.ParseAreas(m_updateInfo, m_bonusTracker);
+            m_areas = AreaParser.ParseAreas(m_updateInfo, m_bonusTracker, m_actionTracker);
 
             player = new CandyGuy(new Vector3(0, 0.4f, 0), Vector3.Up, graphics.Viewport.AspectRatio, m_updateInfo, m_bonusTracker);
             player2 = new CandyHelper(new Vector3(0, 0.4f, 0.2f), Vector3.Up, graphics.Viewport.AspectRatio, m_updateInfo, m_bonusTracker);

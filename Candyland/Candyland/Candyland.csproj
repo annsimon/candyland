@@ -93,6 +93,7 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\ActionTracker.cs" />
     <Compile Include="Data\BonusTracker.cs" />
     <Compile Include="Data\GameConstants.cs" />
     <Compile Include="Data\SaveGameData.cs" />
@@ -121,10 +122,14 @@
     <Compile Include="InputManagerplusSpieler\InputManager.cs" />
     <Compile Include="InputManagerplusSpieler\Playable.cs" />
     <Compile Include="Kamera\Camera.cs" />
+    <Compile Include="Logical\Action.cs" />
     <Compile Include="Logical\OrderedSwitchGroup.cs" />
+    <Compile Include="Logical\SubAction.cs" />
     <Compile Include="Logical\SwitchEvent.cs" />
     <Compile Include="Logical\SwitchGroup.cs" />
     <Compile Include="MyModel.cs" />
+    <Compile Include="NPCs\HelperFairy.cs" />
+    <Compile Include="Parsers\ActionParser.cs" />
     <Compile Include="Parsers\AreaParser.cs" />
     <Compile Include="Parsers\EventParser.cs" />
     <Compile Include="Parsers\LevelParser.cs" />

@@ -15,11 +15,8 @@ namespace Candyland
 {
     class CandyGuy : Playable
     {
-        bool istargeting;
-        Vector3 target;
         Texture2D texture;
         
-
         public CandyGuy(Vector3 position, Vector3 direction, float aspectRatio, UpdateInfo info, BonusTracker bonusTracker)
         {
             m_updateInfo = info;
@@ -65,12 +62,6 @@ namespace Candyland
                 upvelocity = 0.08f;
                 isonground = false;
             }
-        }
-
-        public override void moveTo(Vector3 goalpoint)
-        {
-            istargeting = true;
-            target = goalpoint;
         }
 
         public override void movementInput(float movex, float movey, float camx, float camy)

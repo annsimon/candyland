@@ -18,7 +18,7 @@ namespace Candyland
     /// </summary>
     public class AreaParser
     {
-        public static Dictionary<string, Area> ParseAreas(UpdateInfo info, BonusTracker bonusTracker)
+        public static Dictionary<string, Area> ParseAreas(UpdateInfo info, BonusTracker bonusTracker, ActionTracker actionTracker)
         {
             Dictionary<string, Area> areaList = new Dictionary<string, Area>();
 
@@ -43,7 +43,7 @@ namespace Candyland
                 startPos.Z = float.Parse(start[count].SelectSingleNode("z").InnerText);
 
                 // create a new area of id, starting position, update info, camera and the xml in "levels"
-                Area area = new Area(node.InnerText, startPos, info, areaContent[count].InnerXml, bonusTracker);
+                Area area = new Area(node.InnerText, startPos, info, areaContent[count].InnerXml, bonusTracker, actionTracker);
                 
                 // set previous
                 string prevID = prev[count].InnerText;

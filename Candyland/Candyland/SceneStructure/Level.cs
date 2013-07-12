@@ -20,6 +20,8 @@ namespace Candyland
         // this dictionary contains all game objects of the level
         // with which the player can interact
         Dictionary<string, GameObject> m_gameObjects;
+        // this dictionary contains all switch objects of the level
+        Dictionary<string, GameObject> m_switchObjects;
         // this list contains all game objects of the level
         // which are static (e.g. platforms)
         List<GameObject> m_staticObjects;
@@ -29,27 +31,32 @@ namespace Candyland
         Platform m_start_player;
         Platform m_start_companion;
 
-        public Level( string id, Vector3 level_start, UpdateInfo info, string xml, BonusTracker bonusTracker )
+        public Level( string id, Vector3 level_start, UpdateInfo info, string xml, BonusTracker bonusTracker, ActionTracker actionTracker )
         {
             m_updateInfo = info;
             this.start = level_start;
-            m_gameObjects = ObjectParser.ParseObjects(level_start, xml, info, bonusTracker);
+            var tempDictionaryList = ObjectParser.ParseObjects(level_start, xml, info, bonusTracker, actionTracker);
+            m_gameObjects = tempDictionaryList[0];
+            m_switchObjects = tempDictionaryList[1];
             m_staticObjects = ObjectParser.ParseStatics(level_start, xml, info);
             m_events = new List<SwitchEvent>();
 
-            try 
-            {
-                m_events = EventParser.ParseEvents(id, m_gameObjects);
-            }
+            //try 
+            //{
+                m_events = EventParser.ParseEvents(id, m_gameObjects, m_switchObjects);
+                ActionParser.ParseActions(id, level_start, m_gameObjects, actionTracker);
+           /* }
             catch(Exception e) 
             {
                 e.GetType();
-            }
+            }*/
         }
 
         public void Load(ContentManager manager)
         {
             foreach (var gameObject in m_gameObjects)
+                gameObject.Value.load(manager);
+            foreach (var gameObject in m_switchObjects)
                 gameObject.Value.load(manager);
             foreach (GameObject staticObject in m_staticObjects)
                 staticObject.load(manager);
@@ -59,8 +66,15 @@ namespace Candyland
         {
             foreach (var gameObject in m_gameObjects)
             {
-                if(gameObject.Value.isVisible)
-                    gameObject.Value.update();
+                gameObject.Value.update();
+            }
+            foreach (var gameObject in m_switchObjects)
+            {
+                gameObject.Value.update();
+            }
+            foreach (var gameObject in m_switchObjects)
+            {
+                ((PlatformSwitch)gameObject.Value).setTouched(GameConstants.TouchedState.notTouched);
             }
 
             foreach( var gameObject in m_gameObjects )
@@ -80,6 +94,10 @@ namespace Candyland
             {
                 gameObject.Value.draw();
             }
+            foreach (var gameObject in m_switchObjects)
+            {
+                gameObject.Value.draw();
+            }
         }
 
         public void Collide(GameObject obj)
@@ -91,12 +109,20 @@ namespace Candyland
             foreach (var gameObject in m_gameObjects)
             {
                 obj.collide(gameObject.Value);
-            }      
+            }
+            foreach (var gameObject in m_switchObjects)
+            {
+                obj.collide(gameObject.Value);
+            } 
         }
 
         public void Reset()
         {
             foreach (var gameObject in m_gameObjects)
+            {
+                gameObject.Value.Reset();
+            }
+            foreach (var gameObject in m_switchObjects)
             {
                 gameObject.Value.Reset();
             }
@@ -111,7 +137,11 @@ namespace Candyland
         {
             foreach (var gameObject in m_gameObjects)
             {
-                    gameObject.Value.endIntersection();
+                gameObject.Value.endIntersection();
+            }
+            foreach (var gameObject in m_switchObjects)
+            {
+                gameObject.Value.endIntersection();
             }
         }
 
@@ -119,6 +149,13 @@ namespace Candyland
         public void Load()
         {
             foreach (var gameObject in m_gameObjects)
+            {
+                if (gameObject.Value.GetType() == typeof(ChocoChip))
+                {
+                    gameObject.Value.initialize();
+                }
+            }
+            foreach (var gameObject in m_switchObjects)
             {
                 if (gameObject.Value.GetType() == typeof(ChocoChip))
                 {

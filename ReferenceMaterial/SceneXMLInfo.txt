@@ -1,0 +1,21 @@
+Szenen-XML
+
+Struktur:
+Area
+ - Level
+ -- GameObjects
+ --- static
+ --- dynamic
+
+Die Szenen-XML-Datei wird durch die verschiedenen Parser geschickt.
+AreaParser: Erzeugt Areas mit den angegebenen IDs und Parametern und ruft mit dem XML in "<levels>" den LevelParser auf.
+LevelParser: Erzeugt Levels mit den angegebenen IDs und Parametern und ruft mit dem XML in "<objects>" den ObjectParser auf.
+ObjectParser: Erzeugt die Objektlisten (static und gameObject/dynamic) für jedes Level.
+
+Die gegebene Struktur muss erhalten werden, es können allerdings beliebige neue Eigenschaften für die einzelnen Elemente (Area, Level, Object) hinzugefügt werden. Dafür einfach bei ALLEN(!) entsprechenden Strukturen (also z.B. bei allen <object>s) einen entsprechenden Eintrag (z.B. <test>testwert</test>) einfügen.
+Zusätzlich werden damit aber Änderungen am Parser nötig:
+
+1) Mit "XmlNodeList testList = scene.GetElementsByTagName("test");" alle Einträge für das Element "test" in einer Liste bereitstellen.
+2) In der foreach-Schleife die Eigenschaft für das aktuell erzeugt werdende Element setzen (entweder per Setter oder im Konstruktor, Setter ist zu bevorzugen). Auf den Wert greift man mit "testList[count].InnerText" zu.
+
+Damit der Object-Parser weitere Objekttypen erkennen kann, muss mit einer Abfrage der Form "if(object_type == testObject)" die Konstruktion des neuen Objekttyps (Konstruktoraufruf, Parameter setzen, zur Rückgabeliste hinzufügen) implementiert werden.

@@ -15,9 +15,11 @@ namespace Candyland
     /// </summary>
     public class ObjectParser
     {
-        public static Dictionary<string, GameObject> ParseObjects(Vector3 lvl_start, string xml, UpdateInfo info, BonusTracker bonusTracker)
+        public static List<Dictionary<string, GameObject>> ParseObjects(Vector3 lvl_start, string xml, UpdateInfo info, 
+                                                                  BonusTracker bonusTracker, ActionTracker actionTracker)
         {
             Dictionary<string, GameObject> dynamicObjects = new Dictionary<string, GameObject>();
+            Dictionary<string, GameObject> switches = new Dictionary<string, GameObject>();
 
             XmlDocument scene = new XmlDocument();
 
@@ -142,7 +144,7 @@ namespace Candyland
                         continue;
                     }
                     PlatformSwitch obj = new PlatformSwitchPermanent(node.InnerText, pos, info, isVisible);
-                    dynamicObjects.Add(node.InnerText, obj);
+                    switches.Add(node.InnerText, obj);
                 }
                 else
                 if (object_type == "switchTimed")
@@ -153,7 +155,7 @@ namespace Candyland
                         continue;
                     }
                     PlatformSwitch obj = new PlatformSwitchTimed(node.InnerText, pos, info, isVisible);
-                    dynamicObjects.Add(node.InnerText, obj);
+                    switches.Add(node.InnerText, obj);
                 }
                 else
                 if (object_type == "switchTemporary")
@@ -164,7 +166,7 @@ namespace Candyland
                         continue;
                     }
                     PlatformSwitch obj = new PlatformSwitchTemporary(node.InnerText, pos, info, isVisible);
-                    dynamicObjects.Add(node.InnerText, obj);
+                    switches.Add(node.InnerText, obj);
                 }
                 else
                 if (object_type == "chocoChip")
@@ -188,13 +190,27 @@ namespace Candyland
                     PlatformTeleporter obj = new PlatformTeleporter(node.InnerText, pos, info, isVisible, endpos);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
+                else
+                if (object_type == "HelperTest")
+                {
+                    if (dynamicObjects.ContainsKey(node.InnerText))
+                    {
+                        Console.WriteLine("Key " + node.InnerText + " duplicated");
+                        continue;
+                    }
+                    HelperTest obj = new HelperTest(node.InnerText, pos, actionTracker, info, isVisible);
+                    dynamicObjects.Add(node.InnerText, obj);
+                }
 
                 // increase count as it is used to access the not-id xml elements of the correct level
                 // (the one currently being parsed)
                 count++;
             }
 
-            return dynamicObjects;
+            List<Dictionary<String, GameObject>> retList = new List<Dictionary<String, GameObject>>();
+            retList.Add(dynamicObjects);
+            retList.Add(switches);
+            return retList;
         }
 
         public static List<GameObject> ParseStatics(Vector3 lvl_start, string xml, UpdateInfo info)

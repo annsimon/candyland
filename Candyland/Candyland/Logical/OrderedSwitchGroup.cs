@@ -15,8 +15,6 @@ namespace Candyland
     /// </summary>
     class OrderedSwitchGroup : SwitchGroup
     {
-        protected bool m_conditionMet;
-
         protected string[] m_orderedSwitchIDs;
         protected int m_switchesActivatedInOrder;
 
@@ -73,7 +71,6 @@ namespace Candyland
             }
             catch
             {
-                int i = 15;
             }
         }
 

@@ -107,7 +107,7 @@ namespace Candyland
         {
             // When the Player steps on a Platform that functions as a Door to the next Level or Area,
             // UpdateInfo needs to be updated
-            if (obj.GetType() == typeof(CandyGuy))
+            if (obj is Playable)
             {
                 string[] idParts = this.ID.Split('.');
                 if (this.isDoorToArea)
@@ -126,6 +126,10 @@ namespace Candyland
 
                     this.m_updateInfo.currentAreaID = idParts[0];
                     this.m_updateInfo.currentLevelID = idParts[0] + "." + idParts[1];
+                }
+                if (m_triggersActionWithID != null)
+                {
+                    m_triggersActionOfObject.Trigger(m_triggersActionWithID);
                 }
             }
         }
