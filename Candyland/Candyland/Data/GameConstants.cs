@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Candyland
 {
-    class GameConstants
+    public class GameConstants
     {
         /// <summary>
         /// Y Coordinate for Lower Boundary of the Game World
@@ -37,6 +37,14 @@ namespace Candyland
             stillTouched = 2
         }
 
+        public enum SubActionType
+        {
+            appear = 0,
+            movement = 1,
+            dialog = 2,
+            disappear = 3
+        }
+
         /// <summary>
         /// bounding box rendering on/off
         /// </summary>
@@ -49,6 +57,7 @@ namespace Candyland
         // data regarding the scene
         public const string sceneFile = "Content\\Scene.xml";
         public const string eventFile = "Content\\EventTest.xml";
+        public const string actionsFile = "Content\\ActionTest.xml";
         public const string startAreaID = "3";
         public const string startLevelID = "3.0";
     }

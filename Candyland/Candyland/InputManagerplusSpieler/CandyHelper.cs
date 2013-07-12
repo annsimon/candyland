@@ -14,8 +14,6 @@ namespace Candyland
 {
     class CandyHelper : Playable
     {
-        private bool istargeting = false;
-        private Vector3 target;
         Texture2D texture;
 
 
@@ -55,11 +53,6 @@ namespace Candyland
             calculateBoundingBox();
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
-        }
-
-        public override void moveTo(Vector3 goalpoint)
-        {
-            throw new NotImplementedException();
         }
 
         public override void movementInput(float movex, float movey, float camx, float camy)

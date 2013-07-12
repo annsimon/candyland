@@ -20,8 +20,6 @@ namespace Candyland
 
         public abstract void uniqueskill();
 
-        public abstract void moveTo(Vector3 goalpoint);
-
         /// <summary>
         /// Moves the Player and the Camera
         /// </summary>
@@ -73,19 +71,12 @@ namespace Candyland
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
-        protected void move(float x, float y)
+        protected override void move(float x, float y)
         {
-            if ((x != 0 || y != 0) && cam.isInThirdP())
+            if (cam.isInThirdP())
             {
-                float length = (float)Math.Sqrt(x * x + y * y);     //Calculate length of MovementVector
-                direction = new Vector3(x, 0, y);                   //Movement Vector
-                direction.Normalize();                              //Normalize MovementVector
-                currentspeed = length * 0.04f;                       //Scale MovementVector for different walking speeds
-                m_position += direction * currentspeed;             //Change PLayerPosition
+                base.move(x, y);
                 cam.changeposition(m_position);                     //Change CameraPosition
-
-                m_boundingBox.Min += direction * currentspeed;
-                m_boundingBox.Max += direction * currentspeed;
             }
         }
 

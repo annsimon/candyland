@@ -18,7 +18,7 @@ namespace Candyland
     /// </summary>
     public class LevelParser
     {
-        public static Dictionary<string, Level> ParseLevels(string xml, Vector3 area_start, UpdateInfo info, BonusTracker bonusTracker)
+        public static Dictionary<string, Level> ParseLevels(string xml, Vector3 area_start, UpdateInfo info, BonusTracker bonusTracker, ActionTracker actionTracker)
         {
             Dictionary<string, Level> levelList = new Dictionary<string, Level>();
 
@@ -44,7 +44,7 @@ namespace Candyland
                 startPos += area_start; // add area position for correct global position
 
                 // create a new area of id, starting position, update info, camera and the xml in "levels"
-                Level level = new Level(node.InnerText, startPos, info, levelContent[count].InnerXml, bonusTracker);
+                Level level = new Level(node.InnerText, startPos, info, levelContent[count].InnerXml, bonusTracker, actionTracker);
                 
                 // set start platform for player and companion
                 level.setStartPositions(idStartMain[count].InnerText, idStartSecondary[count].InnerText);

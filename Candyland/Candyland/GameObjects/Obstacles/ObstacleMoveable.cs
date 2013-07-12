@@ -188,7 +188,7 @@ namespace Candyland
         #region actions
 
         /// <summary>
-        /// Obstacle starts moving, when pushed by a Player
+        /// Obstacle starts moving when pushed by a Player
         /// </summary>
         /// <param name="direction">normalised Vector3 indicating the direction of the movement</param>
         /// <param name="slipperyGround">bool cointaining information about the platform, the object is currently on</param>

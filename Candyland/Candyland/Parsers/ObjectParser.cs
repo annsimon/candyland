@@ -15,7 +15,8 @@ namespace Candyland
     /// </summary>
     public class ObjectParser
     {
-        public static Dictionary<string, GameObject> ParseObjects(Vector3 lvl_start, string xml, UpdateInfo info, BonusTracker bonusTracker)
+        public static Dictionary<string, GameObject> ParseObjects(Vector3 lvl_start, string xml, UpdateInfo info, 
+                                                                  BonusTracker bonusTracker, ActionTracker actionTracker)
         {
             Dictionary<string, GameObject> dynamicObjects = new Dictionary<string, GameObject>();
 
@@ -186,6 +187,17 @@ namespace Candyland
                         continue;
                     }
                     PlatformTeleporter obj = new PlatformTeleporter(node.InnerText, pos, info, isVisible, endpos);
+                    dynamicObjects.Add(node.InnerText, obj);
+                }
+                else
+                if (object_type == "HelperTest")
+                {
+                    if (dynamicObjects.ContainsKey(node.InnerText))
+                    {
+                        Console.WriteLine("Key " + node.InnerText + " duplicated");
+                        continue;
+                    }
+                    HelperTest obj = new HelperTest(node.InnerText, pos, actionTracker, info, isVisible);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
 

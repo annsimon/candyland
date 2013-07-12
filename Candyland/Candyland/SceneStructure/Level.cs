@@ -29,17 +29,18 @@ namespace Candyland
         Platform m_start_player;
         Platform m_start_companion;
 
-        public Level( string id, Vector3 level_start, UpdateInfo info, string xml, BonusTracker bonusTracker )
+        public Level( string id, Vector3 level_start, UpdateInfo info, string xml, BonusTracker bonusTracker, ActionTracker actionTracker )
         {
             m_updateInfo = info;
             this.start = level_start;
-            m_gameObjects = ObjectParser.ParseObjects(level_start, xml, info, bonusTracker);
+            m_gameObjects = ObjectParser.ParseObjects(level_start, xml, info, bonusTracker, actionTracker);
             m_staticObjects = ObjectParser.ParseStatics(level_start, xml, info);
             m_events = new List<SwitchEvent>();
 
             try 
             {
                 m_events = EventParser.ParseEvents(id, m_gameObjects);
+                ActionParser.ParseActions(id, level_start, m_gameObjects, actionTracker);
             }
             catch(Exception e) 
             {
@@ -59,8 +60,7 @@ namespace Candyland
         {
             foreach (var gameObject in m_gameObjects)
             {
-                if(gameObject.Value.isVisible)
-                    gameObject.Value.update();
+                gameObject.Value.update();
             }
 
             foreach( var gameObject in m_gameObjects )

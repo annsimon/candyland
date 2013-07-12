@@ -22,6 +22,9 @@ namespace Candyland
 
         protected UpdateInfo m_updateInfo;
 
+        protected GameObject m_triggersActionOfObject = null;
+        protected String m_triggersActionWithID = null;
+
         protected BoundingBox m_boundingBox;
         public BoundingBox getBoundingBox() { return this.m_boundingBox; }
         public void setBoundingBox(BoundingBox box) { this.m_boundingBox = box; }
@@ -115,6 +118,24 @@ namespace Candyland
             direction = original_direction;
             currentspeed = original_currentspeed;
         }
+
+        #region actions
+
+        public virtual void setTrigger(String actionID, GameObject triggeredObject)
+        {
+            m_triggersActionOfObject = triggeredObject;
+            m_triggersActionWithID = actionID;
+        }
+
+        public virtual void addAction(Action action)
+        {
+        }
+
+        public virtual void Trigger(String actionID)
+        {
+        }
+
+        #endregion
 
         public virtual void endIntersection()
         {
