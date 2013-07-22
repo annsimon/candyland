@@ -33,6 +33,7 @@ namespace Candyland
         private float topdownoffset = 10;
         private Vector3 topdownposition;
         private Matrix topdownViewM;
+        private Matrix orthoProjection; 
 
         private UpdateInfo m_updateInfo;
         private BoundingSphere boundingSphere;
@@ -54,6 +55,7 @@ namespace Candyland
             centerposition = pos;
             m_updateInfo = info;
             projectionMatrix = Matrix.CreatePerspectiveFieldOfView(fov, aspectRatio, nearPlane, farPlane);
+            orthoProjection = Matrix.CreatePerspectiveFieldOfView(0.7f, aspectRatio, 0.1f, 80); // Matrix.CreateOrthographic(7 * aspectRatio, 7, 0.01f, 100f);
             boundingSphere = new BoundingSphere(centerposition,0.2f);
             updatevMatrix();
         }
@@ -129,8 +131,8 @@ namespace Candyland
                 upangle -= upspeed * y;
                 rotation += sidespeed * x;
 
-                if (upangle < -Math.PI * 0.35f) upangle = (float)-Math.PI * 0.35f;
-                if (upangle > Math.PI * 0.05f) upangle = (float)Math.PI * 0.05f;
+                if (upangle < -Math.PI * 0.45f) upangle = (float)-Math.PI * 0.45f;
+                if (upangle > Math.PI * 0.1f) upangle = (float)Math.PI * 0.1f;
             }
             //updatevMatrix();
         }
@@ -147,7 +149,7 @@ namespace Candyland
                 topdownViewM = Matrix.CreateLookAt(topdownposition, topdownposition - new Vector3(0,topdownoffset,0), upVec);
 
                 m_updateInfo.viewMatrix = topdownViewM;
-                m_updateInfo.projectionMatrix = projectionMatrix;
+                m_updateInfo.projectionMatrix = orthoProjection;
             }
             
             

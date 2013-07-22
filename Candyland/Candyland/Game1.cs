@@ -40,7 +40,7 @@ namespace Candyland
         protected override void Initialize()
         {
             m_sceneManager = new SceneManager( GraphicsDevice, this.graphics);
-
+            BalanceBoard.initialize(this.Window.Handle);
             base.Initialize();
         }
 

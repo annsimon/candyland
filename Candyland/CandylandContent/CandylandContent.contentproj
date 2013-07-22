@@ -252,16 +252,16 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="miniTestLevel.xml">
-      <Name>miniTestLevel</Name>
+    <None Include="ActionTest.xml">
+      <Name>ActionTest</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ActionTest.xml">
-      <Name>ActionTest</Name>
+    <None Include="sceneNew.xml">
+      <Name>sceneNew</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -41,15 +41,15 @@ namespace Candyland
             m_staticObjects = ObjectParser.ParseStatics(level_start, xml, info);
             m_events = new List<SwitchEvent>();
 
-            try 
-            {
+            //try 
+            //{
                 m_events = EventParser.ParseEvents(id, m_gameObjects, m_switchObjects);
                 ActionParser.ParseActions(id, level_start, m_gameObjects, actionTracker);
-            }
+           /* }
             catch(Exception e) 
             {
                 e.GetType();
-            }
+            }*/
         }
 
         public void Load(ContentManager manager)

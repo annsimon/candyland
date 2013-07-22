@@ -55,13 +55,13 @@ namespace Candyland
         public const int inputManagerMode = InputManager.KEYBOARDMOUSE;
 
         // data regarding the scene
-        public const string sceneFile = "Content\\Scene.xml";
+        public const string sceneFile = "Content\\sceneNew.xml";
         //public const string sceneFile = "Content\\HoehlenTest.xml";
         //public const string sceneFile = "Content\\SceneSchieberaetselPrototyp.xml.xml";
         public const string eventFile = "Content\\EventTest.xml";
         public const string actionsFile = "Content\\ActionTest.xml";
-        public const string startAreaID = "3";
-        public const string startLevelID = "3.0";
+        public const string startAreaID = "15";
+        public const string startLevelID = "15.0";
         //public const string startAreaID = "6";
         //public const string startLevelID = "6.0";
         //public const string startAreaID = "7";
