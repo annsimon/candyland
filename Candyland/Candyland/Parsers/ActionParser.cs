@@ -24,7 +24,10 @@ namespace Candyland
 
             actions.Load(GameConstants.actionsFile);
 
-            actions.LoadXml(actions.GetElementsByTagName("L"+levelID)[0].InnerXml);
+            XmlNodeList levelActionsTemp = actions.GetElementsByTagName("L" + levelID);
+            if (levelActionsTemp.Count == 0) return;
+
+            actions.LoadXml(levelActionsTemp[0].InnerXml);
 
             XmlNodeList actionNodes = actions.GetElementsByTagName("action");
 
