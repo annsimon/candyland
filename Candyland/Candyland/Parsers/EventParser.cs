@@ -26,7 +26,10 @@ namespace Candyland
 
             events.Load(GameConstants.eventFile);
 
-            events.LoadXml(events.GetElementsByTagName("L"+levelID)[0].InnerXml);
+            XmlNodeList levelEventsTemp = events.GetElementsByTagName("L" + levelID);
+            if (levelEventsTemp.Count == 0) return new List<SwitchEvent>();
+
+            events.LoadXml(levelEventsTemp[0].InnerXml);
 
             XmlNodeList eventNodes = events.GetElementsByTagName("event");
 
