@@ -46,7 +46,7 @@ namespace Candyland
 
         InputManager m_inputManager;
 
-        public SceneManager(GraphicsDevice graphics, GraphicsDeviceManager graphicDeviceManager)
+        public SceneManager(GraphicsDevice graphics)
         {
             m_bonusTracker = new BonusTracker(); // load this one from xml as serialized object?
 
@@ -54,8 +54,8 @@ namespace Candyland
 
             m_updateInfo = new UpdateInfo(graphics);
 
-   
-            m_inputManager = new InputManager(GameConstants.inputManagerMode, graphicDeviceManager, m_updateInfo);
+
+            m_inputManager = new InputManager(GameConstants.inputManagerMode, m_updateInfo);
             /****************************************************************/
             m_graphics = graphics;
             /****************************************************************/

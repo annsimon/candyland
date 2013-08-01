@@ -1,14 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
-using Ruminate.GUI.Content;
-using Ruminate.GUI.Framework;
 
 namespace Candyland
 {
@@ -18,17 +11,18 @@ namespace Candyland
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        ScreenManager screenManager;
 
         KeyboardState oldState;
-        
-        // the scene manager, most stuff happens in there
-        SceneManager m_sceneManager;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
+            // Create the screen manager component.
+            screenManager = new ScreenManager(this);
+            Components.Add(screenManager);
         }
 
         /// <summary>
@@ -39,8 +33,14 @@ namespace Candyland
         /// </summary>
         protected override void Initialize()
         {
-            m_sceneManager = new SceneManager( GraphicsDevice, this.graphics);
+            screenManager.AddScreen(new MainGame());
+            //screenManager.AddScreen(new MainMenu());
+
+            GameConstants.screenWidth = graphics.PreferredBackBufferWidth;
+            GameConstants.screenHeight = graphics.PreferredBackBufferHeight;
+
             BalanceBoard.initialize(this.Window.Handle);
+
             base.Initialize();
         }
 
@@ -50,14 +50,7 @@ namespace Candyland
         /// </summary>
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-            Song song = Content.Load<Song>("bgmusic");  // background music from http://longzijun.wordpress.com/2012/12/26/upbeat-background-music-free-instrumentals/
-            MediaPlayer.Play(song);
-            MediaPlayer.IsRepeating = true;
 
-            // Load all content required by the scene
-            m_sceneManager.Load(this.Content);
         }
 
         /// <summary>
@@ -78,16 +71,16 @@ namespace Candyland
         {
             KeyboardState newState = Keyboard.GetState();
 
-            if (this.IsActive && (gameTime.TotalGameTime.Milliseconds % GameConstants.framerate == 0 )
-                && ((newState.IsKeyDown(Keys.Enter)&& newState != oldState) || GameConstants.singlestepperOFF))
-            {
+            //if (this.IsActive && (gameTime.TotalGameTime.Milliseconds % GameConstants.framerate == 0 )
+            //    && ((newState.IsKeyDown(Keys.Enter)&& newState != oldState) || GameConstants.singlestepperOFF))
+            //{
                 // Allows the game to exit
                 if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed
                     || Keyboard.GetState().IsKeyDown(Keys.Escape))
                     this.Exit();
 
-                m_sceneManager.Update(gameTime);
-            }
+            //    m_sceneManager.Update(gameTime);
+            //}
             // Controls to Mute background music
             if (newState.IsKeyDown(Keys.L) && newState != oldState)
             {
@@ -98,18 +91,18 @@ namespace Candyland
 
            newState = Keyboard.GetState();
 
-            // Save, when F5 was pressed and now released
-            if (oldState.IsKeyDown(Keys.F5) && newState.IsKeyUp(Keys.F5))
-            {
-                System.Diagnostics.Debug.WriteLine("Saving");
-                m_sceneManager.Save();
-            }
+            //// Save, when F5 was pressed and now released
+            //if (oldState.IsKeyDown(Keys.F5) && newState.IsKeyUp(Keys.F5))
+            //{
+            //    System.Diagnostics.Debug.WriteLine("Saving");
+            //    m_sceneManager.Save();
+            //}
 
-            // Load last savegame, when F6 was pressed and now released
-            if (oldState.IsKeyDown(Keys.F6) && newState.IsKeyUp(Keys.F6))
-            {
-                m_sceneManager.Load();
-            }
+            //// Load last savegame, when F6 was pressed and now released
+            //if (oldState.IsKeyDown(Keys.F6) && newState.IsKeyUp(Keys.F6))
+            //{
+            //    m_sceneManager.Load();
+            //}
 
             // Update saved state.
             oldState = newState;
@@ -121,15 +114,10 @@ namespace Candyland
         /// This is called when the game should draw itself.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
-        protected override void Draw(GameTime gameTime)
-        {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+        //protected override void Draw(GameTime gameTime)
+        //{
 
-            m_sceneManager.Draw(gameTime);
-            m_sceneManager.Draw2D(spriteBatch);
-
-            base.Draw(gameTime);
-        }
+        //}
 
     }
 }

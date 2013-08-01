@@ -142,6 +142,11 @@
     <Compile Include="SceneStructure\Area.cs" />
     <Compile Include="SceneStructure\Level.cs" />
     <Compile Include="SceneStructure\SceneManager.cs" />
+    <Compile Include="ScreenManagement\GameScreen.cs" />
+    <Compile Include="ScreenManagement\MainGame.cs" />
+    <Compile Include="ScreenManagement\MainMenu.cs" />
+    <Compile Include="ScreenManagement\Pause.cs" />
+    <Compile Include="ScreenManagement\ScreenManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

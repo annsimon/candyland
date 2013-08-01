@@ -22,14 +22,14 @@ namespace Candyland
         public const int GAMEPADONLY = 1;
         public const int GAMEPADBOARD = 2;
         private int inputMode = 0;
-        GraphicsDeviceManager graphicDevice;
+        int screenWidth = GameConstants.screenWidth;
+        int screenHeight = GameConstants.screenHeight;
         UpdateInfo updateinfo;
 
-        public InputManager(int initialInputmode, GraphicsDeviceManager graphicDevice,UpdateInfo info) 
+        public InputManager(int initialInputmode, UpdateInfo info) 
         
         {
             inputMode = initialInputmode;
-            this.graphicDevice = graphicDevice;
             updateinfo = info;
         }
 
@@ -80,11 +80,11 @@ namespace Candyland
         {
 
             //Calculate the difference for Camera Movement and normalize it
-            float dcamx = mousestate.X - graphicDevice.PreferredBackBufferWidth / 2;
-            float dcamy = mousestate.Y - graphicDevice.PreferredBackBufferHeight / 2;
+            float dcamx = mousestate.X - screenWidth / 2;
+            float dcamy = mousestate.Y - screenHeight / 2;
             //normalize the movement difference
-            dcamx /= graphicDevice.PreferredBackBufferWidth / 4;
-            dcamy /= graphicDevice.PreferredBackBufferHeight / 4;
+            dcamx /= screenWidth / 4;
+            dcamy /= screenHeight / 4;
 
 
             //get the Keyboard Input to Move the player
@@ -121,7 +121,7 @@ namespace Candyland
             //move the player
             player.movementInput(dmovex, dmovey, 0, 0);
             //reset mouse to the center of the screen, to rotate freely
-            Mouse.SetPosition(graphicDevice.PreferredBackBufferWidth / 2, graphicDevice.PreferredBackBufferHeight / 2);
+            Mouse.SetPosition(screenWidth / 2, screenHeight / 2);
 
             oldKeyboardState = keystate;
             oldMouseState = mousestate;
@@ -131,11 +131,11 @@ namespace Candyland
         private void mouseMovement(Playable player, KeyboardState keystate, MouseState mousestate)
         {
             //Calculate the difference for Camera Movement and normalize it
-            float dcamx = mousestate.X - graphicDevice.PreferredBackBufferWidth / 2;
-            float dcamy = mousestate.Y - graphicDevice.PreferredBackBufferHeight / 2;
+            float dcamx = mousestate.X - screenWidth / 2;
+            float dcamy = mousestate.Y - screenHeight / 2;
             //normalize the movement difference
-            dcamx /= graphicDevice.PreferredBackBufferWidth / 4;
-            dcamy /= graphicDevice.PreferredBackBufferHeight / 4;
+            dcamx /= screenWidth / 4;
+            dcamy /= screenHeight / 4;
 
 
             //get the Keyboard Input to Move the player
@@ -173,7 +173,7 @@ namespace Candyland
             //move the player
             player.movementInput(dmovex, dmovey, dcamx, dcamy);
             //reset mouse to the center of the screen, to rotate freely
-            Mouse.SetPosition(graphicDevice.PreferredBackBufferWidth / 2, graphicDevice.PreferredBackBufferHeight / 2);
+            Mouse.SetPosition(screenWidth / 2, screenHeight / 2);
 
             oldKeyboardState = keystate;
             oldMouseState = mousestate;

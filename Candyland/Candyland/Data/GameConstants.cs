@@ -8,6 +8,16 @@ namespace Candyland
     public class GameConstants
     {
         /// <summary>
+        /// graphicDevice.PreferredBackBufferWidth
+        /// </summary>
+        public static int screenWidth = 100;
+
+        /// <summary>
+        /// graphicDevice.PreferredBackBufferHeight
+        /// </summary>
+        public static int screenHeight = 100;
+
+        /// <summary>
         /// Y Coordinate for Lower Boundary of the Game World
         /// </summary>
         public const float endOfWorld_Y = -8.0f;
