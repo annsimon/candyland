@@ -159,6 +159,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="spieleranimiert.fbx">
+      <Name>spieleranimiert</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>SkinnedModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.15</ProcessorParameters_Scale>
+    </Compile>
     <None Include="SpurwechselTest.xml">
       <Name>SpurwechselTest</Name>
       <Importer>XmlImporter</Importer>
@@ -277,6 +283,12 @@
       <Name>Map</Name>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SkinnedModelPipeline\SkinnedModelPipeline.csproj">
+      <Project>{4636C7E1-B845-4B83-B96D-64A11B8A4515}</Project>
+      <Name>SkinnedModelPipeline</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="TestSkin\ImageMap.png">

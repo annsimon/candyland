@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using SkinnedModel;
 
 
 namespace Candyland
@@ -16,6 +17,7 @@ namespace Candyland
     class CandyGuy : Playable
     {
         Texture2D texture;
+        AnimationPlayer animationPlayer;
         
         public CandyGuy(Vector3 position, Vector3 direction, float aspectRatio, UpdateInfo info, BonusTracker bonusTracker)
         {
@@ -49,10 +51,24 @@ namespace Candyland
         {
             effect = content.Load<Effect>("Toon");
             texture = content.Load<Texture2D>("spielertextur");
-            m_model = content.Load<Model>("spielerneu");
+            m_model = content.Load<Model>("spieleranimiert");
             calculateBoundingBox();
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
+            // Look up our custom skinning information.
+            SkinningData skinningData = m_model.Tag as SkinningData;
+
+            if (skinningData == null)
+                throw new InvalidOperationException
+                    ("This model does not contain a SkinningData tag.");
+
+            // Create an animation player, and start decoding an animation clip.
+            animationPlayer = new AnimationPlayer(skinningData);
+
+            AnimationClip clip = skinningData.AnimationClips["ArmatureAction"];
+
+            animationPlayer.StartClip(clip);
+
         }
 
         public override void uniqueskill()
@@ -106,6 +122,8 @@ namespace Candyland
             Matrix[] transforms = new Matrix[m_model.Bones.Count];
             m_model.CopyAbsoluteBoneTransformsTo(transforms);
 
+            Matrix[] bones = animationPlayer.GetSkinTransforms();
+
             Matrix translateMatrix = Matrix.CreateTranslation(m_position);
             Matrix worldMatrix = translateMatrix;
 
@@ -119,21 +137,22 @@ namespace Candyland
                         rotation = Matrix.CreateRotationY((float)-Math.Acos(direction.Z));
                     }
 
+
+
             // Draw the model. A model can have multiple meshes, so loop.
             foreach (ModelMesh mesh in m_model.Meshes)
             {
-
-                    foreach (ModelMeshPart part in mesh.MeshParts)
-                    {
+                foreach (ModelMeshPart part in mesh.MeshParts)
+                {
                         part.Effect = effect;
-                        effect.Parameters["World"].SetValue(rotation*worldMatrix * mesh.ParentBone.Transform);
+                        effect.Parameters["World"].SetValue(rotation * worldMatrix * mesh.ParentBone.Transform);
                         effect.Parameters["DiffuseLightDirection"].SetValue(new Vector3(rotation.M13, rotation.M23, rotation.M33));
                         effect.Parameters["View"].SetValue(view);
                         effect.Parameters["Projection"].SetValue(projection);
                         effect.Parameters["WorldInverseTranspose"].SetValue(
                         Matrix.Transpose(Matrix.Invert(worldMatrix * mesh.ParentBone.Transform)));
                         effect.Parameters["Texture"].SetValue(texture);
-                    }
+                }
                     // Draw the mesh, using the effects set above.
                     mesh.Draw();
                     BoundingBoxRenderer.Render(this.m_boundingBox, m_updateInfo.graphics, view, projection, Color.White);

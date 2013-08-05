@@ -88,6 +88,12 @@
     <Reference Include="RuminateGui">
       <HintPath>.\RuminateGui.dll</HintPath>
     </Reference>
+    <Reference Include="SkinnedModel">
+      <HintPath>..\..\SkinnedModel\bin\x86\Debug\SkinnedModel.dll</HintPath>
+    </Reference>
+    <Reference Include="SkinnedModelPipeline">
+      <HintPath>..\..\..\..\..\Downloads\SkinningSample_4_0\SkinnedModelPipeline\bin\x86\Debug\SkinnedModelPipeline.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
@@ -155,6 +161,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\SkinnedModel\SkinnedModelWindows.csproj">
+      <Project>{0D41E29B-829F-4255-BCA5-64DC2677DA6D}</Project>
+      <Name>SkinnedModelWindows</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CandylandContent\CandylandContent.contentproj">
       <Name>CandylandContent</Name>
       <XnaReferenceType>Content</XnaReferenceType>
