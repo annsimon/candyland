@@ -13,7 +13,7 @@ namespace Candyland
         // the scene manager, most stuff happens in there
         SceneManager m_sceneManager;
 
-        public override void Open()
+        public override void Open(Game game)
         {
             this.ScreenState = ScreenState.Active;
 

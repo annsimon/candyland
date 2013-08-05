@@ -40,7 +40,7 @@ namespace Candyland
 
 
 
-        public abstract void Open(); // Initialize Screen and Load its Content
+        public abstract void Open(Game game); // Initialize Screen and Load its Content
         public abstract void Update(GameTime gameTime);
         public abstract void Draw(GameTime gameTime);
         public abstract void Close(); // Stop music, Unload content...

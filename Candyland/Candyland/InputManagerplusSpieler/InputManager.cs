@@ -69,7 +69,7 @@ namespace Candyland
         }
         
         /// <summary>
-        /// Moves the player with keybourd and mouse input
+        /// Moves the player with keyboard and mouse input
         /// </summary>
         /// <param name="player"></param>
         /// <param name="keystate"></param>

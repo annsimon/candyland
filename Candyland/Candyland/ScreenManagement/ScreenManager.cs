@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
+using System.IO;
 
 namespace Candyland
 
@@ -17,7 +18,10 @@ namespace Candyland
         SpriteBatch spriteBatch;
         SpriteFont font;
         ContentManager content;
+        Texture2D testImageMap;
+        String testMap;
 
+        #region getter
 
         /// <summary>
         /// A default SpriteBatch shared by all the screens. This saves
@@ -43,6 +47,17 @@ namespace Candyland
             get { return content; }
         }
 
+        public Texture2D TestImageMap
+        {
+            get { return testImageMap; }
+        }
+
+        public String TestMap
+        {
+            get { return testMap;}
+        }
+
+        #endregion
 
         /// <summary>
         /// Constructs a new screen manager component.
@@ -62,11 +77,14 @@ namespace Candyland
             // Load content belonging to the screen manager.
             content = Game.Content;
 
+            testImageMap = content.Load<Texture2D>("TestSkin/ImageMap");
+            testMap = File.OpenText(@"C:/Users/Svenja/Documents/GitHub/candyland/Candyland/Candyland/bin/x86/Debug/TestSkin/Map.txt").ReadToEnd();
+
             spriteBatch = new SpriteBatch(GraphicsDevice);
             font = content.Load<SpriteFont>("MainText");
 
             // Open topmost screen
-            screens.Last().Open();
+            screens.Last().Open(Game);
         }
 
 

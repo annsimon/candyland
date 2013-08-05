@@ -5,7 +5,7 @@ namespace Candyland
 {
     class Pause : GameScreen
     {
-        public override void Open()
+        public override void Open(Game game)
         {
             throw new NotImplementedException();
         }

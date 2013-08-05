@@ -14,6 +14,7 @@ namespace Candyland
         ScreenManager screenManager;
 
         KeyboardState oldState;
+        KeyboardState newState;
 
         public Game1()
         {
@@ -23,6 +24,8 @@ namespace Candyland
             // Create the screen manager component.
             screenManager = new ScreenManager(this);
             Components.Add(screenManager);
+
+           // Content.RootDirectory = "CandylandContent"; 
         }
 
         /// <summary>
@@ -34,7 +37,7 @@ namespace Candyland
         protected override void Initialize()
         {
             screenManager.AddScreen(new MainGame());
-            //screenManager.AddScreen(new MainMenu());
+           // screenManager.AddScreen(new MainMenu());
 
             GameConstants.screenWidth = graphics.PreferredBackBufferWidth;
             GameConstants.screenHeight = graphics.PreferredBackBufferHeight;
@@ -50,7 +53,7 @@ namespace Candyland
         /// </summary>
         protected override void LoadContent()
         {
-
+            
         }
 
         /// <summary>
@@ -69,7 +72,7 @@ namespace Candyland
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            KeyboardState newState = Keyboard.GetState();
+            newState = Keyboard.GetState();
 
             //if (this.IsActive && (gameTime.TotalGameTime.Milliseconds % GameConstants.framerate == 0 )
             //    && ((newState.IsKeyDown(Keys.Enter)&& newState != oldState) || GameConstants.singlestepperOFF))
@@ -88,8 +91,6 @@ namespace Candyland
                 else MediaPlayer.Volume = 0;
             }
 
-
-           newState = Keyboard.GetState();
 
             //// Save, when F5 was pressed and now released
             //if (oldState.IsKeyDown(Keys.F5) && newState.IsKeyUp(Keys.F5))
