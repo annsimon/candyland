@@ -62,14 +62,14 @@ namespace Candyland
                 float dx = target.X - m_position.X;
                 float dz = target.Z - m_position.Z;
                 float length = (float)Math.Sqrt(dx * dx + dz * dz);
-                move(0.8f * dx / length, 0.8f * dz / length);
+                move(0.8f * dx / length,0, 0.8f * dz / length);
                 if (length < 1) istargeting = false;
                 fall();
             }
             else
             {
                 fall();
-                move(movex, movey);
+                move(movex,0, movey);
                 cam.changeAngle(camx, camy);
             }
         }
