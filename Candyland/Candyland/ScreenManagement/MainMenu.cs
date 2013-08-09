@@ -1,65 +1,122 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-using Ruminate.GUI.Framework;
-using Ruminate.GUI.Content;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
+using System.Collections.Generic;
 
 namespace Candyland
 {
     class MainMenu : GameScreen
     {
-        Gui _gui;
-        SingleLineTextBox _label, _padding, _width;
+        Texture2D background;
+        Texture2D buttonTexture;
+
+        int screenWidth;
+        int screenHeight;
+
+        int activeButtonIndex = 0;
+
+        // Buttons
+        int numberOfButtons;
+        int buttonWidth;
+        int buttonHeight;
+        int leftAlign;
+        int topAlign;
+        Rectangle selectedButton;
+        Rectangle button0;
+        Rectangle button1;
+        Rectangle button2;
+        Rectangle button3;
+        Rectangle button4;
+        Rectangle button5;
 
         public override void Open(Game game)
         {
-            var testSkin = new Skin(ScreenManager.TestImageMap, ScreenManager.TestMap);
-            var testText = new Text(ScreenManager.Font, Color.Black);
+            this.ScreenState = ScreenState.Active;
+            this.isFullscreen = true;
 
-            var testSkins = new[] { new Tuple<string, Skin>("testSkin", testSkin) };
-            var testTexts = new[] { new Tuple<string, Text>("testText", testText) };
+            background = ScreenManager.Content.Load<Texture2D>("mainMenu");
+            buttonTexture = ScreenManager.Content.Load<Texture2D>("transparent");
 
-            _gui = new Gui(game, testSkin, testText, testSkins, testTexts)
-            {
-                Widgets = new Widget[] {
-                    new Button(10, 10 + (40 * 0), "Button"),
-                    new Button(10, 10 + (40 * 1), "Skin") { Skin = "testSkin", Text = "testText" },
-                    
-                    new Button(10, 10 + (40 * 2), "Change Label", buttonEvent: delegate(Widget widget) {
-                        ((Button)widget).Label = _label.Value;
-                    }),
-                    _label = new SingleLineTextBox(220, 10 + (40 * 2), 100, 10),
+            // Initialize Buttons
+            screenWidth = game.GraphicsDevice.Viewport.Width;
+            screenHeight = game.GraphicsDevice.Viewport.Height;
 
-                    new Button(10, 10 + (40 * 4), "TextPadding = 25", 25),
-                    new Button(10, 10 + (40 * 5), "TextPadding = 25") { TextPadding = 25 },
-                    new Button(10, 10 + (40 * 6), "Change TextPadding", buttonEvent: delegate(Widget widget) {
-                        int value;
-                        if (int.TryParse(_padding.Value, out value)) {
-                            ((Button)widget).TextPadding = value;
-                        }
-                    }),
-                    _padding = new SingleLineTextBox(220, 10 + (40 * 6), 100, 10),
+            numberOfButtons = 6;
+            buttonWidth = screenWidth / 2;
+            buttonHeight = (screenHeight * 29) / 50 / numberOfButtons;
+            leftAlign = (screenWidth - buttonWidth) / 2;
+            topAlign = screenHeight / 3;
+            //int buttonWidth = screenWidth / 3;
+            //int buttonHeight = (screenHeight * 4) / 5 / numberOfButtons;
+            //int leftAlign = (screenWidth - buttonWidth) / 2;
+            //int topAlign = (screenHeight - numberOfButtons * buttonHeight) / 2;
 
-                    new Button(10, 10 + (40 * 8), 200, "Width = 200"),
-                    new Button(10, 10 + (40 * 9), "Width = 200") { Width = 200 },
-                    new Button(10, 10 + (40 * 10), "Change Width", buttonEvent: delegate(Widget widget) {
-                        int value;
-                        if (int.TryParse(_width.Value, out value)) {
-                            ((Button)widget).Width = value;
-                        }
-                    }),
-                    _width = new SingleLineTextBox(220, 10 + (40 * 10), 100, 10)
-                }
-            };
+            selectedButton = new Rectangle(leftAlign, topAlign, buttonWidth, buttonHeight);
+            //button0 = new Rectangle(leftAlign, topAlign, buttonWidth, buttonHeight);
+            //button1 = new Rectangle(leftAlign, topAlign + buttonHeight, buttonWidth, buttonHeight);
+            //button2 = new Rectangle(leftAlign, topAlign + (buttonHeight * 2), buttonWidth, buttonHeight);
+            //button3 = new Rectangle(leftAlign, topAlign + (buttonHeight * 3), buttonWidth, buttonHeight);
+            //button4 = new Rectangle(leftAlign, topAlign + (buttonHeight * 4), buttonWidth, buttonHeight);
+            //button5 = new Rectangle(leftAlign, topAlign + (buttonHeight * 5), buttonWidth, buttonHeight);
         }
 
         public override void Update(GameTime gameTime)
         {
-            _gui.Update();
+            bool enterPressed = false;
+
+            // look at input and update button selection
+            switch (ScreenManager.Input)
+            {
+                case InputState.Enter: enterPressed = true; break;
+                case InputState.Up: activeButtonIndex--; break;
+                case InputState.Down: activeButtonIndex++; break;
+            }
+            if (activeButtonIndex >= numberOfButtons) activeButtonIndex = 0;
+            if (activeButtonIndex < 0) activeButtonIndex = numberOfButtons - 1;
+
+            // Selected Button confirmed by pressing Enter
+            if (enterPressed)
+            {
+                switch (activeButtonIndex)
+                {
+                    case 0: ScreenManager.StartNewGame(); break;
+                    case 1: ScreenManager.ResumeGame(); break;
+                    case 2: ScreenManager.ActivateNewScreen(new OptionsScreen()); break;
+                    case 3: ScreenManager.ActivateNewScreen(new BonusScreen()); break;
+                    case 4: ScreenManager.ActivateNewScreen(new CreditsScreen()); break;
+                    case 5: ScreenManager.Game.Exit(); break ;
+                }
+            }
         }
 
         public override void Draw(GameTime gameTime)
         {
-            _gui.Draw();
+            SpriteBatch m_sprite = ScreenManager.SpriteBatch;
+
+            ScreenManager.GraphicsDevice.Clear(Color.Silver);
+
+            m_sprite.Begin();
+
+            m_sprite.Draw(background, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
+
+            selectedButton.Y = topAlign + (buttonHeight * activeButtonIndex);
+            m_sprite.Draw(buttonTexture, selectedButton, Color.White);
+
+            //switch (activeButtonIndex)
+            //{
+            //    case 0: m_sprite.Draw(buttonTexture, button0, Color.White); break;
+            //    case 1: m_sprite.Draw(buttonTexture, button1, Color.White); break;
+            //    case 2: m_sprite.Draw(buttonTexture, button2, Color.White); break;
+            //    case 3: m_sprite.Draw(buttonTexture, button3, Color.White); break;
+            //    case 4: m_sprite.Draw(buttonTexture, button4, Color.White); break;
+            //    case 5: m_sprite.Draw(buttonTexture, button5, Color.White); break;
+            //}
+            m_sprite.End();
+
+            // we need the following as spriteBatch.Begin() sets them to None and AlphaBlend
+            // which breaks our model rendering
+            //m_graphics.DepthStencilState = DepthStencilState.Default;
+            //m_graphics.BlendState = BlendState.Opaque;
         }
 
         public override void Close()

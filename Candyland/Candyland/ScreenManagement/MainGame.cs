@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace Candyland
 {
@@ -15,7 +11,7 @@ namespace Candyland
 
         public override void Open(Game game)
         {
-            this.ScreenState = ScreenState.Active;
+            this.isFullscreen = true;
 
             m_sceneManager = new SceneManager(ScreenManager.GraphicsDevice);
 
@@ -29,6 +25,10 @@ namespace Candyland
 
         public override void Update(GameTime gameTime)
         {
+            if (ScreenManager.Input.Equals(InputState.Enter))
+            {
+                ScreenManager.ActivateNewScreen(new MainMenu());
+            }
             m_sceneManager.Update(gameTime);
         }
 
@@ -42,7 +42,7 @@ namespace Candyland
 
         public override void Close()
         {
-            throw new NotImplementedException();
+            //TODO Unload content;
         }
     }
 }

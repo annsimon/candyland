@@ -19,6 +19,9 @@ namespace Candyland
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            //graphics.PreferredBackBufferWidth = 600;
+            //graphics.PreferredBackBufferHeight = 400;
+            //graphics.IsFullScreen = true;
             Content.RootDirectory = "Content";
 
             // Create the screen manager component.
@@ -36,11 +39,9 @@ namespace Candyland
         /// </summary>
         protected override void Initialize()
         {
-            screenManager.AddScreen(new MainGame());
-           // screenManager.AddScreen(new MainMenu());
+           // IsMouseVisible = true;
 
-            GameConstants.screenWidth = graphics.PreferredBackBufferWidth;
-            GameConstants.screenHeight = graphics.PreferredBackBufferHeight;
+            screenManager.AddScreen(new TitleScreen());
 
             BalanceBoard.initialize(this.Window.Handle);
 

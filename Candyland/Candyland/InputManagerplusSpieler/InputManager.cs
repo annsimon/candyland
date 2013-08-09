@@ -22,13 +22,15 @@ namespace Candyland
         public const int GAMEPADONLY = 1;
         public const int GAMEPADBOARD = 2;
         private int inputMode = 0;
-        int screenWidth = GameConstants.screenWidth;
-        int screenHeight = GameConstants.screenHeight;
+        int screenWidth;
+        int screenHeight;
         UpdateInfo updateinfo;
 
-        public InputManager(int initialInputmode, UpdateInfo info) 
+        public InputManager(GraphicsDevice graphics, int initialInputmode, UpdateInfo info) 
         
         {
+            screenWidth = graphics.Viewport.Width;
+            screenHeight = graphics.Viewport.Height;
             inputMode = initialInputmode;
             updateinfo = info;
         }
