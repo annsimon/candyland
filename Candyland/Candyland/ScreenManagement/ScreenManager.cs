@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
+using System.IO;
 
 namespace Candyland
 
@@ -12,12 +13,20 @@ namespace Candyland
 {
     public class ScreenManager : DrawableGameComponent
     {
-        List<GameScreen> screens = new List<GameScreen>();
+        List<GameScreen> screens = new List<GameScreen>(); //actually used like a stack
 
         SpriteBatch spriteBatch;
-        SpriteFont font;
+        SpriteFont mainText;
         ContentManager content;
 
+        // Only needed for Ruminate
+        Texture2D testImageMap;
+        String testMap;
+
+        ScreenInputManager screenInput;
+        InputState input;
+
+        #region getter
 
         /// <summary>
         /// A default SpriteBatch shared by all the screens. This saves
@@ -35,7 +44,7 @@ namespace Candyland
         /// </summary>
         public SpriteFont Font
         {
-            get { return font; }
+            get { return mainText; }
         }
 
         public ContentManager Content
@@ -43,6 +52,22 @@ namespace Candyland
             get { return content; }
         }
 
+        public Texture2D TestImageMap
+        {
+            get { return testImageMap; }
+        }
+
+        public String TestMap
+        {
+            get { return testMap;}
+        }
+
+        public InputState Input
+        {
+            get { return input; }
+        }
+
+        #endregion
 
         /// <summary>
         /// Constructs a new screen manager component.
@@ -62,11 +87,17 @@ namespace Candyland
             // Load content belonging to the screen manager.
             content = Game.Content;
 
+            screenInput = new ScreenInputManager();
+
+            testImageMap = content.Load<Texture2D>("TestSkin/ImageMap");
+            testMap = File.OpenText(@"Content\TestSkin\Map.txt").ReadToEnd();
+
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            font = content.Load<SpriteFont>("MainText");
+            mainText = content.Load<SpriteFont>("MainText");
 
             // Open topmost screen
-            screens.Last().Open();
+            screens.Last().ScreenState = ScreenState.Active;
+            screens.Last().Open(Game);
         }
 
 
@@ -75,16 +106,21 @@ namespace Candyland
         /// </summary>
         public override void Update(GameTime gameTime)
         {
+            input = screenInput.getInput();
+
             foreach (GameScreen screen in screens)
             {
                 if (screen.ScreenState == ScreenState.Active)
+                {
                     screen.Update(gameTime);
+                    return;
+                }
             }
         }
 
 
         /// <summary>
-        /// Tells each screen to draw itself.
+        /// Tells each visible screen to draw itself.
         /// </summary>
         public override void Draw(GameTime gameTime)
         {
@@ -104,6 +140,89 @@ namespace Candyland
         {
             screen.ScreenManager = this;
             screens.Add(screen);
+        }
+
+        /// <summary>
+        /// Removes screen from the screen manager.
+        /// </summary>
+        public void RemoveScreen(GameScreen screen)
+        {
+            screens.Remove(screen);
+        }
+
+        /// <summary>
+        /// Adds a new screen to the screen manager and makes it the new active screen.
+        /// </summary>
+        public void ActivateNewScreen(GameScreen newScreen)
+        {
+            if (screens.Count() > 0)
+            {
+                // Check if last screen was already loaded
+                GameScreen currentScreen = screens.Last();
+                if (!currentScreen.ScreenState.Equals(ScreenState.New))
+                {
+                    // Check if last screen will be hidden by new screen
+                    if (newScreen.IsFullscreen)
+                    {
+                        currentScreen.ScreenState = ScreenState.Hidden;
+                    }
+                    else currentScreen.ScreenState = ScreenState.Visible;
+                }
+            }
+
+            // Add new screen
+            AddScreen(newScreen);
+            newScreen.ScreenState = ScreenState.Active;
+            newScreen.Open(Game);
+        }
+
+        /// <summary>
+        /// Closes the current screen and returns to the screen, that was active before that one
+        /// </summary>
+        public void ResumeLast(GameScreen closingScreen)
+        {
+            // Get rid of currently active screen
+            closingScreen.Close();
+            screens.Remove(closingScreen);
+
+            // Go back to recent screen
+            GameScreen resumedScreen = screens.Last();
+            resumedScreen.ScreenState = ScreenState.Active;
+            resumedScreen.Resume();
+        }
+
+        /// <summary>
+        /// Returns to currently running game (if there is one) or loads the last save game
+        /// </summary>
+        public void ResumeGame()
+        {
+            // Search for already running game, should be second last screen in list
+            if (screens.Count() > 1)
+            {
+                if (screens.ElementAt(screens.Count - 2).GetType() == typeof(MainGame))
+                {
+                    // In case of returning to a running game
+                    ResumeLast(screens.Last());
+
+                    return;
+                }
+            }
+            // TODO Load last save game
+        }
+
+        /// <summary>
+        /// Starts a new game
+        /// </summary>
+        public void StartNewGame()
+        {
+            // Remove main menu
+            if (screens.Count() > 0)
+            {
+                screens.Last().Close();
+                RemoveScreen(screens.Last());
+            }
+            // Add new game screen
+            ActivateNewScreen(new MainGame());
         }
 
     }

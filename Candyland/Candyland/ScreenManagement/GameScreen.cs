@@ -1,30 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 
 namespace Candyland
 {
     public enum ScreenState
     {
+        New,
         Hidden,
         Visible,
         Active,
     }
 
+    /// <summary>
+    /// Each game state has its one screen
+    /// </summary>
     public abstract class GameScreen
     {
         /// <summary>
-        /// Gets the current screen state.
+        /// Tells if screen is fullscreen
+        /// </summary>
+        public bool IsFullscreen
+        {
+            get { return isFullscreen; }
+        }
+        protected bool isFullscreen = false;
+
+        /// <summary>
+        /// Gets or sets the current screen state.
         /// </summary>
         public ScreenState ScreenState
         {
             get { return screenState; }
-            protected set { screenState = value; }
+            set { screenState = value; }
         }
-
-        ScreenState screenState = ScreenState.Hidden;
+        ScreenState screenState = ScreenState.New;
 
 
         /// <summary>
@@ -35,15 +43,44 @@ namespace Candyland
             get { return screenManager; }
             internal set { screenManager = value; }
         }
-
         ScreenManager screenManager;
 
 
+        /// <summary>
+        /// Initialize Screen and Load its Content
+        /// </summary>
+        public abstract void Open(Game game);
 
-        public abstract void Open(); // Initialize Screen and Load its Content
+        /// <summary>
+        /// Reactivate screen
+        /// </summary>
+        public virtual void Resume()
+        {
+        }
+
+        /// <summary>
+        /// Update screen
+        /// </summary>
         public abstract void Update(GameTime gameTime);
+
+        /// <summary>
+        /// Draw screen
+        /// </summary>
         public abstract void Draw(GameTime gameTime);
-        public abstract void Close(); // Stop music, Unload content...
+
+        /// <summary>
+        /// Deactivate screen
+        /// </summary>
+        public virtual void Leave()
+        {
+        }
+
+        /// <summary>
+        /// Clean up screen before closing (Stop music, Unload content...)
+        /// </summary>
+        public virtual void Close()
+        {
+        }
 
 
     }
