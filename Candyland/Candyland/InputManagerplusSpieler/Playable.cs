@@ -71,11 +71,23 @@ namespace Candyland
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
-        protected override void move(float x, float y)
+        protected override void move(float x, float y, float z)
         {
             if (cam.isInThirdP())
             {
-                base.move(x, y);
+        
+                if ((x != 0 || y != 0 || z!=0))
+                {
+                    float length = (float)Math.Sqrt(x * x + z * z);     //Calculate length of MovementVector
+                    direction = new Vector3(x, 0, z);                   //Movement Vector
+                    direction.Normalize();                              //Normalize MovementVector
+                    currentspeed = length * 0.04f;                       //Scale MovementVector for different walking speeds
+                    m_position += direction * currentspeed;             //Change ObjectPosition
+
+                    m_boundingBox.Min += direction * currentspeed;
+                    m_boundingBox.Max += direction * currentspeed;
+                }
+    
                 cam.changeposition(m_position);                     //Change CameraPosition
             }
         }

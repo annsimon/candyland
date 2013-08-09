@@ -31,8 +31,11 @@ namespace Candyland
             {
                 float dx = target.X - m_position.X;
                 float dz = target.Z - m_position.Z;
-                float length = (float)Math.Sqrt(dx * dx + dz * dz);
-                move(0.8f * dx / length, 0.8f * dz / length);
+                float dy = target.Y - m_position.Y;
+                float length = (float)Math.Sqrt(dx * dx + dz * dz + dy * dy);
+                Vector3 tempdir = new Vector3(dx, dy, dz);
+                tempdir.Normalize();
+                move(tempdir.X * GameConstants.obstacleSpeed, tempdir.Y * GameConstants.obstacleSpeed, tempdir.Z * GameConstants.obstacleSpeed);
                 if (length < 1) istargeting = false;
             }
         }
@@ -42,14 +45,12 @@ namespace Candyland
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
-        protected virtual void move(float x, float y)
+        protected virtual void move(float x, float y, float z)
         {
-            if ((x != 0 || y != 0))
+            if ((x != 0 || y != 0 || z!=0))
             {
-                float length = (float)Math.Sqrt(x * x + y * y);     //Calculate length of MovementVector
-                direction = new Vector3(x, 0, y);                   //Movement Vector
-                direction.Normalize();                              //Normalize MovementVector
-                currentspeed = length * 0.04f;                       //Scale MovementVector for different walking speeds
+                direction = new Vector3(x, y, z);                   
+
                 m_position += direction * currentspeed;             //Change ObjectPosition
 
                 m_boundingBox.Min += direction * currentspeed;

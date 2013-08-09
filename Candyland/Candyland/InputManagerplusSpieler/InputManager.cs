@@ -64,10 +64,17 @@ namespace Candyland
             
             /*add if-statements*/
 
-            if(updateinfo.candyselected)
+            if (updateinfo.locked) {
+
+                /* Menu, Dialogues, nonmovementstuff*/
+            }
+
+            if(updateinfo.candyselected && ! updateinfo.locked )
                 movePlayable(candy, padstate, mousestate, keystate);
-            else
+            else if(! updateinfo.candyselected && ! updateinfo.locked)
                 movePlayable(helper, padstate, mousestate, keystate);
+
+
         }
         
         /// <summary>
