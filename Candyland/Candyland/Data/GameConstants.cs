@@ -56,7 +56,7 @@ namespace Candyland
 
         // data regarding the scene
         //public const string sceneFile = "Content\\sceneNew.xml";
-        public const string sceneFile = "Content\\sceneNew2.xml";
+        public const string sceneFile = "Content\\sceneNew.xml";
         //public const string sceneFile = "Content\\HoehlenTest.xml";
         //public const string sceneFile = "Content\\SceneSchieberaetselPrototyp.xml.xml";
         public const string eventFile = "Content\\EventTest.xml";
