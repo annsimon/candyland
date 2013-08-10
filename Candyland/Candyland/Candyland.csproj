@@ -148,11 +148,17 @@
     <Compile Include="SceneStructure\Area.cs" />
     <Compile Include="SceneStructure\Level.cs" />
     <Compile Include="SceneStructure\SceneManager.cs" />
+    <Compile Include="ScreenManagement\BonusScreen.cs" />
+    <Compile Include="ScreenManagement\CreditsScreen.cs" />
     <Compile Include="ScreenManagement\GameScreen.cs" />
     <Compile Include="ScreenManagement\MainGame.cs" />
     <Compile Include="ScreenManagement\MainMenu.cs" />
+    <Compile Include="ScreenManagement\MainMenuRuminate.cs" />
+    <Compile Include="ScreenManagement\OptionsScreen.cs" />
     <Compile Include="ScreenManagement\Pause.cs" />
+    <Compile Include="ScreenManagement\ScreenInputManager.cs" />
     <Compile Include="ScreenManagement\ScreenManager.cs" />
+    <Compile Include="ScreenManagement\TitleScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

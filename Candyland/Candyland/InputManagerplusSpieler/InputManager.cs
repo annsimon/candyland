@@ -22,20 +22,22 @@ namespace Candyland
         public const int GAMEPADONLY = 1;
         public const int GAMEPADBOARD = 2;
         private int inputMode = 0;
-        int screenWidth = GameConstants.screenWidth;
-        int screenHeight = GameConstants.screenHeight;
+        int screenWidth;
+        int screenHeight;
         UpdateInfo updateinfo;
 
-        public InputManager(int initialInputmode, UpdateInfo info) 
+        public InputManager(GraphicsDevice graphics, int initialInputmode, UpdateInfo info) 
         
         {
+            screenWidth = graphics.Viewport.Width;
+            screenHeight = graphics.Viewport.Height;
             inputMode = initialInputmode;
             updateinfo = info;
         }
 
         private void movePlayable(Playable player, GamePadState padstate, MouseState mousestate, KeyboardState keystate) 
         {
-            if (updateinfo.currentLevelID.Equals("5.0"))
+            if (updateinfo.currentLevelID.Equals("66.0"))
             {
                 mouseMovementRun(player, keystate, mousestate);
             }
@@ -76,7 +78,7 @@ namespace Candyland
         }
         
         /// <summary>
-        /// Moves the player with keybourd and mouse input
+        /// Moves the player with keyboard and mouse input
         /// </summary>
         /// <param name="player"></param>
         /// <param name="keystate"></param>
@@ -85,15 +87,7 @@ namespace Candyland
 
         private void mouseMovementRun(Playable player, KeyboardState keystate, MouseState mousestate)
         {
-
-            //Calculate the difference for Camera Movement and normalize it
-            float dcamx = mousestate.X - screenWidth / 2;
-            float dcamy = mousestate.Y - screenHeight / 2;
-            //normalize the movement difference
-            dcamx /= screenWidth / 4;
-            dcamy /= screenHeight / 4;
-
-
+           
             //get the Keyboard Input to Move the player
             float dmovextemp = 0;
             float dmoveytemp = 0;
@@ -120,15 +114,14 @@ namespace Candyland
             if (keystate.IsKeyDown(Keys.R)) updateinfo.reset = true;
 
             //Get the direction of the players camera
-            float alpha = player.getCameraDir();
+            float alpha = 0;
 
-            //rotate the movementvector to kamerakoordinates
+            //rotate the movementvector to cameracoordinates
             float dmovex = (float)Math.Cos(alpha) * dmovextemp - (float)Math.Sin(alpha) * dmoveytemp;
             float dmovey = (float)Math.Sin(alpha) * dmovextemp + (float)Math.Cos(alpha) * dmoveytemp;
             //move the player
             player.movementInput(dmovex, dmovey, 0, 0);
-            //reset mouse to the center of the screen, to rotate freely
-            Mouse.SetPosition(screenWidth / 2, screenHeight / 2);
+
 
             oldKeyboardState = keystate;
             oldMouseState = mousestate;

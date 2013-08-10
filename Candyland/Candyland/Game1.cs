@@ -14,15 +14,21 @@ namespace Candyland
         ScreenManager screenManager;
 
         KeyboardState oldState;
+        KeyboardState newState;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            //graphics.PreferredBackBufferWidth = 600;
+            //graphics.PreferredBackBufferHeight = 400;
+            //graphics.IsFullScreen = true;
             Content.RootDirectory = "Content";
 
             // Create the screen manager component.
             screenManager = new ScreenManager(this);
             Components.Add(screenManager);
+
+           // Content.RootDirectory = "CandylandContent"; 
         }
 
         /// <summary>
@@ -33,11 +39,9 @@ namespace Candyland
         /// </summary>
         protected override void Initialize()
         {
-            screenManager.AddScreen(new MainGame());
-            //screenManager.AddScreen(new MainMenu());
+           // IsMouseVisible = true;
 
-            GameConstants.screenWidth = graphics.PreferredBackBufferWidth;
-            GameConstants.screenHeight = graphics.PreferredBackBufferHeight;
+            screenManager.AddScreen(new TitleScreen());
 
             BalanceBoard.initialize(this.Window.Handle);
 
@@ -50,7 +54,7 @@ namespace Candyland
         /// </summary>
         protected override void LoadContent()
         {
-
+            
         }
 
         /// <summary>
@@ -69,7 +73,7 @@ namespace Candyland
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            KeyboardState newState = Keyboard.GetState();
+            newState = Keyboard.GetState();
 
             //if (this.IsActive && (gameTime.TotalGameTime.Milliseconds % GameConstants.framerate == 0 )
             //    && ((newState.IsKeyDown(Keys.Enter)&& newState != oldState) || GameConstants.singlestepperOFF))
@@ -88,8 +92,6 @@ namespace Candyland
                 else MediaPlayer.Volume = 0;
             }
 
-
-           newState = Keyboard.GetState();
 
             //// Save, when F5 was pressed and now released
             //if (oldState.IsKeyDown(Keys.F5) && newState.IsKeyUp(Keys.F5))

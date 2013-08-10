@@ -8,16 +8,6 @@ namespace Candyland
     public class GameConstants
     {
         /// <summary>
-        /// graphicDevice.PreferredBackBufferWidth
-        /// </summary>
-        public static int screenWidth = 100;
-
-        /// <summary>
-        /// graphicDevice.PreferredBackBufferHeight
-        /// </summary>
-        public static int screenHeight = 100;
-
-        /// <summary>
         /// Y Coordinate for Lower Boundary of the Game World
         /// </summary>
         public const float endOfWorld_Y = -8.0f;
@@ -65,6 +55,7 @@ namespace Candyland
         public const int inputManagerMode = InputManager.KEYBOARDMOUSE;
 
         // data regarding the scene
+        //public const string sceneFile = "Content\\sceneNew.xml";
         public const string sceneFile = "Content\\sceneNew.xml";
         //public const string sceneFile = "Content\\HoehlenTest.xml";
         //public const string sceneFile = "Content\\SceneSchieberaetselPrototyp.xml.xml";
@@ -72,6 +63,8 @@ namespace Candyland
         public const string actionsFile = "Content\\ActionTest.xml";
         public const string startAreaID = "15";
         public const string startLevelID = "15.0";
+        //public const string startAreaID = "66";
+        //public const string startLevelID = "66.0";
         //public const string startAreaID = "6";
         //public const string startLevelID = "6.0";
         //public const string startAreaID = "7";
