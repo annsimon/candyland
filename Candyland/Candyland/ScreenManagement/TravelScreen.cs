@@ -1,25 +1,28 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Candyland
 {
-    class TitleScreen : GameScreen
+    class TravelScreen : GameScreen
     {
-        Texture2D texture;
+        Texture2D background;
 
         public override void Open(Game game)
         {
             this.isFullscreen = true;
 
-            texture = ScreenManager.Content.Load<Texture2D>("ScreenTextures/titleScreen");
+            background = ScreenManager.Content.Load<Texture2D>("ScreenTextures/travelScreen");
         }
 
         public override void Update(GameTime gameTime)
         {
             if (ScreenManager.Input.Equals(InputState.Enter))
             {
-                ScreenManager.RemoveScreen(this);
-                ScreenManager.ActivateNewScreen(new MainMenu());
+                ScreenManager.ResumeLast(this);
             }
         }
 
@@ -29,9 +32,8 @@ namespace Candyland
             int screenHeight = ScreenManager.Game.GraphicsDevice.Viewport.Height;
 
             ScreenManager.SpriteBatch.Begin();
-            ScreenManager.SpriteBatch.Draw(texture, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
+            ScreenManager.SpriteBatch.Draw(background, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
             ScreenManager.SpriteBatch.End();
         }
-
     }
 }

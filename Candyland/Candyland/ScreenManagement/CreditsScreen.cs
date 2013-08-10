@@ -15,7 +15,7 @@ namespace Candyland
         {
             this.isFullscreen = true;
 
-            texture = ScreenManager.Content.Load<Texture2D>("creditScreen");
+            texture = ScreenManager.Content.Load<Texture2D>("ScreenTextures/creditScreen");
         }
 
         public override void Update(GameTime gameTime)

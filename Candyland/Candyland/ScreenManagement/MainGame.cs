@@ -1,6 +1,6 @@
-﻿using System;
-using Microsoft.Xna.Framework.Media;
+﻿using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 
 namespace Candyland
 {
@@ -29,6 +29,11 @@ namespace Candyland
             {
                 ScreenManager.ActivateNewScreen(new MainMenu());
             }
+            if (Keyboard.GetState().IsKeyDown(Keys.D))
+            {
+                ScreenManager.ActivateNewScreen(new DialogueScreen());
+            }
+
             m_sceneManager.Update(gameTime);
         }
 

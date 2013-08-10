@@ -69,5 +69,13 @@ namespace Candyland
         //public const string startLevelID = "6.0";
         //public const string startAreaID = "7";
         //public const string startLevelID = "7.0";
+
+
+        /// <summary>
+        /// Strings
+        /// </summary>
+        /// 
+        // Dialogue
+        public const string tradesmanGreeting = "Ah, ein Kunde. Guten Tag, Reisender! Womit kann ich behilflich sein? Kann ich dich fuer meine Waren begeistern oder suchst du eine Transportmoeglichkeit?";
     }
 }

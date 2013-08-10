@@ -166,7 +166,7 @@ namespace Candyland
                     {
                         currentScreen.ScreenState = ScreenState.Hidden;
                     }
-                    else currentScreen.ScreenState = ScreenState.Visible;
+                    else if (!currentScreen.ScreenState.Equals(ScreenState.Hidden)) currentScreen.ScreenState = ScreenState.Visible;
                 }
             }
 

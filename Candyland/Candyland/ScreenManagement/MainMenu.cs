@@ -34,8 +34,8 @@ namespace Candyland
             this.ScreenState = ScreenState.Active;
             this.isFullscreen = true;
 
-            background = ScreenManager.Content.Load<Texture2D>("mainMenu");
-            buttonTexture = ScreenManager.Content.Load<Texture2D>("transparent");
+            background = ScreenManager.Content.Load<Texture2D>("ScreenTextures/mainMenu");
+            buttonTexture = ScreenManager.Content.Load<Texture2D>("ScreenTextures/transparent");
 
             // Initialize Buttons
             screenWidth = game.GraphicsDevice.Viewport.Width;
