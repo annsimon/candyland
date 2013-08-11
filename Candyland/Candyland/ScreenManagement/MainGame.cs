@@ -29,7 +29,7 @@ namespace Candyland
             {
                 ScreenManager.ActivateNewScreen(new MainMenu());
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.D))
+            if (Keyboard.GetState().IsKeyDown(Keys.T))
             {
                 ScreenManager.ActivateNewScreen(new DialogueScreen());
             }
