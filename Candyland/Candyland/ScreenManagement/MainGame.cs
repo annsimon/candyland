@@ -34,7 +34,12 @@ namespace Candyland
                 ScreenManager.ActivateNewScreen(new DialogueScreen());
             }
 
-            m_sceneManager.Update(gameTime);
+
+            if (ScreenManager.Game.IsActive && (gameTime.TotalGameTime.Milliseconds % GameConstants.framerate == 0)
+                && ((ScreenManager.Input.Equals(InputState.Enter)) || GameConstants.singlestepperOFF))
+            {
+                m_sceneManager.Update(gameTime);
+            }
         }
 
         public override void Draw(GameTime gameTime)

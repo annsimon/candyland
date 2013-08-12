@@ -382,11 +382,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Verfolgungsjagd.xml">
+    <None Include="Verfolgungsjagd.xml">
       <Name>Verfolgungsjagd</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
-    </Compile>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 

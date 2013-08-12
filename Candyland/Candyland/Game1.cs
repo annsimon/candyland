@@ -21,7 +21,7 @@ namespace Candyland
             graphics = new GraphicsDeviceManager(this);
             //graphics.PreferredBackBufferWidth = 600;
             //graphics.PreferredBackBufferHeight = 400;
-            graphics.IsFullScreen = true;
+            //graphics.IsFullScreen = true;
             Content.RootDirectory = "Content";
 
             // Create the screen manager component.
@@ -75,16 +75,11 @@ namespace Candyland
         {
             newState = Keyboard.GetState();
 
-            //if (this.IsActive && (gameTime.TotalGameTime.Milliseconds % GameConstants.framerate == 0 )
-            //    && ((newState.IsKeyDown(Keys.Enter)&& newState != oldState) || GameConstants.singlestepperOFF))
-            //{
-                // Allows the game to exit
-                if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed
-                    || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                    this.Exit();
+            // Allows the game to exit
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed
+                || Keyboard.GetState().IsKeyDown(Keys.Escape))
+                this.Exit();
 
-            //    m_sceneManager.Update(gameTime);
-            //}
             // Controls to Mute background music
             if (newState.IsKeyDown(Keys.L) && newState != oldState)
             {
