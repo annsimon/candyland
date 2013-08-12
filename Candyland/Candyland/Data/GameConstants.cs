@@ -37,6 +37,11 @@ namespace Candyland
             stillTouched = 2
         }
 
+        /// <summary>
+        /// distance a movable obstacle will move when pushed
+        /// </summary>
+        public const float obstacleMoveDistance = 0.5f;
+
         public enum SubActionType
         {
             appear = 0,
@@ -56,18 +61,26 @@ namespace Candyland
 
         // data regarding the scene
         //public const string sceneFile = "Content\\sceneNew.xml";
-        public const string sceneFile = "Content\\sceneNew.xml";
+       // public const string sceneFile = "Content\\sceneNew.xml";
         //public const string sceneFile = "Content\\HoehlenTest.xml";
-        //public const string sceneFile = "Content\\SceneSchieberaetselPrototyp.xml.xml";
+        public const string sceneFile = "Content\\SceneSchieberaetselPrototyp.xml";
         public const string eventFile = "Content\\EventTest.xml";
         public const string actionsFile = "Content\\ActionTest.xml";
-        public const string startAreaID = "15";
-        public const string startLevelID = "15.0";
+        public const string startAreaID = "7";
+        public const string startLevelID = "7.0";
         //public const string startAreaID = "66";
         //public const string startLevelID = "66.0";
         //public const string startAreaID = "6";
         //public const string startLevelID = "6.0";
         //public const string startAreaID = "7";
         //public const string startLevelID = "7.0";
+
+
+        /// <summary>
+        /// Strings
+        /// </summary>
+        /// 
+        // Dialogue
+        public const string tradesmanGreeting = "Ah, ein Kunde. Guten Tag, Reisender! Womit kann ich behilflich sein? Kann ich dich fuer meine Waren begeistern oder suchst du eine Transportmoeglichkeit?";
     }
 }

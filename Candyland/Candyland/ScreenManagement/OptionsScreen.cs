@@ -18,7 +18,7 @@ namespace Candyland
 
             ContentManager content = ScreenManager.Content;
 
-            background = content.Load<Texture2D>("titleScreen");
+            background = content.Load<Texture2D>("ScreenTextures/optionsScreen");
         }
 
         public override void Update(GameTime gameTime)

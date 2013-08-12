@@ -112,6 +112,7 @@
     <Compile Include="GameObjects\Obstacles\ObstacleBreakable.cs" />
     <Compile Include="GameObjects\Obstacles\ObstacleForSwitch.cs" />
     <Compile Include="GameObjects\Obstacles\ObstacleMoveable.cs" />
+    <Compile Include="GameObjects\Platforms\BreakingPlatform.cs" />
     <Compile Include="GameObjects\Platforms\MovingPlatform.cs" />
     <Compile Include="GameObjects\Platforms\Platform.cs" />
     <Compile Include="GameObjects\Platforms\PlatformTeleporter.cs" />
@@ -149,7 +150,9 @@
     <Compile Include="SceneStructure\Level.cs" />
     <Compile Include="SceneStructure\SceneManager.cs" />
     <Compile Include="ScreenManagement\BonusScreen.cs" />
+    <Compile Include="ScreenManagement\BonusTile.cs" />
     <Compile Include="ScreenManagement\CreditsScreen.cs" />
+    <Compile Include="ScreenManagement\DialogueScreen.cs" />
     <Compile Include="ScreenManagement\GameScreen.cs" />
     <Compile Include="ScreenManagement\MainGame.cs" />
     <Compile Include="ScreenManagement\MainMenu.cs" />
@@ -158,7 +161,9 @@
     <Compile Include="ScreenManagement\Pause.cs" />
     <Compile Include="ScreenManagement\ScreenInputManager.cs" />
     <Compile Include="ScreenManagement\ScreenManager.cs" />
+    <Compile Include="ScreenManagement\ShopScreen.cs" />
     <Compile Include="ScreenManagement\TitleScreen.cs" />
+    <Compile Include="ScreenManagement\TravelScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
@@ -205,6 +210,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

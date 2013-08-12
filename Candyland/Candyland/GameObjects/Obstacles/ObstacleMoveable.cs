@@ -14,6 +14,8 @@ namespace Candyland
     class ObstacleMoveable : Obstacle
     {
         protected bool isOnSlipperyGround;
+        protected bool isPushed;
+        protected float movedDistance = 0;
 
         public ObstacleMoveable(String id, Vector3 pos, UpdateInfo updateInfo, bool visible)
         {
@@ -62,6 +64,18 @@ namespace Candyland
             if (currentspeed != 0 && isOnSlipperyGround)
             {
                 slide();
+            }
+
+            // Obstacle was pushed and moves one step
+            //TODO make sure there won't be rounding errors
+            if (isPushed && movedDistance < GameConstants.obstacleMoveDistance)
+            {
+                move();
+            }
+            else
+            {
+                movedDistance = 0;
+                isPushed = false;
             }
 
         }
@@ -165,6 +179,7 @@ namespace Candyland
                         {
                             currentspeed = GameConstants.obstacleSpeed;
                         }
+                        isPushed = true;
                         move();
                     }
                     // Test if collision in Z direction
@@ -176,6 +191,7 @@ namespace Candyland
                         {
                             currentspeed = GameConstants.obstacleSpeed;
                         }
+                        isPushed = true;
                         move();
                     }
             }
@@ -202,6 +218,7 @@ namespace Candyland
 
             // move Obstacle
                 translate = GameConstants.obstacleSpeed * direction;
+                movedDistance += GameConstants.obstacleSpeed;
                 newPosition = this.getPosition() + translate;
                 this.setPosition(newPosition);
         }
