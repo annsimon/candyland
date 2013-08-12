@@ -8028,7 +8028,7 @@
                     <object_type>platform</object_type>
                     <object_id>66.0.2.dyn</object_id>
                     <is_door_to_area>x</is_door_to_area>
-                    <is_door_to_level>x</is_door_to_level>
+                    <is_door_to_level>66.1</is_door_to_level>
                     <object_position>
                       <x>7</x>
                       <y>0</y>
@@ -8049,6 +8049,50 @@
                     <is_door_to_level>x</is_door_to_level>
                     <object_position>
                       <x>7</x>
+                      <y>0</y>
+                      <z>0</z>
+                    </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
+                    <slippery>False</slippery>
+                    <visible>True</visible>
+                  </object>
+                </dynamics>
+              </dynamic_objects>
+            </the_objects>
+          </objects>
+        </level>
+        <!--- LEVEL 66.1 -->
+        <level>
+          <level_id>66.1</level_id>
+          <main_start_platform>66.1.1.dyn</main_start_platform>
+          <secondary_start_platform>66.1.1.dyn</secondary_start_platform>
+          <level_starting_position>
+            <x>7</x>
+            <y>0</y>
+            <z>84</z>
+          </level_starting_position>
+          <objects>
+            <the_objects>
+            <!--- OBJECTS OF LEVEL 66.1 -->
+            <!--- STATIC-->
+              <static_objects>
+                <statics>
+                </statics>
+              </static_objects>
+            <!--- DYNAMIC-->
+              <dynamic_objects>
+                <dynamics>
+                  <object>
+                    <object_type>platform</object_type>
+                    <object_id>66.1.1.dyn</object_id>
+                    <is_door_to_area>x</is_door_to_area>
+                    <is_door_to_level>66.0</is_door_to_level>
+                    <object_position>
+                      <x>0</x>
                       <y>0</y>
                       <z>0</z>
                     </object_position>

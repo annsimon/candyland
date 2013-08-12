@@ -87,15 +87,22 @@ namespace Candyland
 
         private void mouseMovementRun(Playable player, KeyboardState keystate, MouseState mousestate)
         {
+
+            //Calculate the difference for Camera Movement and normalize it
+            float dcamx = mousestate.X - screenWidth / 2;
+            float dcamy = mousestate.Y - screenHeight / 2;
+            //normalize the movement difference
+            dcamx /= screenWidth / 4;
+            dcamy /= screenHeight / 4;
            
             //get the Keyboard Input to Move the player
             float dmovextemp = 0;
             float dmoveytemp = 0;
 
-            if ((keystate.IsKeyDown(Keys.W))||(keystate.IsKeyUp(Keys.W))) dmoveytemp += 1;
-            if(keystate.IsKeyDown(Keys.S))      dmoveytemp -= 1f;
-            if(keystate.IsKeyDown(Keys.A))      dmovextemp += 1f;
-            if (keystate.IsKeyDown(Keys.D))     dmovextemp -= 1f;
+            if ((keystate.IsKeyDown(Keys.W))||(keystate.IsKeyUp(Keys.W))) dmoveytemp += 1.5f;
+            if(keystate.IsKeyDown(Keys.S))      dmoveytemp -= 1.5f;
+            if(keystate.IsKeyDown(Keys.A))      dmovextemp += 1.5f;
+            if (keystate.IsKeyDown(Keys.D))     dmovextemp -= 1.5f;
             if (keystate.IsKeyDown(Keys.Space)
                 && keystate.IsKeyDown(Keys.Space) != oldKeyboardState.IsKeyDown(Keys.Space))
             {
@@ -120,8 +127,10 @@ namespace Candyland
             float dmovex = (float)Math.Cos(alpha) * dmovextemp - (float)Math.Sin(alpha) * dmoveytemp;
             float dmovey = (float)Math.Sin(alpha) * dmovextemp + (float)Math.Cos(alpha) * dmoveytemp;
             //move the player
-            player.movementInput(dmovex, dmovey, 0, 0);
+            player.movementInput(dmovex, dmovey, dcamx, dcamy);
 
+
+            Mouse.SetPosition(screenWidth / 2, screenHeight / 2);
 
             oldKeyboardState = keystate;
             oldMouseState = mousestate;
