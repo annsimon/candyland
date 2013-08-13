@@ -133,10 +133,9 @@ namespace Candyland
              {
                  if (obj.isVisible && !obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
                  {
+                     //does this even make sense? Isn't obj of type ObstacleMovable?
                      if (!(obj is Playable))
                          System.Console.WriteLine("collideMovable");
-                     currentspeed = 0;
-                     preventIntersection(obj);
                      obj.hasCollidedWith(this);
                  }
                  else
@@ -165,13 +164,13 @@ namespace Candyland
             {
                 // Find out on which boundingbox side the collision occurs
 
-                BoundingBox bbSwitch = m_boundingBox;
+                BoundingBox bbObstacle = m_boundingBox;
                 BoundingBox bbPlayer = obj.getBoundingBox();
 
                 // Obstacle should only be moved, if collided from the side
 
                     //Test if collison in X direction
-                    if ( ( (bbSwitch.Max.X -bbPlayer.Min.X) < 0.01f ) || ( (bbPlayer.Max.X -bbSwitch.Min.X) < 0.01f ) )
+                    if ( ( (bbObstacle.Max.X -bbPlayer.Min.X) < 0.01f ) || ( (bbPlayer.Max.X -bbObstacle.Min.X) < 0.01f ) )
                     {
                         this.direction = new Vector3(obj.getDirection().X, 0, 0);
                         this.direction.Normalize();
@@ -183,7 +182,7 @@ namespace Candyland
                         move();
                     }
                     // Test if collision in Z direction
-                    if (((bbSwitch.Max.Z - bbPlayer.Min.Z) < 0.01f) || ((bbPlayer.Max.Z - bbSwitch.Min.Z) < 0.01f))
+                    if (((bbObstacle.Max.Z - bbPlayer.Min.Z) < 0.01f) || ((bbPlayer.Max.Z - bbObstacle.Min.Z) < 0.01f))
                     {
                         this.direction = new Vector3(0, 0, obj.getDirection().Z);
                         this.direction.Normalize();
@@ -194,6 +193,22 @@ namespace Candyland
                         isPushed = true;
                         move();
                     }
+            }
+
+            // getting pushed by other obstacle
+            if (obj.GetType() == typeof(CandyGuy))
+            {
+                // pushing obstacle is sliding and pusehd obstacle is on slippery ground
+                if (obj.getCurrentSpeed() != 0 && this.isOnSlipperyGround)
+                {
+                    this.currentspeed = obj.getCurrentSpeed();
+                    obj.setCurrentSpeed(0);
+                }
+                else
+                {
+                    currentspeed = 0;
+                    preventIntersection(obj);
+                }
             }
         }
 

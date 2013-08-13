@@ -45,6 +45,7 @@ namespace Candyland
         protected float currentspeed;       //Momentane geschwindigkeit
         protected float original_currentspeed;       //Momentane geschwindigkeit
         public float getCurrentSpeed() { return currentspeed; }
+        public void setCurrentSpeed(float value) { currentspeed = value; }
 
         #endregion
 

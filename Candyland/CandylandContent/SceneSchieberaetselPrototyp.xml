@@ -1797,6 +1797,24 @@
                     <visible>True</visible>
                   </object>
                   <object>
+                    <object_type>breakingPlatform</object_type>
+                    <object_id>7.0.2</object_id>
+                    <is_door_to_area>x</is_door_to_area>
+                    <is_door_to_level>x</is_door_to_level>
+                    <object_position>
+                      <x>12</x>
+                      <y>0</y>
+                      <z>12</z>
+                    </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
+                    <slippery>False</slippery>
+                    <visible>True</visible>
+                  </object>
+                  <object>
                     <object_type>obstacleForSwitch</object_type>
                     <object_id>7.0.1.obstacleForSwitch</object_id>
                     <is_door_to_area>x</is_door_to_area>
@@ -1984,6 +2002,24 @@
                     <object_position>
                       <x>7</x>
                       <y>0,5</y>
+                      <z>11</z>
+                    </object_position>
+                    <object_endposition>
+                      <x></x>
+                      <y></y>
+                      <z></z>
+                    </object_endposition>
+                    <slippery>False</slippery>
+                    <visible>True</visible>
+                  </object>
+                  <object>
+                    <object_type>movableObstacle</object_type>
+                    <object_id>7.0.4.Mov</object_id>
+                    <is_door_to_area>x</is_door_to_area>
+                    <is_door_to_level>x</is_door_to_level>
+                    <object_position>
+                      <x>14</x>
+                      <y>0</y>
                       <z>11</z>
                     </object_position>
                     <object_endposition>
