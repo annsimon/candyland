@@ -244,6 +244,7 @@
     <property name="size" value="3"/>
    </properties>
   </object>
+  <object name="0.breaking" type="breakingPlatform" x="810" y="70" width="20" height="20"/>
  </objectgroup>
  <objectgroup name="0" width="100" height="100"/>
 </map>
