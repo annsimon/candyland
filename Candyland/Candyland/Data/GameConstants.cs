@@ -28,6 +28,11 @@ namespace Candyland
         public const double switchActiveTime = 4;
 
         /// <summary>
+        /// time a breakable plattform takes for breaking
+        /// </summary>
+        public const double breakTime = 4;
+
+        /// <summary>
         /// state a switch is in
         /// </summary>
         public enum TouchedState
@@ -81,6 +86,6 @@ namespace Candyland
         /// </summary>
         /// 
         // Dialogue
-        public const string tradesmanGreeting = "Ah, ein Kunde. Guten Tag, Reisender! Womit kann ich behilflich sein? Kann ich dich fuer meine Waren begeistern oder suchst du eine Transportmoeglichkeit?";
+        public const string tradesmanGreeting = "Ah, ein Kunde. Guten Tag, Reisender! Womit kann ich behilflich sein? Kann ich dich für meine Waren begeistern oder suchst du eine Transportmöglichkeit?";
     }
 }

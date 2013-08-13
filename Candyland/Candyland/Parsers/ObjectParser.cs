@@ -169,6 +169,17 @@ namespace Candyland
                     switches.Add(node.InnerText, obj);
                 }
                 else
+                    if (object_type == "breakingPlatform")
+                    {
+                        if (dynamicObjects.ContainsKey(node.InnerText))
+                        {
+                            Console.WriteLine("Key " + node.InnerText + " duplicated");
+                            continue;
+                        }
+                        BreakingPlatform obj = new BreakingPlatform(node.InnerText, pos, info, isVisible);
+                        dynamicObjects.Add(node.InnerText, obj);
+                    }
+                else
                 if (object_type == "chocoChip")
                 {
                     if (dynamicObjects.ContainsKey(node.InnerText))
