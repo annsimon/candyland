@@ -15,7 +15,7 @@ namespace Candyland
 
             m_sceneManager = new SceneManager(ScreenManager.GraphicsDevice);
 
-            Song song = ScreenManager.Content.Load<Song>("bgmusic");  // background music from http://longzijun.wordpress.com/2012/12/26/upbeat-background-music-free-instrumentals/
+            Song song = ScreenManager.Content.Load<Song>("Music/bgmusic");  // background music from http://longzijun.wordpress.com/2012/12/26/upbeat-background-music-free-instrumentals/
             MediaPlayer.Play(song);
             MediaPlayer.IsRepeating = true;
 

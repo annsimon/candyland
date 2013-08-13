@@ -29,6 +29,8 @@ namespace Candyland
         public BoundingBox getBoundingBox() { return this.m_boundingBox; }
         public void setBoundingBox(BoundingBox box) { this.m_boundingBox = box; }
 
+        protected int size = 1;
+
         #endregion
 
         #region position, direction, speed

@@ -86,6 +86,7 @@ namespace SceneEditor
 			obj.endPosX = m_objectGenerator.endPosX;
             obj.endPosY = m_objectGenerator.endPosY;
             obj.endPosZ = m_objectGenerator.endPosZ;
+            obj.size = m_objectGenerator.size;
         }
 
         private void addStaticButton_Click(object sender, EventArgs e)
@@ -230,6 +231,7 @@ namespace SceneEditor
             XmlNodeList slippery = scene.GetElementsByTagName("slippery");
             XmlNodeList visible = scene.GetElementsByTagName("visible");
             XmlNodeList endPosition = scene.GetElementsByTagName("object_endposition");
+            XmlNodeList size = scene.GetElementsByTagName("object_size");
             int count = 0;
 
             foreach (XmlNode node in id)
@@ -270,6 +272,9 @@ namespace SceneEditor
 
                 // get isDoorToLevel
                 obj.doorLevel = door_to_level[count].InnerText;
+                
+                // get object size
+                obj.size = size[count].InnerText;
 
                 // add object to list
                 returnList.Add(obj);

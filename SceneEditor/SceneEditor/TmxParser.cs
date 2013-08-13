@@ -47,8 +47,9 @@ namespace SceneEditor
                     else id = idFront + "." + objName;
 
                     String type = obj.Attributes["type"].InnerText;
-                    String posX = Convert.ToDouble(obj.Attributes["x"].InnerText) / 20 + "";
-                    String posZ = Convert.ToDouble(obj.Attributes["y"].InnerText) / 20 + "";
+                    double offset = Convert.ToDouble(obj.Attributes["width"].InnerText) / 2;
+                    String posX = (Convert.ToDouble(obj.Attributes["x"].InnerText) + offset) / 20 + "";
+                    String posZ = (Convert.ToDouble(obj.Attributes["y"].InnerText) + offset) / 20 + "";
                     String endPositionX = "";
                     String endPositionY = "";
                     String endPositionZ = "";
@@ -56,19 +57,20 @@ namespace SceneEditor
                     String isDoorToLevel = "";
                     String isVisible = "true";
                     String isSlippery = "false";
+                    String size = "1";
                     
                     // get the property nodes
                     XmlNodeList properties = obj.ChildNodes[0].ChildNodes;
                     foreach (XmlNode property in properties)
                     {
                         if (property.Attributes["name"].InnerText == "endpositionX" && property.Attributes["value"].InnerText != "-")
-                            endPositionX = Convert.ToDouble(property.Attributes["value"].InnerText) / 2 + "";
+                            endPositionX = (Convert.ToDouble(property.Attributes["value"].InnerText) + (offset/10)) / 2 + "";
                         else
                         if (property.Attributes["name"].InnerText == "endPositionY" && property.Attributes["value"].InnerText != "-")
                             endPositionY = property.Attributes["value"].InnerText;
                         else
                         if (property.Attributes["name"].InnerText == "endPositionZ" && property.Attributes["value"].InnerText != "-")
-                            endPositionZ = Convert.ToDouble(property.Attributes["value"].InnerText) / 2 + "";
+                            endPositionZ = (Convert.ToDouble(property.Attributes["value"].InnerText) + (offset/10)) / 2 + "";
                         else
                         if (property.Attributes["name"].InnerText == "isDoorToArea")
                             if (property.Attributes["value"].InnerText == "-")
@@ -87,6 +89,9 @@ namespace SceneEditor
                         else
                         if (property.Attributes["name"].InnerText == "isSlippery" && property.Attributes["value"].InnerText != "-")
                             isSlippery = property.Attributes["value"].InnerText;
+                        else
+                        if (property.Attributes["name"].InnerText == "size" && property.Attributes["value"].InnerText != "")
+                            size = property.Attributes["value"].InnerText;
                     }
 
                     Object newObj = new Object();
@@ -103,6 +108,7 @@ namespace SceneEditor
                     newObj.endPosX = endPositionX;
                     newObj.endPosY = endPositionY;
                     newObj.endPosZ = endPositionZ;
+                    newObj.size = size;
 
                     if (objName == "-")
                     {

@@ -49,9 +49,9 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
-            effect = content.Load<Effect>("Toon");
-            texture = content.Load<Texture2D>("spielertextur");
-            m_model = content.Load<Model>("spieleranimiert");
+            effect = content.Load<Effect>("Shaders/Toon");
+            texture = content.Load<Texture2D>("NPCs/Spieler/spielertextur");
+            m_model = content.Load<Model>("NPCs/Spieler/spieleranimiert");
             calculateBoundingBox();
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;

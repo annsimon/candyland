@@ -50,6 +50,8 @@
             this.textBoxEndY = new System.Windows.Forms.TextBox();
             this.textBoxEndZ = new System.Windows.Forms.TextBox();
             this.acceptButton = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBoxSize = new System.Windows.Forms.TextBox();
             this.editDynamicButton.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -68,6 +70,8 @@
             this.editDynamicButton.Controls.Add(this.textBoxDoorArea);
             this.editDynamicButton.Controls.Add(this.label5);
             this.editDynamicButton.Controls.Add(this.textBoxDoorLevel);
+            this.editDynamicButton.Controls.Add(this.label7);
+            this.editDynamicButton.Controls.Add(this.textBoxSize);
             this.editDynamicButton.Controls.Add(this.flowLayoutPanel2);
             this.editDynamicButton.Controls.Add(this.label6);
             this.editDynamicButton.Controls.Add(this.textBoxEndX);
@@ -259,6 +263,23 @@
             this.acceptButton.UseVisualStyleBackColor = true;
             this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(261, 59);
+            this.label7.Name = "label7";
+            this.label7.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
+            this.label7.Size = new System.Drawing.Size(27, 19);
+            this.label7.TabIndex = 24;
+            this.label7.Text = "Size";
+            // 
+            // textBoxSize
+            // 
+            this.textBoxSize.Location = new System.Drawing.Point(294, 62);
+            this.textBoxSize.Name = "textBoxSize";
+            this.textBoxSize.Size = new System.Drawing.Size(50, 20);
+            this.textBoxSize.TabIndex = 25;
+            // 
             // ObjectGenerator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -301,5 +322,7 @@
         private System.Windows.Forms.TextBox textBoxEndX;
         private System.Windows.Forms.TextBox textBoxEndY;
         private System.Windows.Forms.TextBox textBoxEndZ;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBoxSize;
     }
 }

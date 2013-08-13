@@ -30,272 +30,10 @@
     <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.VideoImporters, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="plattform.fbx">
-      <Name>plattform</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.33</ProcessorParameters_Scale>
-    </Compile>
-    <Compile Include="schokolinse.fbx">
-      <Name>schokolinse</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.2</ProcessorParameters_Scale>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="chocolatebreakable.fbx">
-      <Name>chocolatebreakable</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="wunderkugelmovable.fbx">
-      <Name>wunderkugelmovable</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.4</ProcessorParameters_Scale>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="partnerneu.fbx">
-      <Name>partnerneu</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.15</ProcessorParameters_Scale>
-    </Compile>
-    <Compile Include="MainText.spritefont">
-      <Name>MainText</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-    </Compile>
-    <Compile Include="Toon.fx">
-      <Name>Toon</Name>
-      <Importer>EffectImporter</Importer>
-      <Processor>EffectProcessor</Processor>
-    </Compile>
-    <Compile Include="lakritzblock.fbx">
-      <Name>lakritzblock</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.5</ProcessorParameters_Scale>
-    </Compile>
-    <Compile Include="blockmovable.fbx">
-      <Name>blockmovable</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.48</ProcessorParameters_Scale>
-    </Compile>
-    <None Include="SceneTest.xml">
-      <Name>SceneTest</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </None>
-    <Compile Include="spielerneu.fbx">
-      <Name>spielerneu</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.15</ProcessorParameters_Scale>
-    </Compile>
-    <Compile Include="TestSkin\Font.spritefont">
-      <Name>Font</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="spielertextur.png">
-      <Name>spielertextur</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="rutschigtextur.png">
-      <Name>rutschigtextur</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="schaltertextur.png">
-      <Name>schaltertextur</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="schokolinsetextur.png">
-      <Name>schokolinsetextur</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="wunderkugeltextur.png">
-      <Name>wunderkugeltextur</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="partnertextur.png">
-      <Name>partnertextur</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="lakritztextur.png">
-      <Name>lakritztextur</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="EventTest.xml">
-      <Name>EventTest</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="spieleranimiert.fbx">
-      <Name>spieleranimiert</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>SkinnedModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.15</ProcessorParameters_Scale>
-    </Compile>
-    <None Include="SpurwechselTest.xml">
-      <Name>SpurwechselTest</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="HoehlenTest.xml">
-      <Name>HoehlenTest</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="schaltertexturinaktiv.png">
-      <Name>schaltertexturinaktiv</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="plattformtextur.png">
-      <Name>plattformtextur</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="blockmovabletextur.png">
-      <Name>blockmovabletextur</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="plattformtexturslippery.png">
-      <Name>plattformtexturslippery</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="SceneSchieberaetselPrototyp.xml">
-      <Name>SceneSchieberaetselPrototyp</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="blockbreakabletextur.png">
-      <Name>blockbreakabletextur</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="blocktextur.png">
-      <Name>blocktextur</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="SceneTest2.xml">
-      <Name>SceneTest2</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Scene.xml">
-      <Name>Scene</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="coin.wav">
-      <Name>coin</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="bgmusic.mp3">
-      <Name>bgmusic</Name>
-      <Importer>Mp3Importer</Importer>
-      <Processor>SongProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ActionTest.xml">
-      <Name>ActionTest</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="sceneNew.xml">
-      <Name>sceneNew</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="TestSkin\Map.txt">
-      <Name>Map</Name>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\SkinnedModelPipeline\SkinnedModelPipeline.csproj">
       <Project>{4636C7E1-B845-4B83-B96D-64A11B8A4515}</Project>
       <Name>SkinnedModelPipeline</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="TestSkin\ImageMap.png">
-      <Name>ImageMap</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ScreenTextures\transparent.png">
@@ -382,12 +120,341 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Verfolgungsjagd.xml">
+    <Compile Include="Music\bgmusic.mp3">
+      <Name>bgmusic</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="NPCs\Helper\partnertextur.png">
+      <Name>partnertextur</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="NPCs\Spieler\spielertextur.png">
+      <Name>spielertextur</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Objekte\Obstacles\blocktextur.png">
+      <Name>blocktextur</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Objekte\Obstacles\Breakable\blockbreakabletextur.png">
+      <Name>blockbreakabletextur</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Objekte\Obstacles\lakritztextur.png">
+      <Name>lakritztextur</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Objekte\Obstacles\lakritztextur_gross.png">
+      <Name>lakritztextur_gross</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Objekte\Obstacles\lakritztextur_klein.png">
+      <Name>lakritztextur_klein</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Objekte\Obstacles\lakritztextur_mittel.png">
+      <Name>lakritztextur_mittel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Objekte\Obstacles\Movable\blockmovabletextur.png">
+      <Name>blockmovabletextur</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Objekte\Plattformen\Moving\bewegbartextur.png">
+      <Name>bewegbartextur</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Objekte\Plattformen\plattformtextur.png">
+      <Name>plattformtextur</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Objekte\Plattformen\plattformtextur_gross.png">
+      <Name>plattformtextur_gross</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Objekte\Plattformen\plattformtextur_klein.png">
+      <Name>plattformtextur_klein</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Objekte\Plattformen\plattformtextur_mittel.png">
+      <Name>plattformtextur_mittel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Objekte\Plattformen\Schalter\schaltertextur.png">
+      <Name>schaltertextur</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Objekte\Plattformen\Schalter\schaltertexturinaktiv.png">
+      <Name>schaltertexturinaktiv</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Objekte\Plattformen\Slippery\plattformtexturslippery.png">
+      <Name>plattformtexturslippery</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Objekte\Plattformen\Slippery\plattformtexturslippery_gross.png">
+      <Name>plattformtexturslippery_gross</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Objekte\Plattformen\Slippery\plattformtexturslippery_klein.png">
+      <Name>plattformtexturslippery_klein</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Objekte\Plattformen\Slippery\plattformtexturslippery_mittel.png">
+      <Name>plattformtexturslippery_mittel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Objekte\Plattformen\Slippery\rutschigtextur.png">
+      <Name>rutschigtextur</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Objekte\Schokolinse\schokolinsetextur.png">
+      <Name>schokolinsetextur</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Objekte\Wunderkugel\wunderkugeltextur.png">
+      <Name>wunderkugeltextur</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <None Include="README.txt">
+      <Name>README</Name>
+    </None>
+    <None Include="Scenes\Actions\ActionTest.xml">
+      <Name>ActionTest</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Scenes\Events\EventTest.xml">
+      <Name>EventTest</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Scenes\HoehlenTest.xml">
+      <Name>HoehlenTest</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Scenes\miniTestLevel.xml">
+      <Name>miniTestLevel</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Scenes\Scene.xml">
+      <Name>Scene</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Scenes\sceneBigObjects.xml">
+      <Name>sceneBigObjects</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Scenes\sceneNew.xml">
+      <Name>sceneNew</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Scenes\sceneNew2.xml">
+      <Name>sceneNew2</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Scenes\SceneSchieberaetselPrototyp.xml">
+      <Name>SceneSchieberaetselPrototyp</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Scenes\SceneTest.xml">
+      <Name>SceneTest</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Scenes\SceneTest2.xml">
+      <Name>SceneTest2</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Scenes\SpurwechselTest.xml">
+      <Name>SpurwechselTest</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Scenes\tmxTest.xml">
+      <Name>tmxTest</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Scenes\Verfolgungsjagd.xml">
       <Name>Verfolgungsjagd</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Compile Include="Sfx\coin.wav">
+      <Name>coin</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Fonts\MainText.spritefont">
+      <Name>MainText</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+    <Compile Include="NPCs\Helper\partnerneu.fbx">
+      <Name>partnerneu</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.15</ProcessorParameters_Scale>
+    </Compile>
+    <Compile Include="NPCs\Lakritze\lakritz.fbx">
+      <Name>lakritz</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+    <Compile Include="NPCs\Spieler\spieleranimiert.fbx">
+      <Name>spieleranimiert</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>SkinnedModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.15</ProcessorParameters_Scale>
+    </Compile>
+    <Compile Include="NPCs\Spieler\spielerneu.fbx">
+      <Name>spielerneu</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.15</ProcessorParameters_Scale>
+    </Compile>
+    <Compile Include="Objekte\Obstacles\Breakable\chocolatebreakable.fbx">
+      <Name>chocolatebreakable</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Objekte\Obstacles\lakritzblock.fbx">
+      <Name>lakritzblock</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Objekte\Obstacles\lakritzblock_gross.fbx">
+      <Name>lakritzblock_gross</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.99</ProcessorParameters_Scale>
+    </Compile>
+    <Compile Include="Objekte\Obstacles\lakritzblock_klein.fbx">
+      <Name>lakritzblock_klein</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.33</ProcessorParameters_Scale>
+    </Compile>
+    <Compile Include="Objekte\Obstacles\lakritzblock_mittel.fbx">
+      <Name>lakritzblock_mittel</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.66</ProcessorParameters_Scale>
+    </Compile>
+    <Compile Include="Objekte\Obstacles\Movable\blockmovable.fbx">
+      <Name>blockmovable</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.48</ProcessorParameters_Scale>
+    </Compile>
+    <Compile Include="Objekte\Plattformen\Moving\bewegbareplattform.fbx">
+      <Name>bewegbareplattform</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Objekte\Plattformen\plattform_gross.fbx">
+      <Name>plattform_gross</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.99</ProcessorParameters_Scale>
+    </Compile>
+    <Compile Include="Objekte\Plattformen\plattform_klein.fbx">
+      <Name>plattform_klein</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.33</ProcessorParameters_Scale>
+    </Compile>
+    <Compile Include="Objekte\Plattformen\plattform_mittel.fbx">
+      <Name>plattform_mittel</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.66</ProcessorParameters_Scale>
+    </Compile>
+    <Compile Include="Objekte\Plattformen\Slippery\plattformrutschig.fbx">
+      <Name>plattformrutschig</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Objekte\Schokolinse\schokolinse.fbx">
+      <Name>schokolinse</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.2</ProcessorParameters_Scale>
+    </Compile>
+    <Compile Include="Objekte\Wunderkugel\wunderkugelmovable.fbx">
+      <Name>wunderkugelmovable</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.4</ProcessorParameters_Scale>
+    </Compile>
+    <Compile Include="Shaders\Toon.fx">
+      <Name>Toon</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
+    <Folder Include="NPCs\Fee\" />
+    <Folder Include="NPCs\Händler\" />
+    <Folder Include="NPCs\TutorialGuy\" />
+    <Folder Include="Objekte\Plattformen\Teleport\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Objekte\Obstacles\blockmovabletextur.png">
+      <Name>blockmovabletextur</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 

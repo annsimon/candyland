@@ -19,10 +19,6 @@ namespace Candyland
         SpriteFont mainText;
         ContentManager content;
 
-        // Only needed for Ruminate
-        Texture2D testImageMap;
-        String testMap;
-
         ScreenInputManager screenInput;
         InputState input;
 
@@ -52,16 +48,6 @@ namespace Candyland
             get { return content; }
         }
 
-        public Texture2D TestImageMap
-        {
-            get { return testImageMap; }
-        }
-
-        public String TestMap
-        {
-            get { return testMap;}
-        }
-
         public InputState Input
         {
             get { return input; }
@@ -89,11 +75,8 @@ namespace Candyland
 
             screenInput = new ScreenInputManager();
 
-            testImageMap = content.Load<Texture2D>("TestSkin/ImageMap");
-            testMap = File.OpenText(@"Content\TestSkin\Map.txt").ReadToEnd();
-
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            mainText = content.Load<SpriteFont>("MainText");
+            mainText = content.Load<SpriteFont>("Fonts/MainText");
 
             // Open topmost screen
             screens.Last().ScreenState = ScreenState.Active;

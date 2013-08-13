@@ -82,7 +82,7 @@ namespace Candyland
             player.load(manager);
             player2.load(manager);
 
-            screenFont = manager.Load<SpriteFont>("MainText");
+            screenFont = manager.Load<SpriteFont>("Fonts/MainText");
         }
 
         public void Update(GameTime gameTime)
