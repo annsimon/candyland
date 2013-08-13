@@ -30,7 +30,7 @@ namespace Candyland
         /// </summary>
         /// <param name="type">The SubActionType</param>
         /// <param name="goal">The position the object will move to (only used if SubActionType is movement)</param>
-        /// <param name="text">The text the object will display in a conversation (only used if SubActionTime is dialog)</param>
+        /// <param name="text">The text the object will display in a conversation (only used if SubActionType is dialog)</param>
         /// <param name="locks">This SubAction will lock the game (player can't move; "movie mode")</param>
         public SubAction(GameConstants.SubActionType type, Vector3 goal, String text, bool locks)
         {

@@ -28,7 +28,7 @@ namespace Candyland
         protected virtual void initialize(String id, Vector3 pos, UpdateInfo updateInfo, bool visible, int size = 1)
         {
             base.init(id, pos, updateInfo, visible);
-            this.m_position.Y += 0.8f;
+            this.m_position.Y += 0.68f;
             this.m_original_position = this.m_position;
             this.size = size;
         }

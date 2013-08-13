@@ -16,6 +16,9 @@ namespace Candyland
         Rectangle ownDiagBox;
         Rectangle otherDiagBox;
 
+        string otherText;
+        string option1, option2, option3, option4;
+
         int activeIndex = 0;
         int numberOfOptions = 4;
 
@@ -28,7 +31,7 @@ namespace Candyland
             screenWidth = game.GraphicsDevice.Viewport.Width;
             screenHeight = game.GraphicsDevice.Viewport.Height;
 
-            otherDiagBox = new Rectangle(0, (screenHeight * 3) / 4, screenWidth, screenHeight / 4);
+            otherDiagBox = new Rectangle(0, (screenHeight * 2) / 3, screenWidth, screenHeight / 3);
             ownDiagBox = new Rectangle(screenWidth/3, 0, screenWidth * 2/3, screenHeight * 2/3); 
         }
 
@@ -62,7 +65,7 @@ namespace Candyland
 
         public override void Draw(GameTime gameTime)
         {
-            int lineDist = font.LineSpacing * 2;
+            int lineDist = font.LineSpacing;
             int offset = 10;
             int leftAlign = ownDiagBox.X + ownDiagBox.Width / 5;
             int topAlign = ownDiagBox.Y + ownDiagBox.Height / 5; 
@@ -99,6 +102,13 @@ namespace Candyland
             m_graphics.BlendState = BlendState.Opaque;
         }
 
+        /// <summary>
+        /// Puts line breaks into a string to make it fit into a given text box
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="font"></param>
+        /// <param name="textBox"></param>
+        /// <returns></returns>
         private String wrapText(String text, SpriteFont font, Rectangle textBox)
         {
             String lineString = String.Empty;
