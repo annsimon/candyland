@@ -196,7 +196,7 @@ namespace Candyland
             }
 
             // getting pushed by other obstacle
-            if (obj.GetType() == typeof(CandyGuy))
+            if (obj.GetType() == typeof(ObstacleMoveable))
             {
                 // pushing obstacle is sliding and pusehd obstacle is on slippery ground
                 if (obj.getCurrentSpeed() != 0 && this.isOnSlipperyGround)
