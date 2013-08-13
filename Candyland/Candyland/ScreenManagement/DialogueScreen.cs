@@ -63,7 +63,7 @@ namespace Candyland
         public override void Draw(GameTime gameTime)
         {
             int lineDist = font.LineSpacing * 2;
-            int offset = 80;
+            int offset = 10;
             int leftAlign = ownDiagBox.X + ownDiagBox.Width / 5;
             int topAlign = ownDiagBox.Y + ownDiagBox.Height / 5; 
 
@@ -74,7 +74,7 @@ namespace Candyland
             m_sprite.Draw(OwnTalkBubble, ownDiagBox, Color.White);
             m_sprite.Draw(OtherTalkBubble, otherDiagBox, Color.White);
 
-            m_sprite.DrawString(font, GameConstants.tradesmanGreeting, new Vector2(otherDiagBox.X + offset, otherDiagBox.Y + offset), Color.Black);
+            m_sprite.DrawString(font, wrapText(GameConstants.tradesmanGreeting, font, otherDiagBox), new Vector2(otherDiagBox.X + offset, otherDiagBox.Y + offset), Color.Black);
 
             m_sprite.DrawString(font, "Reden", new Vector2(leftAlign, topAlign), Color.Black);
             m_sprite.DrawString(font, "Einkaufen", new Vector2(leftAlign, topAlign + lineDist), Color.Black);
@@ -97,6 +97,26 @@ namespace Candyland
             GraphicsDevice m_graphics = ScreenManager.Game.GraphicsDevice;
             m_graphics.DepthStencilState = DepthStencilState.Default;
             m_graphics.BlendState = BlendState.Opaque;
+        }
+
+        private String wrapText(String text, SpriteFont font, Rectangle textBox)
+        {
+            String lineString = String.Empty;
+            String returnString = String.Empty;
+            String[] wordArray = text.Split(' ');
+
+            foreach (String word in wordArray)
+            {
+                float lineWidth = font.MeasureString(lineString + word).Length();
+                if (lineWidth > textBox.Width)
+                {
+                    returnString = returnString + lineString + '\n';
+                    lineString = String.Empty;
+                }
+
+                lineString = lineString + word + ' ';
+            }
+            return returnString + lineString;
         }
     }
 }
