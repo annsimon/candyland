@@ -130,11 +130,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="NPCs\Spieler\spielertextur.png">
-      <Name>spielertextur</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="Objekte\Obstacles\blocktextur.png">
       <Name>blocktextur</Name>
       <Importer>TextureImporter</Importer>
@@ -242,11 +237,6 @@
     </Compile>
     <Compile Include="NPCs\Spieler\candyguy.fbx">
       <Name>candyguy</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>SkinnedModelProcessor</Processor>
-    </Compile>
-    <Compile Include="NPCs\Spieler\candyguy2.fbx">
-      <Name>candyguy2</Name>
       <Importer>FbxImporter</Importer>
       <Processor>SkinnedModelProcessor</Processor>
     </Compile>
@@ -364,18 +354,6 @@
       <Name>lakritz</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
-    </Compile>
-    <Compile Include="NPCs\Spieler\spieleranimiert.fbx">
-      <Name>spieleranimiert</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>SkinnedModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.2</ProcessorParameters_Scale>
-    </Compile>
-    <Compile Include="NPCs\Spieler\spielerneu.fbx">
-      <Name>spielerneu</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.15</ProcessorParameters_Scale>
     </Compile>
     <Compile Include="Objekte\Obstacles\Breakable\chocolatebreakable.fbx">
       <Name>chocolatebreakable</Name>
