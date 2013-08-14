@@ -58,25 +58,25 @@ namespace Candyland
 
         InputManager m_inputManager;
 
-        public SceneManager(GraphicsDevice graphics, SpriteBatch spriteBatch, ContentManager content)
+        public SceneManager(ScreenManager screenManager)
         {
             m_bonusTracker = new BonusTracker(); // load this one from xml as serialized object?
 
             m_actionTracker = new ActionTracker();
 
-            m_updateInfo = new UpdateInfo(graphics);
+            m_updateInfo = new UpdateInfo(screenManager.GraphicsDevice, screenManager);
 
 
-            m_inputManager = new InputManager(graphics, GameConstants.inputManagerMode, m_updateInfo);
+            m_inputManager = new InputManager(screenManager.GraphicsDevice, GameConstants.inputManagerMode, m_updateInfo);
             /****************************************************************/
-            m_graphics = graphics;
-            m_spriteBatch = spriteBatch;
+            m_graphics = screenManager.GraphicsDevice;
+            m_spriteBatch = screenManager.SpriteBatch;
             /****************************************************************/
                         
             m_areas = AreaParser.ParseAreas(m_updateInfo, m_bonusTracker, m_actionTracker);
 
-            player = new CandyGuy(new Vector3(0, 0.4f, 0), Vector3.Up, graphics.Viewport.AspectRatio, m_updateInfo, m_bonusTracker);
-            player2 = new CandyHelper(new Vector3(0, 0.4f, 0.2f), Vector3.Up, graphics.Viewport.AspectRatio, m_updateInfo, m_bonusTracker);
+            player = new CandyGuy(new Vector3(0, 0.4f, 0), Vector3.Up, m_graphics.Viewport.AspectRatio, m_updateInfo, m_bonusTracker);
+            player2 = new CandyHelper(new Vector3(0, 0.4f, 0.2f), Vector3.Up, m_graphics.Viewport.AspectRatio, m_updateInfo, m_bonusTracker);
 
             Vector3 playerStartPos = m_areas[m_updateInfo.currentAreaID].GetPlayerStartingPosition();
             playerStartPos.Y += 0.6f;
@@ -86,7 +86,7 @@ namespace Candyland
             player2.setPosition(player2StartPos);
 
             // set up shadow map for drop shadows
-            m_shadowMap = new ShadowMap(m_graphics, content);
+            m_shadowMap = new ShadowMap(m_graphics, screenManager.Content);
             m_shadowMap.DepthBias = 0.00249f;
 
             // set up scene light

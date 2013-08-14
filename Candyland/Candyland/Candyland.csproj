@@ -135,6 +135,7 @@
     <Compile Include="Logical\SwitchEvent.cs" />
     <Compile Include="Logical\SwitchGroup.cs" />
     <Compile Include="MyModel.cs" />
+    <Compile Include="NPCs\BonbonFairy.cs" />
     <Compile Include="NPCs\HelperFairy.cs" />
     <Compile Include="Parsers\ActionParser.cs" />
     <Compile Include="Parsers\AreaParser.cs" />
@@ -149,7 +150,8 @@
     <Compile Include="ScreenManagement\BonusScreen.cs" />
     <Compile Include="ScreenManagement\BonusTile.cs" />
     <Compile Include="ScreenManagement\CreditsScreen.cs" />
-    <Compile Include="ScreenManagement\DialogueScreen.cs" />
+    <Compile Include="ScreenManagement\DialogListeningScreen.cs" />
+    <Compile Include="ScreenManagement\SalesmanDialogueScreen.cs" />
     <Compile Include="ScreenManagement\GameScreen.cs" />
     <Compile Include="ScreenManagement\MainGame.cs" />
     <Compile Include="ScreenManagement\MainMenu.cs" />
@@ -207,7 +209,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

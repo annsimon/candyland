@@ -13,7 +13,7 @@ namespace Candyland
         {
             this.isFullscreen = true;
 
-            m_sceneManager = new SceneManager(ScreenManager.GraphicsDevice, ScreenManager.SpriteBatch, ScreenManager.Content);
+            m_sceneManager = new SceneManager(ScreenManager);
 
             Song song = ScreenManager.Content.Load<Song>("Music/bgmusic");  // background music from http://longzijun.wordpress.com/2012/12/26/upbeat-background-music-free-instrumentals/
             MediaPlayer.Play(song);
@@ -31,7 +31,11 @@ namespace Candyland
             }
             if (Keyboard.GetState().IsKeyDown(Keys.T))
             {
-                ScreenManager.ActivateNewScreen(new DialogueScreen());
+                ScreenManager.ActivateNewScreen(new SalesmanDialogueScreen());
+            }
+            if (Keyboard.GetState().IsKeyDown(Keys.Z))
+            {
+                ScreenManager.ActivateNewScreen(new DialogListeningScreen("Hallo hallo"));
             }
 
 

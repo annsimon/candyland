@@ -56,7 +56,7 @@ namespace SceneEditor
                     String isDoorToArea = "";
                     String isDoorToLevel = "";
                     String isVisible = "true";
-                    String isSlippery = "false";
+                    String slippery = "0";
                     String size = "1";
                     
                     // get the property nodes
@@ -87,8 +87,8 @@ namespace SceneEditor
                         if (property.Attributes["name"].InnerText == "isVisible" && property.Attributes["value"].InnerText != "-")
                             isVisible = property.Attributes["value"].InnerText;
                         else
-                        if (property.Attributes["name"].InnerText == "isSlippery" && property.Attributes["value"].InnerText != "-")
-                            isSlippery = property.Attributes["value"].InnerText;
+                        if (property.Attributes["name"].InnerText == "slippery" && property.Attributes["value"].InnerText != "-")
+                            slippery = property.Attributes["value"].InnerText;
                         else
                         if (property.Attributes["name"].InnerText == "size" && property.Attributes["value"].InnerText != "")
                             size = property.Attributes["value"].InnerText;
@@ -103,7 +103,7 @@ namespace SceneEditor
                     newObj.posZ = posZ;
                     newObj.doorArea = isDoorToArea;
                     newObj.doorLevel = isDoorToLevel;
-                    newObj.isSlippery = Convert.ToBoolean(isSlippery);
+                    newObj.slippery = slippery;
                     newObj.isVisible = Convert.ToBoolean(isVisible);
                     newObj.endPosX = endPositionX;
                     newObj.endPosY = endPositionY;

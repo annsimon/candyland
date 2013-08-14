@@ -21,7 +21,7 @@ namespace Candyland
         /// <summary>
         /// speed of moving obstacles
         /// </summary>
-        public const float obstacleSpeed = 0.05f;
+        public const float slippingSpeed = 0.05f;
 
         /// <summary>
         /// time a timed switch stays activated
@@ -50,7 +50,7 @@ namespace Candyland
         /// <summary>
         /// distance a movable obstacle will move when pushed
         /// </summary>
-        public const float obstacleMoveDistance = 0.5f;
+        public const float obstacleMoveDistance = 0.1f;
 
         public enum SubActionType
         {
@@ -83,5 +83,15 @@ namespace Candyland
         /// 
         // Dialogue
         public const string tradesmanGreeting = "Ah, ein Kunde. Guten Tag, Reisender! Womit kann ich behilflich sein? Kann ich dich für meine Waren begeistern oder suchst du eine Transportmöglichkeit? Oder möchtest du ein paar Neuigkeiten über Candyland hören? Ich höre viel und rede gern :) Hast du z.B. schon von der neuen Bedrohung durch die größenwahnsinnige Lakritze gehört?";
+
+        public static String getFairyMessage(String levelID)
+        {
+            switch(levelID)
+            {
+                case "7.0": return "Ich gebe dir hilfreiche Tipps.";
+            }
+
+            return "";
+        }
     }
 }

@@ -18,7 +18,7 @@ namespace SceneEditor
         public string posZ { get; set; }
         public string doorArea { get; set; }
         public string doorLevel { get; set; }
-        public bool isSlippery { get; set; }
+        public string slippery { get; set; }
         public bool isVisible { get; set; }
         public string endPosX { get; set; }
         public string endPosY { get; set; }
@@ -55,7 +55,7 @@ namespace SceneEditor
             textBoxPosZ.Text = obj.posZ;
             textBoxDoorArea.Text = obj.doorArea;
             textBoxDoorLevel.Text = obj.doorLevel;
-            checkBoxSlippery.Checked = obj.isSlippery;
+            textBoxSlippery.Text = obj.slippery;
             checkBoxVisible.Checked = obj.isVisible;
             textBoxEndX.Text = obj.endPosX;
             textBoxEndY.Text = obj.endPosY;
@@ -81,7 +81,7 @@ namespace SceneEditor
                 doorLevel = "x";
             else
                 doorLevel = textBoxDoorLevel.Text;
-            isSlippery = checkBoxSlippery.Checked;
+            slippery = textBoxSlippery.Text;
             isVisible = checkBoxVisible.Checked;
             size = textBoxSize.Text;
             this.DialogResult = DialogResult.OK;
@@ -97,7 +97,7 @@ namespace SceneEditor
         public string posZ { get; set; }
         public string doorArea { get; set; }
         public string doorLevel { get; set; }
-        public bool isSlippery { get; set; }
+        public string slippery { get; set; }
         public bool isVisible{ get; set; }
         public string size { get; set; }
 
@@ -131,7 +131,7 @@ namespace SceneEditor
             ret += "                      <z>" + endPosZ + "</z>\n";
             ret += "                    </object_endposition>\n";
             ret += "                    <object_size>" + size + "</object_size>\n";
-            ret += "                    <slippery>" + isSlippery.ToString() + "</slippery>\n";
+            ret += "                    <slippery>" + slippery + "</slippery>\n";
             ret += "                    <visible>" + isVisible.ToString() + "</visible>\n";
             ret += "                  </object>\n";
             return ret;

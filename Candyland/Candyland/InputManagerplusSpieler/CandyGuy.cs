@@ -20,6 +20,7 @@ namespace Candyland
         
         public CandyGuy(Vector3 position, Vector3 direction, float aspectRatio, UpdateInfo info, BonusTracker bonusTracker)
         {
+             
             m_updateInfo = info;
             m_bonusTracker = bonusTracker;
             this.m_position = position;
@@ -43,6 +44,16 @@ namespace Candyland
 
         public override void update()
         {
+            KeyboardState keystate = Keyboard.GetState();
+            if (!keystate.IsKeyDown(Keys.W) && !keystate.IsKeyDown(Keys.A) && !keystate.IsKeyDown(Keys.D) && !keystate.IsKeyDown(Keys.S))
+            {
+                animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, false, Matrix.Identity);
+
+            }
+            else
+            {
+                animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
+            }
             base.update();
             fall();
             if (m_updateInfo.candyselected)
@@ -54,8 +65,8 @@ namespace Candyland
         public override void load(ContentManager content)
         {
             effect = content.Load<Effect>("Shaders/Shader");
-            m_texture = content.Load<Texture2D>("NPCs/Spieler/spielertextur");
-            m_model = content.Load<Model>("NPCs/Spieler/spieleranimiert");
+            m_texture = content.Load<Texture2D>("NPCs/Spieler/Candyguytextur");
+            m_model = content.Load<Model>("NPCs/Spieler/candyguy");
             calculateBoundingBox();
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
@@ -69,7 +80,7 @@ namespace Candyland
             // Create an animation player, and start decoding an animation clip.
             animationPlayer = new AnimationPlayer(skinningData);
 
-            AnimationClip clip = skinningData.AnimationClips["ArmatureAction"];
+            AnimationClip clip = skinningData.AnimationClips["ArmatureAction_001"];
 
             animationPlayer.StartClip(clip);
             base.load(content);
@@ -113,8 +124,22 @@ namespace Candyland
         }
 
         #region collision
+        public override void collide(GameObject obj)
+        {
+            // only one to collide with bonbonFairy
+            if (obj.GetType() == typeof(BonbonFairy)) collideWithBonbonFairy(obj);
 
-       // no special collision needs yet
+            base.collide(obj);
+        }
+
+        private void collideWithBonbonFairy(GameObject obj)
+        {
+            if (obj.isVisible && !obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                preventIntersection(obj);
+                obj.hasCollidedWith(this);
+            }
+        }
 
         #endregion
 

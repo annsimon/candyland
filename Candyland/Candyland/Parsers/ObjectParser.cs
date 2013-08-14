@@ -61,9 +61,16 @@ namespace Candyland
                 }
                 catch { }
 
-
-                // get bool value for slippery
-                bool slip = bool.Parse(slippery[count].InnerText);
+                // get int value for slippery
+                int slip;
+                try
+                {
+                    slip = int.Parse(slippery[count].InnerText);
+                }
+                catch
+                {
+                    slip = 0;
+                }
 
                 // get bool value for visible
                 bool isVisible = bool.Parse(visible[count].InnerText);
@@ -265,8 +272,16 @@ namespace Candyland
                 pos.Z = float.Parse(position[count].SelectSingleNode("z").InnerText);
                 pos += lvl_start; // add level position for correct global position
 
-                // get bool value for slippery
-                bool slip = bool.Parse(slippery[count].InnerText);
+                // get int value for slippery
+                int slip;
+                try
+                {
+                    slip = int.Parse(slippery[count].InnerText);
+                }
+                catch
+                {
+                    slip = 0;
+                }
 
                 // get bool value for visible
                 bool isVisible = bool.Parse(visible[count].InnerText);
@@ -293,12 +308,15 @@ namespace Candyland
                 else
                 if (object_type == "obstacle")
                 {
-                    if (object_type == "obstacle")
+                    Obstacle obj = new Obstacle(node.InnerText, pos, info, isVisible, object_size);
+                    objectList.Add(obj);
+                }
+                else
+                    if (object_type == "bonbon")
                     {
-                        Obstacle obj = new Obstacle(node.InnerText, pos, info, isVisible, object_size);
+                        BonbonFairy obj = new BonbonFairy(node.InnerText, pos, info, isVisible);
                         objectList.Add(obj);
                     }
-                }
 
                 // increase count as it is used to access the not-id xml elements of the correct level
                 // (the one currently being parsed)

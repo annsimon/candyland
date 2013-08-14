@@ -35,7 +35,7 @@ namespace Candyland
                 float length = (float)Math.Sqrt(dx * dx + dz * dz + dy * dy);
                 Vector3 tempdir = new Vector3(dx, dy, dz);
                 tempdir.Normalize();
-                move(tempdir.X * GameConstants.obstacleSpeed, tempdir.Y * GameConstants.obstacleSpeed, tempdir.Z * GameConstants.obstacleSpeed);
+                move(tempdir.X * GameConstants.slippingSpeed, tempdir.Y * GameConstants.slippingSpeed, tempdir.Z * GameConstants.slippingSpeed);
                 if (length < 1) istargeting = false;
             }
         }
