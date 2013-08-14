@@ -2,6 +2,9 @@
 // Globals.
 //-----------------------------------------------------------------------------
 
+#define MaxBones 60 
+ 
+float4x3 Bones[MaxBones]; 
 float4x4 world;
 float4x4 view;
 float4x4 projection;
@@ -53,6 +56,8 @@ struct AppToVertex
     float4 Position : POSITION0;            // The position of the vertex
     float3 Normal : NORMAL0;                // The vertex's normal
     float2 TextureCoordinate : TEXCOORD0;    // The texture coordinate of the vertex
+	int4   Indices  : BLENDINDICES0; 
+    float4 Weights  : BLENDWEIGHT0; 
 };
  
 // The structure used to store information between the vertex shader and the
@@ -65,6 +70,24 @@ struct VertexToPixel
 };
 
 //-----------------------------------------------------------------------------
+//Skinning.
+//-----------------------------------------------------------------------------
+ 
+ void Skin(inout AppToVertex vin, uniform int boneCount) 
+{ 
+    float4x3 skinning = 0; 
+ 
+    [unroll] 
+    for (int i = 0; i < boneCount; i++) 
+    { 
+        skinning += Bones[vin.Indices[i]] * vin.Weights[i]; 
+    } 
+ 
+    vin.Position.xyz = mul(vin.Position, skinning); 
+    vin.Normal = mul(vin.Normal, (float3x3)skinning); 
+}  
+
+//-----------------------------------------------------------------------------
 // Vertex shaders.
 //-----------------------------------------------------------------------------
 
@@ -74,8 +97,11 @@ void VS_Shaded(in  float4 inPosition  : POSITION,
 			    out float4 outPosition : POSITION,
 			    out float2 outTexCoord : TEXCOORD0,
 				out float3 outNormal   : TEXCOORD1,
-				out float3 outLightDir : TEXCOORD2)
+				out float3 outLightDir : TEXCOORD2,
+				AppToVertex input)
 {
+
+    Skin(input, 4); 
 	float4x4 worldviewprojection = mul(mul(world, view), projection);
 	
 	outPosition = mul(inPosition, worldviewprojection);
@@ -92,8 +118,11 @@ void VS_ShadedWithShadows(in  float4 inPosition        : POSITION,
 			               out float2 outShadowTexCoord : TEXCOORD1,
 			               out float2 outTexCoord       : TEXCOORD2,
 				           out float3 outNormal         : TEXCOORD3,
-				           out float3 outLightDir       : TEXCOORD4)
+				           out float3 outLightDir       : TEXCOORD4,
+						   AppToVertex input)
 {
+
+    Skin(input, 4); 
 	float4x4 worldviewprojection = mul(mul(world, view), projection);
 	float4 lightSpacePos = mul(mul(inPosition, world), lightViewProjection);
 	float4 shadowCoord = mul(lightSpacePos, textureScaleBias);
@@ -109,6 +138,7 @@ void VS_ShadedWithShadows(in  float4 inPosition        : POSITION,
 // The vertex shader that does the outlines
 VertexToPixel OutlineVertexShader(AppToVertex input)
 {
+	Skin(input, 4); 
     VertexToPixel output = (VertexToPixel)0;
  
     float4 originalLocation = mul(mul(mul(input.Position, world), view), projection);

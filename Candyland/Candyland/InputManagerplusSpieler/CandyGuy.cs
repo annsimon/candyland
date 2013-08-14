@@ -15,9 +15,7 @@ using SkinnedModel;
 namespace Candyland
 {
     class CandyGuy : Playable
-    {
-        AnimationPlayer animationPlayer;
-        
+    {        
         public CandyGuy(Vector3 position, Vector3 direction, float aspectRatio, UpdateInfo info, BonusTracker bonusTracker)
         {
              
@@ -70,20 +68,12 @@ namespace Candyland
             calculateBoundingBox();
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
-            // Look up our custom skinning information.
-            SkinningData skinningData = m_model.Tag as SkinningData;
 
-            if (skinningData == null)
-                throw new InvalidOperationException
-                    ("This model does not contain a SkinningData tag.");
+            base.load(content);
 
-            // Create an animation player, and start decoding an animation clip.
-            animationPlayer = new AnimationPlayer(skinningData);
-
-            AnimationClip clip = skinningData.AnimationClips["ArmatureAction_001"];
+            AnimationClip clip = m_skinningData.AnimationClips["ArmatureAction_001"];
 
             animationPlayer.StartClip(clip);
-            base.load(content);
         }
 
         public override void uniqueskill()
@@ -150,8 +140,6 @@ namespace Candyland
             // Copy any parent transforms.
             Matrix[] transforms = new Matrix[m_model.Bones.Count];
             m_model.CopyAbsoluteBoneTransformsTo(transforms);
-
-            Matrix[] bones = animationPlayer.GetSkinTransforms();
 
             Matrix translateMatrix = Matrix.CreateTranslation(m_position);
             Matrix worldMatrix = translateMatrix;

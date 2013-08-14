@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using System.Xml;
 using Microsoft.Xna.Framework.Content.Pipeline.Serialization.Intermediate;
+using SkinnedModel;
 
 namespace Candyland
 {
@@ -210,6 +211,7 @@ namespace Candyland
             Model model = modelGroup.model;
             Dictionary<int, Texture2D> textures = modelGroup.textures;
             GameObject.Material material = modelGroup.material;
+            AnimationPlayer player = modelGroup.animationPlayer;
 
             if (model == null) return;
 
@@ -219,6 +221,7 @@ namespace Candyland
                 {
                     e.CurrentTechnique = e.Techniques["Shaded"];
 
+                    e.Parameters["Bones"].SetValue(player.GetSkinTransforms());
                     e.Parameters["lightViewProjection"].SetValue(m_shadowMap.LightViewProjectionMatrix);
                     e.Parameters["textureScaleBias"].SetValue(m_shadowMap.TextureScaleBiasMatrix);
                     e.Parameters["depthBias"].SetValue(m_shadowMap.DepthBias);

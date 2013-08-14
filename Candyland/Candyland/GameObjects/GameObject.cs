@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using SkinnedModel;
 
 namespace Candyland
 {
@@ -66,6 +67,9 @@ namespace Candyland
         protected Effect effect;
         public Effect getEffect() { return this.effect; }
 
+        protected AnimationPlayer animationPlayer;
+        protected SkinningData m_skinningData;
+
         public struct Material
         {
             public Vector4 ambient;
@@ -80,6 +84,7 @@ namespace Candyland
             public Model model;
             public Dictionary<int, Texture2D> textures;
             public Material material;
+            public AnimationPlayer animationPlayer;
         }
 
         #endregion
@@ -157,6 +162,16 @@ namespace Candyland
 
             if (!m_modelTextures.ContainsKey(-1))
                 m_modelTextures.Add(-1, m_texture);
+
+            // Look up our custom skinning information.
+            m_skinningData = m_model.Tag as SkinningData;
+
+            if (m_skinningData == null)
+                throw new InvalidOperationException
+                    ("This model does not contain a SkinningData tag.");
+
+            // Create an animation player, and start decoding an animation clip.
+            animationPlayer = new AnimationPlayer(m_skinningData);
         }
 
         public virtual void Reset()
@@ -175,6 +190,7 @@ namespace Candyland
             group.model = m_model;
             group.textures = m_modelTextures;
             group.material = m_material;
+            group.animationPlayer = animationPlayer;
             return group;
         }
 
