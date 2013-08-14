@@ -18,7 +18,6 @@ namespace Candyland
     {
         Texture2D texture;
         AnimationPlayer animationPlayer;
-        KeyboardState keystate = Keyboard.GetState();
         
         public CandyGuy(Vector3 position, Vector3 direction, float aspectRatio, UpdateInfo info, BonusTracker bonusTracker)
         {
@@ -41,12 +40,13 @@ namespace Candyland
 
         public override void update()
         {
-            /*if (!keystate.IsKeyDown(Keys.W) && !keystate.IsKeyDown(Keys.A) && !keystate.IsKeyDown(Keys.D) && !keystate.IsKeyDown(Keys.S))
+            KeyboardState keystate = Keyboard.GetState();
+            if (!keystate.IsKeyDown(Keys.W) && !keystate.IsKeyDown(Keys.A) && !keystate.IsKeyDown(Keys.D) && !keystate.IsKeyDown(Keys.S))
             {
                 animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, false, Matrix.Identity);
 
             }
-            else*/
+            else
             {
                 animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
             }
