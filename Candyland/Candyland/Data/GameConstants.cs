@@ -65,20 +65,11 @@ namespace Candyland
         public const int inputManagerMode = InputManager.KEYBOARDMOUSE;
 
         // data regarding the scene
-        //public const string sceneFile = "Content\\sceneNew.xml";
-       // public const string sceneFile = "Content\\sceneNew.xml";
-        //public const string sceneFile = "Content\\HoehlenTest.xml";
-        public const string sceneFile = "Content\\SceneSchieberaetselPrototyp.xml";
-        public const string eventFile = "Content\\EventTest.xml";
-        public const string actionsFile = "Content\\ActionTest.xml";
+        public const string sceneFile = @"Content\Scenes\SceneSchieberaetselPrototyp.xml";
+        public const string eventFile = @"Content\Scenes\Events\EventTest.xml";
+        public const string actionsFile = @"Content\Scenes\Actions\ActionTest.xml";
         public const string startAreaID = "7";
         public const string startLevelID = "7.0";
-        //public const string startAreaID = "66";
-        //public const string startLevelID = "66.0";
-        //public const string startAreaID = "6";
-        //public const string startLevelID = "6.0";
-        //public const string startAreaID = "7";
-        //public const string startLevelID = "7.0";
 
 
         /// <summary>
@@ -86,6 +77,6 @@ namespace Candyland
         /// </summary>
         /// 
         // Dialogue
-        public const string tradesmanGreeting = "Ah, ein Kunde. Guten Tag, Reisender! Womit kann ich behilflich sein? Kann ich dich für meine Waren begeistern oder suchst du eine Transportmöglichkeit?";
+        public const string tradesmanGreeting = "Ah, ein Kunde. Guten Tag, Reisender! Womit kann ich behilflich sein? Kann ich dich für meine Waren begeistern oder suchst du eine Transportmöglichkeit? Oder möchtest du ein paar Neuigkeiten über Candyland hören? Ich höre viel und rede gern :) Hast du z.B. schon von der neuen Bedrohung durch die größenwahnsinnige Lakritze gehört?";
     }
 }

@@ -36,15 +36,17 @@ namespace Candyland
         {
         }
 
-        public Platform(String id, Vector3 pos, bool slippery, string areaDoorID, string levelDoorID, UpdateInfo updateInfo, bool visible)
+        public Platform(String id, Vector3 pos, bool slippery, string areaDoorID, string levelDoorID, UpdateInfo updateInfo, bool visible, int size)
         {
-            initialize(id, pos, slippery, areaDoorID, levelDoorID, updateInfo, visible);
+            initialize(id, pos, slippery, areaDoorID, levelDoorID, updateInfo, visible, size);
         }
 
         #region initialization
 
-        public void initialize(String id, Vector3 pos, bool slippery, string areaDoorID, string levelDoorID, UpdateInfo updateInfo, bool visible)
+        public void initialize(String id, Vector3 pos, bool slippery, string areaDoorID, string levelDoorID, UpdateInfo updateInfo, bool visible, int size)
         {
+            this.size = size;
+
             base.init(id, pos, updateInfo, visible);
 
             this.isSlippery = slippery;
@@ -68,17 +70,46 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
-            if(isSlippery)
-                this.m_texture = content.Load<Texture2D>("plattformtexturslippery");
-            else
-                this.m_texture = content.Load<Texture2D>("plattformtextur");
+            switch (size)
+            {
+                case 1: loadSmall(content); break;
+                case 2: loadMedium(content); break;
+                case 3: loadLarge(content); break;
+            }
             this.m_original_texture = this.m_texture;
-            this.effect = content.Load<Effect>("Toon");
-            this.m_model = content.Load<Model>("plattform");
             this.m_original_model = this.m_model;
+
+            this.effect = content.Load<Effect>("Shaders/Toon");
             this.calculateBoundingBox();
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
+        }
+
+        public void loadSmall(ContentManager content)
+        {
+            if (isSlippery)
+                this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/Slippery/plattformtexturslippery_klein");
+            else
+                this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/plattformtextur_klein");
+            this.m_model = content.Load<Model>("Objekte/Plattformen/plattform_klein");
+        }
+
+        public void loadMedium(ContentManager content)
+        {
+            if (isSlippery)
+                this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/Slippery/plattformtexturslippery_mittel");
+            else
+                this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/plattformtextur_mittel");
+            this.m_model = content.Load<Model>("Objekte/Plattformen/plattform_mittel");
+        }
+
+        public void loadLarge(ContentManager content)
+        {
+            if (isSlippery)
+                this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/Slippery/plattformtexturslippery_gross");
+            else
+                this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/plattformtextur_gross");
+            this.m_model = content.Load<Model>("Objekte/Plattformen/plattform_gross");
         }
 
         #endregion

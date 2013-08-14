@@ -91,9 +91,6 @@
     <Reference Include="SkinnedModel">
       <HintPath>..\..\SkinnedModel\bin\x86\Debug\SkinnedModel.dll</HintPath>
     </Reference>
-    <Reference Include="SkinnedModelPipeline">
-      <HintPath>..\..\..\..\..\Downloads\SkinningSample_4_0\SkinnedModelPipeline\bin\x86\Debug\SkinnedModelPipeline.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
@@ -156,7 +153,6 @@
     <Compile Include="ScreenManagement\GameScreen.cs" />
     <Compile Include="ScreenManagement\MainGame.cs" />
     <Compile Include="ScreenManagement\MainMenu.cs" />
-    <Compile Include="ScreenManagement\MainMenuRuminate.cs" />
     <Compile Include="ScreenManagement\OptionsScreen.cs" />
     <Compile Include="ScreenManagement\Pause.cs" />
     <Compile Include="ScreenManagement\ScreenInputManager.cs" />

@@ -20,15 +20,17 @@ namespace Candyland
 
         #endregion
 
-        public MovingPlatform(String id, Vector3 start, Vector3 end, UpdateInfo updateInfo, bool visible) 
+        public MovingPlatform(String id, Vector3 start, Vector3 end, UpdateInfo updateInfo, bool visible, int size) 
         {
-            initialize(id, start, end, updateInfo, visible);
+            initialize(id, start, end, updateInfo, visible, size);
         }
 
         #region initialization
 
-        public void initialize(String id, Vector3 start, Vector3 end, UpdateInfo updateInfo, bool visible)
+        public void initialize(String id, Vector3 start, Vector3 end, UpdateInfo updateInfo, bool visible, int size)
         {
+            this.size = size;
+
             base.init(id, start, updateInfo, visible);
 
             this.start = start;
@@ -43,14 +45,37 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
-            this.m_texture = content.Load<Texture2D>("plattformtextur");
+            switch (size)
+            {
+                case 1: loadSmall(content); break;
+                case 2: loadMedium(content); break;
+                case 3: loadLarge(content); break;
+            }
             this.m_original_texture = this.m_texture;
-            this.effect = content.Load<Effect>("Toon");
-            this.m_model = content.Load<Model>("plattform");
             this.m_original_model = this.m_model;
+
+            this.effect = content.Load<Effect>("Shaders/Toon");
             this.calculateBoundingBox();
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
+        }
+
+        public void loadSmall(ContentManager content)
+        {
+            this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/plattformtextur_klein");
+            this.m_model = content.Load<Model>("Objekte/Plattformen/plattform_klein");
+        }
+
+        public void loadMedium(ContentManager content)
+        {
+            this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/plattformtextur_mittel");
+            this.m_model = content.Load<Model>("Objekte/Plattformen/plattform_mittel");
+        }
+
+        public void loadLarge(ContentManager content)
+        {
+            this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/plattformtextur_gross");
+            this.m_model = content.Load<Model>("Objekte/Plattformen/plattform_gross");
         }
 
         #endregion
