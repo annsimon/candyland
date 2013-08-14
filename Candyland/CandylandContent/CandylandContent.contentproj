@@ -240,6 +240,16 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+    <Compile Include="NPCs\Spieler\candyguy.fbx">
+      <Name>candyguy</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>SkinnedModelProcessor</Processor>
+    </Compile>
+    <Compile Include="NPCs\Spieler\candyguy2.fbx">
+      <Name>candyguy2</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>SkinnedModelProcessor</Processor>
+    </Compile>
     <None Include="README.txt">
       <Name>README</Name>
     </None>
@@ -331,6 +341,11 @@
       <Name>coin</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Shaders\SkinnedToon.fx">
+      <Name>SkinnedToon</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -473,6 +488,13 @@
   <ItemGroup>
     <Compile Include="ScreenTextures\arrowUp.png">
       <Name>arrowUp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NPCs\Spieler\Candyguytextur.png">
+      <Name>Candyguytextur</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
