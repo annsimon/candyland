@@ -70,6 +70,12 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
+            if (this.GetType() != typeof(Platform))
+            {
+                base.load(content);
+                return;
+            }
+
             switch (size)
             {
                 case 1: loadSmall(content); break;
@@ -79,10 +85,11 @@ namespace Candyland
             this.m_original_texture = this.m_texture;
             this.m_original_model = this.m_model;
 
-            this.effect = content.Load<Effect>("Shaders/Toon");
+            this.effect = content.Load<Effect>("Shaders/Shader");
             this.calculateBoundingBox();
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
+            base.load(content);
         }
 
         public void loadSmall(ContentManager content)

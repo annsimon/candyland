@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
 
 namespace Candyland
 {
@@ -31,6 +32,10 @@ namespace Candyland
         /// time a breakable plattform takes for breaking
         /// </summary>
         public const double breakTime = 4;
+
+        // material params
+        public static Vector4 ambient = new Vector4(0.95f, 0.95f, 0.95f, 1.0f);
+        public static Vector4 diffuse = new Vector4(0.3f, 0.3f, 0.3f, 1.0f);
 
         /// <summary>
         /// state a switch is in

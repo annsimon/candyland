@@ -54,10 +54,12 @@ namespace Candyland
             this.m_original_texture = this.m_texture;
             this.m_original_model = this.m_model;
 
-            this.effect = content.Load<Effect>("Shaders/Toon");
+            this.effect = content.Load<Effect>("Shaders/Shader");
             this.calculateBoundingBox();
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
+
+            base.load(content);
         }
 
         public void loadSmall(ContentManager content)
@@ -125,9 +127,9 @@ namespace Candyland
 
         #endregion
 
-        public override void draw()
+        public override Matrix prepareForDrawing()
         {
-            base.draw();
+            return base.prepareForDrawing();
         }
 
         public override void Reset()

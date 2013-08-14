@@ -33,12 +33,14 @@ namespace Candyland
         {
             this.m_texture = content.Load<Texture2D>("Objekte/Wunderkugel/wunderkugeltextur");
             this.m_original_texture = this.m_texture;
-            this.effect = content.Load<Effect>("Shaders/Toon");
+            this.effect = content.Load<Effect>("Shaders/Shader");
             this.m_model = content.Load<Model>("Objekte/Wunderkugel/wunderkugelmovable");
             this.m_original_model = this.m_model;
             this.calculateBoundingBox();
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
+
+            base.load(content);
         }
 
         #endregion
@@ -116,9 +118,9 @@ namespace Candyland
 
         #endregion
 
-        public override void draw()
+        public override Matrix prepareForDrawing()
         {
-            base.draw();
+            return base.prepareForDrawing();
         }
 
         public override void Reset()

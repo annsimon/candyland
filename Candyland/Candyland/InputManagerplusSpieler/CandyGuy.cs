@@ -16,7 +16,6 @@ namespace Candyland
 {
     class CandyGuy : Playable
     {
-        Texture2D texture;
         AnimationPlayer animationPlayer;
         
         public CandyGuy(Vector3 position, Vector3 direction, float aspectRatio, UpdateInfo info, BonusTracker bonusTracker)
@@ -31,6 +30,11 @@ namespace Candyland
             this.cam = new Camera(position, MathHelper.PiOver4, aspectRatio, 0.1f, 100, m_updateInfo);
             this.currentspeed = 0;
             this.upvelocity = 0;
+
+            this.m_material = new Material();
+            this.m_material.ambient = GameConstants.ambient;
+            this.m_material.diffuse = GameConstants.diffuse;
+            this.m_modelTextures = new Dictionary<int, Texture2D>();
         }
 
         public override void isNotCollidingWith(GameObject obj){ }
@@ -49,8 +53,8 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
-            effect = content.Load<Effect>("Shaders/Toon");
-            texture = content.Load<Texture2D>("NPCs/Spieler/spielertextur");
+            effect = content.Load<Effect>("Shaders/Shader");
+            m_texture = content.Load<Texture2D>("NPCs/Spieler/spielertextur");
             m_model = content.Load<Model>("NPCs/Spieler/spieleranimiert");
             calculateBoundingBox();
             minOld = m_boundingBox.Min;
@@ -68,7 +72,7 @@ namespace Candyland
             AnimationClip clip = skinningData.AnimationClips["ArmatureAction"];
 
             animationPlayer.StartClip(clip);
-
+            base.load(content);
         }
 
         public override void uniqueskill()
@@ -114,7 +118,7 @@ namespace Candyland
 
         #endregion
 
-        public override void draw()
+        public override Matrix prepareForDrawing()
         {
             Matrix view = m_updateInfo.viewMatrix;
             Matrix projection = m_updateInfo.projectionMatrix;
@@ -128,36 +132,17 @@ namespace Candyland
             Matrix worldMatrix = translateMatrix;
 
             Matrix rotation;
-                    if (direction.X > 0)
-                    {
-                        rotation = Matrix.CreateRotationY((float)Math.Acos(direction.Z));
-                    }
-                    else
-                    {
-                        rotation = Matrix.CreateRotationY((float)-Math.Acos(direction.Z));
-                    }
-
-
-
-            // Draw the model. A model can have multiple meshes, so loop.
-            foreach (ModelMesh mesh in m_model.Meshes)
+            if (direction.X > 0)
             {
-                foreach (ModelMeshPart part in mesh.MeshParts)
-                {
-                        part.Effect = effect;
-                        effect.Parameters["World"].SetValue(rotation * worldMatrix * mesh.ParentBone.Transform);
-                        effect.Parameters["DiffuseLightDirection"].SetValue(new Vector3(rotation.M13, rotation.M23, rotation.M33));
-                        effect.Parameters["View"].SetValue(view);
-                        effect.Parameters["Projection"].SetValue(projection);
-                        effect.Parameters["WorldInverseTranspose"].SetValue(
-                        Matrix.Transpose(Matrix.Invert(worldMatrix * mesh.ParentBone.Transform)));
-                        effect.Parameters["Texture"].SetValue(texture);
-                }
-                    // Draw the mesh, using the effects set above.
-                    mesh.Draw();
-                    BoundingBoxRenderer.Render(this.m_boundingBox, m_updateInfo.graphics, view, projection, Color.White);
-
-                }
+                rotation = Matrix.CreateRotationY((float)Math.Acos(direction.Z));
             }
+            else
+            {
+                rotation = Matrix.CreateRotationY((float)-Math.Acos(direction.Z));
+            }
+
+            return rotation * worldMatrix;
+
         }
+    }
 }

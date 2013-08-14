@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Candyland
 {
@@ -22,6 +24,20 @@ namespace Candyland
             base.init(id, pos, updateInfo, visible);
 
             this.teleportTarget = target;
+        }
+        public override void load(ContentManager content)
+        {
+            this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/plattformtextur_klein");
+            this.m_model = content.Load<Model>("Objekte/Plattformen/plattform_klein");
+
+            this.m_original_texture = this.m_texture;
+            this.m_original_model = this.m_model;
+
+            this.effect = content.Load<Effect>("Shaders/Shader");
+            this.calculateBoundingBox();
+            minOld = m_boundingBox.Min;
+            maxOld = m_boundingBox.Max;
+            base.load(content);
         }
 
         #endregion

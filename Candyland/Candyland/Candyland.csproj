@@ -160,6 +160,7 @@
     <Compile Include="ScreenManagement\ShopScreen.cs" />
     <Compile Include="ScreenManagement\TitleScreen.cs" />
     <Compile Include="ScreenManagement\TravelScreen.cs" />
+    <Compile Include="ShadowMap.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

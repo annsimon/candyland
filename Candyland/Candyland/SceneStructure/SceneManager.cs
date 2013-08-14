@@ -17,6 +17,17 @@ namespace Candyland
     /// </summary>
     public class SceneManager
     {
+        // struct for the light source we use
+        private struct DirectionalLight
+        {
+            public Vector2 rotation;
+            public Vector3 direction;
+            public Vector4 color;
+        }
+
+        DirectionalLight m_globalLight;
+        ShadowMap m_shadowMap;
+
         // areas is a dictionary (works like a map) that saves the area
         // every area can be accessed by its id
         Dictionary<string, Area> m_areas;
@@ -39,6 +50,7 @@ namespace Candyland
         /*************************************************************/
         // graphics device needed for drawing the bounding boxes
         GraphicsDevice m_graphics;
+        SpriteBatch m_spriteBatch;
         /*************************************************************/
 
         // font used for writing tests to screen
@@ -46,7 +58,7 @@ namespace Candyland
 
         InputManager m_inputManager;
 
-        public SceneManager(GraphicsDevice graphics)
+        public SceneManager(GraphicsDevice graphics, SpriteBatch spriteBatch, ContentManager content)
         {
             m_bonusTracker = new BonusTracker(); // load this one from xml as serialized object?
 
@@ -58,6 +70,7 @@ namespace Candyland
             m_inputManager = new InputManager(graphics, GameConstants.inputManagerMode, m_updateInfo);
             /****************************************************************/
             m_graphics = graphics;
+            m_spriteBatch = spriteBatch;
             /****************************************************************/
                         
             m_areas = AreaParser.ParseAreas(m_updateInfo, m_bonusTracker, m_actionTracker);
@@ -71,7 +84,16 @@ namespace Candyland
             Vector3 player2StartPos = m_areas[m_updateInfo.currentAreaID].GetCompanionStartingPosition();
             player2StartPos.Y += 0.6f;
             player2.setPosition(player2StartPos);
-        
+
+            // set up shadow map for drop shadows
+            m_shadowMap = new ShadowMap(m_graphics, content);
+            m_shadowMap.DepthBias = 0.00249f;
+
+            // set up scene light
+            m_globalLight.direction = new Vector3(0.0f, -0.5f, -0.5f);
+            m_globalLight.direction.Normalize();
+            m_globalLight.color = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
+            m_globalLight.rotation = Vector2.Zero;
         }
 
         public void Load(ContentManager manager)
@@ -142,30 +164,96 @@ namespace Candyland
             player2.endIntersection();
 
             m_areas[m_updateInfo.currentAreaID].endIntersection();
+
+
+
+            KeyboardState keystate = Keyboard.GetState();
+            if (keystate.IsKeyDown(Keys.D1))
+                m_shadowMap.DepthBias += 0.0001f;
+
+            if (keystate.IsKeyDown(Keys.D2))
+                m_shadowMap.DepthBias -= 0.0001f;
+
+            UpdateShadowMap();
         }
 
         public void Draw(GameTime gameTime)
         {
-            player.draw();
-            player2.draw();
+            CreateShadowMap();
+
+            DrawModel(player.GetModelGroup(), player.prepareForDrawing());
+            DrawModel(player2.GetModelGroup(), player2.prepareForDrawing());
 
             // draw the area the player currently is in and the two
             // adjacent ones
             string currentArea = m_updateInfo.currentAreaID;
             Area currArea = m_areas[currentArea];
-            currArea.Draw(m_graphics);
+            List<GameObject> currentObjects = currArea.GetObjects();
+            foreach (GameObject obj in currentObjects)
+                DrawModel(obj.GetModelGroup(), obj.prepareForDrawing());
             if (m_areas[currentArea].hasPrevious)
-                m_areas[currArea.previousID].Draw(m_graphics);
+            {
+                currentObjects = m_areas[currArea.previousID].GetObjects();
+                foreach (GameObject obj in currentObjects)
+                    DrawModel(obj.GetModelGroup(), obj.prepareForDrawing());
+            }
             if (m_areas[currentArea].hasNext)
-                m_areas[currArea.nextID].Draw(m_graphics);
+            {
+                currentObjects = m_areas[currArea.nextID].GetObjects();
+                foreach (GameObject obj in currentObjects)
+                    DrawModel(obj.GetModelGroup(), obj.prepareForDrawing());
+            }
         }
 
-        public void Draw2D(SpriteBatch spriteBatch)
+        private void DrawModel(GameObject.ModelGroup modelGroup, Matrix world)
         {
-            spriteBatch.Begin();
-            spriteBatch.DrawString(screenFont, "Linsen: " + m_bonusTracker.chocoCount.ToString()
+            Model model = modelGroup.model;
+            Dictionary<int, Texture2D> textures = modelGroup.textures;
+            GameObject.Material material = modelGroup.material;
+
+            if (model == null) return;
+
+            foreach (ModelMesh m in model.Meshes)
+            {
+                foreach (Effect e in m.Effects)
+                {
+                    e.CurrentTechnique = e.Techniques["Shaded"];
+
+                    e.Parameters["lightViewProjection"].SetValue(m_shadowMap.LightViewProjectionMatrix);
+                    e.Parameters["textureScaleBias"].SetValue(m_shadowMap.TextureScaleBiasMatrix);
+                    e.Parameters["depthBias"].SetValue(m_shadowMap.DepthBias);
+                    e.Parameters["shadowMap"].SetValue(m_shadowMap.ShadowMapTexture);
+
+                    e.Parameters["world"].SetValue(world * m.ParentBone.Transform);
+
+                    e.Parameters["view"].SetValue(m_updateInfo.viewMatrix);
+                    e.Parameters["projection"].SetValue(m_updateInfo.projectionMatrix);
+
+                    e.Parameters["lightDir"].SetValue(m_globalLight.direction);
+                    e.Parameters["lightColor"].SetValue(m_globalLight.color);
+                    e.Parameters["materialAmbient"].SetValue(material.ambient);
+                    e.Parameters["materialDiffuse"].SetValue(material.diffuse);
+                    if (textures.ContainsKey(m.GetHashCode()))
+                        e.Parameters["colorMap"].SetValue(textures[-1]);
+                    else
+                        e.Parameters["colorMap"].SetValue(textures[-1]);
+
+                    e.Parameters["worldInverseTranspose"].SetValue(
+                    Matrix.Transpose(Matrix.Invert(world * m.ParentBone.Transform)));
+
+                    e.Parameters["texelSize"].SetValue(m_shadowMap.TexelSize);
+                }
+
+                m.Draw();
+            }
+        }
+
+        public void Draw2D()
+        {
+            m_spriteBatch.Begin();
+            m_spriteBatch.DrawString(screenFont, "Linsen: " + m_bonusTracker.chocoCount.ToString()
                + "/" + m_bonusTracker.chocoTotal.ToString(), new Vector2(5f, 5f), Color.White);
-            spriteBatch.End();
+            m_spriteBatch.End();
 
             // we need the following as spriteBatch.Begin() sets them to None and AlphaBlend
             // which breaks our model rendering
@@ -227,6 +315,62 @@ namespace Candyland
             foreach (var area in m_areas)
                 area.Value.Load();
         }
+
+        #region ShadowMap
+
+        private void CreateShadowMap()
+        {
+            string currentArea = m_updateInfo.currentAreaID;
+            Area currArea = m_areas[currentArea];
+            List<GameObject> currentObjects = currArea.GetObjects();
+
+            m_shadowMap.Begin(m_graphics);
+
+            m_shadowMap.Draw(player.GetModelGroup().model, player.prepareForDrawing());
+            m_shadowMap.Draw(player2.GetModelGroup().model, player2.prepareForDrawing());
+
+            foreach (GameObject obj in currentObjects)
+                m_shadowMap.Draw(obj.GetModelGroup().model, obj.prepareForDrawing());
+            if (m_areas[currentArea].hasPrevious)
+            {
+                currentObjects = m_areas[currArea.previousID].GetObjects();
+                foreach (GameObject obj in currentObjects)
+                    m_shadowMap.Draw(obj.GetModelGroup().model, obj.prepareForDrawing());
+            }
+            if (m_areas[currentArea].hasNext)
+            {
+                currentObjects = m_areas[currArea.nextID].GetObjects();
+                foreach (GameObject obj in currentObjects)
+                    m_shadowMap.Draw(obj.GetModelGroup().model, obj.prepareForDrawing());
+            }
+
+            m_shadowMap.End();
+        }
+
+        private void UpdateShadowMap()
+        {
+            m_shadowMap.Update(m_globalLight.direction, 
+                m_updateInfo.viewMatrix*m_updateInfo.projectionMatrix);
+        }
+
+        private void DrawShadowMap()
+        {
+            Rectangle rect = new Rectangle();
+
+            rect.X = 0;
+            rect.Y = m_graphics.Viewport.Height - 128;
+            rect.Width = 128;
+            rect.Height = 128;
+
+            m_spriteBatch.Begin();
+            m_spriteBatch.Draw(m_shadowMap.ShadowMapTexture, rect, Color.White);
+            m_spriteBatch.End();
+
+            m_graphics.DepthStencilState = DepthStencilState.Default;
+            m_graphics.BlendState = BlendState.Opaque;
+        }
+
+        #endregion
 
     }
 }
