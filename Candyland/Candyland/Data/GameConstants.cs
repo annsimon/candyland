@@ -20,7 +20,7 @@ namespace Candyland
         /// <summary>
         /// speed of moving obstacles
         /// </summary>
-        public const float obstacleSpeed = 0.05f;
+        public const float slippingSpeed = 0.05f;
 
         /// <summary>
         /// time a timed switch stays activated
@@ -45,7 +45,7 @@ namespace Candyland
         /// <summary>
         /// distance a movable obstacle will move when pushed
         /// </summary>
-        public const float obstacleMoveDistance = 0.5f;
+        public const float obstacleMoveDistance = 0.1f;
 
         public enum SubActionType
         {

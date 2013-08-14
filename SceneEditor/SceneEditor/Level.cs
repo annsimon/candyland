@@ -81,7 +81,7 @@ namespace SceneEditor
             obj.posZ = m_objectGenerator.posZ;
             obj.doorArea = m_objectGenerator.doorArea;
             obj.doorLevel = m_objectGenerator.doorLevel;
-            obj.isSlippery = m_objectGenerator.isSlippery;
+            obj.slippery = m_objectGenerator.slippery;
             obj.isVisible = m_objectGenerator.isVisible;
 			obj.endPosX = m_objectGenerator.endPosX;
             obj.endPosY = m_objectGenerator.endPosY;
@@ -258,8 +258,8 @@ namespace SceneEditor
                 }
                 catch { }
 
-                // get bool value for slippery
-                obj.isSlippery = bool.Parse(slippery[count].InnerText);
+                // get value for slippery
+                obj.slippery = slippery[count].InnerText;
 
                 // get bool value for isVisible
                 if( visible[count] != null )

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Candyland
 {
-    class DialogueScreen : GameScreen
+    class SalesmanDialogueScreen : GameScreen
     {
         Texture2D OtherTalkBubble;
         Texture2D OwnTalkBubble;

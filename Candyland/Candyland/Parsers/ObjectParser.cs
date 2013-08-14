@@ -61,9 +61,16 @@ namespace Candyland
                 }
                 catch { }
 
-
-                // get bool value for slippery
-                bool slip = bool.Parse(slippery[count].InnerText);
+                // get int value for slippery
+                int slip;
+                try
+                {
+                    slip = int.Parse(slippery[count].InnerText);
+                }
+                catch
+                {
+                    slip = 0;
+                }
 
                 // get bool value for visible
                 bool isVisible = bool.Parse(visible[count].InnerText);
@@ -265,8 +272,16 @@ namespace Candyland
                 pos.Z = float.Parse(position[count].SelectSingleNode("z").InnerText);
                 pos += lvl_start; // add level position for correct global position
 
-                // get bool value for slippery
-                bool slip = bool.Parse(slippery[count].InnerText);
+                // get int value for slippery
+                int slip;
+                try
+                {
+                    slip = int.Parse(slippery[count].InnerText);
+                }
+                catch
+                {
+                    slip = 0;
+                }
 
                 // get bool value for visible
                 bool isVisible = bool.Parse(visible[count].InnerText);

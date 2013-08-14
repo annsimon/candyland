@@ -149,7 +149,8 @@
     <Compile Include="ScreenManagement\BonusScreen.cs" />
     <Compile Include="ScreenManagement\BonusTile.cs" />
     <Compile Include="ScreenManagement\CreditsScreen.cs" />
-    <Compile Include="ScreenManagement\DialogueScreen.cs" />
+    <Compile Include="ScreenManagement\DialogListeningScreen.cs" />
+    <Compile Include="ScreenManagement\SalesmanDialogueScreen.cs" />
     <Compile Include="ScreenManagement\GameScreen.cs" />
     <Compile Include="ScreenManagement\MainGame.cs" />
     <Compile Include="ScreenManagement\MainMenu.cs" />

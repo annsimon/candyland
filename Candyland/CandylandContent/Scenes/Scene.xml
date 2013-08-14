@@ -258,7 +258,7 @@
                       <y></y>
                       <z></z>
                     </object_endposition>
-                    <slippery>True</slippery>
+                    <slippery>1</slippery>
                     <visible>True</visible>
                   </object>
                   <object>
@@ -276,7 +276,7 @@
                       <y></y>
                       <z></z>
                     </object_endposition>
-                    <slippery>True</slippery>
+                    <slippery>1</slippery>
                     <visible>True</visible>
                   </object>
                   <object>
@@ -294,7 +294,7 @@
                       <y></y>
                       <z></z>
                     </object_endposition>
-                    <slippery>True</slippery>
+                    <slippery>1</slippery>
                     <visible>True</visible>
                   </object>
                   <object>

@@ -14,7 +14,9 @@ namespace Candyland
     class ObstacleMoveable : Obstacle
     {
         protected bool isOnSlipperyGround;
-        protected bool isPushed;
+        protected bool isPushing;
+        public bool getPushing() { return isPushing; }
+        public void setPushing(bool value) { this.isPushing = value; }
         protected float movedDistance = 0;
 
         public ObstacleMoveable(String id, Vector3 pos, UpdateInfo updateInfo, bool visible)
@@ -23,10 +25,12 @@ namespace Candyland
         }
 
         #region initialization
+
         protected void initialize(String id, Vector3 pos, UpdateInfo updateInfo, bool visible)
         {
             base.initialize(id, pos, updateInfo, visible);
 
+            this.isPushing = false;
             this.isOnSlipperyGround = false;
             this.currentspeed = 0;
             this.upvelocity = 0;
@@ -58,6 +62,7 @@ namespace Candyland
             if (!isOnSlipperyGround)
             {
                 currentspeed = 0;
+                //direction = Vector3.Zero; // Maybe not needed
             }
 
             // Obstacle is sliding
@@ -66,17 +71,18 @@ namespace Candyland
                 slide();
             }
 
+            isPushing = false;
             // Obstacle was pushed and moves one step
             //TODO make sure there won't be rounding errors
-            if (isPushed && movedDistance < GameConstants.obstacleMoveDistance)
-            {
-                move();
-            }
-            else
-            {
-                movedDistance = 0;
-                isPushed = false;
-            }
+            //if (isPushed && movedDistance < GameConstants.obstacleMoveDistance)
+            //{
+            //    move();
+            //}
+            //else
+            //{
+            //    movedDistance = 0;
+            //    isPushed = false;
+            //}
 
         }
 
@@ -89,7 +95,12 @@ namespace Candyland
                 {
                     preventIntersection(obj);
                     Platform platform = (Platform) obj;
-                    isOnSlipperyGround = platform.getSlippery();
+                    switch (platform.getSlippery())
+                    {
+                        case 0: isOnSlipperyGround = false; break;
+                        case 1: isOnSlipperyGround = true; break;
+                        case 2: isOnSlipperyGround = true; break;
+                    }
                 } 
             }
 
@@ -136,7 +147,14 @@ namespace Candyland
                      //does this even make sense? Isn't obj of type ObstacleMovable?
                      if (!(obj is Playable))
                          System.Console.WriteLine("collideMovable");
-                     obj.hasCollidedWith(this);
+                     if (this.isOnSlipperyGround)
+                     {
+                         obj.hasCollidedWith(this);
+                         return;
+                     }
+                     currentspeed = 0;
+                     preventIntersection(obj);
+
                  }
                  else
                  {
@@ -176,9 +194,9 @@ namespace Candyland
                         this.direction.Normalize();
                         if (isOnSlipperyGround)
                         {
-                            currentspeed = GameConstants.obstacleSpeed;
+                            currentspeed = GameConstants.slippingSpeed;
                         }
-                        isPushed = true;
+                        //isPushed = true;
                         move();
                     }
                     // Test if collision in Z direction
@@ -188,9 +206,9 @@ namespace Candyland
                         this.direction.Normalize();
                         if (isOnSlipperyGround)
                         {
-                            currentspeed = GameConstants.obstacleSpeed;
+                            currentspeed = GameConstants.slippingSpeed;
                         }
-                        isPushed = true;
+                        //isPushed = true;
                         move();
                     }
             }
@@ -198,17 +216,28 @@ namespace Candyland
             // getting pushed by other obstacle
             if (obj.GetType() == typeof(ObstacleMoveable))
             {
-                // pushing obstacle is sliding and pusehd obstacle is on slippery ground
-                if (obj.getCurrentSpeed() != 0 && this.isOnSlipperyGround)
+                // Check from which direction obj is coming
+                    Vector3 vecBetweenObstacles = (this.getPosition() - obj.getPosition());
+                    Vector3 objVec = obj.getDirection();
+                    // look if both obj.direction equals vecBetweenObstacles
+                    bool rightPushDirection = false;
+                    if (vecBetweenObstacles.X > vecBetweenObstacles.Z && objVec.X > objVec.Z
+                        || vecBetweenObstacles.X < vecBetweenObstacles.Z && objVec.X < objVec.Z)
+                        rightPushDirection = true;
+                    
+                // pushing obstacle is sliding and pushed obstacle is on slippery ground
+                if (obj.getCurrentSpeed() != 0 && this.isOnSlipperyGround && rightPushDirection)
                 {
+                    float speed = obj.getCurrentSpeed();
                     this.currentspeed = obj.getCurrentSpeed();
+                    this.direction = obj.getDirection();
                     obj.setCurrentSpeed(0);
                 }
-                else
-                {
-                    currentspeed = 0;
-                    preventIntersection(obj);
-                }
+                //else
+                //{
+                //    currentspeed = 0;
+                //    preventIntersection(obj);
+                //}
             }
         }
 
@@ -232,8 +261,8 @@ namespace Candyland
             Vector3 translate;
 
             // move Obstacle
-                translate = GameConstants.obstacleSpeed * direction;
-                movedDistance += GameConstants.obstacleSpeed;
+                translate = GameConstants.slippingSpeed * direction;
+                //movedDistance += GameConstants.slippingSpeed;
                 newPosition = this.getPosition() + translate;
                 this.setPosition(newPosition);
         }
