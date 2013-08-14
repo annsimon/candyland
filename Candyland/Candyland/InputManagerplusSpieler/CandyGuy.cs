@@ -18,9 +18,11 @@ namespace Candyland
     {
         Texture2D texture;
         AnimationPlayer animationPlayer;
+        KeyboardState keystate = Keyboard.GetState();
         
         public CandyGuy(Vector3 position, Vector3 direction, float aspectRatio, UpdateInfo info, BonusTracker bonusTracker)
         {
+             
             m_updateInfo = info;
             m_bonusTracker = bonusTracker;
             this.m_position = position;
@@ -39,6 +41,15 @@ namespace Candyland
 
         public override void update()
         {
+            /*if (!keystate.IsKeyDown(Keys.W) && !keystate.IsKeyDown(Keys.A) && !keystate.IsKeyDown(Keys.D) && !keystate.IsKeyDown(Keys.S))
+            {
+                animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, false, Matrix.Identity);
+
+            }
+            else*/
+            {
+                animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
+            }
             base.update();
             fall();
             if (m_updateInfo.candyselected)
@@ -49,9 +60,9 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
-            effect = content.Load<Effect>("Shaders/Toon");
-            texture = content.Load<Texture2D>("NPCs/Spieler/spielertextur");
-            m_model = content.Load<Model>("NPCs/Spieler/spieleranimiert");
+            effect = content.Load<Effect>("Shaders/SkinnedToon");
+            texture = content.Load<Texture2D>("NPCs/Spieler/Candyguytextur");
+            m_model = content.Load<Model>("NPCs/Spieler/candyguy");
             calculateBoundingBox();
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
@@ -65,9 +76,10 @@ namespace Candyland
             // Create an animation player, and start decoding an animation clip.
             animationPlayer = new AnimationPlayer(skinningData);
 
-            AnimationClip clip = skinningData.AnimationClips["ArmatureAction"];
+            AnimationClip clip = skinningData.AnimationClips["ArmatureAction_001"];
 
             animationPlayer.StartClip(clip);
+            
 
         }
 
@@ -142,17 +154,20 @@ namespace Candyland
             // Draw the model. A model can have multiple meshes, so loop.
             foreach (ModelMesh mesh in m_model.Meshes)
             {
+
                 foreach (ModelMeshPart part in mesh.MeshParts)
                 {
-                        part.Effect = effect;
-                        effect.Parameters["World"].SetValue(rotation * worldMatrix * mesh.ParentBone.Transform);
-                        effect.Parameters["DiffuseLightDirection"].SetValue(new Vector3(rotation.M13, rotation.M23, rotation.M33));
-                        effect.Parameters["View"].SetValue(view);
-                        effect.Parameters["Projection"].SetValue(projection);
-                        effect.Parameters["WorldInverseTranspose"].SetValue(
-                        Matrix.Transpose(Matrix.Invert(worldMatrix * mesh.ParentBone.Transform)));
-                        effect.Parameters["Texture"].SetValue(texture);
+                    part.Effect = effect;
+                    effect.Parameters["Bones"].SetValue(bones);
+                    effect.Parameters["World"].SetValue(rotation * worldMatrix * mesh.ParentBone.Transform);
+                    effect.Parameters["DiffuseLightDirection"].SetValue(new Vector3(rotation.M13, rotation.M23, rotation.M33));
+                    effect.Parameters["View"].SetValue(view);
+                    effect.Parameters["Projection"].SetValue(projection);
+                    effect.Parameters["WorldInverseTranspose"].SetValue(
+                    Matrix.Transpose(Matrix.Invert(worldMatrix * mesh.ParentBone.Transform)));
+                    effect.Parameters["Texture"].SetValue(texture);
                 }
+
                     // Draw the mesh, using the effects set above.
                     mesh.Draw();
                     BoundingBoxRenderer.Render(this.m_boundingBox, m_updateInfo.graphics, view, projection, Color.White);
