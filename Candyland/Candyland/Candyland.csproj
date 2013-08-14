@@ -135,6 +135,7 @@
     <Compile Include="Logical\SwitchEvent.cs" />
     <Compile Include="Logical\SwitchGroup.cs" />
     <Compile Include="MyModel.cs" />
+    <Compile Include="NPCs\BonbonFairy.cs" />
     <Compile Include="NPCs\HelperFairy.cs" />
     <Compile Include="Parsers\ActionParser.cs" />
     <Compile Include="Parsers\AreaParser.cs" />

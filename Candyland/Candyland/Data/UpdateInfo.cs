@@ -51,6 +51,8 @@ namespace Candyland
 
         public GameTime gameTime { get; set; }
 
+        public ScreenManager m_screenManager { get; set; }
+
         // we do not use this after all, probably; remove later!
         //public Dictionary<String, GameObject> currentObjectsToBeCollided { get; set; }
 
@@ -64,7 +66,7 @@ namespace Candyland
         /********************************************************************************/
 
 
-        public UpdateInfo(GraphicsDevice graphicsDevice)
+        public UpdateInfo(GraphicsDevice graphicsDevice, ScreenManager screenManager)
         {
             currentAreaID = GameConstants.startAreaID;
             currentLevelID = GameConstants.startLevelID;
@@ -83,6 +85,8 @@ namespace Candyland
 
             candyselected = true;
             helperavailable = true;
+
+            m_screenManager = screenManager;
 
             /**********************************************************************/
             graphics = graphicsDevice;

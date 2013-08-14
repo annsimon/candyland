@@ -308,12 +308,15 @@ namespace Candyland
                 else
                 if (object_type == "obstacle")
                 {
-                    if (object_type == "obstacle")
+                    Obstacle obj = new Obstacle(node.InnerText, pos, info, isVisible, object_size);
+                    objectList.Add(obj);
+                }
+                else
+                    if (object_type == "bonbon")
                     {
-                        Obstacle obj = new Obstacle(node.InnerText, pos, info, isVisible, object_size);
+                        BonbonFairy obj = new BonbonFairy(node.InnerText, pos, info, isVisible);
                         objectList.Add(obj);
                     }
-                }
 
                 // increase count as it is used to access the not-id xml elements of the correct level
                 // (the one currently being parsed)

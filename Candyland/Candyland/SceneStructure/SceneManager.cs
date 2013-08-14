@@ -46,13 +46,13 @@ namespace Candyland
 
         InputManager m_inputManager;
 
-        public SceneManager(GraphicsDevice graphics)
+        public SceneManager(GraphicsDevice graphics, ScreenManager screenManager)
         {
             m_bonusTracker = new BonusTracker(); // load this one from xml as serialized object?
 
             m_actionTracker = new ActionTracker();
 
-            m_updateInfo = new UpdateInfo(graphics);
+            m_updateInfo = new UpdateInfo(graphics, screenManager);
 
 
             m_inputManager = new InputManager(graphics, GameConstants.inputManagerMode, m_updateInfo);

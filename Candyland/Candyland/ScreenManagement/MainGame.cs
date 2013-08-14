@@ -13,7 +13,7 @@ namespace Candyland
         {
             this.isFullscreen = true;
 
-            m_sceneManager = new SceneManager(ScreenManager.GraphicsDevice);
+            m_sceneManager = new SceneManager(ScreenManager.GraphicsDevice, ScreenManager);
 
             Song song = ScreenManager.Content.Load<Song>("Music/bgmusic");  // background music from http://longzijun.wordpress.com/2012/12/26/upbeat-background-music-free-instrumentals/
             MediaPlayer.Play(song);

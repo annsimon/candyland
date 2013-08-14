@@ -95,14 +95,32 @@ namespace Candyland
                 {
                     preventIntersection(obj);
                     Platform platform = (Platform) obj;
-                    switch (platform.getSlippery())
+                    bool centerOnPlattform = false;
+                    if (this.getPosition().X < obj.getBoundingBox().Max.X && this.getPosition().X > obj.getBoundingBox().Min.X
+                        && this.getPosition().Z < obj.getBoundingBox().Max.Z && this.getPosition().Z > obj.getBoundingBox().Min.Z)
+                        centerOnPlattform = true;
+                    if (centerOnPlattform)
                     {
-                        case 0: isOnSlipperyGround = false; break;
-                        case 1: isOnSlipperyGround = true; break;
-                        case 2: isOnSlipperyGround = true; break;
+                        switch (platform.getSlippery())
+                        {
+                            case 0: isOnSlipperyGround = false; break;
+                            case 1: isOnSlipperyGround = true; break;
+                            case 2: isOnSlipperyGround = true; break;
+                        }
                     }
                 } 
             }
+
+             protected override void collideWithBreakingPlatform(GameObject obj)
+             {
+                 // Object sits on a Platform
+                 if (obj.isVisible && !obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+                 {
+                     currentspeed = 0;
+                     preventIntersection(obj);
+                     obj.hasCollidedWith(this);
+                 }
+             }
 
              protected override void collideWithMovingPlatform(GameObject obj)
              {

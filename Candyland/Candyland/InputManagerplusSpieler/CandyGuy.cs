@@ -121,8 +121,22 @@ namespace Candyland
         }
 
         #region collision
+        public override void collide(GameObject obj)
+        {
+            // only one to collide with bonbonFairy
+            if (obj.GetType() == typeof(BonbonFairy)) collideWithBonbonFairy(obj);
 
-       // no special collision needs yet
+            base.collide(obj);
+        }
+
+        private void collideWithBonbonFairy(GameObject obj)
+        {
+            if (obj.isVisible && !obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                preventIntersection(obj);
+                obj.hasCollidedWith(this);
+            }
+        }
 
         #endregion
 

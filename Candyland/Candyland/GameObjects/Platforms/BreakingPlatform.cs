@@ -64,5 +64,12 @@ namespace Candyland
             if (timeSincedSteppedOn >= GameConstants.breakTime)
                 this.isVisible = false;
         }
+
+        public override void Reset()
+        {
+            isBreaking = false;
+            timeSincedSteppedOn = 0;
+            base.Reset();
+        }
     }
 }
