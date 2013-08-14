@@ -18,6 +18,7 @@ namespace Candyland
     {
         Texture2D texture;
         AnimationPlayer animationPlayer;
+        KeyboardState keystate = Keyboard.GetState();
         
         public CandyGuy(Vector3 position, Vector3 direction, float aspectRatio, UpdateInfo info, BonusTracker bonusTracker)
         {
@@ -40,7 +41,15 @@ namespace Candyland
 
         public override void update()
         {
-            animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
+            /*if (!keystate.IsKeyDown(Keys.W) && !keystate.IsKeyDown(Keys.A) && !keystate.IsKeyDown(Keys.D) && !keystate.IsKeyDown(Keys.S))
+            {
+                animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, false, Matrix.Identity);
+
+            }
+            else*/
+            {
+                animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
+            }
             base.update();
             fall();
             if (m_updateInfo.candyselected)
@@ -51,9 +60,9 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
-            effect = content.Load<Effect>("Shaders/Toon");
-            texture = content.Load<Texture2D>("NPCs/Spieler/spielertextur");
-            m_model = content.Load<Model>("NPCs/Spieler/spieleranimiert");
+            effect = content.Load<Effect>("Shaders/SkinnedToon");
+            texture = content.Load<Texture2D>("NPCs/Spieler/Candyguytextur");
+            m_model = content.Load<Model>("NPCs/Spieler/candyguy");
             calculateBoundingBox();
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
@@ -67,9 +76,10 @@ namespace Candyland
             // Create an animation player, and start decoding an animation clip.
             animationPlayer = new AnimationPlayer(skinningData);
 
-            AnimationClip clip = skinningData.AnimationClips["ArmatureAction"];
+            AnimationClip clip = skinningData.AnimationClips["ArmatureAction_001"];
 
             animationPlayer.StartClip(clip);
+            
 
         }
 
