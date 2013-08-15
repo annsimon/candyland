@@ -225,11 +225,11 @@ namespace Candyland
 
                     if (player != null)
                     {
-                        e.CurrentTechnique = e.Techniques["ShadedWithShadowsAndAnimated"];
+                        e.CurrentTechnique = e.Techniques["ShadedAndAnimated"];
                         e.Parameters["Bones"].SetValue(player.GetSkinTransforms());
                     }
                     else
-                        e.CurrentTechnique = e.Techniques["ShadedWithShadows"];
+                        e.CurrentTechnique = e.Techniques["Shaded"];
                     e.Parameters["lightViewProjection"].SetValue(m_shadowMap.LightViewProjectionMatrix);
                     e.Parameters["textureScaleBias"].SetValue(m_shadowMap.TextureScaleBiasMatrix);
                     e.Parameters["depthBias"].SetValue(m_shadowMap.DepthBias);
@@ -265,6 +265,8 @@ namespace Candyland
             m_spriteBatch.DrawString(screenFont, "Linsen: " + m_bonusTracker.chocoCount.ToString()
                + "/" + m_bonusTracker.chocoTotal.ToString(), new Vector2(5f, 5f), Color.White);
             m_spriteBatch.End();
+
+            //DrawShadowMap();
 
             // we need the following as spriteBatch.Begin() sets them to None and AlphaBlend
             // which breaks our model rendering

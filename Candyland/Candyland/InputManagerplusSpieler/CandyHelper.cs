@@ -23,7 +23,7 @@ namespace Candyland
             this.m_original_position = this.m_position;
             this.isVisible = true;
             this.original_isVisible = isVisible;
-            this.cam = new Camera(position, MathHelper.PiOver4, aspectRatio, 0.1f, 100, m_updateInfo);
+            this.cam = new Camera(position, MathHelper.PiOver4, aspectRatio, 0.1f, 30, m_updateInfo);
             this.currentspeed = 0;
             this.upvelocity = 0;
 
