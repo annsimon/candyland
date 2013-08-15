@@ -11,12 +11,15 @@ namespace Candyland
     {
         Texture2D TalkBubble;
         Texture2D arrowDown;
+        Texture2D talkingNPC;
         SpriteFont font;
 
         int screenWidth;
         int screenHeight;
 
         Rectangle DiagBox;
+        Rectangle pictureNPC;
+        Rectangle otherTextBox;
 
         string Text = "";
 
@@ -40,6 +43,7 @@ namespace Candyland
             TalkBubble = ScreenManager.Content.Load<Texture2D>("ScreenTextures/otherTalkBubble");
             arrowDown = ScreenManager.Content.Load<Texture2D>("ScreenTextures/arrowDown");
             font = ScreenManager.Font;
+            lineDist = font.LineSpacing;
 
             screenWidth = game.GraphicsDevice.Viewport.Width;
             screenHeight = game.GraphicsDevice.Viewport.Height;
@@ -47,11 +51,13 @@ namespace Candyland
             numberOfLines = 1;
 
             DiagBox = new Rectangle(0, (screenHeight * 2) / 3, screenWidth, screenHeight / 3);
+            pictureNPC = new Rectangle(otherDiagBox.X + offset, otherDiagBox.Y + offset, 3 * lineDist, 3 * lineDist);
+            otherTextBox = new Rectangle(pictureNPC.Right + offset, pictureNPC.Top + lineDist / 4, screenWidth - pictureNPC.Right - 2 * offset, pictureNPC.Height + offset);
+
 
             Text = wrapText(Text, font, DiagBox);
             // Check if text needs scrolling
-            lineDist = font.LineSpacing;
-            lineCapacity = (DiagBox.Height - offset) / font.LineSpacing;
+            lineCapacity = (otherTextBox.Height - offset) / font.LineSpacing;
         }
 
         public override void Update(GameTime gameTime)
@@ -103,17 +109,20 @@ namespace Candyland
             m_sprite.Begin();
 
             m_sprite.Draw(TalkBubble, DiagBox, Color.White);
+            m_sprite.Draw(talkingNPC, pictureNPC, Color.White);
 
-            m_sprite.DrawString(font, Text, new Vector2(DiagBox.X + offset, DiagBox.Y + offset), Color.Black);
+            m_sprite.DrawString(font, Text, new Vector2(otherTextBox.X, otherTextBox.Y), Color.Black);
 
             if (canScroll)
             {
                 if (arrowBlink)
                 {
-                    m_sprite.Draw(arrowDown, new Rectangle(DiagBox.Right - 50, DiagBox.Bottom - 40, 40, 20), Color.White);
+                    m_sprite.Draw(arrowDown, new Rectangle(otherDiagBox.Right - 35, otherDiagBox.Bottom - 30, 30, 15), Color.White);
                 }
-                else m_sprite.Draw(arrowDown, new Rectangle(DiagBox.Right - 50, DiagBox.Bottom - 30, 40, 20), Color.White);
+                else m_sprite.Draw(arrowDown, new Rectangle(otherDiagBox.Right - 35, otherDiagBox.Bottom - 25, 30, 15), Color.White);
             }
+
+            m_sprite.End();
 
             m_sprite.End();
 

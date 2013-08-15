@@ -9,6 +9,7 @@ namespace Candyland
     {
         Texture2D OtherTalkBubble;
         Texture2D OwnTalkBubble;
+        Texture2D talkingNPC;
         Texture2D arrowDown;
         SpriteFont font;
 
@@ -17,6 +18,8 @@ namespace Candyland
 
         Rectangle ownDiagBox;
         Rectangle otherDiagBox;
+        Rectangle pictureNPC;
+        Rectangle otherTextBox;
 
         string otherText;
         string option1, option2, option3, option4;
@@ -38,25 +41,28 @@ namespace Candyland
         {
             OtherTalkBubble = ScreenManager.Content.Load<Texture2D>("ScreenTextures/otherTalkBubble");
             OwnTalkBubble = ScreenManager.Content.Load<Texture2D>("ScreenTextures/talkBubbleOwn");
+            talkingNPC = ScreenManager.Content.Load<Texture2D>("ScreenTextures/testBonus");
             arrowDown = ScreenManager.Content.Load<Texture2D>("ScreenTextures/arrowDown");
             font = ScreenManager.Font;
+            lineDist = font.LineSpacing;
 
             screenWidth = game.GraphicsDevice.Viewport.Width;
             screenHeight = game.GraphicsDevice.Viewport.Height;
 
             numberOfLines = new int[numberOfOptions + 1];
 
-            otherDiagBox = new Rectangle(0, (screenHeight * 2) / 3, screenWidth, screenHeight / 3);
+            otherDiagBox = new Rectangle(0, screenHeight - (3 * lineDist) - 2*offset, screenWidth, 3 * lineDist + 2*offset);
             ownDiagBox = new Rectangle(screenWidth/3, 0, screenWidth * 2/3, screenHeight * 2/3);
+            pictureNPC = new Rectangle(otherDiagBox.X + offset, otherDiagBox.Y + offset, 3 * lineDist, 3 * lineDist);
+            otherTextBox = new Rectangle(pictureNPC.Right + offset, pictureNPC.Top + lineDist/4, screenWidth - pictureNPC.Right - 2*offset, pictureNPC.Height + offset);
 
-            otherText = wrapText(GameConstants.tradesmanGreeting, font, otherDiagBox, 0);
+            otherText = wrapText(GameConstants.tradesmanGreeting, font, otherTextBox, 0);
             option1 = wrapText("Reden", font, ownDiagBox, 1);
             option2 = wrapText("Einkaufen", font, ownDiagBox, 2);
             option3 = wrapText("Reisen", font, ownDiagBox, 3);
             option4 = wrapText("Auf Wiedersehen!", font, ownDiagBox, 4);
             // Check if text needs scrolling
-            lineDist = font.LineSpacing;
-            lineCapacity = (otherDiagBox.Height - offset) / font.LineSpacing;
+            lineCapacity = (otherTextBox.Height - offset) / font.LineSpacing;
         }
 
         public override void Update(GameTime gameTime)
@@ -129,8 +135,9 @@ namespace Candyland
             m_sprite.Begin();
 
             m_sprite.Draw(OtherTalkBubble, otherDiagBox, Color.White);
+            m_sprite.Draw(talkingNPC, pictureNPC, Color.White);
 
-            m_sprite.DrawString(font, otherText, new Vector2(otherDiagBox.X + offset, otherDiagBox.Y + offset), Color.Black);
+            m_sprite.DrawString(font, otherText, new Vector2(otherTextBox.X, otherTextBox.Y), Color.Black);
 
             if (isTimeToAnswer)
             {
@@ -157,9 +164,9 @@ namespace Candyland
                 {
                     if (arrowBlink)
                     {
-                        m_sprite.Draw(arrowDown, new Rectangle(otherDiagBox.Right - 50, otherDiagBox.Bottom - 40, 40, 20), Color.White);
+                        m_sprite.Draw(arrowDown, new Rectangle(otherDiagBox.Right - 35, otherDiagBox.Bottom - 30, 30, 15), Color.White);
                     }
-                    else m_sprite.Draw(arrowDown, new Rectangle(otherDiagBox.Right - 50, otherDiagBox.Bottom - 30, 40, 20), Color.White);
+                    else m_sprite.Draw(arrowDown, new Rectangle(otherDiagBox.Right - 35, otherDiagBox.Bottom - 25, 30, 15), Color.White);
                 }
             }
             m_sprite.End();

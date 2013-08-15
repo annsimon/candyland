@@ -8,6 +8,9 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Candyland
 {
+    /// <summary>
+    /// this NPC can give advice when addressed by the player
+    /// </summary>
     class BonbonFairy : GameObject
     {
         // Message the fairy has for the player
@@ -26,6 +29,7 @@ namespace Candyland
             this.effect = content.Load<Effect>("Shaders/Toon");
             this.m_model = content.Load<Model>("Objekte/Schokolinse/schokolinse");
             this.m_original_model = this.m_model;
+            //TODO Bounding box is bigger than the model, so that the player can interact, when standing a bit away
             this.calculateBoundingBox();
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
