@@ -72,7 +72,7 @@ namespace Candyland
                 switch (sAction.getType())
                 {
                     case GameConstants.SubActionType.appear: isVisible = true; break;
-                    case GameConstants.SubActionType.dialog: break; // not yet supported
+                    case GameConstants.SubActionType.dialog: m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen(sAction.getText(), m_dialogImage)); break;
                     case GameConstants.SubActionType.movement: moveTo(sAction.getGoal()); break;
                     case GameConstants.SubActionType.disappear: isVisible = false; break;
                 }

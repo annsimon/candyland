@@ -22,7 +22,7 @@ namespace Candyland
         protected Rectangle TextBox;
 
         private string Text = "";
-        private string Picture = "testBonus";
+        private string Picture = "Images/DialogImages/DefaultImage";
 
         protected int numberOfLines;
 
@@ -35,7 +35,7 @@ namespace Candyland
 
         public DialogListeningScreen() {}
 
-        public DialogListeningScreen(string text, string picture)
+        public DialogListeningScreen(string text, string picture = "Images/DialogImages/DefaultImage")
         {
             this.Text = text;
             this.Picture = picture;
@@ -45,7 +45,7 @@ namespace Candyland
         {
             TalkBubble = ScreenManager.Content.Load<Texture2D>("ScreenTextures/otherTalkBubble");
             arrowDown = ScreenManager.Content.Load<Texture2D>("ScreenTextures/arrowDown");
-            talkingNPC = ScreenManager.Content.Load<Texture2D>("ScreenTextures/" + Picture);
+            talkingNPC = ScreenManager.Content.Load<Texture2D>(Picture);
             font = ScreenManager.Font;
             lineDist = font.LineSpacing;
 

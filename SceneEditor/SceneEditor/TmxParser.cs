@@ -47,6 +47,9 @@ namespace SceneEditor
                     else id = idFront + "." + objName;
 
                     String type = obj.Attributes["type"].InnerText;
+                    if (type == "lowObstacle") type = "obstacle";
+                    if (type == "slipperyPlatform") type = "platform";
+                    if (type == "verySlipperyPlatform") type = "platform";
                     double offset = Convert.ToDouble(obj.Attributes["width"].InnerText) / 2;
                     String posX = (Convert.ToDouble(obj.Attributes["x"].InnerText) + offset) / 20 + "";
                     String posZ = (Convert.ToDouble(obj.Attributes["y"].InnerText) + offset) / 20 + "";

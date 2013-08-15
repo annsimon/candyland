@@ -446,7 +446,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Images\" />
     <Folder Include="NPCs\Fee\" />
     <Folder Include="NPCs\Händler\" />
     <Folder Include="NPCs\TutorialGuy\" />
@@ -483,6 +482,25 @@
   <ItemGroup>
     <Compile Include="NPCs\Spieler\Candyguytextur.png">
       <Name>Candyguytextur</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\DialogImages\AcaHelper.png">
+      <Name>AcaHelper</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\DialogImages\BonbonFairy.png">
+      <Name>BonbonFairy</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\DialogImages\DefaultImage.png">
+      <Name>DefaultImage</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

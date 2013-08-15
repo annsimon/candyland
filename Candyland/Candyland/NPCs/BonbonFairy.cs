@@ -48,7 +48,7 @@ namespace Candyland
                 KeyboardState keyState = Keyboard.GetState();
 
                 if(keyState.IsKeyDown(Keys.B))
-                    m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen(m_text, "testBonus"));
+                    m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen(m_text, "Images/DialogImages/BonbonFairy"));
             }
         }
 

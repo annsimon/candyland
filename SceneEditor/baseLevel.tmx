@@ -112,7 +112,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="0.choco" type="chocoChip" x="750" y="70" width="20" height="20">
+  <object name="0.choco" type="chocoChip" x="780" y="70" width="20" height="20">
    <properties>
     <property name="endPositionY" value="-"/>
     <property name="endPositionZ" value="-"/>
@@ -124,7 +124,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="0.teleport" type="teleportPlatform" x="780" y="70" width="20" height="20">
+  <object name="0.teleport" type="teleportPlatform" x="810" y="70" width="20" height="20">
    <properties>
     <property name="endPositionY" value="-"/>
     <property name="endPositionZ" value="-"/>
@@ -196,7 +196,7 @@
     <property name="size" value="3"/>
    </properties>
   </object>
-  <object name="-" type="obstacle" x="690" y="250" width="40" height="40">
+  <object name="-" type="obstacle" x="900" y="120" width="40" height="40">
    <properties>
     <property name="endPositionY" value="-"/>
     <property name="endPositionZ" value="-"/>
@@ -208,7 +208,7 @@
     <property name="size" value="2"/>
    </properties>
   </object>
-  <object name="-" type="obstacle" x="690" y="300" width="60" height="60">
+  <object name="-" type="lowObstacle" x="690" y="70" width="20" height="20">
    <properties>
     <property name="endPositionY" value="-"/>
     <property name="endPositionZ" value="-"/>
@@ -217,10 +217,10 @@
     <property name="isDoorToLevel" value="-"/>
     <property name="isSlippery" value="-"/>
     <property name="isVisible" value="true"/>
-    <property name="size" value="3"/>
+    <property name="size" value="0"/>
    </properties>
   </object>
-  <object name="0.movingPlatform" type="movingPlatform" x="760" y="250" width="40" height="40">
+  <object name="0.movingPlatform" type="movingPlatform" x="830" y="120" width="40" height="40">
    <properties>
     <property name="endPositionY" value="-"/>
     <property name="endPositionZ" value="-"/>
@@ -232,7 +232,7 @@
     <property name="size" value="2"/>
    </properties>
   </object>
-  <object name="0.movingPlatform" type="movingPlatform" x="760" y="300" width="60" height="60">
+  <object name="0.movingPlatform" type="movingPlatform" x="830" y="180" width="60" height="60">
    <properties>
     <property name="endPositionY" value="-"/>
     <property name="endPositionZ" value="-"/>
@@ -244,7 +244,54 @@
     <property name="size" value="3"/>
    </properties>
   </object>
-  <object name="0.breaking" type="breakingPlatform" x="810" y="70" width="20" height="20"/>
+  <object name="-" type="slipperyPlatform" x="720" y="70" width="20" height="20">
+   <properties>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="1"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="0"/>
+   </properties>
+  </object>
+  <object name="-" type="verySlipperyPlatform" x="750" y="70" width="20" height="20">
+   <properties>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="2"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="0"/>
+   </properties>
+  </object>
+  <object name="0.breaking" type="breakingPlatform" x="840" y="70" width="20" height="20">
+   <properties>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="-"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="1"/>
+   </properties>
+  </object>
+  <object name="0.actionActor" type="actionActor" x="870" y="70" width="20" height="20">
+   <properties>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="-"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="1"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="0" width="100" height="100"/>
 </map>

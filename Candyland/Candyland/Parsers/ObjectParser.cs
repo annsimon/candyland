@@ -221,7 +221,7 @@ namespace Candyland
                     dynamicObjects.Add(node.InnerText, obj);
                 }
                 else
-                if (object_type == "HelperTest"|| object_type == "ActionActor")
+                if (object_type == "HelperTest"|| object_type == "actionActor")
                 {
                     if (dynamicObjects.ContainsKey(node.InnerText))
                     {

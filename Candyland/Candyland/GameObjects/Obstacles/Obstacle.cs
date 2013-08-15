@@ -43,9 +43,9 @@ namespace Candyland
 
             switch (size)
             {
+                case 0: loadLow(content); break;
                 case 1: loadSmall(content); break;
-                case 2: loadMedium(content); break;
-                case 3: loadLarge(content); break;
+                case 2: loadLarge(content); break;
             }
             this.m_original_texture = this.m_texture;
             this.m_original_model = this.m_model;
@@ -58,16 +58,16 @@ namespace Candyland
             base.load(content);
         }
 
+        public void loadLow(ContentManager content)
+        {
+            this.m_texture = content.Load<Texture2D>("Objekte/Obstacles/lakritztextur_flach");
+            this.m_model = content.Load<Model>("Objekte/Obstacles/lakritzblock_flach");
+        }
+
         public void loadSmall(ContentManager content)
         {
             this.m_texture = content.Load<Texture2D>("Objekte/Obstacles/lakritztextur_klein");
             this.m_model = content.Load<Model>("Objekte/Obstacles/lakritzblock_klein");
-        }
-
-        public void loadMedium(ContentManager content)
-        {
-            this.m_texture = content.Load<Texture2D>("Objekte/Obstacles/lakritztextur_mittel");
-            this.m_model = content.Load<Model>("Objekte/Obstacles/lakritzblock_mittel");
         }
 
         public void loadLarge(ContentManager content)
