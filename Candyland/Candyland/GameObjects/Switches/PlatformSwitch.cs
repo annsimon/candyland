@@ -78,6 +78,7 @@ namespace Candyland
             isActivated = false;
             isTouched = GameConstants.TouchedState.notTouched;
             m_texture = m_notActivated_texture;
+            m_modelTextures[-1] = m_notActivated_texture;
             base.Reset();
         }
 
@@ -86,6 +87,7 @@ namespace Candyland
             isActivated = false;
             isTouched = GameConstants.TouchedState.notTouched;
             m_texture = m_notActivated_texture;
+            m_modelTextures[-1] = m_notActivated_texture;
         }
 
     }
