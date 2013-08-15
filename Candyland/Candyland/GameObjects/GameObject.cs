@@ -79,11 +79,17 @@ namespace Candyland
         protected Material m_material;
         public Material getMaterial() { return m_material; }
 
-        public struct ModelGroup
+        public class ModelGroup
         {
             public Model model;
             public Dictionary<int, Texture2D> textures;
             public Material material;
+        }
+
+        protected bool m_isAnimated = false;
+
+        public class ModelGroupAnimated : ModelGroup
+        {
             public AnimationPlayer animationPlayer;
         }
 
@@ -167,8 +173,14 @@ namespace Candyland
             m_skinningData = m_model.Tag as SkinningData;
 
             if (m_skinningData == null)
+            {
+                return;
                 throw new InvalidOperationException
                     ("This model does not contain a SkinningData tag.");
+
+            }
+
+            m_isAnimated = true;
 
             // Create an animation player, and start decoding an animation clip.
             animationPlayer = new AnimationPlayer(m_skinningData);
@@ -187,10 +199,15 @@ namespace Candyland
         public virtual ModelGroup GetModelGroup()
         {
             ModelGroup group = new ModelGroup();
+            if (m_isAnimated)
+            {
+                ModelGroupAnimated temp = new ModelGroupAnimated();
+                temp.animationPlayer = animationPlayer;
+                group = temp;
+            }
             group.model = m_model;
             group.textures = m_modelTextures;
             group.material = m_material;
-            group.animationPlayer = animationPlayer;
             return group;
         }
 

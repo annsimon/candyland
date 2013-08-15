@@ -97,11 +97,8 @@ void VS_Shaded(in  float4 inPosition  : POSITION,
 			    out float4 outPosition : POSITION,
 			    out float2 outTexCoord : TEXCOORD0,
 				out float3 outNormal   : TEXCOORD1,
-				out float3 outLightDir : TEXCOORD2,
-				AppToVertex input)
+				out float3 outLightDir : TEXCOORD2)
 {
-
-    Skin(input, 4); 
 	float4x4 worldviewprojection = mul(mul(world, view), projection);
 	
 	outPosition = mul(inPosition, worldviewprojection);
@@ -110,19 +107,26 @@ void VS_Shaded(in  float4 inPosition  : POSITION,
 	outLightDir = -lightDir;
 }
 
-void VS_ShadedWithShadows(in  float4 inPosition        : POSITION,
-	                       in  float2 inTexCoord        : TEXCOORD,
-	                       in  float3 inNormal          : NORMAL,
-			               out float4 outPosition       : POSITION,
-			               out float4 outLightSpacePos  : TEXCOORD0,
-			               out float2 outShadowTexCoord : TEXCOORD1,
-			               out float2 outTexCoord       : TEXCOORD2,
-				           out float3 outNormal         : TEXCOORD3,
-				           out float3 outLightDir       : TEXCOORD4,
-						   AppToVertex input)
+void VS_ShadedAndAnimated(AppToVertex input,
+				out float4 outPosition : POSITION,
+			    out float2 outTexCoord : TEXCOORD0,
+				out float3 outNormal   : TEXCOORD1,
+				out float3 outLightDir : TEXCOORD2)
 {
-
     Skin(input, 4); 
+	VS_Shaded(input.Position, input.TextureCoordinate, input.Normal, outPosition, outTexCoord, outNormal, outLightDir);
+}
+
+void VS_ShadedWithShadows(in  float4 inPosition        : POSITION,
+	                    in  float2 inTexCoord        : TEXCOORD,
+	                    in  float3 inNormal          : NORMAL,
+			            out float4 outPosition       : POSITION,
+			            out float4 outLightSpacePos  : TEXCOORD0,
+			            out float2 outShadowTexCoord : TEXCOORD1,
+			            out float2 outTexCoord       : TEXCOORD2,
+				        out float3 outNormal         : TEXCOORD3,
+				        out float3 outLightDir       : TEXCOORD4)
+{
 	float4x4 worldviewprojection = mul(mul(world, view), projection);
 	float4 lightSpacePos = mul(mul(inPosition, world), lightViewProjection);
 	float4 shadowCoord = mul(lightSpacePos, textureScaleBias);
@@ -135,10 +139,21 @@ void VS_ShadedWithShadows(in  float4 inPosition        : POSITION,
 	outLightDir = -lightDir;
 }
 
-// The vertex shader that does the outlines
+void VS_ShadedWithShadowsAndAnimated(AppToVertex input,
+			               out float4 outPosition       : POSITION,
+			               out float4 outLightSpacePos  : TEXCOORD0,
+			               out float2 outShadowTexCoord : TEXCOORD1,
+			               out float2 outTexCoord       : TEXCOORD2,
+				           out float3 outNormal         : TEXCOORD3,
+				           out float3 outLightDir       : TEXCOORD4)
+{
+    Skin(input, 4);
+	VS_ShadedWithShadows(input.Position, input.TextureCoordinate, input.Normal, outPosition, 
+							outLightSpacePos, outShadowTexCoord, outTexCoord, outNormal, outLightDir);
+}
+
 VertexToPixel OutlineVertexShader(AppToVertex input)
 {
-	Skin(input, 4); 
     VertexToPixel output = (VertexToPixel)0;
  
     float4 originalLocation = mul(mul(mul(input.Position, world), view), projection);
@@ -146,6 +161,13 @@ VertexToPixel OutlineVertexShader(AppToVertex input)
     output.Position = originalLocation + (mul(LineThickness, normal));
  
     return output;
+}
+
+// The vertex shader that does the outlines
+VertexToPixel OutlineVertexShaderAnimated(AppToVertex input)
+{
+	Skin(input, 4); 
+	return OutlineVertexShader(input);
 }
 
 //-----------------------------------------------------------------------------
@@ -279,8 +301,6 @@ technique ShadedWithShadows
         PixelShader = compile ps_2_0 PS_ShadedWithShadows();
 		CullMode = CCW;
     }
-
-
 }
 
 technique ShadedWithShadows2x2PCF
@@ -295,6 +315,60 @@ technique ShadedWithShadows2x2PCF
     pass Pass2
     {
         VertexShader = compile vs_2_0 VS_ShadedWithShadows();
+        PixelShader = compile ps_2_0 PS_ShadedWithShadowsPCF2x2();
+		CullMode = CCW;
+    }
+}
+
+
+//-------------- animated -------------------
+
+technique ShadedAndAnimated
+{
+	pass Pass1
+    {
+        VertexShader = compile vs_2_0 OutlineVertexShaderAnimated();
+        PixelShader = compile ps_2_0 OutlinePixelShader();
+        CullMode = CW;
+    }
+
+	pass Pass2
+	{
+		VertexShader = compile vs_2_0 VS_ShadedAndAnimated();
+		PixelShader = compile ps_2_0 PS_Shaded();
+		CullMode = CCW;
+	}
+}
+
+technique ShadedWithShadowsAndAnimated
+{
+    pass Pass1
+    {
+        VertexShader = compile vs_2_0 OutlineVertexShaderAnimated();
+        PixelShader = compile ps_2_0 OutlinePixelShader();
+        CullMode = CW;
+    }
+
+	pass Pass2
+    {
+        VertexShader = compile vs_2_0 VS_ShadedWithShadowsAndAnimated();
+        PixelShader = compile ps_2_0 PS_ShadedWithShadows();
+		CullMode = CCW;
+    }
+}
+
+technique ShadedWithShadowsAndAnimated2x2PCF
+{
+	pass Pass1
+    {
+        VertexShader = compile vs_2_0 OutlineVertexShaderAnimated();
+        PixelShader = compile ps_2_0 OutlinePixelShader();
+        CullMode = CW;
+    }
+
+    pass Pass2
+    {
+        VertexShader = compile vs_2_0 VS_ShadedWithShadowsAndAnimated();
         PixelShader = compile ps_2_0 PS_ShadedWithShadowsPCF2x2();
 		CullMode = CCW;
     }

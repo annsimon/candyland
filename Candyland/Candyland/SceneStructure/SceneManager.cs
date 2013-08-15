@@ -209,19 +209,27 @@ namespace Candyland
         private void DrawModel(GameObject.ModelGroup modelGroup, Matrix world)
         {
             Model model = modelGroup.model;
+            if (model == null) return;
+
             Dictionary<int, Texture2D> textures = modelGroup.textures;
             GameObject.Material material = modelGroup.material;
-            AnimationPlayer player = modelGroup.animationPlayer;
 
-            if (model == null) return;
+            AnimationPlayer player = null;
+            if (modelGroup is GameObject.ModelGroupAnimated)
+                player = ((GameObject.ModelGroupAnimated)modelGroup).animationPlayer;
 
             foreach (ModelMesh m in model.Meshes)
             {
                 foreach (Effect e in m.Effects)
                 {
-                    e.CurrentTechnique = e.Techniques["Shaded"];
 
-                    e.Parameters["Bones"].SetValue(player.GetSkinTransforms());
+                    if (player != null)
+                    {
+                        e.CurrentTechnique = e.Techniques["ShadedWithShadowsAndAnimated"];
+                        e.Parameters["Bones"].SetValue(player.GetSkinTransforms());
+                    }
+                    else
+                        e.CurrentTechnique = e.Techniques["ShadedWithShadows"];
                     e.Parameters["lightViewProjection"].SetValue(m_shadowMap.LightViewProjectionMatrix);
                     e.Parameters["textureScaleBias"].SetValue(m_shadowMap.TextureScaleBiasMatrix);
                     e.Parameters["depthBias"].SetValue(m_shadowMap.DepthBias);

@@ -21,7 +21,7 @@ namespace Candyland
         /// <summary>
         /// speed of moving obstacles
         /// </summary>
-        public const float slippingSpeed = 0.05f;
+        public const float slippingSpeed = 0.03f;
 
         /// <summary>
         /// time a timed switch stays activated
