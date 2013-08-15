@@ -65,7 +65,8 @@ namespace Candyland
             effect = content.Load<Effect>("Shaders/Shader");
             m_texture = content.Load<Texture2D>("NPCs/Spieler/Candyguytextur");
             m_model = content.Load<Model>("NPCs/Spieler/candyguy");
-            calculateBoundingBox();
+            // custom made bounding box
+            m_boundingBox = new BoundingBox(this.m_position - new Vector3(0.3f, 0.35f, 0.3f), this.m_position + new Vector3(0.3f, 0.25f, 0.3f));
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
 

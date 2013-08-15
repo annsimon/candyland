@@ -30,7 +30,7 @@ namespace Candyland
             this.m_model = content.Load<Model>("Objekte/Schokolinse/schokolinse");
             this.m_original_model = this.m_model;
             //TODO Bounding box is bigger than the model, so that the player can interact, when standing a bit away
-            this.calculateBoundingBox();
+            m_boundingBox = new BoundingBox(this.m_position - new Vector3(1,1,1), this.m_position + new Vector3(1,1,1));
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
             base.load(content);
@@ -48,7 +48,7 @@ namespace Candyland
                 KeyboardState keyState = Keyboard.GetState();
 
                 if(keyState.IsKeyDown(Keys.B))
-                m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen(m_text));
+                    m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen(m_text, "testBonus"));
             }
         }
 

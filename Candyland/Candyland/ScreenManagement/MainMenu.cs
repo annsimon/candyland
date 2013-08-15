@@ -22,12 +22,12 @@ namespace Candyland
         int leftAlign;
         int topAlign;
         Rectangle selectedButton;
-        Rectangle button0;
-        Rectangle button1;
-        Rectangle button2;
-        Rectangle button3;
-        Rectangle button4;
-        Rectangle button5;
+        //Rectangle button0;
+        //Rectangle button1;
+        //Rectangle button2;
+        //Rectangle button3;
+        //Rectangle button4;
+        //Rectangle button5;
 
         public override void Open(Game game)
         {

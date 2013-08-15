@@ -183,7 +183,11 @@ namespace Candyland
             CreateShadowMap();
 
             DrawModel(player.GetModelGroup(), player.prepareForDrawing());
+            if (GameConstants.boundingBoxRendering)
+                BoundingBoxRenderer.Render(player.getBoundingBox(), m_graphics, m_updateInfo.viewMatrix, m_updateInfo.projectionMatrix, Color.White);
             DrawModel(player2.GetModelGroup(), player2.prepareForDrawing());
+            if (GameConstants.boundingBoxRendering)
+                BoundingBoxRenderer.Render(player2.getBoundingBox(), m_graphics, m_updateInfo.viewMatrix, m_updateInfo.projectionMatrix, Color.White);
 
             // draw the area the player currently is in and the two
             // adjacent ones
@@ -191,7 +195,11 @@ namespace Candyland
             Area currArea = m_areas[currentArea];
             List<GameObject> currentObjects = currArea.GetObjects();
             foreach (GameObject obj in currentObjects)
+            {
                 DrawModel(obj.GetModelGroup(), obj.prepareForDrawing());
+                if(GameConstants.boundingBoxRendering)
+                    BoundingBoxRenderer.Render(obj.getBoundingBox(), m_graphics, m_updateInfo.viewMatrix, m_updateInfo.projectionMatrix, Color.White);
+            }
             if (m_areas[currentArea].hasPrevious)
             {
                 currentObjects = m_areas[currArea.previousID].GetObjects();

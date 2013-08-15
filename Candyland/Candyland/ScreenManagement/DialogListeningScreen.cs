@@ -9,39 +9,43 @@ namespace Candyland
 {
     class DialogListeningScreen : GameScreen
     {
-        Texture2D TalkBubble;
-        Texture2D arrowDown;
-        Texture2D talkingNPC;
-        SpriteFont font;
+        protected Texture2D TalkBubble;
+        protected Texture2D arrowDown;
+        protected Texture2D talkingNPC;
+        protected SpriteFont font;
 
-        int screenWidth;
-        int screenHeight;
+        protected int screenWidth;
+        protected int screenHeight;
 
-        Rectangle DiagBox;
-        Rectangle pictureNPC;
-        Rectangle otherTextBox;
+        protected Rectangle DiagBox;
+        protected Rectangle pictureNPC;
+        protected Rectangle TextBox;
 
-        string Text = "";
+        private string Text = "";
+        private string Picture = "testBonus";
 
-        int numberOfLines;
+        protected int numberOfLines;
 
-        bool canScroll = false;
-        int lineCapacity;
-        bool arrowBlink = false;
-        int timePastSinceLastArrowBling;
-        int lineDist;
-        int offset = 15;
-        private string p;
+        protected bool canScroll = false;
+        protected int lineCapacity;
+        protected bool arrowBlink = false;
+        protected int timePastSinceLastArrowBling;
+        protected int lineDist;
+        protected int offset = 15;
 
-        public DialogListeningScreen(string text)
+        public DialogListeningScreen() {}
+
+        public DialogListeningScreen(string text, string picture)
         {
             this.Text = text;
+            this.Picture = picture;
         }
 
         public override void Open(Game game)
         {
             TalkBubble = ScreenManager.Content.Load<Texture2D>("ScreenTextures/otherTalkBubble");
             arrowDown = ScreenManager.Content.Load<Texture2D>("ScreenTextures/arrowDown");
+            talkingNPC = ScreenManager.Content.Load<Texture2D>("ScreenTextures/" + Picture);
             font = ScreenManager.Font;
             lineDist = font.LineSpacing;
 
@@ -51,13 +55,13 @@ namespace Candyland
             numberOfLines = 1;
 
             DiagBox = new Rectangle(0, (screenHeight * 2) / 3, screenWidth, screenHeight / 3);
-            pictureNPC = new Rectangle(otherDiagBox.X + offset, otherDiagBox.Y + offset, 3 * lineDist, 3 * lineDist);
-            otherTextBox = new Rectangle(pictureNPC.Right + offset, pictureNPC.Top + lineDist / 4, screenWidth - pictureNPC.Right - 2 * offset, pictureNPC.Height + offset);
+            pictureNPC = new Rectangle(DiagBox.X + offset, DiagBox.Y + offset, 3 * lineDist, 3 * lineDist);
+            TextBox = new Rectangle(pictureNPC.Right + offset, pictureNPC.Top + lineDist / 4, screenWidth - pictureNPC.Right - 2 * offset, pictureNPC.Height + offset);
 
 
             Text = wrapText(Text, font, DiagBox);
             // Check if text needs scrolling
-            lineCapacity = (otherTextBox.Height - offset) / font.LineSpacing;
+            lineCapacity = (TextBox.Height - offset) / font.LineSpacing;
         }
 
         public override void Update(GameTime gameTime)
@@ -111,18 +115,16 @@ namespace Candyland
             m_sprite.Draw(TalkBubble, DiagBox, Color.White);
             m_sprite.Draw(talkingNPC, pictureNPC, Color.White);
 
-            m_sprite.DrawString(font, Text, new Vector2(otherTextBox.X, otherTextBox.Y), Color.Black);
+            m_sprite.DrawString(font, Text, new Vector2(TextBox.X, TextBox.Y), Color.Black);
 
             if (canScroll)
             {
                 if (arrowBlink)
                 {
-                    m_sprite.Draw(arrowDown, new Rectangle(otherDiagBox.Right - 35, otherDiagBox.Bottom - 30, 30, 15), Color.White);
+                    m_sprite.Draw(arrowDown, new Rectangle(DiagBox.Right - 35, DiagBox.Bottom - 30, 30, 15), Color.White);
                 }
-                else m_sprite.Draw(arrowDown, new Rectangle(otherDiagBox.Right - 35, otherDiagBox.Bottom - 25, 30, 15), Color.White);
+                else m_sprite.Draw(arrowDown, new Rectangle(DiagBox.Right - 35, DiagBox.Bottom - 25, 30, 15), Color.White);
             }
-
-            m_sprite.End();
 
             m_sprite.End();
 
@@ -140,7 +142,7 @@ namespace Candyland
         /// <param name="font"></param>
         /// <param name="textBox"></param>
         /// <returns></returns>
-        private String wrapText(String text, SpriteFont font, Rectangle textBox)
+        protected String wrapText(String text, SpriteFont font, Rectangle textBox)
         {
             String lineString = String.Empty;
             String returnString = String.Empty;
@@ -169,7 +171,7 @@ namespace Candyland
         /// <param name="text"></param>
         /// <param name="capacity"></param>
         /// <returns></returns>
-        private String removeReadLines(String text, int capacity)
+        protected String removeReadLines(String text, int capacity)
         {
             String[] lineArray = text.Split('\n');
             String returnString = String.Empty;

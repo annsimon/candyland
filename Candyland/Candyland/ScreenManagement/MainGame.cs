@@ -31,11 +31,11 @@ namespace Candyland
             }
             if (Keyboard.GetState().IsKeyDown(Keys.T))
             {
-                ScreenManager.ActivateNewScreen(new SalesmanDialogueScreen());
+                ScreenManager.ActivateNewScreen(new SalesmanDialogueScreen(GameConstants.tradesmanGreeting, "testBonus"));
             }
             if (Keyboard.GetState().IsKeyDown(Keys.Z))
             {
-                ScreenManager.ActivateNewScreen(new DialogListeningScreen("Hallo hallo"));
+                ScreenManager.ActivateNewScreen(new DialogListeningScreen("Hallo hallo", "testBonus"));
             }
 
 

@@ -5,64 +5,44 @@ using System.Collections.Generic;
 
 namespace Candyland
 {
-    class SalesmanDialogueScreen : GameScreen
+    class SalesmanDialogueScreen : DialogListeningScreen
     {
-        Texture2D OtherTalkBubble;
         Texture2D OwnTalkBubble;
-        Texture2D talkingNPC;
-        Texture2D arrowDown;
-        SpriteFont font;
-
-        int screenWidth;
-        int screenHeight;
 
         Rectangle ownDiagBox;
-        Rectangle otherDiagBox;
-        Rectangle pictureNPC;
-        Rectangle otherTextBox;
 
-        string otherText;
-        string option1, option2, option3, option4;
+        private string option1, option2, option3, option4;
+
+        private string Text = "";
+        private string Picture = "testBonus";
 
         int activeIndex = 0;
         int numberOfOptions = 4;
 
-        int[] numberOfLines;
-
         bool isTimeToAnswer = false;
-        bool canScroll = false;
-        int lineCapacity;
-        bool arrowBlink = false;
-        int timePastSinceLastArrowBling;
-        int lineDist;
-        int offset = 15;
+
+        public SalesmanDialogueScreen(string text, string picture)
+        {
+            this.Text = text;
+            this.Picture = picture;
+        }
 
         public override void Open(Game game)
         {
-            OtherTalkBubble = ScreenManager.Content.Load<Texture2D>("ScreenTextures/otherTalkBubble");
+            base.Open(game);
+
             OwnTalkBubble = ScreenManager.Content.Load<Texture2D>("ScreenTextures/talkBubbleOwn");
-            talkingNPC = ScreenManager.Content.Load<Texture2D>("ScreenTextures/testBonus");
-            arrowDown = ScreenManager.Content.Load<Texture2D>("ScreenTextures/arrowDown");
-            font = ScreenManager.Font;
-            lineDist = font.LineSpacing;
 
-            screenWidth = game.GraphicsDevice.Viewport.Width;
-            screenHeight = game.GraphicsDevice.Viewport.Height;
+            ownDiagBox = new Rectangle(screenWidth / 3, 0, screenWidth * 2 / 3, screenHeight * 2 / 3);
 
-            numberOfLines = new int[numberOfOptions + 1];
+            option1 = "Reden";
+            option2 = "Einkaufen";
+            option3 = "Reisen";
+            option4 = "Auf Wiedersehen!";
 
-            otherDiagBox = new Rectangle(0, screenHeight - (3 * lineDist) - 2*offset, screenWidth, 3 * lineDist + 2*offset);
-            ownDiagBox = new Rectangle(screenWidth/3, 0, screenWidth * 2/3, screenHeight * 2/3);
-            pictureNPC = new Rectangle(otherDiagBox.X + offset, otherDiagBox.Y + offset, 3 * lineDist, 3 * lineDist);
-            otherTextBox = new Rectangle(pictureNPC.Right + offset, pictureNPC.Top + lineDist/4, screenWidth - pictureNPC.Right - 2*offset, pictureNPC.Height + offset);
-
-            otherText = wrapText(GameConstants.tradesmanGreeting, font, otherTextBox, 0);
-            option1 = wrapText("Reden", font, ownDiagBox, 1);
-            option2 = wrapText("Einkaufen", font, ownDiagBox, 2);
-            option3 = wrapText("Reisen", font, ownDiagBox, 3);
-            option4 = wrapText("Auf Wiedersehen!", font, ownDiagBox, 4);
+            Text = wrapText(Text, font, TextBox);
             // Check if text needs scrolling
-            lineCapacity = (otherTextBox.Height - offset) / font.LineSpacing;
+            lineCapacity = (TextBox.Height - offset) / font.LineSpacing;
         }
 
         public override void Update(GameTime gameTime)
@@ -94,14 +74,14 @@ namespace Candyland
             }
 
             // Check if text needs scrolling
-            if (numberOfLines[0] > lineCapacity)
+            if (numberOfLines > lineCapacity)
             {
                 canScroll = true;
 
                 // If other person is still talking continue through text by pressing Enter
                 if (enterPressed)
                 {
-                    otherText = removeReadLines(otherText, lineCapacity);
+                    Text = removeReadLines(Text, lineCapacity);
                 }
 
                 timePastSinceLastArrowBling += gameTime.ElapsedGameTime.Milliseconds;
@@ -134,99 +114,48 @@ namespace Candyland
 
             m_sprite.Begin();
 
-            m_sprite.Draw(OtherTalkBubble, otherDiagBox, Color.White);
+            m_sprite.Draw(TalkBubble, DiagBox, Color.White);
             m_sprite.Draw(talkingNPC, pictureNPC, Color.White);
 
-            m_sprite.DrawString(font, otherText, new Vector2(otherTextBox.X, otherTextBox.Y), Color.Black);
+            m_sprite.DrawString(font, Text, new Vector2(TextBox.X, TextBox.Y), Color.Black);
 
             if (isTimeToAnswer)
             {
                 m_sprite.Draw(OwnTalkBubble, ownDiagBox, Color.White);
 
                 m_sprite.DrawString(font, option1, new Vector2(leftAlign, topAlign), Color.Black);
-                m_sprite.DrawString(font, option2, new Vector2(leftAlign, topAlign + lineDist * numberOfLines[1]), Color.Black);
-                m_sprite.DrawString(font, option3, new Vector2(leftAlign, topAlign + lineDist * (numberOfLines[2] + numberOfLines[1])), Color.Black);
-                m_sprite.DrawString(font, option4, new Vector2(leftAlign, topAlign + lineDist * (numberOfLines[3] + numberOfLines[2] + numberOfLines[1])), Color.Black);
+                m_sprite.DrawString(font, option2, new Vector2(leftAlign, topAlign + lineDist ), Color.Black);
+                m_sprite.DrawString(font, option3, new Vector2(leftAlign, topAlign + lineDist * 2), Color.Black);
+                m_sprite.DrawString(font, option4, new Vector2(leftAlign, topAlign + lineDist * 3), Color.Black);
 
                 // Draw active option in different color
                 switch (activeIndex)
                 {
                     case 0: m_sprite.DrawString(font, option1, new Vector2(leftAlign, topAlign), Color.Green); break;
-                    case 1: m_sprite.DrawString(font, option2, new Vector2(leftAlign, topAlign + lineDist * numberOfLines[1]), Color.Green); break;
-                    case 2: m_sprite.DrawString(font, option3, new Vector2(leftAlign, topAlign + lineDist * (numberOfLines[2] + numberOfLines[1])), Color.Green); break;
-                    case 3: m_sprite.DrawString(font, option4, new Vector2(leftAlign, topAlign + lineDist * (numberOfLines[3] + numberOfLines[2] + numberOfLines[1])), Color.Green); break;
+                    case 1: m_sprite.DrawString(font, option2, new Vector2(leftAlign, topAlign + lineDist), Color.Green); break;
+                    case 2: m_sprite.DrawString(font, option3, new Vector2(leftAlign, topAlign + lineDist * 2), Color.Green); break;
+                    case 3: m_sprite.DrawString(font, option4, new Vector2(leftAlign, topAlign + lineDist * 3), Color.Green); break;
                 }
             }
-            // other person is still talking
+            //other person is still talking
             else
             {
                 if (canScroll)
                 {
                     if (arrowBlink)
                     {
-                        m_sprite.Draw(arrowDown, new Rectangle(otherDiagBox.Right - 35, otherDiagBox.Bottom - 30, 30, 15), Color.White);
+                        m_sprite.Draw(arrowDown, new Rectangle(DiagBox.Right - 35, DiagBox.Bottom - 30, 30, 15), Color.White);
                     }
-                    else m_sprite.Draw(arrowDown, new Rectangle(otherDiagBox.Right - 35, otherDiagBox.Bottom - 25, 30, 15), Color.White);
+                    else m_sprite.Draw(arrowDown, new Rectangle(DiagBox.Right - 35, DiagBox.Bottom - 25, 30, 15), Color.White);
                 }
             }
             m_sprite.End();
 
-            // we need the following as spriteBatch.Begin() sets them to None and AlphaBlend
-            // which breaks our model rendering
+            //// we need the following as spriteBatch.Begin() sets them to None and AlphaBlend
+            //// which breaks our model rendering
             GraphicsDevice m_graphics = ScreenManager.Game.GraphicsDevice;
             m_graphics.DepthStencilState = DepthStencilState.Default;
             m_graphics.BlendState = BlendState.Opaque;
-        }
-
-        /// <summary>
-        /// Puts line breaks into a string to make it fit into a given text box
-        /// </summary>
-        /// <param name="text"></param>
-        /// <param name="font"></param>
-        /// <param name="textBox"></param>
-        /// <returns></returns>
-        private String wrapText(String text, SpriteFont font, Rectangle textBox, int index)
-        {
-            String lineString = String.Empty;
-            String returnString = String.Empty;
-            String[] wordArray = text.Split(' ');
-            int numOfLines = 1;
-
-            foreach (String word in wordArray)
-            {
-                float lineWidth = font.MeasureString(lineString + word).Length();
-                if (lineWidth + offset > textBox.Width)
-                {
-                    returnString = returnString + lineString + '\n';
-                    numOfLines++;
-                    lineString = String.Empty;
-                }
-
-                lineString = lineString + word + ' ';
-            }
-            numberOfLines[index] = numOfLines;
-            return returnString + lineString;
-        }
-
-        /// <summary>
-        /// scrolling
-        /// </summary>
-        /// <param name="text"></param>
-        /// <param name="capacity"></param>
-        /// <returns></returns>
-        private String removeReadLines(String text, int capacity)
-        {
-            String[] lineArray = text.Split('\n');
-            String returnString = String.Empty;
-            int numOfLines = 0;
-
-            for (int i = capacity; i < lineArray.Length; i++)
-            {
-                returnString += lineArray[i] + '\n';
-                numOfLines++;
-            }
-            numberOfLines[0] = numOfLines;
-            return returnString;
         }
     }
 }
