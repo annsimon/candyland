@@ -60,12 +60,13 @@ namespace Candyland
             sound = content.Load<SoundEffect>("Sfx/coin");  // sound when collecting chocochips
             this.m_texture = content.Load<Texture2D>("Objekte/Schokolinse/schokolinsetextur");
             this.m_original_texture = this.m_texture;
-            this.effect = content.Load<Effect>("Shaders/Toon");
+            this.effect = content.Load<Effect>("Shaders/Shader");
             this.m_model = content.Load<Model>("Objekte/Schokolinse/schokolinse");
             this.m_original_model = this.m_model;
             this.calculateBoundingBox();
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
+            base.load(content);
         }
 
         #endregion
@@ -109,10 +110,11 @@ namespace Candyland
 
         #endregion
 
-        public override void draw()
+        public override Matrix prepareForDrawing()
         {
             if(!isCollected )
-                base.draw();
+                return base.prepareForDrawing();
+            return new Matrix();
         }
 
         public override void Reset()

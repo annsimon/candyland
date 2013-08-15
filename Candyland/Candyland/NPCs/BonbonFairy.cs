@@ -33,6 +33,7 @@ namespace Candyland
             this.calculateBoundingBox();
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
+            base.load(content);
         }
 
         public override void collide(GameObject obj)

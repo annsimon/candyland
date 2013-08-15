@@ -27,9 +27,15 @@ namespace Candyland
         {
             this.isActivated = activated;
             if (activated)
+            {
                 this.m_texture = m_activated_texture;
+                m_modelTextures[-1] = m_texture;
+            }
             else
+            {
                 this.m_texture = m_notActivated_texture;
+                m_modelTextures[-1] = m_texture;
+            }
             try
             {
                 foreach (SwitchGroup grp in m_switchGroups)

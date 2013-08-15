@@ -13,7 +13,7 @@ namespace Candyland
         {
             this.isFullscreen = true;
 
-            m_sceneManager = new SceneManager(ScreenManager.GraphicsDevice, ScreenManager);
+            m_sceneManager = new SceneManager(ScreenManager);
 
             Song song = ScreenManager.Content.Load<Song>("Music/bgmusic");  // background music from http://longzijun.wordpress.com/2012/12/26/upbeat-background-music-free-instrumentals/
             MediaPlayer.Play(song);
@@ -51,7 +51,7 @@ namespace Candyland
             ScreenManager.GraphicsDevice.Clear(Color.Orange);
 
             m_sceneManager.Draw(gameTime);
-            m_sceneManager.Draw2D(ScreenManager.SpriteBatch);
+            m_sceneManager.Draw2D();
         }
 
         public override void Close()
