@@ -155,11 +155,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Objekte\Obstacles\lakritztextur_mittel.png">
-      <Name>lakritztextur_mittel</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="Objekte\Obstacles\Movable\blockmovabletextur.png">
       <Name>blockmovabletextur</Name>
       <Importer>TextureImporter</Importer>
@@ -239,6 +234,12 @@
       <Name>candyguy</Name>
       <Importer>FbxImporter</Importer>
       <Processor>SkinnedModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Objekte\Obstacles\lakritzblock_flach.fbx">
+      <Name>lakritzblock_flach</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.5</ProcessorParameters_Scale>
     </Compile>
     <None Include="README.txt">
       <Name>README</Name>
@@ -379,19 +380,13 @@
       <Name>lakritzblock_gross</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.99</ProcessorParameters_Scale>
+      <ProcessorParameters_Scale>0.66</ProcessorParameters_Scale>
     </Compile>
     <Compile Include="Objekte\Obstacles\lakritzblock_klein.fbx">
       <Name>lakritzblock_klein</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <ProcessorParameters_Scale>0.6</ProcessorParameters_Scale>
-    </Compile>
-    <Compile Include="Objekte\Obstacles\lakritzblock_mittel.fbx">
-      <Name>lakritzblock_mittel</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.66</ProcessorParameters_Scale>
     </Compile>
     <Compile Include="Objekte\Obstacles\Movable\blockmovable.fbx">
       <Name>blockmovable</Name>
@@ -501,6 +496,13 @@
     </Compile>
     <Compile Include="Images\DialogImages\DefaultImage.png">
       <Name>DefaultImage</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Objekte\Obstacles\lakritztextur_flach.png">
+      <Name>lakritztextur_flach</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
