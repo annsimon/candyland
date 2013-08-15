@@ -221,14 +221,14 @@ namespace Candyland
                     dynamicObjects.Add(node.InnerText, obj);
                 }
                 else
-                if (object_type == "HelperTest")
+                if (object_type == "HelperTest"|| object_type == "ActionActor")
                 {
                     if (dynamicObjects.ContainsKey(node.InnerText))
                     {
                         Console.WriteLine("Key " + node.InnerText + " duplicated");
                         continue;
                     }
-                    HelperTest obj = new HelperTest(node.InnerText, pos, actionTracker, info, isVisible);
+                    ActionActor obj = new ActionActor(node.InnerText, pos, actionTracker, info, isVisible);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
 

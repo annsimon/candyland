@@ -94,7 +94,7 @@ namespace Candyland
             base.load(content);
         }
 
-        public void loadSmall(ContentManager content)
+        public virtual void loadSmall(ContentManager content)
         {
             switch (slipperyInfo)
             {
@@ -105,7 +105,7 @@ namespace Candyland
             this.m_model = content.Load<Model>("Objekte/Plattformen/plattform_klein");
         }
 
-        public void loadMedium(ContentManager content)
+        public virtual void loadMedium(ContentManager content)
         {
             switch (slipperyInfo)
             {
@@ -116,7 +116,7 @@ namespace Candyland
             this.m_model = content.Load<Model>("Objekte/Plattformen/plattform_mittel");
         }
 
-        public void loadLarge(ContentManager content)
+        public virtual void loadLarge(ContentManager content)
         {
             switch (slipperyInfo)
             {

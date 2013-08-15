@@ -62,19 +62,19 @@ namespace Candyland
             base.load(content);
         }
 
-        public void loadSmall(ContentManager content)
+        public override void loadSmall(ContentManager content)
         {
             this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/plattformtextur_klein");
             this.m_model = content.Load<Model>("Objekte/Plattformen/plattform_klein");
         }
 
-        public void loadMedium(ContentManager content)
+        public override void loadMedium(ContentManager content)
         {
             this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/plattformtextur_mittel");
             this.m_model = content.Load<Model>("Objekte/Plattformen/plattform_mittel");
         }
 
-        public void loadLarge(ContentManager content)
+        public override void loadLarge(ContentManager content)
         {
             this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/plattformtextur_gross");
             this.m_model = content.Load<Model>("Objekte/Plattformen/plattform_gross");

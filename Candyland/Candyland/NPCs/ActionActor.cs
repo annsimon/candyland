@@ -8,13 +8,14 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Candyland
 {
-    class HelperTest : DynamicGameObjects
+    class ActionActor : DynamicGameObjects
     {
-        Action m_currentAction;
-        Dictionary<String, Action> m_actions;
-        ActionTracker m_actionTracker;
+        protected Action m_currentAction;
+        protected Dictionary<String, Action> m_actions;
+        protected ActionTracker m_actionTracker;
+        protected string m_dialogImage;
 
-        public HelperTest(String id, Vector3 position, ActionTracker actionTracker, 
+        public ActionActor(String id, Vector3 position, ActionTracker actionTracker, 
                             UpdateInfo updateInfo, bool visible)
         {
             initialize(id, position, actionTracker, updateInfo, visible);
@@ -26,6 +27,7 @@ namespace Candyland
         {
             m_actionTracker = actionTracker;
             m_actions = new Dictionary<String, Action>();
+            m_dialogImage = "Images/DialogImages/AcaHelper";
             base.init(id, position, updateInfo, visible);
         }
 

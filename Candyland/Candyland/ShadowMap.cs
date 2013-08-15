@@ -247,7 +247,7 @@ namespace Candyland
             // direction of the light by an amount equal to the camera's far
             // clip plane. This is the position of the light.
 
-            float distance = Math.Abs(frustum.Near.D) + Math.Abs(frustum.Far.D);
+            float distance = (Math.Abs(frustum.Near.D) + Math.Abs(frustum.Far.D));
             lightViewMatrix = Matrix.CreateLookAt(centroid - (lightDir * distance), centroid, Vector3.Up);
 
             // 4. Calculate the light space locations of the 8 corners of the
