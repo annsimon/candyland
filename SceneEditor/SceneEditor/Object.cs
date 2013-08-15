@@ -24,6 +24,7 @@ namespace SceneEditor
         public string endPosY { get; set; }
         public string endPosZ { get; set; }
         public string size { get; set; }
+        public string dialog { get; set; }
 
         public ObjectGenerator()
         {
@@ -61,6 +62,7 @@ namespace SceneEditor
             textBoxEndY.Text = obj.endPosY;
             textBoxEndZ.Text = obj.endPosZ;
             textBoxSize.Text = obj.size;
+            textBoxDialog.Text = obj.dialog;
         }
 
         private void acceptButton_Click(object sender, EventArgs e)
@@ -84,6 +86,7 @@ namespace SceneEditor
             slippery = textBoxSlippery.Text;
             isVisible = checkBoxVisible.Checked;
             size = textBoxSize.Text;
+            dialog = textBoxDialog.Text;
             this.DialogResult = DialogResult.OK;
         }
     }
@@ -100,6 +103,7 @@ namespace SceneEditor
         public string slippery { get; set; }
         public bool isVisible{ get; set; }
         public string size { get; set; }
+        public string dialog { get; set; }
 
         public string endPosX { get; set; }
         public string endPosY { get; set; }
@@ -133,6 +137,7 @@ namespace SceneEditor
             ret += "                    <object_size>" + size + "</object_size>\n";
             ret += "                    <slippery>" + slippery + "</slippery>\n";
             ret += "                    <visible>" + isVisible.ToString() + "</visible>\n";
+            ret += "                    <dialog>" + dialog + "</dialog>\n";
             ret += "                  </object>\n";
             return ret;
         }

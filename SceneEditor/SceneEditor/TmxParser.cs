@@ -61,6 +61,7 @@ namespace SceneEditor
                     String isVisible = "true";
                     String slippery = "0";
                     String size = "1";
+                    String dialog = "";
                     
                     // get the property nodes
                     XmlNodeList properties = obj.ChildNodes[0].ChildNodes;
@@ -95,6 +96,9 @@ namespace SceneEditor
                         else
                         if (property.Attributes["name"].InnerText == "size" && property.Attributes["value"].InnerText != "")
                             size = property.Attributes["value"].InnerText;
+                        else
+                        if(property.Attributes["name"].InnerText == "dialog")
+                            dialog = property.Attributes["value"].InnerText;
                     }
 
                     Object newObj = new Object();
@@ -112,6 +116,7 @@ namespace SceneEditor
                     newObj.endPosY = endPositionY;
                     newObj.endPosZ = endPositionZ;
                     newObj.size = size;
+                    newObj.dialog = dialog;
 
                     if (objName == "-")
                     {

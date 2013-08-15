@@ -16,14 +16,14 @@ namespace Candyland
         // Message the fairy has for the player
         String m_text;
 
-        public BonbonFairy(String id, Vector3 pos, UpdateInfo updateInfo, bool visible)
+        public BonbonFairy(String id, Vector3 pos, UpdateInfo updateInfo, bool visible, String message)
         {
             base.init(id, pos, updateInfo, visible);
+            m_text = message;
         }
 
         public override void load(Microsoft.Xna.Framework.Content.ContentManager content)
         {
-            m_text = GameConstants.getFairyMessage(m_updateInfo.currentLevelID);
             this.m_texture = content.Load<Texture2D>("Objekte/Schokolinse/schokolinsetextur");
             this.m_original_texture = this.m_texture;
             this.effect = content.Load<Effect>("Shaders/Toon");

@@ -53,6 +53,8 @@
             this.textBoxEndX = new System.Windows.Forms.TextBox();
             this.textBoxEndY = new System.Windows.Forms.TextBox();
             this.textBoxEndZ = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBoxDialog = new System.Windows.Forms.TextBox();
             this.acceptButton = new System.Windows.Forms.Button();
             this.editDynamicButton.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -79,6 +81,8 @@
             this.editDynamicButton.Controls.Add(this.textBoxEndX);
             this.editDynamicButton.Controls.Add(this.textBoxEndY);
             this.editDynamicButton.Controls.Add(this.textBoxEndZ);
+            this.editDynamicButton.Controls.Add(this.label10);
+            this.editDynamicButton.Controls.Add(this.textBoxDialog);
             this.editDynamicButton.Controls.Add(this.acceptButton);
             this.editDynamicButton.Location = new System.Drawing.Point(12, 12);
             this.editDynamicButton.Name = "editDynamicButton";
@@ -289,9 +293,26 @@
             this.textBoxEndZ.Size = new System.Drawing.Size(38, 20);
             this.textBoxEndZ.TabIndex = 23;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(230, 119);
+            this.label10.Name = "label10";
+            this.label10.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
+            this.label10.Size = new System.Drawing.Size(40, 19);
+            this.label10.TabIndex = 29;
+            this.label10.Text = "Dialog:";
+            // 
+            // textBoxDialog
+            // 
+            this.textBoxDialog.Location = new System.Drawing.Point(3, 148);
+            this.textBoxDialog.Name = "textBoxDialog";
+            this.textBoxDialog.Size = new System.Drawing.Size(482, 20);
+            this.textBoxDialog.TabIndex = 30;
+            // 
             // acceptButton
             // 
-            this.acceptButton.Location = new System.Drawing.Point(3, 148);
+            this.acceptButton.Location = new System.Drawing.Point(3, 174);
             this.acceptButton.Name = "acceptButton";
             this.acceptButton.Size = new System.Drawing.Size(490, 32);
             this.acceptButton.TabIndex = 12;
@@ -345,5 +366,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBoxSlippery;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBoxDialog;
     }
 }

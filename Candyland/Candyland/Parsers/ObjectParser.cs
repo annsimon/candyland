@@ -260,6 +260,7 @@ namespace Candyland
             XmlNodeList slippery = scene.GetElementsByTagName("slippery");
             XmlNodeList visible = scene.GetElementsByTagName("visible");
             XmlNodeList size = scene.GetElementsByTagName("object_size");
+            XmlNodeList message = scene.GetElementsByTagName("fairy_message");
 
             int count = 0;
 
@@ -281,6 +282,17 @@ namespace Candyland
                 catch
                 {
                     slip = 0;
+                }
+
+                // get string for message
+                String text;
+                try
+                {
+                    text = message[count].InnerText;
+                }
+                catch
+                {
+                    text = "Hi";
                 }
 
                 // get bool value for visible
@@ -312,11 +324,11 @@ namespace Candyland
                     objectList.Add(obj);
                 }
                 else
-                    if (object_type == "bonbon")
-                    {
-                        BonbonFairy obj = new BonbonFairy(node.InnerText, pos, info, isVisible);
-                        objectList.Add(obj);
-                    }
+                if (object_type == "BonbonFairy")
+                {
+                    BonbonFairy obj = new BonbonFairy(node.InnerText, pos, info, isVisible, text);
+                    objectList.Add(obj);
+                }
 
                 // increase count as it is used to access the not-id xml elements of the correct level
                 // (the one currently being parsed)

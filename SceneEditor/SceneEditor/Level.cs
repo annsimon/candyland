@@ -87,6 +87,7 @@ namespace SceneEditor
             obj.endPosY = m_objectGenerator.endPosY;
             obj.endPosZ = m_objectGenerator.endPosZ;
             obj.size = m_objectGenerator.size;
+            obj.dialog = m_objectGenerator.dialog;
         }
 
         private void addStaticButton_Click(object sender, EventArgs e)
@@ -232,6 +233,7 @@ namespace SceneEditor
             XmlNodeList visible = scene.GetElementsByTagName("visible");
             XmlNodeList endPosition = scene.GetElementsByTagName("object_endposition");
             XmlNodeList size = scene.GetElementsByTagName("object_size");
+            XmlNodeList dialog = scene.GetElementsByTagName("dialog");
             int count = 0;
 
             foreach (XmlNode node in id)
@@ -275,6 +277,9 @@ namespace SceneEditor
                 
                 // get object size
                 obj.size = size[count].InnerText;
+
+                // get object's dialog text
+                obj.dialog = dialog[count].InnerText;
 
                 // add object to list
                 returnList.Add(obj);
