@@ -48,7 +48,7 @@ namespace Candyland
 
         public override void Draw(GameTime gameTime)
         {
-            ScreenManager.GraphicsDevice.Clear(Color.Orange);
+            ScreenManager.GraphicsDevice.Clear(GameConstants.backgroundColor);
 
             m_sceneManager.Draw(gameTime);
             m_sceneManager.Draw2D();

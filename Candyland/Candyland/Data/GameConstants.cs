@@ -63,19 +63,22 @@ namespace Candyland
         /// <summary>
         /// bounding box rendering on/off
         /// </summary>
-        public const bool boundingBoxRendering = true;
+        public const bool boundingBoxRendering = false;
         public const bool singlestepperOFF = true;
         public const int framerate = 1;
+
+        public const float cameraFarPlane = 50;
 
         public const int inputManagerMode = InputManager.KEYBOARDMOUSE;
 
         // data regarding the scene
-        public const string sceneFile = @"Content\Scenes\Scene.xml";
+        public const string sceneFile = @"Content\Scenes\HoehlenTest.xml";
         public const string eventFile = @"Content\Scenes\Events\EventTest.xml";
         public const string actionsFile = @"Content\Scenes\Actions\ActionTest.xml";
-        public const string startAreaID = "3";
-        public const string startLevelID = "3.0";
+        public const string startAreaID = "6";
+        public const string startLevelID = "6.0";
 
+        public static Color backgroundColor = Color.DarkSlateBlue;
 
         /// <summary>
         /// Strings

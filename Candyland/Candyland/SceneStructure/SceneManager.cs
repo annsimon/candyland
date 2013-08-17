@@ -261,6 +261,10 @@ namespace Candyland
                     Matrix.Transpose(Matrix.Invert(world * m.ParentBone.Transform)));
 
                     e.Parameters["texelSize"].SetValue(m_shadowMap.TexelSize);
+                    e.Parameters["withFog"].SetValue(1);
+                    e.Parameters["fogColor"].SetValue(GameConstants.backgroundColor.ToVector4());
+                    e.Parameters["fogStart"].SetValue(2f); // currently not in use
+                    e.Parameters["fogDensity"].SetValue(0.1f);
                 }
 
                 m.Draw();
