@@ -14,10 +14,6 @@ namespace Candyland
     class ObstacleMoveable : Obstacle
     {
         protected bool isOnSlipperyGround;
-        protected bool isPushing;
-        public bool getPushing() { return isPushing; }
-        public void setPushing(bool value) { this.isPushing = value; }
-        protected float movedDistance = 0;
 
         public ObstacleMoveable(String id, Vector3 pos, UpdateInfo updateInfo, bool visible)
         {
@@ -30,7 +26,6 @@ namespace Candyland
         {
             base.initialize(id, pos, updateInfo, visible);
 
-            this.isPushing = false;
             this.isOnSlipperyGround = false;
             this.currentspeed = 0;
             this.upvelocity = 0;
@@ -56,6 +51,7 @@ namespace Candyland
             if (!isVisible)
                 return;
             base.update();
+
             // let the Object fall, if no collision with lower Objects
             fall();
             isonground = false;
@@ -71,20 +67,6 @@ namespace Candyland
             {
                 slide();
             }
-
-            isPushing = false;
-            // Obstacle was pushed and moves one step
-            //TODO make sure there won't be rounding errors
-            //if (isPushed && movedDistance < GameConstants.obstacleMoveDistance)
-            //{
-            //    move();
-            //}
-            //else
-            //{
-            //    movedDistance = 0;
-            //    isPushed = false;
-            //}
-
         }
 
         #region collision
@@ -215,7 +197,6 @@ namespace Candyland
                         {
                             currentspeed = GameConstants.slippingSpeed;
                         }
-                        //isPushed = true;
                         move();
                     }
                     // Test if collision in Z direction
@@ -227,7 +208,6 @@ namespace Candyland
                         {
                             currentspeed = GameConstants.slippingSpeed;
                         }
-                        //isPushed = true;
                         move();
                     }
             }
@@ -252,11 +232,6 @@ namespace Candyland
                     this.direction = obj.getDirection();
                     obj.setCurrentSpeed(0);
                 }
-                //else
-                //{
-                //    currentspeed = 0;
-                //    preventIntersection(obj);
-                //}
             }
         }
 
@@ -281,7 +256,6 @@ namespace Candyland
 
             // move Obstacle
                 translate = GameConstants.slippingSpeed * direction;
-                //movedDistance += GameConstants.slippingSpeed;
                 newPosition = this.getPosition() + translate;
                 this.setPosition(newPosition);
         }
