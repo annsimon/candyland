@@ -123,6 +123,7 @@ namespace Candyland
 
             player.startIntersection();
             player2.startIntersection();
+
             // check for Collision between the Player and all Game Objects in the current Level
             m_areas[m_updateInfo.currentAreaID].Collide(player);
             if (m_updateInfo.playerIsOnAreaExit)

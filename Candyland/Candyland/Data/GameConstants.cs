@@ -63,11 +63,11 @@ namespace Candyland
         //public const string sceneFile = "Content\\sceneNew.xml";
        // public const string sceneFile = "Content\\sceneNew.xml";
         //public const string sceneFile = "Content\\HoehlenTest.xml";
-        public const string sceneFile = "Content\\SceneSchieberaetselPrototyp.xml";
+        public const string sceneFile = "Content\\Scene.xml";
         public const string eventFile = "Content\\EventTest.xml";
         public const string actionsFile = "Content\\ActionTest.xml";
-        public const string startAreaID = "7";
-        public const string startLevelID = "7.0";
+        public const string startAreaID = "3";
+        public const string startLevelID = "3.0";
         //public const string startAreaID = "66";
         //public const string startLevelID = "66.0";
         //public const string startAreaID = "6";
