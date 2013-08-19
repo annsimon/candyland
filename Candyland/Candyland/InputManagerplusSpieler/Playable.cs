@@ -17,6 +17,7 @@ namespace Candyland
         protected Camera cam;                   //Kamera
         protected BonusTracker m_bonusTracker;
         protected bool isthirdpersoncam = true;
+        public bool getIsThirdPersonCam() { return isthirdpersoncam; }
         protected bool isOnSlipperyGround;
 
         public abstract void uniqueskill();
@@ -160,6 +161,7 @@ namespace Candyland
                         case 2: isOnSlipperyGround = true; break;
                     }
                 }
+                obj.hasCollidedWith(this);
             }
         }
 

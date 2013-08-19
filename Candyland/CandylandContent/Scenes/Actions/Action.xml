@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<levels>
+
+  <L0.Tutorial>
+    <level_inner>       
+      <action>
+        <action_inner>
+          <trigger>0.Tutorial.1.dyn</trigger>
+          <triggered>0.Tutorial.1.actionActor</triggered>
+          <id>testAction1</id>
+          <oneTimeAction>true</oneTimeAction>
+          <subactions>
+            <subaction>
+              <type>dialog</type>
+              <goalX>10</goalX>
+              <goalY>0</goalY>
+              <goalZ>10</goalZ>
+              <text>Hi!</text>
+              <locks>false</locks>
+            </subaction>
+			<subaction>
+              <type>dialog</type>
+              <goalX>10</goalX>
+              <goalY>0</goalY>
+              <goalZ>10</goalZ>
+              <text>Willkommen in Candyland. Geht es dir gut?</text>
+              <locks>false</locks>
+            </subaction>
+			<subaction>
+              <type>dialog</type>
+              <goalX>10</goalX>
+              <goalY>0</goalY>
+              <goalZ>10</goalZ>
+              <text>Oft sind die Leute verwirrt, wenn sie hier ankommen... Folg erst einmal einfach diesem Weg hier, er wird dich deinem Ziel naeher bringen.</text>
+              <locks>false</locks>
+            </subaction>
+			<subaction>
+              <type>dialog</type>
+              <goalX>10</goalX>
+              <goalY>0</goalY>
+              <goalZ>10</goalZ>
+              <text>(Nutze W, A, S und D, um dich zu bewegen und Leertaste, um zu springen.)</text>
+              <locks>false</locks>
+            </subaction>
+            <subaction>
+              <type>disappear</type>
+              <goalX>0</goalX>
+              <goalY>0</goalY>
+              <goalZ>0</goalZ>
+              <text>x</text>
+              <locks>false</locks>
+            </subaction>
+          </subactions>
+        </action_inner>
+      </action>
+    </level_inner>
+  </L0.Tutorial>
+
+  
+</levels>

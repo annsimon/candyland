@@ -17,7 +17,8 @@ float4 lightColor;
 float4 materialAmbient;
 float4 materialDiffuse;
 
-float withFog = 0;
+bool withFog = false;
+bool fogMapMode = false;
 
 float4 fogColor;
 float fogDensity;
@@ -113,7 +114,7 @@ void VS_Shaded(in  float4 inPosition  : POSITION,
 	outNormal = mul(inNormal, (float3x3)world);
 	outLightDir = -lightDir;
 
-	if( withFog == 1 )
+	if( withFog )
 		outDepth = mul(mul(inPosition, world), view).z;
 }
 
@@ -150,7 +151,7 @@ void VS_ShadedWithShadows(in  float4 inPosition        : POSITION,
 	outNormal = mul(inNormal, (float3x3)world);
 	outLightDir = -lightDir;
 
-	if( withFog == 1 )
+	if( withFog )
 		outDepth = mul(mul(inPosition, world), view).z;
 }
 
@@ -177,7 +178,7 @@ VertexToPixel OutlineVertexShader(AppToVertex input,
     float4 normal = mul(mul(mul(input.Normal, world), view), projection);
     output.Position = originalLocation + (mul(LineThickness, normal));
 
-	if( withFog == 1 )
+	if( withFog )
 		outDepth = mul(mul(input.Position, world), view).z;
  
     return output;
@@ -203,6 +204,16 @@ float PS_ShadowMapLookup(sampler shadowMap, float2 texCoord, float depth)
 float PS_ShadowMapLookup(sampler shadowMap, float2 texCoord, float2 offset, float depth)
 {
 	return (tex2D(shadowMap, texCoord + offset * texelSize).r + depthBias < depth) ? 0.0f : 1.0f;
+}
+
+float calculateFogFactor(float distance)
+{
+	float mix = exp( (distance+fogStart) * fogDensity );
+	if( mix > 1 ) mix = 1;
+	if( fogMapMode )
+		if( abs(distance) > 11 ) mix = mix - 0.2f;
+	if( mix < 0 ) mix = 0;
+	return mix;
 }
 
 float4 celStyle(float4 outColor, float intensity)
@@ -239,11 +250,9 @@ void PS_Shaded(in  float2 inTexCoord : TEXCOORD0,
 
     outColor = celStyle(outColor, intensity);
 
-	if( withFog == 1 )
+	if( withFog )
 	{
-		float mix = exp( inDepth * fogDensity );
-		if( mix > 1 ) mix = 1;
-		if( mix < 0 ) mix = 0;
+		float mix = calculateFogFactor(inDepth);
 		outColor = mix * outColor + (1.0 - mix) * fogColor;
 	}
 }
@@ -270,11 +279,9 @@ void PS_ShadedWithShadows(in  float4 inLightSpacePos  : TEXCOORD0,
 
 	outColor = celStyle(outColor, intensity);
 
-	if( withFog == 1 )
+	if( withFog )
 	{
-		float mix = exp( inDepth * fogDensity );
-		if( mix > 1 ) mix = 1;
-		if( mix < 0 ) mix = 0;
+		float mix = calculateFogFactor(inDepth);
 		outColor = mix * outColor + (1.0 - mix) * fogColor;
 	}
 }
@@ -309,11 +316,9 @@ void PS_ShadedWithShadowsPCF2x2(in  float4 inLightSpacePos  : TEXCOORD0,
 
 	outColor = celStyle(outColor, intensity);
 
-	if( withFog == 1 )
+	if( withFog )
 	{
-		float mix = exp( inDepth * fogDensity );
-		if( mix > 1 ) mix = 1;
-		if( mix < 0 ) mix = 0;
+		float mix = calculateFogFactor(inDepth);
 		outColor = mix * outColor + (1.0 - mix) * fogColor;
 	}
 }
@@ -322,12 +327,9 @@ void PS_ShadedWithShadowsPCF2x2(in  float4 inLightSpacePos  : TEXCOORD0,
 float4 OutlinePixelShader(VertexToPixel input,
 					float inDepth : TEXCOORD5) : COLOR0
 {
-
-	if( withFog == 1 )
+	if( withFog )
 	{
-		float mix = exp( inDepth * fogDensity );
-		if( mix > 1 ) mix = 1;
-		if( mix < 0 ) mix = 0;
+		float mix = calculateFogFactor(inDepth);
 		return mix * LineColor + (1.0 - mix) * fogColor;
 	}
 	else

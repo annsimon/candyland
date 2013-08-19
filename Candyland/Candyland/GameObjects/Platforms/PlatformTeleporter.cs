@@ -27,7 +27,7 @@ namespace Candyland
         }
         public override void load(ContentManager content)
         {
-            this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/plattformtextur_klein");
+            this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/Teleport/plattformtextur_porter");
             this.m_model = content.Load<Model>("Objekte/Plattformen/plattform_klein");
 
             this.m_original_texture = this.m_texture;
