@@ -34,7 +34,7 @@
                     <is_door_to_level>x</is_door_to_level>
                     <object_position>
                       <x>2</x>
-                      <y>0,5</y>
+                      <y>1</y>
                       <z>0</z>
                     </object_position>
                     <object_endposition>

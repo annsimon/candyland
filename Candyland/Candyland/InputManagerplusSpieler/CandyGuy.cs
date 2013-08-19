@@ -15,12 +15,16 @@ using SkinnedModel;
 namespace Candyland
 {
     class CandyGuy : Playable
-    {        
-        public CandyGuy(Vector3 position, Vector3 direction, float aspectRatio, UpdateInfo info, BonusTracker bonusTracker)
+    {
+        CandyHelper m_CandyHelper;
+        public CandyHelper getCandyHelper() { return m_CandyHelper; }
+
+        public CandyGuy(Vector3 position, Vector3 direction, float aspectRatio, UpdateInfo info, BonusTracker bonusTracker, CandyHelper helper)
         {
              
             m_updateInfo = info;
             m_bonusTracker = bonusTracker;
+            m_CandyHelper = helper;
             this.m_position = position;
             this.direction = direction;
             this.m_original_position = this.m_position;
@@ -127,7 +131,6 @@ namespace Candyland
         {
             if (obj.isVisible && !obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
             {
-                preventIntersection(obj);
                 obj.hasCollidedWith(this);
             }
         }

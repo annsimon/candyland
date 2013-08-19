@@ -23,11 +23,13 @@ namespace Candyland
 
         private string Text = "";
         private string Picture = "Images/DialogImages/DefaultImage";
+        private string[] TextArray;
 
         protected int numberOfLines;
 
         protected bool canScroll = false;
         protected int lineCapacity;
+        protected int scrollIndex = 0;
         protected bool arrowBlink = false;
         protected int timePastSinceLastArrowBling;
         protected int lineDist;
@@ -58,10 +60,9 @@ namespace Candyland
             pictureNPC = new Rectangle(DiagBox.X + offset, DiagBox.Y + offset, 3 * lineDist, 3 * lineDist);
             TextBox = new Rectangle(pictureNPC.Right + offset, pictureNPC.Top + lineDist / 4, screenWidth - pictureNPC.Right - 2 * offset, pictureNPC.Height + offset);
 
-
-            Text = wrapText(Text, font, DiagBox);
-            // Check if text needs scrolling
             lineCapacity = (TextBox.Height - offset) / font.LineSpacing;
+
+            TextArray = wrapText(Text, font, TextBox, lineCapacity);
         }
 
         public override void Update(GameTime gameTime)
@@ -69,14 +70,14 @@ namespace Candyland
             bool enterPressed = ScreenManager.Input.Equals(InputState.Enter);
 
             // Check if text needs scrolling
-            if (numberOfLines > lineCapacity)
+            if (scrollIndex < (TextArray.Length-1) && TextArray[scrollIndex+1]!= null)
             {
                 canScroll = true;
 
                 // If other person is still talking continue through text by pressing Enter
                 if (enterPressed)
                 {
-                    Text = removeReadLines(Text, lineCapacity);
+                    scrollIndex++;
                 }
 
                 timePastSinceLastArrowBling += gameTime.ElapsedGameTime.Milliseconds;
@@ -115,7 +116,7 @@ namespace Candyland
             m_sprite.Draw(TalkBubble, DiagBox, Color.White);
             m_sprite.Draw(talkingNPC, pictureNPC, Color.White);
 
-            m_sprite.DrawString(font, Text, new Vector2(TextBox.X, TextBox.Y), Color.Black);
+            m_sprite.DrawString(font, TextArray[scrollIndex], new Vector2(TextBox.X, TextBox.Y), Color.Black);
 
             if (canScroll)
             {
@@ -136,18 +137,23 @@ namespace Candyland
         }
 
         /// <summary>
-        /// Puts line breaks into a string to make it fit into a given text box
+        /// Puts line breaks into a string to make it fit into a given text box.
+        /// String will be returned in an array, where each entry is made to fit into the textbox
         /// </summary>
         /// <param name="text"></param>
         /// <param name="font"></param>
         /// <param name="textBox"></param>
+        /// <param name="lineCapacity"></param>
         /// <returns></returns>
-        protected String wrapText(String text, SpriteFont font, Rectangle textBox)
+        protected String[] wrapText(String text, SpriteFont font, Rectangle textBox, int lineCapacity)
         {
             String lineString = String.Empty;
             String returnString = String.Empty;
+            String[] returnStringArray = new String[10]; // should be generous enough for our dialog
             String[] wordArray = text.Split(' ');
-            int numOfLines = 1;
+
+            int textportionIndex = 0;
+            int numOfLinesInTextportion = 0;
 
             foreach (String word in wordArray)
             {
@@ -155,35 +161,23 @@ namespace Candyland
                 if (lineWidth + offset > textBox.Width)
                 {
                     returnString = returnString + lineString + '\n';
-                    numOfLines++;
                     lineString = String.Empty;
+                    numOfLinesInTextportion++;
+                    if (numOfLinesInTextportion == lineCapacity)
+                    {
+                        returnStringArray[textportionIndex] = returnString;
+                        returnString = string.Empty;
+                        numOfLinesInTextportion = 0;
+                        textportionIndex++;
+                    }
                 }
 
                 lineString = lineString + word + ' ';
             }
-            numberOfLines = numOfLines;
-            return returnString + lineString;
-        }
 
-        /// <summary>
-        /// scrolling
-        /// </summary>
-        /// <param name="text"></param>
-        /// <param name="capacity"></param>
-        /// <returns></returns>
-        protected String removeReadLines(String text, int capacity)
-        {
-            String[] lineArray = text.Split('\n');
-            String returnString = String.Empty;
-            int numOfLines = 0;
+            returnStringArray[textportionIndex] = returnString + lineString;
 
-            for (int i = capacity; i < lineArray.Length; i++)
-            {
-                returnString += lineArray[i] + '\n';
-                numOfLines++;
-            }
-            numberOfLines = numOfLines;
-            return returnString;
+            return returnStringArray;
         }
     }
 }

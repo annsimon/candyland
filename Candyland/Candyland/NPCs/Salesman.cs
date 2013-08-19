@@ -8,23 +8,15 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Candyland
 {
-    /// <summary>
-    /// this NPC can give advice when addressed by the player or get the candyhelper
-    /// </summary>
-    class BonbonFairy : GameObject
+    class Salesman : GameObject
     {
-        // Message the fairy has for the player
+        // Message the salesman has for the player, when he chooses to talk
         String m_text;
 
-        bool isTeleportFairy = false;
-
-        public BonbonFairy(String id, Vector3 pos, UpdateInfo updateInfo, bool visible, String message)
+        public Salesman(String id, Vector3 pos, UpdateInfo updateInfo, bool visible, String message)
         {
             base.init(id, pos, updateInfo, visible);
-            if (message.Equals("teleport"))
-                isTeleportFairy = true;
-            else
-                m_text = message;
+            m_text = message;
         }
 
         public override void load(Microsoft.Xna.Framework.Content.ContentManager content)
@@ -35,7 +27,7 @@ namespace Candyland
             this.m_model = content.Load<Model>("Objekte/Schokolinse/schokolinse");
             this.m_original_model = this.m_model;
             // Bounding box is bigger than the model, so that the player can interact, when standing a bit away
-            m_boundingBox = new BoundingBox(this.m_position - new Vector3(1,1,1), this.m_position + new Vector3(1,1,1));
+            m_boundingBox = new BoundingBox(this.m_position - new Vector3(1,0.2f,1), this.m_position + new Vector3(1,0.2f,1));
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
             base.load(content);
@@ -54,15 +46,7 @@ namespace Candyland
 
                 if (keyState.IsKeyDown(Keys.B))
                 {
-                    // teleport the helper
-                    if (isTeleportFairy)
-                    {
-                        CandyGuy guy = (CandyGuy)obj;
-                        guy.getCandyHelper().setPosition(this.m_position);
-                    }
-                    // show fairy message
-                    else
-                        m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen(m_text, "Images/DialogImages/BonbonFairy"));
+                        m_updateInfo.m_screenManager.ActivateNewScreen(new SalesmanDialogueScreen(m_text, "Images/DialogImages/BonbonFairy"));
                 }
             }
         }
