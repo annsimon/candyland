@@ -15,12 +15,11 @@ using SkinnedModel;
 namespace Candyland
 {
     class CandyGuy : Playable
-    {
-        Texture2D texture;
-        AnimationPlayer animationPlayer;
-        
+    {        
+
         public CandyGuy(Vector3 position, Vector3 direction, float aspectRatio, UpdateInfo info, BonusTracker bonusTracker)
         {
+             
             m_updateInfo = info;
             m_bonusTracker = bonusTracker;
             this.m_position = position;
@@ -28,9 +27,14 @@ namespace Candyland
             this.m_original_position = this.m_position;
             this.isVisible = true;
             this.original_isVisible = isVisible;
-            this.cam = new Camera(position, MathHelper.PiOver4, aspectRatio, 0.1f, 100, m_updateInfo);
+            this.cam = new Camera(position, MathHelper.PiOver4, aspectRatio, 0.1f, GameConstants.cameraFarPlane, m_updateInfo);
             this.currentspeed = 0;
             this.upvelocity = 0;
+
+            this.m_material = new Material();
+            this.m_material.ambient = GameConstants.ambient;
+            this.m_material.diffuse = GameConstants.diffuse;
+            this.m_modelTextures = new Dictionary<int, Texture2D>();
         }
 
         public override void isNotCollidingWith(GameObject obj){ }
@@ -39,6 +43,16 @@ namespace Candyland
 
         public override void update()
         {
+            KeyboardState keystate = Keyboard.GetState();
+            if (!keystate.IsKeyDown(Keys.W) && !keystate.IsKeyDown(Keys.A) && !keystate.IsKeyDown(Keys.D) && !keystate.IsKeyDown(Keys.S))
+            {
+                animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, false, Matrix.Identity);
+
+            }
+            else
+            {
+                animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
+            }
             base.update();
             fall();
             if (m_updateInfo.candyselected)
@@ -49,26 +63,19 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
-            effect = content.Load<Effect>("Toon");
-            texture = content.Load<Texture2D>("spielertextur");
-            m_model = content.Load<Model>("spieleranimiert");
-            calculateBoundingBox();
+            effect = content.Load<Effect>("Shaders/Shader");
+            m_texture = content.Load<Texture2D>("NPCs/Spieler/Candyguytextur");
+            m_model = content.Load<Model>("NPCs/Spieler/candyguy");
+            // custom made bounding box
+            m_boundingBox = new BoundingBox(this.m_position - new Vector3(0.3f, 0.35f, 0.3f), this.m_position + new Vector3(0.3f, 0.25f, 0.3f));
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
-            // Look up our custom skinning information.
-            SkinningData skinningData = m_model.Tag as SkinningData;
 
-            if (skinningData == null)
-                throw new InvalidOperationException
-                    ("This model does not contain a SkinningData tag.");
+            base.load(content);
 
-            // Create an animation player, and start decoding an animation clip.
-            animationPlayer = new AnimationPlayer(skinningData);
-
-            AnimationClip clip = skinningData.AnimationClips["ArmatureAction"];
+            AnimationClip clip = m_skinningData.AnimationClips["ArmatureAction_001"];
 
             animationPlayer.StartClip(clip);
-
         }
 
         public override void uniqueskill()
@@ -109,12 +116,26 @@ namespace Candyland
         }
 
         #region collision
+        public override void collide(GameObject obj)
+        {
+            // only one to collide with bonbonFairy
+            if (obj.GetType() == typeof(BonbonFairy)) collideWithBonbonFairy(obj);
 
-       // no special collision needs yet
+            base.collide(obj);
+        }
+
+        private void collideWithBonbonFairy(GameObject obj)
+        {
+            if (obj.isVisible && !obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                preventIntersection(obj);
+                obj.hasCollidedWith(this);
+            }
+        }
 
         #endregion
 
-        public override void draw()
+        public override Matrix prepareForDrawing()
         {
             Matrix view = m_updateInfo.viewMatrix;
             Matrix projection = m_updateInfo.projectionMatrix;
@@ -122,42 +143,21 @@ namespace Candyland
             Matrix[] transforms = new Matrix[m_model.Bones.Count];
             m_model.CopyAbsoluteBoneTransformsTo(transforms);
 
-            Matrix[] bones = animationPlayer.GetSkinTransforms();
-
             Matrix translateMatrix = Matrix.CreateTranslation(m_position);
             Matrix worldMatrix = translateMatrix;
 
             Matrix rotation;
-                    if (direction.X > 0)
-                    {
-                        rotation = Matrix.CreateRotationY((float)Math.Acos(direction.Z));
-                    }
-                    else
-                    {
-                        rotation = Matrix.CreateRotationY((float)-Math.Acos(direction.Z));
-                    }
-
-
-
-            // Draw the model. A model can have multiple meshes, so loop.
-            foreach (ModelMesh mesh in m_model.Meshes)
+            if (direction.X > 0)
             {
-                foreach (ModelMeshPart part in mesh.MeshParts)
-                {
-                        part.Effect = effect;
-                        effect.Parameters["World"].SetValue(rotation * worldMatrix * mesh.ParentBone.Transform);
-                        effect.Parameters["DiffuseLightDirection"].SetValue(new Vector3(rotation.M13, rotation.M23, rotation.M33));
-                        effect.Parameters["View"].SetValue(view);
-                        effect.Parameters["Projection"].SetValue(projection);
-                        effect.Parameters["WorldInverseTranspose"].SetValue(
-                        Matrix.Transpose(Matrix.Invert(worldMatrix * mesh.ParentBone.Transform)));
-                        effect.Parameters["Texture"].SetValue(texture);
-                }
-                    // Draw the mesh, using the effects set above.
-                    mesh.Draw();
-                    BoundingBoxRenderer.Render(this.m_boundingBox, m_updateInfo.graphics, view, projection, Color.White);
-
-                }
+                rotation = Matrix.CreateRotationY((float)Math.Acos(direction.Z));
             }
+            else
+            {
+                rotation = Matrix.CreateRotationY((float)-Math.Acos(direction.Z));
+            }
+
+            return rotation * worldMatrix;
+
         }
+    }
 }

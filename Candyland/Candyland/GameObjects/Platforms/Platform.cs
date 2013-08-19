@@ -15,10 +15,12 @@ namespace Candyland
     {
         #region properties
 
-        // Obstacles will slide over slippery platforms, when being pushed
-        protected bool isSlippery;
-        public bool getSlippery() { return this.isSlippery; }
-        public void setSlippery(bool value) { this.isSlippery = value; }
+        // 0 means not slippery
+        // 1 means slippery for obstacles. Obstacles will slide over slippery platforms, when being pushed.
+        // 2 means slippery for all. Obstacles and Players will slide over these platforms.
+        protected int slipperyInfo;
+        public int getSlippery() { return slipperyInfo; }
+
 
         protected bool isDoorToArea;
         public bool getIsDoorToArea() { return this.isDoorToArea; }
@@ -36,18 +38,20 @@ namespace Candyland
         {
         }
 
-        public Platform(String id, Vector3 pos, bool slippery, string areaDoorID, string levelDoorID, UpdateInfo updateInfo, bool visible)
+        public Platform(String id, Vector3 pos, int slippery, string areaDoorID, string levelDoorID, UpdateInfo updateInfo, bool visible, int size)
         {
-            initialize(id, pos, slippery, areaDoorID, levelDoorID, updateInfo, visible);
+            initialize(id, pos, slippery, areaDoorID, levelDoorID, updateInfo, visible, size);
         }
 
         #region initialization
 
-        public void initialize(String id, Vector3 pos, bool slippery, string areaDoorID, string levelDoorID, UpdateInfo updateInfo, bool visible)
+        public void initialize(String id, Vector3 pos, int slippery, string areaDoorID, string levelDoorID, UpdateInfo updateInfo, bool visible, int size)
         {
+            this.size = size;
+
             base.init(id, pos, updateInfo, visible);
 
-            this.isSlippery = slippery;
+            this.slipperyInfo = slippery;
 
             if (areaDoorID == "x")
                 this.isDoorToArea = false;
@@ -68,17 +72,59 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
-            if(isSlippery)
-                this.m_texture = content.Load<Texture2D>("plattformtexturslippery");
-            else
-                this.m_texture = content.Load<Texture2D>("plattformtextur");
+            if (this.GetType() != typeof(Platform))
+            {
+                base.load(content);
+                return;
+            }
+
+            switch (size)
+            {
+                case 1: loadSmall(content); break;
+                case 2: loadMedium(content); break;
+                case 3: loadLarge(content); break;
+            }
             this.m_original_texture = this.m_texture;
-            this.effect = content.Load<Effect>("Toon");
-            this.m_model = content.Load<Model>("plattform");
             this.m_original_model = this.m_model;
+
+            this.effect = content.Load<Effect>("Shaders/Shader");
             this.calculateBoundingBox();
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
+            base.load(content);
+        }
+
+        public virtual void loadSmall(ContentManager content)
+        {
+            switch (slipperyInfo)
+            {
+                case 0: this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/plattformtextur_klein"); break;
+                case 1: this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/Slippery/plattformtexturslippery_klein"); break;
+                case 2: this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/Slippery/plattformtexturslippery_klein"); break;
+            }
+            this.m_model = content.Load<Model>("Objekte/Plattformen/plattform_klein");
+        }
+
+        public virtual void loadMedium(ContentManager content)
+        {
+            switch (slipperyInfo)
+            {
+                case 0: this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/plattformtextur_klein"); break;
+                case 1: this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/Slippery/plattformtexturslippery_mittel"); break;
+                case 2: this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/Slippery/plattformtexturslippery_mittel"); break;
+            }
+            this.m_model = content.Load<Model>("Objekte/Plattformen/plattform_mittel");
+        }
+
+        public virtual void loadLarge(ContentManager content)
+        {
+            switch (slipperyInfo)
+            {
+                case 0: this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/plattformtextur_klein"); break;
+                case 1: this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/Slippery/plattformtexturslippery_groß"); break;
+                case 2: this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/Slippery/plattformtexturslippery_groß"); break;
+            }
+            this.m_model = content.Load<Model>("Objekte/Plattformen/plattform_groß");
         }
 
         #endregion
@@ -118,6 +164,10 @@ namespace Candyland
 
                     this.m_updateInfo.currentAreaID = idParts[0];
                     this.m_updateInfo.currentLevelID = idParts[0]+"."+idParts[1];
+
+                    ((Playable)obj).setCurrentLevelId(idParts[0] + "." + idParts[1]);
+                    ((Playable)obj).setNextLevelId(this.doorToLevelID);
+
                 }
                 if(this.isDoorToLevel)
                 {

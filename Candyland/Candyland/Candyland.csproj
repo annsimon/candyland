@@ -85,14 +85,8 @@
     <Reference Include="Microsoft.Xna.Framework.GamerServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
     <Reference Include="Microsoft.Xna.Framework.Storage, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
     <Reference Include="mscorlib" />
-    <Reference Include="RuminateGui">
-      <HintPath>.\RuminateGui.dll</HintPath>
-    </Reference>
     <Reference Include="SkinnedModel">
       <HintPath>..\..\SkinnedModel\bin\x86\Debug\SkinnedModel.dll</HintPath>
-    </Reference>
-    <Reference Include="SkinnedModelPipeline">
-      <HintPath>..\..\..\..\..\Downloads\SkinningSample_4_0\SkinnedModelPipeline\bin\x86\Debug\SkinnedModelPipeline.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
@@ -138,7 +132,8 @@
     <Compile Include="Logical\SwitchEvent.cs" />
     <Compile Include="Logical\SwitchGroup.cs" />
     <Compile Include="MyModel.cs" />
-    <Compile Include="NPCs\HelperFairy.cs" />
+    <Compile Include="NPCs\ActionActor.cs" />
+    <Compile Include="NPCs\BonbonFairy.cs" />
     <Compile Include="Parsers\ActionParser.cs" />
     <Compile Include="Parsers\AreaParser.cs" />
     <Compile Include="Parsers\EventParser.cs" />
@@ -152,11 +147,11 @@
     <Compile Include="ScreenManagement\BonusScreen.cs" />
     <Compile Include="ScreenManagement\BonusTile.cs" />
     <Compile Include="ScreenManagement\CreditsScreen.cs" />
-    <Compile Include="ScreenManagement\DialogueScreen.cs" />
+    <Compile Include="ScreenManagement\DialogListeningScreen.cs" />
+    <Compile Include="ScreenManagement\SalesmanDialogueScreen.cs" />
     <Compile Include="ScreenManagement\GameScreen.cs" />
     <Compile Include="ScreenManagement\MainGame.cs" />
     <Compile Include="ScreenManagement\MainMenu.cs" />
-    <Compile Include="ScreenManagement\MainMenuRuminate.cs" />
     <Compile Include="ScreenManagement\OptionsScreen.cs" />
     <Compile Include="ScreenManagement\Pause.cs" />
     <Compile Include="ScreenManagement\ScreenInputManager.cs" />
@@ -164,6 +159,7 @@
     <Compile Include="ScreenManagement\ShopScreen.cs" />
     <Compile Include="ScreenManagement\TitleScreen.cs" />
     <Compile Include="ScreenManagement\TravelScreen.cs" />
+    <Compile Include="ShadowMap.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
@@ -210,7 +206,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

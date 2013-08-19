@@ -13,10 +13,10 @@ namespace Candyland
         {
             this.isFullscreen = true;
 
-            m_sceneManager = new SceneManager(ScreenManager.GraphicsDevice);
+            m_sceneManager = new SceneManager(ScreenManager);
 
-            Song song = ScreenManager.Content.Load<Song>("bgmusic");  // background music from http://longzijun.wordpress.com/2012/12/26/upbeat-background-music-free-instrumentals/
-           // MediaPlayer.Play(song);
+            Song song = ScreenManager.Content.Load<Song>("Music/bgmusic");  // background music from http://longzijun.wordpress.com/2012/12/26/upbeat-background-music-free-instrumentals/
+            MediaPlayer.Play(song);
             MediaPlayer.IsRepeating = true;
 
             // Load all content required by the scene
@@ -31,18 +31,27 @@ namespace Candyland
             }
             if (Keyboard.GetState().IsKeyDown(Keys.T))
             {
-                ScreenManager.ActivateNewScreen(new DialogueScreen());
+                ScreenManager.ActivateNewScreen(new SalesmanDialogueScreen(GameConstants.tradesmanGreeting, "testBonus"));
+            }
+            if (Keyboard.GetState().IsKeyDown(Keys.Z))
+            {
+                ScreenManager.ActivateNewScreen(new DialogListeningScreen("Hallo hallo", "testBonus"));
             }
 
-            m_sceneManager.Update(gameTime);
+
+            if (ScreenManager.Game.IsActive && (gameTime.TotalGameTime.Milliseconds % GameConstants.framerate == 0)
+                && ((ScreenManager.Input.Equals(InputState.Enter)) || GameConstants.singlestepperOFF))
+            {
+                m_sceneManager.Update(gameTime);
+            }
         }
 
         public override void Draw(GameTime gameTime)
         {
-            ScreenManager.GraphicsDevice.Clear(Color.Orange);
+            ScreenManager.GraphicsDevice.Clear(GameConstants.backgroundColor);
 
             m_sceneManager.Draw(gameTime);
-            m_sceneManager.Draw2D(ScreenManager.SpriteBatch);
+            m_sceneManager.Draw2D();
         }
 
         public override void Close()

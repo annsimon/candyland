@@ -37,6 +37,7 @@ namespace Candyland
             XmlNodeList door_to_level = scene.GetElementsByTagName("is_door_to_level");
             XmlNodeList slippery = scene.GetElementsByTagName("slippery");
             XmlNodeList visible = scene.GetElementsByTagName("visible");
+            XmlNodeList size = scene.GetElementsByTagName("object_size");
 
             int count = 0;
 
@@ -60,12 +61,30 @@ namespace Candyland
                 }
                 catch { }
 
-
-                // get bool value for slippery
-                bool slip = bool.Parse(slippery[count].InnerText);
+                // get int value for slippery
+                int slip;
+                try
+                {
+                    slip = int.Parse(slippery[count].InnerText);
+                }
+                catch
+                {
+                    slip = 0;
+                }
 
                 // get bool value for visible
                 bool isVisible = bool.Parse(visible[count].InnerText);
+
+                // get int value for size
+                int object_size;
+                try
+                {
+                    object_size = int.Parse(size[count].InnerText);
+                }
+                catch
+                {
+                    object_size = 1;
+                }
 
                 // create the new object
                 string object_type = type[count].InnerText;
@@ -77,7 +96,7 @@ namespace Candyland
                         Console.WriteLine("Key " + node.InnerText + " duplicated");
                         continue;
                     }
-                    Platform obj = new Platform(node.InnerText, pos, slip, door_to_area[count].InnerText, door_to_level[count].InnerText, info, isVisible);
+                    Platform obj = new Platform(node.InnerText, pos, slip, door_to_area[count].InnerText, door_to_level[count].InnerText, info, isVisible, object_size);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
 				else
@@ -88,7 +107,7 @@ namespace Candyland
                         Console.WriteLine("Key " + node.InnerText + " duplicated");
                         continue;
                     }
-                    MovingPlatform obj = new MovingPlatform(node.InnerText, pos, endpos, info, isVisible);
+                    MovingPlatform obj = new MovingPlatform(node.InnerText, pos, endpos, info, isVisible, object_size);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
                 else
@@ -99,7 +118,7 @@ namespace Candyland
                         Console.WriteLine("Key " + node.InnerText + " duplicated");
                         continue;
                     }
-                    Obstacle obj = new Obstacle(node.InnerText, pos, info, isVisible);
+                    Obstacle obj = new Obstacle(node.InnerText, pos, info, isVisible, object_size);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
                 else
@@ -169,6 +188,17 @@ namespace Candyland
                     switches.Add(node.InnerText, obj);
                 }
                 else
+                    if (object_type == "breakingPlatform")
+                    {
+                        if (dynamicObjects.ContainsKey(node.InnerText))
+                        {
+                            Console.WriteLine("Key " + node.InnerText + " duplicated");
+                            continue;
+                        }
+                        BreakingPlatform obj = new BreakingPlatform(node.InnerText, pos, info, isVisible);
+                        dynamicObjects.Add(node.InnerText, obj);
+                    }
+                else
                 if (object_type == "chocoChip")
                 {
                     if (dynamicObjects.ContainsKey(node.InnerText))
@@ -191,14 +221,14 @@ namespace Candyland
                     dynamicObjects.Add(node.InnerText, obj);
                 }
                 else
-                if (object_type == "HelperTest")
+                if (object_type == "HelperTest"|| object_type == "actionActor")
                 {
                     if (dynamicObjects.ContainsKey(node.InnerText))
                     {
                         Console.WriteLine("Key " + node.InnerText + " duplicated");
                         continue;
                     }
-                    HelperTest obj = new HelperTest(node.InnerText, pos, actionTracker, info, isVisible);
+                    ActionActor obj = new ActionActor(node.InnerText, pos, actionTracker, info, isVisible);
                     dynamicObjects.Add(node.InnerText, obj);
                 }
 
@@ -229,6 +259,8 @@ namespace Candyland
             XmlNodeList position = scene.GetElementsByTagName("object_position");
             XmlNodeList slippery = scene.GetElementsByTagName("slippery");
             XmlNodeList visible = scene.GetElementsByTagName("visible");
+            XmlNodeList size = scene.GetElementsByTagName("object_size");
+            XmlNodeList message = scene.GetElementsByTagName("fairy_message");
 
             int count = 0;
 
@@ -241,28 +273,61 @@ namespace Candyland
                 pos.Z = float.Parse(position[count].SelectSingleNode("z").InnerText);
                 pos += lvl_start; // add level position for correct global position
 
-                // get bool value for slippery
-                bool slip = bool.Parse(slippery[count].InnerText);
+                // get int value for slippery
+                int slip;
+                try
+                {
+                    slip = int.Parse(slippery[count].InnerText);
+                }
+                catch
+                {
+                    slip = 0;
+                }
+
+                // get string for message
+                String text;
+                try
+                {
+                    text = message[count].InnerText;
+                }
+                catch
+                {
+                    text = "Hi";
+                }
 
                 // get bool value for visible
                 bool isVisible = bool.Parse(visible[count].InnerText);
+
+                // get int value for size
+                int object_size;
+                try
+                {
+                    object_size = int.Parse(size[count].InnerText);
+                }
+                catch
+                {
+                    object_size = 1;
+                }
 
                 // create the new object
                 string object_type = type[count].InnerText;
 
                 if (object_type == "platform")
                 {
-                    Platform obj = new Platform(node.InnerText, pos, slip, "x", "x", info, isVisible);
+                    Platform obj = new Platform(node.InnerText, pos, slip, "x", "x", info, isVisible, object_size);
                     objectList.Add(obj);
                 }
                 else
                 if (object_type == "obstacle")
                 {
-                    if (object_type == "obstacle")
-                    {
-                        Obstacle obj = new Obstacle(node.InnerText, pos, info, isVisible);
-                        objectList.Add(obj);
-                    }
+                    Obstacle obj = new Obstacle(node.InnerText, pos, info, isVisible, object_size);
+                    objectList.Add(obj);
+                }
+                else
+                if (object_type == "BonbonFairy")
+                {
+                    BonbonFairy obj = new BonbonFairy(node.InnerText, pos, info, isVisible, text);
+                    objectList.Add(obj);
                 }
 
                 // increase count as it is used to access the not-id xml elements of the correct level

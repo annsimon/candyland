@@ -18,11 +18,13 @@ namespace SceneEditor
         public string posZ { get; set; }
         public string doorArea { get; set; }
         public string doorLevel { get; set; }
-        public bool isSlippery { get; set; }
+        public string slippery { get; set; }
         public bool isVisible { get; set; }
         public string endPosX { get; set; }
         public string endPosY { get; set; }
         public string endPosZ { get; set; }
+        public string size { get; set; }
+        public string dialog { get; set; }
 
         public ObjectGenerator()
         {
@@ -54,11 +56,13 @@ namespace SceneEditor
             textBoxPosZ.Text = obj.posZ;
             textBoxDoorArea.Text = obj.doorArea;
             textBoxDoorLevel.Text = obj.doorLevel;
-            checkBoxSlippery.Checked = obj.isSlippery;
+            textBoxSlippery.Text = obj.slippery;
             checkBoxVisible.Checked = obj.isVisible;
             textBoxEndX.Text = obj.endPosX;
             textBoxEndY.Text = obj.endPosY;
             textBoxEndZ.Text = obj.endPosZ;
+            textBoxSize.Text = obj.size;
+            textBoxDialog.Text = obj.dialog;
         }
 
         private void acceptButton_Click(object sender, EventArgs e)
@@ -79,8 +83,10 @@ namespace SceneEditor
                 doorLevel = "x";
             else
                 doorLevel = textBoxDoorLevel.Text;
-            isSlippery = checkBoxSlippery.Checked;
+            slippery = textBoxSlippery.Text;
             isVisible = checkBoxVisible.Checked;
+            size = textBoxSize.Text;
+            dialog = textBoxDialog.Text;
             this.DialogResult = DialogResult.OK;
         }
     }
@@ -94,8 +100,10 @@ namespace SceneEditor
         public string posZ { get; set; }
         public string doorArea { get; set; }
         public string doorLevel { get; set; }
-        public bool isSlippery { get; set; }
+        public string slippery { get; set; }
         public bool isVisible{ get; set; }
+        public string size { get; set; }
+        public string dialog { get; set; }
 
         public string endPosX { get; set; }
         public string endPosY { get; set; }
@@ -126,8 +134,10 @@ namespace SceneEditor
             ret += "                      <y>" + endPosY + "</y>\n";
             ret += "                      <z>" + endPosZ + "</z>\n";
             ret += "                    </object_endposition>\n";
-            ret += "                    <slippery>" + isSlippery.ToString() + "</slippery>\n";
+            ret += "                    <object_size>" + size + "</object_size>\n";
+            ret += "                    <slippery>" + slippery + "</slippery>\n";
             ret += "                    <visible>" + isVisible.ToString() + "</visible>\n";
+            ret += "                    <dialog>" + dialog + "</dialog>\n";
             ret += "                  </object>\n";
             return ret;
         }

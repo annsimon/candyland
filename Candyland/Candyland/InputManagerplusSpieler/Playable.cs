@@ -17,6 +17,19 @@ namespace Candyland
         protected Camera cam;                   //Kamera
         protected BonusTracker m_bonusTracker;
         protected bool isthirdpersoncam = true;
+        protected bool isOnSlipperyGround;
+
+
+        protected string _currentlevelID;
+
+        public string getCurrentLevelId() { return _currentlevelID; }
+        public void setCurrentLevelId(string lvlid) { _currentlevelID = lvlid; }
+
+        protected string _NextlevelID;
+
+        public string getNextLevelId() { return _currentlevelID; }
+        public void setNextLevelId(string lvlid) { _currentlevelID = lvlid; } 
+
 
         public abstract void uniqueskill();
 
@@ -135,6 +148,30 @@ namespace Candyland
             else
             {
                 obj.isNotCollidingWith(this);
+            }
+        }
+
+        // Needs to find out if the ground is slippery for players
+        protected override void collideWithPlatform(GameObject obj)
+        {
+            // Obstacle sits on a Platform, that can be slippery
+            if (obj.isVisible && obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                preventIntersection(obj);
+                Platform platform = (Platform)obj;
+                bool centerOnPlattform = false;
+                if (this.getPosition().X < obj.getBoundingBox().Max.X && this.getPosition().X > obj.getBoundingBox().Min.X
+                    && this.getPosition().Z < obj.getBoundingBox().Max.Z && this.getPosition().Z > obj.getBoundingBox().Min.Z)
+                    centerOnPlattform = true;
+                if (centerOnPlattform)
+                {
+                    switch (platform.getSlippery())
+                    {
+                        case 0: isOnSlipperyGround = false; break;
+                        case 1: isOnSlipperyGround = false; break;
+                        case 2: isOnSlipperyGround = true; break;
+                    }
+                }
             }
         }
 

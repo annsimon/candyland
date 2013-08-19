@@ -14,9 +14,6 @@ namespace Candyland
 {
     class CandyHelper : Playable
     {
-        Texture2D texture;
-
-
         public CandyHelper(Vector3 position, Vector3 direction, float aspectRatio, UpdateInfo info, BonusTracker bonusTracker)
         {
             m_updateInfo = info;
@@ -26,9 +23,14 @@ namespace Candyland
             this.m_original_position = this.m_position;
             this.isVisible = true;
             this.original_isVisible = isVisible;
-            this.cam = new Camera(position, MathHelper.PiOver4, aspectRatio, 0.1f, 100, m_updateInfo);
+            this.cam = new Camera(position, MathHelper.PiOver4, aspectRatio, 0.1f, GameConstants.cameraFarPlane, m_updateInfo);
             this.currentspeed = 0;
             this.upvelocity = 0;
+
+            this.m_material = new Material();
+            this.m_material.ambient = GameConstants.ambient;
+            this.m_material.diffuse = GameConstants.diffuse;
+            this.m_modelTextures = new Dictionary<int, Texture2D>();
         }
 
         public override void isNotCollidingWith(GameObject obj) { }
@@ -47,12 +49,13 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
-            effect = content.Load<Effect>("Toon");
-            texture = content.Load<Texture2D>("partnertextur");
-            m_model = content.Load<Model>("partnerneu");
+            effect = content.Load<Effect>("Shaders/Shader");
+            m_texture = content.Load<Texture2D>("NPCs/Helper/partnertextur");
+            m_model = content.Load<Model>("NPCs/Helper/partnerneu");
             calculateBoundingBox();
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
+            base.load(content);
         }
 
         public override void movementInput(float movex, float movey, float camx, float camy)
@@ -104,7 +107,7 @@ namespace Candyland
 
         #endregion
 
-        public override void draw()
+        public override Matrix prepareForDrawing()
         {
             if (m_updateInfo.helperavailable)
             {
@@ -126,27 +129,9 @@ namespace Candyland
                     rotation = Matrix.CreateRotationY((float)-Math.Acos(direction.Z));
                 }
 
-                // Draw the model. A model can have multiple meshes, so loop.
-                foreach (ModelMesh mesh in m_model.Meshes)
-                {
-
-                    foreach (ModelMeshPart part in mesh.MeshParts)
-                    {
-                        part.Effect = effect;
-                        effect.Parameters["World"].SetValue(rotation * worldMatrix * mesh.ParentBone.Transform);
-                        effect.Parameters["DiffuseLightDirection"].SetValue(new Vector3(rotation.M13, rotation.M23, rotation.M33));
-                        effect.Parameters["View"].SetValue(view);
-                        effect.Parameters["Projection"].SetValue(projection);
-                        effect.Parameters["WorldInverseTranspose"].SetValue(
-                        Matrix.Transpose(Matrix.Invert(worldMatrix * mesh.ParentBone.Transform)));
-                        effect.Parameters["Texture"].SetValue(texture);
-                    }
-                    // Draw the mesh, using the effects set above.
-                    mesh.Draw();
-                    BoundingBoxRenderer.Render(this.m_boundingBox, m_updateInfo.graphics, view, projection, Color.White);
-
-                }
+                return rotation * worldMatrix;
             }
+            return new Matrix();
         }
         
     }

@@ -81,11 +81,13 @@ namespace SceneEditor
             obj.posZ = m_objectGenerator.posZ;
             obj.doorArea = m_objectGenerator.doorArea;
             obj.doorLevel = m_objectGenerator.doorLevel;
-            obj.isSlippery = m_objectGenerator.isSlippery;
+            obj.slippery = m_objectGenerator.slippery;
             obj.isVisible = m_objectGenerator.isVisible;
 			obj.endPosX = m_objectGenerator.endPosX;
             obj.endPosY = m_objectGenerator.endPosY;
             obj.endPosZ = m_objectGenerator.endPosZ;
+            obj.size = m_objectGenerator.size;
+            obj.dialog = m_objectGenerator.dialog;
         }
 
         private void addStaticButton_Click(object sender, EventArgs e)
@@ -230,6 +232,8 @@ namespace SceneEditor
             XmlNodeList slippery = scene.GetElementsByTagName("slippery");
             XmlNodeList visible = scene.GetElementsByTagName("visible");
             XmlNodeList endPosition = scene.GetElementsByTagName("object_endposition");
+            XmlNodeList size = scene.GetElementsByTagName("object_size");
+            XmlNodeList dialog = scene.GetElementsByTagName("dialog");
             int count = 0;
 
             foreach (XmlNode node in id)
@@ -256,8 +260,8 @@ namespace SceneEditor
                 }
                 catch { }
 
-                // get bool value for slippery
-                obj.isSlippery = bool.Parse(slippery[count].InnerText);
+                // get value for slippery
+                obj.slippery = slippery[count].InnerText;
 
                 // get bool value for isVisible
                 if( visible[count] != null )
@@ -270,6 +274,12 @@ namespace SceneEditor
 
                 // get isDoorToLevel
                 obj.doorLevel = door_to_level[count].InnerText;
+                
+                // get object size
+                obj.size = size[count].InnerText;
+
+                // get object's dialog text
+                obj.dialog = dialog[count].InnerText;
 
                 // add object to list
                 returnList.Add(obj);

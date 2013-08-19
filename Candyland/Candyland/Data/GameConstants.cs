@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
 
 namespace Candyland
 {
@@ -20,12 +21,21 @@ namespace Candyland
         /// <summary>
         /// speed of moving obstacles
         /// </summary>
-        public const float obstacleSpeed = 0.05f;
+        public const float slippingSpeed = 0.03f;
 
         /// <summary>
         /// time a timed switch stays activated
         /// </summary>
         public const double switchActiveTime = 4;
+
+        /// <summary>
+        /// time a breakable plattform takes for breaking
+        /// </summary>
+        public const double breakTime = 4;
+
+        // material params
+        public static Vector4 ambient = new Vector4(0.95f, 0.95f, 0.95f, 1.0f);
+        public static Vector4 diffuse = new Vector4(0.3f, 0.3f, 0.3f, 1.0f);
 
         /// <summary>
         /// state a switch is in
@@ -40,7 +50,7 @@ namespace Candyland
         /// <summary>
         /// distance a movable obstacle will move when pushed
         /// </summary>
-        public const float obstacleMoveDistance = 0.5f;
+        public const float obstacleMoveDistance = 0.1f;
 
         public enum SubActionType
         {
@@ -53,34 +63,29 @@ namespace Candyland
         /// <summary>
         /// bounding box rendering on/off
         /// </summary>
-        public const bool boundingBoxRendering = false;
+        public const bool boundingBoxRendering = true;
         public const bool singlestepperOFF = true;
         public const int framerate = 1;
+
+        public const float cameraFarPlane = 50;
 
         public const int inputManagerMode = InputManager.KEYBOARDMOUSE;
 
         // data regarding the scene
-        //public const string sceneFile = "Content\\sceneNew.xml";
-       // public const string sceneFile = "Content\\sceneNew.xml";
-        //public const string sceneFile = "Content\\HoehlenTest.xml";
-        public const string sceneFile = "Content\\Scene.xml";
-        public const string eventFile = "Content\\EventTest.xml";
-        public const string actionsFile = "Content\\ActionTest.xml";
+        public const string sceneFile = @"Content\Scenes\Scene.xml";
+        public const string eventFile = @"Content\Scenes\Events\EventTest.xml";
+        public const string actionsFile = @"Content\Scenes\Actions\ActionTest.xml";
         public const string startAreaID = "3";
         public const string startLevelID = "3.0";
-        //public const string startAreaID = "66";
-        //public const string startLevelID = "66.0";
-        //public const string startAreaID = "6";
-        //public const string startLevelID = "6.0";
-        //public const string startAreaID = "7";
-        //public const string startLevelID = "7.0";
 
+        public static Color backgroundColor = Color.DarkSlateBlue;
 
         /// <summary>
         /// Strings
         /// </summary>
         /// 
         // Dialogue
-        public const string tradesmanGreeting = "Ah, ein Kunde. Guten Tag, Reisender! Womit kann ich behilflich sein? Kann ich dich fuer meine Waren begeistern oder suchst du eine Transportmoeglichkeit?";
+        public const string tradesmanGreeting = "Ah, ein Kunde. Guten Tag, Reisender! Womit kann ich behilflich sein? Kann ich dich für meine Waren begeistern oder suchst du eine Transportmöglichkeit? Oder möchtest du ein paar Neuigkeiten über Candyland hören? Ich höre viel und rede gern :) Hast du z.B. schon von der neuen Bedrohung durch die größenwahnsinnige Lakritze gehört?";
+
     }
 }

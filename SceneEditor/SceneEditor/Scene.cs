@@ -17,7 +17,7 @@ namespace SceneEditor
         List<Area> m_areas;
         AreaGenerator m_areaGenerator;
 
-        string currentFile = "sceneNew.xml";
+        string currentFile = "sceneBigObjects.xml";
 
         public SceneGenerator()
         {

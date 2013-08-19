@@ -19,8 +19,6 @@ namespace Candyland
         private GameObject m_triggerable;
 
         private SwitchGroup m_switchGroup;
-
-        private bool m_triggered;
         
         public SwitchEvent( string triggerableID, string switchGroupType, List<String> switchIDs,
                             Dictionary<string, GameObject> objects, Dictionary<string, GameObject> switches)
@@ -34,20 +32,17 @@ namespace Candyland
 
         public void Trigger()
         {
-            m_triggered = true;
             m_triggerable.isVisible = !m_triggerable.getOriginalVisibility();
         }
 
         public void ResetTrigger()
         {
-            m_triggered = false;
             m_triggerable.isVisible = m_triggerable.getOriginalVisibility();
         }
 
         public void Reset()
         {
             m_switchGroup.Reset();
-            m_triggered = false;
         }
     }
 }

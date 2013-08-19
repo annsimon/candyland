@@ -21,22 +21,23 @@ namespace Candyland
 
         #region initialization
 
-        protected override void initialize(string id, Vector3 pos, UpdateInfo updateInfo, bool visible)
+        protected void initialize(string id, Vector3 pos, UpdateInfo updateInfo, bool visible)
         {
             base.initialize(id, pos, updateInfo, visible);
         }
 
         public override void load(ContentManager content)
         {
-            this.m_texture = content.Load<Texture2D>("blockbreakabletextur");
+            this.m_texture = content.Load<Texture2D>("Objekte/Obstacles/Breakable/blockbreakabletextur");
             this.m_original_texture = this.m_texture;
-            this.effect = content.Load<Effect>("Toon");
-            this.m_model = content.Load<Model>("blockmovable");
+            this.effect = content.Load<Effect>("Shaders/Shader");
+            this.m_model = content.Load<Model>("Objekte/Obstacles/Movable/blockmovable");
             this.m_original_model = this.m_model;
 
             this.calculateBoundingBox();
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
+            base.load(content);
         }
 
         #endregion

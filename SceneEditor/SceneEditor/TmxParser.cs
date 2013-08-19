@@ -47,28 +47,34 @@ namespace SceneEditor
                     else id = idFront + "." + objName;
 
                     String type = obj.Attributes["type"].InnerText;
-                    String posX = Convert.ToDouble(obj.Attributes["x"].InnerText) / 20 + "";
-                    String posZ = Convert.ToDouble(obj.Attributes["y"].InnerText) / 20 + "";
+                    if (type == "lowObstacle") type = "obstacle";
+                    if (type == "slipperyPlatform") type = "platform";
+                    if (type == "verySlipperyPlatform") type = "platform";
+                    double offset = Convert.ToDouble(obj.Attributes["width"].InnerText) / 2;
+                    String posX = (Convert.ToDouble(obj.Attributes["x"].InnerText) + offset) / 20 + "";
+                    String posZ = (Convert.ToDouble(obj.Attributes["y"].InnerText) + offset) / 20 + "";
                     String endPositionX = "";
                     String endPositionY = "";
                     String endPositionZ = "";
                     String isDoorToArea = "";
                     String isDoorToLevel = "";
                     String isVisible = "true";
-                    String isSlippery = "false";
+                    String slippery = "0";
+                    String size = "1";
+                    String dialog = "";
                     
                     // get the property nodes
                     XmlNodeList properties = obj.ChildNodes[0].ChildNodes;
                     foreach (XmlNode property in properties)
                     {
                         if (property.Attributes["name"].InnerText == "endpositionX" && property.Attributes["value"].InnerText != "-")
-                            endPositionX = Convert.ToDouble(property.Attributes["value"].InnerText) / 2 + "";
+                            endPositionX = (Convert.ToDouble(property.Attributes["value"].InnerText) + (offset/10)) / 2 + "";
                         else
                         if (property.Attributes["name"].InnerText == "endPositionY" && property.Attributes["value"].InnerText != "-")
                             endPositionY = property.Attributes["value"].InnerText;
                         else
                         if (property.Attributes["name"].InnerText == "endPositionZ" && property.Attributes["value"].InnerText != "-")
-                            endPositionZ = Convert.ToDouble(property.Attributes["value"].InnerText) / 2 + "";
+                            endPositionZ = (Convert.ToDouble(property.Attributes["value"].InnerText) + (offset/10)) / 2 + "";
                         else
                         if (property.Attributes["name"].InnerText == "isDoorToArea")
                             if (property.Attributes["value"].InnerText == "-")
@@ -85,8 +91,14 @@ namespace SceneEditor
                         if (property.Attributes["name"].InnerText == "isVisible" && property.Attributes["value"].InnerText != "-")
                             isVisible = property.Attributes["value"].InnerText;
                         else
-                        if (property.Attributes["name"].InnerText == "isSlippery" && property.Attributes["value"].InnerText != "-")
-                            isSlippery = property.Attributes["value"].InnerText;
+                        if (property.Attributes["name"].InnerText == "slippery" && property.Attributes["value"].InnerText != "-")
+                            slippery = property.Attributes["value"].InnerText;
+                        else
+                        if (property.Attributes["name"].InnerText == "size" && property.Attributes["value"].InnerText != "")
+                            size = property.Attributes["value"].InnerText;
+                        else
+                        if(property.Attributes["name"].InnerText == "dialog")
+                            dialog = property.Attributes["value"].InnerText;
                     }
 
                     Object newObj = new Object();
@@ -98,11 +110,13 @@ namespace SceneEditor
                     newObj.posZ = posZ;
                     newObj.doorArea = isDoorToArea;
                     newObj.doorLevel = isDoorToLevel;
-                    newObj.isSlippery = Convert.ToBoolean(isSlippery);
+                    newObj.slippery = slippery;
                     newObj.isVisible = Convert.ToBoolean(isVisible);
                     newObj.endPosX = endPositionX;
                     newObj.endPosY = endPositionY;
                     newObj.endPosZ = endPositionZ;
+                    newObj.size = size;
+                    newObj.dialog = dialog;
 
                     if (objName == "-")
                     {

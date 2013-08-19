@@ -28,6 +28,8 @@ namespace Candyland
         // this list contains all events of the level
         List<SwitchEvent> m_events;
 
+        List<GameObject> m_allGameObjects;
+
         Platform m_start_player;
         Platform m_start_companion;
 
@@ -40,6 +42,14 @@ namespace Candyland
             m_switchObjects = tempDictionaryList[1];
             m_staticObjects = ObjectParser.ParseStatics(level_start, xml, info);
             m_events = new List<SwitchEvent>();
+
+            m_allGameObjects = new List<GameObject>();
+            foreach (var entry in m_gameObjects)
+                m_allGameObjects.Add(entry.Value);
+            foreach (GameObject o in m_staticObjects)
+                m_allGameObjects.Add(o);
+            foreach (var entry in m_switchObjects)
+                m_allGameObjects.Add(entry.Value);
 
             //try 
             //{
@@ -81,22 +91,6 @@ namespace Candyland
             {
                 if (gameObject.Value.isVisible)
                     Collide(gameObject.Value);
-            }
-        }
-
-        public void Draw(GraphicsDevice graphics)
-        {
-            foreach (GameObject staticObject in m_staticObjects)
-            {
-                staticObject.draw();
-            }
-            foreach (var gameObject in m_gameObjects)
-            {
-                gameObject.Value.draw();
-            }
-            foreach (var gameObject in m_switchObjects)
-            {
-                gameObject.Value.draw();
             }
         }
 
@@ -162,6 +156,11 @@ namespace Candyland
                     gameObject.Value.initialize();
                 }
             }
+        }
+
+        public List<GameObject> getObjects()
+        {
+            return m_allGameObjects;
         }
 
         // called to set the platform the player and companion each start at (for reset)

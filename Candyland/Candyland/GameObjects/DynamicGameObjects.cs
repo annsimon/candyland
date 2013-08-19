@@ -35,7 +35,7 @@ namespace Candyland
                 float length = (float)Math.Sqrt(dx * dx + dz * dz + dy * dy);
                 Vector3 tempdir = new Vector3(dx, dy, dz);
                 tempdir.Normalize();
-                move(tempdir.X * GameConstants.obstacleSpeed, tempdir.Y * GameConstants.obstacleSpeed, tempdir.Z * GameConstants.obstacleSpeed);
+                move(tempdir.X * GameConstants.slippingSpeed, tempdir.Y * GameConstants.slippingSpeed, tempdir.Z * GameConstants.slippingSpeed);
                 if (length < 1) istargeting = false;
             }
         }
@@ -51,10 +51,10 @@ namespace Candyland
             {
                 direction = new Vector3(x, y, z);                   
 
-                m_position += direction * currentspeed;             //Change ObjectPosition
+                m_position += direction ;             //Change ObjectPosition
 
-                m_boundingBox.Min += direction * currentspeed;
-                m_boundingBox.Max += direction * currentspeed;
+                m_boundingBox.Min += direction ;
+                m_boundingBox.Max += direction ;
             }
         }
 
@@ -83,6 +83,17 @@ namespace Candyland
             if (obj.GetType() == typeof(ChocoChip)) collideWithChocoChip(obj);
             if (obj.GetType() == typeof(PlatformTeleporter)) collideWithTeleporter(obj);
             if (obj.GetType() == typeof(MovingPlatform)) collideWithMovingPlatform(obj);
+            if (obj.GetType() == typeof(BreakingPlatform)) collideWithBreakingPlatform(obj);
+        }
+
+        protected virtual void collideWithBreakingPlatform(GameObject obj)
+        {
+            // Object sits on a Platform
+            if (obj.isVisible && !obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                preventIntersection(obj);
+                obj.hasCollidedWith(this);
+            }
         }
 
         protected virtual void collideWithMovingPlatform(GameObject obj)
