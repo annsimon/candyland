@@ -47,14 +47,15 @@ namespace Candyland
         public override void update()
         {
             KeyboardState keystate = Keyboard.GetState();
-            if (!keystate.IsKeyDown(Keys.W) && !keystate.IsKeyDown(Keys.A) && !keystate.IsKeyDown(Keys.D) && !keystate.IsKeyDown(Keys.S))
+            if ( (keystate.IsKeyDown(Keys.W) || keystate.IsKeyDown(Keys.A) || keystate.IsKeyDown(Keys.D) || keystate.IsKeyDown(Keys.S))
+                  && isthirdpersoncam )
             {
-                animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, false, Matrix.Identity);
+                animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
 
             }
             else
             {
-                animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
+                animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, false, Matrix.Identity);
             }
             base.update();
             fall();

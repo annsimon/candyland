@@ -444,7 +444,6 @@
     <Folder Include="NPCs\Fee\" />
     <Folder Include="NPCs\Händler\" />
     <Folder Include="NPCs\TutorialGuy\" />
-    <Folder Include="Objekte\Plattformen\Teleport\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Objekte\Obstacles\blockmovabletextur.png">
@@ -506,6 +505,37 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Objekte\Plattformen\Teleport\plattformtextur_porter.png">
+      <Name>plattformtextur_porter</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scenes\theWorld.xml">
+      <Name>theWorld</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scenes\Actions\Action.xml">
+      <Name>Action</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scenes\Events\Event.xml">
+      <Name>Event</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 

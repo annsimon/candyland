@@ -222,19 +222,18 @@ namespace Candyland
             Dictionary<int, Texture2D> textures = modelGroup.textures;
             GameObject.Material material = modelGroup.material;
 
-            AnimationPlayer player = null;
+            AnimationPlayer animationPlayer = null;
             if (modelGroup is GameObject.ModelGroupAnimated)
-                player = ((GameObject.ModelGroupAnimated)modelGroup).animationPlayer;
+                animationPlayer = ((GameObject.ModelGroupAnimated)modelGroup).animationPlayer;
 
             foreach (ModelMesh m in model.Meshes)
             {
                 foreach (Effect e in m.Effects)
                 {
-
-                    if (player != null)
+                    if (animationPlayer != null)
                     {
                         e.CurrentTechnique = e.Techniques["ShadedAndAnimated"];
-                        e.Parameters["Bones"].SetValue(player.GetSkinTransforms());
+                        e.Parameters["Bones"].SetValue(animationPlayer.GetSkinTransforms());
                     }
                     else
                         e.CurrentTechnique = e.Techniques["Shaded"];
@@ -261,12 +260,15 @@ namespace Candyland
                     Matrix.Transpose(Matrix.Invert(world * m.ParentBone.Transform)));
 
                     e.Parameters["texelSize"].SetValue(m_shadowMap.TexelSize);
-                    e.Parameters["withFog"].SetValue(1);
+                    e.Parameters["withFog"].SetValue(true);
                     e.Parameters["fogColor"].SetValue(GameConstants.backgroundColor.ToVector4());
-                    e.Parameters["fogStart"].SetValue(2f); // currently not in use
-                    e.Parameters["fogDensity"].SetValue(0.1f);
+                    e.Parameters["fogStart"].SetValue(30f);
+                    e.Parameters["fogDensity"].SetValue(0.7f);
+                    if (!player.getIsThirdPersonCam() || !player2.getIsThirdPersonCam())
+                        e.Parameters["fogMapMode"].SetValue(true);
+                    else
+                        e.Parameters["fogMapMode"].SetValue(false);
                 }
-
                 m.Draw();
             }
         }

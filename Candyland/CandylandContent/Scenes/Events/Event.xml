@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<levels>
+  <L0.Tutorial>
+    <level_inner>
+    </level_inner>
+  </L0.Tutorial>
+
+  <L0.Korridor>
+    <level_inner>       
+    </level_inner>
+  </L0.Korridor>
+
+  <L0.S0>
+    <level_inner>
+    </level_inner>
+  </L0.S0>
+  
+</levels>

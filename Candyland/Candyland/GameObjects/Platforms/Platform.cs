@@ -121,10 +121,10 @@ namespace Candyland
             switch (slipperyInfo)
             {
                 case 0: this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/plattformtextur_klein"); break;
-                case 1: this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/Slippery/plattformtexturslippery_groß"); break;
-                case 2: this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/Slippery/plattformtexturslippery_groß"); break;
+                case 1: this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/Slippery/plattformtexturslippery_gross"); break;
+                case 2: this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/Slippery/plattformtexturslippery_gross"); break;
             }
-            this.m_model = content.Load<Model>("Objekte/Plattformen/plattform_groß");
+            this.m_model = content.Load<Model>("Objekte/Plattformen/plattform_gross");
         }
 
         #endregion
