@@ -39,6 +39,13 @@ namespace Candyland
         // movie mode is a TODO!
         public bool locked { get; set; }
 
+        /// <summary>
+        /// all salesman IDs, which the player has already talked to
+        /// </summary>
+        public List<String> activeTeleports { get; set; }
+
+        public int chocoChipsSpent { get; set; }
+
         public Matrix viewMatrix { get; set; }
         public Matrix projectionMatrix { get ; set; }
 
@@ -87,6 +94,8 @@ namespace Candyland
             helperavailable = true;
 
             m_screenManager = screenManager;
+
+            activeTeleports = new List<string>(10);
 
             /**********************************************************************/
             graphics = graphicsDevice;
