@@ -7,7 +7,7 @@
         <action_inner>
           <trigger>0.Tutorial.1.dyn</trigger>
           <triggered>0.Tutorial.1.actionActor</triggered>
-          <id>testAction1</id>
+          <id>tutorialAction1</id>
           <oneTimeAction>true</oneTimeAction>
           <subactions>
             <subaction>
@@ -16,7 +16,7 @@
               <goalY>0</goalY>
               <goalZ>10</goalZ>
               <text>Hi!</text>
-              <locks>false</locks>
+              <locks>true</locks>
             </subaction>
 			<subaction>
               <type>dialog</type>
@@ -24,7 +24,7 @@
               <goalY>0</goalY>
               <goalZ>10</goalZ>
               <text>Willkommen in Candyland. Geht es dir gut?</text>
-              <locks>false</locks>
+              <locks>true</locks>
             </subaction>
 			<subaction>
               <type>dialog</type>
@@ -32,15 +32,15 @@
               <goalY>0</goalY>
               <goalZ>10</goalZ>
               <text>Oft sind die Leute verwirrt, wenn sie hier ankommen... Folg erst einmal einfach diesem Weg hier, er wird dich deinem Ziel naeher bringen.</text>
-              <locks>false</locks>
+              <locks>true</locks>
             </subaction>
 			<subaction>
               <type>dialog</type>
               <goalX>10</goalX>
               <goalY>0</goalY>
               <goalZ>10</goalZ>
-              <text>(Nutze W, A, S und D, um dich zu bewegen und Leertaste, um zu springen.)</text>
-              <locks>false</locks>
+              <text>(Nutze W, A, S und D, um dich zu bewegen und Leertaste, um zu springen. Mit der Maus kann die Kamera gedreht werden.)</text>
+              <locks>true</locks>
             </subaction>
             <subaction>
               <type>disappear</type>
@@ -53,8 +53,176 @@
           </subactions>
         </action_inner>
       </action>
-    </level_inner>
+      <action>
+        <action_inner>
+          <trigger>0.Tutorial.3.dyn</trigger>
+          <triggered>0.Tutorial.2.actionActor</triggered>
+          <id>tutorialAction2</id>
+          <oneTimeAction>true</oneTimeAction>
+          <subactions>
+		    <subaction>
+              <type>appear</type>
+              <goalX>10</goalX>
+              <goalY>0</goalY>
+              <goalZ>10</goalZ>
+              <text></text>
+              <locks>true</locks>
+            </subaction>
+            <subaction>
+              <type>dialog</type>
+              <goalX>10</goalX>
+              <goalY>0</goalY>
+              <goalZ>10</goalZ>
+              <text>Das da vorne sind Schokolinsen. Sammel moeglichst viele von ihnen, um sie irgendwann gegen besondere Dinge einzutauschen.</text>
+              <locks>true</locks>
+            </subaction>
+			<subaction>
+              <type>dialog</type>
+              <goalX>10</goalX>
+              <goalY>0</goalY>
+              <goalZ>10</goalZ>
+              <text>Ich merke mir, welche der Linsen du schon gesammelt hast. Du kannst eine einmal eingesammelte Schokolinse also nicht wieder verlieren.</text>
+              <locks>true</locks>
+            </subaction>
+			<subaction>
+              <type>dialog</type>
+              <goalX>10</goalX>
+              <goalY>0</goalY>
+              <goalZ>10</goalZ>
+              <text>(Die Linsen-Anzeige oben links zeigt, wie viele Linsen es im ganzen Spiel gibt und wie viele von ihnen bereits gefunden wurden.)</text>
+              <locks>true</locks>
+            </subaction>
+            <subaction>
+              <type>disappear</type>
+              <goalX>0</goalX>
+              <goalY>0</goalY>
+              <goalZ>0</goalZ>
+              <text>x</text>
+              <locks>false</locks>
+            </subaction>
+          </subactions>
+        </action_inner>
+      </action>
+	</level_inner>
   </L0.Tutorial>
+  
+  <L0.Korridor>
+    <level_inner>       
+      <action>
+        <action_inner>
+          <trigger>0.Korridor.3.dyn</trigger>
+          <triggered>0.Korridor.1.actionActor</triggered>
+          <id>korridor1Action</id>
+          <oneTimeAction>true</oneTimeAction>
+          <subactions>
+		    <subaction>
+              <type>appear</type>
+              <goalX>10</goalX>
+              <goalY>0</goalY>
+              <goalZ>10</goalZ>
+              <text></text>
+              <locks>true</locks>
+            </subaction>
+            <subaction>
+              <type>dialog</type>
+              <goalX>10</goalX>
+              <goalY>0</goalY>
+              <goalZ>10</goalZ>
+              <text>Das hier ist ein Haendler.</text>
+              <locks>true</locks>
+            </subaction>
 
+			<subaction>
+              <type>dialog</type>
+              <goalX>10</goalX>
+              <goalY>0</goalY>
+              <goalZ>10</goalZ>
+              <text>Sprich ihn an, um zu sehen, was er dir anbietet.</text>
+              <locks>true</locks>
+            </subaction>
+			<subaction>
+              <type>dialog</type>
+              <goalX>10</goalX>
+              <goalY>0</goalY>
+              <goalZ>10</goalZ>
+              <text>(Speichern kann man nur bei einem Haendler. Sie stehen immer wieder mal am Wegrand, also halt die Augen offen.)</text>
+              <locks>true</locks>
+            </subaction>
+			<subaction>
+              <type>dialog</type>
+              <goalX>10</goalX>
+              <goalY>0</goalY>
+              <goalZ>10</goalZ>
+              <text>(Jeder Haendler hat Spezialwaren, die nur er anbietet. Also wirf immer auch einen Blick auf die Angebote.)</text>
+              <locks>true</locks>
+            </subaction>
+            <subaction>
+              <type>disappear</type>
+              <goalX>0</goalX>
+              <goalY>0</goalY>
+              <goalZ>0</goalZ>
+              <text>x</text>
+              <locks>false</locks>
+            </subaction>
+          </subactions>
+        </action_inner>
+      </action>
+	</level_inner>
+  </L0.Korridor>
+
+  <L0.S0>
+    <level_inner>       
+      <action>
+        <action_inner>
+          <trigger>0.S0.3.dyn</trigger>
+          <triggered>0.S0.1.actionActor</triggered>
+          <id>S01Action</id>
+          <oneTimeAction>true</oneTimeAction>
+          <subactions>
+		    <subaction>
+              <type>appear</type>
+              <goalX>10</goalX>
+              <goalY>0</goalY>
+              <goalZ>10</goalZ>
+              <text></text>
+              <locks>true</locks>
+            </subaction>
+            <subaction>
+              <type>dialog</type>
+              <goalX>10</goalX>
+              <goalY>0</goalY>
+              <goalZ>10</goalZ>
+              <text>Solche Zuckerwuerfel wie den da drueben kannst du verschieben. Versuch es doch mal.</text>
+              <locks>true</locks>
+            </subaction>
+			<subaction>
+              <type>dialog</type>
+              <goalX>10</goalX>
+              <goalY>0</goalY>
+              <goalZ>10</goalZ>
+              <text>Und hab keine Angst, falls du mal einen Fehler machst. Ich kann den Ursprungszustand der Umgebung wiederherstellen, wenn du das moechstest.</text>
+              <locks>true</locks>
+            </subaction>
+			<subaction>
+              <type>dialog</type>
+              <goalX>10</goalX>
+              <goalY>0</goalY>
+              <goalZ>10</goalZ>
+              <text>(Mit R kann ein Reset ausgeloest werden. Dabei werden alle Objekte zurueckgesetzt. Schon eingesammelte Schokolinsen gehen aber nicht verloren.)</text>
+              <locks>true</locks>
+            </subaction>
+            <subaction>
+              <type>disappear</type>
+              <goalX>0</goalX>
+              <goalY>0</goalY>
+              <goalZ>0</goalZ>
+              <text>x</text>
+              <locks>false</locks>
+            </subaction>
+          </subactions>
+        </action_inner>
+      </action>
+	</level_inner>
+  </L0.S0>
   
 </levels>

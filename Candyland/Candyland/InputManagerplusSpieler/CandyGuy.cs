@@ -21,7 +21,6 @@ namespace Candyland
 
         public CandyGuy(Vector3 position, Vector3 direction, float aspectRatio, UpdateInfo info, BonusTracker bonusTracker, CandyHelper helper)
         {
-             
             m_updateInfo = info;
             m_bonusTracker = bonusTracker;
             m_CandyHelper = helper;
