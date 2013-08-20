@@ -8,6 +8,10 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Candyland
 {
+    /// <summary>
+    /// this NPC greets the player and then gives him four options: talk, shop, travel, leave
+    /// hid ID should be equal to the level he's in
+    /// </summary>
     class Salesman : GameObject
     {
         // Message the salesman has for the player, when he chooses to talk
@@ -27,7 +31,7 @@ namespace Candyland
             this.m_model = content.Load<Model>("Objekte/Schokolinse/schokolinse");
             this.m_original_model = this.m_model;
             // Bounding box is bigger than the model, so that the player can interact, when standing a bit away
-            m_boundingBox = new BoundingBox(this.m_position - new Vector3(1,0.2f,1), this.m_position + new Vector3(1,0.2f,1));
+            m_boundingBox = new BoundingBox(this.m_position - new Vector3(0.8f,0.5f,0.8f), this.m_position + new Vector3(0.8f,0.5f,0.8f));
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
             base.load(content);
@@ -46,7 +50,12 @@ namespace Candyland
 
                 if (keyState.IsKeyDown(Keys.B))
                 {
-                        m_updateInfo.m_screenManager.ActivateNewScreen(new SalesmanDialogueScreen(m_text, "Images/DialogImages/BonbonFairy"));
+                    // set as active teleport point, if not already done
+                    if (!m_updateInfo.activeTeleports.Contains(ID))
+                        m_updateInfo.activeTeleports.Add(ID);
+                    // greet player
+                    CandyGuy guy = (CandyGuy)obj;
+                    m_updateInfo.m_screenManager.ActivateNewScreen(new SalesmanDialogueScreen(m_text, ID, m_updateInfo, guy.getBonusTracker().chocoCount, "Images/DialogImages/BonbonFairy"));
                 }
             }
         }

@@ -16,6 +16,7 @@ namespace Candyland
     {
         protected Camera cam;                   //Kamera
         protected BonusTracker m_bonusTracker;
+        public BonusTracker getBonusTracker() { return m_bonusTracker; }
         protected bool isthirdpersoncam = true;
         public bool getIsThirdPersonCam() { return isthirdpersoncam; }
         protected bool isOnSlipperyGround;

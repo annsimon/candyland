@@ -63,7 +63,7 @@ namespace Candyland
         /// <summary>
         /// bounding box rendering on/off
         /// </summary>
-        public const bool boundingBoxRendering = false;
+        public const bool boundingBoxRendering = true;
         public const bool singlestepperOFF = true;
         public const int framerate = 1;
 
@@ -72,18 +72,18 @@ namespace Candyland
         public const int inputManagerMode = InputManager.KEYBOARDMOUSE;
 
         // data regarding the scene
-        
-        public const string sceneFile = @"Content\Scenes\HoehlenTest.xml";
+
+        public const string sceneFile = @"Content\Scenes\SceneSchieberaetselPrototyp.xml";
         public const string eventFile = @"Content\Scenes\Events\EventTest.xml";
         public const string actionsFile = @"Content\Scenes\Actions\ActionTest.xml";
-        public const string startAreaID = "6";
-        public const string startLevelID = "6.0";
-        
-        /*public const string sceneFile = @"Content\Scenes\theWorld.xml";
-        public const string eventFile = @"Content\Scenes\Events\Event.xml";
-        public const string actionsFile = @"Content\Scenes\Actions\Action.xml";
-        public const string startAreaID = "0";
-        public const string startLevelID = "0.Tutorial";*/
+        public const string startAreaID = "7";
+        public const string startLevelID = "7.0";
+
+        //public const string sceneFile = @"Content\Scenes\theWorld.xml";
+        //public const string eventFile = @"Content\Scenes\Events\Event.xml";
+        //public const string actionsFile = @"Content\Scenes\Actions\Action.xml";
+        //public const string startAreaID = "0";
+        //public const string startLevelID = "0.Tutorial";
         
         
         public static Color backgroundColor = Color.DarkSlateBlue;

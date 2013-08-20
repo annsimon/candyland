@@ -24,6 +24,17 @@ namespace Candyland
 
         Vector2 pos1, pos2, pos3, pos4, pos5, pos6;
 
+        private string salesmanID;
+        private UpdateInfo m_updateInfo;
+        private int chocoCollected;
+
+        public ShopScreen(string saleID, UpdateInfo info, int chocoCount)
+        {
+            salesmanID = saleID;
+            m_updateInfo = info;
+            chocoCollected = chocoCount;
+        }
+
 
         public override void Open(Game game)
         {
@@ -62,18 +73,6 @@ namespace Candyland
 
             // look at input and update button selection
 
-
-            // Selected Button confirmed by pressing Enter
-            if (enterPressed)
-            {
-                switch (activeID)
-                {
-                    case 0: break;
-                    case 1: ScreenManager.ActivateNewScreen(new ShopScreen()); break;
-                    case 2: break;
-                    case 3: ScreenManager.ResumeLast(this); break;
-                }
-            }
         }
 
         public override void Draw(GameTime gameTime)
@@ -86,6 +85,9 @@ namespace Candyland
 
             m_sprite.Draw(background, shopBox, Color.White);
             m_sprite.Draw(testBonus.Texture, testBonus.Rectangle, Color.White);
+            m_sprite.DrawString(font, "Preis", new Vector2(shopBox.Left + offset, shopBox.Top + offset), Color.White);
+            m_sprite.DrawString(font, "Du hast", new Vector2(shopBox.Left + offset, shopBox.Bottom - 90), Color.White);
+            m_sprite.DrawString(font, (chocoCollected - m_updateInfo.chocoChipsSpent).ToString(), new Vector2(shopBox.Left + offset, shopBox.Bottom - 60), Color.White);
 
             m_sprite.End();
 

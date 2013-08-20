@@ -19,16 +19,23 @@ namespace Candyland
         private string[] TextArray;
         private string[] GreetingArray;
 
+        private string salesmanID;
+        private UpdateInfo m_updateInfo;
+        private int chocosCollected;
+
         int activeIndex = 0;
         int numberOfOptions = 4;
 
         bool isGreeting = true;
         bool isTimeToAnswer = false;
 
-        public SalesmanDialogueScreen(string text, string picture = "Images/DialogImages/DefaultImage")
+        public SalesmanDialogueScreen(string text, string saleID, UpdateInfo info, int chocoCount, string picture = "Images/DialogImages/DefaultImage")
         {
             this.Text = GameConstants.tradesmanGreeting;
             this.Picture = picture;
+            salesmanID = saleID;
+            m_updateInfo = info;
+            chocosCollected = chocoCount;
         }
 
         public override void Open(Game game)
@@ -71,8 +78,8 @@ namespace Candyland
                 {
                     case 0: scrollIndex = 0; isGreeting = false; isTimeToAnswer = false; break;
                     case 1: this.ScreenState = ScreenState.Hidden;
-                        ScreenManager.ActivateNewScreen(new ShopScreen()); break;
-                    case 2: ScreenManager.ActivateNewScreen(new TravelScreen()); break;
+                        ScreenManager.ActivateNewScreen(new ShopScreen(salesmanID,m_updateInfo, chocosCollected)); break;
+                    case 2: ScreenManager.ActivateNewScreen(new TravelScreen(salesmanID, m_updateInfo)); break;
                     case 3: ScreenManager.ResumeLast(this); break;
                 }
                 return;
