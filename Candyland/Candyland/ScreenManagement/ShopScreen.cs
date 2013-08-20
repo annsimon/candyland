@@ -85,6 +85,9 @@ namespace Candyland
 
             m_sprite.Draw(background, shopBox, Color.White);
             m_sprite.Draw(testBonus.Texture, testBonus.Rectangle, Color.White);
+            m_sprite.DrawString(font, "Preis", new Vector2(shopBox.Left + offset, shopBox.Top + offset), Color.White);
+            m_sprite.DrawString(font, "Du hast", new Vector2(shopBox.Left + offset, shopBox.Bottom - 90), Color.White);
+            m_sprite.DrawString(font, (chocoCollected - m_updateInfo.chocoChipsSpent).ToString(), new Vector2(shopBox.Left + offset, shopBox.Bottom - 60), Color.White);
 
             m_sprite.End();
 
