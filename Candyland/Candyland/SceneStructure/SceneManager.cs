@@ -57,6 +57,9 @@ namespace Candyland
         // font used for writing tests to screen
         SpriteFont screenFont;
 
+        Texture2D chocoChip;
+        Texture2D keys;
+
         InputManager m_inputManager;
 
         public SceneManager(ScreenManager screenManager)
@@ -106,6 +109,8 @@ namespace Candyland
             player2.load(manager);
 
             screenFont = manager.Load<SpriteFont>("Fonts/MainText");
+            keys = manager.Load<Texture2D>("Images/HUD/HudFull");
+            chocoChip = manager.Load<Texture2D>("Images/HUD/Choco");
         }
 
         public void Update(GameTime gameTime)
@@ -275,9 +280,18 @@ namespace Candyland
 
         public void Draw2D()
         {
+            int screenWidth = m_graphics.Viewport.Width;
+            int screenHeight = m_graphics.Viewport.Height;
+
             m_spriteBatch.Begin();
-            m_spriteBatch.DrawString(screenFont, "Linsen: " + m_bonusTracker.chocoCount.ToString()
-               + "/" + m_bonusTracker.chocoTotal.ToString(), new Vector2(5f, 5f), Color.White);
+
+            m_spriteBatch.DrawString(screenFont, m_bonusTracker.chocoCount.ToString()
+               + "/" + m_bonusTracker.chocoTotal.ToString(), new Vector2(50f, 5f), Color.White);
+
+            m_spriteBatch.Draw(chocoChip, new Rectangle(5, 5, 40, 40), Color.White);
+
+            m_spriteBatch.Draw(keys, new Rectangle(screenWidth - 186, screenHeight-70, 176, 60), Color.White);
+
             m_spriteBatch.End();
 
             //DrawShadowMap();
