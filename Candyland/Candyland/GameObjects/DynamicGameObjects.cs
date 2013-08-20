@@ -84,6 +84,16 @@ namespace Candyland
             if (obj.GetType() == typeof(PlatformTeleporter)) collideWithTeleporter(obj);
             if (obj.GetType() == typeof(MovingPlatform)) collideWithMovingPlatform(obj);
             if (obj.GetType() == typeof(BreakingPlatform)) collideWithBreakingPlatform(obj);
+            if (obj.GetType() == typeof(Salesman)) collideWithSalesman(obj);
+        }
+
+        protected virtual void collideWithSalesman(GameObject obj)
+        {
+            if (obj.isVisible && !obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                preventIntersection(obj);
+                obj.hasCollidedWith(this);
+            }
         }
 
         protected virtual void collideWithBreakingPlatform(GameObject obj)
