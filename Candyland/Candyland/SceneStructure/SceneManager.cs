@@ -77,7 +77,7 @@ namespace Candyland
             m_areas = AreaParser.ParseAreas(m_updateInfo, m_bonusTracker, m_actionTracker);
 
             player2 = new CandyHelper(new Vector3(0, 0.4f, 0.2f), Vector3.Up, m_graphics.Viewport.AspectRatio, m_updateInfo, m_bonusTracker);
-            player = new CandyGuy(new Vector3(0, 0.4f, 0), Vector3.Up, m_graphics.Viewport.AspectRatio, m_updateInfo, m_bonusTracker, player2);
+            player = new CandyGuy(new Vector3(0, 0.4f, 0), new Vector3(0, 0, 1), m_graphics.Viewport.AspectRatio, m_updateInfo, m_bonusTracker, player2);
 
             Vector3 playerStartPos = m_areas[m_updateInfo.currentAreaID].GetPlayerStartingPosition();
             playerStartPos.Y += 0.6f;
