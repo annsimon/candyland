@@ -29,15 +29,6 @@ namespace Candyland
             {
                 ScreenManager.ActivateNewScreen(new MainMenu());
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.T))
-            {
-                ScreenManager.ActivateNewScreen(new SalesmanDialogueScreen(GameConstants.tradesmanGreeting, "testBonus"));
-            }
-            if (Keyboard.GetState().IsKeyDown(Keys.Z))
-            {
-                ScreenManager.ActivateNewScreen(new DialogListeningScreen("Hallo hallo", "testBonus"));
-            }
-
 
             if (ScreenManager.Game.IsActive && (gameTime.TotalGameTime.Milliseconds % GameConstants.framerate == 0)
                 && ((ScreenManager.Input.Equals(InputState.Enter)) || GameConstants.singlestepperOFF))

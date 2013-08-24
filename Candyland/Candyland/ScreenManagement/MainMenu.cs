@@ -93,8 +93,6 @@ namespace Candyland
         {
             SpriteBatch m_sprite = ScreenManager.SpriteBatch;
 
-            ScreenManager.GraphicsDevice.Clear(Color.Silver);
-
             m_sprite.Begin();
 
             m_sprite.Draw(background, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);

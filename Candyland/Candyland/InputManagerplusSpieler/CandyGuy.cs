@@ -15,13 +15,15 @@ using SkinnedModel;
 namespace Candyland
 {
     class CandyGuy : Playable
-    {        
+    {
+        CandyHelper m_CandyHelper;
+        public CandyHelper getCandyHelper() { return m_CandyHelper; }
 
-        public CandyGuy(Vector3 position, Vector3 direction, float aspectRatio, UpdateInfo info, BonusTracker bonusTracker)
+        public CandyGuy(Vector3 position, Vector3 direction, float aspectRatio, UpdateInfo info, BonusTracker bonusTracker, CandyHelper helper)
         {
-             
             m_updateInfo = info;
             m_bonusTracker = bonusTracker;
+            m_CandyHelper = helper;
             this.m_position = position;
             this.direction = direction;
             this.m_original_position = this.m_position;
@@ -44,14 +46,15 @@ namespace Candyland
         public override void update()
         {
             KeyboardState keystate = Keyboard.GetState();
-            if (!keystate.IsKeyDown(Keys.W) && !keystate.IsKeyDown(Keys.A) && !keystate.IsKeyDown(Keys.D) && !keystate.IsKeyDown(Keys.S))
+            if ( (keystate.IsKeyDown(Keys.W) || keystate.IsKeyDown(Keys.A) || keystate.IsKeyDown(Keys.D) || keystate.IsKeyDown(Keys.S))
+                  && isthirdpersoncam )
             {
-                animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, false, Matrix.Identity);
+                animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
 
             }
             else
             {
-                animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
+                animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, false, Matrix.Identity);
             }
             base.update();
             fall();
@@ -128,7 +131,6 @@ namespace Candyland
         {
             if (obj.isVisible && !obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
             {
-                preventIntersection(obj);
                 obj.hasCollidedWith(this);
             }
         }

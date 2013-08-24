@@ -50,7 +50,7 @@ namespace Candyland
         /// <param name="farPlane">distance of the farPlane</param>
         public Camera(Vector3 pos, float fov, float aspectRatio, float nearPlane, float farPlane, UpdateInfo info ) 
         {
-            upangle = -0.5f;
+            upangle = -0.25f;
             rotation = 0.0f;
             centerposition = pos;
             m_updateInfo = info;

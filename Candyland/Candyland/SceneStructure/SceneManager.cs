@@ -57,6 +57,9 @@ namespace Candyland
         // font used for writing tests to screen
         SpriteFont screenFont;
 
+        Texture2D chocoChip;
+        Texture2D keys;
+
         InputManager m_inputManager;
 
         public SceneManager(ScreenManager screenManager)
@@ -76,8 +79,9 @@ namespace Candyland
                         
             m_areas = AreaParser.ParseAreas(m_updateInfo, m_bonusTracker, m_actionTracker);
 
-            player = new CandyGuy(new Vector3(0, 0.4f, 0), Vector3.Up, m_graphics.Viewport.AspectRatio, m_updateInfo, m_bonusTracker);
             player2 = new CandyHelper(new Vector3(0, 0.4f, 0.2f), Vector3.Up, m_graphics.Viewport.AspectRatio, m_updateInfo, m_bonusTracker);
+            player = new CandyGuy(new Vector3(0, 0.4f, 0), new Vector3(0, 0, 1), m_graphics.Viewport.AspectRatio, m_updateInfo, m_bonusTracker, player2);
+
             
             //TEST!!!
             player.setCurrentLevelId(GameConstants.startLevelID);
@@ -111,6 +115,8 @@ namespace Candyland
             player2.load(manager);
 
             screenFont = manager.Load<SpriteFont>("Fonts/MainText");
+            keys = manager.Load<Texture2D>("Images/HUD/HudFull");
+            chocoChip = manager.Load<Texture2D>("Images/HUD/Choco");
         }
 
         public void Update(GameTime gameTime)
@@ -127,9 +133,6 @@ namespace Candyland
             if (m_updateInfo.reset)
             {
 
-
-                
-                
                 
                 // reset player to start position of current level
                 if (m_updateInfo.candyselected || player.getCurrentLevelId() == player2.getCurrentLevelId())
@@ -183,6 +186,7 @@ namespace Candyland
             if (m_updateInfo.playerIsOnAreaExit && player.getNextLevelId() != null)
                 m_areas[player.getNextLevelId().Split('.')[0]].Update(gameTime, player,player2);
 
+            if(player.getCurrentLevelId() != player2.getCurrentLevelId())
             m_areas[player2.getCurrentLevelId().Split('.')[0]].Update(gameTime,player, player2);
             if (m_updateInfo.playerIsOnAreaExit && player2.getNextLevelId() != null)
                 m_areas[player2.getNextLevelId().Split('.')[0]].Update(gameTime,player, player2);
@@ -248,19 +252,18 @@ namespace Candyland
             Dictionary<int, Texture2D> textures = modelGroup.textures;
             GameObject.Material material = modelGroup.material;
 
-            AnimationPlayer player = null;
+            AnimationPlayer animationPlayer = null;
             if (modelGroup is GameObject.ModelGroupAnimated)
-                player = ((GameObject.ModelGroupAnimated)modelGroup).animationPlayer;
+                animationPlayer = ((GameObject.ModelGroupAnimated)modelGroup).animationPlayer;
 
             foreach (ModelMesh m in model.Meshes)
             {
                 foreach (Effect e in m.Effects)
                 {
-
-                    if (player != null)
+                    if (animationPlayer != null)
                     {
                         e.CurrentTechnique = e.Techniques["ShadedAndAnimated"];
-                        e.Parameters["Bones"].SetValue(player.GetSkinTransforms());
+                        e.Parameters["Bones"].SetValue(animationPlayer.GetSkinTransforms());
                     }
                     else
                         e.CurrentTechnique = e.Techniques["Shaded"];
@@ -287,21 +290,33 @@ namespace Candyland
                     Matrix.Transpose(Matrix.Invert(world * m.ParentBone.Transform)));
 
                     e.Parameters["texelSize"].SetValue(m_shadowMap.TexelSize);
-                    e.Parameters["withFog"].SetValue(1);
+                    e.Parameters["withFog"].SetValue(true);
                     e.Parameters["fogColor"].SetValue(GameConstants.backgroundColor.ToVector4());
-                    e.Parameters["fogStart"].SetValue(2f); // currently not in use
-                    e.Parameters["fogDensity"].SetValue(0.1f);
+                    e.Parameters["fogStart"].SetValue(30f);
+                    e.Parameters["fogDensity"].SetValue(0.7f);
+                    if (!player.getIsThirdPersonCam() || !player2.getIsThirdPersonCam())
+                        e.Parameters["fogMapMode"].SetValue(true);
+                    else
+                        e.Parameters["fogMapMode"].SetValue(false);
                 }
-
                 m.Draw();
             }
         }
 
         public void Draw2D()
         {
+            int screenWidth = m_graphics.Viewport.Width;
+            int screenHeight = m_graphics.Viewport.Height;
+
             m_spriteBatch.Begin();
-            m_spriteBatch.DrawString(screenFont, "Linsen: " + m_bonusTracker.chocoCount.ToString()
-               + "/" + m_bonusTracker.chocoTotal.ToString(), new Vector2(5f, 5f), Color.White);
+
+            m_spriteBatch.DrawString(screenFont, m_bonusTracker.chocoCount.ToString()
+               + "/" + m_bonusTracker.chocoTotal.ToString(), new Vector2(50f, 5f), Color.White);
+
+            m_spriteBatch.Draw(chocoChip, new Rectangle(5, 5, 40, 40), Color.White);
+
+            m_spriteBatch.Draw(keys, new Rectangle(screenWidth - 186, screenHeight-70, 176, 60), Color.White);
+
             m_spriteBatch.End();
 
             //DrawShadowMap();

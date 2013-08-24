@@ -36,7 +36,7 @@ namespace Candyland
                 Vector3 tempdir = new Vector3(dx, dy, dz);
                 tempdir.Normalize();
                 move(tempdir.X * GameConstants.slippingSpeed, tempdir.Y * GameConstants.slippingSpeed, tempdir.Z * GameConstants.slippingSpeed);
-                if (length < 1) istargeting = false;
+                if (length < 0.1f) istargeting = false;
             }
         }
 
@@ -84,6 +84,16 @@ namespace Candyland
             if (obj.GetType() == typeof(PlatformTeleporter)) collideWithTeleporter(obj);
             if (obj.GetType() == typeof(MovingPlatform)) collideWithMovingPlatform(obj);
             if (obj.GetType() == typeof(BreakingPlatform)) collideWithBreakingPlatform(obj);
+            if (obj.GetType() == typeof(Salesman)) collideWithSalesman(obj);
+        }
+
+        protected virtual void collideWithSalesman(GameObject obj)
+        {
+            if (obj.isVisible && !obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                preventIntersection(obj);
+                obj.hasCollidedWith(this);
+            }
         }
 
         protected virtual void collideWithBreakingPlatform(GameObject obj)

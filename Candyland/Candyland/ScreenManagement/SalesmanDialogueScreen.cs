@@ -13,18 +13,29 @@ namespace Candyland
 
         private string option1, option2, option3, option4;
 
+        private string Greeting = "Hallo mein Freund";
         private string Text = "";
-        private string Picture = "testBonus";
+        private string Picture = "Images/DialogImages/DefaultImage";
+        private string[] TextArray;
+        private string[] GreetingArray;
+
+        private string salesmanID;
+        private UpdateInfo m_updateInfo;
+        private int chocosCollected;
 
         int activeIndex = 0;
         int numberOfOptions = 4;
 
+        bool isGreeting = true;
         bool isTimeToAnswer = false;
 
-        public SalesmanDialogueScreen(string text, string picture)
+        public SalesmanDialogueScreen(string text, string saleID, UpdateInfo info, int chocoCount, string picture = "Images/DialogImages/DefaultImage")
         {
-            this.Text = text;
+            this.Text = GameConstants.tradesmanGreeting;
             this.Picture = picture;
+            salesmanID = saleID;
+            m_updateInfo = info;
+            chocosCollected = chocoCount;
         }
 
         public override void Open(Game game)
@@ -40,9 +51,10 @@ namespace Candyland
             option3 = "Reisen";
             option4 = "Auf Wiedersehen!";
 
-            Text = wrapText(Text, font, TextBox);
-            // Check if text needs scrolling
             lineCapacity = (TextBox.Height - offset) / font.LineSpacing;
+
+            GreetingArray = wrapText(Greeting, font, TextBox, lineCapacity);
+            TextArray = wrapText(Text, font, TextBox, lineCapacity);
         }
 
         public override void Update(GameTime gameTime)
@@ -64,24 +76,30 @@ namespace Candyland
             {
                 switch (activeIndex)
                 {
-                    case 0:  break;
+                    case 0: scrollIndex = 0; isGreeting = false; isTimeToAnswer = false; break;
                     case 1: this.ScreenState = ScreenState.Hidden;
-                        ScreenManager.ActivateNewScreen(new ShopScreen()); break;
-                    case 2: ScreenManager.ActivateNewScreen(new TravelScreen()); break;
+                        ScreenManager.ActivateNewScreen(new ShopScreen(salesmanID,m_updateInfo, chocosCollected)); break;
+                    case 2: ScreenManager.ActivateNewScreen(new TravelScreen(salesmanID, m_updateInfo)); break;
                     case 3: ScreenManager.ResumeLast(this); break;
                 }
                 return;
             }
 
+            if (isGreeting)
+            {
+                if(enterPressed)
+                    isTimeToAnswer = true;
+                return;
+            }
+
             // Check if text needs scrolling
-            if (numberOfLines > lineCapacity)
+            if (!isTimeToAnswer && scrollIndex < (TextArray.Length-1) && TextArray[scrollIndex+1]!= null)
             {
                 canScroll = true;
-
                 // If other person is still talking continue through text by pressing Enter
                 if (enterPressed)
                 {
-                    Text = removeReadLines(Text, lineCapacity);
+                    scrollIndex++;
                 }
 
                 timePastSinceLastArrowBling += gameTime.ElapsedGameTime.Milliseconds;
@@ -117,7 +135,10 @@ namespace Candyland
             m_sprite.Draw(TalkBubble, DiagBox, Color.White);
             m_sprite.Draw(talkingNPC, pictureNPC, Color.White);
 
-            m_sprite.DrawString(font, Text, new Vector2(TextBox.X, TextBox.Y), Color.Black);
+            if(isGreeting)
+                m_sprite.DrawString(font, GreetingArray[scrollIndex], new Vector2(TextBox.X, TextBox.Y), Color.Black);
+            else
+                m_sprite.DrawString(font, TextArray[scrollIndex], new Vector2(TextBox.X, TextBox.Y), Color.Black);
 
             if (isTimeToAnswer)
             {

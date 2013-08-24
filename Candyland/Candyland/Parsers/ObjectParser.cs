@@ -324,11 +324,17 @@ namespace Candyland
                     objectList.Add(obj);
                 }
                 else
-                if (object_type == "BonbonFairy")
+                if (object_type == "bonbon")
                 {
                     BonbonFairy obj = new BonbonFairy(node.InnerText, pos, info, isVisible, text);
                     objectList.Add(obj);
                 }
+                else
+                    if (object_type == "salesman")
+                    {
+                        Salesman obj = new Salesman(node.InnerText, pos, info, isVisible, text);
+                        objectList.Add(obj);
+                    }
 
                 // increase count as it is used to access the not-id xml elements of the correct level
                 // (the one currently being parsed)

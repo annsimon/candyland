@@ -444,7 +444,6 @@
     <Folder Include="NPCs\Fee\" />
     <Folder Include="NPCs\Händler\" />
     <Folder Include="NPCs\TutorialGuy\" />
-    <Folder Include="Objekte\Plattformen\Teleport\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Objekte\Obstacles\blockmovabletextur.png">
@@ -503,6 +502,67 @@
   <ItemGroup>
     <Compile Include="Objekte\Obstacles\lakritztextur_flach.png">
       <Name>lakritztextur_flach</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Objekte\Plattformen\Teleport\plattformtextur_porter.png">
+      <Name>plattformtextur_porter</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scenes\theWorld.xml">
+      <Name>theWorld</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scenes\Actions\Action.xml">
+      <Name>Action</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scenes\Events\Event.xml">
+      <Name>Event</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\HUD\Choco.png">
+      <Name>Choco</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\HUD\Map.png">
+      <Name>Map</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\HUD\Menu.png">
+      <Name>Menu</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\HUD\Reset.png">
+      <Name>Reset</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\HUD\HudFull.png">
+      <Name>HudFull</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
