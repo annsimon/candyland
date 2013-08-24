@@ -151,6 +151,7 @@ namespace Candyland
 
         public override void hasCollidedWith(GameObject obj)
         {
+            obj.getBoundingBox();
             // When the Player steps on a Platform that functions as a Door to the next Level or Area,
             // UpdateInfo needs to be updated
             if (obj is Playable)
@@ -171,11 +172,13 @@ namespace Candyland
                 }
                 if(this.isDoorToLevel)
                 {
-                    this.m_updateInfo.playerIsOnLevelExit = true;
+                     this.m_updateInfo.playerIsOnLevelExit = true;
                     this.m_updateInfo.levelAfterExitID = this.doorToLevelID;
 
                     this.m_updateInfo.currentAreaID = idParts[0];
                     this.m_updateInfo.currentLevelID = idParts[0] + "." + idParts[1];
+                    ((Playable)obj).setCurrentLevelId(idParts[0] + "." + idParts[1]);
+                    ((Playable)obj).setNextLevelId(this.doorToLevelID);
                 }
                 if (m_triggersActionWithID != null)
                 {

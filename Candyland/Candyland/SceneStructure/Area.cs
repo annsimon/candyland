@@ -48,32 +48,40 @@ namespace Candyland
                 lvl.Value.Load(manager);
         }
 
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, Playable player, Playable player2)
         {
             // update the level the player currently is in
             // and the next level if the player is about to leave the current level
-            if( m_levels.ContainsKey(m_updateInfo.currentLevelID) )
-                m_levels[m_updateInfo.currentLevelID].Update(gameTime);
-            if (m_updateInfo.playerIsOnLevelExit && m_levels.ContainsKey(m_updateInfo.levelAfterExitID))
-                m_levels[m_updateInfo.levelAfterExitID].Update(gameTime);
+            if( m_levels.ContainsKey(player.getCurrentLevelId()) )
+                m_levels[player.getCurrentLevelId()].Update(gameTime);
+            if (m_updateInfo.playerIsOnLevelExit && player.getNextLevelId() != null && m_levels.ContainsKey(player.getNextLevelId()))
+                m_levels[player.getNextLevelId()].Update(gameTime);
+
+            if(player.getCurrentLevelId() != player2.getCurrentLevelId()){
+                if (m_levels.ContainsKey(player2.getCurrentLevelId()))
+                    m_levels[player2.getCurrentLevelId()].Update(gameTime);
+                if (m_updateInfo.playerIsOnLevelExit && player2.getNextLevelId() != null && m_levels.ContainsKey(player2.getNextLevelId()))
+                    m_levels[player2.getNextLevelId()].Update(gameTime);
+
+            }
         }
 
         public void Collide(GameObject obj)
         {
-            if (m_levels.ContainsKey(m_updateInfo.currentLevelID))
-                m_levels[m_updateInfo.currentLevelID].Collide(obj);
-            if (m_levels.ContainsKey(m_updateInfo.levelAfterExitID))
-                m_levels[m_updateInfo.levelAfterExitID].Collide(obj);
+            if (m_levels.ContainsKey(((Playable)obj).getCurrentLevelId()))
+                m_levels[((Playable)obj).getCurrentLevelId()].Collide(obj);
+            if (((Playable)obj).getNextLevelId() != null&& m_levels.ContainsKey(((Playable)obj).getNextLevelId()))
+                m_levels[((Playable)obj).getNextLevelId()].Collide(obj);
         }
 
-        public Vector3 GetPlayerStartingPosition()
+        public Vector3 GetPlayerStartingPosition(Playable player)
         {
-            return m_levels[m_updateInfo.currentLevelID].getPlayerStartingPosition();
+            return m_levels[player.getCurrentLevelId()].getPlayerStartingPosition();
         }
 
-        public Vector3 GetCompanionStartingPosition()
+        public Vector3 GetCompanionStartingPosition(Playable player2)
         {
-            return m_levels[m_updateInfo.currentLevelID].getCompanionStartingPosition();
+            return m_levels[player2.getCurrentLevelId()].getCompanionStartingPosition();
         }
 
         public List<GameObject> GetObjects()

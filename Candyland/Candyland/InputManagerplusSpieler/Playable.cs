@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Candyland
 {
-    abstract class Playable : DynamicGameObjects
+    public abstract class Playable : DynamicGameObjects
     {
         protected Camera cam;                   //Kamera
         protected BonusTracker m_bonusTracker;
@@ -27,8 +27,8 @@ namespace Candyland
 
         protected string _NextlevelID;
 
-        public string getNextLevelId() { return _currentlevelID; }
-        public void setNextLevelId(string lvlid) { _currentlevelID = lvlid; } 
+        public string getNextLevelId() { return _NextlevelID; }
+        public void setNextLevelId(string lvlid) { _NextlevelID = lvlid; } 
 
 
         public abstract void uniqueskill();
@@ -58,8 +58,12 @@ namespace Candyland
         public override void update()
         {
             // Reset if Player has fallen down
-            if(m_position.Y < GameConstants.endOfWorld_Y)
+            if (m_position.Y < GameConstants.endOfWorld_Y) {
                 m_updateInfo.reset = true;
+                if (this is CandyGuy) m_updateInfo.candyselected = true;
+                else m_updateInfo.candyselected = false;
+            }
+                
         }
 
         /// <summary>
@@ -172,7 +176,9 @@ namespace Candyland
                         case 2: isOnSlipperyGround = true; break;
                     }
                 }
+                ((Platform)obj).hasCollidedWith(this);
             }
+            
         }
 
         #endregion
