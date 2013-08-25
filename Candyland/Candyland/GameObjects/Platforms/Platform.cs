@@ -160,25 +160,38 @@ namespace Candyland
                 if (this.isDoorToArea)
                 {
                     this.m_updateInfo.playerIsOnAreaExit = true;
-                    this.m_updateInfo.areaAfterExitID = this.doorToAreaID;
-                    this.m_updateInfo.levelAfterExitID = this.doorToLevelID;
 
-                    this.m_updateInfo.currentAreaID = idParts[0];
-                    this.m_updateInfo.currentLevelID = idParts[0]+"."+idParts[1];
+                    if (obj is CandyGuy)
+                    {
+                        this.m_updateInfo.currentguyAreaID = idParts[0];
+                        this.m_updateInfo.currentguyLevelID = idParts[0] + "." + idParts[1];
+                        this.m_updateInfo.nextguyLevelID = doorToLevelID ;
+                    }
+                    else {
 
-                    ((Playable)obj).setCurrentLevelId(idParts[0] + "." + idParts[1]);
-                    ((Playable)obj).setNextLevelId(this.doorToLevelID);
+                        this.m_updateInfo.currenthelperAreaID = idParts[0];
+                        this.m_updateInfo.currenthelperLevelID = idParts[0] + "." + idParts[1];
+                        this.m_updateInfo.nexthelperLevelID = doorToLevelID;
+                    }
 
                 }
                 if(this.isDoorToLevel)
                 {
                      this.m_updateInfo.playerIsOnLevelExit = true;
-                    this.m_updateInfo.levelAfterExitID = this.doorToLevelID;
 
-                    this.m_updateInfo.currentAreaID = idParts[0];
-                    this.m_updateInfo.currentLevelID = idParts[0] + "." + idParts[1];
-                    ((Playable)obj).setCurrentLevelId(idParts[0] + "." + idParts[1]);
-                    ((Playable)obj).setNextLevelId(this.doorToLevelID);
+                    if (obj is CandyGuy)
+                    {
+                        this.m_updateInfo.currentguyAreaID = idParts[0];
+                        this.m_updateInfo.currentguyLevelID = idParts[0] + "." + idParts[1];
+                        this.m_updateInfo.nextguyLevelID = doorToLevelID;
+                    }
+                    else
+                    {
+
+                        this.m_updateInfo.currenthelperAreaID = idParts[0];
+                        this.m_updateInfo.currenthelperLevelID = idParts[0] + "." + idParts[1];
+                        this.m_updateInfo.nexthelperLevelID = doorToLevelID;
+                    }
                 }
                 if (m_triggersActionWithID != null)
                 {

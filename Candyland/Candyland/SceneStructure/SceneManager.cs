@@ -84,14 +84,14 @@ namespace Candyland
 
             
             //TEST!!!
-            player.setCurrentLevelId(GameConstants.startLevelID);
-            player2.setCurrentLevelId(GameConstants.startLevelID);
+            m_updateInfo.currentguyLevelID = (GameConstants.startLevelID);
+            m_updateInfo.currenthelperLevelID = (GameConstants.startLevelID);
             
             
-            Vector3 playerStartPos = m_areas[m_updateInfo.currentAreaID].GetPlayerStartingPosition(player);
+            Vector3 playerStartPos = m_areas[m_updateInfo.currentguyLevelID.Split('.')[0]].GetPlayerStartingPosition(player);
             playerStartPos.Y += 0.6f;
             player.setPosition(playerStartPos);
-            Vector3 player2StartPos = m_areas[m_updateInfo.currentAreaID].GetCompanionStartingPosition(player2);
+            Vector3 player2StartPos = m_areas[m_updateInfo.currenthelperLevelID.Split('.')[0]].GetCompanionStartingPosition(player2);
             player2StartPos.Y += 0.6f;
             player2.setPosition(player2StartPos);
 
@@ -135,18 +135,18 @@ namespace Candyland
 
                 
                 // reset player to start position of current level
-                if (m_updateInfo.candyselected || player.getCurrentLevelId() == player2.getCurrentLevelId())
+                if (m_updateInfo.candyselected || m_updateInfo.currentguyLevelID == m_updateInfo.currenthelperLevelID)
                 {
                     player.Reset();
-                    Vector3 resetPos = m_areas[player.getCurrentLevelId().Split('.')[0]].GetPlayerStartingPosition(player);
+                    Vector3 resetPos = m_areas[m_updateInfo.currentguyLevelID.Split('.')[0]].GetPlayerStartingPosition(player);
                     resetPos.Y += 0.6f;
                     player.setPosition(resetPos);
                 }
 
-                if (!m_updateInfo.candyselected || player.getCurrentLevelId() == player2.getCurrentLevelId())
+                if (!m_updateInfo.candyselected || m_updateInfo.currentguyLevelID == m_updateInfo.currenthelperLevelID)
                 {
                     player2.Reset();
-                    Vector3 resetPos2 = m_areas[player2.getCurrentLevelId().Split('.')[0]].GetCompanionStartingPosition(player2);
+                    Vector3 resetPos2 = m_areas[m_updateInfo.currenthelperLevelID.Split('.')[0]].GetCompanionStartingPosition(player2);
                     resetPos2.Y += 0.6f;
                     player2.setPosition(resetPos2);
                 }
@@ -156,10 +156,10 @@ namespace Candyland
                /* foreach (var area in m_areas)
                     area.Value.Reset();*/
                 if (m_updateInfo.candyselected)
-                    m_areas[player.getCurrentLevelId().Split('.')[0]].Reset();
+                    m_areas[m_updateInfo.currentguyLevelID.Split('.')[0]].Reset(player);
 
                 if (!m_updateInfo.candyselected)
-                    m_areas[player2.getCurrentLevelId().Split('.')[0]].Reset();
+                    m_areas[m_updateInfo.currenthelperLevelID.Split('.')[0]].Reset(player2);
 
                 m_updateInfo.reset = false;
             }
@@ -172,30 +172,31 @@ namespace Candyland
             player2.startIntersection();
 
             // check for Collision between the Player and all Game Objects in the current Level
-            m_areas[player.getCurrentLevelId().Split('.')[0]].Collide(player);
-            if (m_updateInfo.playerIsOnAreaExit && player.getNextLevelId() != null)
-                m_areas[player.getNextLevelId().Split('.')[0]].Collide(player);
+            m_areas[m_updateInfo.currentguyLevelID.Split('.')[0]].Collide(player);
+            if (m_updateInfo.playerIsOnAreaExit && m_updateInfo.nextguyLevelID != null)
+                m_areas[m_updateInfo.nextguyLevelID.Split('.')[0]].Collide(player);
             // check for Collision between the Player2 and all Game Objects in the current Level
-            m_areas[player2.getCurrentLevelId().Split('.')[0]].Collide(player2);
-            if (m_updateInfo.playerIsOnAreaExit && player2.getNextLevelId() != null)
-                m_areas[player2.getNextLevelId().Split('.')[0]].Collide(player2);
+            m_areas[m_updateInfo.currenthelperLevelID.Split('.')[0]].Collide(player2);
+            if (m_updateInfo.playerIsOnAreaExit && m_updateInfo.nexthelperLevelID != null)
+                m_areas[m_updateInfo.nexthelperLevelID.Split('.')[0]].Collide(player2);
 
             // update the area the player currently is in
             // and the next area if the player is about to leave the current area
-            m_areas[player.getCurrentLevelId().Split('.')[0]].Update(gameTime, player,player2);
-            if (m_updateInfo.playerIsOnAreaExit && player.getNextLevelId() != null)
-                m_areas[player.getNextLevelId().Split('.')[0]].Update(gameTime, player,player2);
+            m_areas[m_updateInfo.currentguyLevelID.Split('.')[0]].Update(gameTime);
+            if (m_updateInfo.playerIsOnAreaExit && m_updateInfo.nextguyLevelID != null)
+                m_areas[m_updateInfo.nextguyLevelID.Split('.')[0]].Update(gameTime);
 
-            if(player.getCurrentLevelId() != player2.getCurrentLevelId())
-            m_areas[player2.getCurrentLevelId().Split('.')[0]].Update(gameTime,player, player2);
-            if (m_updateInfo.playerIsOnAreaExit && player2.getNextLevelId() != null)
-                m_areas[player2.getNextLevelId().Split('.')[0]].Update(gameTime,player, player2);
+            if (m_updateInfo.currentguyLevelID != m_updateInfo.currenthelperLevelID)
+                m_areas[m_updateInfo.currenthelperLevelID.Split('.')[0]].Update(gameTime);
+            if (m_updateInfo.playerIsOnAreaExit && m_updateInfo.nexthelperLevelID != null)
+                m_areas[m_updateInfo.nexthelperLevelID.Split('.')[0]].Update(gameTime);
            
             player.endIntersection();
             player2.endIntersection();
 
-            m_areas[m_updateInfo.currentAreaID].endIntersection();
-
+            m_areas[m_updateInfo.currentguyLevelID.Split('.')[0]].endIntersection();
+            m_areas[m_updateInfo.currenthelperLevelID.Split('.')[0]].endIntersection();
+           
 
 
             KeyboardState keystate = Keyboard.GetState();
@@ -221,7 +222,13 @@ namespace Candyland
 
             // draw the area the player currently is in and the two
             // adjacent ones
-            string currentArea = m_updateInfo.currentAreaID;
+            string currentArea;
+
+            if (m_updateInfo.candyselected)
+                currentArea = m_updateInfo.currentguyLevelID.Split('.')[0];
+            else
+                currentArea = m_updateInfo.currenthelperLevelID.Split('.')[0];
+
             Area currArea = m_areas[currentArea];
             List<GameObject> currentObjects = currArea.GetObjects();
             foreach (GameObject obj in currentObjects)
@@ -333,8 +340,10 @@ namespace Candyland
         {
             // Create the data to save.
             SaveGameData data = new SaveGameData();
-            data.currentAreaID = m_updateInfo.currentAreaID;
-            data.currentLevelID = m_updateInfo.currentLevelID;
+            data.guycurrentAreaID = m_updateInfo.currentguyLevelID.Split('.')[0];
+            data.guycurrentLevelID = m_updateInfo.currentguyLevelID;
+            data.helpercurrentAreaID = m_updateInfo.currenthelperLevelID.Split('.')[0];
+            data.helpercurrentLevelID = m_updateInfo.currenthelperLevelID; 
             data.chocoChipState = m_bonusTracker.chocoChipState;
             data.chocoCount = m_bonusTracker.chocoCount;
             data.chocoTotal = m_bonusTracker.chocoTotal;
@@ -370,8 +379,8 @@ namespace Candyland
             }
 
             // Use saved data to put Game into the last saved state
-            m_updateInfo.currentAreaID = data.currentAreaID;
-            m_updateInfo.currentLevelID = data.currentLevelID;
+            m_updateInfo.currentguyLevelID = data.guycurrentLevelID;
+            m_updateInfo.currenthelperLevelID = (data.helpercurrentLevelID);
             m_updateInfo.reset = true; //everything should be reset, when game is loaded
             m_bonusTracker.chocoChipState = data.chocoChipState;
             m_bonusTracker.chocoCount = data.chocoCount;
@@ -386,7 +395,13 @@ namespace Candyland
 
         private void CreateShadowMap()
         {
-            string currentArea = m_updateInfo.currentAreaID;
+            string currentArea;
+
+            if(m_updateInfo.candyselected)
+                currentArea = m_updateInfo.currentguyLevelID.Split('.')[0];
+            else
+                currentArea = m_updateInfo.currenthelperLevelID.Split('.')[0];
+
             Area currArea = m_areas[currentArea];
             List<GameObject> currentObjects = currArea.GetObjects();
 

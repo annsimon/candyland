@@ -48,40 +48,51 @@ namespace Candyland
                 lvl.Value.Load(manager);
         }
 
-        public void Update(GameTime gameTime, Playable player, Playable player2)
+        public void Update(GameTime gameTime)
         {
             // update the level the player currently is in
             // and the next level if the player is about to leave the current level
-            if( m_levels.ContainsKey(player.getCurrentLevelId()) )
-                m_levels[player.getCurrentLevelId()].Update(gameTime);
-            if (m_updateInfo.playerIsOnLevelExit && player.getNextLevelId() != null && m_levels.ContainsKey(player.getNextLevelId()))
-                m_levels[player.getNextLevelId()].Update(gameTime);
+            if( m_levels.ContainsKey(m_updateInfo.currentguyLevelID) )
+                m_levels[m_updateInfo.currentguyLevelID].Update(gameTime);
+            if (m_updateInfo.playerIsOnLevelExit && m_updateInfo.nextguyLevelID != null && m_levels.ContainsKey(m_updateInfo.nextguyLevelID))
+                m_levels[m_updateInfo.nextguyLevelID].Update(gameTime);
 
-            if(player.getCurrentLevelId() != player2.getCurrentLevelId()){
-                if (m_levels.ContainsKey(player2.getCurrentLevelId()))
-                    m_levels[player2.getCurrentLevelId()].Update(gameTime);
-                if (m_updateInfo.playerIsOnLevelExit && player2.getNextLevelId() != null && m_levels.ContainsKey(player2.getNextLevelId()))
-                    m_levels[player2.getNextLevelId()].Update(gameTime);
+            if (m_updateInfo.currentguyLevelID != m_updateInfo.currenthelperLevelID)
+            {
+                if (m_levels.ContainsKey(m_updateInfo.currenthelperLevelID))
+                    m_levels[m_updateInfo.currenthelperLevelID].Update(gameTime);
+                if (m_updateInfo.playerIsOnLevelExit && m_updateInfo.nexthelperLevelID != null && m_levels.ContainsKey(m_updateInfo.nexthelperLevelID))
+                    m_levels[m_updateInfo.nexthelperLevelID].Update(gameTime);
 
             }
         }
 
         public void Collide(GameObject obj)
         {
-            if (m_levels.ContainsKey(((Playable)obj).getCurrentLevelId()))
-                m_levels[((Playable)obj).getCurrentLevelId()].Collide(obj);
-            if (((Playable)obj).getNextLevelId() != null&& m_levels.ContainsKey(((Playable)obj).getNextLevelId()))
-                m_levels[((Playable)obj).getNextLevelId()].Collide(obj);
+            if (obj is CandyGuy) {
+
+                if (m_levels.ContainsKey(m_updateInfo.currentguyLevelID))
+                    m_levels[m_updateInfo.currentguyLevelID].Collide(obj);
+                if (m_updateInfo.nextguyLevelID != null && m_levels.ContainsKey(m_updateInfo.nextguyLevelID))
+                    m_levels[m_updateInfo.nextguyLevelID].Collide(obj);
+            }
+            else
+            {
+                if (m_levels.ContainsKey(m_updateInfo.currenthelperLevelID))
+                    m_levels[m_updateInfo.currenthelperLevelID].Collide(obj);
+                if (m_updateInfo.nexthelperLevelID != null && m_levels.ContainsKey(m_updateInfo.nexthelperLevelID))
+                    m_levels[m_updateInfo.nexthelperLevelID].Collide(obj);
+            }
         }
 
         public Vector3 GetPlayerStartingPosition(Playable player)
         {
-            return m_levels[player.getCurrentLevelId()].getPlayerStartingPosition();
+                return m_levels[m_updateInfo.currentguyLevelID].getPlayerStartingPosition();   
         }
 
         public Vector3 GetCompanionStartingPosition(Playable player2)
         {
-            return m_levels[player2.getCurrentLevelId()].getCompanionStartingPosition();
+            return m_levels[m_updateInfo.currenthelperLevelID].getCompanionStartingPosition();
         }
 
         public List<GameObject> GetObjects()
@@ -89,10 +100,12 @@ namespace Candyland
             return m_allObjects;
         }
 
-        public void Reset()
+        public void Reset(Playable player)
         {
-            foreach (var lvl in m_levels)
-                lvl.Value.Reset();
+            if(player is CandyGuy)
+            m_levels[m_updateInfo.currentguyLevelID].Reset();
+            else
+                m_levels[m_updateInfo.currenthelperLevelID].Reset();
         }
 
         public void endIntersection()

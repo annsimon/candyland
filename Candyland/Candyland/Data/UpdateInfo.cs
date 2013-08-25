@@ -14,20 +14,23 @@ namespace Candyland
     /// </summary>
     public class UpdateInfo
     {
-        public string currentAreaID { get; set; }
-        public string currentLevelID { get; set; }
+        public string currentguyAreaID;
+        public string currentguyLevelID;
+        public string currenthelperAreaID;
+        public string currenthelperLevelID;
+
+        public string nextguyLevelID;
+        public string nexthelperLevelID;
 
         // if the player is on the last platform before a level change
         // the bool is true and the int tells which level exit it is
         // (this is used to start updating the next level early enough)
         public bool playerIsOnAreaExit { get; set; }
-        public string areaAfterExitID { get; set; }
 
         // if the player is on the last platform before a level change
         // the bool is true and the int tells which level exit it is
         // (this is used to start updating the next area early enough)
         public bool playerIsOnLevelExit { get; set; }
-        public string levelAfterExitID { get; set; }
 
         // if this is true we are currently processing a reset
         // which moves the player to the level start position
@@ -75,14 +78,14 @@ namespace Candyland
 
         public UpdateInfo(GraphicsDevice graphicsDevice, ScreenManager screenManager)
         {
-            currentAreaID = GameConstants.startAreaID;
-            currentLevelID = GameConstants.startLevelID;
+            currentguyAreaID = GameConstants.startAreaID;
+            currentguyLevelID = GameConstants.startLevelID;
+            currenthelperAreaID = GameConstants.startAreaID;
+            currenthelperLevelID = GameConstants.startLevelID;
 
             playerIsOnAreaExit = false;
-            areaAfterExitID = "";
 
             playerIsOnLevelExit = false;
-            levelAfterExitID = "";
 
             reset = false;
             currentpushedKeys = new List<Keys>();

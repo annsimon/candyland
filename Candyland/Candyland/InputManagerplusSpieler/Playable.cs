@@ -20,17 +20,8 @@ namespace Candyland
         protected bool isthirdpersoncam = true;
         public bool getIsThirdPersonCam() { return isthirdpersoncam; }
         protected bool isOnSlipperyGround;
+        public bool getIsOnSlippery() { return isOnSlipperyGround; }
 
-
-        protected string _currentlevelID;
-
-        public string getCurrentLevelId() { return _currentlevelID; }
-        public void setCurrentLevelId(string lvlid) { _currentlevelID = lvlid; }
-
-        protected string _NextlevelID;
-
-        public string getNextLevelId() { return _NextlevelID; }
-        public void setNextLevelId(string lvlid) { _NextlevelID = lvlid; } 
 
 
         public abstract void uniqueskill();

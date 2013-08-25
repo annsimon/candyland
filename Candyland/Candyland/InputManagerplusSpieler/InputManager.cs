@@ -94,7 +94,7 @@ namespace Candyland
             //Get the direction of the players camera
             float alpha = player.getCameraDir();
 
-            if (!updateinfo.currentLevelID.Equals("66.0"))
+            if (!updateinfo.currentguyLevelID.Equals("66.0"))
             {
                 if (keystate.IsKeyDown(Keys.W)) dmoveytemp += 1f;
                 if (keystate.IsKeyDown(Keys.S)) dmoveytemp -= 1f;
@@ -104,17 +104,17 @@ namespace Candyland
             else
             {
                 alpha = 0;
-                if ((keystate.IsKeyDown(Keys.W)) || (keystate.IsKeyUp(Keys.W))) dmoveytemp += 1.5f;
+                dmoveytemp += 1.5f;
                 if (keystate.IsKeyDown(Keys.S)) dmoveytemp -= 1.5f;
                 if (keystate.IsKeyDown(Keys.A)) dmovextemp += 1.5f;
                 if (keystate.IsKeyDown(Keys.D)) dmovextemp -= 1.5f;
             }
-                if (keystate.IsKeyDown(Keys.Space)
-                    && keystate.IsKeyDown(Keys.Space) != oldKeyboardState.IsKeyDown(Keys.Space))
-                {
-                    updateinfo.currentpushedKeys.Add(Keys.Space);
-                    player.uniqueskill();
-                }
+            if (keystate.IsKeyDown(Keys.Space)
+                && keystate.IsKeyDown(Keys.Space) != oldKeyboardState.IsKeyDown(Keys.Space))
+            {
+                 updateinfo.currentpushedKeys.Add(Keys.Space);
+                 player.uniqueskill();
+            }
             if (keystate.IsKeyDown(Keys.M)
                 && oldKeyboardState != keystate) player.switchCameraPerspective(); 
             if(keystate.IsKeyDown(Keys.LeftAlt)
@@ -125,7 +125,8 @@ namespace Candyland
                 && oldKeyboardState != keystate
                 &&player.isInThirdP()) updateinfo.switchPlayer();
 
-            if (keystate.IsKeyDown(Keys.R)) updateinfo.reset = true;
+            if (keystate.IsKeyDown(Keys.R)
+                 &&  !oldKeyboardState.IsKeyDown(Keys.R)) updateinfo.reset = true;
 
 
 
@@ -133,6 +134,13 @@ namespace Candyland
             //rotate the movementvector to kamerakoordinates
             float dmovex =(float) Math.Cos(alpha) * dmovextemp - (float)Math.Sin(alpha) * dmoveytemp;
             float dmovey = (float) Math.Sin(alpha) * dmovextemp + (float) Math.Cos(alpha) * dmoveytemp;
+
+            if (player.getIsOnSlippery()) {
+                Vector3 temp = player.getDirection();
+                dmovex = temp.X;
+                dmovey = temp.Y;
+            }
+
             //move the player
             player.movementInput(dmovex, dmovey, dcamx, dcamy);
             //reset mouse to the center of the screen, to rotate freely

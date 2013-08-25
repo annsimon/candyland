@@ -34,8 +34,8 @@ namespace Candyland
         public const double breakTime = 4;
 
         // material params
-        public static Vector4 ambient = new Vector4(0.95f, 0.95f, 0.95f, 1.0f);
-        public static Vector4 diffuse = new Vector4(0.3f, 0.3f, 0.3f, 1.0f);
+        public static Vector4 ambient = new Vector4(0.8f, 0.8f, 0.8f, 1.0f);
+        public static Vector4 diffuse = new Vector4(0.4f, 0.4f, 0.4f, 1.0f);
 
         /// <summary>
         /// state a switch is in
@@ -63,7 +63,7 @@ namespace Candyland
         /// <summary>
         /// bounding box rendering on/off
         /// </summary>
-        public const bool boundingBoxRendering = true;
+        public const bool boundingBoxRendering = false;
         public const bool singlestepperOFF = true;
         public const int framerate = 1;
 
@@ -73,11 +73,11 @@ namespace Candyland
 
         // data regarding the scene
 
-        public const string sceneFile = @"Content\Scenes\SceneSchieberaetselPrototyp.xml";
+        public const string sceneFile = @"Content\Scenes\Scene.xml";
         public const string eventFile = @"Content\Scenes\Events\EventTest.xml";
         public const string actionsFile = @"Content\Scenes\Actions\ActionTest.xml";
-        public const string startAreaID = "7";
-        public const string startLevelID = "7.0";
+        public const string startAreaID = "3";
+        public const string startLevelID = "3.0";
 
         //public const string sceneFile = @"Content\Scenes\theWorld.xml";
         //public const string eventFile = @"Content\Scenes\Events\Event.xml";
