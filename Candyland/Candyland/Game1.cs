@@ -87,7 +87,6 @@ namespace Candyland
                 else MediaPlayer.Volume = 0;
             }
 
-
             //// Save, when F5 was pressed and now released
             //if (oldState.IsKeyDown(Keys.F5) && newState.IsKeyUp(Keys.F5))
             //{

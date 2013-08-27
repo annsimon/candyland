@@ -205,7 +205,9 @@ namespace Candyland
                 RemoveScreen(screens.Last());
             }
             // Add new game screen
-            ActivateNewScreen(new MainGame());
+            //ActivateNewScreen(new MainGame());
+
+            LoadingScreen.Load(this, true, new MainGame());
         }
 
     }

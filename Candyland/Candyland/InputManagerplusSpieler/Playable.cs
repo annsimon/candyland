@@ -174,6 +174,11 @@ namespace Candyland
             
         }
 
+        protected override void collideWithBreakingPlatform(GameObject obj)
+        {
+            collideWithPlatform(obj);
+        }
+
         #endregion
 
     }

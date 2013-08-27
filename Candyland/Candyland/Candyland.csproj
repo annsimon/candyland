@@ -156,7 +156,7 @@
     <Compile Include="ScreenManagement\MainGame.cs" />
     <Compile Include="ScreenManagement\MainMenu.cs" />
     <Compile Include="ScreenManagement\OptionsScreen.cs" />
-    <Compile Include="ScreenManagement\Pause.cs" />
+    <Compile Include="ScreenManagement\LoadingScreen.cs" />
     <Compile Include="ScreenManagement\ScreenInputManager.cs" />
     <Compile Include="ScreenManagement\ScreenManager.cs" />
     <Compile Include="ScreenManagement\ShopScreen.cs" />

@@ -16,6 +16,7 @@ namespace Candyland
     {
         public void Draw(GameTime gameTime)
         {
+            DrawSkybox();
             CreateShadowMap();
 
             DrawModel(player.GetModelGroup(), player.prepareForDrawing());
@@ -157,6 +158,42 @@ namespace Candyland
 
             m_graphics.DepthStencilState = DepthStencilState.Default;
             m_graphics.BlendState = BlendState.Opaque;
+        }
+
+        /// <summary>
+        /// http://www.riemers.net/eng/Tutorials/XNA/Csharp/Series2/Skybox.php
+        /// </summary>
+        private void DrawSkybox()
+        {
+            SamplerState ss = new SamplerState();
+            ss.AddressU = TextureAddressMode.Clamp;
+            ss.AddressV = TextureAddressMode.Clamp;
+            m_graphics.SamplerStates[0] = ss;
+
+            DepthStencilState dss = new DepthStencilState();
+            dss.DepthBufferEnable = false;
+            m_graphics.DepthStencilState = dss;
+
+            Matrix[] skyboxTransforms = new Matrix[skyboxModel.Bones.Count];
+            skyboxModel.CopyAbsoluteBoneTransformsTo(skyboxTransforms);
+            int i = 0;
+            foreach (ModelMesh mesh in skyboxModel.Meshes)
+            {
+                foreach (Effect currentEffect in mesh.Effects)
+                {
+                    Matrix worldMatrix = skyboxTransforms[mesh.ParentBone.Index] * Matrix.CreateTranslation(player.getPosition());
+                    currentEffect.CurrentTechnique = currentEffect.Techniques["Textured"];
+                    currentEffect.Parameters["xWorld"].SetValue(worldMatrix);
+                    currentEffect.Parameters["xView"].SetValue(m_updateInfo.viewMatrix);
+                    currentEffect.Parameters["xProjection"].SetValue(m_updateInfo.projectionMatrix);
+                    currentEffect.Parameters["xTexture"].SetValue(skyboxTextures[i++]);
+                }
+                mesh.Draw();
+            }
+
+            dss = new DepthStencilState();
+            dss.DepthBufferEnable = true;
+            m_graphics.DepthStencilState = dss;
         }
     }
 }

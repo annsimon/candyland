@@ -79,7 +79,7 @@ namespace Candyland
                     case 0: scrollIndex = 0; isGreeting = false; isTimeToAnswer = false; break;
                     case 1: this.ScreenState = ScreenState.Hidden;
                         ScreenManager.ActivateNewScreen(new ShopScreen(salesmanID,m_updateInfo, chocosCollected)); break;
-                    case 2: ScreenManager.ActivateNewScreen(new TravelScreen(salesmanID, m_updateInfo)); break;
+                    case 2: ScreenManager.ActivateNewScreen(new TravelScreen(salesmanID, m_updateInfo, this)); break;
                     case 3: ScreenManager.ResumeLast(this); break;
                 }
                 return;

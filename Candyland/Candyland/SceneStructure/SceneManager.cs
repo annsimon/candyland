@@ -59,6 +59,8 @@ namespace Candyland
         Texture2D chocoChip;
         Texture2D keys;
         Texture2D keysFull;
+        Texture2D[] skyboxTextures;
+        Model skyboxModel;
 
         InputManager m_inputManager;
 
@@ -118,6 +120,32 @@ namespace Candyland
             keys = manager.Load<Texture2D>("Images/HUD/HudFull");
             chocoChip = manager.Load<Texture2D>("Images/HUD/Choco");
             keysFull = manager.Load<Texture2D>("Images/HUD/HudFullWithChange");
+            skyboxModel = LoadSkybox(manager, "Skybox/skybox2", out skyboxTextures);
+        }
+
+        /// <summary>
+        /// http://www.riemers.net/eng/Tutorials/XNA/Csharp/Series2/Skybox.php
+        /// </summary>
+        /// <param name="manager"></param>
+        /// <param name="assetName"></param>
+        /// <param name="textures"></param>
+        /// <returns></returns>
+        private Model LoadSkybox(ContentManager manager, string assetName, out Texture2D[] textures)
+        {
+
+            Model newModel = manager.Load<Model>(assetName);
+            textures = new Texture2D[newModel.Meshes.Count];
+            int i = 0;
+            foreach (ModelMesh mesh in newModel.Meshes)
+                foreach (BasicEffect currentEffect in mesh.Effects)
+                    textures[i++] = currentEffect.Texture;
+
+            Effect effect = manager.Load<Effect> ("Skybox/effects");
+            foreach (ModelMesh mesh in newModel.Meshes)
+                foreach (ModelMeshPart meshPart in mesh.MeshParts)
+                    meshPart.Effect = effect.Clone();
+
+            return newModel;
         }
 
         // Save Game

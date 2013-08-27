@@ -22,10 +22,14 @@ namespace Candyland
         private int currentSpotIndex;
         private Vector2[] teleportPositions;
 
-        public TravelScreen(string saleID, UpdateInfo info)
+        // used to return to maingame istead of just going back into the dialog menu
+        private GameScreen lastScreen;
+
+        public TravelScreen(string saleID, UpdateInfo info, GameScreen dialogScreen)
         {
             salesmanID = saleID;
             m_updateInfo = info;
+            lastScreen = dialogScreen;
         }
 
         public override void Open(Game game)
@@ -33,9 +37,9 @@ namespace Candyland
             this.isFullscreen = true;
 
             background = ScreenManager.Content.Load<Texture2D>("ScreenTextures/travelScreen");
-            teleportSpot = ScreenManager.Content.Load<Texture2D>("ScreenTextures/testScreen");
-            currentSpot = ScreenManager.Content.Load<Texture2D>("ScreenTextures/testBonus");
-            selectedSpot = ScreenManager.Content.Load<Texture2D>("ScreenTextures/creditScreen");
+            teleportSpot = ScreenManager.Content.Load<Texture2D>("Images/Map/AvailablePos");
+            currentSpot = ScreenManager.Content.Load<Texture2D>("Images/Map/CurrentPos");
+            selectedSpot = ScreenManager.Content.Load<Texture2D>("Images/Map/SelectedPos");
 
             numOfTeleportOptions = m_updateInfo.activeTeleports.Count;
 
@@ -48,7 +52,7 @@ namespace Candyland
                     currentSpotIndex = index;
                 switch (id)
                 {
-                    case "7.0": teleportPositions[index] = (new Vector2(30, 50)); break; //manually set position of map
+                    case "7.0": teleportPositions[index] = (new Vector2(60, 100)); break; //manually set position of map
                 }
                 index++;
             }
@@ -70,11 +74,12 @@ namespace Candyland
                 case InputState.Left: activeIndex--; break;
                 case InputState.Right: activeIndex++; break;
             }
+            if (activeIndex == currentSpotIndex) activeIndex++; // current spot can't be selected for travelling
             if (activeIndex >= numOfTeleportOptions) activeIndex = 0;
             if (activeIndex < 0) activeIndex = numOfTeleportOptions - 1;
 
-            // teleport to selected level
-            if (enterPressed)
+            // teleport to selected level, if not already there
+            if (enterPressed && (activeIndex != currentSpotIndex))
             {
                 m_updateInfo.currentguyLevelID = m_updateInfo.activeTeleports.ElementAt(activeIndex);
                 m_updateInfo.currentguyAreaID = m_updateInfo.activeTeleports.ElementAt(activeIndex).Substring(0, 1);
@@ -82,6 +87,7 @@ namespace Candyland
                 m_updateInfo.currenthelperAreaID = m_updateInfo.activeTeleports.ElementAt(activeIndex).Substring(0, 1);
                 
                 m_updateInfo.reset = true;
+                ScreenManager.RemoveScreen(lastScreen);
                 ScreenManager.ResumeLast(this);
             }
         }
@@ -101,11 +107,11 @@ namespace Candyland
             foreach (Vector2 pos in teleportPositions)
             {
                 if(index == currentSpotIndex)
-                    m_sprite.Draw(currentSpot, new Rectangle((int)pos.X, (int)pos.Y, 10, 10), Color.White);
+                    m_sprite.Draw(currentSpot, new Rectangle((int)pos.X, (int)pos.Y, 20, 20), Color.White);
                 else if(index == activeIndex)
-                    m_sprite.Draw(selectedSpot, new Rectangle((int)pos.X, (int)pos.Y, 10, 10), Color.White);
+                    m_sprite.Draw(selectedSpot, new Rectangle((int)pos.X, (int)pos.Y, 20, 20), Color.White);
                 else
-                    m_sprite.Draw(teleportSpot, new Rectangle((int)pos.X, (int)pos.Y, 10, 10), Color.White);
+                    m_sprite.Draw(teleportSpot, new Rectangle((int)pos.X, (int)pos.Y, 20, 20), Color.White);
 
                 index++;
             }

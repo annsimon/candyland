@@ -11,7 +11,7 @@ namespace Candyland
         {
             this.isFullscreen = true;
 
-            texture = ScreenManager.Content.Load<Texture2D>("ScreenTextures/titleScreen");
+            texture = ScreenManager.Content.Load<Texture2D>("ScreenTextures/Main");
         }
 
         public override void Update(GameTime gameTime)
@@ -29,7 +29,9 @@ namespace Candyland
             int screenHeight = ScreenManager.Game.GraphicsDevice.Viewport.Height;
 
             ScreenManager.SpriteBatch.Begin();
-            ScreenManager.SpriteBatch.Draw(texture, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
+            Rectangle textureBox = new Rectangle(0, 0, texture.Width, texture.Height);
+            textureBox.Offset(screenWidth / 2 - texture.Width / 2, screenHeight / 2 - texture.Height/2);
+            ScreenManager.SpriteBatch.Draw(texture, textureBox, Color.White);
             ScreenManager.SpriteBatch.End();
         }
 
