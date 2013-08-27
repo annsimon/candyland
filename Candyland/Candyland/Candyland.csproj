@@ -145,6 +145,8 @@
     <Compile Include="SceneStructure\Area.cs" />
     <Compile Include="SceneStructure\Level.cs" />
     <Compile Include="SceneStructure\SceneManager.cs" />
+    <Compile Include="SceneStructure\SceneManagerDrawing.cs" />
+    <Compile Include="SceneStructure\SceneManagerUpdate.cs" />
     <Compile Include="ScreenManagement\BonusScreen.cs" />
     <Compile Include="ScreenManagement\BonusTile.cs" />
     <Compile Include="ScreenManagement\CreditsScreen.cs" />

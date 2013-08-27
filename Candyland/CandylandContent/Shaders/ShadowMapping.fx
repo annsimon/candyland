@@ -95,7 +95,7 @@ technique CreateShadowMap
     {
         VertexShader = compile vs_2_0 VS_CreateShadowMap();
         PixelShader = compile ps_2_0 PS_CreateShadowMap();
-		CullMode = CW;
+		CullMode = CCW;
 		AlphaBlendEnable = false;
     }
 }

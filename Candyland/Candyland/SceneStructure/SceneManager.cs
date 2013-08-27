@@ -8,7 +8,6 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using System.Xml;
 using Microsoft.Xna.Framework.Content.Pipeline.Serialization.Intermediate;
-using SkinnedModel;
 
 namespace Candyland
 {
@@ -16,7 +15,7 @@ namespace Candyland
     /// This class takes care of the game, this includes visual aspects (Area) and
     /// the game's logic (Communications).
     /// </summary>
-    public class SceneManager
+    public partial class SceneManager
     {
         // struct for the light source we use
         private struct DirectionalLight
@@ -59,6 +58,7 @@ namespace Candyland
 
         Texture2D chocoChip;
         Texture2D keys;
+        Texture2D keysFull;
 
         InputManager m_inputManager;
 
@@ -97,7 +97,7 @@ namespace Candyland
 
             // set up shadow map for drop shadows
             m_shadowMap = new ShadowMap(m_graphics, screenManager.Content);
-            m_shadowMap.DepthBias = 0.001f;
+            m_shadowMap.DepthBias = 0.0f;
 
             // set up scene light
             m_globalLight.direction = new Vector3(0.0f, -0.5f, -0.5f);
@@ -117,223 +117,8 @@ namespace Candyland
             screenFont = manager.Load<SpriteFont>("Fonts/MainText");
             keys = manager.Load<Texture2D>("Images/HUD/HudFull");
             chocoChip = manager.Load<Texture2D>("Images/HUD/Choco");
+            keysFull = manager.Load<Texture2D>("Images/HUD/HudFullWithChange");
         }
-
-        public void Update(GameTime gameTime)
-        {
-            /*
-            System.Console.Out.WriteLine("currLevel = " + m_updateInfo.currentLevelID);
-            if( m_updateInfo.playerIsOnLevelExit)
-                System.Console.Out.WriteLine("nextLevel = " + m_updateInfo.levelAfterExitID);
-            */
-
-            // Update gameTime in UpdateInfo
-            m_updateInfo.gameTime = gameTime;
-
-            if (m_updateInfo.reset)
-            {
-
-                
-                // reset player to start position of current level
-                if (m_updateInfo.candyselected || m_updateInfo.currentguyLevelID == m_updateInfo.currenthelperLevelID)
-                {
-                    player.Reset();
-                    Vector3 resetPos = m_areas[m_updateInfo.currentguyLevelID.Split('.')[0]].GetPlayerStartingPosition(player);
-                    resetPos.Y += 0.6f;
-                    player.setPosition(resetPos);
-                }
-
-                if (!m_updateInfo.candyselected || m_updateInfo.currentguyLevelID == m_updateInfo.currenthelperLevelID)
-                {
-                    player2.Reset();
-                    Vector3 resetPos2 = m_areas[m_updateInfo.currenthelperLevelID.Split('.')[0]].GetCompanionStartingPosition(player2);
-                    resetPos2.Y += 0.6f;
-                    player2.setPosition(resetPos2);
-                }
-
-
-                // reset world *!*| MAYBE NOT NEEDED |*!*
-               /* foreach (var area in m_areas)
-                    area.Value.Reset();*/
-                if (m_updateInfo.candyselected)
-                    m_areas[m_updateInfo.currentguyLevelID.Split('.')[0]].Reset(player);
-
-                if (!m_updateInfo.candyselected)
-                    m_areas[m_updateInfo.currenthelperLevelID.Split('.')[0]].Reset(player2);
-
-                m_updateInfo.reset = false;
-            }
-
-            m_inputManager.update(player,player2);
-            player.update();
-            player2.update();
-
-            player.startIntersection();
-            player2.startIntersection();
-
-            // check for Collision between the Player and all Game Objects in the current Level
-            m_areas[m_updateInfo.currentguyLevelID.Split('.')[0]].Collide(player);
-            if (m_updateInfo.playerIsOnAreaExit && m_updateInfo.nextguyLevelID != null)
-                m_areas[m_updateInfo.nextguyLevelID.Split('.')[0]].Collide(player);
-            // check for Collision between the Player2 and all Game Objects in the current Level
-            m_areas[m_updateInfo.currenthelperLevelID.Split('.')[0]].Collide(player2);
-            if (m_updateInfo.playerIsOnAreaExit && m_updateInfo.nexthelperLevelID != null)
-                m_areas[m_updateInfo.nexthelperLevelID.Split('.')[0]].Collide(player2);
-
-            // update the area the player currently is in
-            // and the next area if the player is about to leave the current area
-            m_areas[m_updateInfo.currentguyLevelID.Split('.')[0]].Update(gameTime);
-            if (m_updateInfo.playerIsOnAreaExit && m_updateInfo.nextguyLevelID != null)
-                m_areas[m_updateInfo.nextguyLevelID.Split('.')[0]].Update(gameTime);
-
-            if (m_updateInfo.currentguyLevelID != m_updateInfo.currenthelperLevelID)
-                m_areas[m_updateInfo.currenthelperLevelID.Split('.')[0]].Update(gameTime);
-            if (m_updateInfo.playerIsOnAreaExit && m_updateInfo.nexthelperLevelID != null)
-                m_areas[m_updateInfo.nexthelperLevelID.Split('.')[0]].Update(gameTime);
-           
-            player.endIntersection();
-            player2.endIntersection();
-
-            m_areas[m_updateInfo.currentguyLevelID.Split('.')[0]].endIntersection();
-            m_areas[m_updateInfo.currenthelperLevelID.Split('.')[0]].endIntersection();
-           
-
-
-            KeyboardState keystate = Keyboard.GetState();
-            if (keystate.IsKeyDown(Keys.D1))
-                m_shadowMap.DepthBias = Math.Min(0.1f, m_shadowMap.DepthBias + 0.0001f);
-
-            if (keystate.IsKeyDown(Keys.D2))
-                m_shadowMap.DepthBias = Math.Max(0.0f, m_shadowMap.DepthBias - 0.0001f);
-
-            UpdateShadowMap();
-        }
-
-        public void Draw(GameTime gameTime)
-        {
-            CreateShadowMap();
-
-            DrawModel(player.GetModelGroup(), player.prepareForDrawing());
-            if (GameConstants.boundingBoxRendering)
-                BoundingBoxRenderer.Render(player.getBoundingBox(), m_graphics, m_updateInfo.viewMatrix, m_updateInfo.projectionMatrix, Color.White);
-            DrawModel(player2.GetModelGroup(), player2.prepareForDrawing());
-            if (GameConstants.boundingBoxRendering)
-                BoundingBoxRenderer.Render(player2.getBoundingBox(), m_graphics, m_updateInfo.viewMatrix, m_updateInfo.projectionMatrix, Color.White);
-
-            // draw the area the player currently is in and the two
-            // adjacent ones
-            string currentArea;
-
-            if (m_updateInfo.candyselected)
-                currentArea = m_updateInfo.currentguyLevelID.Split('.')[0];
-            else
-                currentArea = m_updateInfo.currenthelperLevelID.Split('.')[0];
-
-            Area currArea = m_areas[currentArea];
-            List<GameObject> currentObjects = currArea.GetObjects();
-            foreach (GameObject obj in currentObjects)
-            {
-                DrawModel(obj.GetModelGroup(), obj.prepareForDrawing());
-                if(GameConstants.boundingBoxRendering)
-                    BoundingBoxRenderer.Render(obj.getBoundingBox(), m_graphics, m_updateInfo.viewMatrix, m_updateInfo.projectionMatrix, Color.White);
-            }
-            if (m_areas[currentArea].hasPrevious)
-            {
-                currentObjects = m_areas[currArea.previousID].GetObjects();
-                foreach (GameObject obj in currentObjects)
-                    DrawModel(obj.GetModelGroup(), obj.prepareForDrawing());
-            }
-            if (m_areas[currentArea].hasNext)
-            {
-                currentObjects = m_areas[currArea.nextID].GetObjects();
-                foreach (GameObject obj in currentObjects)
-                    DrawModel(obj.GetModelGroup(), obj.prepareForDrawing());
-            }
-        }
-
-        private void DrawModel(GameObject.ModelGroup modelGroup, Matrix world)
-        {
-            Model model = modelGroup.model;
-            if (model == null) return;
-
-            Dictionary<int, Texture2D> textures = modelGroup.textures;
-            GameObject.Material material = modelGroup.material;
-
-            AnimationPlayer animationPlayer = null;
-            if (modelGroup is GameObject.ModelGroupAnimated)
-                animationPlayer = ((GameObject.ModelGroupAnimated)modelGroup).animationPlayer;
-
-            foreach (ModelMesh m in model.Meshes)
-            {
-                foreach (Effect e in m.Effects)
-                {
-                    if (animationPlayer != null)
-                    {
-                        e.CurrentTechnique = e.Techniques["ShadedAndAnimated"];
-                        e.Parameters["Bones"].SetValue(animationPlayer.GetSkinTransforms());
-                    }
-                    else
-                        e.CurrentTechnique = e.Techniques["ShadedWithShadows"];
-                    e.Parameters["lightViewProjection"].SetValue(m_shadowMap.LightViewProjectionMatrix);
-                    e.Parameters["textureScaleBias"].SetValue(m_shadowMap.TextureScaleBiasMatrix);
-                    e.Parameters["depthBias"].SetValue(m_shadowMap.DepthBias);
-                    e.Parameters["shadowMap"].SetValue(m_shadowMap.ShadowMapTexture);
-
-                    e.Parameters["world"].SetValue(world * m.ParentBone.Transform);
-
-                    e.Parameters["view"].SetValue(m_updateInfo.viewMatrix);
-                    e.Parameters["projection"].SetValue(m_updateInfo.projectionMatrix);
-
-                    e.Parameters["lightDir"].SetValue(m_globalLight.direction);
-                    e.Parameters["lightColor"].SetValue(m_globalLight.color);
-                    e.Parameters["materialAmbient"].SetValue(material.ambient);
-                    e.Parameters["materialDiffuse"].SetValue(material.diffuse);
-                    if (textures.ContainsKey(m.GetHashCode()))
-                        e.Parameters["colorMap"].SetValue(textures[-1]);
-                    else
-                        e.Parameters["colorMap"].SetValue(textures[-1]);
-
-                    e.Parameters["worldInverseTranspose"].SetValue(
-                    Matrix.Transpose(Matrix.Invert(world * m.ParentBone.Transform)));
-
-                    e.Parameters["texelSize"].SetValue(m_shadowMap.TexelSize);
-                    e.Parameters["withFog"].SetValue(true);
-                    e.Parameters["fogColor"].SetValue(GameConstants.backgroundColor.ToVector4());
-                    e.Parameters["fogStart"].SetValue(30f);
-                    e.Parameters["fogDensity"].SetValue(0.7f);
-                    if (!player.getIsThirdPersonCam() || !player2.getIsThirdPersonCam())
-                        e.Parameters["fogMapMode"].SetValue(true);
-                    else
-                        e.Parameters["fogMapMode"].SetValue(false);
-                }
-                m.Draw();
-            }
-        }
-
-        public void Draw2D()
-        {
-            int screenWidth = m_graphics.Viewport.Width;
-            int screenHeight = m_graphics.Viewport.Height;
-
-            m_spriteBatch.Begin();
-
-            m_spriteBatch.DrawString(screenFont, m_bonusTracker.chocoCount.ToString()
-               + "/" + m_bonusTracker.chocoTotal.ToString(), new Vector2(50f, 5f), Color.White);
-
-            m_spriteBatch.Draw(chocoChip, new Rectangle(5, 5, 40, 40), Color.White);
-
-            m_spriteBatch.Draw(keys, new Rectangle(screenWidth - 186, screenHeight-70, 176, 60), Color.White);
-
-            m_spriteBatch.End();
-
-            //DrawShadowMap();
-
-            // we need the following as spriteBatch.Begin() sets them to None and AlphaBlend
-            // which breaks our model rendering
-            m_graphics.DepthStencilState = DepthStencilState.Default;
-            m_graphics.BlendState = BlendState.Opaque;
-        }
-
 
         // Save Game
         public void Save()
@@ -391,8 +176,6 @@ namespace Candyland
                 area.Value.Load();
         }
 
-        #region ShadowMap
-
         private void CreateShadowMap()
         {
             // save old state
@@ -441,37 +224,6 @@ namespace Candyland
             m_shadowMap.End();
             m_graphics.BlendState = oldBS;
         }
-
-        private void UpdateShadowMap()
-        {
-            //m_shadowMap.Update(m_globalLight.direction, 
-            //    m_updateInfo.viewMatrix*m_updateInfo.projectionMatrix);
-            Vector3 playerPos;
-            if (m_updateInfo.candyselected)
-                playerPos = player.getPosition();
-            else
-                playerPos = player2.getPosition();
-            m_shadowMap.Update(m_globalLight.direction, playerPos);
-        }
-
-        private void DrawShadowMap()
-        {
-            Rectangle rect = new Rectangle();
-
-            rect.X = 0;
-            rect.Y = m_graphics.Viewport.Height - 128;
-            rect.Width = 128;
-            rect.Height = 128;
-
-            m_spriteBatch.Begin();
-            m_spriteBatch.Draw(m_shadowMap.ShadowMapTexture, rect, Color.White);
-            m_spriteBatch.End();
-
-            m_graphics.DepthStencilState = DepthStencilState.Default;
-            m_graphics.BlendState = BlendState.Opaque;
-        }
-
-        #endregion
 
     }
 }
