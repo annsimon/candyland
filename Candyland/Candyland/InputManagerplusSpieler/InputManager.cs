@@ -121,7 +121,7 @@ namespace Candyland
                 && oldKeyboardState != keystate) updateinfo.currentpushedKeys.Add(Keys.LeftAlt);
             if (keystate.IsKeyDown(Keys.Q)
                 && oldKeyboardState != keystate) updateinfo.currentpushedKeys.Add(Keys.Q);
-            if (keystate.IsKeyDown(Keys.Tab)
+            if (keystate.IsKeyDown(Keys.C)
                 && oldKeyboardState != keystate
                 &&player.isInThirdP()) updateinfo.switchPlayer();
 
