@@ -138,7 +138,7 @@ namespace Candyland
             if (player.getIsOnSlippery()) {
                 Vector3 temp = player.getDirection();
                 dmovex = temp.X;
-                dmovey = temp.Y;
+                dmovey = temp.Z;
             }
 
             //move the player
