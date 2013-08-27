@@ -67,7 +67,7 @@ namespace Candyland
 
         public override void Update(GameTime gameTime)
         {
-            bool enterPressed = ScreenManager.Input.Equals(InputState.Enter);
+            bool enterPressed = ScreenManager.Input.Equals(InputState.Continue);
 
             // Check if text needs scrolling
             if (scrollIndex < (TextArray.Length-1) && TextArray[scrollIndex+1]!= null)

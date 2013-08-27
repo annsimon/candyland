@@ -16,7 +16,7 @@ namespace Candyland
 
         public override void Update(GameTime gameTime)
         {
-            if (ScreenManager.Input.Equals(InputState.Enter))
+            if (ScreenManager.Input.Equals(InputState.Continue))
             {
                 ScreenManager.RemoveScreen(this);
                 ScreenManager.ActivateNewScreen(new MainMenu());

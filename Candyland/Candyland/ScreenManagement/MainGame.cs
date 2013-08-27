@@ -25,13 +25,13 @@ namespace Candyland
 
         public override void Update(GameTime gameTime)
         {
-            if (ScreenManager.Input.Equals(InputState.Enter))
+            if (ScreenManager.Input.Equals(InputState.Back))
             {
                 ScreenManager.ActivateNewScreen(new MainMenu());
             }
 
             if (ScreenManager.Game.IsActive && (gameTime.TotalGameTime.Milliseconds % GameConstants.framerate == 0)
-                && ((ScreenManager.Input.Equals(InputState.Enter)) || GameConstants.singlestepperOFF))
+                && ((ScreenManager.Input.Equals(InputState.Continue)) || GameConstants.singlestepperOFF))
             {
                 m_sceneManager.Update(gameTime);
             }

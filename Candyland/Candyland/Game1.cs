@@ -75,10 +75,10 @@ namespace Candyland
         {
             newState = Keyboard.GetState();
 
-            // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed
-                || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                this.Exit();
+            // Allows the game to exit, only for debugging
+            //if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed
+            //    || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            //    this.Exit();
 
             // Controls to Mute background music
             if (newState.IsKeyDown(Keys.L) && newState != oldState)

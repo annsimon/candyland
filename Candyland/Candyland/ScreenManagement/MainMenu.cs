@@ -67,7 +67,7 @@ namespace Candyland
             // look at input and update button selection
             switch (ScreenManager.Input)
             {
-                case InputState.Enter: enterPressed = true; break;
+                case InputState.Continue: enterPressed = true; break;
                 case InputState.Up: activeButtonIndex--; break;
                 case InputState.Down: activeButtonIndex++; break;
             }

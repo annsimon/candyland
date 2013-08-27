@@ -64,7 +64,7 @@ namespace Candyland
         public override void Update(GameTime gameTime)
         {
             // Exit
-            if (ScreenManager.Input.Equals(InputState.Enter))
+            if (ScreenManager.Input.Equals(InputState.Back))
             {
                 ScreenManager.ResumeLast(this);
             }

@@ -56,7 +56,7 @@ namespace Candyland
 
         public override void Update(GameTime gameTime)
         {
-            if (ScreenManager.Input.Equals(InputState.Enter))
+            if (ScreenManager.Input.Equals(InputState.Back))
             {
                 ScreenManager.ResumeLast(this);
             }
@@ -66,7 +66,7 @@ namespace Candyland
             // look at input and update button selection
             switch (ScreenManager.Input)
             {
-                case InputState.Enter: enterPressed = true; break;
+                case InputState.Continue: enterPressed = true; break;
                 case InputState.Left: activeIndex--; break;
                 case InputState.Right: activeIndex++; break;
             }

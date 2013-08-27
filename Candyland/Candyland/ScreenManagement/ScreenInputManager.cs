@@ -13,7 +13,8 @@ namespace Candyland
         Right,
         Up,
         Down,
-        Enter,
+        Continue,
+        Back,
         None
     }
 
@@ -42,30 +43,41 @@ namespace Candyland
         {
             KeyboardState keyState = Keyboard.GetState();
 
-            if (keyState.IsKeyDown(Keys.A) && oldKeyboardState.IsKeyUp(Keys.A))
+            if (keyState.IsKeyDown(Keys.A) && oldKeyboardState.IsKeyUp(Keys.A)
+                || keyState.IsKeyDown(Keys.Left) && oldKeyboardState.IsKeyUp(Keys.Left))
             {
                 oldKeyboardState = keyState;
                 return InputState.Left;
             }
-            if (keyState.IsKeyDown(Keys.D) && oldKeyboardState.IsKeyUp(Keys.D))
+            if (keyState.IsKeyDown(Keys.D) && oldKeyboardState.IsKeyUp(Keys.D)
+                || keyState.IsKeyDown(Keys.Right) && oldKeyboardState.IsKeyUp(Keys.Right))
             {
                 oldKeyboardState = keyState;
                 return InputState.Right;
             }
-            if (keyState.IsKeyDown(Keys.W) && oldKeyboardState.IsKeyUp(Keys.W))
+            if (keyState.IsKeyDown(Keys.W) && oldKeyboardState.IsKeyUp(Keys.W)
+                || keyState.IsKeyDown(Keys.Up) && oldKeyboardState.IsKeyUp(Keys.Up))
             {
                 oldKeyboardState = keyState;
                 return InputState.Up;
             }
-            if (keyState.IsKeyDown(Keys.S) && oldKeyboardState.IsKeyUp(Keys.S))
+            if (keyState.IsKeyDown(Keys.S) && oldKeyboardState.IsKeyUp(Keys.S)
+                || keyState.IsKeyDown(Keys.Down) && oldKeyboardState.IsKeyUp(Keys.Down))
             {
                 oldKeyboardState = keyState;
                 return InputState.Down;
             }
-            if (keyState.IsKeyDown(Keys.Enter) && oldKeyboardState.IsKeyUp(Keys.Enter))
+            if (keyState.IsKeyDown(Keys.Enter) && oldKeyboardState.IsKeyUp(Keys.Enter)
+                || keyState.IsKeyDown(Keys.Space) && oldKeyboardState.IsKeyUp(Keys.Space))
             {
                 oldKeyboardState = keyState;
-                return InputState.Enter;
+                return InputState.Continue;
+            }
+            if (keyState.IsKeyDown(Keys.Back) && oldKeyboardState.IsKeyUp(Keys.Back)
+                || keyState.IsKeyDown(Keys.Escape) && oldKeyboardState.IsKeyUp(Keys.Escape))
+            {
+                oldKeyboardState = keyState;
+                return InputState.Back;
             }
             else
             {
