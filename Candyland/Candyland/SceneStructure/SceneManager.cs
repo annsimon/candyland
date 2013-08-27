@@ -97,7 +97,7 @@ namespace Candyland
 
             // set up shadow map for drop shadows
             m_shadowMap = new ShadowMap(m_graphics, screenManager.Content);
-            m_shadowMap.DepthBias = 0.00249f;
+            m_shadowMap.DepthBias = 0.001f;
 
             // set up scene light
             m_globalLight.direction = new Vector3(0.0f, -0.5f, -0.5f);
@@ -201,10 +201,10 @@ namespace Candyland
 
             KeyboardState keystate = Keyboard.GetState();
             if (keystate.IsKeyDown(Keys.D1))
-                m_shadowMap.DepthBias += 0.0001f;
+                m_shadowMap.DepthBias = Math.Min(0.1f, m_shadowMap.DepthBias + 0.0001f);
 
             if (keystate.IsKeyDown(Keys.D2))
-                m_shadowMap.DepthBias -= 0.0001f;
+                m_shadowMap.DepthBias = Math.Max(0.0f, m_shadowMap.DepthBias - 0.0001f);
 
             UpdateShadowMap();
         }
@@ -273,7 +273,7 @@ namespace Candyland
                         e.Parameters["Bones"].SetValue(animationPlayer.GetSkinTransforms());
                     }
                     else
-                        e.CurrentTechnique = e.Techniques["Shaded"];
+                        e.CurrentTechnique = e.Techniques["ShadedWithShadows"];
                     e.Parameters["lightViewProjection"].SetValue(m_shadowMap.LightViewProjectionMatrix);
                     e.Parameters["textureScaleBias"].SetValue(m_shadowMap.TextureScaleBiasMatrix);
                     e.Parameters["depthBias"].SetValue(m_shadowMap.DepthBias);
@@ -395,6 +395,19 @@ namespace Candyland
 
         private void CreateShadowMap()
         {
+            // save old state
+            BlendState oldBS = m_graphics.BlendState;
+            BlendState newBS = new BlendState();
+            newBS.ColorWriteChannels = ColorWriteChannels.All;
+            newBS.ColorWriteChannels1 = ColorWriteChannels.All;
+            newBS.ColorWriteChannels2 = ColorWriteChannels.All;
+            newBS.ColorWriteChannels3 = ColorWriteChannels.All;
+            newBS.AlphaDestinationBlend = Blend.Zero;
+            newBS.AlphaSourceBlend = Blend.One;
+            newBS.ColorDestinationBlend = Blend.Zero;
+            newBS.ColorSourceBlend = Blend.One;
+            m_graphics.BlendState = newBS;
+
             string currentArea;
 
             if(m_updateInfo.candyselected)
@@ -407,31 +420,38 @@ namespace Candyland
 
             m_shadowMap.Begin(m_graphics);
 
-            m_shadowMap.Draw(player.GetModelGroup().model, player.prepareForDrawing());
-            m_shadowMap.Draw(player2.GetModelGroup().model, player2.prepareForDrawing());
+            m_shadowMap.Draw(player.GetModelGroup().model, player.prepareForDrawing(), null);// ((GameObject.ModelGroupAnimated)player.GetModelGroup()).animationPlayer.GetBoneTransforms());
+            m_shadowMap.Draw(player2.GetModelGroup().model, player2.prepareForDrawing(), null);
 
             foreach (GameObject obj in currentObjects)
-                m_shadowMap.Draw(obj.GetModelGroup().model, obj.prepareForDrawing());
+                m_shadowMap.Draw(obj.GetModelGroup().model, obj.prepareForDrawing(), null);
             if (m_areas[currentArea].hasPrevious)
             {
                 currentObjects = m_areas[currArea.previousID].GetObjects();
                 foreach (GameObject obj in currentObjects)
-                    m_shadowMap.Draw(obj.GetModelGroup().model, obj.prepareForDrawing());
+                    m_shadowMap.Draw(obj.GetModelGroup().model, obj.prepareForDrawing(), null);
             }
             if (m_areas[currentArea].hasNext)
             {
                 currentObjects = m_areas[currArea.nextID].GetObjects();
                 foreach (GameObject obj in currentObjects)
-                    m_shadowMap.Draw(obj.GetModelGroup().model, obj.prepareForDrawing());
+                    m_shadowMap.Draw(obj.GetModelGroup().model, obj.prepareForDrawing(), null);
             }
 
             m_shadowMap.End();
+            m_graphics.BlendState = oldBS;
         }
 
         private void UpdateShadowMap()
         {
-            m_shadowMap.Update(m_globalLight.direction, 
-                m_updateInfo.viewMatrix*m_updateInfo.projectionMatrix);
+            //m_shadowMap.Update(m_globalLight.direction, 
+            //    m_updateInfo.viewMatrix*m_updateInfo.projectionMatrix);
+            Vector3 playerPos;
+            if (m_updateInfo.candyselected)
+                playerPos = player.getPosition();
+            else
+                playerPos = player2.getPosition();
+            m_shadowMap.Update(m_globalLight.direction, playerPos);
         }
 
         private void DrawShadowMap()

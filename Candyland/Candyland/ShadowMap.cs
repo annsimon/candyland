@@ -170,7 +170,8 @@ namespace Candyland
         /// </summary>
         /// <param name="model"></param>
         /// <param name="world"></param>
-        public void Draw(Model model, Matrix world)
+        /// <param name="skinTransforms"></param>
+        public void Draw(Model model, Matrix world, Matrix[] skinTransforms)
         {
             originalEffects.Clear();
 
@@ -184,7 +185,13 @@ namespace Candyland
 
                 foreach (Effect e in m.Effects)
                 {
-                    e.CurrentTechnique = e.Techniques["CreateShadowMap"];
+                    if (skinTransforms != null)
+                    {
+                        e.CurrentTechnique = e.Techniques["CreateShadowMapAnimated"];
+                        e.Parameters["Bones"].SetValue(skinTransforms);
+                    }
+                    else
+                        e.CurrentTechnique = e.Techniques["CreateShadowMap"];
                     e.Parameters["world"].SetValue(world * m.ParentBone.Transform);
                     e.Parameters["lightViewProjection"].SetValue(lightViewProjectionMatrix);
                 }
@@ -212,6 +219,32 @@ namespace Candyland
             }
         }
 
+        public void Update(Vector3 lightDir, Vector3 playerPos)
+        {
+            // Compute orthogonal matrix from light direction
+            lightDir.Normalize();
+            lightDir = -lightDir;
+            Vector3 vHelp = new Vector3(1.0f, 0.0f, 0.0f);
+            Vector3 xAxis, yAxis;
+            Vector3.Cross(ref vHelp, ref lightDir, out yAxis);
+            Vector3.Cross(ref lightDir, ref yAxis, out xAxis);
+
+            // The 3 axis give a base transformation to the light direction.
+            // Now scale the matrix (add projection matrix).
+            Matrix lightViewMatrix = Matrix.CreateTranslation(-playerPos) *
+                                 new Matrix(xAxis.X, xAxis.Y, xAxis.Z, 0.0f,
+                                            yAxis.X, yAxis.Y, yAxis.Z, 0.0f,
+                                            lightDir.X, lightDir.Y, lightDir.Z, 0.0f,
+                                            0.0f, 0.0f, 0.0f, 1.0f);
+            Matrix lightProjectionMatrix = Matrix.CreateOrthographic(GameConstants.cameraFarPlane * 0.7f,
+                                        GameConstants.cameraFarPlane * 0.7f,
+                                        -GameConstants.cameraFarPlane * 2,
+                                        GameConstants.cameraFarPlane * 2);
+
+            lightViewProjectionMatrix = lightViewMatrix * lightProjectionMatrix;
+        }
+
+/*
         /// <summary>
         /// Calculates the view-projection matrix for the directional light
         /// source based on the camera's current view-projection matrix. See
@@ -267,6 +300,7 @@ namespace Candyland
             
             lightViewProjectionMatrix = lightViewMatrix * lightProjectionMatrix;
         }
+ */
 
     #endregion
 
@@ -284,7 +318,7 @@ namespace Candyland
 		private void Init(GraphicsDevice graphicsDevice, ContentManager content)
 		{
             renderTarget = new RenderTarget2D(graphicsDevice, size, size, true,
-                graphicsDevice.PresentationParameters.BackBufferFormat,
+                SurfaceFormat.Single,
                 DepthFormat.Depth24Stencil8);
 			
             string[] effectAssetNames =

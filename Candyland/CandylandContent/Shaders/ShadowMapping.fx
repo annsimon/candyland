@@ -24,20 +24,56 @@
 // Globals.
 //-----------------------------------------------------------------------------
 
+#define MaxBones 60 
+ 
+float4x3 Bones[MaxBones]; 
+
 float4x4 world;
 float4x4 lightViewProjection;
+
+struct AppToVertex
+{
+    float4 Position : POSITION0;            // The position of the vertex
+    float3 Normal : NORMAL0;                // The vertex's normal
+    float2 TextureCoordinate : TEXCOORD0;    // The texture coordinate of the vertex
+	int4   Indices  : BLENDINDICES0; 
+    float4 Weights  : BLENDWEIGHT0; 
+};
 
 //-----------------------------------------------------------------------------
 // Vertex shaders.
 //-----------------------------------------------------------------------------
 
-void VS_CreateShadowMap(in  float4 inPosition  : POSITION,
+void Skin(inout AppToVertex vin, uniform int boneCount) 
+{ 
+    float4x3 skinning = 0; 
+ 
+    [unroll] 
+    for (int i = 0; i < boneCount; i++) 
+    { 
+        skinning += Bones[vin.Indices[i]] * vin.Weights[i]; 
+    } 
+ 
+    vin.Position.xyz = mul(vin.Position, skinning); 
+    vin.Normal = mul(vin.Normal, (float3x3)skinning); 
+} 
+
+void VS_CreateShadowMap(AppToVertex vin,
                         out float4 outPosition : POSITION,
                         out float2 outDepth    : TEXCOORD)
 {   
-    outPosition = mul(inPosition, mul(world, lightViewProjection));
+    outPosition = mul(vin.Position, mul(world, lightViewProjection));
     outDepth = outPosition.zw;
 }
+
+void VS_CreateShadowMapAnimated(AppToVertex vin,
+                        out float4 outPosition : POSITION,
+                        out float2 outDepth    : TEXCOORD)
+{   
+	Skin(vin, 4); 
+    VS_CreateShadowMap(vin, outPosition, outDepth);
+}
+
 
 //-----------------------------------------------------------------------------
 // Pixel shaders.
@@ -59,5 +95,18 @@ technique CreateShadowMap
     {
         VertexShader = compile vs_2_0 VS_CreateShadowMap();
         PixelShader = compile ps_2_0 PS_CreateShadowMap();
+		CullMode = CW;
+		AlphaBlendEnable = false;
+    }
+}
+
+technique CreateShadowMapAnimated
+{
+    pass
+    {
+        VertexShader = compile vs_2_0 VS_CreateShadowMapAnimated();
+        PixelShader = compile ps_2_0 PS_CreateShadowMap();
+		CullMode = CW;
+		AlphaBlendEnable = false;
     }
 }
