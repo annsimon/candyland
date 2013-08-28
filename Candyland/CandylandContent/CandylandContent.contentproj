@@ -413,7 +413,7 @@
       <Name>plattform_gross</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.99</ProcessorParameters_Scale>
+      <ProcessorParameters_Scale>0.33</ProcessorParameters_Scale>
     </Compile>
     <Compile Include="Objekte\Plattformen\plattform_klein.fbx">
       <Name>plattform_klein</Name>
@@ -425,7 +425,7 @@
       <Name>plattform_mittel</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.66</ProcessorParameters_Scale>
+      <ProcessorParameters_Scale>0.33</ProcessorParameters_Scale>
     </Compile>
     <Compile Include="Objekte\Plattformen\Slippery\plattformrutschig.fbx">
       <Name>plattformrutschig</Name>
