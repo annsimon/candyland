@@ -43,6 +43,8 @@ namespace Candyland
         /// <returns></returns>
         public float getCameraDir() { return cam.getDirection(); }
 
+        public Vector3 getCameraPos() { return cam.getPosition(); }
+
         public  Matrix getProjectionM(){return cam.getProjectionMatrix();}
 
         public Matrix getViewM() { return cam.getviewMatrix(); }
