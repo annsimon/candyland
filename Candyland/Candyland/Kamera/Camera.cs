@@ -211,6 +211,10 @@ namespace Candyland
         { 
             return projectionMatrix; 
         }
+        public Vector3 getPosition()
+        {
+            return centerposition;
+        }
 
     }
 }

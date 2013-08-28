@@ -16,7 +16,6 @@ namespace Candyland
     {
         public void Draw(GameTime gameTime)
         {
-            DrawSkybox();
             CreateShadowMap();
 
             DrawModel(player.GetModelGroup(), player.prepareForDrawing());
@@ -55,6 +54,7 @@ namespace Candyland
                 foreach (GameObject obj in currentObjects)
                     DrawModel(obj.GetModelGroup(), obj.prepareForDrawing());
             }
+            DrawSkybox();
         }
 
         private void DrawModel(GameObject.ModelGroup modelGroup, Matrix world)
@@ -75,7 +75,7 @@ namespace Candyland
                 {
                     if (animationPlayer != null)
                     {
-                        e.CurrentTechnique = e.Techniques["ShadedAndAnimated"];
+                        e.CurrentTechnique = e.Techniques["ShadedWithShadowsAndAnimated"];
                         e.Parameters["Bones"].SetValue(animationPlayer.GetSkinTransforms());
                     }
                     else
@@ -87,6 +87,10 @@ namespace Candyland
 
                     e.Parameters["world"].SetValue(world * m.ParentBone.Transform);
 
+                    if (m_updateInfo.candyselected)
+                        e.Parameters["cameraPos"].SetValue(player.getCameraPos());
+                    else
+                        e.Parameters["cameraPos"].SetValue(player2.getCameraPos());
                     e.Parameters["view"].SetValue(m_updateInfo.viewMatrix);
                     e.Parameters["projection"].SetValue(m_updateInfo.projectionMatrix);
 
@@ -94,6 +98,8 @@ namespace Candyland
                     e.Parameters["lightColor"].SetValue(m_globalLight.color);
                     e.Parameters["materialAmbient"].SetValue(material.ambient);
                     e.Parameters["materialDiffuse"].SetValue(material.diffuse);
+                    e.Parameters["materialSpecular"].SetValue(material.specular);
+                    e.Parameters["shiny"].SetValue(material.shiny);
                     if (textures.ContainsKey(m.GetHashCode()))
                         e.Parameters["colorMap"].SetValue(textures[-1]);
                     else
@@ -165,15 +171,6 @@ namespace Candyland
         /// </summary>
         private void DrawSkybox()
         {
-            SamplerState ss = new SamplerState();
-            ss.AddressU = TextureAddressMode.Clamp;
-            ss.AddressV = TextureAddressMode.Clamp;
-            m_graphics.SamplerStates[0] = ss;
-
-            DepthStencilState dss = new DepthStencilState();
-            dss.DepthBufferEnable = false;
-            m_graphics.DepthStencilState = dss;
-
             Matrix[] skyboxTransforms = new Matrix[skyboxModel.Bones.Count];
             skyboxModel.CopyAbsoluteBoneTransformsTo(skyboxTransforms);
             int i = 0;
@@ -190,10 +187,6 @@ namespace Candyland
                 }
                 mesh.Draw();
             }
-
-            dss = new DepthStencilState();
-            dss.DepthBufferEnable = true;
-            m_graphics.DepthStencilState = dss;
         }
     }
 }

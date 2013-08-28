@@ -74,6 +74,8 @@ namespace Candyland
         {
             public Vector4 ambient;
             public Vector4 diffuse;
+            public Vector4 specular;
+            public float shiny;
             public Effect effect;
         }
         protected Material m_material;
@@ -142,6 +144,8 @@ namespace Candyland
             this.m_material = new Material();
             this.m_material.ambient = GameConstants.ambient;
             this.m_material.diffuse = GameConstants.diffuse;
+            this.m_material.specular = GameConstants.specular;
+            this.m_material.shiny = GameConstants.shiny;
 
             this.m_modelTextures = new Dictionary<int, Texture2D>();
         }

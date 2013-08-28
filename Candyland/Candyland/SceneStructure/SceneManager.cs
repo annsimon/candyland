@@ -99,7 +99,7 @@ namespace Candyland
 
             // set up shadow map for drop shadows
             m_shadowMap = new ShadowMap(m_graphics, screenManager.Content);
-            m_shadowMap.DepthBias = 0.0f;
+            m_shadowMap.DepthBias = GameConstants.depthBias;
 
             // set up scene light
             m_globalLight.direction = new Vector3(0.0f, -0.5f, -0.5f);
