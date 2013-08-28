@@ -28,10 +28,24 @@ namespace Candyland
             int screenWidth = ScreenManager.Game.GraphicsDevice.Viewport.Width;
             int screenHeight = ScreenManager.Game.GraphicsDevice.Viewport.Height;
 
+            ScreenManager.GraphicsDevice.Clear(Color.BlanchedAlmond);
+
             ScreenManager.SpriteBatch.Begin();
-            Rectangle textureBox = new Rectangle(0, 0, texture.Width, texture.Height);
-            textureBox.Offset(screenWidth / 2 - texture.Width / 2, screenHeight / 2 - texture.Height/2);
+
+            // Scaling
+            float scalingFactor = 1;
+            int picWidth, picHeight;
+            if (texture.Height > screenHeight)
+            {
+                scalingFactor = ((float)screenHeight / (float)texture.Height);
+            }
+            picWidth = (int)(texture.Width*scalingFactor);
+            picHeight = (int)(texture.Height*scalingFactor);
+
+            Rectangle textureBox = new Rectangle(0, 0, picWidth, picHeight);
+            textureBox.Offset(screenWidth / 2 - picWidth / 2, screenHeight / 2 - picHeight/2);
             ScreenManager.SpriteBatch.Draw(texture, textureBox, Color.White);
+
             ScreenManager.SpriteBatch.End();
         }
 

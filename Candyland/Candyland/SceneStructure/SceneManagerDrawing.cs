@@ -16,7 +16,6 @@ namespace Candyland
     {
         public void Draw(GameTime gameTime)
         {
-            DrawSkybox();
             CreateShadowMap();
 
             DrawModel(player.GetModelGroup(), player.prepareForDrawing());
@@ -55,6 +54,7 @@ namespace Candyland
                 foreach (GameObject obj in currentObjects)
                     DrawModel(obj.GetModelGroup(), obj.prepareForDrawing());
             }
+            DrawSkybox();
         }
 
         private void DrawModel(GameObject.ModelGroup modelGroup, Matrix world)
@@ -165,15 +165,6 @@ namespace Candyland
         /// </summary>
         private void DrawSkybox()
         {
-            SamplerState ss = new SamplerState();
-            ss.AddressU = TextureAddressMode.Clamp;
-            ss.AddressV = TextureAddressMode.Clamp;
-            m_graphics.SamplerStates[0] = ss;
-
-            DepthStencilState dss = new DepthStencilState();
-            dss.DepthBufferEnable = false;
-            m_graphics.DepthStencilState = dss;
-
             Matrix[] skyboxTransforms = new Matrix[skyboxModel.Bones.Count];
             skyboxModel.CopyAbsoluteBoneTransformsTo(skyboxTransforms);
             int i = 0;
@@ -190,10 +181,6 @@ namespace Candyland
                 }
                 mesh.Draw();
             }
-
-            dss = new DepthStencilState();
-            dss.DepthBufferEnable = true;
-            m_graphics.DepthStencilState = dss;
         }
     }
 }

@@ -445,6 +445,17 @@ technique ShadedWithShadowsAndAnimated2x2PCF
     }
 }
 
+//--------------------------- skybox -------------------------------
+
+technique SkyboxRendering
+{
+    pass Pass1
+    {
+        VertexShader = compile vs_2_0 VS_Shaded();
+        PixelShader = compile ps_2_0 PS_Shaded();
+		CullMode = None;
+    }
+}
 
 // Modified version of: http://www.dhpoware.com/demos/xnaShadowMapping.html
 //-----------------------------------------------------------------------------

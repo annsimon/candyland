@@ -352,6 +352,7 @@
       <Name>skybox2</Name>
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.9</ProcessorParameters_Scale>
     </Compile>
     <Compile Include="Skybox\effects.fx">
       <Name>effects</Name>
