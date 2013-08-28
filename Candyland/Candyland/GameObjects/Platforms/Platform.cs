@@ -53,6 +53,16 @@ namespace Candyland
 
             this.slipperyInfo = slippery;
 
+            switch (slipperyInfo)
+            {
+                case 1: m_material.specular = new Vector4(0.6f, 0.6f, 0.6f, 1.0f);
+                        m_material.shiny = 4;
+                        break;
+                case 2: m_material.specular = new Vector4(0.6f, 0.6f, 0.6f, 1.0f);
+                        m_material.shiny = 4;
+                        break;
+            }
+
             if (areaDoorID == "x")
                 this.isDoorToArea = false;
             else

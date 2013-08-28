@@ -98,14 +98,14 @@ namespace Candyland
             player2.setPosition(player2StartPos);
 
             // set up shadow map for drop shadows
-            //m_shadowMap = new ShadowMap(m_graphics, screenManager.Content);
-            //m_shadowMap.DepthBias = 0.0f;
+            m_shadowMap = new ShadowMap(m_graphics, screenManager.Content);
+            m_shadowMap.DepthBias = GameConstants.depthBias;
 
-            //// set up scene light
-            //m_globalLight.direction = new Vector3(0.0f, -0.5f, -0.5f);
-            //m_globalLight.direction.Normalize();
-            //m_globalLight.color = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
-            //m_globalLight.rotation = Vector2.Zero;
+            // set up scene light
+            m_globalLight.direction = new Vector3(0.0f, -0.5f, -0.5f);
+            m_globalLight.direction.Normalize();
+            m_globalLight.color = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
+            m_globalLight.rotation = Vector2.Zero;
         }
 
         public void Load(ContentManager manager)

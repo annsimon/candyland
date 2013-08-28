@@ -13,9 +13,12 @@ float4x4 lightViewProjection;
 float4x4 textureScaleBias;
 
 float3 lightDir;
+float3 cameraPos;
 float4 lightColor;
 float4 materialAmbient;
 float4 materialDiffuse;
+float4 materialSpecular;
+float  shiny;
 
 bool withFog = false;
 bool fogMapMode = false;
@@ -98,14 +101,15 @@ struct VertexToPixel
 // Vertex shaders.
 //-----------------------------------------------------------------------------
 
-void VS_Shaded(in  float4 inPosition  : POSITION,
+void VS_Shaded(in   float4 inPosition  : POSITION,
 	            in  float2 inTexCoord  : TEXCOORD,
 	            in  float3 inNormal    : NORMAL,
 			    out float4 outPosition : POSITION,
 			    out float2 outTexCoord : TEXCOORD0,
 				out float3 outNormal   : TEXCOORD1,
 				out float3 outLightDir : TEXCOORD2,
-				out float outDepth	   : TEXCOORD5)
+				out float outDepth	   : TEXCOORD5,
+				out float3 viewForLight : TEXCOORD7)
 {
 	float4x4 worldviewprojection = mul(mul(world, view), projection);
 	
@@ -113,6 +117,9 @@ void VS_Shaded(in  float4 inPosition  : POSITION,
 	outTexCoord = inTexCoord;
 	outNormal = mul(inNormal, (float3x3)world);
 	outLightDir = -lightDir;
+
+	float4 worldPosition = mul(inPosition, world);
+    viewForLight = normalize(float4(cameraPos,1.0) - worldPosition);
 
 	if( withFog )
 		outDepth = mul(mul(inPosition, world), view).z;
@@ -123,13 +130,14 @@ void VS_ShadedAndAnimated(AppToVertex input,
 			    out float2 outTexCoord : TEXCOORD0,
 				out float3 outNormal   : TEXCOORD1,
 				out float3 outLightDir : TEXCOORD2,
-				out float outDepth	   : TEXCOORD5)
+				out float outDepth	   : TEXCOORD5,
+				out float3 viewForLight : TEXCOORD7)
 {
     Skin(input, 4); 
-	VS_Shaded(input.Position, input.TextureCoordinate, input.Normal, outPosition, outTexCoord, outNormal, outLightDir, outDepth);
+	VS_Shaded(input.Position, input.TextureCoordinate, input.Normal, outPosition, outTexCoord, outNormal, outLightDir, outDepth, viewForLight);
 }
 
-void VS_ShadedWithShadows(in  float4 inPosition        : POSITION,
+void VS_ShadedWithShadows(in  float4 inPosition      : POSITION,
 	                    in  float2 inTexCoord        : TEXCOORD,
 	                    in  float3 inNormal          : NORMAL,
 			            out float4 outPosition       : POSITION,
@@ -138,21 +146,16 @@ void VS_ShadedWithShadows(in  float4 inPosition        : POSITION,
 			            out float2 outTexCoord       : TEXCOORD2,
 				        out float3 outNormal         : TEXCOORD3,
 				        out float3 outLightDir       : TEXCOORD4,
-						out float outDepth			: TEXCOORD5)
+						out float outDepth			 : TEXCOORD5,
+						out float3 viewForLight		 : TEXCOORD7)
 {
-	float4x4 worldviewprojection = mul(mul(world, view), projection);
 	float4 lightSpacePos = mul(mul(inPosition, world), lightViewProjection);
 	float4 shadowCoord = mul(lightSpacePos, textureScaleBias);
 					
-	outPosition = mul(inPosition, worldviewprojection);
 	outLightSpacePos = lightSpacePos;
 	outShadowTexCoord = shadowCoord.xy / shadowCoord.w;
-	outTexCoord = inTexCoord;
-	outNormal = mul(inNormal, (float3x3)world);
-	outLightDir = -lightDir;
 
-	if( withFog )
-		outDepth = mul(mul(inPosition, world), view).z;
+	VS_Shaded(inPosition, inTexCoord, inNormal, outPosition, outTexCoord, outNormal, outLightDir, outDepth, viewForLight);
 }
 
 void VS_ShadedWithShadowsAndAnimated(AppToVertex input,
@@ -162,15 +165,17 @@ void VS_ShadedWithShadowsAndAnimated(AppToVertex input,
 			               out float2 outTexCoord       : TEXCOORD2,
 				           out float3 outNormal         : TEXCOORD3,
 				           out float3 outLightDir       : TEXCOORD4,
-						   out float outDepth			: TEXCOORD5)
+						   out float outDepth			: TEXCOORD5,
+				           out float view		        : TEXCOORD,
+						   out float3 viewForLight		: TEXCOORD7)
 {
     Skin(input, 4);
 	VS_ShadedWithShadows(input.Position, input.TextureCoordinate, input.Normal, outPosition, 
-							outLightSpacePos, outShadowTexCoord, outTexCoord, outNormal, outLightDir, outDepth);
+							outLightSpacePos, outShadowTexCoord, outTexCoord, outNormal, outLightDir, outDepth, viewForLight);
 }
 
 VertexToPixel OutlineVertexShader(AppToVertex input,
-								out float outDepth : TEXCOORD5)
+								  out float outDepth : TEXCOORD5)
 {
     VertexToPixel output = (VertexToPixel)0;
  
@@ -186,7 +191,7 @@ VertexToPixel OutlineVertexShader(AppToVertex input,
 
 // The vertex shader that does the outlines
 VertexToPixel OutlineVertexShaderAnimated(AppToVertex input,
-									out float outDepth : TEXCOORD5)
+										  out float outDepth : TEXCOORD5)
 {
 	Skin(input, 4); 
 	return OutlineVertexShader(input, outDepth);
@@ -233,28 +238,49 @@ float4 celStyle(float4 outColor, float intensity)
 	return outColor;
 }
 
-void PS_Shaded(in  float2 inTexCoord : TEXCOORD0,
-                in  float3 inNormal   : TEXCOORD1,
-                in  float3 inLightDir : TEXCOORD2,
-				in  float4 inDepth    : TEXCOORD5,
-				out float4 outColor   : COLOR)
+void shade(in  float2 inTexCoord,
+           in  float3 inNormal,
+           in  float3 inLightDir,
+		   in  float4 inDepth,
+		   in  float  shadowOcclusion,
+		   in  float4 viewForLight,
+		   out float4 outColor)
 {
 	float3 l = normalize(inLightDir);
 	float3 n = normalize(inNormal);
 	float intensity = saturate(dot(n, l));
+
+	float4 ambient = materialAmbient * lightColor;
+	float4 diffuse = materialDiffuse * lightColor * intensity * shadowOcclusion;
+
+	float4 reflect = normalize(2*intensity*float4(inNormal,1)-float4(inLightDir,1.0));
+	float4 specular = pow(saturate(dot(reflect,viewForLight)),shiny);
+	specular = materialSpecular * lightColor * specular;
+	if( shadowOcclusion < 1 )
+		specular = float4(0,0,0,1);
 	
-	outColor = (materialAmbient * lightColor) +
-	           (materialDiffuse * lightColor * intensity);
+	outColor = ambient + diffuse;
 			   
 	outColor *= tex2D(colorMapSampler, inTexCoord);
 
     outColor = celStyle(outColor, intensity);
 
+	outColor += specular;
 	if( withFog )
 	{
 		float mix = calculateFogFactor(inDepth);
 		outColor = mix * outColor + (1.0 - mix) * fogColor;
 	}
+}
+
+void PS_Shaded(in  float2 inTexCoord    : TEXCOORD0,
+                in  float3 inNormal     : TEXCOORD1,
+                in  float3 inLightDir   : TEXCOORD2,
+				in  float4 inDepth      : TEXCOORD5,
+				in  float4 viewForLight : TEXCOORD7,
+				out float4 outColor     : COLOR)
+{
+	shade( inTexCoord, inNormal, inLightDir, inDepth, 1, viewForLight, outColor);
 }
 
 void PS_ShadedWithShadows(in  float4 inLightSpacePos  : TEXCOORD0,
@@ -263,27 +289,13 @@ void PS_ShadedWithShadows(in  float4 inLightSpacePos  : TEXCOORD0,
                            in  float3 inNormal         : TEXCOORD3,
                            in  float3 inLightDir       : TEXCOORD4,
 						   in  float4 inDepth          : TEXCOORD5,
+						   in  float4 viewForLight     : TEXCOORD7,
 				           out float4 outColor         : COLOR)
-{
-	float3 l = normalize(inLightDir);
-	float3 n = normalize(inNormal);
-	float intensity = saturate(dot(n, l));
-	
+{	
 	float depth = inLightSpacePos.z / inLightSpacePos.w;
     float shadowOcclusion = PS_ShadowMapLookup(shadowMapSampler, inShadowTexCoord, depth);
     
-    outColor = (materialAmbient * lightColor) +
-	           (materialDiffuse * lightColor * intensity) * shadowOcclusion;
-			   
-	outColor *= tex2D(colorMapSampler, inTexCoord);
-
-	outColor = celStyle(outColor, intensity);
-
-	if( withFog )
-	{
-		float mix = calculateFogFactor(inDepth);
-		outColor = mix * outColor + (1.0 - mix) * fogColor;
-	}
+	shade( inTexCoord, inNormal, inLightDir, inDepth, shadowOcclusion, viewForLight, outColor);
 }
 
 void PS_ShadedWithShadowsPCF2x2(in  float4 inLightSpacePos  : TEXCOORD0,
@@ -292,12 +304,9 @@ void PS_ShadedWithShadowsPCF2x2(in  float4 inLightSpacePos  : TEXCOORD0,
                                  in  float3 inNormal         : TEXCOORD3,
 				                 in  float3 inLightDir       : TEXCOORD4,
 								 in  float4 inDepth          : TEXCOORD5,
+								 in  float4 viewForLight     : TEXCOORD7,
 				                 out float4 outColor         : COLOR)
 {
-	float3 l = normalize(inLightDir);
-	float3 n = normalize(inNormal);
-	float intensity = saturate(dot(n, l));
-
     float depth = inLightSpacePos.z / inLightSpacePos.w;
     float shadowOcclusion = 0.0f;
     
@@ -309,18 +318,7 @@ void PS_ShadedWithShadowsPCF2x2(in  float4 inLightSpacePos  : TEXCOORD0,
     
     shadowOcclusion /= 4.0f;
             
-    outColor = (materialAmbient * lightColor) +
-	           (materialDiffuse * lightColor * intensity) * shadowOcclusion;
-			   
-	outColor *= tex2D(colorMapSampler, inTexCoord);
-
-	outColor = celStyle(outColor, intensity);
-
-	if( withFog )
-	{
-		float mix = calculateFogFactor(inDepth);
-		outColor = mix * outColor + (1.0 - mix) * fogColor;
-	}
+	shade( inTexCoord, inNormal, inLightDir, inDepth, shadowOcclusion, viewForLight, outColor);
 }
 
 // The pixel shader for the outline.
@@ -344,15 +342,15 @@ technique Shaded
 {
 	pass Pass1
     {
-        VertexShader = compile vs_2_0 OutlineVertexShader();
-        PixelShader = compile ps_2_0 OutlinePixelShader();
+        VertexShader = compile vs_3_0 OutlineVertexShader();
+        PixelShader = compile ps_3_0 OutlinePixelShader();
         CullMode = CW;
     }
 
 	pass Pass2
 	{
-		VertexShader = compile vs_2_0 VS_Shaded();
-		PixelShader = compile ps_2_0 PS_Shaded();
+		VertexShader = compile vs_3_0 VS_Shaded();
+		PixelShader = compile ps_3_0 PS_Shaded();
 		CullMode = CCW;
 	}
 }
@@ -361,15 +359,15 @@ technique ShadedWithShadows
 {
     pass Pass1
     {
-        VertexShader = compile vs_2_0 OutlineVertexShader();
-        PixelShader = compile ps_2_0 OutlinePixelShader();
+        VertexShader = compile vs_3_0 OutlineVertexShader();
+        PixelShader = compile ps_3_0 OutlinePixelShader();
         CullMode = CW;
     }
 
 	pass Pass2
     {
-        VertexShader = compile vs_2_0 VS_ShadedWithShadows();
-        PixelShader = compile ps_2_0 PS_ShadedWithShadows();
+        VertexShader = compile vs_3_0 VS_ShadedWithShadows();
+        PixelShader = compile ps_3_0 PS_ShadedWithShadows();
 		CullMode = CCW;
     }
 }
@@ -378,15 +376,15 @@ technique ShadedWithShadows2x2PCF
 {
 	pass Pass1
     {
-        VertexShader = compile vs_2_0 OutlineVertexShader();
-        PixelShader = compile ps_2_0 OutlinePixelShader();
+        VertexShader = compile vs_3_0 OutlineVertexShader();
+        PixelShader = compile ps_3_0 OutlinePixelShader();
         CullMode = CW;
     }
 
     pass Pass2
     {
-        VertexShader = compile vs_2_0 VS_ShadedWithShadows();
-        PixelShader = compile ps_2_0 PS_ShadedWithShadowsPCF2x2();
+        VertexShader = compile vs_3_0 VS_ShadedWithShadows();
+        PixelShader = compile ps_3_0 PS_ShadedWithShadowsPCF2x2();
 		CullMode = CCW;
     }
 }
@@ -398,15 +396,15 @@ technique ShadedAndAnimated
 {
 	pass Pass1
     {
-        VertexShader = compile vs_2_0 OutlineVertexShaderAnimated();
-        PixelShader = compile ps_2_0 OutlinePixelShader();
+        VertexShader = compile vs_3_0 OutlineVertexShaderAnimated();
+        PixelShader = compile ps_3_0 OutlinePixelShader();
         CullMode = CW;
     }
 
 	pass Pass2
 	{
-		VertexShader = compile vs_2_0 VS_ShadedAndAnimated();
-		PixelShader = compile ps_2_0 PS_Shaded();
+		VertexShader = compile vs_3_0 VS_ShadedAndAnimated();
+		PixelShader = compile ps_3_0 PS_Shaded();
 		CullMode = CCW;
 	}
 }
@@ -415,15 +413,15 @@ technique ShadedWithShadowsAndAnimated
 {
     pass Pass1
     {
-        VertexShader = compile vs_2_0 OutlineVertexShaderAnimated();
-        PixelShader = compile ps_2_0 OutlinePixelShader();
+        VertexShader = compile vs_3_0 OutlineVertexShaderAnimated();
+        PixelShader = compile ps_3_0 OutlinePixelShader();
         CullMode = CW;
     }
 
 	pass Pass2
     {
-        VertexShader = compile vs_2_0 VS_ShadedWithShadowsAndAnimated();
-        PixelShader = compile ps_2_0 PS_ShadedWithShadows();
+        VertexShader = compile vs_3_0 VS_ShadedWithShadowsAndAnimated();
+        PixelShader = compile ps_3_0 PS_ShadedWithShadows();
 		CullMode = CCW;
     }
 }
@@ -432,28 +430,16 @@ technique ShadedWithShadowsAndAnimated2x2PCF
 {
 	pass Pass1
     {
-        VertexShader = compile vs_2_0 OutlineVertexShaderAnimated();
-        PixelShader = compile ps_2_0 OutlinePixelShader();
+        VertexShader = compile vs_3_0 OutlineVertexShaderAnimated();
+        PixelShader = compile ps_3_0 OutlinePixelShader();
         CullMode = CW;
     }
 
     pass Pass2
     {
-        VertexShader = compile vs_2_0 VS_ShadedWithShadowsAndAnimated();
-        PixelShader = compile ps_2_0 PS_ShadedWithShadowsPCF2x2();
+        VertexShader = compile vs_3_0 VS_ShadedWithShadowsAndAnimated();
+        PixelShader = compile ps_3_0 PS_ShadedWithShadowsPCF2x2();
 		CullMode = CCW;
-    }
-}
-
-//--------------------------- skybox -------------------------------
-
-technique SkyboxRendering
-{
-    pass Pass1
-    {
-        VertexShader = compile vs_2_0 VS_Shaded();
-        PixelShader = compile ps_2_0 PS_Shaded();
-		CullMode = None;
     }
 }
 
