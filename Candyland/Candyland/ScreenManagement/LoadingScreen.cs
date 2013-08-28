@@ -58,16 +58,12 @@ namespace Candyland
         /// Activates the loading screen.  
         /// </summary>  
         public static void Load(ScreenManager screenManager, bool loadingIsSlow,    
-                                 GameScreen screensToLoad)  
+                                 GameScreen screenToLoad)  
         {  
-            // Tell all the current screens to transition off.  
-            //foreach (GameScreen screen in screenManager.GetScreens())  
-            //    screen.ExitScreen();  
-              
             // Create and activate the loading screen.  
             LoadingScreen loadingScreen = new LoadingScreen(screenManager,  
                                                             loadingIsSlow,  
-                                                            screensToLoad);  
+                                                            screenToLoad);  
             loadingScreen.ScreenState = ScreenState.Active;
             screenManager.AddScreen(loadingScreen);  
         }
@@ -91,21 +87,22 @@ namespace Candyland
                     loadStartTime = gameTime;  
                     backgroundThread.Start();  
                 }
-                ScreenManager.RemoveScreen(this);
 
                 if (screenToLoad != null)
                 {
-                    //ScreenManager.AddScreen(screenToLoad);
-                    //screenToLoad.Open(ScreenManager.Game);
-                    ScreenManager.ActivateNewScreen(screenToLoad);
+                    ScreenManager.AddScreen(screenToLoad);
+                    screenToLoad.ScreenState = ScreenState.New;
+                    screenToLoad.Open(ScreenManager.Game);
+                    //ScreenManager.ActivateNewScreen(screenToLoad);
                 } 
  
                 // Signal the background thread to exit, then wait for it to do so.  
                 if (backgroundThread != null)  
-                {  
+                {
                     backgroundThreadExit.Set();  
                     backgroundThread.Join();  
-                }  
+                }
+                ScreenManager.RemoveScreen(this);
                 // Once the load has finished, we use ResetElapsedTime to tell  
                 // the  game timing mechanism that we have just finished a very  
                 // long frame, and that it should not try to catch up.  
@@ -130,8 +127,6 @@ namespace Candyland
                 GameTime gameTime = GetGameTime(ref lastTime);  
  
                 DrawLoadAnimation(gameTime);  
- 
-                //UpdateNetworkSession();  
             }  
         }  
  
