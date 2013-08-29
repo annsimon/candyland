@@ -71,7 +71,7 @@ namespace Candyland
         public const bool singlestepperOFF = true;
         public const int framerate = 1;
 
-        public const float cameraFarPlane = 50;
+        public const float cameraFarPlane = 70;
 
         public const int inputManagerMode = InputManager.KEYBOARDMOUSE;
 
