@@ -316,7 +316,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="0.bonbonFairy" type="bonbon" x="880" y="270" width="20" height="20">
+  <object name="-" type="bonbon" x="880" y="270" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
     <property name="endPositionY" value="-"/>
@@ -329,7 +329,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="0.salesman" type="salesman" x="910" y="270" width="20" height="20">
+  <object name="-" type="salesman" x="910" y="270" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
     <property name="endPositionY" value="-"/>

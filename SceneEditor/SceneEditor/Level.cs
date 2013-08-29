@@ -224,69 +224,59 @@ namespace SceneEditor
 
             scene.LoadXml(xml);
 
-            XmlNodeList id = scene.GetElementsByTagName("object_id");
-            XmlNodeList type = scene.GetElementsByTagName("object_type");
-            XmlNodeList position = scene.GetElementsByTagName("object_position");
-            XmlNodeList door_to_area = scene.GetElementsByTagName("is_door_to_area");
-            XmlNodeList door_to_level = scene.GetElementsByTagName("is_door_to_level");
-            XmlNodeList slippery = scene.GetElementsByTagName("slippery");
-            XmlNodeList visible = scene.GetElementsByTagName("visible");
-            XmlNodeList endPosition = scene.GetElementsByTagName("object_endposition");
-            XmlNodeList size = scene.GetElementsByTagName("object_size");
-            XmlNodeList dialog = scene.GetElementsByTagName("dialog");
-            int count = 0;
+            XmlNodeList objects = scene.GetElementsByTagName("object");
 
-            foreach (XmlNode node in id)
+            foreach (XmlNode node in objects)
             {
                 Object obj = new Object();
 
                 // set id
-                obj.id = node.InnerText;
+                obj.id = node.Attributes["id"].InnerText;
 
                 // get object type
-                obj.type = type[count].InnerText;
+                obj.type = node.Attributes["type"].InnerText;
 
                 // get x, y, z position
-                obj.posX = position[count].SelectSingleNode("x").InnerText;
-                obj.posY = position[count].SelectSingleNode("y").InnerText;
-                obj.posZ = position[count].SelectSingleNode("z").InnerText;
+                obj.posX = node.Attributes["posX"].InnerText;
+                obj.posY = node.Attributes["posY"].InnerText;
+                obj.posZ = node.Attributes["posZ"].InnerText;
 
                 try
                 {
                     // get x, y, z position
-                    obj.endPosX = endPosition[count].SelectSingleNode("x").InnerText;
-                    obj.endPosY = endPosition[count].SelectSingleNode("y").InnerText;
-                    obj.endPosZ = endPosition[count].SelectSingleNode("z").InnerText;
+                    obj.endPosX = node.Attributes["endPosX"].InnerText;
+                    obj.endPosY = node.Attributes["endPosY"].InnerText;
+                    obj.endPosZ = node.Attributes["endPosZ"].InnerText;
                 }
                 catch { }
 
                 // get value for slippery
-                obj.slippery = slippery[count].InnerText;
+                obj.slippery = node.Attributes["slippery"].InnerText;
 
                 // get bool value for isVisible
-                if( visible[count] != null )
-                    obj.isVisible = bool.Parse(visible[count].InnerText);
-                else
+                try
+                {
+                    obj.isVisible = bool.Parse(node.Attributes["visible"].InnerText);
+                }
+                catch
+                {
                     obj.isVisible = true;
+                }
 
                 // get isDoorToArea
-                obj.doorArea = door_to_area[count].InnerText;
+                obj.doorArea = node.Attributes["is_door_to_area"].InnerText;
 
                 // get isDoorToLevel
-                obj.doorLevel = door_to_level[count].InnerText;
+                obj.doorLevel = node.Attributes["is_door_to_level"].InnerText;
                 
                 // get object size
-                obj.size = size[count].InnerText;
+                obj.size = node.Attributes["size"].InnerText;
 
                 // get object's dialog text
-                obj.dialog = dialog[count].InnerText;
+                obj.dialog = node.Attributes["dialog"].InnerText;
 
                 // add object to list
                 returnList.Add(obj);
-
-                // increase count as it is used to access the not-id xml elements of the correct level
-                // (the one currently being parsed)
-                count++;
             }
 
             return returnList;

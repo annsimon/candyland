@@ -119,26 +119,22 @@ namespace SceneEditor
         public string Write()
         {
             string ret = "";
-            ret += "                  <object>\n";
-            ret += "                    <object_type>" + type + "</object_type>\n";
-            ret += "                    <object_id>" + id + "</object_id>\n";
-            ret += "                    <is_door_to_area>" + doorArea + "</is_door_to_area>\n";
-            ret += "                    <is_door_to_level>" + doorLevel + "</is_door_to_level>\n";
-            ret += "                    <object_position>\n";
-            ret += "                      <x>" + posX + "</x>\n";
-            ret += "                      <y>" + posY + "</y>\n";
-            ret += "                      <z>" + posZ + "</z>\n";
-            ret += "                    </object_position>\n";
-            ret += "                    <object_endposition>\n";
-            ret += "                      <x>" + endPosX + "</x>\n";
-            ret += "                      <y>" + endPosY + "</y>\n";
-            ret += "                      <z>" + endPosZ + "</z>\n";
-            ret += "                    </object_endposition>\n";
-            ret += "                    <object_size>" + size + "</object_size>\n";
-            ret += "                    <slippery>" + slippery + "</slippery>\n";
-            ret += "                    <visible>" + isVisible.ToString() + "</visible>\n";
-            ret += "                    <dialog>" + dialog + "</dialog>\n";
-            ret += "                  </object>\n";
+            ret += "                  <object ";
+            ret += "type=\""+type+"\" ";
+            ret += "id=\"" + id + "\" ";
+            ret += "is_door_to_area=\"" + doorArea + "\" ";
+            ret += "is_door_to_level=\"" + doorLevel + "\" ";
+            ret += "posX=\"" + posX + "\" ";
+            ret += "posY=\"" + posY + "\" ";
+            ret += "posZ=\"" + posZ + "\" "; 
+            ret += "endPosX=\"" + endPosX + "\" ";
+            ret += "endPosY=\"" + endPosY + "\" ";
+            ret += "endPosZ=\"" + endPosZ + "\" ";
+            ret += "size=\"" + size + "\" ";
+            ret += "slippery=\"" + slippery + "\" "; 
+            ret += "visible=\"" + isVisible + "\" ";
+            ret += "dialog=\"" + dialog + "\" ";
+            ret += "/>\n";
             return ret;
         }
     }

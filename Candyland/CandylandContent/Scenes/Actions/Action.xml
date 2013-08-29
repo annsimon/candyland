@@ -222,7 +222,54 @@
           </subactions>
         </action_inner>
       </action>
-	</level_inner>
+	  </level_inner>
   </L0.S0>
+
+  <L5.3>
+    <level_inner>
+      <action>
+        <action_inner>
+          <trigger>5.3.5.dyn</trigger>
+          <triggered>5.3.1.actionActor</triggered>
+          <id>5.3.5Action</id>
+          <oneTimeAction>true</oneTimeAction>
+          <subactions>
+            <subaction>
+              <type>appear</type>
+              <goalX>10</goalX>
+              <goalY>0</goalY>
+              <goalZ>10</goalZ>
+              <text></text>
+              <locks>true</locks>
+            </subaction>
+            <subaction>
+              <type>dialog</type>
+              <goalX>10</goalX>
+              <goalY>0</goalY>
+              <goalZ>10</goalZ>
+              <text>Die Kekse, die du hier siehst, sind alt.</text>
+              <locks>true</locks>
+            </subaction>
+            <subaction>
+              <type>dialog</type>
+              <goalX>10</goalX>
+              <goalY>0</goalY>
+              <goalZ>10</goalZ>
+              <text>Wenn du sie betrittst, zerbrechen sie nach einer Weile. Beeil dich also und ueberleg gut, welchen Weg du nehmen willst.</text>
+              <locks>true</locks>
+            </subaction>
+            <subaction>
+              <type>disappear</type>
+              <goalX>0</goalX>
+              <goalY>0</goalY>
+              <goalZ>0</goalZ>
+              <text>x</text>
+              <locks>false</locks>
+            </subaction>
+          </subactions>
+        </action_inner>
+      </action>
+    </level_inner>
+  </L5.3>
   
 </levels>

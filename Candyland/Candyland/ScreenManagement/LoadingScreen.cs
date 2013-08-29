@@ -69,25 +69,25 @@ namespace Candyland
 
         private void FillWithText()
         {
- 	        sentences.Add("Plätzchen werden gebacken.");
+ 	        sentences.Add("Plätzchen werden gebacken");
             sentences.Add("Zuckerwattewolken werden aufgeklopft");
             sentences.Add("Kekse werden abgestaubt");
-            sentences.Add("Pralinen mit Nugat füllen");
+            sentences.Add("Pralinen werden mit Nugat gefüllt");
             sentences.Add("Zuckerstangen werden gedreht");
             sentences.Add("Bonbons werden eingepackt");
             sentences.Add("Schokolade wird geschmolzen");
             sentences.Add("Schokolade wird in Formen gegossen");
             sentences.Add("Eiscreme wird gerührt");
-            sentences.Add("Noch etwas Zimt");
-            sentences.Add("Mit Puderzucker bestäuben");
-            sentences.Add("Teig kneten");
+            sentences.Add("Prise Zimt wird hinzugefügt");
+            sentences.Add("Gebäck wird mit Puderzucker bestäubt");
+            sentences.Add("Teig wird geknetet");
             sentences.Add("Plätzchen werden ausgestochen");
-            sentences.Add("Teig probieren");
-            sentences.Add("Geschirr spülen und aufräumen");
+            sentences.Add("Teig wird probiert");
+            sentences.Add("Geschirr wird gespült");
             sentences.Add("Nüsse werden gemahlen, Pistazien gehackt");
             sentences.Add("Marzipanschweinchen werden geformt");
-            sentences.Add("Cupcakes verziehren");
-            sentences.Add("Noch etwas mehr Zucker");
+            sentences.Add("Cupcakes werden verziert");
+            sentences.Add("Zuckergehalt wird erhöht");
             //sentences.Add("");
             //sentences.Add("");
             //sentences.Add("");

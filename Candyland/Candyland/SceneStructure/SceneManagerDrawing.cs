@@ -124,11 +124,11 @@ namespace Candyland
                 {
                     if (animationPlayer != null)
                     {
-                        e.CurrentTechnique = e.Techniques["ShadedWithShadowsAndAnimated"];
+                        e.CurrentTechnique = e.Techniques["ShadedWithShadowsAndAnimated2x2PCF"];
                         e.Parameters["Bones"].SetValue(animationPlayer.GetSkinTransforms());
                     }
                     else
-                        e.CurrentTechnique = e.Techniques["ShadedWithShadows"];
+                        e.CurrentTechnique = e.Techniques["ShadedWithShadows2x2PCF"];
                     e.Parameters["lightViewProjection"].SetValue(m_shadowMap.LightViewProjectionMatrix);
                     e.Parameters["textureScaleBias"].SetValue(m_shadowMap.TextureScaleBiasMatrix);
                     e.Parameters["depthBias"].SetValue(m_shadowMap.DepthBias);
