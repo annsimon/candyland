@@ -24,12 +24,17 @@ namespace Candyland
         ScreenInputManager screenInput;
         InputState input;
 
-        Thread loadingThread;
+        bool isFullScreen;
 
         // the scene manager, most stuff happens in there
         SceneManager m_sceneManager;
 
         #region getter
+
+        public bool isFullscreen
+        {
+            get { return isFullScreen; }
+        }
 
         public SceneManager SceneManager
         {
@@ -70,10 +75,10 @@ namespace Candyland
         /// <summary>
         /// Constructs a new screen manager component.
         /// </summary>
-        public ScreenManager(Game game)
+        public ScreenManager(Game game, bool isFullScreen)
             : base(game)
         {
-
+            this.isFullScreen = isFullScreen;
         }
 
 
@@ -88,7 +93,8 @@ namespace Candyland
             screenInput = new ScreenInputManager();
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            mainText = content.Load<SpriteFont>("Fonts/MainText");
+            if (isFullScreen) mainText = content.Load<SpriteFont>("Fonts/MainTextFullscreen");
+            else mainText = content.Load<SpriteFont>("Fonts/MainText");
 
             // Open topmost screen
             screens.Last().ScreenState = ScreenState.Active;

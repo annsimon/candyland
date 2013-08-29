@@ -51,7 +51,7 @@ namespace Candyland
             option3 = "Reisen";
             option4 = "Auf Wiedersehen!";
 
-            lineCapacity = (TextBox.Height - offset) / font.LineSpacing;
+            //lineCapacity = (TextBox.Height - offset) / font.LineSpacing;
 
             GreetingArray = wrapText(Greeting, font, TextBox, lineCapacity);
             TextArray = wrapText(Text, font, TextBox, lineCapacity);
@@ -138,6 +138,8 @@ namespace Candyland
             m_sprite.Draw(talkBubbleBottomRight, DiagBoxBR, Color.White);
             m_sprite.Draw(talkBubbleLeft, DiagBoxL, Color.White);
             m_sprite.Draw(talkBubbleRight, DiagBoxR, Color.White);
+            m_sprite.Draw(talkBubbleTop, DiagBoxT, Color.White);
+            m_sprite.Draw(talkBubbleBottom, DiagBoxB, Color.White);
             m_sprite.Draw(talkBubbleMiddle, DiagBoxM, Color.White);
 
             m_sprite.Draw(talkingNPC, pictureNPC, Color.White);

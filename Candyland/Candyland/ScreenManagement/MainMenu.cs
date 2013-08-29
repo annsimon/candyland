@@ -8,8 +8,10 @@ namespace Candyland
 {
     class MainMenu : GameScreen
     {
-        Texture2D background;
+        Texture2D caption;
         Texture2D buttonTexture;
+
+        protected SpriteFont font;
 
         int screenWidth;
         int screenHeight;
@@ -23,41 +25,97 @@ namespace Candyland
         int leftAlign;
         int topAlign;
         Rectangle selectedButton;
-        //Rectangle button0;
-        //Rectangle button1;
-        //Rectangle button2;
-        //Rectangle button3;
-        //Rectangle button4;
-        //Rectangle button5;
+
+        // Strings for Buttons
+        string play = "Weiterspielen";
+        string newGame = "Neues Spiel";
+        string options = "Optionen";
+        string bonus = "Extras";
+        string credits = "Credits";
+        string end = "Spiel beenden";
+
+        // Border
+        protected Rectangle MenuBoxTL;
+        protected Rectangle MenuBoxTR;
+        protected Rectangle MenuBoxBL;
+        protected Rectangle MenuBoxBR;
+        protected Rectangle MenuBoxL;
+        protected Rectangle MenuBoxR;
+        protected Rectangle MenuBoxT;
+        protected Rectangle MenuBoxB;
+        protected Rectangle MenuBoxM;
+
+        protected Texture2D BorderTopLeft;
+        protected Texture2D BorderTopRight;
+        protected Texture2D BorderBottomLeft;
+        protected Texture2D BorderBottomRight;
+        protected Texture2D BorderLeft;
+        protected Texture2D BorderRight;
+        protected Texture2D BorderTop;
+        protected Texture2D BorderBottom;
+        protected Texture2D BorderMiddle;
 
         public override void Open(Game game)
         {
             this.isFullscreen = true;
 
-            background = ScreenManager.Content.Load<Texture2D>("ScreenTextures/mainMenu");
+            caption = ScreenManager.Content.Load<Texture2D>("Images/Captions/MainMenu");
             buttonTexture = ScreenManager.Content.Load<Texture2D>("ScreenTextures/transparent");
+
+            font = ScreenManager.Font;
 
             // Initialize Buttons
             screenWidth = game.GraphicsDevice.Viewport.Width;
             screenHeight = game.GraphicsDevice.Viewport.Height;
 
             numberOfButtons = 6;
-            buttonWidth = screenWidth / 2;
+            buttonWidth = screenWidth / 4;
             buttonHeight = (screenHeight * 29) / 50 / numberOfButtons;
             leftAlign = (screenWidth - buttonWidth) / 2;
-            topAlign = screenHeight / 3;
-            //int buttonWidth = screenWidth / 3;
-            //int buttonHeight = (screenHeight * 4) / 5 / numberOfButtons;
-            //int leftAlign = (screenWidth - buttonWidth) / 2;
-            //int topAlign = (screenHeight - numberOfButtons * buttonHeight) / 2;
+            topAlign = screenWidth / 6 + 10;
 
             selectedButton = new Rectangle(leftAlign, topAlign, buttonWidth, buttonHeight);
-            //button0 = new Rectangle(leftAlign, topAlign, buttonWidth, buttonHeight);
-            //button1 = new Rectangle(leftAlign, topAlign + buttonHeight, buttonWidth, buttonHeight);
-            //button2 = new Rectangle(leftAlign, topAlign + (buttonHeight * 2), buttonWidth, buttonHeight);
-            //button3 = new Rectangle(leftAlign, topAlign + (buttonHeight * 3), buttonWidth, buttonHeight);
-            //button4 = new Rectangle(leftAlign, topAlign + (buttonHeight * 4), buttonWidth, buttonHeight);
-            //button5 = new Rectangle(leftAlign, topAlign + (buttonHeight * 5), buttonWidth, buttonHeight);
+
+            BorderTopLeft = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogTopLeft");
+            BorderTopRight = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogTopRight");
+            BorderBottomLeft = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottomLeft");
+            BorderBottomRight = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottomRight");
+            BorderLeft = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogLeft");
+            BorderRight = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogRight");
+            BorderTop = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogTop");
+            BorderBottom = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottom");
+            BorderMiddle = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogMiddle");
+
+            int offsetX = (screenWidth - buttonWidth)/2 - 100;
+            int offsetY = screenHeight/6 - 50;
+
+            MenuBoxTL = new Rectangle(0 + offsetX,
+                                      offsetY,
+                                      42, 49);
+            MenuBoxTR = new Rectangle(screenWidth - offsetX - 42,
+                                      offsetY,
+                                      42, 49);
+            MenuBoxBL = new Rectangle(0 + offsetX,
+                                      screenHeight - offsetY - 49,
+                                      42, 49);
+            MenuBoxBR = new Rectangle(screenWidth - offsetX - 42,
+                                      screenHeight - offsetY - 49,
+                                      42, 49);
+            MenuBoxL = new Rectangle(0 + offsetX,
+                                     offsetY + 49,
+                                     42, (screenHeight - offsetY - 49) - (offsetY + 49));
+            MenuBoxR = new Rectangle(screenWidth - offsetX - 42,
+                                     offsetY + 49,
+                                     42, (screenHeight - offsetY - 49) - (offsetY + 49));
+            MenuBoxT = new Rectangle(0 + offsetX + 42,
+                                      offsetY,
+                                      screenWidth - 84 - 2*offsetX, 49);
+            MenuBoxB = new Rectangle(0 + offsetX + 42,
+                                     screenHeight - offsetY - 49,
+                                     screenWidth - 84 - 2*offsetX, 49);
+            MenuBoxM = new Rectangle(0 + offsetX + 42,
+                                     offsetY + 49,
+                                     screenWidth - 84 - 2*offsetX, screenHeight - 2*offsetY - 96);
         }
 
         public override void Update(GameTime gameTime)
@@ -93,28 +151,39 @@ namespace Candyland
         {
             SpriteBatch m_sprite = ScreenManager.SpriteBatch;
 
+
+            ScreenManager.GraphicsDevice.Clear(GameConstants.BackgroundColorMenu);
+
             m_sprite.Begin();
 
-            m_sprite.Draw(background, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
+            // Draw Boarder
+            m_sprite.Draw(BorderTopLeft, MenuBoxTL, Color.White);
+            m_sprite.Draw(BorderTopRight, MenuBoxTR, Color.White);
+            m_sprite.Draw(BorderBottomLeft, MenuBoxBL, Color.White);
+            m_sprite.Draw(BorderBottomRight, MenuBoxBR, Color.White);
+            m_sprite.Draw(BorderLeft, MenuBoxL, Color.White);
+            m_sprite.Draw(BorderRight, MenuBoxR, Color.White);
+            m_sprite.Draw(BorderTop, MenuBoxT, Color.White);
+            m_sprite.Draw(BorderBottom, MenuBoxB, Color.White);
+            m_sprite.Draw(BorderMiddle, MenuBoxM, Color.White);
+            if(ScreenManager.isFullscreen) m_sprite.Draw(caption, new Rectangle(MenuBoxL.Left + 5, MenuBoxT.Top + 5, caption.Width, caption.Height), Color.White);
+            else m_sprite.Draw(caption, new Rectangle(MenuBoxL.Left + 5, MenuBoxT.Top + 5, (int)(caption.Width * 0.8f), (int)(caption.Height*0.8f)), Color.White);
+
+            // Draw Option Strings
+            Color textColor = Color.Black;
+
+            m_sprite.DrawString(font, play, new Vector2(leftAlign + (buttonWidth - font.MeasureString(play).X) / 2, topAlign - buttonHeight/2), textColor);
+            m_sprite.DrawString(font, newGame, new Vector2(leftAlign + (buttonWidth - font.MeasureString(newGame).X) / 2, topAlign + (buttonHeight)), textColor);
+            m_sprite.DrawString(font, options, new Vector2(leftAlign + (buttonWidth - font.MeasureString(options).X) / 2, topAlign + (buttonHeight * 2)), textColor);
+            m_sprite.DrawString(font, bonus, new Vector2(leftAlign + (buttonWidth - font.MeasureString(bonus).X) / 2, topAlign + (buttonHeight * 3)), textColor);
+            m_sprite.DrawString(font, credits, new Vector2(leftAlign + (buttonWidth - font.MeasureString(credits).X) / 2, topAlign + (buttonHeight * 4)), textColor);
+            m_sprite.DrawString(font, end, new Vector2(leftAlign + (buttonWidth - font.MeasureString(end).X) / 2, topAlign + (buttonHeight * 5)), textColor);
 
             selectedButton.Y = topAlign + (buttonHeight * activeButtonIndex);
+            if (activeButtonIndex == 0) selectedButton.Y -= buttonHeight / 2;
             m_sprite.Draw(buttonTexture, selectedButton, Color.White);
 
-            //switch (activeButtonIndex)
-            //{
-            //    case 0: m_sprite.Draw(buttonTexture, button0, Color.White); break;
-            //    case 1: m_sprite.Draw(buttonTexture, button1, Color.White); break;
-            //    case 2: m_sprite.Draw(buttonTexture, button2, Color.White); break;
-            //    case 3: m_sprite.Draw(buttonTexture, button3, Color.White); break;
-            //    case 4: m_sprite.Draw(buttonTexture, button4, Color.White); break;
-            //    case 5: m_sprite.Draw(buttonTexture, button5, Color.White); break;
-            //}
             m_sprite.End();
-
-            // we need the following as spriteBatch.Begin() sets them to None and AlphaBlend
-            // which breaks our model rendering
-            //m_graphics.DepthStencilState = DepthStencilState.Default;
-            //m_graphics.BlendState = BlendState.Opaque;
         }
 
         public override void Close()
