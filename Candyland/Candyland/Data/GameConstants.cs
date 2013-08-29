@@ -71,23 +71,23 @@ namespace Candyland
         public const bool singlestepperOFF = true;
         public const int framerate = 1;
 
-        public const float cameraFarPlane = 50;
+        public const float cameraFarPlane = 70;
 
         public const int inputManagerMode = InputManager.KEYBOARDMOUSE;
 
         // data regarding the scene
 
-        public const string sceneFile = @"Content\Scenes\SceneSchieberaetselPrototyp.xml";
-        public const string eventFile = @"Content\Scenes\Events\EventTest.xml";
-        public const string actionsFile = @"Content\Scenes\Actions\ActionTest.xml";
-        public const string startAreaID = "7";
-        public const string startLevelID = "7.0";
+       // public const string sceneFile = @"Content\Scenes\Scenetest2.xml";
+       // public const string eventFile = @"Content\Scenes\Events\EventTest.xml";
+       // public const string actionsFile = @"Content\Scenes\Actions\ActionTest.xml";
+       // public const string startAreaID = "255";
+       // public const string startLevelID = "255.0";
 
-        //public const string sceneFile = @"Content\Scenes\theWorld.xml";
-        //public const string eventFile = @"Content\Scenes\Events\Event.xml";
-        //public const string actionsFile = @"Content\Scenes\Actions\Action.xml";
-        //public const string startAreaID = "0";
-        //public const string startLevelID = "0.Tutorial";
+        public const string sceneFile = @"Content\Scenes\theWorld.xml";
+        public const string eventFile = @"Content\Scenes\Events\Event.xml";
+        public const string actionsFile = @"Content\Scenes\Actions\Action.xml";
+        public const string startAreaID = "0";
+        public const string startLevelID = "0.Tutorial";
         
         
         public static Color backgroundColor = Color.DarkSlateBlue;

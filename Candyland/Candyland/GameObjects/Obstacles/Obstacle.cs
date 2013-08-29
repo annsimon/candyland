@@ -49,6 +49,7 @@ namespace Candyland
                 case 0: loadLow(content); break;
                 case 1: loadSmall(content); break;
                 case 2: loadLarge(content); break;
+                default: loadSmall(content); break;
             }
             this.m_original_texture = this.m_texture;
             this.m_original_model = this.m_model;

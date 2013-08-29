@@ -352,7 +352,7 @@
       <Name>skybox2</Name>
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.9</ProcessorParameters_Scale>
+      <ProcessorParameters_Scale>1.1</ProcessorParameters_Scale>
     </Compile>
     <Compile Include="Skybox\effects.fx">
       <Name>effects</Name>
@@ -414,7 +414,7 @@
       <Name>plattform_gross</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.99</ProcessorParameters_Scale>
+      <ProcessorParameters_Scale>0.33</ProcessorParameters_Scale>
     </Compile>
     <Compile Include="Objekte\Plattformen\plattform_klein.fbx">
       <Name>plattform_klein</Name>
@@ -426,7 +426,7 @@
       <Name>plattform_mittel</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.66</ProcessorParameters_Scale>
+      <ProcessorParameters_Scale>0.33</ProcessorParameters_Scale>
     </Compile>
     <Compile Include="Objekte\Plattformen\Slippery\plattformrutschig.fbx">
       <Name>plattformrutschig</Name>
@@ -635,21 +635,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\Dialog\dialogLeft.png">
-      <Name>dialogLeft</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\Dialog\dialogMiddle.png">
-      <Name>dialogMiddle</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\Dialog\dialogRight.png">
-      <Name>dialogRight</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="Images\Map\AvailablePos.png">
       <Name>AvailablePos</Name>
       <Importer>TextureImporter</Importer>
@@ -669,6 +654,57 @@
   <ItemGroup>
     <Compile Include="ScreenTextures\Main.png">
       <Name>Main</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\Dialog\DialogBottomLeft.png">
+      <Name>DialogBottomLeft</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Dialog\DialogBottomRight.png">
+      <Name>DialogBottomRight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Dialog\DialogLeft.png">
+      <Name>DialogLeft</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Dialog\dialogMiddle.png">
+      <Name>dialogMiddle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Dialog\DialogRight.png">
+      <Name>DialogRight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Dialog\DialogTopLeft.png">
+      <Name>DialogTopLeft</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Dialog\DialogTopRight.png">
+      <Name>DialogTopRight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\Dialog\DialogTop.png">
+      <Name>DialogTop</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\Dialog\DialogBottom.png">
+      <Name>DialogBottom</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

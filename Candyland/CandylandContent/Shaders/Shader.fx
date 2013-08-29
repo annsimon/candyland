@@ -248,12 +248,13 @@ void shade(in  float2 inTexCoord,
 {
 	float3 l = normalize(inLightDir);
 	float3 n = normalize(inNormal);
+	float3 dir = normalize(inLightDir);
 	float intensity = saturate(dot(n, l));
 
 	float4 ambient = materialAmbient * lightColor;
 	float4 diffuse = materialDiffuse * lightColor * intensity * shadowOcclusion;
 
-	float4 reflect = normalize(2*intensity*float4(inNormal,1)-float4(inLightDir,1.0));
+	float4 reflect = normalize(2*intensity*float4(inNormal,1)-float4(dir,1.0));
 	float4 specular = pow(saturate(dot(reflect,viewForLight)),shiny);
 	specular = materialSpecular * lightColor * specular;
 	if( shadowOcclusion < 1 )
