@@ -117,6 +117,7 @@ void VS_Shaded(in   float4 inPosition  : POSITION,
 	outTexCoord = inTexCoord;
 	outNormal = mul(inNormal, (float3x3)world);
 	outLightDir = -lightDir;
+	outLightDir.x = -outLightDir.x;
 
 	float4 worldPosition = mul(inPosition, world);
     viewForLight = normalize(float4(cameraPos,1.0) - worldPosition);

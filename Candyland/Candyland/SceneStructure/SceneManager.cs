@@ -47,6 +47,8 @@ namespace Candyland
         // the player
         CandyGuy player;
         CandyHelper player2;
+
+        Sun sun;
         /*************************************************************/
         // graphics device needed for drawing the bounding boxes
         GraphicsDevice m_graphics;
@@ -61,6 +63,8 @@ namespace Candyland
         Texture2D keysFull;
         Texture2D[] skyboxTextures;
         Model skyboxModel;
+
+        Effect billboardEffect;
 
         InputManager m_inputManager;
 
@@ -84,6 +88,7 @@ namespace Candyland
             player2 = new CandyHelper(new Vector3(0, 0.4f, 0.2f), Vector3.Up, m_graphics.Viewport.AspectRatio, m_updateInfo, m_bonusTracker);
             player = new CandyGuy(new Vector3(0, 0.4f, 0), new Vector3(0, 0, 1), m_graphics.Viewport.AspectRatio, m_updateInfo, m_bonusTracker, player2);
 
+            sun = new Sun(m_graphics);
             
             //TEST!!!
             m_updateInfo.currentguyLevelID = (GameConstants.startLevelID);
@@ -102,7 +107,7 @@ namespace Candyland
             m_shadowMap.DepthBias = GameConstants.depthBias;
 
             // set up scene light
-            m_globalLight.direction = new Vector3(0.0f, -0.5f, -0.5f);
+            m_globalLight.direction = new Vector3(0.5f, -0.5f, -0.5f);
             m_globalLight.direction.Normalize();
             m_globalLight.color = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
             m_globalLight.rotation = Vector2.Zero;
@@ -116,11 +121,15 @@ namespace Candyland
             player.load(manager);
             player2.load(manager);
 
+            sun.Load(manager);
+
             screenFont = manager.Load<SpriteFont>("Fonts/MainText");
             keys = manager.Load<Texture2D>("Images/HUD/HudFull");
             chocoChip = manager.Load<Texture2D>("Images/HUD/Choco");
             keysFull = manager.Load<Texture2D>("Images/HUD/HudFullWithChange");
             skyboxModel = LoadSkybox(manager, "Skybox/skybox2", out skyboxTextures);
+
+            billboardEffect = manager.Load<Effect>("Shaders/Billboard");
         }
 
         /// <summary>
@@ -140,10 +149,10 @@ namespace Candyland
                 foreach (BasicEffect currentEffect in mesh.Effects)
                     textures[i++] = currentEffect.Texture;
 
-            Effect effect = manager.Load<Effect> ("Skybox/effects");
+            Effect skyboxEffect = manager.Load<Effect>("Skybox/effects");
             foreach (ModelMesh mesh in newModel.Meshes)
                 foreach (ModelMeshPart meshPart in mesh.MeshParts)
-                    meshPart.Effect = effect.Clone();
+                    meshPart.Effect = skyboxEffect.Clone();
 
             return newModel;
         }

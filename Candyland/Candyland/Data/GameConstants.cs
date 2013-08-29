@@ -94,7 +94,7 @@ namespace Candyland
         /// <summary>
         /// Background color for full screen menu screens
         /// </summary>
-        public static Color BackgroundColorMenu = Color.Beige;
+        public static Color BackgroundColorMenu = Color.Peru;
 
         public static Color backgroundColor = new Color(86,131, 227);
 
@@ -104,6 +104,5 @@ namespace Candyland
         /// 
         // Dialogue
         public const string tradesmanGreeting = "Ah, ein Kunde. Guten Tag, Reisender! Womit kann ich behilflich sein? Kann ich dich für meine Waren begeistern oder suchst du eine Transportmöglichkeit? Oder möchtest du ein paar Neuigkeiten über Candyland hören? Ich höre viel und rede gern :) Hast du z.B. schon von der neuen Bedrohung durch die größenwahnsinnige Lakritze gehört?";
-
     }
 }

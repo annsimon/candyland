@@ -18,9 +18,20 @@ namespace Candyland
         int screenWidth;
         int screenHeight;
 
+        private SpriteFont font;
+
+        private int timePast;
+        private string currentMessage = "Bla";
+
+        List<string> sentences = new List<string>();
+
         public override void Open(Game game)
         {
             this.isFullscreen = true;
+
+            font = ScreenManager.Font;
+
+            FillWithText();
 
             ContentManager content = ScreenManager.Content;
 
@@ -30,12 +41,17 @@ namespace Candyland
             background = content.Load<Texture2D>("ScreenTextures/optionsScreen");
         }
 
+
         public override void Update(GameTime gameTime)
         {
-            if (screenWidth < 1) screenWidth = ScreenManager.Game.GraphicsDevice.Viewport.Width;
-            else
+            timePast += gameTime.ElapsedGameTime.Milliseconds;
+
+            // change displayed message after a few seconds
+            if (timePast%1000 == 0)
             {
-                screenWidth -= 1;
+                Random rand = new Random();
+                int i = rand.Next(19);
+                currentMessage = sentences[i];
             }
         }
 
@@ -44,16 +60,87 @@ namespace Candyland
             ScreenManager.GraphicsDevice.Clear(Color.Black);
 
             ScreenManager.SpriteBatch.Begin();
-            ScreenManager.SpriteBatch.Draw(background, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
+
+            ScreenManager.SpriteBatch.DrawString(font, currentMessage, new Vector2 ((screenWidth - font.MeasureString(currentMessage).X) / 2, screenHeight/2), Color.White);
+
             ScreenManager.SpriteBatch.End();
         }
 
-        public void RequestStop()
+
+        private void FillWithText()
         {
-            shouldStop = true;
+ 	        sentences.Add("Plätzchen werden gebacken.");
+            sentences.Add("Zuckerwattewolken werden aufgeklopft");
+            sentences.Add("Kekse werden abgestaubt");
+            sentences.Add("Pralinen mit Nugat füllen");
+            sentences.Add("Zuckerstangen werden gedreht");
+            sentences.Add("Bonbons werden eingepackt");
+            sentences.Add("Schokolade wird geschmolzen");
+            sentences.Add("Schokolade wird in Formen gegossen");
+            sentences.Add("Eiscreme wird gerührt");
+            sentences.Add("Noch etwas Zimt");
+            sentences.Add("Mit Puderzucker bestäuben");
+            sentences.Add("Teig kneten");
+            sentences.Add("Plätzchen werden ausgestochen");
+            sentences.Add("Teig probieren");
+            sentences.Add("Geschirr spülen und aufräumen");
+            sentences.Add("Nüsse werden gemahlen, Pistazien gehackt");
+            sentences.Add("Marzipanschweinchen werden geformt");
+            sentences.Add("Cupcakes verziehren");
+            sentences.Add("Noch etwas mehr Zucker");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
+            //sentences.Add("");
         }
-        // Volatile is used as hint to the compiler that this data
-        // member will be accessed by multiple threads.
-        private volatile bool shouldStop;
     }
 }
