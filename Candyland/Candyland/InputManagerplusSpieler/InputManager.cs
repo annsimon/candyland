@@ -94,7 +94,7 @@ namespace Candyland
             //Get the direction of the players camera
             float alpha = player.getCameraDir();
 
-            if (!updateinfo.currentguyLevelID.Equals("66.0"))
+            if (!updateinfo.currentguyAreaID.Equals("66"))
             {
                 if (keystate.IsKeyDown(Keys.W)) dmoveytemp += 1f;
                 if (keystate.IsKeyDown(Keys.S)) dmoveytemp -= 1f;
@@ -104,10 +104,10 @@ namespace Candyland
             else
             {
                 alpha = 0;
-                dmoveytemp += 1.5f;
-                if (keystate.IsKeyDown(Keys.S)) dmoveytemp -= 1.5f;
-                if (keystate.IsKeyDown(Keys.A)) dmovextemp += 1.5f;
-                if (keystate.IsKeyDown(Keys.D)) dmovextemp -= 1.5f;
+                dmoveytemp += 1.2f;
+                if (keystate.IsKeyDown(Keys.S)) dmoveytemp -= 1.2f;
+                if (keystate.IsKeyDown(Keys.A)) dmovextemp += 1.2f;
+                if (keystate.IsKeyDown(Keys.D)) dmovextemp -= 1.2f;
             }
             if (keystate.IsKeyDown(Keys.Space)
                 && keystate.IsKeyDown(Keys.Space) != oldKeyboardState.IsKeyDown(Keys.Space))

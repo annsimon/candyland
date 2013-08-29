@@ -96,7 +96,7 @@ namespace Candyland
         /// </summary>
         public static Color BackgroundColorMenu = Color.Beige;
 
-        public static Color backgroundColor = Color.DarkSlateBlue;
+        public static Color backgroundColor = new Color(86,131, 227);
 
         /// <summary>
         /// Strings
