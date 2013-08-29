@@ -95,7 +95,7 @@ namespace Candyland
 
             billboardEffect.Parameters["alphaTestDirection"].SetValue(-1.0f);
 
-            m_graphics.BlendState = BlendState.NonPremultiplied;
+            m_graphics.BlendState = BlendState.AlphaBlend;
             m_graphics.DepthStencilState = DepthStencilState.DepthRead;
 
             bb.Draw(m_graphics, billboardEffect);

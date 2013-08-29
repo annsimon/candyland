@@ -62,9 +62,9 @@ namespace Candyland
             player2.update();
 
             if( m_updateInfo.candyselected )
-                sun.UpdatePosition(m_graphics, player.getPosition());
+                sun.Update(m_graphics, player.getPosition(), gameTime);
             else
-                sun.UpdatePosition(m_graphics, player2.getPosition());
+                sun.Update(m_graphics, player2.getPosition(), gameTime);
 
             player.startIntersection();
             player2.startIntersection();
