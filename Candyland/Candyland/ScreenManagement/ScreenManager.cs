@@ -6,6 +6,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using System.IO;
+using System.Threading;
+using System.Diagnostics;
 
 namespace Candyland
 
@@ -22,7 +24,22 @@ namespace Candyland
         ScreenInputManager screenInput;
         InputState input;
 
+        bool isFullScreen;
+
+        // the scene manager, most stuff happens in there
+        SceneManager m_sceneManager;
+
         #region getter
+
+        public bool isFullscreen
+        {
+            get { return isFullScreen; }
+        }
+
+        public SceneManager SceneManager
+        {
+            get { return m_sceneManager; }
+        }
 
         /// <summary>
         /// A default SpriteBatch shared by all the screens. This saves
@@ -58,10 +75,10 @@ namespace Candyland
         /// <summary>
         /// Constructs a new screen manager component.
         /// </summary>
-        public ScreenManager(Game game)
+        public ScreenManager(Game game, bool isFullScreen)
             : base(game)
         {
-
+            this.isFullScreen = isFullScreen;
         }
 
 
@@ -76,7 +93,8 @@ namespace Candyland
             screenInput = new ScreenInputManager();
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            mainText = content.Load<SpriteFont>("Fonts/MainText");
+            if (isFullScreen) mainText = content.Load<SpriteFont>("Fonts/MainTextFullscreen");
+            else mainText = content.Load<SpriteFont>("Fonts/MainText");
 
             // Open topmost screen
             screens.Last().ScreenState = ScreenState.Active;
@@ -89,6 +107,14 @@ namespace Candyland
         /// </summary>
         public override void Update(GameTime gameTime)
         {
+            // when loading thread has finished its work, start the game
+            if (readyToStartGame)
+            {
+                RemoveScreen(screens.Last());
+                ActivateNewScreen(new MainGame());
+                readyToStartGame = false;
+            }
+
             input = screenInput.getInput();
 
             foreach (GameScreen screen in screens)
@@ -207,8 +233,21 @@ namespace Candyland
             // Add new game screen
             //ActivateNewScreen(new MainGame());
 
-            LoadingScreen.Load(this, true, new MainGame());
+            ActivateNewScreen(new LoadingScreen());
+
+            Thread loadingThread = new Thread(LoadingGameContent);
+            loadingThread.Start();
         }
 
+        private void LoadingGameContent()
+        {
+            m_sceneManager = new SceneManager(this);
+
+            // Load all content required by the scene
+            m_sceneManager.Load(Content);
+            readyToStartGame = true;
+        }
+
+        public bool readyToStartGame { get; set; }
     }
 }

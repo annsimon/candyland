@@ -25,7 +25,7 @@ namespace Candyland
             Content.RootDirectory = "Content";
 
             // Create the screen manager component.
-            screenManager = new ScreenManager(this);
+            screenManager = new ScreenManager(this, graphics.IsFullScreen);
             Components.Add(screenManager);
 
            // Content.RootDirectory = "CandylandContent"; 

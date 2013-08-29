@@ -292,7 +292,7 @@ namespace Candyland
                 }
                 catch
                 {
-                    text = "Hi";
+                    text = "Hi, ich muss hier so viel reinschreiben, damit der Text mindestens vier Zeilen lang wird und man sehen kann ob alles richtig angezeigt wird und das weiter klicken funktioniert. Noch mehr Text....................";
                 }
 
                 // get bool value for visible

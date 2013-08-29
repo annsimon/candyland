@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using System.Threading;
 
 namespace Candyland
 {
@@ -13,15 +14,13 @@ namespace Candyland
         {
             this.isFullscreen = true;
 
-            m_sceneManager = new SceneManager(ScreenManager);
+            m_sceneManager = ScreenManager.SceneManager;
 
             Song song = ScreenManager.Content.Load<Song>("Music/bgmusic");  // background music from http://longzijun.wordpress.com/2012/12/26/upbeat-background-music-free-instrumentals/
             MediaPlayer.Play(song);
             MediaPlayer.IsRepeating = true;
-
-            // Load all content required by the scene
-            m_sceneManager.Load(ScreenManager.Content);
         }
+
 
         public override void Update(GameTime gameTime)
         {
