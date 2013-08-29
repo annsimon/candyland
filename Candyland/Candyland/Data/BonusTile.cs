@@ -16,8 +16,17 @@ namespace Candyland
         int price;
         Texture2D texture;
         Rectangle rectangle;
+        bool sold;
 
         #region getter
+
+        /// <summary>
+        /// Tells if the bonus is already purchased by the player
+        /// </summary>
+        public bool isSold
+        {
+            get { return sold; }
+        }
 
         /// <summary>
         /// Gets the ID of a bonus

@@ -47,7 +47,7 @@ namespace Candyland
             timePast += gameTime.ElapsedGameTime.Milliseconds;
 
             // change displayed message after a few seconds
-            if (timePast % 2000 == 0)
+            if (timePast % 250 == 0)
             {
                 Random rand = new Random();
                 int i = rand.Next(19);
@@ -69,7 +69,7 @@ namespace Candyland
 
         private void FillWithText()
         {
- 	        sentences.Add("Plätzchen werden gebacken.");
+ 	        sentences.Add("Plätzchen werden gebacken");
             sentences.Add("Zuckerwattewolken werden aufgeklopft");
             sentences.Add("Kekse werden abgestaubt");
             sentences.Add("Pralinen mit Nugat füllen");
@@ -86,7 +86,7 @@ namespace Candyland
             sentences.Add("Geschirr spülen und aufräumen");
             sentences.Add("Nüsse werden gemahlen, Pistazien gehackt");
             sentences.Add("Marzipanschweinchen werden geformt");
-            sentences.Add("Cupcakes verziehren");
+            sentences.Add("Cupcakes verzieren");
             sentences.Add("Noch etwas mehr Zucker");
             //sentences.Add("");
             //sentences.Add("");

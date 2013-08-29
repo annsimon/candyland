@@ -99,6 +99,7 @@
     <Compile Include="Billboards\Billboard.cs" />
     <Compile Include="Billboards\Sun.cs" />
     <Compile Include="Data\ActionTracker.cs" />
+    <Compile Include="Data\BonusManager.cs" />
     <Compile Include="Data\BonusTracker.cs" />
     <Compile Include="Data\GameConstants.cs" />
     <Compile Include="Data\SaveGameData.cs" />
@@ -150,7 +151,7 @@
     <Compile Include="SceneStructure\SceneManagerDrawing.cs" />
     <Compile Include="SceneStructure\SceneManagerUpdate.cs" />
     <Compile Include="ScreenManagement\BonusScreen.cs" />
-    <Compile Include="ScreenManagement\BonusTile.cs" />
+    <Compile Include="Data\BonusTile.cs" />
     <Compile Include="ScreenManagement\CreditsScreen.cs" />
     <Compile Include="ScreenManagement\DialogListeningScreen.cs" />
     <Compile Include="ScreenManagement\LoadingScreen.cs" />
