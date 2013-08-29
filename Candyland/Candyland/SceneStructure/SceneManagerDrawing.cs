@@ -55,6 +55,55 @@ namespace Candyland
                     DrawModel(obj.GetModelGroup(), obj.prepareForDrawing());
             }
             DrawSkybox();
+
+            // this is the area to draw "global" billboards like the sun
+            billboardEffect.CurrentTechnique = billboardEffect.Techniques["BillboardingCameraAligned"];
+            DrawBillboard(sun);
+            billboardEffect.CurrentTechnique = billboardEffect.Techniques["BillboardingWorldYAxisAligned"];
+        }
+
+        private void DrawBillboard(Billboard bb)
+        {
+            // Save current states.
+
+            RasterizerState prevRasterizerState = m_graphics.RasterizerState;
+            if (prevRasterizerState == null)
+                prevRasterizerState = RasterizerState.CullCounterClockwise;
+            BlendState prevBlendState = m_graphics.BlendState;
+
+            // First pass:
+            // Render the non-transparent pixels of the billboards and store
+            // their depths in the depth buffer.
+
+            billboardEffect.Parameters["world"].SetValue(Matrix.Identity);
+            billboardEffect.Parameters["view"].SetValue(m_updateInfo.viewMatrix);
+            billboardEffect.Parameters["projection"].SetValue(m_updateInfo.projectionMatrix);
+            billboardEffect.Parameters["billboardSize"].SetValue(bb.getSize());
+            billboardEffect.Parameters["colorMap"].SetValue(bb.getTexture());
+            billboardEffect.Parameters["alphaTestDirection"].SetValue(1.0f);
+
+            m_graphics.BlendState = BlendState.Opaque;
+            m_graphics.DepthStencilState = DepthStencilState.Default;
+            m_graphics.RasterizerState = RasterizerState.CullNone;
+
+            bb.Draw(m_graphics, billboardEffect);
+
+            // Second pass:
+            // Render the transparent pixels of the billboards.
+            // Disable depth buffer writes to ensure that the depth values from
+            // the first pass are used instead.
+
+            billboardEffect.Parameters["alphaTestDirection"].SetValue(-1.0f);
+
+            m_graphics.BlendState = BlendState.NonPremultiplied;
+            m_graphics.DepthStencilState = DepthStencilState.DepthRead;
+
+            bb.Draw(m_graphics, billboardEffect);
+
+            // Restore original states.
+
+            m_graphics.BlendState = prevBlendState;
+            m_graphics.RasterizerState = prevRasterizerState;
         }
 
         private void DrawModel(GameObject.ModelGroup modelGroup, Matrix world)

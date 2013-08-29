@@ -61,8 +61,14 @@ namespace Candyland
             player.update();
             player2.update();
 
+            if( m_updateInfo.candyselected )
+                sun.UpdatePosition(m_graphics, player.getPosition());
+            else
+                sun.UpdatePosition(m_graphics, player2.getPosition());
+
             player.startIntersection();
             player2.startIntersection();
+
 
             // check for Collision between the Player and all Game Objects in the current Level
             m_areas[m_updateInfo.currentguyLevelID.Split('.')[0]].Collide(player);
@@ -104,8 +110,6 @@ namespace Candyland
 
         private void UpdateShadowMap()
         {
-            //m_shadowMap.Update(m_globalLight.direction, 
-            //    m_updateInfo.viewMatrix*m_updateInfo.projectionMatrix);
             Vector3 playerPos;
             if (m_updateInfo.candyselected)
                 playerPos = player.getPosition();
