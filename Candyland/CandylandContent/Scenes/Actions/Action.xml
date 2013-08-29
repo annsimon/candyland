@@ -10,46 +10,18 @@
           <id>tutorialAction1</id>
           <oneTimeAction>true</oneTimeAction>
           <subactions>
-            <subaction>
-              <type>dialog</type>
-              <goalX>10</goalX>
-              <goalY>0</goalY>
-              <goalZ>10</goalZ>
-              <text>Hi!</text>
-              <locks>true</locks>
-            </subaction>
-			<subaction>
-              <type>dialog</type>
-              <goalX>10</goalX>
-              <goalY>0</goalY>
-              <goalZ>10</goalZ>
-              <text>Willkommen in Candyland. Geht es dir gut?</text>
-              <locks>true</locks>
-            </subaction>
-			<subaction>
-              <type>dialog</type>
-              <goalX>10</goalX>
-              <goalY>0</goalY>
-              <goalZ>10</goalZ>
-              <text>Oft sind die Leute verwirrt, wenn sie hier ankommen... Folg erst einmal einfach diesem Weg hier, er wird dich deinem Ziel naeher bringen.</text>
-              <locks>true</locks>
-            </subaction>
-			<subaction>
-              <type>dialog</type>
-              <goalX>10</goalX>
-              <goalY>0</goalY>
-              <goalZ>10</goalZ>
-              <text>(Nutze W, A, S und D, um dich zu bewegen und Leertaste, um zu springen. Mit der Maus kann die Kamera gedreht werden.)</text>
-              <locks>true</locks>
-            </subaction>
-            <subaction>
-              <type>disappear</type>
-              <goalX>0</goalX>
-              <goalY>0</goalY>
-              <goalZ>0</goalZ>
-              <text>x</text>
-              <locks>false</locks>
-            </subaction>
+            <subaction type="appear" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
+            <subaction type="movement" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
+            <subaction type="movement" goalX="8" goalY="0" goalZ="6,5" locks="false" text=""/>
+            <subaction type="movement" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
+            <subaction type="movement" goalX="8" goalY="0" goalZ="6,5" locks="false" text=""/>
+            
+            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Hi!"/>
+            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Willkommen in Candyland. Geht es dir gut?"/>
+            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Oft sind die Leute verwirrt, wenn sie hier ankommen... Folg erst einmal einfach diesem Weg hier, er wird dich deinem Ziel n!ae!her bringen."/>
+            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="(Nutze W, A, S und D, um dich zu bewegen und Leertaste, um zu springen. Mit der Maus kann die Kamera gedreht werden.)"/>
+            
+            <subaction type="disappear" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
           </subactions>
         </action_inner>
       </action>
@@ -60,46 +32,17 @@
           <id>tutorialAction2</id>
           <oneTimeAction>true</oneTimeAction>
           <subactions>
-		    <subaction>
-              <type>appear</type>
-              <goalX>10</goalX>
-              <goalY>0</goalY>
-              <goalZ>10</goalZ>
-              <text></text>
-              <locks>true</locks>
-            </subaction>
-            <subaction>
-              <type>dialog</type>
-              <goalX>10</goalX>
-              <goalY>0</goalY>
-              <goalZ>10</goalZ>
-              <text>Das da vorne sind Schokolinsen. Sammel moeglichst viele von ihnen, um sie irgendwann gegen besondere Dinge einzutauschen.</text>
-              <locks>true</locks>
-            </subaction>
-			<subaction>
-              <type>dialog</type>
-              <goalX>10</goalX>
-              <goalY>0</goalY>
-              <goalZ>10</goalZ>
-              <text>Ich merke mir, welche der Linsen du schon gesammelt hast. Du kannst eine einmal eingesammelte Schokolinse also nicht wieder verlieren.</text>
-              <locks>true</locks>
-            </subaction>
-			<subaction>
-              <type>dialog</type>
-              <goalX>10</goalX>
-              <goalY>0</goalY>
-              <goalZ>10</goalZ>
-              <text>(Die Linsen-Anzeige oben links zeigt, wie viele Linsen es im ganzen Spiel gibt und wie viele von ihnen bereits gefunden wurden.)</text>
-              <locks>true</locks>
-            </subaction>
-            <subaction>
-              <type>disappear</type>
-              <goalX>0</goalX>
-              <goalY>0</goalY>
-              <goalZ>0</goalZ>
-              <text>x</text>
-              <locks>false</locks>
-            </subaction>
+            <subaction type="appear" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
+            <subaction type="movement" goalX="18,5" goalY="0,5" goalZ="19,5" locks="false" text=""/>
+            <subaction type="movement" goalX="18,5" goalY="0" goalZ="19,5" locks="false" text=""/>
+            <subaction type="movement" goalX="18,5" goalY="0,5" goalZ="19,5" locks="false" text=""/>
+            <subaction type="movement" goalX="18,5" goalY="0" goalZ="19,5" locks="false" text=""/>
+
+            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Das da vorne sind Schokolinsen. Sammel m!oe!glichst viele von ihnen, um sie irgendwann gegen besondere Dinge einzutauschen."/>
+            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Ich merke mir, welche der Linsen du schon gesammelt hast. Du kannst eine einmal eingesammelte Schokolinse also nicht wieder verlieren."/>
+            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="(Die Linsen-Anzeige oben links zeigt, wie viele Linsen es im ganzen Spiel gibt und wie viele von ihnen bereits gefunden wurden.)"/>
+            
+            <subaction type="disappear" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
           </subactions>
         </action_inner>
       </action>
@@ -115,55 +58,18 @@
           <id>korridor1Action</id>
           <oneTimeAction>true</oneTimeAction>
           <subactions>
-		    <subaction>
-              <type>appear</type>
-              <goalX>10</goalX>
-              <goalY>0</goalY>
-              <goalZ>10</goalZ>
-              <text></text>
-              <locks>true</locks>
-            </subaction>
-            <subaction>
-              <type>dialog</type>
-              <goalX>10</goalX>
-              <goalY>0</goalY>
-              <goalZ>10</goalZ>
-              <text>Das hier ist ein Haendler.</text>
-              <locks>true</locks>
-            </subaction>
+            <subaction type="appear" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
+            <subaction type="movement" goalX="12,5" goalY="0,5" goalZ="8" locks="false" text=""/>
+            <subaction type="movement" goalX="12,5" goalY="0" goalZ="8" locks="false" text=""/>
+            <subaction type="movement" goalX="12,5" goalY="0,5" goalZ="8" locks="false" text=""/>
+            <subaction type="movement" goalX="12,5" goalY="0" goalZ="8" locks="false" text=""/>
+            
+            <subaction type="movement" goalX="12,5" goalY="0" goalZ="6" locks="false" text=""/>
+            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Das hier ist ein H!ae!ndler."/>
+            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Sprich ihn an, um zu sehen, was er f!ue!r dich tun kann."/>
+            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="(Bei jedem H!ae!ndler gibt es Spezialwaren, die nur er anbietet. Also wirf immer auch einen Blick auf die Angebote.)"/>
 
-			<subaction>
-              <type>dialog</type>
-              <goalX>10</goalX>
-              <goalY>0</goalY>
-              <goalZ>10</goalZ>
-              <text>Sprich ihn an, um zu sehen, was er dir anbietet.</text>
-              <locks>true</locks>
-            </subaction>
-			<subaction>
-              <type>dialog</type>
-              <goalX>10</goalX>
-              <goalY>0</goalY>
-              <goalZ>10</goalZ>
-              <text>(Speichern kann man nur bei einem Haendler. Sie stehen immer wieder mal am Wegrand, also halt die Augen offen.)</text>
-              <locks>true</locks>
-            </subaction>
-			<subaction>
-              <type>dialog</type>
-              <goalX>10</goalX>
-              <goalY>0</goalY>
-              <goalZ>10</goalZ>
-              <text>(Jeder Haendler hat Spezialwaren, die nur er anbietet. Also wirf immer auch einen Blick auf die Angebote.)</text>
-              <locks>true</locks>
-            </subaction>
-            <subaction>
-              <type>disappear</type>
-              <goalX>0</goalX>
-              <goalY>0</goalY>
-              <goalZ>0</goalZ>
-              <text>x</text>
-              <locks>false</locks>
-            </subaction>
+            <subaction type="disappear" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
           </subactions>
         </action_inner>
       </action>
@@ -179,46 +85,16 @@
           <id>S01Action</id>
           <oneTimeAction>true</oneTimeAction>
           <subactions>
-		    <subaction>
-              <type>appear</type>
-              <goalX>10</goalX>
-              <goalY>0</goalY>
-              <goalZ>10</goalZ>
-              <text></text>
-              <locks>true</locks>
-            </subaction>
-            <subaction>
-              <type>dialog</type>
-              <goalX>10</goalX>
-              <goalY>0</goalY>
-              <goalZ>10</goalZ>
-              <text>Solche Zuckerwuerfel wie den da drueben kannst du verschieben. Versuch es doch mal.</text>
-              <locks>true</locks>
-            </subaction>
-			<subaction>
-              <type>dialog</type>
-              <goalX>10</goalX>
-              <goalY>0</goalY>
-              <goalZ>10</goalZ>
-              <text>Und hab keine Angst, falls du mal einen Fehler machst. Ich kann den Ursprungszustand der Umgebung wiederherstellen, wenn du das moechstest.</text>
-              <locks>true</locks>
-            </subaction>
-			<subaction>
-              <type>dialog</type>
-              <goalX>10</goalX>
-              <goalY>0</goalY>
-              <goalZ>10</goalZ>
-              <text>(Mit R kann ein Reset ausgeloest werden. Dabei werden alle Objekte zurueckgesetzt. Schon eingesammelte Schokolinsen gehen aber nicht verloren.)</text>
-              <locks>true</locks>
-            </subaction>
-            <subaction>
-              <type>disappear</type>
-              <goalX>0</goalX>
-              <goalY>0</goalY>
-              <goalZ>0</goalZ>
-              <text>x</text>
-              <locks>false</locks>
-            </subaction>
+            <subaction type="appear" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
+            <subaction type="movement" goalX="10,5" goalY="0,5" goalZ="15" locks="false" text=""/>
+            <subaction type="movement" goalX="10,5" goalY="0" goalZ="15" locks="false" text=""/>
+            <subaction type="movement" goalX="10,5" goalY="0,5" goalZ="15" locks="false" text=""/>
+            <subaction type="movement" goalX="10,5" goalY="0" goalZ="15" locks="false" text=""/>
+
+            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Solche Zuckerw!ue!rfel wie den da dr!ue!ben kannst du verschieben. Versuch es doch mal. Und hab keine Angst, falls du mal einen Fehler machst. Ich kann den Ursprungszustand der Umgebung wiederherstellen, wenn du das m!oe!chstest."/>
+            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="(Mit R kann ein Reset ausgel!oe!st werden. Dabei werden alle Objekte zur!ue!ckgesetzt. Bereits eingesammelte Schokolinsen gehen aber nicht verloren.)"/>
+
+            <subaction type="disappear" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
           </subactions>
         </action_inner>
       </action>
@@ -234,38 +110,16 @@
           <id>5.3.5Action</id>
           <oneTimeAction>true</oneTimeAction>
           <subactions>
-            <subaction>
-              <type>appear</type>
-              <goalX>10</goalX>
-              <goalY>0</goalY>
-              <goalZ>10</goalZ>
-              <text></text>
-              <locks>true</locks>
-            </subaction>
-            <subaction>
-              <type>dialog</type>
-              <goalX>10</goalX>
-              <goalY>0</goalY>
-              <goalZ>10</goalZ>
-              <text>Die Kekse, die du hier siehst, sind alt.</text>
-              <locks>true</locks>
-            </subaction>
-            <subaction>
-              <type>dialog</type>
-              <goalX>10</goalX>
-              <goalY>0</goalY>
-              <goalZ>10</goalZ>
-              <text>Wenn du sie betrittst, zerbrechen sie nach einer Weile. Beeil dich also und ueberleg gut, welchen Weg du nehmen willst.</text>
-              <locks>true</locks>
-            </subaction>
-            <subaction>
-              <type>disappear</type>
-              <goalX>0</goalX>
-              <goalY>0</goalY>
-              <goalZ>0</goalZ>
-              <text>x</text>
-              <locks>false</locks>
-            </subaction>
+            <subaction type="appear" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
+            <subaction type="movement" goalX="15,5" goalY="4,5" goalZ="4,5" locks="false" text=""/>
+            <subaction type="movement" goalX="15,5" goalY="4" goalZ="4,5" locks="false" text=""/>
+            <subaction type="movement" goalX="15,5" goalY="4,5" goalZ="4,5" locks="false" text=""/>
+            <subaction type="movement" goalX="15,5" goalY="4" goalZ="4,5" locks="false" text=""/>
+
+            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Die Kekse, die du hier siehst, sind alt."/>
+            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Wenn du sie betrittst, zerbrechen sie nach einer Weile. Beeil dich also und !ue!berleg gut, welchen Weg du nehmen willst."/>
+
+            <subaction type="disappear" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
           </subactions>
         </action_inner>
       </action>

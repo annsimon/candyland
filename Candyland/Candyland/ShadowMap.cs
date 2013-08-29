@@ -196,14 +196,14 @@ namespace Candyland
                     e.Parameters["lightViewProjection"].SetValue(lightViewProjectionMatrix);
                 }
 
-                try
-                {
+                //try
+                //{
                     m.Draw();
-                }
-                catch
-                {
-                    Console.WriteLine("Error while drawing shadow map");
-                }
+                //}
+                //catch
+                //{
+                //    Console.WriteLine("Error while drawing shadow map");
+                //}
 
                 foreach (KeyValuePair<ModelMeshPart, Effect> entry in originalEffects)
                     entry.Key.Effect = entry.Value;

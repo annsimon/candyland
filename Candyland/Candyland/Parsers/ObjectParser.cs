@@ -333,6 +333,10 @@ namespace Candyland
                 if (object_type == "bonbon")
                 {
                     string text = node.Attributes["dialog"].InnerText;
+                    text = text.Replace("!ae!", "ä");
+                    text = text.Replace("!ue!", "ü");
+                    text = text.Replace("!oe!", "ö");
+                    text = text.Replace("!ss!", "ß");
                     BonbonFairy obj = new BonbonFairy(node.Attributes["id"].InnerText, pos, info, isVisible, text);
                     objectList.Add(obj);
                 }
@@ -340,6 +344,10 @@ namespace Candyland
                 if (object_type == "salesman")
                 {
                     string text = node.Attributes["dialog"].InnerText;
+                    text = text.Replace("!ae!", "ä");
+                    text = text.Replace("!ue!", "ü");
+                    text = text.Replace("!oe!", "ö");
+                    text = text.Replace("!ss!", "ß");
                     Salesman obj = new Salesman(node.Attributes["id"].InnerText, pos, info, isVisible, text);
                     objectList.Add(obj);
                 }

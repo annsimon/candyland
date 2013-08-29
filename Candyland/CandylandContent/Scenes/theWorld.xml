@@ -127,7 +127,7 @@
               <dynamic_objects>
                 <dynamics>
                   <object type="platform" id="0.Tutorial.1.dyn" is_door_to_area="x" is_door_to_level="x" posX="8" posY="0" posZ="3,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="actionActor" id="0.Tutorial.1.actionActor" is_door_to_area="x" is_door_to_level="x" posX="8" posY="0" posZ="6,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="actionActor" id="0.Tutorial.1.actionActor" is_door_to_area="x" is_door_to_level="x" posX="8" posY="0" posZ="6,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="False" dialog="" />
                   <object type="platform" id="0.Tutorial.3.dyn" is_door_to_area="x" is_door_to_level="x" posX="18,5" posY="0" posZ="18" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
                   <object type="chocoChip" id="0.Tutorial.2.choco" is_door_to_area="x" is_door_to_level="x" posX="18" posY="0" posZ="22,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="chocoChip" id="0.Tutorial.1.choco" is_door_to_area="x" is_door_to_level="x" posX="19" posY="0" posZ="22,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />

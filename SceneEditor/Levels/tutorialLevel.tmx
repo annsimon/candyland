@@ -340,7 +340,7 @@
     <property name="isDoorToArea" value="-"/>
     <property name="isDoorToLevel" value="-"/>
     <property name="isSlippery" value="-"/>
-    <property name="isVisible" value="true"/>
+    <property name="isVisible" value="false"/>
     <property name="size" value="1"/>
    </properties>
   </object>

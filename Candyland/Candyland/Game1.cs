@@ -21,7 +21,7 @@ namespace Candyland
             graphics = new GraphicsDeviceManager(this);
             //graphics.PreferredBackBufferWidth = 600;
             //graphics.PreferredBackBufferHeight = 400;
-            graphics.IsFullScreen = true; 
+            graphics.IsFullScreen = false; 
             Content.RootDirectory = "Content";
 
             // Create the screen manager component.
