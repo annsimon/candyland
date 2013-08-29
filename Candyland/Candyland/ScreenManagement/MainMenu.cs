@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace Candyland
 {
@@ -31,7 +32,6 @@ namespace Candyland
 
         public override void Open(Game game)
         {
-            this.ScreenState = ScreenState.Active;
             this.isFullscreen = true;
 
             background = ScreenManager.Content.Load<Texture2D>("ScreenTextures/mainMenu");

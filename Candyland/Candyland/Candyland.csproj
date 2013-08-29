@@ -151,12 +151,12 @@
     <Compile Include="ScreenManagement\BonusTile.cs" />
     <Compile Include="ScreenManagement\CreditsScreen.cs" />
     <Compile Include="ScreenManagement\DialogListeningScreen.cs" />
+    <Compile Include="ScreenManagement\LoadingScreen.cs" />
     <Compile Include="ScreenManagement\SalesmanDialogueScreen.cs" />
     <Compile Include="ScreenManagement\GameScreen.cs" />
     <Compile Include="ScreenManagement\MainGame.cs" />
     <Compile Include="ScreenManagement\MainMenu.cs" />
     <Compile Include="ScreenManagement\OptionsScreen.cs" />
-    <Compile Include="ScreenManagement\LoadingScreen.cs" />
     <Compile Include="ScreenManagement\ScreenInputManager.cs" />
     <Compile Include="ScreenManagement\ScreenManager.cs" />
     <Compile Include="ScreenManagement\ShopScreen.cs" />

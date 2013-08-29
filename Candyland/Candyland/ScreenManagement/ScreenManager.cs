@@ -6,6 +6,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using System.IO;
+using System.Threading;
+using System.Diagnostics;
 
 namespace Candyland
 
@@ -22,7 +24,17 @@ namespace Candyland
         ScreenInputManager screenInput;
         InputState input;
 
+        Thread loadingThread;
+
+        // the scene manager, most stuff happens in there
+        SceneManager m_sceneManager;
+
         #region getter
+
+        public SceneManager SceneManager
+        {
+            get { return m_sceneManager; }
+        }
 
         /// <summary>
         /// A default SpriteBatch shared by all the screens. This saves
@@ -89,6 +101,14 @@ namespace Candyland
         /// </summary>
         public override void Update(GameTime gameTime)
         {
+            // when loading thread has finished its work, start the game
+            if (readyToStartGame)
+            {
+                RemoveScreen(screens.Last());
+                ActivateNewScreen(new MainGame());
+                readyToStartGame = false;
+            }
+
             input = screenInput.getInput();
 
             foreach (GameScreen screen in screens)
@@ -207,8 +227,21 @@ namespace Candyland
             // Add new game screen
             //ActivateNewScreen(new MainGame());
 
-            LoadingScreen.Load(this, true, new MainGame());
+            ActivateNewScreen(new LoadingScreen());
+
+            Thread loadingThread = new Thread(LoadingGameContent);
+            loadingThread.Start();
         }
 
+        private void LoadingGameContent()
+        {
+            m_sceneManager = new SceneManager(this);
+
+            // Load all content required by the scene
+            m_sceneManager.Load(Content);
+            readyToStartGame = true;
+        }
+
+        public bool readyToStartGame { get; set; }
     }
 }
