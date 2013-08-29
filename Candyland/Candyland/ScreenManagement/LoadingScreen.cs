@@ -21,7 +21,7 @@ namespace Candyland
         private SpriteFont font;
 
         private int timePast;
-        private string currentMessage = "Bla";
+        private string currentMessage = "Candyland wird vorbereitet";
 
         List<string> sentences = new List<string>();
 
@@ -47,7 +47,7 @@ namespace Candyland
             timePast += gameTime.ElapsedGameTime.Milliseconds;
 
             // change displayed message after a few seconds
-            if (timePast%1000 == 0)
+            if (timePast % 2000 == 0)
             {
                 Random rand = new Random();
                 int i = rand.Next(19);
