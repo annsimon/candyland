@@ -178,7 +178,12 @@ namespace Candyland
             {
                 foreach (Effect currentEffect in mesh.Effects)
                 {
-                    Matrix worldMatrix = skyboxTransforms[mesh.ParentBone.Index] * Matrix.CreateTranslation(player.getPosition());
+                    Matrix worldMatrix;
+                    if( m_updateInfo.candyselected )
+                        worldMatrix = skyboxTransforms[mesh.ParentBone.Index] * Matrix.CreateTranslation(player.getPosition());
+                    else
+                        worldMatrix = skyboxTransforms[mesh.ParentBone.Index] * Matrix.CreateTranslation(player2.getPosition());
+
                     currentEffect.CurrentTechnique = currentEffect.Techniques["Textured"];
                     currentEffect.Parameters["xWorld"].SetValue(worldMatrix);
                     currentEffect.Parameters["xView"].SetValue(m_updateInfo.viewMatrix);

@@ -90,7 +90,7 @@ namespace Candyland
         public const string startLevelID = "0.Tutorial";
         
         
-        public static Color backgroundColor = Color.DarkSlateBlue;
+        public static Color backgroundColor = new Color(86,131, 227);
 
         /// <summary>
         /// Strings
