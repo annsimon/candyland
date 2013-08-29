@@ -132,7 +132,14 @@ namespace Candyland
 
             m_sprite.Begin();
 
-            m_sprite.Draw(TalkBubble, DiagBox, Color.White);
+            m_sprite.Draw(talkBubbleTopLeft, DiagBoxTL, Color.White);
+            m_sprite.Draw(talkBubbleTopRight, DiagBoxTR, Color.White);
+            m_sprite.Draw(talkBubbleBottomLeft, DiagBoxBL, Color.White);
+            m_sprite.Draw(talkBubbleBottomRight, DiagBoxBR, Color.White);
+            m_sprite.Draw(talkBubbleLeft, DiagBoxL, Color.White);
+            m_sprite.Draw(talkBubbleRight, DiagBoxR, Color.White);
+            m_sprite.Draw(talkBubbleMiddle, DiagBoxM, Color.White);
+
             m_sprite.Draw(talkingNPC, pictureNPC, Color.White);
 
             if(isGreeting)
@@ -165,9 +172,9 @@ namespace Candyland
                 {
                     if (arrowBlink)
                     {
-                        m_sprite.Draw(arrowDown, new Rectangle(DiagBox.Right - 35, DiagBox.Bottom - 30, 30, 15), Color.White);
+                        m_sprite.Draw(arrowDown, new Rectangle(DiagBoxBR.Right - 35, DiagBoxBR.Bottom - 30, 30, 15), Color.White);
                     }
-                    else m_sprite.Draw(arrowDown, new Rectangle(DiagBox.Right - 35, DiagBox.Bottom - 25, 30, 15), Color.White);
+                    else m_sprite.Draw(arrowDown, new Rectangle(DiagBoxBR.Right - 35, DiagBoxBR.Bottom - 25, 30, 15), Color.White);
                 }
             }
             m_sprite.End();

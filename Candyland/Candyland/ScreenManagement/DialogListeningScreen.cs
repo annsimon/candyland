@@ -9,7 +9,15 @@ namespace Candyland
 {
     class DialogListeningScreen : GameScreen
     {
-        protected Texture2D TalkBubble;
+        protected Texture2D talkBubbleTopLeft;
+        protected Texture2D talkBubbleTopRight;
+        protected Texture2D talkBubbleBottomLeft;
+        protected Texture2D talkBubbleBottomRight;
+        protected Texture2D talkBubbleLeft;
+        protected Texture2D talkBubbleRight;
+        protected Texture2D talkBubbleTop;
+        protected Texture2D talkBubbleBottom;
+        protected Texture2D talkBubbleMiddle;
         protected Texture2D arrowDown;
         protected Texture2D talkingNPC;
         protected SpriteFont font;
@@ -17,7 +25,15 @@ namespace Candyland
         protected int screenWidth;
         protected int screenHeight;
 
-        protected Rectangle DiagBox;
+        protected Rectangle DiagBoxTL;
+        protected Rectangle DiagBoxTR;
+        protected Rectangle DiagBoxBL;
+        protected Rectangle DiagBoxBR;
+        protected Rectangle DiagBoxL;
+        protected Rectangle DiagBoxR;
+        protected Rectangle DiagBoxT;
+        protected Rectangle DiagBoxB;
+        protected Rectangle DiagBoxM;
         protected Rectangle pictureNPC;
         protected Rectangle TextBox;
 
@@ -45,7 +61,16 @@ namespace Candyland
 
         public override void Open(Game game)
         {
-            TalkBubble = ScreenManager.Content.Load<Texture2D>("ScreenTextures/otherTalkBubble");
+            talkBubbleTopLeft = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogTopLeft");
+            talkBubbleTopRight = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogTopRight");
+            talkBubbleBottomLeft = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottomLeft");
+            talkBubbleBottomRight = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottomRight");
+            talkBubbleLeft = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogLeft");
+            talkBubbleRight = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogRight");
+            talkBubbleTop = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogTop");
+            talkBubbleBottom = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottom");
+            talkBubbleMiddle = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogMiddle");
+
             arrowDown = ScreenManager.Content.Load<Texture2D>("ScreenTextures/arrowDown");
             talkingNPC = ScreenManager.Content.Load<Texture2D>(Picture);
             font = ScreenManager.Font;
@@ -56,8 +81,38 @@ namespace Candyland
 
             numberOfLines = 1;
 
-            DiagBox = new Rectangle(0, (screenHeight * 2) / 3, screenWidth, screenHeight / 3);
-            pictureNPC = new Rectangle(DiagBox.X + offset, DiagBox.Y + offset, 3 * lineDist, 3 * lineDist);
+            int offset = 5;
+            int yPos = (screenHeight * 2) / 3;
+
+            DiagBoxTL = new Rectangle(0+offset, 
+                                      yPos, 
+                                      42, 49);
+            DiagBoxTR = new Rectangle(screenWidth - offset - 42,
+                                      yPos, 
+                                      42, 49);
+            DiagBoxBL = new Rectangle(0 + offset, 
+                                      screenHeight - offset - 49, 
+                                      42, 49);
+            DiagBoxBR = new Rectangle(screenWidth - offset - 42, 
+                                      screenHeight - offset - 49,
+                                      42, 49);
+            DiagBoxL = new Rectangle(0 + offset,
+                                     yPos + 49,
+                                     42, (screenHeight - offset - 49) - (yPos + 49));
+            DiagBoxR = new Rectangle(screenWidth - offset - 42,
+                                     yPos + 49,
+                                     42, (screenHeight - offset - 49) - (yPos + 49)); 
+            DiagBoxT = new Rectangle(0 + offset + 42,
+                                      yPos,
+                                      screenWidth - 84 - offset, 49);
+            DiagBoxB = new Rectangle(0 + offset + 42,
+                                     screenHeight - offset - 49,
+                                     screenWidth - 84 - offset, 49);
+            DiagBoxM = new Rectangle(0 + offset + 42,
+                                     yPos + 49, 
+                                     screenWidth - 84 - offset, screenHeight / 3 - offset - 96);
+
+            pictureNPC = new Rectangle(DiagBoxTL.X + offset, DiagBoxTL.Y + offset, 3 * lineDist, 3 * lineDist);
             TextBox = new Rectangle(pictureNPC.Right + offset, pictureNPC.Top + lineDist / 4, screenWidth - pictureNPC.Right - 2 * offset, pictureNPC.Height + offset);
 
             lineCapacity = (TextBox.Height - offset) / font.LineSpacing;
@@ -106,14 +161,20 @@ namespace Candyland
 
         public override void Draw(GameTime gameTime)
         {
-            int leftAlign = DiagBox.X + DiagBox.Width / 5;
-            int topAlign = DiagBox.Y + DiagBox.Height / 5; 
-
             SpriteBatch m_sprite = ScreenManager.SpriteBatch;
 
             m_sprite.Begin();
 
-            m_sprite.Draw(TalkBubble, DiagBox, Color.White);
+            m_sprite.Draw(talkBubbleTopLeft, DiagBoxTL, Color.White);
+            m_sprite.Draw(talkBubbleTopRight, DiagBoxTR, Color.White);
+            m_sprite.Draw(talkBubbleBottomLeft, DiagBoxBL, Color.White);
+            m_sprite.Draw(talkBubbleBottomRight, DiagBoxBR, Color.White);
+            m_sprite.Draw(talkBubbleLeft, DiagBoxL, Color.White);
+            m_sprite.Draw(talkBubbleRight, DiagBoxR, Color.White);
+            m_sprite.Draw(talkBubbleTop, DiagBoxT, Color.White);
+            m_sprite.Draw(talkBubbleBottom, DiagBoxB, Color.White);
+            m_sprite.Draw(talkBubbleMiddle, DiagBoxM, Color.White);
+
             m_sprite.Draw(talkingNPC, pictureNPC, Color.White);
 
             m_sprite.DrawString(font, TextArray[scrollIndex], new Vector2(TextBox.X, TextBox.Y), Color.Black);
@@ -122,9 +183,9 @@ namespace Candyland
             {
                 if (arrowBlink)
                 {
-                    m_sprite.Draw(arrowDown, new Rectangle(DiagBox.Right - 35, DiagBox.Bottom - 30, 30, 15), Color.White);
+                    m_sprite.Draw(arrowDown, new Rectangle(DiagBoxBR.Right - 35, DiagBoxBR.Bottom - 30, 30, 15), Color.White);
                 }
-                else m_sprite.Draw(arrowDown, new Rectangle(DiagBox.Right - 35, DiagBox.Bottom - 25, 30, 15), Color.White);
+                else m_sprite.Draw(arrowDown, new Rectangle(DiagBoxBR.Right - 35, DiagBoxBR.Bottom - 25, 30, 15), Color.White);
             }
 
             m_sprite.End();
