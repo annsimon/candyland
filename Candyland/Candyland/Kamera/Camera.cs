@@ -55,7 +55,7 @@ namespace Candyland
             centerposition = pos;
             m_updateInfo = info;
             projectionMatrix = Matrix.CreatePerspectiveFieldOfView(fov, aspectRatio, nearPlane, farPlane);
-            orthoProjection = Matrix.CreatePerspectiveFieldOfView(0.7f, aspectRatio, 0.1f, 80); // Matrix.CreateOrthographic(7 * aspectRatio, 7, 0.01f, 100f);
+            orthoProjection = /*Matrix.CreatePerspectiveFieldOfView(0.7f, aspectRatio, 0.1f, 80);*/  Matrix.CreateOrthographic(7 * aspectRatio, 7, 0.01f, 100f);
             boundingSphere = new BoundingSphere(centerposition,0.2f);
             updatevMatrix();
         }
