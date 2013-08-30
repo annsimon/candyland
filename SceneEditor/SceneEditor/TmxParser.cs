@@ -47,9 +47,18 @@ namespace SceneEditor
                     else id = idFront + "." + objName;
 
                     String type = obj.Attributes["type"].InnerText;
+                    String slippery = "0";
                     if (type == "lowObstacle") type = "obstacle";
-                    if (type == "slipperyPlatform") type = "platform";
-                    if (type == "verySlipperyPlatform") type = "platform";
+                    if (type == "slipperyPlatform")
+                    {
+                        type = "platform";
+                        slippery = "1";
+                    }
+                    if (type == "verySlipperyPlatform")
+                    {
+                        type = "platform";
+                        slippery = "2";
+                    }
                     double offset = Convert.ToDouble(obj.Attributes["width"].InnerText) / 2;
                     String posX = (Convert.ToDouble(obj.Attributes["x"].InnerText) + offset) / 20 + "";
                     String posZ = (Convert.ToDouble(obj.Attributes["y"].InnerText) + offset) / 20 + "";
@@ -59,7 +68,6 @@ namespace SceneEditor
                     String isDoorToArea = "";
                     String isDoorToLevel = "";
                     String isVisible = "true";
-                    String slippery = "0";
                     String size = "1";
                     String dialog = "";
                     
