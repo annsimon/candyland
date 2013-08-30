@@ -195,10 +195,34 @@ namespace Candyland
             foreach (String word in wordArray)
             {
                 float lineWidth = font.MeasureString(lineString + word).Length();
-                if(word == "!ns!")
+                if (word.Contains("!nl!"))
                 {
+                    int indexOfnl = word.IndexOf("!nl!");
+                    returnString = returnString + lineString + '\n';
+                    lineString = String.Empty + word.Substring(indexOfnl + 4) + ' ';
+                    numOfLinesInTextportion++;
+                    if (numOfLinesInTextportion == lineCapacity)
+                    {
+                        returnStringArray[textportionIndex] = returnString;
+                        returnString = string.Empty;
+                        numOfLinesInTextportion = 0;
+                        textportionIndex++;
+                    }
+                    continue;
                 }
-                if (word == "!nl!" || lineWidth + offset > textBox.Width)
+                if(word.Contains("!ns!"))
+                {
+                    int indexOfns = word.IndexOf("!ns!");
+                    returnString = returnString + lineString;
+                    lineString = String.Empty + word.Substring(indexOfns + 4) + ' ';
+
+                    returnStringArray[textportionIndex] = returnString;
+                    returnString = string.Empty;
+                    numOfLinesInTextportion = 0;
+                    textportionIndex++;
+                    continue;
+                }
+                if (lineWidth + offset > textBox.Width)
                 {
                     returnString = returnString + lineString + '\n';
                     lineString = String.Empty;

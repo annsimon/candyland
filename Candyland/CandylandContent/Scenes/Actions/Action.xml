@@ -16,7 +16,7 @@
             <subaction type="movement" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
             <subaction type="movement" goalX="8" goalY="0" goalZ="6,5" locks="false" text=""/>
             
-            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Hi!!nl!Willkommen in Candyland. Geht es dir gut?!nl!Oft sind die Leute verwirrt, wenn sie hier ankommen... Folg erst einmal einfach diesem Weg hier, er wird dich deinem Ziel n!ae!her bringen.!ns!(Nutze W, A, S und D, um dich zu bewegen und Leertaste, um zu springen. Mit der Maus kann die Kamera gedreht werden.)"/>
+            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Hi! !nl!Willkommen in Candyland. Geht es dir gut? !nl!Oft sind die Leute verwirrt, wenn sie hier ankommen... Folg erst einmal einfach diesem Weg hier, er wird dich deinem Ziel n!ae!her bringen. !ns!(Nutze W, A, S und D, um dich zu bewegen und Leertaste, um zu springen. Mit der Maus kann die Kamera gedreht werden.)"/>
             
             <subaction type="disappear" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
           </subactions>
@@ -35,7 +35,7 @@
             <subaction type="movement" goalX="18,5" goalY="0,5" goalZ="19,5" locks="false" text=""/>
             <subaction type="movement" goalX="18,5" goalY="0" goalZ="19,5" locks="false" text=""/>
 
-            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Das da vorne sind Schokolinsen. Sammel m!oe!glichst viele von ihnen, um sie irgendwann gegen besondere Dinge einzutauschen.!nl!Ich merke mir, welche der Linsen du schon gesammelt hast. Du kannst eine einmal eingesammelte Schokolinse also nicht wieder verlieren.!ns!(Die Linsen-Anzeige oben links zeigt, wie viele Linsen es im ganzen Spiel gibt und wie viele von ihnen bereits gefunden wurden.)"/>
+            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Das da vorne sind Schokolinsen. Sammel m!oe!glichst viele von ihnen, um sie irgendwann gegen besondere Dinge einzutauschen. !nl!Ich merke mir, welche der Linsen du schon gesammelt hast. Du kannst eine einmal eingesammelte Schokolinse also nicht wieder verlieren. !ns!(Die Linsen-Anzeige oben links zeigt, wie viele Linsen es im ganzen Spiel gibt und wie viele von ihnen bereits gefunden wurden.)"/>
             
             <subaction type="disappear" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
           </subactions>
@@ -60,7 +60,7 @@
             <subaction type="movement" goalX="12,5" goalY="0" goalZ="8" locks="false" text=""/>
             
             <subaction type="movement" goalX="12,5" goalY="0" goalZ="6" locks="false" text=""/>
-            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Das hier ist ein H!ae!ndler.!nl!Sprich ihn an, um zu sehen, was er f!ue!r dich tun kann.!ns!(Bei jedem H!ae!ndler gibt es Spezialwaren, die nur er anbietet. Also wirf immer auch einen Blick auf die Angebote.)"/>
+            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Das hier ist ein H!ae!ndler. !nl!Sprich ihn an, um zu sehen, was er f!ue!r dich tun kann. !ns!(Bei jedem H!ae!ndler gibt es Spezialwaren, die nur er anbietet. Also wirf immer auch einen Blick auf die Angebote.)"/>
 
             <subaction type="disappear" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
           </subactions>
@@ -84,7 +84,7 @@
             <subaction type="movement" goalX="10,5" goalY="0,5" goalZ="15" locks="false" text=""/>
             <subaction type="movement" goalX="10,5" goalY="0" goalZ="15" locks="false" text=""/>
 
-            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Solche Zuckerw!ue!rfel wie den da dr!ue!ben kannst du verschieben. Versuch es doch mal. !nl!Und hab keine Angst, falls du mal einen Fehler machst. Ich kann den Ursprungszustand der Umgebung wiederherstellen, wenn du das m!oe!chstest.!ns!(Mit R kann ein Reset ausgel!oe!st werden. Dabei werden alle Objekte zur!ue!ckgesetzt. Bereits eingesammelte Schokolinsen gehen aber nicht verloren.)"/>
+            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Solche Zuckerw!ue!rfel wie den da dr!ue!ben kannst du verschieben. Versuch es doch mal. !nl!Und hab keine Angst, falls du mal einen Fehler machst. Ich kann den Ursprungszustand der Umgebung wiederherstellen, wenn du das m!oe!chstest. !ns!(Mit R kann ein Reset ausgel!oe!st werden. Dabei werden alle Objekte zur!ue!ckgesetzt. Bereits eingesammelte Schokolinsen gehen aber nicht verloren.)"/>
 
             <subaction type="disappear" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
           </subactions>
