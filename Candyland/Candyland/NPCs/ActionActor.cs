@@ -18,7 +18,8 @@ namespace Candyland
         public ActionActor(String id, Vector3 position, ActionTracker actionTracker, 
                             UpdateInfo updateInfo, bool visible)
         {
-            initialize(id, position, actionTracker, updateInfo, visible);
+            Vector3 pos = new Vector3(position.X, position.Y + 0.4f, position.Z);
+            initialize(id, pos, actionTracker, updateInfo, visible);
         }
 
         #region initialization
@@ -33,10 +34,10 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
-            this.m_texture = content.Load<Texture2D>("Objekte/Wunderkugel/wunderkugeltextur");
+            this.m_texture = content.Load<Texture2D>("NPCs/TutorialGuy/tutorialtexture");
             this.m_original_texture = this.m_texture;
             this.effect = content.Load<Effect>("Shaders/Shader");
-            this.m_model = content.Load<Model>("Objekte/Wunderkugel/wunderkugelmovable");
+            this.m_model = content.Load<Model>("NPCs/TutorialGuy/tutorial");
             this.m_original_model = this.m_model;
             this.calculateBoundingBox();
             minOld = m_boundingBox.Min;

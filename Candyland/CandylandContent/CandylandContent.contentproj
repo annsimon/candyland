@@ -246,6 +246,12 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
     </Compile>
+    <Compile Include="NPCs\TutorialGuy\tutorial.fbx">
+      <Name>tutorial</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.2</ProcessorParameters_Scale>
+    </Compile>
     <None Include="README.txt">
       <Name>README</Name>
     </None>
@@ -464,7 +470,6 @@
   <ItemGroup>
     <Folder Include="NPCs\Fee\" />
     <Folder Include="NPCs\Händler\" />
-    <Folder Include="NPCs\TutorialGuy\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Objekte\Obstacles\blockmovabletextur.png">
@@ -734,6 +739,49 @@
     </Compile>
     <Compile Include="Images\Captions\Options.png">
       <Name>Options</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\ConceptArt\Cupcakes1.png">
+      <Name>Cupcakes1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\ConceptArt\Cupcakes2.png">
+      <Name>Cupcakes2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\ConceptArt\Cupcakes3.png">
+      <Name>Cupcakes3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\ConceptArt\Cupcakes4.png">
+      <Name>Cupcakes4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\Dialog\DialogArrow.png">
+      <Name>DialogArrow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Objekte\Plattformen\Slippery\plattformtexturslippery_klein2.png">
+      <Name>plattformtexturslippery_klein2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NPCs\TutorialGuy\tutorialtexture.png">
+      <Name>tutorialtexture</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

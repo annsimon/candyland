@@ -89,33 +89,9 @@ namespace Candyland
             int offsetX = (screenWidth - buttonWidth)/2 - 100;
             int offsetY = screenHeight/6 - 50;
 
-            MenuBoxTL = new Rectangle(0 + offsetX,
-                                      offsetY,
-                                      42, 49);
-            MenuBoxTR = new Rectangle(screenWidth - offsetX - 42,
-                                      offsetY,
-                                      42, 49);
-            MenuBoxBL = new Rectangle(0 + offsetX,
-                                      screenHeight - offsetY - 49,
-                                      42, 49);
-            MenuBoxBR = new Rectangle(screenWidth - offsetX - 42,
-                                      screenHeight - offsetY - 49,
-                                      42, 49);
-            MenuBoxL = new Rectangle(0 + offsetX,
-                                     offsetY + 49,
-                                     42, (screenHeight - offsetY - 49) - (offsetY + 49));
-            MenuBoxR = new Rectangle(screenWidth - offsetX - 42,
-                                     offsetY + 49,
-                                     42, (screenHeight - offsetY - 49) - (offsetY + 49));
-            MenuBoxT = new Rectangle(0 + offsetX + 42,
-                                      offsetY,
-                                      screenWidth - 84 - 2*offsetX, 49);
-            MenuBoxB = new Rectangle(0 + offsetX + 42,
-                                     screenHeight - offsetY - 49,
-                                     screenWidth - 84 - 2*offsetX, 49);
-            MenuBoxM = new Rectangle(0 + offsetX + 42,
-                                     offsetY + 49,
-                                     screenWidth - 84 - 2*offsetX, screenHeight - 2*offsetY - 96);
+            MakeBorderBox(new Rectangle(offsetX, offsetY, screenWidth - 2 * offsetX, screenHeight - 2 * offsetY),
+                out MenuBoxTL, out MenuBoxT, out MenuBoxTR, out MenuBoxR,
+                out MenuBoxBR, out MenuBoxB, out MenuBoxBL, out MenuBoxL, out MenuBoxM);
         }
 
         public override void Update(GameTime gameTime)
@@ -156,7 +132,7 @@ namespace Candyland
 
             m_sprite.Begin();
 
-            // Draw Boarder
+            // Draw Border
             m_sprite.Draw(BorderTopLeft, MenuBoxTL, Color.White);
             m_sprite.Draw(BorderTopRight, MenuBoxTR, Color.White);
             m_sprite.Draw(BorderBottomLeft, MenuBoxBL, Color.White);

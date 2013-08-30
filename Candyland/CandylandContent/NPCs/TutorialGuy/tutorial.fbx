@@ -1253,7 +1253,7 @@ Objects:  {
 			Property: "LastFrame", "int", "",0
 			Property: "Width", "int", "",0
 			Property: "Height", "int", "",0
-			Property: "Path", "charptr", "", "helpertexture.png"
+			Property: "Path", "charptr", "", "tutorialtexture.png"
 			Property: "StartFrame", "int", "",0
 			Property: "StopFrame", "int", "",0
 			Property: "PlaySpeed", "double", "",1
@@ -1264,8 +1264,8 @@ Objects:  {
 			Property: "AccessMode", "enum", "",0
 		}
 		UseMipMap: 0
-		Filename: "helpertexture.png"
-		RelativeFilename: "helpertexture.png"
+		Filename: "tutorialtexture.png"
+		RelativeFilename: "tutorialtexture.png"
 	}
 	Texture: "Texture::helpertexture_png", "TextureVideoClip" {
 		Type: "TextureVideoClip"
@@ -1289,8 +1289,8 @@ Objects:  {
 			Property: "VideoProperty", "object", ""
 		}
 		Media: "Video::helpertexture_png"
-		FileName: "helpertexture.png"
-		RelativeFilename: "helpertexture.png"
+		FileName: "tutorialtexture.png"
+		RelativeFilename: "tutorialtexture.png"
 		ModelUVTranslation: 0,0
 		ModelUVScaling: 1,1
 		Texture_Alpha_Source: "None"

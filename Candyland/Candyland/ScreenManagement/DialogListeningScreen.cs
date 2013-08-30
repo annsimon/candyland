@@ -71,7 +71,7 @@ namespace Candyland
             talkBubbleBottom = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottom");
             talkBubbleMiddle = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogMiddle");
 
-            arrowDown = ScreenManager.Content.Load<Texture2D>("ScreenTextures/arrowDown");
+            arrowDown = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogArrow");
             talkingNPC = ScreenManager.Content.Load<Texture2D>(Picture);
             font = ScreenManager.Font;
             lineDist = font.LineSpacing;
@@ -84,33 +84,9 @@ namespace Candyland
             int offset = 5;
             int yPos = (screenHeight * 2) / 3;
 
-            DiagBoxTL = new Rectangle(0+offset, 
-                                      yPos, 
-                                      42, 49);
-            DiagBoxTR = new Rectangle(screenWidth - offset - 42,
-                                      yPos, 
-                                      42, 49);
-            DiagBoxBL = new Rectangle(0 + offset, 
-                                      screenHeight - offset - 49, 
-                                      42, 49);
-            DiagBoxBR = new Rectangle(screenWidth - offset - 42, 
-                                      screenHeight - offset - 49,
-                                      42, 49);
-            DiagBoxL = new Rectangle(0 + offset,
-                                     yPos + 49,
-                                     42, (screenHeight - offset - 49) - (yPos + 49));
-            DiagBoxR = new Rectangle(screenWidth - offset - 42,
-                                     yPos + 49,
-                                     42, (screenHeight - offset - 49) - (yPos + 49)); 
-            DiagBoxT = new Rectangle(0 + offset + 42,
-                                      yPos,
-                                      screenWidth - 84 - offset, 49);
-            DiagBoxB = new Rectangle(0 + offset + 42,
-                                     screenHeight - offset - 49,
-                                     screenWidth - 84 - offset, 49);
-            DiagBoxM = new Rectangle(0 + offset + 42,
-                                     yPos + 49, 
-                                     screenWidth - 84 - offset, screenHeight / 3 - offset - 96);
+            MakeBorderBox(new Rectangle(offset, yPos, screenWidth - 2 * offset, screenHeight - yPos - offset),
+                out DiagBoxTL, out DiagBoxT, out DiagBoxTR, out DiagBoxR,
+                out DiagBoxBR, out DiagBoxB, out DiagBoxBL, out DiagBoxL, out DiagBoxM);
 
             pictureNPC = new Rectangle(DiagBoxTL.X + offset, DiagBoxTL.Y + offset, 3 * lineDist, 3 * lineDist);
             TextBox = new Rectangle(pictureNPC.Right + offset, pictureNPC.Top + lineDist / 4, screenWidth - pictureNPC.Right - 2 * offset, pictureNPC.Height + offset);
@@ -183,9 +159,9 @@ namespace Candyland
             {
                 if (arrowBlink)
                 {
-                    m_sprite.Draw(arrowDown, new Rectangle(DiagBoxBR.Right - 35, DiagBoxBR.Bottom - 30, 30, 15), Color.White);
+                    m_sprite.Draw(arrowDown, new Rectangle(DiagBoxBR.Right - 40, DiagBoxBR.Bottom - 35, 24, 15), Color.White);
                 }
-                else m_sprite.Draw(arrowDown, new Rectangle(DiagBoxBR.Right - 35, DiagBoxBR.Bottom - 25, 30, 15), Color.White);
+                else m_sprite.Draw(arrowDown, new Rectangle(DiagBoxBR.Right - 40, DiagBoxBR.Bottom - 32, 24, 15), Color.White);
             }
 
             m_sprite.End();
@@ -219,6 +195,33 @@ namespace Candyland
             foreach (String word in wordArray)
             {
                 float lineWidth = font.MeasureString(lineString + word).Length();
+                if (word.Contains("!nl!"))
+                {
+                    int indexOfnl = word.IndexOf("!nl!");
+                    returnString = returnString + lineString + '\n';
+                    lineString = String.Empty + word.Substring(indexOfnl + 4) + ' ';
+                    numOfLinesInTextportion++;
+                    if (numOfLinesInTextportion == lineCapacity)
+                    {
+                        returnStringArray[textportionIndex] = returnString;
+                        returnString = string.Empty;
+                        numOfLinesInTextportion = 0;
+                        textportionIndex++;
+                    }
+                    continue;
+                }
+                if(word.Contains("!ns!"))
+                {
+                    int indexOfns = word.IndexOf("!ns!");
+                    returnString = returnString + lineString;
+                    lineString = String.Empty + word.Substring(indexOfns + 4) + ' ';
+
+                    returnStringArray[textportionIndex] = returnString;
+                    returnString = string.Empty;
+                    numOfLinesInTextportion = 0;
+                    textportionIndex++;
+                    continue;
+                }
                 if (lineWidth + offset > textBox.Width)
                 {
                     returnString = returnString + lineString + '\n';

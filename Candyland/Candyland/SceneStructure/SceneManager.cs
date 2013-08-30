@@ -44,6 +44,10 @@ namespace Candyland
         UpdateInfo m_updateInfo;
         public UpdateInfo getUpdateInfo() { return m_updateInfo; }
 
+        // this object organizes the bonus material for the shop
+        BonusManager m_bonusManager;
+        public BonusManager BonusManager() { return m_bonusManager; }
+
         // the player
         CandyGuy player;
         CandyHelper player2;
@@ -75,6 +79,8 @@ namespace Candyland
             m_actionTracker = new ActionTracker();
 
             m_updateInfo = new UpdateInfo(screenManager.GraphicsDevice, screenManager);
+
+            m_bonusManager = new BonusManager();
 
 
             m_inputManager = new InputManager(screenManager.GraphicsDevice, GameConstants.inputManagerMode, m_updateInfo);
