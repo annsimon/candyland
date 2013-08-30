@@ -1301,8 +1301,8 @@
     <property name="endPositionY" value="-"/>
     <property name="endPositionZ" value="-"/>
     <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="1"/>
-    <property name="isDoorToLevel" value="1.1"/>
+    <property name="isDoorToArea" value="schieb"/>
+    <property name="isDoorToLevel" value="schieb.1"/>
     <property name="isSlippery" value="false"/>
     <property name="isVisible" value="true"/>
     <property name="size" value="2"/>
@@ -2442,6 +2442,73 @@
    </properties>
   </object>
  </objectgroup>
+ <objectgroup name="1,5" width="100" height="100">
+  <object name="-" type="platform" x="600" y="360" width="20" height="20">
+   <properties>
+    <property name="dialog" value=""/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="false"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="1"/>
+   </properties>
+  </object>
+  <object name="-" type="platform" x="600" y="380" width="20" height="20">
+   <properties>
+    <property name="dialog" value=""/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="false"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="1"/>
+   </properties>
+  </object>
+  <object name="-" type="platform" x="600" y="400" width="20" height="20">
+   <properties>
+    <property name="dialog" value=""/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="false"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="1"/>
+   </properties>
+  </object>
+  <object name="-" type="platform" x="640" y="420" width="20" height="20">
+   <properties>
+    <property name="dialog" value=""/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="false"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="1"/>
+   </properties>
+  </object>
+  <object name="-" type="platform" x="660" y="420" width="20" height="20">
+   <properties>
+    <property name="dialog" value=""/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="false"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="2" width="100" height="100">
   <object name="-" type="platform" x="680" y="400" width="20" height="20">
    <properties>
@@ -2613,73 +2680,6 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="1,5" width="100" height="100">
-  <object name="-" type="platform" x="600" y="360" width="20" height="20">
-   <properties>
-    <property name="dialog" value=""/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
-    <property name="isSlippery" value="false"/>
-    <property name="isVisible" value="true"/>
-    <property name="size" value="1"/>
-   </properties>
-  </object>
-  <object name="-" type="platform" x="600" y="380" width="20" height="20">
-   <properties>
-    <property name="dialog" value=""/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
-    <property name="isSlippery" value="false"/>
-    <property name="isVisible" value="true"/>
-    <property name="size" value="1"/>
-   </properties>
-  </object>
-  <object name="-" type="platform" x="600" y="400" width="20" height="20">
-   <properties>
-    <property name="dialog" value=""/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
-    <property name="isSlippery" value="false"/>
-    <property name="isVisible" value="true"/>
-    <property name="size" value="1"/>
-   </properties>
-  </object>
-  <object name="-" type="platform" x="640" y="420" width="20" height="20">
-   <properties>
-    <property name="dialog" value=""/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
-    <property name="isSlippery" value="false"/>
-    <property name="isVisible" value="true"/>
-    <property name="size" value="1"/>
-   </properties>
-  </object>
-  <object name="-" type="platform" x="660" y="420" width="20" height="20">
-   <properties>
-    <property name="dialog" value=""/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
-    <property name="isSlippery" value="false"/>
-    <property name="isVisible" value="true"/>
-    <property name="size" value="1"/>
-   </properties>
-  </object>
- </objectgroup>
  <objectgroup name="2,5" width="100" height="100">
   <object name="-" type="platform" x="700" y="360" width="20" height="20">
    <properties>
@@ -2760,7 +2760,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="3" width="100" height="100">
+ <objectgroup name="3,5" width="100" height="100">
   <object name="2.choco" type="chocoChip" x="720" y="240" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
