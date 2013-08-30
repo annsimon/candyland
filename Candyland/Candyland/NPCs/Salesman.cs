@@ -39,7 +39,6 @@ namespace Candyland
 
         public override void collide(GameObject obj)
         {
-            ;
         }
 
         public override void hasCollidedWith(GameObject obj)
@@ -62,12 +61,10 @@ namespace Candyland
 
         public override void isNotCollidingWith(GameObject obj)
         {
-            ;
         }
 
         public override void update()
         {
-            ;
         }
     }
 }
