@@ -36,7 +36,7 @@ namespace Candyland
                 Vector3 tempdir = new Vector3(dx, dy, dz);
                 tempdir.Normalize();
                 move(tempdir.X * GameConstants.slippingSpeed, tempdir.Y * GameConstants.slippingSpeed, tempdir.Z * GameConstants.slippingSpeed);
-                if (length < 0.1f) istargeting = false;
+                if (length < 0.01f) istargeting = false;
             }
         }
 

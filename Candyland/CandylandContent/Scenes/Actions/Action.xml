@@ -93,6 +93,29 @@
 	  </level_inner>
   </L0.S0>
 
+  <L5.0>
+    <level_inner>
+      <action>
+        <action_inner>
+          <trigger>5.0.1.dyn</trigger>
+          <triggered>5.0.1.helperActor</triggered>
+          <id>helperActivated</id>
+          <oneTimeAction>true</oneTimeAction>
+          <subactions>
+            <subaction type="movement" goalX="7" goalY="0,21329" goalZ="0,5" locks="false" text=""/>
+            <subaction type="movement" goalX="7" goalY="0,21329" goalZ="1" locks="false" text=""/>
+            <subaction type="movement" goalX="7" goalY="0,21329" goalZ="1,5" locks="false" text=""/>
+            <subaction type="movement" goalX="7" goalY="0,21329" goalZ="1" locks="false" text=""/>
+
+            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Hi!"/>
+
+            <subaction type="disappear" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
+          </subactions>
+        </action_inner>
+      </action>
+    </level_inner>
+  </L5.0>
+  
   <L5.3>
     <level_inner>
       <action>

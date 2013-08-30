@@ -3,7 +3,7 @@
   <area>
     <area_id>0</area_id>
     <area_prev>x</area_prev>
-    <area_next>x</area_next>
+    <area_next>schieb</area_next>
     <area_starting_position>
       <x>0</x>
       <y>0</y>
@@ -599,6 +599,7 @@
                   <object type="platform" id="5.0.4.dyn" is_door_to_area="x" is_door_to_level="5.1" posX="18" posY="0" posZ="7,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="chocoChip" id="5.0.2.choco" is_door_to_area="x" is_door_to_level="x" posX="9" posY="0" posZ="7,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="breakable" id="5.0.1.breakable" is_door_to_area="x" is_door_to_level="x" posX="7" posY="0" posZ="2,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="actionActor" id="5.0.1.helperActor" is_door_to_area="x" is_door_to_level="x" posX="7" posY="0" posZ="1" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="movableObstacle" id="5.0.1.Mov" is_door_to_area="x" is_door_to_level="x" posX="7,5" posY="4" posZ="6,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="obstacleForSwitch" id="5.0.1.obstacleForSwitch" is_door_to_area="x" is_door_to_level="x" posX="12" posY="4" posZ="10,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="5.0.3.dyn" is_door_to_area="x" is_door_to_level="5.1" posX="18" posY="4" posZ="10,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />

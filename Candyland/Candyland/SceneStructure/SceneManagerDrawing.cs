@@ -21,7 +21,8 @@ namespace Candyland
             DrawModel(player.GetModelGroup(), player.prepareForDrawing());
             if (GameConstants.boundingBoxRendering)
                 BoundingBoxRenderer.Render(player.getBoundingBox(), m_graphics, m_updateInfo.viewMatrix, m_updateInfo.projectionMatrix, Color.White);
-            DrawModel(player2.GetModelGroup(), player2.prepareForDrawing());
+            if(m_updateInfo.helperavailable)
+                DrawModel(player2.GetModelGroup(), player2.prepareForDrawing());
             if (GameConstants.boundingBoxRendering)
                 BoundingBoxRenderer.Render(player2.getBoundingBox(), m_graphics, m_updateInfo.viewMatrix, m_updateInfo.projectionMatrix, Color.White);
 

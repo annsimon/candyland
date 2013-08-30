@@ -24,5 +24,8 @@ namespace Candyland
         {
             actionState = new Dictionary<string, bool>();
         }
+
+        // ToDo on load: check if action with actionID "helperActivated" is in dictionary with value "true"
+        // if it is, set updateInfo.helperavailable to true, else to false
     }
 }
