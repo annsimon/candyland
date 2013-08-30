@@ -29,65 +29,22 @@ namespace Candyland
 
             scene.LoadXml(objects[0].InnerXml);
 
-            XmlNodeList id = scene.GetElementsByTagName("object_id");
-            XmlNodeList type = scene.GetElementsByTagName("object_type");
-            XmlNodeList position = scene.GetElementsByTagName("object_position");
-            XmlNodeList endPosition = scene.GetElementsByTagName("object_endposition");
-            XmlNodeList door_to_area = scene.GetElementsByTagName("is_door_to_area");
-            XmlNodeList door_to_level = scene.GetElementsByTagName("is_door_to_level");
-            XmlNodeList slippery = scene.GetElementsByTagName("slippery");
-            XmlNodeList visible = scene.GetElementsByTagName("visible");
-            XmlNodeList size = scene.GetElementsByTagName("object_size");
+            XmlNodeList objs = scene.GetElementsByTagName("object");
 
-            int count = 0;
-
-            foreach (XmlNode node in id)
+            foreach (XmlNode node in objs)
             {
                 // create Vector3 from contents of "object_position" (x,y,z)
                 Vector3 pos = new Vector3();
-                pos.X = float.Parse(position[count].SelectSingleNode("x").InnerText);
-                pos.Y = float.Parse(position[count].SelectSingleNode("y").InnerText);
-                pos.Z = float.Parse(position[count].SelectSingleNode("z").InnerText);
+                pos.X = float.Parse(node.Attributes["posX"].InnerText);
+                pos.Y = float.Parse(node.Attributes["posY"].InnerText);
+                pos.Z = float.Parse(node.Attributes["posZ"].InnerText);
                 pos += lvl_start; // add level position for correct global position
 
-                //create vector for endposition of MovingPlatform
-                Vector3 endpos = new Vector3(0,0,0);
-                try
-                {
-                    endpos.X = float.Parse(endPosition[count].SelectSingleNode("x").InnerText);
-                    endpos.Y = float.Parse(endPosition[count].SelectSingleNode("y").InnerText);
-                    endpos.Z = float.Parse(endPosition[count].SelectSingleNode("z").InnerText);
-                    endpos += lvl_start; // add level position for correct global position
-                }
-                catch { }
-
-                // get int value for slippery
-                int slip;
-                try
-                {
-                    slip = int.Parse(slippery[count].InnerText);
-                }
-                catch
-                {
-                    slip = 0;
-                }
-
                 // get bool value for visible
-                bool isVisible = bool.Parse(visible[count].InnerText);
-
-                // get int value for size
-                int object_size;
-                try
-                {
-                    object_size = int.Parse(size[count].InnerText);
-                }
-                catch
-                {
-                    object_size = 1;
-                }
+                bool isVisible = bool.Parse(node.Attributes["visible"].InnerText);
 
                 // create the new object
-                string object_type = type[count].InnerText;
+                string object_type = node.Attributes["type"].InnerText;
 
                 if (object_type == "platform")
                 {
@@ -96,145 +53,208 @@ namespace Candyland
                         Console.WriteLine("Key " + node.InnerText + " duplicated");
                         continue;
                     }
-                    Platform obj = new Platform(node.InnerText, pos, slip, door_to_area[count].InnerText, door_to_level[count].InnerText, info, isVisible, object_size);
-                    dynamicObjects.Add(node.InnerText, obj);
+                    int object_size;
+                    try
+                    {
+                        object_size = int.Parse(node.Attributes["size"].InnerText);
+                    }
+                    catch
+                    {
+                        object_size = 1;
+                    }
+                    int slip;
+                    try
+                    {
+                        slip = int.Parse(node.Attributes["slippery"].InnerText);
+                    }
+                    catch
+                    {
+                        slip = 0;
+                    }
+                    string id = node.Attributes["id"].InnerText;
+                    Platform obj = new Platform(id, pos, slip, node.Attributes["is_door_to_area"].InnerText, node.Attributes["is_door_to_level"].InnerText, info, isVisible, object_size);
+                    dynamicObjects.Add(id, obj);
                 }
 				else
                 if (object_type == "movingPlatform")
                 {
-                    if (dynamicObjects.ContainsKey(node.InnerText))
+                    string id = node.Attributes["id"].InnerText;
+                    if (dynamicObjects.ContainsKey(id))
                     {
-                        Console.WriteLine("Key " + node.InnerText + " duplicated");
+                        Console.WriteLine("Key " + id + " duplicated");
                         continue;
                     }
-                    MovingPlatform obj = new MovingPlatform(node.InnerText, pos, endpos, info, isVisible, object_size);
-                    dynamicObjects.Add(node.InnerText, obj);
+                    int object_size;
+                    try
+                    {
+                        object_size = int.Parse(node.Attributes["size"].InnerText);
+                    }
+                    catch
+                    {
+                        object_size = 1;
+                    }
+                    Vector3 endpos = new Vector3(0, 0, 0);
+                    try
+                    {
+                        endpos.X = float.Parse(node.Attributes["endPosX"].InnerText);
+                        endpos.Y = float.Parse(node.Attributes["endPosY"].InnerText);
+                        endpos.Z = float.Parse(node.Attributes["endPosZ"].InnerText);
+                        endpos += lvl_start; // add level position for correct global position
+                    }
+                    catch { }
+                    MovingPlatform obj = new MovingPlatform(id, pos, endpos, info, isVisible, object_size);
+                    dynamicObjects.Add(id, obj);
                 }
                 else
                 if (object_type == "obstacle")
                 {
-                    if (dynamicObjects.ContainsKey(node.InnerText))
+                    string id = node.Attributes["id"].InnerText; 
+                    if (dynamicObjects.ContainsKey(id))
                     {
-                        Console.WriteLine("Key " + node.InnerText + " duplicated");
+                        Console.WriteLine("Key " + id + " duplicated");
                         continue;
                     }
-                    Obstacle obj = new Obstacle(node.InnerText, pos, info, isVisible, object_size);
-                    dynamicObjects.Add(node.InnerText, obj);
+                    int object_size;
+                    try
+                    {
+                        object_size = int.Parse(node.Attributes["size"].InnerText);
+                    }
+                    catch
+                    {
+                        object_size = 1;
+                    }
+                    Obstacle obj = new Obstacle(id, pos, info, isVisible, object_size);
+                    dynamicObjects.Add(id, obj);
                 }
                 else
                 if (object_type == "breakable")
                 {
-                    if (dynamicObjects.ContainsKey(node.InnerText))
+                    string id = node.Attributes["id"].InnerText;
+                    if (dynamicObjects.ContainsKey(id))
                     {
-                        Console.WriteLine("Key " + node.InnerText + " duplicated");
+                        Console.WriteLine("Key " + id + " duplicated");
                         continue;
                     }
-                    ObstacleBreakable obj = new ObstacleBreakable(node.InnerText, pos, info, isVisible);
-                    dynamicObjects.Add(node.InnerText, obj);
+                    ObstacleBreakable obj = new ObstacleBreakable(id, pos, info, isVisible);
+                    dynamicObjects.Add(id, obj);
                 }
                 else
                 if (object_type == "obstacleForSwitch" || object_type == "obstacleForFalling")
                 {
-                    if (dynamicObjects.ContainsKey(node.InnerText))
+                    string id = node.Attributes["id"].InnerText;
+                    if (dynamicObjects.ContainsKey(id))
                     {
-                        Console.WriteLine("Key " + node.InnerText + " duplicated");
+                        Console.WriteLine("Key " + id + " duplicated");
                         continue;
                     }
-                    ObstacleForSwitch obj = new ObstacleForSwitch(node.InnerText, pos, info, isVisible);
-                    dynamicObjects.Add(node.InnerText, obj);
+                    ObstacleForSwitch obj = new ObstacleForSwitch(id, pos, info, isVisible);
+                    dynamicObjects.Add(id, obj);
                 }
                 else
                 if (object_type == "movableObstacle")
                 {
-                    if (dynamicObjects.ContainsKey(node.InnerText))
+                    string id = node.Attributes["id"].InnerText;
+                    if (dynamicObjects.ContainsKey(id))
                     {
-                        Console.WriteLine("Key " + node.InnerText + " duplicated");
+                        Console.WriteLine("Key " + id + " duplicated");
                         continue;
                     }
-                    ObstacleMoveable obj = new ObstacleMoveable(node.InnerText, pos, info, isVisible);
-                    dynamicObjects.Add(node.InnerText, obj);
+                    ObstacleMoveable obj = new ObstacleMoveable(id, pos, info, isVisible);
+                    dynamicObjects.Add(id, obj);
                 }
                 else
                 if (object_type == "switchPermanent")
                 {
+                    string id = node.Attributes["id"].InnerText;
                     if (dynamicObjects.ContainsKey(node.InnerText))
                     {
-                        Console.WriteLine("Key " + node.InnerText + " duplicated");
+                        Console.WriteLine("Key " + id + " duplicated");
                         continue;
                     }
-                    PlatformSwitch obj = new PlatformSwitchPermanent(node.InnerText, pos, info, isVisible);
-                    switches.Add(node.InnerText, obj);
+                    PlatformSwitch obj = new PlatformSwitchPermanent(id, pos, info, isVisible);
+                    switches.Add(id, obj);
                 }
                 else
                 if (object_type == "switchTimed")
                 {
-                    if (dynamicObjects.ContainsKey(node.InnerText))
+                    string id = node.Attributes["id"].InnerText;
+                    if (dynamicObjects.ContainsKey(id))
                     {
-                        Console.WriteLine("Key " + node.InnerText + " duplicated");
+                        Console.WriteLine("Key " + id + " duplicated");
                         continue;
                     }
-                    PlatformSwitch obj = new PlatformSwitchTimed(node.InnerText, pos, info, isVisible);
-                    switches.Add(node.InnerText, obj);
+                    PlatformSwitch obj = new PlatformSwitchTimed(id, pos, info, isVisible);
+                    switches.Add(id, obj);
                 }
                 else
                 if (object_type == "switchTemporary")
                 {
-                    if (dynamicObjects.ContainsKey(node.InnerText))
+                    string id = node.Attributes["id"].InnerText;
+                    if (dynamicObjects.ContainsKey(id))
                     {
-                        Console.WriteLine("Key " + node.InnerText + " duplicated");
+                        Console.WriteLine("Key " + id + " duplicated");
                         continue;
                     }
-                    PlatformSwitch obj = new PlatformSwitchTemporary(node.InnerText, pos, info, isVisible);
-                    switches.Add(node.InnerText, obj);
+                    PlatformSwitch obj = new PlatformSwitchTemporary(id, pos, info, isVisible);
+                    switches.Add(id, obj);
                 }
                 else
-                    if (object_type == "breakingPlatform")
+                if (object_type == "breakingPlatform")
+                {
+                    string id = node.Attributes["id"].InnerText;
+                    if (dynamicObjects.ContainsKey(id))
                     {
-                        if (dynamicObjects.ContainsKey(node.InnerText))
-                        {
-                            Console.WriteLine("Key " + node.InnerText + " duplicated");
-                            continue;
-                        }
-                        BreakingPlatform obj = new BreakingPlatform(node.InnerText, pos, info, isVisible);
-                        dynamicObjects.Add(node.InnerText, obj);
+                        Console.WriteLine("Key " + id + " duplicated");
+                        continue;
                     }
+                    BreakingPlatform obj = new BreakingPlatform(id, pos, info, isVisible);
+                    dynamicObjects.Add(id, obj);
+                }
                 else
                 if (object_type == "chocoChip")
                 {
-                    if (dynamicObjects.ContainsKey(node.InnerText))
+                    string id = node.Attributes["id"].InnerText;
+                    if (dynamicObjects.ContainsKey(id))
                     {
-                        Console.WriteLine("Key " + node.InnerText + " duplicated");
+                        Console.WriteLine("Key " + id + " duplicated");
                         continue;
                     }
-                    ChocoChip obj = new ChocoChip(node.InnerText, pos, info,  isVisible,bonusTracker);
-                    dynamicObjects.Add(node.InnerText, obj);
+                    ChocoChip obj = new ChocoChip(id, pos, info,  isVisible,bonusTracker);
+                    dynamicObjects.Add(id, obj);
                 }
                 else
                 if (object_type == "teleportPlatform")
                 {
-                    if (dynamicObjects.ContainsKey(node.InnerText))
+                    string id = node.Attributes["id"].InnerText;
+                    if (dynamicObjects.ContainsKey(id))
                     {
-                        Console.WriteLine("Key " + node.InnerText + " duplicated");
+                        Console.WriteLine("Key " + id + " duplicated");
                         continue;
                     }
-                    PlatformTeleporter obj = new PlatformTeleporter(node.InnerText, pos, info, isVisible, endpos);
-                    dynamicObjects.Add(node.InnerText, obj);
+                    Vector3 endpos = new Vector3(0, 0, 0);
+                    try
+                    {
+                        endpos.X = float.Parse(node.Attributes["endPosX"].InnerText);
+                        endpos.Y = float.Parse(node.Attributes["endPosY"].InnerText);
+                        endpos.Z = float.Parse(node.Attributes["endPosZ"].InnerText);
+                        endpos += lvl_start; // add level position for correct global position
+                    }
+                    catch { }
+                    PlatformTeleporter obj = new PlatformTeleporter(id, pos, info, isVisible, endpos);
+                    dynamicObjects.Add(id, obj);
                 }
                 else
                 if (object_type == "HelperTest"|| object_type == "actionActor")
                 {
-                    if (dynamicObjects.ContainsKey(node.InnerText))
+                    string id = node.Attributes["id"].InnerText;
+                    if (dynamicObjects.ContainsKey(id))
                     {
-                        Console.WriteLine("Key " + node.InnerText + " duplicated");
+                        Console.WriteLine("Key " + id + " duplicated");
                         continue;
                     }
-                    ActionActor obj = new ActionActor(node.InnerText, pos, actionTracker, info, isVisible);
-                    dynamicObjects.Add(node.InnerText, obj);
+                    ActionActor obj = new ActionActor(id, pos, actionTracker, info, isVisible);
+                    dynamicObjects.Add(id, obj);
                 }
-
-                // increase count as it is used to access the not-id xml elements of the correct level
-                // (the one currently being parsed)
-                count++;
             }
 
             List<Dictionary<String, GameObject>> retList = new List<Dictionary<String, GameObject>>();
@@ -254,91 +274,83 @@ namespace Candyland
 
             scene.LoadXml(objects[0].InnerXml);
 
-            XmlNodeList id = scene.GetElementsByTagName("object_id");
-            XmlNodeList type = scene.GetElementsByTagName("object_type");
-            XmlNodeList position = scene.GetElementsByTagName("object_position");
-            XmlNodeList slippery = scene.GetElementsByTagName("slippery");
-            XmlNodeList visible = scene.GetElementsByTagName("visible");
-            XmlNodeList size = scene.GetElementsByTagName("object_size");
-            XmlNodeList message = scene.GetElementsByTagName("fairy_message");
+            XmlNodeList objs = scene.GetElementsByTagName("object");
 
-            int count = 0;
-
-            foreach (XmlNode node in id)
+            foreach (XmlNode node in objs)
             {
                 // create Vector3 from contents of "object_position" (x,y,z)
                 Vector3 pos = new Vector3();
-                pos.X = float.Parse(position[count].SelectSingleNode("x").InnerText);
-                pos.Y = float.Parse(position[count].SelectSingleNode("y").InnerText);
-                pos.Z = float.Parse(position[count].SelectSingleNode("z").InnerText);
+                pos.X = float.Parse(node.Attributes["posX"].InnerText);
+                pos.Y = float.Parse(node.Attributes["posY"].InnerText);
+                pos.Z = float.Parse(node.Attributes["posZ"].InnerText);
                 pos += lvl_start; // add level position for correct global position
 
-                // get int value for slippery
-                int slip;
-                try
-                {
-                    slip = int.Parse(slippery[count].InnerText);
-                }
-                catch
-                {
-                    slip = 0;
-                }
-
-                // get string for message
-                String text;
-                try
-                {
-                    text = message[count].InnerText;
-                }
-                catch
-                {
-                    text = "Hi, ich muss hier so viel reinschreiben, damit der Text mindestens vier Zeilen lang wird und man sehen kann ob alles richtig angezeigt wird und das weiter klicken funktioniert. Noch mehr Text....................";
-                }
-
                 // get bool value for visible
-                bool isVisible = bool.Parse(visible[count].InnerText);
-
-                // get int value for size
-                int object_size;
-                try
-                {
-                    object_size = int.Parse(size[count].InnerText);
-                }
-                catch
-                {
-                    object_size = 1;
-                }
+                bool isVisible = bool.Parse(node.Attributes["visible"].InnerText);
 
                 // create the new object
-                string object_type = type[count].InnerText;
+                string object_type = node.Attributes["type"].InnerText;
 
                 if (object_type == "platform")
                 {
-                    Platform obj = new Platform(node.InnerText, pos, slip, "x", "x", info, isVisible, object_size);
+                    int object_size;
+                    try
+                    {
+                        object_size = int.Parse(node.Attributes["size"].InnerText);
+                    }
+                    catch
+                    {
+                        object_size = 1;
+                    }
+                    int slip;
+                    try
+                    {
+                        slip = int.Parse(node.Attributes["slippery"].InnerText);
+                    }
+                    catch
+                    {
+                        slip = 0;
+                    }
+                    Platform obj = new Platform(node.Attributes["id"].InnerText, pos, slip, "x", "x", info, isVisible, object_size);
                     objectList.Add(obj);
                 }
                 else
                 if (object_type == "obstacle")
                 {
-                    Obstacle obj = new Obstacle(node.InnerText, pos, info, isVisible, object_size);
+                    int object_size;
+                    try
+                    {
+                        object_size = int.Parse(node.Attributes["size"].InnerText);
+                    }
+                    catch
+                    {
+                        object_size = 1;
+                    }
+                    Obstacle obj = new Obstacle(node.Attributes["id"].InnerText, pos, info, isVisible, object_size);
                     objectList.Add(obj);
                 }
                 else
                 if (object_type == "bonbon")
                 {
-                    BonbonFairy obj = new BonbonFairy(node.InnerText, pos, info, isVisible, text);
+                    string text = node.Attributes["dialog"].InnerText;
+                    text = text.Replace("!ae!", "ä");
+                    text = text.Replace("!ue!", "ü");
+                    text = text.Replace("!oe!", "ö");
+                    text = text.Replace("!ss!", "ß");
+                    BonbonFairy obj = new BonbonFairy(node.Attributes["id"].InnerText, pos, info, isVisible, text);
                     objectList.Add(obj);
                 }
                 else
-                    if (object_type == "salesman")
-                    {
-                        Salesman obj = new Salesman(node.InnerText, pos, info, isVisible, text);
-                        objectList.Add(obj);
-                    }
-
-                // increase count as it is used to access the not-id xml elements of the correct level
-                // (the one currently being parsed)
-                count++;
+                if (object_type == "salesman")
+                {
+                    string text = node.Attributes["dialog"].InnerText;
+                    text = text.Replace("!ae!", "ä");
+                    text = text.Replace("!ue!", "ü");
+                    text = text.Replace("!oe!", "ö");
+                    text = text.Replace("!ss!", "ß");
+                    Salesman obj = new Salesman(node.Attributes["id"].InnerText, pos, info, isVisible, text);
+                    objectList.Add(obj);
+                }
             }
 
             return objectList;

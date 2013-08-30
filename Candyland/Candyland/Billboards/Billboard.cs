@@ -96,10 +96,11 @@ namespace Candyland
         // several textures so we can animate
         protected Texture2D[] textures;
         protected int textureCount;
+        protected int currentTexture = 0;
 
         public Texture2D getTexture()
         {
-            return textures[0];
+            return textures[currentTexture];
         }
 
         public Billboard()

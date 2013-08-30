@@ -1663,19 +1663,6 @@
   </object>
  </objectgroup>
  <objectgroup name="1" width="100" height="100">
-  <object name="haendler" type="lowObstacle" x="240" y="90" width="20" height="20">
-   <properties>
-    <property name="dialog" value=""/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
-    <property name="isSlippery" value="-"/>
-    <property name="isVisible" value="true"/>
-    <property name="size" value="0"/>
-   </properties>
-  </object>
   <object name="-" type="platform" x="280" y="400" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
@@ -1835,6 +1822,19 @@
   <object name="1.choco" type="chocoChip" x="240" y="210" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="-"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="1"/>
+   </properties>
+  </object>
+  <object name="-" type="salesman" x="240" y="90" width="20" height="20">
+   <properties>
+    <property name="dialog" value="In letzter Zeit habe ich einige Leute getroffen. Sie kamen vom anderen Ende unseres Landes und waren auf der Flucht vor einer gro!ss!en Bedrohung.!nl!Um was genau es sich dabei handelt, wei!ss! ich aber nicht..."/>
     <property name="endPositionY" value="-"/>
     <property name="endPositionZ" value="-"/>
     <property name="endpositionX" value="-"/>

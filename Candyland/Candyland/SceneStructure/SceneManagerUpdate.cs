@@ -58,37 +58,51 @@ namespace Candyland
             }
 
             m_inputManager.update(player, player2);
+
+            if (m_updateInfo.candyselected || m_updateInfo.currentguyLevelID == m_updateInfo.currenthelperLevelID)
             player.update();
+            if(!m_updateInfo.candyselected || m_updateInfo.currentguyLevelID == m_updateInfo.currenthelperLevelID)
             player2.update();
 
             if( m_updateInfo.candyselected )
-                sun.UpdatePosition(m_graphics, player.getPosition());
+                sun.Update(m_graphics, player.getPosition(), gameTime);
             else
-                sun.UpdatePosition(m_graphics, player2.getPosition());
+                sun.Update(m_graphics, player2.getPosition(), gameTime);
 
             player.startIntersection();
             player2.startIntersection();
 
 
             // check for Collision between the Player and all Game Objects in the current Level
-            m_areas[m_updateInfo.currentguyLevelID.Split('.')[0]].Collide(player);
-            if (m_updateInfo.playerIsOnAreaExit && m_updateInfo.nextguyLevelID != null)
-                m_areas[m_updateInfo.nextguyLevelID.Split('.')[0]].Collide(player);
+            if (m_updateInfo.candyselected || m_updateInfo.currentguyLevelID == m_updateInfo.currenthelperLevelID)
+            {
+                m_areas[m_updateInfo.currentguyLevelID.Split('.')[0]].Collide(player);
+                if (m_updateInfo.playerIsOnAreaExit && m_updateInfo.nextguyLevelID != null)
+                    m_areas[m_updateInfo.nextguyLevelID.Split('.')[0]].Collide(player);
+            }
             // check for Collision between the Player2 and all Game Objects in the current Level
-            m_areas[m_updateInfo.currenthelperLevelID.Split('.')[0]].Collide(player2);
-            if (m_updateInfo.playerIsOnAreaExit && m_updateInfo.nexthelperLevelID != null)
-                m_areas[m_updateInfo.nexthelperLevelID.Split('.')[0]].Collide(player2);
+            if(!m_updateInfo.candyselected || m_updateInfo.currentguyLevelID == m_updateInfo.currenthelperLevelID)
+            {
+                m_areas[m_updateInfo.currenthelperLevelID.Split('.')[0]].Collide(player2);
+                if (m_updateInfo.playerIsOnAreaExit && m_updateInfo.nexthelperLevelID != null)
+                    m_areas[m_updateInfo.nexthelperLevelID.Split('.')[0]].Collide(player2);
+            }
+
 
             // update the area the player currently is in
             // and the next area if the player is about to leave the current area
-            m_areas[m_updateInfo.currentguyLevelID.Split('.')[0]].Update(gameTime);
-            if (m_updateInfo.playerIsOnAreaExit && m_updateInfo.nextguyLevelID != null)
-                m_areas[m_updateInfo.nextguyLevelID.Split('.')[0]].Update(gameTime);
-
-            if (m_updateInfo.currentguyLevelID != m_updateInfo.currenthelperLevelID)
-                m_areas[m_updateInfo.currenthelperLevelID.Split('.')[0]].Update(gameTime);
-            if (m_updateInfo.playerIsOnAreaExit && m_updateInfo.nexthelperLevelID != null)
-                m_areas[m_updateInfo.nexthelperLevelID.Split('.')[0]].Update(gameTime);
+            if (m_updateInfo.candyselected)
+            {
+                m_areas[m_updateInfo.currentguyLevelID.Split('.')[0]].Update(gameTime);
+                if (m_updateInfo.playerIsOnAreaExit && m_updateInfo.nextguyLevelID != null)
+                    m_areas[m_updateInfo.nextguyLevelID.Split('.')[0]].Update(gameTime);
+            }
+            if(!m_updateInfo.candyselected)
+            {
+                    m_areas[m_updateInfo.currenthelperLevelID.Split('.')[0]].Update(gameTime);
+                if (m_updateInfo.playerIsOnAreaExit && m_updateInfo.nexthelperLevelID != null)
+                    m_areas[m_updateInfo.nexthelperLevelID.Split('.')[0]].Update(gameTime);
+            }
 
             player.endIntersection();
             player2.endIntersection();

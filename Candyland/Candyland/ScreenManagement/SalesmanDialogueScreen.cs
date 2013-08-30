@@ -31,7 +31,7 @@ namespace Candyland
 
         public SalesmanDialogueScreen(string text, string saleID, UpdateInfo info, int chocoCount, string picture = "Images/DialogImages/DefaultImage")
         {
-            this.Text = GameConstants.tradesmanGreeting;
+            this.Text = text;
             this.Picture = picture;
             salesmanID = saleID;
             m_updateInfo = info;

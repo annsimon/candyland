@@ -188,8 +188,8 @@ namespace Candyland
         {
             if (obj.isVisible && !obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
             {
-                if (!(obj is Playable))
-                    System.Console.WriteLine("collideMovable");
+                //if (!(obj is Playable))
+                //    System.Console.WriteLine("collideMovable");
                 preventIntersection(obj);
                 obj.hasCollidedWith(this);
             }

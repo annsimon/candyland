@@ -14,5 +14,106 @@
     <level_inner>
     </level_inner>
   </L0.S0>
+
+  <L5.0>
+    <level_inner>
+      <event>
+        <event_inner>
+          <triggerable>5.0.1.obstacleForSwitch</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>5.0.1.switchTemporary</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+    </level_inner>
+  </L5.0>
+
+  <L5.2>
+    <level_inner>
+      <event>
+        <event_inner>
+          <triggerable>5.2.1.obstacleForSwitch</triggerable>
+          <switchGroupType>ordered</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>5.2.1.switchPermanent</switch_id>
+              <switch_id>5.2.2.switchPermanent</switch_id>
+              <switch_id>5.2.3.switchPermanent</switch_id>
+              <switch_id>5.2.4.switchPermanent</switch_id>
+              <switch_id>5.2.1.switchTemporary</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+    </level_inner>
+  </L5.2>
+
+  <L5.3>
+    <level_inner>
+      <event>
+        <event_inner>
+          <triggerable>5.3.1.movingPlatform</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>5.3.1.switchPermanent</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+      <event>
+        <event_inner>
+          <triggerable>5.3.1.obstacleForSwitch</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>5.3.1.switchTemporary</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+      <event>
+        <event_inner>
+          <triggerable>5.3.2.obstacleForSwitch</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>5.3.2.switchTemporary</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+    </level_inner>
+  </L5.3>
+  
+  <L5.4>
+    <level_inner>
+      <event>
+        <event_inner>
+          <triggerable>5.4.2.movingPlatform</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>5.4.1.switchTemporary</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+      <event>
+        <event_inner>
+          <triggerable>5.4.3.movingPlatform</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>5.4.1.switchTemporary</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+    </level_inner>
+  </L5.4>
   
 </levels>

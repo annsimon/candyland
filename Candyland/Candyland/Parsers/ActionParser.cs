@@ -41,35 +41,39 @@ namespace Candyland
                 XmlNodeList subActions = actions.GetElementsByTagName("subaction");
                 List<SubAction> sActions = new List<SubAction>();
 
-                XmlNodeList type = actions.GetElementsByTagName("type");
-                XmlNodeList goalX = actions.GetElementsByTagName("goalX");
-                XmlNodeList goalY = actions.GetElementsByTagName("goalY");
-                XmlNodeList goalZ = actions.GetElementsByTagName("goalZ");
-                XmlNodeList text = actions.GetElementsByTagName("text");
-                XmlNodeList locks = actions.GetElementsByTagName("locks");
-
-                int count = 0;
-
                 foreach( XmlNode node in subActions )
                 {
                     // create Vector3 from contents of "goal" (x,y,z)
-                    Vector3 pos = new Vector3();
-                    pos.X = float.Parse(goalX[count].InnerText);
-                    pos.Y = float.Parse(goalY[count].InnerText);
-                    pos.Z = float.Parse(goalZ[count].InnerText);
-                    pos += levelStart; // add level position for correct global position
+                    Vector3 pos = new Vector3(0,0,0);
+                    try
+                    {
+                        pos.X = float.Parse(node.Attributes["goalX"].InnerText);
+                        pos.Y = float.Parse(node.Attributes["goalY"].InnerText);
+                        pos.Z = float.Parse(node.Attributes["goalZ"].InnerText);
+                        pos += levelStart; // add level position for correct global position
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Error parsing actions: invalid position - using default!");
+                    }
 
                     GameConstants.SubActionType sActionType = GameConstants.SubActionType.appear;
-                    if (type[count].InnerText == "disappear")
+                    string type = node.Attributes["type"].InnerText;
+                    if (type == "disappear")
                         sActionType = GameConstants.SubActionType.disappear;
-                    else if (type[count].InnerText == "movement")
+                    else if (type == "movement")
                         sActionType = GameConstants.SubActionType.movement;
-                    else if (type[count].InnerText == "dialog")
+                    else if (type == "dialog")
                         sActionType = GameConstants.SubActionType.dialog;
 
+                    string text = node.Attributes["text"].InnerText;
+                    text = text.Replace("!ae!", "ä");
+                    text = text.Replace("!ue!", "ü");
+                    text = text.Replace("!oe!", "ö");
+                    text = text.Replace("!ss!", "ß");
+
                     sActions.Add(new SubAction(sActionType, pos,
-                                                text[count].InnerText, bool.Parse(locks[count].InnerText)));
-                    count++;
+                                                text, bool.Parse(node.Attributes["locks"].InnerText)));
                 }
 
                 Action tempAction = new Action(actionID.InnerText, sActions);

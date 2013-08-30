@@ -414,6 +414,39 @@
           </switchGroup>
         </event_inner>
       </event>
+      <event>
+        <event_inner>
+          <triggerable>255.0.11.movingPlatform</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>255.0.0.switchTemporary</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+      <event>
+        <event_inner>
+          <triggerable>255.0.12.movingPlatform</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>255.0.0.switchTemporary</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+      <event>
+        <event_inner>
+          <triggerable>255.0.13.movingPlatform</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>255.0.0.switchTemporary</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
       
     </level_inner>
   </L255.0>

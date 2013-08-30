@@ -25,6 +25,7 @@ namespace Candyland
         private float offset = 4;
 
         private const float MAXOFFSET = 4;
+        private const float COLLISIONACCURACY = 0.1f;
 
         private float upspeed = 0.2f;
         private float sidespeed = 0.3f;
@@ -119,7 +120,7 @@ namespace Candyland
                 float newy = topdownposition.Z + ( x * (float)Math.Sin(rotation) + y * (float)Math.Cos(rotation));
                 
                 if( Math.Max( Math.Abs(centerposition.X - newx), 
-                        Math.Abs( centerposition.Y - newy) ) < 5  )
+                        Math.Abs( centerposition.Z - newy) ) < 5  )
                 {
                     topdownposition.X = newx;
                     topdownposition.Z = newy;
@@ -179,7 +180,7 @@ namespace Candyland
             while(!boundingSphere.Intersects(obj.getBoundingBox())
                     && offsetWithObject <= MAXOFFSET)
             {
-                offsetWithObject += 0.01f;
+                offsetWithObject += COLLISIONACCURACY;
                 Vector3 posdiff = offsetWithObject * new Vector3((float)-Math.Sin(rotation) * (float)Math.Cos(upangle),
                                                                  (float)Math.Sin(upangle),
                                                                  (float)Math.Cos(rotation) * (float)Math.Cos(upangle));
@@ -189,7 +190,7 @@ namespace Candyland
             while (boundingSphere.Intersects(obj.getBoundingBox()) 
                     && offsetWithObject >0.01f)
             {
-                offsetWithObject -= 0.01f;
+                offsetWithObject -= COLLISIONACCURACY;
                 Vector3 posdiff = offsetWithObject * new Vector3((float)-Math.Sin(rotation) * (float)Math.Cos(upangle),
                                                                  (float)Math.Sin(upangle),
                                                                  (float)Math.Cos(rotation) * (float)Math.Cos(upangle));

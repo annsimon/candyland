@@ -26,7 +26,7 @@ namespace Candyland
             textures[0] = manager.Load<Texture2D>("Images/Billboards/Sun/Sun1");
         }
 
-        public void UpdatePosition( GraphicsDevice graphicsDevice, Vector3 position )
+        public void Update( GraphicsDevice graphicsDevice, Vector3 position, GameTime gameTime )
         {
             positions[0] = position + new Vector3(10, 10, 10);
             Create(graphicsDevice, positions);

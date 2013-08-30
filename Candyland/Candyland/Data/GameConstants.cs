@@ -31,7 +31,7 @@ namespace Candyland
         /// <summary>
         /// time a breakable plattform takes for breaking
         /// </summary>
-        public const double breakTime = 4;
+        public const double breakTime = 2;
 
         // material params
         public static Vector4 ambient = new Vector4(0.8f, 0.8f, 0.8f, 1.0f);
@@ -77,11 +77,11 @@ namespace Candyland
 
         // data regarding the scene
 
-        public const string sceneFile = @"Content\Scenes\SceneSchieberaetselPrototyp.xml";
-        public const string eventFile = @"Content\Scenes\Events\EventTest.xml";
-        public const string actionsFile = @"Content\Scenes\Actions\ActionTest.xml";
-        public const string startAreaID = "7";
-        public const string startLevelID = "7.0";
+        public const string sceneFile = @"Content\Scenes\theWorld.xml";
+        public const string eventFile = @"Content\Scenes\Events\Event.xml";
+        public const string actionsFile = @"Content\Scenes\Actions\Action.xml";
+        public const string startAreaID = "0";
+        public const string startLevelID = "0.Tutorial";
 
         //public const string sceneFile = @"Content\Scenes\theWorld.xml";
         //public const string eventFile = @"Content\Scenes\Events\Event.xml";
