@@ -76,16 +76,26 @@ namespace Candyland
             // check for Collision between the Player and all Game Objects in the current Level
             if (m_updateInfo.candyselected || m_updateInfo.currentguyLevelID == m_updateInfo.currenthelperLevelID)
             {
-                m_areas[m_updateInfo.currentguyLevelID.Split('.')[0]].Collide(player);
+                string currArea = m_updateInfo.currentguyLevelID.Split('.')[0];
+                m_areas[currArea].Collide(player);
                 if (m_updateInfo.playerIsOnAreaExit && m_updateInfo.nextguyLevelID != null)
-                    m_areas[m_updateInfo.nextguyLevelID.Split('.')[0]].Collide(player);
+                {
+                    string nextArea = m_updateInfo.nextguyLevelID.Split('.')[0];
+                    if( !currArea.Equals(nextArea) )
+                        m_areas[nextArea].Collide(player);
+                }
             }
             // check for Collision between the Player2 and all Game Objects in the current Level
             if(!m_updateInfo.candyselected || m_updateInfo.currentguyLevelID == m_updateInfo.currenthelperLevelID)
             {
-                m_areas[m_updateInfo.currenthelperLevelID.Split('.')[0]].Collide(player2);
+                string currArea = m_updateInfo.currenthelperLevelID.Split('.')[0];
+                m_areas[currArea].Collide(player2);
                 if (m_updateInfo.playerIsOnAreaExit && m_updateInfo.nexthelperLevelID != null)
-                    m_areas[m_updateInfo.nexthelperLevelID.Split('.')[0]].Collide(player2);
+                {
+                    string nextArea = m_updateInfo.nexthelperLevelID.Split('.')[0];
+                    if (!currArea.Equals(nextArea))
+                        m_areas[nextArea].Collide(player2);
+                }
             }
 
 
@@ -93,15 +103,25 @@ namespace Candyland
             // and the next area if the player is about to leave the current area
             if (m_updateInfo.candyselected)
             {
-                m_areas[m_updateInfo.currentguyLevelID.Split('.')[0]].Update(gameTime);
+                string currArea = m_updateInfo.currentguyLevelID.Split('.')[0];
+                m_areas[currArea].Update(gameTime);
                 if (m_updateInfo.playerIsOnAreaExit && m_updateInfo.nextguyLevelID != null)
-                    m_areas[m_updateInfo.nextguyLevelID.Split('.')[0]].Update(gameTime);
+                {
+                    string nextArea = m_updateInfo.nextguyLevelID.Split('.')[0];
+                    if (!currArea.Equals(nextArea))
+                        m_areas[nextArea].Update(gameTime);
+                }
             }
             if(!m_updateInfo.candyselected)
             {
-                    m_areas[m_updateInfo.currenthelperLevelID.Split('.')[0]].Update(gameTime);
+                string currArea = m_updateInfo.currenthelperLevelID.Split('.')[0];
+                m_areas[currArea].Update(gameTime);
                 if (m_updateInfo.playerIsOnAreaExit && m_updateInfo.nexthelperLevelID != null)
-                    m_areas[m_updateInfo.nexthelperLevelID.Split('.')[0]].Update(gameTime);
+                {
+                    string nextArea = m_updateInfo.nexthelperLevelID.Split('.')[0];
+                    if (!currArea.Equals(nextArea))
+                        m_areas[nextArea].Update(gameTime);
+                }
             }
 
             player.endIntersection();
