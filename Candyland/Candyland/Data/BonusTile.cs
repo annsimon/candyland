@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 
 namespace Candyland
 {
-    class BonusTile
+    public class BonusTile
     {
         string id;
         string name;
@@ -95,6 +95,21 @@ namespace Candyland
             this.bonusType = type;
             this.textureString = texture;
             this.price = price;
+        }
+
+        public void Draw(SpriteBatch sprite, int posX, int posY, int width, int height, Color color, SpriteFont font)
+        {
+            float scalingFactor = (float)width/(float)texture.Width;
+            Rectangle rec = new Rectangle(posX,
+                posY /*+ ((height - (int)(texture.Height * scalingFactor)) / 2)*/,
+                (int)(texture.Width * scalingFactor),
+                (int)(texture.Height * scalingFactor));
+
+            sprite.Draw(texture, rec, color);
+
+            sprite.DrawString(font, name,
+                new Vector2(posX + ((int)(texture.Width * scalingFactor) - font.MeasureString(name).X) / 2,
+                posY /*+ font.LineSpacing/2*/ + (int)(texture.Height * scalingFactor)), Color.Black);
         }
     }
 }

@@ -195,7 +195,10 @@ namespace Candyland
             foreach (String word in wordArray)
             {
                 float lineWidth = font.MeasureString(lineString + word).Length();
-                if (lineWidth + offset > textBox.Width)
+                if(word == "!ns!")
+                {
+                }
+                if (word == "!nl!" || lineWidth + offset > textBox.Width)
                 {
                     returnString = returnString + lineString + '\n';
                     lineString = String.Empty;

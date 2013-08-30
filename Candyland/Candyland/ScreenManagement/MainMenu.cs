@@ -132,7 +132,7 @@ namespace Candyland
 
             m_sprite.Begin();
 
-            // Draw Boarder
+            // Draw Border
             m_sprite.Draw(BorderTopLeft, MenuBoxTL, Color.White);
             m_sprite.Draw(BorderTopRight, MenuBoxTR, Color.White);
             m_sprite.Draw(BorderBottomLeft, MenuBoxBL, Color.White);

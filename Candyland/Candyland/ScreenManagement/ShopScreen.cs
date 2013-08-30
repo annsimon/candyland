@@ -19,7 +19,7 @@ namespace Candyland
         int screenHeight;
 
         int activeID = 1;
-        int numberOfItems = 10;
+        int numberOfItems = 0;
 
         protected Rectangle bigBox;
         protected Rectangle shopBox;
@@ -75,6 +75,9 @@ namespace Candyland
         protected Texture2D BorderBottom;
         protected Texture2D BorderMiddle;
 
+        SortedList<int, BonusTile> forSale;
+        BonusManager m_bonusManager;
+
         BonusTile testBonus;
         int bonusTileWidth;
 
@@ -115,6 +118,19 @@ namespace Candyland
             BorderBottom = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottom");
             BorderMiddle = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogMiddle");
 
+            // What's there to sell?
+            m_bonusManager = ScreenManager.SceneManager.BonusManager();
+            forSale = new SortedList<int, BonusTile>();
+                        foreach (BonusTile bonus in m_bonusManager.conceptArts)
+            {
+                if(!m_bonusManager.soldItems.Contains(bonus.ID)) // not yet sold
+                {
+                    forSale.Add(bonus.Price, bonus);
+                    bonus.Texture = ScreenManager.Content.Load<Texture2D>(bonus.TextureString);
+                }
+            }
+            
+            // layout stuff
             int offsetX = 5;
             int offsetY = 5;
 
@@ -152,11 +168,10 @@ namespace Candyland
             pos11 = pos7 + new Vector2(0, tileDistTotalY);
             pos12 = pos8 + new Vector2(0, tileDistTotalY);
 
-            testBonus = new BonusTile("testBonus", "Flower", "Concept Art", 1, "testBonus");
-            testBonus.Texture = ScreenManager.Content.Load<Texture2D>("ScreenTextures/" + testBonus.TextureString);
-            testBonus.Rectangle = new Rectangle((int)pos1.X, (int)pos1.Y, bonusTileWidth, bonusTileWidth);
             // Tile Box
             MakeTileBoxes();
+
+            numberOfItems = forSale.Count;
         }
 
 
@@ -182,6 +197,7 @@ namespace Candyland
             if (activeID >= numberOfItems) activeID = numberOfItems;
             if (activeID < 1) activeID = 1;
 
+            if (enterPressed) ScreenManager.ActivateNewScreen(new YesNoScreen());
         }
 
         public override void Draw(GameTime gameTime)
@@ -229,10 +245,14 @@ namespace Candyland
 
             DrawTiles(m_sprite);
 
-            m_sprite.Draw(testBonus.Texture, testBonus.Rectangle, Color.White);
-            m_sprite.DrawString(font, "Preis", new Vector2(bigBox.Left + offset, bigBox.Top + offset), Color.White);
-            m_sprite.DrawString(font, "Du hast", new Vector2(bigBox.Left + offset, bigBox.Bottom - 90), Color.White);
-            m_sprite.DrawString(font, (chocoCollected - m_updateInfo.chocoChipsSpent).ToString(), new Vector2(bigBox.Left + offset, bigBox.Bottom - 60), Color.White);
+            DrawBonusPictures(m_sprite);
+
+           // m_sprite.Draw(testBonus.Texture, testBonus.Rectangle, Color.White);
+            Color textColor = Color.Black;
+            m_sprite.DrawString(font, "Preis", new Vector2(bigBox.Left + offset, bigBox.Top + offset), textColor);
+            m_sprite.DrawString(font, forSale.ElementAt(activeID-1).Value.Price.ToString(), new Vector2(bigBox.Left + offset, bigBox.Top + offset + font.LineSpacing), textColor);
+            m_sprite.DrawString(font, "Du hast", new Vector2(bigBox.Left + offset, bigBox.Bottom - 90), textColor);
+            m_sprite.DrawString(font, (chocoCollected - m_updateInfo.chocoChipsSpent).ToString(), new Vector2(bigBox.Left + offset, bigBox.Bottom - 60), textColor);
 
             m_sprite.End();
 
@@ -241,6 +261,51 @@ namespace Candyland
             GraphicsDevice m_graphics = ScreenManager.Game.GraphicsDevice;
             m_graphics.DepthStencilState = DepthStencilState.Default;
             m_graphics.BlendState = BlendState.Opaque;
+        }
+
+        private void DrawBonusPictures(SpriteBatch m_sprite)
+        {
+            int offset = 10;
+            int bonusPictureWidth = bonusTileWidth - 2 * offset;
+            Color white = Color.White;
+            int i = 0;
+
+            if (i >= forSale.Count) return;
+            forSale.ElementAt(0).Value.Draw(m_sprite, (int)pos1.X + offset, (int)pos1.Y + offset, bonusPictureWidth, bonusPictureWidth, white, font);
+            i++;
+            if (i >= forSale.Count) return;
+            forSale.ElementAt(1).Value.Draw(m_sprite, (int)pos2.X + offset, (int)pos2.Y + offset, bonusPictureWidth, bonusPictureWidth, white, font);
+            i++;
+            if (i >= forSale.Count) return;
+            forSale.ElementAt(2).Value.Draw(m_sprite, (int)pos3.X + offset, (int)pos3.Y + offset, bonusPictureWidth, bonusPictureWidth, white, font);
+            i++;
+            if (i >= forSale.Count) return;
+            forSale.ElementAt(3).Value.Draw(m_sprite, (int)pos4.X + offset, (int)pos4.Y + offset, bonusPictureWidth, bonusPictureWidth, white, font);
+            i++;
+            if (i >= forSale.Count) return;
+            forSale.ElementAt(4).Value.Draw(m_sprite, (int)pos5.X + offset, (int)pos5.Y + offset, bonusPictureWidth, bonusPictureWidth, white, font);
+            i++;
+            if (i >= forSale.Count) return;
+            forSale.ElementAt(5).Value.Draw(m_sprite, (int)pos6.X + offset, (int)pos6.Y + offset, bonusPictureWidth, bonusPictureWidth, white, font);
+            i++;
+            if (i >= forSale.Count) return;
+            forSale.ElementAt(6).Value.Draw(m_sprite, (int)pos7.X + offset, (int)pos7.Y + offset, bonusPictureWidth, bonusPictureWidth, white, font);
+            i++;
+            if (i >= forSale.Count) return;
+            forSale.ElementAt(7).Value.Draw(m_sprite, (int)pos8.X + offset, (int)pos8.Y + offset, bonusPictureWidth, bonusPictureWidth, white, font);
+            i++;
+            if (i >= forSale.Count) return;
+            forSale.ElementAt(8).Value.Draw(m_sprite, (int)pos9.X + offset, (int)pos9.Y + offset, bonusPictureWidth, bonusPictureWidth, white, font);
+            i++;
+            if (i >= forSale.Count) return;
+            forSale.ElementAt(9).Value.Draw(m_sprite, (int)pos10.X + offset, (int)pos10.Y + offset, bonusPictureWidth, bonusPictureWidth, white, font);
+            i++;
+            if (i >= forSale.Count) return;
+            forSale.ElementAt(10).Value.Draw(m_sprite, (int)pos11.X + offset, (int)pos11.Y + offset, bonusPictureWidth, bonusPictureWidth, white, font);
+            i++;
+            if (i >= forSale.Count) return;
+            forSale.ElementAt(11).Value.Draw(m_sprite, (int)pos12.X + offset, (int)pos12.Y + offset, bonusPictureWidth, bonusPictureWidth, white, font);
+            i++;
         }
 
                 private void MakeTileBoxes()
