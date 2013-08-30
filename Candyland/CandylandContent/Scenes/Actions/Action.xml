@@ -11,9 +11,9 @@
           <oneTimeAction>true</oneTimeAction>
           <subactions>
             <subaction type="appear" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
-            <subaction type="movement" goalX="8" goalY="0,8" goalZ="6,5" locks="false" text=""/>
+            <subaction type="movement" goalX="8" goalY="0,7" goalZ="6,5" locks="false" text=""/>
             <subaction type="movement" goalX="8" goalY="0,4" goalZ="6,5" locks="false" text=""/>
-            <subaction type="movement" goalX="8" goalY="0,8" goalZ="6,5" locks="false" text=""/>
+            <subaction type="movement" goalX="8" goalY="0,7" goalZ="6,5" locks="false" text=""/>
             <subaction type="movement" goalX="8" goalY="0,4" goalZ="6,5" locks="false" text=""/>
             
             <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Hi! !nl!Willkommen in Candyland. Geht es dir gut? !nl!Oft sind die Leute verwirrt, wenn sie hier ankommen... Folg erst einmal einfach diesem Weg hier, er wird dich deinem Ziel n!ae!her bringen. !ns!(Nutze W, A, S und D, um dich zu bewegen und Leertaste, um zu springen. Mit der Maus kann die Kamera gedreht werden.)"/>
@@ -30,9 +30,9 @@
           <oneTimeAction>true</oneTimeAction>
           <subactions>
             <subaction type="appear" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
-            <subaction type="movement" goalX="18,5" goalY="0,8" goalZ="19,5" locks="false" text=""/>
+            <subaction type="movement" goalX="18,5" goalY="0,7" goalZ="19,5" locks="false" text=""/>
             <subaction type="movement" goalX="18,5" goalY="0,4" goalZ="19,5" locks="false" text=""/>
-            <subaction type="movement" goalX="18,5" goalY="0,8" goalZ="19,5" locks="false" text=""/>
+            <subaction type="movement" goalX="18,5" goalY="0,7" goalZ="19,5" locks="false" text=""/>
             <subaction type="movement" goalX="18,5" goalY="0,4" goalZ="19,5" locks="false" text=""/>
 
             <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Das da vorne sind Schokolinsen. Sammel m!oe!glichst viele von ihnen, um sie irgendwann gegen besondere Dinge einzutauschen. !nl!Ich merke mir, welche der Linsen du schon gesammelt hast. Du kannst eine einmal eingesammelte Schokolinse also nicht wieder verlieren. !ns!(Die Linsen-Anzeige oben links zeigt, wie viele Linsen es im ganzen Spiel gibt und wie viele von ihnen bereits gefunden wurden.)"/>
@@ -54,9 +54,9 @@
           <oneTimeAction>true</oneTimeAction>
           <subactions>
             <subaction type="appear" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
-            <subaction type="movement" goalX="12,5" goalY="0,8" goalZ="8" locks="false" text=""/>
+            <subaction type="movement" goalX="12,5" goalY="0,7" goalZ="8" locks="false" text=""/>
             <subaction type="movement" goalX="12,5" goalY="0,4" goalZ="8" locks="false" text=""/>
-            <subaction type="movement" goalX="12,5" goalY="0,8" goalZ="8" locks="false" text=""/>
+            <subaction type="movement" goalX="12,5" goalY="0,7" goalZ="8" locks="false" text=""/>
             <subaction type="movement" goalX="12,5" goalY="0,4" goalZ="8" locks="false" text=""/>
             
             <subaction type="movement" goalX="12,5" goalY="0,4" goalZ="6" locks="false" text=""/>
@@ -79,9 +79,9 @@
           <oneTimeAction>true</oneTimeAction>
           <subactions>
             <subaction type="appear" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
-            <subaction type="movement" goalX="10,5" goalY="0,8" goalZ="15" locks="false" text=""/>
+            <subaction type="movement" goalX="10,5" goalY="0,7" goalZ="15" locks="false" text=""/>
             <subaction type="movement" goalX="10,5" goalY="0,4" goalZ="15" locks="false" text=""/>
-            <subaction type="movement" goalX="10,5" goalY="0,8" goalZ="15" locks="false" text=""/>
+            <subaction type="movement" goalX="10,5" goalY="0,7" goalZ="15" locks="false" text=""/>
             <subaction type="movement" goalX="10,5" goalY="0,4" goalZ="15" locks="false" text=""/>
 
             <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Solche Zuckerw!ue!rfel wie den da dr!ue!ben kannst du verschieben. Versuch es doch mal. !nl!Und hab keine Angst, falls du mal einen Fehler machst. Ich kann den Ursprungszustand der Umgebung wiederherstellen, wenn du das m!oe!chstest. !ns!(Mit R kann ein Reset ausgel!oe!st werden. Dabei werden alle Objekte zur!ue!ckgesetzt. Bereits eingesammelte Schokolinsen gehen aber nicht verloren.)"/>
@@ -126,9 +126,9 @@
           <oneTimeAction>true</oneTimeAction>
           <subactions>
             <subaction type="appear" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
-            <subaction type="movement" goalX="15,5" goalY="4,8" goalZ="4,5" locks="false" text=""/>
+            <subaction type="movement" goalX="15,5" goalY="4,7" goalZ="4,5" locks="false" text=""/>
             <subaction type="movement" goalX="15,5" goalY="4,4" goalZ="4,5" locks="false" text=""/>
-            <subaction type="movement" goalX="15,5" goalY="4,8" goalZ="4,5" locks="false" text=""/>
+            <subaction type="movement" goalX="15,5" goalY="4,7" goalZ="4,5" locks="false" text=""/>
             <subaction type="movement" goalX="15,5" goalY="4,4" goalZ="4,5" locks="false" text=""/>
 
             <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Die Kekse, die du hier siehst, sind alt. Wenn du sie betrittst, zerbrechen sie nach einer Weile. !nl!Beeil dich also und !ue!berleg gut, welchen Weg du nehmen willst."/>
