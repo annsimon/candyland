@@ -252,6 +252,12 @@
       <Processor>ModelProcessor</Processor>
       <ProcessorParameters_Scale>0.2</ProcessorParameters_Scale>
     </Compile>
+    <Compile Include="NPCs\Helper\buddy.fbx">
+      <Name>buddy</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.2</ProcessorParameters_Scale>
+    </Compile>
     <None Include="README.txt">
       <Name>README</Name>
     </None>
@@ -804,6 +810,20 @@
   <ItemGroup>
     <Compile Include="NPCs\TutorialGuy\tutorialtexture.png">
       <Name>tutorialtexture</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\DialogImages\Helper.png">
+      <Name>Helper</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NPCs\Helper\buddytextur.png">
+      <Name>buddytextur</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

@@ -50,8 +50,8 @@ namespace Candyland
         public override void load(ContentManager content)
         {
             effect = content.Load<Effect>("Shaders/Shader");
-            m_texture = content.Load<Texture2D>("NPCs/Helper/partnertextur");
-            m_model = content.Load<Model>("NPCs/Helper/partnerneu");
+            m_texture = content.Load<Texture2D>("NPCs/Helper/buddytextur");
+            m_model = content.Load<Model>("NPCs/Helper/buddy");
             calculateBoundingBox();
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
