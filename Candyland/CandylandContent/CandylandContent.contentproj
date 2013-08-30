@@ -773,6 +773,28 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Images\Dialog\JaActive.png">
+      <Name>JaActive</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Dialog\JaInactive.png">
+      <Name>JaInactive</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Dialog\NeinActive.png">
+      <Name>NeinActive</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Dialog\NeinInactive.png">
+      <Name>NeinInactive</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Objekte\Plattformen\Slippery\plattformtexturslippery_klein2.png">
       <Name>plattformtexturslippery_klein2</Name>
       <Importer>TextureImporter</Importer>

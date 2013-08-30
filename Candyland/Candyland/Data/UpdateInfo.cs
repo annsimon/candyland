@@ -47,8 +47,6 @@ namespace Candyland
         /// </summary>
         public List<String> activeTeleports { get; set; }
 
-        public int chocoChipsSpent { get; set; }
-
         public Matrix viewMatrix { get; set; }
         public Matrix projectionMatrix { get ; set; }
 

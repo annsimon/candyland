@@ -14,7 +14,12 @@ namespace Candyland
         protected Texture2D yesSelected;
         protected Texture2D noSelected;
 
-        protected string play = "?";
+        protected string question = "?";
+
+        protected Rectangle yesBox;
+        protected Rectangle noBox;
+
+        protected Rectangle boxRec;
 
         protected Rectangle MenuBoxTL;
         protected Rectangle MenuBoxTR;
@@ -46,10 +51,10 @@ namespace Candyland
 
         public override void Open(Game game)
         {
-            yes = ScreenManager.Content.Load<Texture2D>("Images/Captions/MainMenu");
-            no = ScreenManager.Content.Load<Texture2D>("ScreenTextures/transparent");
-            yesSelected = ScreenManager.Content.Load<Texture2D>("Images/Captions/MainMenu");
-            noSelected = ScreenManager.Content.Load<Texture2D>("ScreenTextures/transparent");
+            yes = ScreenManager.Content.Load<Texture2D>("Images/Dialog/JaInactive");
+            no = ScreenManager.Content.Load<Texture2D>("Images/Dialog/NeinInactive");
+            yesSelected = ScreenManager.Content.Load<Texture2D>("Images/Dialog/JaActive");
+            noSelected = ScreenManager.Content.Load<Texture2D>("Images/Dialog/NeinActive");
 
             font = ScreenManager.Font;
 
@@ -67,9 +72,14 @@ namespace Candyland
             BorderBottom = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottom");
             BorderMiddle = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogMiddle");
 
-            Rectangle boxRec = new Rectangle(100, 100, 200, 200);
+            boxRec = new Rectangle((screenWidth - yes.Width * 2) / 2,
+                (screenHeight - yes.Height - font.LineSpacing * 3) / 2,
+                yes.Width * 2, yes.Height + font.LineSpacing * 3);
             MakeBorderBox(boxRec, out MenuBoxTL, out MenuBoxT, out MenuBoxTR, out MenuBoxR,
                 out MenuBoxBR, out MenuBoxB, out MenuBoxBL, out MenuBoxL, out MenuBoxM);
+
+            yesBox = new Rectangle(boxRec.Left + yes.Width, boxRec.Top + font.LineSpacing * 3, yes.Width, yes.Height);
+            noBox = new Rectangle(boxRec.Left, boxRec.Top + font.LineSpacing * 3, no.Width, no.Height);
         }
 
         public override void Update(GameTime gameTime)
@@ -83,6 +93,8 @@ namespace Candyland
                 case InputState.Left: if(answer) answer = false; break;
                 case InputState.Right: if (!answer) answer = true; break;
             }
+
+            if (enterPressed && !answer) ScreenManager.ResumeLast(this);
         }
 
         public override void Draw(GameTime gameTime)
@@ -91,16 +103,33 @@ namespace Candyland
 
             m_sprite.Begin();
 
+            Color white = Color.White;
+
             // Draw Border
-            m_sprite.Draw(BorderTopLeft, MenuBoxTL, Color.White);
-            m_sprite.Draw(BorderTopRight, MenuBoxTR, Color.White);
-            m_sprite.Draw(BorderBottomLeft, MenuBoxBL, Color.White);
-            m_sprite.Draw(BorderBottomRight, MenuBoxBR, Color.White);
-            m_sprite.Draw(BorderLeft, MenuBoxL, Color.White);
-            m_sprite.Draw(BorderRight, MenuBoxR, Color.White);
-            m_sprite.Draw(BorderTop, MenuBoxT, Color.White);
-            m_sprite.Draw(BorderBottom, MenuBoxB, Color.White);
-            m_sprite.Draw(BorderMiddle, MenuBoxM, Color.White);
+            m_sprite.Draw(BorderTopLeft, MenuBoxTL, white);
+            m_sprite.Draw(BorderTopRight, MenuBoxTR, white);
+            m_sprite.Draw(BorderBottomLeft, MenuBoxBL, white);
+            m_sprite.Draw(BorderBottomRight, MenuBoxBR, white);
+            m_sprite.Draw(BorderLeft, MenuBoxL, white);
+            m_sprite.Draw(BorderRight, MenuBoxR, white);
+            m_sprite.Draw(BorderTop, MenuBoxT, white);
+            m_sprite.Draw(BorderBottom, MenuBoxB, white);
+            m_sprite.Draw(BorderMiddle, MenuBoxM, white);
+
+            m_sprite.DrawString(font, question,
+                new Vector2(boxRec.Left + (boxRec.Width - (int)font.MeasureString(question).X) / 2,
+                boxRec.Top + font.LineSpacing), Color.Black);
+
+            if (answer)
+            {
+                m_sprite.Draw(yesSelected, yesBox, white);
+                m_sprite.Draw(no, noBox, white);
+            }
+            else
+            {
+                m_sprite.Draw(yes, yesBox, white);
+                m_sprite.Draw(noSelected, noBox, white);
+            }
 
             m_sprite.End();
         }
