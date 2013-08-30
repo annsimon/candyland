@@ -76,9 +76,8 @@ namespace Candyland
         protected Texture2D BorderMiddle;
 
         SortedList<int, BonusTile> forSale;
-        BonusManager m_bonusManager;
+        BonusTracker m_bonusTracker;
 
-        BonusTile testBonus;
         int bonusTileWidth;
 
         Vector2 pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9, pos10, pos11, pos12;
@@ -119,11 +118,11 @@ namespace Candyland
             BorderMiddle = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogMiddle");
 
             // What's there to sell?
-            m_bonusManager = ScreenManager.SceneManager.BonusManager();
+            m_bonusTracker = ScreenManager.SceneManager.getBonusTracker();
             forSale = new SortedList<int, BonusTile>();
-                        foreach (BonusTile bonus in m_bonusManager.conceptArts)
+                        foreach (BonusTile bonus in m_bonusTracker.conceptArts)
             {
-                if(!m_bonusManager.soldItems.Contains(bonus.ID)) // not yet sold
+                if(!m_bonusTracker.soldItems.Contains(bonus.ID)) // not yet sold
                 {
                     forSale.Add(bonus.Price, bonus);
                     bonus.Texture = ScreenManager.Content.Load<Texture2D>(bonus.TextureString);
@@ -197,7 +196,13 @@ namespace Candyland
             if (activeID >= numberOfItems) activeID = numberOfItems;
             if (activeID < 1) activeID = 1;
 
-            if (enterPressed) ScreenManager.ActivateNewScreen(new YesNoScreen());
+            if (enterPressed)
+            {
+                if ((m_bonusTracker.chocoCount - m_bonusTracker.chocoChipsSpent) < forSale.ElementAt(activeID - 1).Key)
+                    ;// TODO play sound
+                else
+                    ScreenManager.ActivateNewScreen(new BuyQuestion(forSale.ElementAt(activeID-1).Value, forSale));
+            }
         }
 
         public override void Draw(GameTime gameTime)
@@ -252,7 +257,7 @@ namespace Candyland
             m_sprite.DrawString(font, "Preis", new Vector2(bigBox.Left + offset, bigBox.Top + offset), textColor);
             m_sprite.DrawString(font, forSale.ElementAt(activeID-1).Value.Price.ToString(), new Vector2(bigBox.Left + offset, bigBox.Top + offset + font.LineSpacing), textColor);
             m_sprite.DrawString(font, "Du hast", new Vector2(bigBox.Left + offset, bigBox.Bottom - 90), textColor);
-            m_sprite.DrawString(font, (chocoCollected - m_updateInfo.chocoChipsSpent).ToString(), new Vector2(bigBox.Left + offset, bigBox.Bottom - 60), textColor);
+            m_sprite.DrawString(font, (chocoCollected - m_bonusTracker.chocoChipsSpent).ToString(), new Vector2(bigBox.Left + offset, bigBox.Bottom - 60), textColor);
 
             m_sprite.End();
 

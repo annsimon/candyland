@@ -15,6 +15,44 @@
     </level_inner>
   </L0.S0>
 
+  <Lschieb.1>
+    <level_inner>
+      <event>
+        <event_inner>
+          <triggerable>schieb.1.1.dyn</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>schieb.1.1.switchTemporary</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+      <event>
+        <event_inner>
+          <triggerable>schieb.1.2.dyn</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>schieb.1.2.switchTemporary</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+      <event>
+        <event_inner>
+          <triggerable>schieb.1.3.dyn</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>schieb.1.3.switchTemporary</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+    </level_inner>
+  </Lschieb.1>
+  
   <L5.0>
     <level_inner>
       <event>
