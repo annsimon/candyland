@@ -136,6 +136,7 @@
     <Compile Include="MyModel.cs" />
     <Compile Include="NPCs\ActionActor.cs" />
     <Compile Include="NPCs\BonbonFairy.cs" />
+    <Compile Include="NPCs\HelperActor.cs" />
     <Compile Include="NPCs\Salesman.cs" />
     <Compile Include="Parsers\ActionParser.cs" />
     <Compile Include="Parsers\AreaParser.cs" />

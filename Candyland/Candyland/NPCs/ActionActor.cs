@@ -15,6 +15,8 @@ namespace Candyland
         protected ActionTracker m_actionTracker;
         protected string m_dialogImage;
 
+        protected ActionActor() { }
+
         public ActionActor(String id, Vector3 position, ActionTracker actionTracker, 
                             UpdateInfo updateInfo, bool visible)
         {
