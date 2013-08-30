@@ -744,6 +744,28 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Images\ConceptArt\Cupcakes1.png">
+      <Name>Cupcakes1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\ConceptArt\Cupcakes2.png">
+      <Name>Cupcakes2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\ConceptArt\Cupcakes3.png">
+      <Name>Cupcakes3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\ConceptArt\Cupcakes4.png">
+      <Name>Cupcakes4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Images\Dialog\DialogArrow.png">
       <Name>DialogArrow</Name>
       <Importer>TextureImporter</Importer>
