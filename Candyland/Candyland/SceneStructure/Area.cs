@@ -59,9 +59,10 @@ namespace Candyland
 
             if (m_updateInfo.currentguyLevelID != m_updateInfo.currenthelperLevelID)
             {
-                if (m_levels.ContainsKey(m_updateInfo.currenthelperLevelID))
+                if (m_levels.ContainsKey(m_updateInfo.currenthelperLevelID) && m_updateInfo.currenthelperLevelID != m_updateInfo.nextguyLevelID)
                     m_levels[m_updateInfo.currenthelperLevelID].Update(gameTime);
-                if (m_updateInfo.playerIsOnLevelExit && m_updateInfo.nexthelperLevelID != null && m_levels.ContainsKey(m_updateInfo.nexthelperLevelID))
+                if (m_updateInfo.playerIsOnLevelExit && m_updateInfo.nexthelperLevelID != null && m_levels.ContainsKey(m_updateInfo.nexthelperLevelID)
+                    && m_updateInfo.nexthelperLevelID != m_updateInfo.nextguyLevelID && m_updateInfo.nexthelperLevelID != m_updateInfo.currentguyLevelID)
                     m_levels[m_updateInfo.nexthelperLevelID].Update(gameTime);
 
             }
