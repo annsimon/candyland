@@ -69,10 +69,10 @@ namespace Candyland
             screenHeight = game.GraphicsDevice.Viewport.Height;
 
             numberOfButtons = 6;
-            buttonWidth = screenWidth / 4;
-            buttonHeight = (screenHeight * 29) / 50 / numberOfButtons;
+            buttonWidth = (int)font.MeasureString("Spiel beenden").X + 20;
+            buttonHeight = font.LineSpacing;
             leftAlign = (screenWidth - buttonWidth) / 2;
-            topAlign = screenWidth / 6 + 10;
+            topAlign = screenWidth / 6 + 50;
 
             selectedButton = new Rectangle(leftAlign, topAlign, buttonWidth, buttonHeight);
 
@@ -161,7 +161,7 @@ namespace Candyland
             m_sprite.DrawString(font, end, new Vector2(leftAlign + (buttonWidth - font.MeasureString(end).X) / 2,
                 topAlign + (buttonHeight * 5)), textColor);
 
-            selectedButton.Y = topAlign + (buttonHeight * activeButtonIndex) - font.LineSpacing / 5;
+            selectedButton.Y = topAlign + (buttonHeight * activeButtonIndex);
             if (activeButtonIndex == 0) selectedButton.Y -= buttonHeight / 2;
             m_sprite.Draw(buttonTexture, selectedButton, Color.White);
 
