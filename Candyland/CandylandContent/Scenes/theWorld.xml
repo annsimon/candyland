@@ -3,7 +3,7 @@
   <area>
     <area_id>0</area_id>
     <area_prev>x</area_prev>
-    <area_next>x</area_next>
+    <area_next>schieb</area_next>
     <area_starting_position>
       <x>0</x>
       <y>0</y>
@@ -449,23 +449,23 @@
                   <object type="obstacle" id="0.S0.139" is_door_to_area="x" is_door_to_level="x" posX="21,5" posY="1" posZ="17,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="obstacle" id="0.S0.140" is_door_to_area="x" is_door_to_level="x" posX="22,5" posY="1" posZ="17,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="obstacle" id="0.S0.141" is_door_to_area="x" is_door_to_level="x" posX="21,5" posY="1" posZ="18,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="0.S0.142" is_door_to_area="x" is_door_to_level="x" posX="34,5" posY="2" posZ="20,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="0.S0.143" is_door_to_area="x" is_door_to_level="x" posX="34,5" posY="2" posZ="19,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="obstacle" id="0.S0.144" is_door_to_area="x" is_door_to_level="x" posX="36,5" posY="2" posZ="12,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="obstacle" id="0.S0.145" is_door_to_area="x" is_door_to_level="x" posX="15,5" posY="2" posZ="17,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="obstacle" id="0.S0.146" is_door_to_area="x" is_door_to_level="x" posX="14,5" posY="2" posZ="17,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="obstacle" id="0.S0.147" is_door_to_area="x" is_door_to_level="x" posX="13,5" posY="2" posZ="17,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="obstacle" id="0.S0.148" is_door_to_area="x" is_door_to_level="x" posX="15,5" posY="2" posZ="18,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="obstacle" id="0.S0.149" is_door_to_area="x" is_door_to_level="x" posX="15,5" posY="2" posZ="19,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="obstacle" id="0.S0.150" is_door_to_area="x" is_door_to_level="x" posX="12,5" posY="2" posZ="18,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="obstacle" id="0.S0.151" is_door_to_area="x" is_door_to_level="x" posX="12,5" posY="2" posZ="19,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="obstacle" id="0.S0.152" is_door_to_area="x" is_door_to_level="x" posX="12,5" posY="2" posZ="20,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="obstacle" id="0.S0.153" is_door_to_area="x" is_door_to_level="x" posX="13,5" posY="2" posZ="20,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="0.S0.154" is_door_to_area="x" is_door_to_level="x" posX="30,5" posY="1,5" posZ="18,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="0.S0.155" is_door_to_area="x" is_door_to_level="x" posX="30,5" posY="1,5" posZ="19,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="0.S0.156" is_door_to_area="x" is_door_to_level="x" posX="30,5" posY="1,5" posZ="20,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="0.S0.157" is_door_to_area="x" is_door_to_level="x" posX="32,5" posY="1,5" posZ="21,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="0.S0.158" is_door_to_area="x" is_door_to_level="x" posX="33,5" posY="1,5" posZ="21,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="0.S0.142" is_door_to_area="x" is_door_to_level="x" posX="30,5" posY="1,5" posZ="18,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="0.S0.143" is_door_to_area="x" is_door_to_level="x" posX="30,5" posY="1,5" posZ="19,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="0.S0.144" is_door_to_area="x" is_door_to_level="x" posX="30,5" posY="1,5" posZ="20,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="0.S0.145" is_door_to_area="x" is_door_to_level="x" posX="32,5" posY="1,5" posZ="21,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="0.S0.146" is_door_to_area="x" is_door_to_level="x" posX="33,5" posY="1,5" posZ="21,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="0.S0.147" is_door_to_area="x" is_door_to_level="x" posX="34,5" posY="2" posZ="20,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="0.S0.148" is_door_to_area="x" is_door_to_level="x" posX="34,5" posY="2" posZ="19,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="0.S0.149" is_door_to_area="x" is_door_to_level="x" posX="36,5" posY="2" posZ="12,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="0.S0.150" is_door_to_area="x" is_door_to_level="x" posX="15,5" posY="2" posZ="17,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="0.S0.151" is_door_to_area="x" is_door_to_level="x" posX="14,5" posY="2" posZ="17,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="0.S0.152" is_door_to_area="x" is_door_to_level="x" posX="13,5" posY="2" posZ="17,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="0.S0.153" is_door_to_area="x" is_door_to_level="x" posX="15,5" posY="2" posZ="18,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="0.S0.154" is_door_to_area="x" is_door_to_level="x" posX="15,5" posY="2" posZ="19,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="0.S0.155" is_door_to_area="x" is_door_to_level="x" posX="12,5" posY="2" posZ="18,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="0.S0.156" is_door_to_area="x" is_door_to_level="x" posX="12,5" posY="2" posZ="19,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="0.S0.157" is_door_to_area="x" is_door_to_level="x" posX="12,5" posY="2" posZ="20,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="0.S0.158" is_door_to_area="x" is_door_to_level="x" posX="13,5" posY="2" posZ="20,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="0.S0.159" is_door_to_area="x" is_door_to_level="x" posX="35,5" posY="2,5" posZ="18,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="0.S0.160" is_door_to_area="x" is_door_to_level="x" posX="36,5" posY="2,5" posZ="18,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="0.S0.161" is_door_to_area="x" is_door_to_level="x" posX="36,5" posY="2,5" posZ="17,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
@@ -486,7 +486,7 @@
                   <object type="movableObstacle" id="0.S0.3.Mov" is_door_to_area="x" is_door_to_level="x" posX="15,5" posY="0" posZ="12,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="movableObstacle" id="0.S0.4.Mov" is_door_to_area="x" is_door_to_level="x" posX="16,5" posY="0" posZ="12,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="movableObstacle" id="0.S0.5.Mov" is_door_to_area="x" is_door_to_level="x" posX="20,5" posY="0" posZ="16,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="0.S0.4.dyn" is_door_to_area="x" is_door_to_level="x" posX="41" posY="0" posZ="16,5" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="0.S0.4.dyn" is_door_to_area="schieb" is_door_to_level="schieb.1" posX="41" posY="0" posZ="16,5" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
                   <object type="actionActor" id="0.S0.1.actionActor" is_door_to_area="x" is_door_to_level="x" posX="10,5" posY="0" posZ="15" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="False" dialog="" />
                   <object type="movableObstacle" id="0.S0.8.Mov" is_door_to_area="x" is_door_to_level="x" posX="17,5" posY="0" posZ="19,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="movableObstacle" id="0.S0.7.Mov" is_door_to_area="x" is_door_to_level="x" posX="17,5" posY="0" posZ="20,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
@@ -499,7 +499,7 @@
                   <object type="movableObstacle" id="0.S0.13.Mov" is_door_to_area="x" is_door_to_level="x" posX="14,5" posY="0" posZ="20" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="chocoChip" id="0.S0.5.choco" is_door_to_area="x" is_door_to_level="x" posX="13,5" posY="0" posZ="18,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="chocoChip" id="0.S0.4.choco" is_door_to_area="x" is_door_to_level="x" posX="18,5" posY="2" posZ="16,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="chocoChip" id="0.S0.2.choco" is_door_to_area="x" is_door_to_level="x" posX="36,5" posY="3" posZ="12,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="chocoChip" id="0.S0.2.choco" is_door_to_area="x" is_door_to_level="x" posX="36,5" posY="3,5" posZ="12,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                 </dynamics>
               </dynamic_objects>
             </the_objects>
@@ -511,7 +511,7 @@
   <!--- AREA 5 -->
   <area>
     <area_id>5</area_id>
-    <area_prev>x</area_prev>
+    <area_prev>0</area_prev>
     <area_next>x</area_next>
     <area_starting_position>
       <x>0</x>
@@ -1145,9 +1145,9 @@
     <area_prev>0</area_prev>
     <area_next>5</area_next>
     <area_starting_position>
-      <x>20</x>
-      <y>10</y>
-      <z>100</z>
+      <x>118,5</x>
+      <y>0</y>
+      <z>17</z>
     </area_starting_position>
     <levels>
       <the_levels>
@@ -1293,6 +1293,92 @@
                   <object type="platform" id="schieb.bonus.5.dyn" is_door_to_area="x" is_door_to_level="x" posX="2,5" posY="1" posZ="17,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="False" dialog="" />
                   <object type="chocoChip" id="schieb.bonus.3.choco" is_door_to_area="x" is_door_to_level="x" posX="0,5" posY="1,5" posZ="16,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="chocoChip" id="schieb.bonus.4.choco" is_door_to_area="x" is_door_to_level="x" posX="0,5" posY="1,5" posZ="18,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                </dynamics>
+              </dynamic_objects>
+            </the_objects>
+          </objects>
+        </level>
+        <!--- LEVEL schieb.1 -->
+        <level>
+          <level_id>schieb.1</level_id>
+          <main_start_platform>schieb.1.1.dyn</main_start_platform>
+          <secondary_start_platform>schieb.1.2.dyn</secondary_start_platform>
+          <level_starting_position>
+            <x>0</x>
+            <y>0</y>
+            <z>0</z>
+          </level_starting_position>
+          <objects>
+            <the_objects>
+            <!--- OBJECTS OF LEVEL schieb.1 -->
+            <!--- STATIC-->
+              <static_objects>
+                <statics>
+                  <object type="platform" id="schieb.1.0" is_door_to_area="x" is_door_to_level="x" posX="2,5" posY="0" posZ="16,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.1" is_door_to_area="x" is_door_to_level="x" posX="3,5" posY="0" posZ="17,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.2" is_door_to_area="x" is_door_to_level="x" posX="5,5" posY="0" posZ="16,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.3" is_door_to_area="x" is_door_to_level="x" posX="4,5" posY="0" posZ="17,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.4" is_door_to_area="x" is_door_to_level="x" posX="4,5" posY="0" posZ="18,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.5" is_door_to_area="x" is_door_to_level="x" posX="4" posY="0" posZ="16" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="schieb.1.6" is_door_to_area="x" is_door_to_level="x" posX="3,5" posY="0" posZ="17,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.7" is_door_to_area="x" is_door_to_level="x" posX="5,5" posY="0" posZ="17,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="schieb.1.8" is_door_to_area="x" is_door_to_level="x" posX="5,5" posY="0" posZ="17,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.9" is_door_to_area="x" is_door_to_level="x" posX="4,5" posY="0" posZ="19,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.10" is_door_to_area="x" is_door_to_level="x" posX="4" posY="0" posZ="21" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.11" is_door_to_area="x" is_door_to_level="x" posX="5,5" posY="0" posZ="15,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="schieb.1.12" is_door_to_area="x" is_door_to_level="x" posX="5,5" posY="0" posZ="15,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.13" is_door_to_area="x" is_door_to_level="x" posX="4,5" posY="0" posZ="14,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.14" is_door_to_area="x" is_door_to_level="x" posX="6,5" posY="0" posZ="16,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.15" is_door_to_area="x" is_door_to_level="x" posX="4,5" posY="0" posZ="13,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.16" is_door_to_area="x" is_door_to_level="x" posX="4,5" posY="0" posZ="12,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.17" is_door_to_area="x" is_door_to_level="x" posX="4,5" posY="0" posZ="11,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.18" is_door_to_area="x" is_door_to_level="x" posX="3,5" posY="0" posZ="11,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.19" is_door_to_area="x" is_door_to_level="x" posX="5,5" posY="0" posZ="11,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.20" is_door_to_area="x" is_door_to_level="x" posX="6,5" posY="0" posZ="11,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.21" is_door_to_area="x" is_door_to_level="x" posX="7,5" posY="0" posZ="11,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.22" is_door_to_area="x" is_door_to_level="x" posX="8,5" posY="0" posZ="11,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.23" is_door_to_area="x" is_door_to_level="x" posX="9,5" posY="0" posZ="11,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.24" is_door_to_area="x" is_door_to_level="x" posX="9,5" posY="0" posZ="10,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.25" is_door_to_area="x" is_door_to_level="x" posX="9,5" posY="0" posZ="12,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.26" is_door_to_area="x" is_door_to_level="x" posX="9,5" posY="0" posZ="13,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.27" is_door_to_area="x" is_door_to_level="x" posX="9,5" posY="0" posZ="14,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.28" is_door_to_area="x" is_door_to_level="x" posX="9,5" posY="0" posZ="15,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.29" is_door_to_area="x" is_door_to_level="x" posX="7,5" posY="0" posZ="16,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.30" is_door_to_area="x" is_door_to_level="x" posX="8,5" posY="0" posZ="16,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.31" is_door_to_area="x" is_door_to_level="x" posX="10" posY="0" posZ="18" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.32" is_door_to_area="x" is_door_to_level="x" posX="8,5" posY="0" posZ="15,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.33" is_door_to_area="x" is_door_to_level="x" posX="9,5" posY="0" posZ="16,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="schieb.1.34" is_door_to_area="x" is_door_to_level="x" posX="8,5" posY="0" posZ="15,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.35" is_door_to_area="x" is_door_to_level="x" posX="11" posY="0" posZ="16" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="schieb.1.36" is_door_to_area="x" is_door_to_level="x" posX="11" posY="0" posZ="16" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.37" is_door_to_area="x" is_door_to_level="x" posX="8,5" posY="0" posZ="17,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="schieb.1.38" is_door_to_area="x" is_door_to_level="x" posX="8,5" posY="0" posZ="17,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="schieb.1.39" is_door_to_area="x" is_door_to_level="x" posX="10,5" posY="0" posZ="18,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.40" is_door_to_area="x" is_door_to_level="x" posX="11,5" posY="0" posZ="17,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.41" is_door_to_area="x" is_door_to_level="x" posX="15" posY="0" posZ="19" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.42" is_door_to_area="x" is_door_to_level="x" posX="14,5" posY="0" posZ="17,5" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.43" is_door_to_area="x" is_door_to_level="x" posX="15" posY="0" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                </statics>
+              </static_objects>
+            <!--- DYNAMIC-->
+              <dynamic_objects>
+                <dynamics>
+                  <object type="platform" id="schieb.1.2.dyn" is_door_to_area="x" is_door_to_level="x" posX="49,5" posY="20" posZ="49,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.1.dyn" is_door_to_area="0" is_door_to_level="0.S0" posX="1" posY="0" posZ="16,5" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.4.dyn" is_door_to_area="x" is_door_to_level="schieb.2" posX="21,55" posY="0" posZ="16" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
+                  <object type="movableObstacle" id="schieb.1.1.Mov" is_door_to_area="x" is_door_to_level="x" posX="4,5" posY="0" posZ="16,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.5.dyn" is_door_to_area="x" is_door_to_level="x" posX="19" posY="0" posZ="13" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="False" dialog="" />
+                  <object type="platform" id="schieb.1.6.dyn" is_door_to_area="x" is_door_to_level="x" posX="21" posY="0" posZ="13,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="False" dialog="" />
+                  <object type="platform" id="schieb.1.3.dyn" is_door_to_area="x" is_door_to_level="x" posX="17" posY="0" posZ="14" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="False" dialog="" />
+                  <object type="switchTemporary" id="schieb.1.2.switchTemporary" is_door_to_area="x" is_door_to_level="x" posX="16" posY="0" posZ="18,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="switchTemporary" id="schieb.1.1.switchTemporary" is_door_to_area="x" is_door_to_level="x" posX="16" posY="0" posZ="16,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="switchTemporary" id="schieb.1.3.switchTemporary" is_door_to_area="x" is_door_to_level="x" posX="15" posY="0" posZ="20" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="movableObstacle" id="schieb.1.2.Mov" is_door_to_area="x" is_door_to_level="x" posX="15" posY="0" posZ="16,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="movableObstacle" id="schieb.1.3.Mov" is_door_to_area="x" is_door_to_level="x" posX="15" posY="0" posZ="17,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="movableObstacle" id="schieb.1.4.Mov" is_door_to_area="x" is_door_to_level="x" posX="15" posY="0" posZ="18,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="chocoChip" id="schieb.1.1.choco" is_door_to_area="x" is_door_to_level="x" posX="3,5" posY="1" posZ="21,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="chocoChip" id="schieb.1.2.choco" is_door_to_area="x" is_door_to_level="x" posX="9,5" posY="1" posZ="10,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="chocoChip" id="schieb.1.3.choco" is_door_to_area="x" is_door_to_level="x" posX="9,5" posY="3" posZ="18,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                 </dynamics>
               </dynamic_objects>
             </the_objects>
