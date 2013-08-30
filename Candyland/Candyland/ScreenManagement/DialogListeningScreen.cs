@@ -71,7 +71,7 @@ namespace Candyland
             talkBubbleBottom = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottom");
             talkBubbleMiddle = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogMiddle");
 
-            arrowDown = ScreenManager.Content.Load<Texture2D>("ScreenTextures/arrowDown");
+            arrowDown = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogArrow");
             talkingNPC = ScreenManager.Content.Load<Texture2D>(Picture);
             font = ScreenManager.Font;
             lineDist = font.LineSpacing;
@@ -183,9 +183,9 @@ namespace Candyland
             {
                 if (arrowBlink)
                 {
-                    m_sprite.Draw(arrowDown, new Rectangle(DiagBoxBR.Right - 35, DiagBoxBR.Bottom - 30, 30, 15), Color.White);
+                    m_sprite.Draw(arrowDown, new Rectangle(DiagBoxBR.Right - 40, DiagBoxBR.Bottom - 35, 24, 15), Color.White);
                 }
-                else m_sprite.Draw(arrowDown, new Rectangle(DiagBoxBR.Right - 35, DiagBoxBR.Bottom - 25, 30, 15), Color.White);
+                else m_sprite.Draw(arrowDown, new Rectangle(DiagBoxBR.Right - 40, DiagBoxBR.Bottom - 32, 24, 15), Color.White);
             }
 
             m_sprite.End();
