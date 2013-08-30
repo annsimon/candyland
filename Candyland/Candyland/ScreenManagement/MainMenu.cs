@@ -148,14 +148,20 @@ namespace Candyland
             // Draw Option Strings
             Color textColor = Color.Black;
 
-            m_sprite.DrawString(font, play, new Vector2(leftAlign + (buttonWidth - font.MeasureString(play).X) / 2, topAlign - buttonHeight/2), textColor);
-            m_sprite.DrawString(font, newGame, new Vector2(leftAlign + (buttonWidth - font.MeasureString(newGame).X) / 2, topAlign + (buttonHeight)), textColor);
-            m_sprite.DrawString(font, options, new Vector2(leftAlign + (buttonWidth - font.MeasureString(options).X) / 2, topAlign + (buttonHeight * 2)), textColor);
-            m_sprite.DrawString(font, bonus, new Vector2(leftAlign + (buttonWidth - font.MeasureString(bonus).X) / 2, topAlign + (buttonHeight * 3)), textColor);
-            m_sprite.DrawString(font, credits, new Vector2(leftAlign + (buttonWidth - font.MeasureString(credits).X) / 2, topAlign + (buttonHeight * 4)), textColor);
-            m_sprite.DrawString(font, end, new Vector2(leftAlign + (buttonWidth - font.MeasureString(end).X) / 2, topAlign + (buttonHeight * 5)), textColor);
+            m_sprite.DrawString(font, play, new Vector2(leftAlign + (buttonWidth - font.MeasureString(play).X) / 2,
+                topAlign - buttonHeight/2), textColor);
+            m_sprite.DrawString(font, newGame, new Vector2(leftAlign + (buttonWidth - font.MeasureString(newGame).X) / 2,
+                topAlign + (buttonHeight)), textColor);
+            m_sprite.DrawString(font, options, new Vector2(leftAlign + (buttonWidth - font.MeasureString(options).X) / 2,
+                topAlign + (buttonHeight * 2)), textColor);
+            m_sprite.DrawString(font, bonus, new Vector2(leftAlign + (buttonWidth - font.MeasureString(bonus).X) / 2,
+                topAlign + (buttonHeight * 3)), textColor);
+            m_sprite.DrawString(font, credits, new Vector2(leftAlign + (buttonWidth - font.MeasureString(credits).X) / 2,
+                topAlign + (buttonHeight * 4)), textColor);
+            m_sprite.DrawString(font, end, new Vector2(leftAlign + (buttonWidth - font.MeasureString(end).X) / 2,
+                topAlign + (buttonHeight * 5)), textColor);
 
-            selectedButton.Y = topAlign + (buttonHeight * activeButtonIndex);
+            selectedButton.Y = topAlign + (buttonHeight * activeButtonIndex) - font.LineSpacing / 5;
             if (activeButtonIndex == 0) selectedButton.Y -= buttonHeight / 2;
             m_sprite.Draw(buttonTexture, selectedButton, Color.White);
 

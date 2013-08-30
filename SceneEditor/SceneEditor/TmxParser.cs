@@ -47,6 +47,7 @@ namespace SceneEditor
                     else id = idFront + "." + objName;
 
                     String type = obj.Attributes["type"].InnerText;
+
                     String slippery = "0";
                     if (type == "lowObstacle") type = "obstacle";
                     if (type == "slipperyPlatform")
