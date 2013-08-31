@@ -6,17 +6,17 @@ using System.Collections.Generic;
 
 namespace Candyland
 {
-    class Sun : Billboard
+    class ChocoBB : Billboard
     {
         private Vector3[] positions;
 
-        public Sun(GraphicsDevice graphicsDevice)
+        public ChocoBB(GraphicsDevice graphicsDevice, Vector3 position)
         {
             positions = new Vector3[1];
-            positions[0] = new Vector3(0, 0, 0);
+            positions[0] = position;
             Create(graphicsDevice,
                    positions);
-            size = new Vector2(2.0f, 2.0f);
+            size = new Vector2(0.5f, 0.5f);
             textureCount = 1;
             textures = new Texture2D[textureCount];
         }
@@ -25,14 +25,12 @@ namespace Candyland
         {
             m_effect = manager.Load<Effect>("Shaders/Billboard");
             m_effect.CurrentTechnique = m_effect.Techniques["BillboardingCameraAligned"];
-            textures[0] = manager.Load<Texture2D>("Images/Billboards/Sun/Sun1");
-            m_mapTexture = textures[0];
+            textures[0] = manager.Load<Texture2D>("Images/Billboards/Choco1");
+            m_mapTexture = manager.Load<Texture2D>("Images/Billboards/ChocoMap");
         }
 
-        public void Update( GraphicsDevice graphicsDevice, Vector3 position, GameTime gameTime )
+        public void Update(GraphicsDevice graphicsDevice, GameTime gameTime)
         {
-            positions[0] = position + new Vector3(10, 10, 10);
-            Create(graphicsDevice, positions);
         }
     }
 }

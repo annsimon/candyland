@@ -64,8 +64,6 @@ namespace Candyland
         Texture2D[] skyboxTextures;
         Model skyboxModel;
 
-        Effect billboardEffect;
-
         InputManager m_inputManager;
 
         public SceneManager(ScreenManager screenManager)
@@ -128,8 +126,6 @@ namespace Candyland
             chocoChip = manager.Load<Texture2D>("Images/HUD/Choco");
             keysFull = manager.Load<Texture2D>("Images/HUD/HudFullWithChange");
             skyboxModel = LoadSkybox(manager, "Skybox/skybox2", out skyboxTextures);
-
-            billboardEffect = manager.Load<Effect>("Shaders/Billboard");
         }
 
         /// <summary>

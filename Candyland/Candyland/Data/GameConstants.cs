@@ -76,12 +76,13 @@ namespace Candyland
         public const int inputManagerMode = InputManager.KEYBOARDMOUSE;
 
         // data regarding the scene
+        public const bool helperAvailableAtGameStart = false;
 
         public const string sceneFile = @"Content\Scenes\theWorld.xml";
         public const string eventFile = @"Content\Scenes\Events\Event.xml";
         public const string actionsFile = @"Content\Scenes\Actions\Action.xml";
         public const string startAreaID = "0";
-        public const string startLevelID = "0.Tutorial";//"0.Tutorial";
+        public const string startLevelID = "0.Tutorial";
 
         //public const string sceneFile = @"Content\Scenes\theWorld.xml";
         //public const string eventFile = @"Content\Scenes\Events\Event.xml";
@@ -95,6 +96,7 @@ namespace Candyland
         /// Background color for full screen menu screens
         /// </summary>
         public static Color BackgroundColorMenu = Color.Peru;
+        public static Color BackgroundColorLoading = new Color(Color.Peru.R - 40, Color.Peru.G - 40, Color.Peru.B - 40);
 
         public static Color backgroundColor = new Color(86,131, 227);
 

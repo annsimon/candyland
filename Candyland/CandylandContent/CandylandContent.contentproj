@@ -258,6 +258,18 @@
       <Processor>ModelProcessor</Processor>
       <ProcessorParameters_Scale>0.2</ProcessorParameters_Scale>
     </Compile>
+    <Compile Include="Objekte\Obstacles\obstacle_half.fbx">
+      <Name>obstacle_half</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.5</ProcessorParameters_Scale>
+    </Compile>
+    <Compile Include="Objekte\Plattformen\Schalter\schalter2.fbx">
+      <Name>schalter2</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.33</ProcessorParameters_Scale>
+    </Compile>
     <None Include="README.txt">
       <Name>README</Name>
     </None>
@@ -419,7 +431,7 @@
       <Name>lakritzblock_klein</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.6</ProcessorParameters_Scale>
+      <ProcessorParameters_Scale>0.52</ProcessorParameters_Scale>
     </Compile>
     <Compile Include="Objekte\Obstacles\Movable\blockmovable.fbx">
       <Name>blockmovable</Name>
@@ -824,6 +836,34 @@
   <ItemGroup>
     <Compile Include="NPCs\Helper\buddytextur.png">
       <Name>buddytextur</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Objekte\Obstacles\obstacletextur.png">
+      <Name>obstacletextur</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\Billboards\Choco1.png">
+      <Name>Choco1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\Billboards\ChocoMap.png">
+      <Name>ChocoMap</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ScreenTextures\loading.png">
+      <Name>loading</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

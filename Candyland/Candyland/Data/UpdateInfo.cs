@@ -53,9 +53,11 @@ namespace Candyland
         public bool candyselected { get; set; }
         public void switchPlayer() { if(helperavailable) candyselected = !candyselected; }
         public bool helperavailable { get; set; }
+        public bool activateHelperNow { get; set; }
         public void togglehelper() { helperavailable = !helperavailable; }
 
         public List<Keys> currentpushedKeys { get; set; }
+        public List<GameObject> objectsWithBillboards { get; set; }
 
         public GameTime gameTime { get; set; }
 
@@ -92,7 +94,8 @@ namespace Candyland
             //currentObjectsToBeCollided = new Dictionary<String, GameObject>();
 
             candyselected = true;
-            helperavailable = true;
+            helperavailable = GameConstants.helperAvailableAtGameStart;
+            activateHelperNow = false;
 
             m_screenManager = screenManager;
 
@@ -101,6 +104,8 @@ namespace Candyland
             /**********************************************************************/
             graphics = graphicsDevice;
             /**********************************************************************/
+
+            objectsWithBillboards = new List<GameObject>();
         }
 
     }

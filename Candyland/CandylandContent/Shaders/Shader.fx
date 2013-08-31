@@ -278,7 +278,7 @@ void shade(in  float2 inTexCoord,
 void PS_Shaded(in  float2 inTexCoord    : TEXCOORD0,
                 in  float3 inNormal     : TEXCOORD1,
                 in  float3 inLightDir   : TEXCOORD2,
-				in  float4 inDepth      : TEXCOORD5,
+				in  float inDepth       : TEXCOORD5,
 				in  float4 viewForLight : TEXCOORD7,
 				out float4 outColor     : COLOR)
 {
@@ -290,7 +290,7 @@ void PS_ShadedWithShadows(in  float4 inLightSpacePos  : TEXCOORD0,
                            in  float2 inTexCoord       : TEXCOORD2,
                            in  float3 inNormal         : TEXCOORD3,
                            in  float3 inLightDir       : TEXCOORD4,
-						   in  float4 inDepth          : TEXCOORD5,
+						   in  float inDepth           : TEXCOORD5,
 						   in  float4 viewForLight     : TEXCOORD7,
 				           out float4 outColor         : COLOR)
 {	
@@ -305,7 +305,7 @@ void PS_ShadedWithShadowsPCF2x2(in  float4 inLightSpacePos  : TEXCOORD0,
                                  in  float2 inTexCoord       : TEXCOORD2,
                                  in  float3 inNormal         : TEXCOORD3,
 				                 in  float3 inLightDir       : TEXCOORD4,
-								 in  float4 inDepth          : TEXCOORD5,
+								 in  float inDepth           : TEXCOORD5,
 								 in  float4 viewForLight     : TEXCOORD7,
 				                 out float4 outColor         : COLOR)
 {

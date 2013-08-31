@@ -23,6 +23,20 @@ namespace Candyland
             // Update gameTime in UpdateInfo
             m_updateInfo.gameTime = gameTime;
 
+            if (m_updateInfo.activateHelperNow)
+            {
+                m_updateInfo.helperavailable = true;
+                m_updateInfo.activateHelperNow = false;
+                m_updateInfo.currenthelperAreaID = m_updateInfo.currentguyAreaID;
+                m_updateInfo.currenthelperLevelID = m_updateInfo.currentguyLevelID;
+                m_updateInfo.nexthelperLevelID = m_updateInfo.nextguyLevelID;
+
+                player2.Reset();
+                Vector3 resetPos2 = m_areas[m_updateInfo.currenthelperLevelID.Split('.')[0]].GetCompanionStartingPosition(player2);
+                resetPos2.Y += 0.21329f;
+                player2.setPosition(resetPos2);
+            }
+
             if (m_updateInfo.reset)
             {
 
@@ -36,7 +50,7 @@ namespace Candyland
                     player.setPosition(resetPos);
                 }
 
-                if (!m_updateInfo.candyselected || m_updateInfo.currentguyLevelID == m_updateInfo.currenthelperLevelID)
+                if (!m_updateInfo.candyselected || ( m_updateInfo.helperavailable && m_updateInfo.currentguyLevelID == m_updateInfo.currenthelperLevelID))
                 {
                     player2.Reset();
                     Vector3 resetPos2 = m_areas[m_updateInfo.currenthelperLevelID.Split('.')[0]].GetCompanionStartingPosition(player2);
@@ -61,7 +75,7 @@ namespace Candyland
 
             if (m_updateInfo.candyselected || m_updateInfo.currentguyLevelID == m_updateInfo.currenthelperLevelID)
             player.update();
-            if(!m_updateInfo.candyselected || m_updateInfo.currentguyLevelID == m_updateInfo.currenthelperLevelID)
+            if(!m_updateInfo.candyselected || (m_updateInfo.helperavailable && m_updateInfo.currentguyLevelID == m_updateInfo.currenthelperLevelID))
             player2.update();
 
             if( m_updateInfo.candyselected )
@@ -86,7 +100,7 @@ namespace Candyland
                 }
             }
             // check for Collision between the Player2 and all Game Objects in the current Level
-            if(!m_updateInfo.candyselected || m_updateInfo.currentguyLevelID == m_updateInfo.currenthelperLevelID)
+            if(!m_updateInfo.candyselected || (m_updateInfo.helperavailable && m_updateInfo.currentguyLevelID == m_updateInfo.currenthelperLevelID))
             {
                 string currArea = m_updateInfo.currenthelperLevelID.Split('.')[0];
                 m_areas[currArea].Collide(player2);

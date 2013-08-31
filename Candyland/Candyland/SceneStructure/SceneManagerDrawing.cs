@@ -16,15 +16,18 @@ namespace Candyland
     {
         public void Draw(GameTime gameTime)
         {
-            CreateShadowMap();
+            CreateShadowMap();            
 
             DrawModel(player.GetModelGroup(), player.prepareForDrawing());
             if (GameConstants.boundingBoxRendering)
                 BoundingBoxRenderer.Render(player.getBoundingBox(), m_graphics, m_updateInfo.viewMatrix, m_updateInfo.projectionMatrix, Color.White);
-            DrawModel(player2.GetModelGroup(), player2.prepareForDrawing());
-            if (GameConstants.boundingBoxRendering)
-                BoundingBoxRenderer.Render(player2.getBoundingBox(), m_graphics, m_updateInfo.viewMatrix, m_updateInfo.projectionMatrix, Color.White);
 
+            if (m_updateInfo.helperavailable)
+            {
+                DrawModel(player2.GetModelGroup(), player2.prepareForDrawing());
+                if (GameConstants.boundingBoxRendering)
+                    BoundingBoxRenderer.Render(player2.getBoundingBox(), m_graphics, m_updateInfo.viewMatrix, m_updateInfo.projectionMatrix, Color.White);
+            }
             // draw the area the player currently is in and the two
             // adjacent ones
             string currentArea;
@@ -46,23 +49,35 @@ namespace Candyland
             {
                 currentObjects = m_areas[currArea.previousID].GetObjects();
                 foreach (GameObject obj in currentObjects)
+                {
                     DrawModel(obj.GetModelGroup(), obj.prepareForDrawing());
+                }
             }
             if (m_areas[currentArea].hasNext)
             {
                 currentObjects = m_areas[currArea.nextID].GetObjects();
                 foreach (GameObject obj in currentObjects)
+                {
                     DrawModel(obj.GetModelGroup(), obj.prepareForDrawing());
+                }
             }
             DrawSkybox();
 
-            // this is the area to draw "global" billboards like the sun
-            billboardEffect.CurrentTechnique = billboardEffect.Techniques["BillboardingCameraAligned"];
-            DrawBillboard(sun);
-            billboardEffect.CurrentTechnique = billboardEffect.Techniques["BillboardingWorldYAxisAligned"];
+            // draw the billboards with their specified effect
+            string currID = currArea.id;
+            string prevID = currArea.previousID;
+            string nextID = currArea.nextID;
+            foreach (GameObject obj in m_updateInfo.objectsWithBillboards)
+            {
+                string objAreaID = obj.getID().Split('.')[0];
+                if (obj.isVisible && (objAreaID.Equals(currID) || objAreaID.Equals(prevID) || objAreaID.Equals(nextID)) )
+                    DrawBillboard(obj.getBillboard(), true);
+            }
+
+            DrawBillboard(sun, false);
         }
 
-        private void DrawBillboard(Billboard bb)
+        private void DrawBillboard(Billboard bb, bool fog)
         {
             // Save current states.
 
@@ -75,12 +90,25 @@ namespace Candyland
             // Render the non-transparent pixels of the billboards and store
             // their depths in the depth buffer.
 
+            Effect billboardEffect = bb.getEffect();
+
             billboardEffect.Parameters["world"].SetValue(Matrix.Identity);
             billboardEffect.Parameters["view"].SetValue(m_updateInfo.viewMatrix);
             billboardEffect.Parameters["projection"].SetValue(m_updateInfo.projectionMatrix);
             billboardEffect.Parameters["billboardSize"].SetValue(bb.getSize());
             billboardEffect.Parameters["colorMap"].SetValue(bb.getTexture());
             billboardEffect.Parameters["alphaTestDirection"].SetValue(1.0f);
+            billboardEffect.Parameters["withFog"].SetValue(fog);
+            billboardEffect.Parameters["fogColor"].SetValue(GameConstants.backgroundColor.ToVector4());
+            billboardEffect.Parameters["fogStart"].SetValue(30f);
+            billboardEffect.Parameters["fogDensity"].SetValue(0.7f);
+            if (!player.getIsThirdPersonCam() || !player2.getIsThirdPersonCam())
+            {
+                billboardEffect.Parameters["fogMapMode"].SetValue(true);
+                billboardEffect.Parameters["colorMap"].SetValue(bb.getTextureForMap());
+            }
+            else
+                billboardEffect.Parameters["fogMapMode"].SetValue(false);
 
             m_graphics.BlendState = BlendState.Opaque;
             m_graphics.DepthStencilState = DepthStencilState.Default;

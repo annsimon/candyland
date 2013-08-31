@@ -34,13 +34,15 @@ namespace Candyland
         public void initialize(String id, Vector3 pos, UpdateInfo updateInfo, bool visible, BonusTracker bonusTracker)
         {
             base.init(id, pos, updateInfo, visible);
-            m_position.Y += 0.25f;
+            m_position.Y += 0.4f;
             m_original_position = m_position;
             isVisible = visible;
             original_isVisible = isVisible;
             m_bonusTracker = bonusTracker;
             m_bonusTracker.chocoChipState.Add(ID, false);
             m_bonusTracker.chocoTotal++;
+            m_hasBillboard = true;
+            m_updateInfo.objectsWithBillboards.Add(this);
         }
 
         public override void initialize()
@@ -66,6 +68,8 @@ namespace Candyland
             this.calculateBoundingBox();
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
+            this.m_bb = new ChocoBB(m_updateInfo.graphics, m_position);
+            ((ChocoBB)m_bb).Load(content);
             base.load(content);
         }
 
@@ -73,6 +77,7 @@ namespace Candyland
 
         public override void update()
         {
+            ((ChocoBB)m_bb).Update(m_updateInfo.graphics, m_updateInfo.gameTime);
         }
 
         #region collision

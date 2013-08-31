@@ -21,25 +21,36 @@ namespace Candyland
                             UpdateInfo updateInfo, bool visible)
         {
             Vector3 pos = new Vector3(position.X, position.Y + 0.4f, position.Z);
+            if (id.Contains("helperActor"))
+                pos = new Vector3(position.X + 0.5f, position.Y + 0.21329f, position.Z + 0.5f);
             initialize(id, pos, actionTracker, updateInfo, visible);
         }
 
         #region initialization
 
-        public void initialize(String id, Vector3 position, ActionTracker actionTracker, UpdateInfo updateInfo, bool visible)
+        public virtual void initialize(String id, Vector3 position, ActionTracker actionTracker, UpdateInfo updateInfo, bool visible)
         {
             m_actionTracker = actionTracker;
             m_actions = new Dictionary<String, Action>();
-            m_dialogImage = "Images/DialogImages/AcaHelper";
+            if (id.Contains("helperActor"))
+                m_dialogImage = "Images/DialogImages/Helper";
+            else
+                m_dialogImage = "Images/DialogImages/AcaHelper";
             base.init(id, position, updateInfo, visible);
         }
 
         public override void load(ContentManager content)
         {
-            this.m_texture = content.Load<Texture2D>("NPCs/TutorialGuy/tutorialtexture");
+            if (this.ID.Contains("helperActor"))
+                this.m_texture = content.Load<Texture2D>("NPCs/Helper/buddytextur");
+            else
+                this.m_texture = content.Load<Texture2D>("NPCs/TutorialGuy/tutorialtexture");
             this.m_original_texture = this.m_texture;
-            this.effect = content.Load<Effect>("Shaders/Shader");
-            this.m_model = content.Load<Model>("NPCs/TutorialGuy/tutorial");
+            this.effect = content.Load<Effect>("Shaders/Shader"); 
+            if (this.ID.Contains("helperActor"))
+                this.m_model = content.Load<Model>("NPCs/Helper/buddy");
+            else
+                this.m_model = content.Load<Model>("NPCs/TutorialGuy/tutorial");
             this.m_original_model = this.m_model;
             this.calculateBoundingBox();
             minOld = m_boundingBox.Min;
@@ -77,7 +88,7 @@ namespace Candyland
                     case GameConstants.SubActionType.appear: isVisible = true; break;
                     case GameConstants.SubActionType.dialog: m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen(sAction.getText(), m_dialogImage)); break;
                     case GameConstants.SubActionType.movement: moveTo(sAction.getGoal()); break;
-                    case GameConstants.SubActionType.disappear: isVisible = false; break;
+                    case GameConstants.SubActionType.disappear: disappear(); break;
                 }
             }
         }
@@ -116,9 +127,18 @@ namespace Candyland
                     return;
                 // and will now be performed
                 else
+                {
                     m_actionTracker.actionState[actionID] = true;
+                }
 
             m_currentAction = m_actions[actionID];
+        }
+
+        protected virtual void disappear()
+        {
+            if( this.ID.Contains("helperActor") )
+                m_updateInfo.activateHelperNow = true;
+            isVisible = false;
         }
 
         #endregion
