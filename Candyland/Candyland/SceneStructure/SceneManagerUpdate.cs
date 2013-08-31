@@ -36,6 +36,11 @@ namespace Candyland
                 resetPos2.Y += 0.21329f;
                 player2.setPosition(resetPos2);
             }
+            if (m_updateInfo.loseHelperNow)
+            {
+                m_updateInfo.helperavailable = false;
+                m_updateInfo.loseHelperNow = false;
+            }
 
             if (m_updateInfo.reset)
             {

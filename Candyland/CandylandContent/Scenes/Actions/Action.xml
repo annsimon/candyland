@@ -118,7 +118,7 @@
         <action_inner>
           <trigger>5.0.1.dyn</trigger>
           <triggered>5.0.1.helperActor</triggered>
-          <id>helperActivated</id>
+          <id>GetHelper</id>
           <oneTimeAction>true</oneTimeAction>
           <subactions>
             <subaction type="movement" goalX="7" goalY="0,21329" goalZ="0,5" locks="false" text=""/>

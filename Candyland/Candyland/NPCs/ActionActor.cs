@@ -35,8 +35,13 @@ namespace Candyland
             if (id.Contains("helperActor"))
                 m_dialogImage = "Images/DialogImages/Helper";
             else
+            if (id.Contains("bossActor"))
+                m_dialogImage = "Images/DialogImages/Boss";
+            else
                 m_dialogImage = "Images/DialogImages/AcaHelper";
             base.init(id, position, updateInfo, visible);
+            if (id.Contains("helperActor"))
+                this.original_isVisible = false;
         }
 
         public override void load(ContentManager content)
@@ -44,11 +49,17 @@ namespace Candyland
             if (this.ID.Contains("helperActor"))
                 this.m_texture = content.Load<Texture2D>("NPCs/Helper/buddytextur");
             else
+            if (this.ID.Contains("bossActor"))
+                this.m_texture = content.Load<Texture2D>("NPCs/Helper/bosstextur");
+            else
                 this.m_texture = content.Load<Texture2D>("NPCs/TutorialGuy/tutorialtexture");
             this.m_original_texture = this.m_texture;
             this.effect = content.Load<Effect>("Shaders/Shader"); 
             if (this.ID.Contains("helperActor"))
                 this.m_model = content.Load<Model>("NPCs/Helper/buddy");
+            else
+            if (this.ID.Contains("bossActor"))
+                this.m_model = content.Load<Model>("NPCs/Helper/boss");
             else
                 this.m_model = content.Load<Model>("NPCs/TutorialGuy/tutorial");
             this.m_original_model = this.m_model;
@@ -74,6 +85,7 @@ namespace Candyland
                 if (sAction == null)
                 {
                     m_currentAction = null;
+                    m_updateInfo.actionInProgress = false;
                     return;
                 }
 
@@ -85,7 +97,7 @@ namespace Candyland
 
                 switch (sAction.getType())
                 {
-                    case GameConstants.SubActionType.appear: isVisible = true; break;
+                    case GameConstants.SubActionType.appear: appear(); break;
                     case GameConstants.SubActionType.dialog: m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen(sAction.getText(), m_dialogImage)); break;
                     case GameConstants.SubActionType.movement: moveTo(sAction.getGoal()); break;
                     case GameConstants.SubActionType.disappear: disappear(); break;
@@ -120,6 +132,9 @@ namespace Candyland
 
         public override void Trigger(String actionID)
         {
+            // ignore actions if there is one already in progress
+            if (m_updateInfo.actionInProgress)
+                return;
             // action is a one time action
             if (m_actionTracker.actionState.ContainsKey(actionID))
                 // and has already been performed
@@ -132,13 +147,29 @@ namespace Candyland
                 }
 
             m_currentAction = m_actions[actionID];
+            m_updateInfo.actionInProgress = true;
+        }
+
+        protected virtual void appear()
+        {
+            if (this.m_currentAction.getID().Contains("LoseHelper"))
+                m_updateInfo.loseHelperNow = true;
+            isVisible = true;
         }
 
         protected virtual void disappear()
         {
-            if( this.ID.Contains("helperActor") )
+            if (this.m_currentAction.getID().Contains("GetHelper"))
                 m_updateInfo.activateHelperNow = true;
             isVisible = false;
+        }
+
+        protected virtual void movement()
+        {
+            if (this.m_currentAction.getID().Contains("StartChase"))
+                m_updateInfo.alwaysRun = true;
+            if (this.m_currentAction.getID().Contains("EndChase"))
+                m_updateInfo.alwaysRun = false;
         }
 
         #endregion

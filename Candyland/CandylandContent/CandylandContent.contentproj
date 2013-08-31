@@ -264,6 +264,11 @@
       <Processor>ModelProcessor</Processor>
       <ProcessorParameters_Scale>0.5</ProcessorParameters_Scale>
     </Compile>
+    <Compile Include="NPCs\Lakritze\boss.fbx">
+      <Name>boss</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
     <None Include="README.txt">
       <Name>README</Name>
     </None>
@@ -858,6 +863,20 @@
   <ItemGroup>
     <Compile Include="ScreenTextures\loading.png">
       <Name>loading</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\DialogImages\Boss.png">
+      <Name>Boss</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NPCs\Lakritze\bosstextur.png">
+      <Name>bosstextur</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
