@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using SkinnedModel;
 
 namespace Candyland
 {
@@ -34,7 +35,7 @@ namespace Candyland
             this.m_texture = this.m_notActivated_texture;
             this.m_original_texture = this.m_texture;
             this.effect = content.Load<Effect>("Shaders/Shader");
-            this.m_model = content.Load<Model>("Objekte/Plattformen/plattform_klein");
+            this.m_model = content.Load<Model>("Objekte/Plattformen/Schalter/schalter2");
             this.m_original_model = this.m_model;
 
             this.calculateBoundingBox();
@@ -62,6 +63,7 @@ namespace Candyland
                     this.setActivated(true);
 
                     this.isTouched = GameConstants.TouchedState.stillTouched;
+
                 }
             }
             // Deactivate when not touched

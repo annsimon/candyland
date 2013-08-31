@@ -30,8 +30,8 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
-            this.m_activated_texture = content.Load<Texture2D>("Objekte/Plattformen/Schalter/schaltertextur");
-            this.m_notActivated_texture = content.Load<Texture2D>("Objekte/Plattformen/Schalter/schaltertexturinaktiv");
+            this.m_activated_texture = content.Load<Texture2D>("Objekte/Plattformen/Schalter/schalter_permanent_aktiv");
+            this.m_notActivated_texture = content.Load<Texture2D>("Objekte/Plattformen/Schalter/schalter_permanent_inaktiv");
             this.m_texture = this.m_notActivated_texture;
             this.m_original_texture = this.m_texture;
             this.effect = content.Load<Effect>("Shaders/Shader");
