@@ -23,6 +23,8 @@ namespace Candyland
             Vector3 pos = new Vector3(position.X, position.Y + 0.4f, position.Z);
             if (id.Contains("helperActor"))
                 pos = new Vector3(position.X + 0.5f, position.Y + 0.21329f, position.Z + 0.5f);
+            if (id.Contains("bossActor"))
+                pos = new Vector3(position.X, position.Y + 0.6f, position.Z);
             initialize(id, pos, actionTracker, updateInfo, visible);
         }
 
@@ -50,7 +52,7 @@ namespace Candyland
                 this.m_texture = content.Load<Texture2D>("NPCs/Helper/buddytextur");
             else
             if (this.ID.Contains("bossActor"))
-                this.m_texture = content.Load<Texture2D>("NPCs/Helper/bosstextur");
+                this.m_texture = content.Load<Texture2D>("NPCs/Lakritze/bosstextur");
             else
                 this.m_texture = content.Load<Texture2D>("NPCs/TutorialGuy/tutorialtexture");
             this.m_original_texture = this.m_texture;
@@ -59,7 +61,7 @@ namespace Candyland
                 this.m_model = content.Load<Model>("NPCs/Helper/buddy");
             else
             if (this.ID.Contains("bossActor"))
-                this.m_model = content.Load<Model>("NPCs/Helper/boss");
+                this.m_model = content.Load<Model>("NPCs/Lakritze/boss");
             else
                 this.m_model = content.Load<Model>("NPCs/TutorialGuy/tutorial");
             this.m_original_model = this.m_model;
@@ -75,6 +77,15 @@ namespace Candyland
         public override void update()
         {
             // subAction of type movement is being performed
+            if (!m_updateInfo.actionInProgress)
+            {
+                if (m_currentAction != null)
+                {
+                    m_currentAction.Reset();
+                    istargeting = false;
+                }
+                return;
+            }
             if (istargeting)
                 base.update();
             else
@@ -99,7 +110,7 @@ namespace Candyland
                 {
                     case GameConstants.SubActionType.appear: appear(); break;
                     case GameConstants.SubActionType.dialog: m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen(sAction.getText(), m_dialogImage)); break;
-                    case GameConstants.SubActionType.movement: moveTo(sAction.getGoal()); break;
+                    case GameConstants.SubActionType.movement: movement(sAction); break;
                     case GameConstants.SubActionType.disappear: disappear(); break;
                 }
             }
@@ -161,15 +172,16 @@ namespace Candyland
         {
             if (this.m_currentAction.getID().Contains("GetHelper"))
                 m_updateInfo.activateHelperNow = true;
+            if (this.m_currentAction.getID().Contains("StartChase"))
+                m_updateInfo.alwaysRun = false;
             isVisible = false;
         }
 
-        protected virtual void movement()
+        protected virtual void movement(SubAction sAction)
         {
             if (this.m_currentAction.getID().Contains("StartChase"))
                 m_updateInfo.alwaysRun = true;
-            if (this.m_currentAction.getID().Contains("EndChase"))
-                m_updateInfo.alwaysRun = false;
+            moveTo(sAction.getGoal());
         }
 
         #endregion

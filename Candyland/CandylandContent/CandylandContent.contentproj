@@ -268,6 +268,7 @@
       <Name>boss</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.1</ProcessorParameters_Scale>
     </Compile>
     <Compile Include="Objekte\Plattformen\Schalter\schalter2.fbx">
       <Name>schalter2</Name>

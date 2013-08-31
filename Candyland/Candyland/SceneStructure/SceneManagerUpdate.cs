@@ -45,6 +45,9 @@ namespace Candyland
             if (m_updateInfo.reset)
             {
 
+                m_updateInfo.actionInProgress = false;
+
+                m_updateInfo.alwaysRun = false;
 
                 // reset player to start position of current level
                 if (m_updateInfo.candyselected || m_updateInfo.currentguyLevelID == m_updateInfo.currenthelperLevelID)
