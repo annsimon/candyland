@@ -113,12 +113,12 @@ namespace Candyland
             {
                 switch (activeButtonIndex)
                 {
-                    case 0: ScreenManager.StartNewGame(); break;
-                    case 1: ScreenManager.ResumeGame(); break;
+                    case 0: ScreenManager.ResumeGame(); break;
+                    case 1: ScreenManager.ActivateNewScreen(new NewGameQuestion()); break;
                     case 2: ScreenManager.ActivateNewScreen(new OptionsScreen()); break;
                     case 3: ScreenManager.ActivateNewScreen(new BonusScreen()); break;
                     case 4: ScreenManager.ActivateNewScreen(new CreditsScreen()); break;
-                    case 5: ScreenManager.Game.Exit(); break ;
+                    case 5: ScreenManager.ActivateNewScreen(new EndGameQuestion()); break ;
                 }
             }
         }

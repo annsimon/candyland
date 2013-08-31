@@ -72,14 +72,15 @@ namespace Candyland
             BorderBottom = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottom");
             BorderMiddle = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogMiddle");
 
-            boxRec = new Rectangle((screenWidth - yes.Width * 2) / 2,
-                (screenHeight - yes.Height - font.LineSpacing * 3) / 2,
-                yes.Width * 2, yes.Height + font.LineSpacing * 3);
+            int buttonOffset = 10;
+            boxRec = new Rectangle((screenWidth - yes.Width * 2) / 2 - buttonOffset,
+                (screenHeight - yes.Height - font.LineSpacing * 3) / 2 - buttonOffset / 2,
+                yes.Width * 2 + 2 * buttonOffset, yes.Height + font.LineSpacing * 3 + buttonOffset);
             MakeBorderBox(boxRec, out MenuBoxTL, out MenuBoxT, out MenuBoxTR, out MenuBoxR,
                 out MenuBoxBR, out MenuBoxB, out MenuBoxBL, out MenuBoxL, out MenuBoxM);
 
-            yesBox = new Rectangle(boxRec.Left + yes.Width, boxRec.Top + font.LineSpacing * 3, yes.Width, yes.Height);
-            noBox = new Rectangle(boxRec.Left, boxRec.Top + font.LineSpacing * 3, no.Width, no.Height);
+            yesBox = new Rectangle(boxRec.Left + yes.Width + buttonOffset, boxRec.Top + font.LineSpacing * 3, yes.Width, yes.Height);
+            noBox = new Rectangle(boxRec.Left + buttonOffset, boxRec.Top + font.LineSpacing * 3, no.Width, no.Height);
         }
 
         public override void Update(GameTime gameTime)

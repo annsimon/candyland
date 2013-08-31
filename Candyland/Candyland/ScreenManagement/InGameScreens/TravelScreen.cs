@@ -78,17 +78,10 @@ namespace Candyland
             if (activeIndex >= numOfTeleportOptions) activeIndex = 0;
             if (activeIndex < 0) activeIndex = numOfTeleportOptions - 1;
 
-            // teleport to selected level, if not already there
+            // Open Question
             if (enterPressed && (activeIndex != currentSpotIndex))
             {
-                m_updateInfo.currentguyLevelID = m_updateInfo.activeTeleports.ElementAt(activeIndex);
-                m_updateInfo.currentguyAreaID = m_updateInfo.activeTeleports.ElementAt(activeIndex).Substring(0, 1);
-                m_updateInfo.currenthelperLevelID = m_updateInfo.activeTeleports.ElementAt(activeIndex);
-                m_updateInfo.currenthelperAreaID = m_updateInfo.activeTeleports.ElementAt(activeIndex).Substring(0, 1);
-                
-                m_updateInfo.reset = true;
-                ScreenManager.RemoveScreen(lastScreen);
-                ScreenManager.ResumeLast(this);
+                ScreenManager.ActivateNewScreen(new TravelQuestion(m_updateInfo, lastScreen, this, activeIndex));
             }
         }
 
