@@ -96,6 +96,7 @@ namespace Candyland
         /// Background color for full screen menu screens
         /// </summary>
         public static Color BackgroundColorMenu = Color.Peru;
+        public static Color BackgroundColorLoading = new Color(Color.Peru.R - 40, Color.Peru.G - 40, Color.Peru.B - 40);
 
         public static Color backgroundColor = new Color(86,131, 227);
 

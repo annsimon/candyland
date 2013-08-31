@@ -168,6 +168,7 @@
     <Compile Include="ScreenManagement\TravelScreen.cs" />
     <Compile Include="ScreenManagement\YesNoScreen.cs" />
     <Compile Include="ShadowMap.cs" />
+    <Compile Include="SpriteAnimation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
