@@ -58,6 +58,11 @@ namespace Candyland
         protected Model m_original_model;
         public Model getModel() { return this.m_model; }
 
+        protected bool m_hasBillboard = false;
+        public bool getHasBillboard() { return m_hasBillboard; }
+        protected Billboard m_bb = null;
+        public Billboard getBillboard() { return m_bb; }
+
         protected Texture2D m_texture;
         protected Texture2D m_original_texture;
         public Texture2D getTexture2D() { return this.m_texture; }

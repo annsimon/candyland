@@ -97,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Billboards\Billboard.cs" />
+    <Compile Include="Billboards\ChocoBB.cs" />
     <Compile Include="Billboards\Sun.cs" />
     <Compile Include="Data\ActionTracker.cs" />
     <Compile Include="Data\BonusTracker.cs" />

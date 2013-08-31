@@ -23,7 +23,10 @@ namespace Candyland
 
         public void Load(ContentManager manager)
         {
+            m_effect = manager.Load<Effect>("Shaders/Billboard");
+            m_effect.CurrentTechnique = m_effect.Techniques["BillboardingCameraAligned"];
             textures[0] = manager.Load<Texture2D>("Images/Billboards/Sun/Sun1");
+            m_mapTexture = textures[0];
         }
 
         public void Update( GraphicsDevice graphicsDevice, Vector3 position, GameTime gameTime )

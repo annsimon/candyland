@@ -57,6 +57,7 @@ namespace Candyland
         public void togglehelper() { helperavailable = !helperavailable; }
 
         public List<Keys> currentpushedKeys { get; set; }
+        public List<GameObject> objectsWithBillboards { get; set; }
 
         public GameTime gameTime { get; set; }
 
@@ -103,6 +104,8 @@ namespace Candyland
             /**********************************************************************/
             graphics = graphicsDevice;
             /**********************************************************************/
+
+            objectsWithBillboards = new List<GameObject>();
         }
 
     }

@@ -317,21 +317,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="20" width="100" height="100">
-  <object name="2.dyn" type="platform" x="980" y="980" width="20" height="20">
-   <properties>
-    <property name="dialog" value=""/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
-    <property name="isSlippery" value="false"/>
-    <property name="isVisible" value="true"/>
-    <property name="size" value="1"/>
-   </properties>
-  </object>
- </objectgroup>
+ <objectgroup name="20" width="100" height="100"/>
  <objectgroup name="0" width="100" height="100">
   <object name="1.dyn" type="platform" x="60" y="310" width="40" height="40">
    <properties>
