@@ -44,7 +44,7 @@ namespace Candyland
             chocoTotal = 0;
 
             soldItems = new List<string>(30);
-            conceptArts = new List<BonusTile>(15);
+            conceptArts = new List<BonusTile>();
             bonusLevel = new List<BonusTile>(15);
 
             conceptArts.Add(new BonusTile("CA1", "Cupcakes 1", "Concept Art", 1, "Images/ConceptArt/Cupcakes1"));

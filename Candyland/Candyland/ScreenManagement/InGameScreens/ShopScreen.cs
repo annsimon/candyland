@@ -11,8 +11,6 @@ namespace Candyland
     {
         #region fields
 
-        Texture2D background;
-
         SpriteFont font;
 
         int screenWidth;
@@ -100,8 +98,6 @@ namespace Candyland
 
         public override void Open(Game game)
         {
-            background = ScreenManager.Content.Load<Texture2D>("ScreenTextures/shopBackground");
-
             font = ScreenManager.Font;
 
             screenWidth = game.GraphicsDevice.Viewport.Width;
@@ -252,7 +248,6 @@ namespace Candyland
 
             DrawBonusPictures(m_sprite);
 
-           // m_sprite.Draw(testBonus.Texture, testBonus.Rectangle, Color.White);
             Color textColor = Color.Black;
             m_sprite.DrawString(font, "Preis", new Vector2(bigBox.Left + offset, bigBox.Top + offset), textColor);
             m_sprite.DrawString(font, forSale.ElementAt(activeID-1).Value.Price.ToString(), new Vector2(bigBox.Left + offset, bigBox.Top + offset + font.LineSpacing), textColor);
