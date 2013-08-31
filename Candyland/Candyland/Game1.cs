@@ -19,13 +19,13 @@ namespace Candyland
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            //graphics.PreferredBackBufferWidth = 600;
-            //graphics.PreferredBackBufferHeight = 400;
+            graphics.PreferredBackBufferWidth = 800;
+            graphics.PreferredBackBufferHeight = 480;
             graphics.IsFullScreen = false; 
             Content.RootDirectory = "Content";
 
             // Create the screen manager component.
-            screenManager = new ScreenManager(this, graphics.IsFullScreen);
+            screenManager = new ScreenManager(this, graphics.IsFullScreen, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
             Components.Add(screenManager);
 
            // Content.RootDirectory = "CandylandContent"; 

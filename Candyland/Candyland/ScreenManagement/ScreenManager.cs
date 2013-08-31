@@ -24,12 +24,26 @@ namespace Candyland
         ScreenInputManager screenInput;
         InputState input;
 
+        // the menus will be optimized for the prefered screen size
+        // Ingame text will have a bigger font
         bool isFullScreen;
+        int preferedScreenWith;
+        int preferedScreenHeight;
 
         // the scene manager, most stuff happens in there
         SceneManager m_sceneManager;
 
         #region getter
+
+        public int PrefScreenWidth
+        {
+            get { return preferedScreenWith; }
+        }
+
+        public int PrefScreenHeight
+        {
+            get { return preferedScreenHeight; }
+        }
 
         public bool isFullscreen
         {
@@ -75,10 +89,12 @@ namespace Candyland
         /// <summary>
         /// Constructs a new screen manager component.
         /// </summary>
-        public ScreenManager(Game game, bool isFullScreen)
+        public ScreenManager(Game game, bool isFullScreen, int prefWidth, int prefHeight)
             : base(game)
         {
             this.isFullScreen = isFullScreen;
+            this.preferedScreenWith = prefWidth;
+            this.preferedScreenHeight = prefHeight;
         }
 
 
@@ -230,8 +246,6 @@ namespace Candyland
                 screens.Last().Close();
                 RemoveScreen(screens.Last());
             }
-            // Add new game screen
-            //ActivateNewScreen(new MainGame());
 
             ActivateNewScreen(new LoadingScreen());
 
