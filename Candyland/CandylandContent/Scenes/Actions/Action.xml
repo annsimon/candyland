@@ -16,7 +16,7 @@
             <subaction type="movement" goalX="8" goalY="0,7" goalZ="6,5" locks="false" text=""/>
             <subaction type="movement" goalX="8" goalY="0,4" goalZ="6,5" locks="false" text=""/>
             
-            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Hi! !nl!Willkommen in Candyland. Geht es dir gut? !nl!Oft sind die Leute verwirrt, wenn sie hier ankommen... Folg erst einmal einfach diesem Weg hier, er wird dich deinem Ziel n!ae!her bringen. !ns!(Nutze W, A, S und D, um dich zu bewegen und Leertaste, um zu springen. Mit der Maus kann die Kamera gedreht werden.)"/>
+            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Hi! !nl! !nl!(Dr!ue!ck Enter oder Leertaste, um weiterzulesen.) !ns!Willkommen in Candyland. Geht es dir gut? !nl!Oft sind die Leute verwirrt, wenn sie hier ankommen... Folg erst einmal einfach diesem Weg hier, er wird dich deinem Ziel n!ae!her bringen. !ns!(Nutze W, A, S und D, um dich zu bewegen und Leertaste, um zu springen. Mit der Maus kann die Kamera gedreht werden.)"/>
             
             <subaction type="disappear" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
           </subactions>
@@ -61,6 +61,25 @@
             
             <subaction type="movement" goalX="12,5" goalY="0,4" goalZ="6" locks="false" text=""/>
             <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Das hier ist ein H!ae!ndler. !nl!Sprich ihn an, um zu sehen, was er f!ue!r dich tun kann. !ns!(Bei jedem H!ae!ndler gibt es Spezialwaren, die nur er anbietet. Also wirf immer auch einen Blick auf die Angebote.)"/>
+
+            <subaction type="disappear" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
+          </subactions>
+        </action_inner>
+      </action>
+      <action>
+        <action_inner>
+          <trigger>0.Korridor.2.dyn</trigger>
+          <triggered>0.Korridor.2.actionActor</triggered>
+          <id>korridor1Action2</id>
+          <oneTimeAction>true</oneTimeAction>
+          <subactions>
+            <subaction type="appear" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
+            <subaction type="movement" goalX="19,5" goalY="0,7" goalZ="8" locks="false" text=""/>
+            <subaction type="movement" goalX="19,5" goalY="0,4" goalZ="8" locks="false" text=""/>
+            <subaction type="movement" goalX="19,5" goalY="0,7" goalZ="8" locks="false" text=""/>
+            <subaction type="movement" goalX="19,5" goalY="0,4" goalZ="8" locks="false" text=""/>
+
+            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Mach dir keine Sorgen, falls du unterwegs Schokolinsen vergisst oder nicht erreichen kannst. !nl!Komm einfach sp!ae!ter zur!ue!ck. !ns!(H!ae!ndler k!oe!nnen den Spieler zu allen bereits besuchten H!ae!ndlern teleportieren.)"/>
 
             <subaction type="disappear" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
           </subactions>

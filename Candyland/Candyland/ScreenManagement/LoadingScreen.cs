@@ -25,6 +25,29 @@ namespace Candyland
 
         List<string> sentences = new List<string>();
 
+        AnimatingSprite loading;
+
+        // Border
+        protected Rectangle MenuBoxTL;
+        protected Rectangle MenuBoxTR;
+        protected Rectangle MenuBoxBL;
+        protected Rectangle MenuBoxBR;
+        protected Rectangle MenuBoxL;
+        protected Rectangle MenuBoxR;
+        protected Rectangle MenuBoxT;
+        protected Rectangle MenuBoxB;
+        protected Rectangle MenuBoxM;
+
+        protected Texture2D BorderTopLeft;
+        protected Texture2D BorderTopRight;
+        protected Texture2D BorderBottomLeft;
+        protected Texture2D BorderBottomRight;
+        protected Texture2D BorderLeft;
+        protected Texture2D BorderRight;
+        protected Texture2D BorderTop;
+        protected Texture2D BorderBottom;
+        protected Texture2D BorderMiddle;
+
         public override void Open(Game game)
         {
             this.isFullscreen = true;
@@ -39,6 +62,33 @@ namespace Candyland
             screenHeight = ScreenManager.Game.GraphicsDevice.Viewport.Height;
 
             background = content.Load<Texture2D>("ScreenTextures/optionsScreen");
+
+            loading = new AnimatingSprite();
+            loading.Texture = content.Load<Texture2D>("ScreenTextures/loading");
+            loading.Animations.Add("load", new Animation(600, 100, 6, 0, 0));
+            loading.CurrentAnimation = "load";
+            loading.isRepeatable = true;
+            loading.Animations["load"].FramesPerSecond = 24;
+            loading.Position = new Vector2(screenWidth / 2 - 50, screenHeight / 2 - 80);
+
+            loading.StartAnimation();
+
+            BorderTopLeft = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogTopLeft");
+            BorderTopRight = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogTopRight");
+            BorderBottomLeft = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottomLeft");
+            BorderBottomRight = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottomRight");
+            BorderLeft = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogLeft");
+            BorderRight = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogRight");
+            BorderTop = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogTop");
+            BorderBottom = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottom");
+            BorderMiddle = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogMiddle");
+
+            int width = 500;
+            int height = 200;
+
+            MakeBorderBox(new Rectangle((screenWidth) / 2 - width/2, screenHeight/2 - height/2, width, height),
+                out MenuBoxTL, out MenuBoxT, out MenuBoxTR, out MenuBoxR,
+                out MenuBoxBR, out MenuBoxB, out MenuBoxBL, out MenuBoxL, out MenuBoxM);
         }
 
 
@@ -53,15 +103,33 @@ namespace Candyland
                 int i = rand.Next(19);
                 currentMessage = sentences[i];
             }
+
+            loading.Update(gameTime);
         }
 
         public override void Draw(GameTime gameTime)
         {
-            ScreenManager.GraphicsDevice.Clear(Color.Black);
+            ScreenManager.GraphicsDevice.Clear(GameConstants.BackgroundColorLoading);
 
             ScreenManager.SpriteBatch.Begin();
 
-            ScreenManager.SpriteBatch.DrawString(font, currentMessage, new Vector2 ((screenWidth - font.MeasureString(currentMessage).X) / 2, screenHeight/2), Color.White);
+
+            // Draw Boarder
+            ScreenManager.SpriteBatch.Draw(BorderTopLeft, MenuBoxTL, Color.White);
+            ScreenManager.SpriteBatch.Draw(BorderTopRight, MenuBoxTR, Color.White);
+            ScreenManager.SpriteBatch.Draw(BorderBottomLeft, MenuBoxBL, Color.White);
+            ScreenManager.SpriteBatch.Draw(BorderBottomRight, MenuBoxBR, Color.White);
+            ScreenManager.SpriteBatch.Draw(BorderLeft, MenuBoxL, Color.White);
+            ScreenManager.SpriteBatch.Draw(BorderRight, MenuBoxR, Color.White);
+            ScreenManager.SpriteBatch.Draw(BorderTop, MenuBoxT, Color.White);
+            ScreenManager.SpriteBatch.Draw(BorderBottom, MenuBoxB, Color.White);
+            ScreenManager.SpriteBatch.Draw(BorderMiddle, MenuBoxM, Color.White);
+
+            // Draw rest
+
+            ScreenManager.SpriteBatch.DrawString(font, currentMessage, new Vector2 ((screenWidth - font.MeasureString(currentMessage).X) / 2, screenHeight/2+25), Color.Black);
+
+            loading.Draw(ScreenManager.SpriteBatch);
 
             ScreenManager.SpriteBatch.End();
         }
