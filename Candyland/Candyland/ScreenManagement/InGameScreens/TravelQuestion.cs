@@ -21,6 +21,13 @@ namespace Candyland
             selectedTeleportIndex = teleportIndex;
         }
 
+        public override void Open(Game game)
+        {
+            base.Open(game);
+
+            question = "Per Teleport Reisen?";
+        }
+
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);

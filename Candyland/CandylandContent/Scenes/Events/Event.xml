@@ -19,7 +19,7 @@
     <level_inner>
       <event>
         <event_inner>
-          <triggerable>schieb.1.1.dyn</triggerable>
+          <triggerable>schieb.1.3.dyn</triggerable>
           <switchGroupType>normal</switchGroupType>
           <switchGroup>
             <switchGroup_inner>
@@ -30,7 +30,7 @@
       </event>
       <event>
         <event_inner>
-          <triggerable>schieb.1.2.dyn</triggerable>
+          <triggerable>schieb.1.5.dyn</triggerable>
           <switchGroupType>normal</switchGroupType>
           <switchGroup>
             <switchGroup_inner>
@@ -41,7 +41,7 @@
       </event>
       <event>
         <event_inner>
-          <triggerable>schieb.1.3.dyn</triggerable>
+          <triggerable>schieb.1.6.dyn</triggerable>
           <switchGroupType>normal</switchGroupType>
           <switchGroup>
             <switchGroup_inner>
