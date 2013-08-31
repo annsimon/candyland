@@ -269,6 +269,12 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
     </Compile>
+    <Compile Include="Objekte\Plattformen\Schalter\schalter2.fbx">
+      <Name>schalter2</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.33</ProcessorParameters_Scale>
+    </Compile>
     <None Include="README.txt">
       <Name>README</Name>
     </None>

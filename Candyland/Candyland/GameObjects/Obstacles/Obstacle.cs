@@ -29,9 +29,9 @@ namespace Candyland
         {
             base.init(id, pos, updateInfo, visible);
             if (size > 0)
-                this.m_position.Y += 0.68f;
+                this.m_position.Y += 0.52f;
             else
-                this.m_position.Y += 0;
+                this.m_position.Y += 0.33f;
             this.m_original_position = this.m_position;
             this.size = size;
         }
@@ -64,8 +64,8 @@ namespace Candyland
 
         public void loadLow(ContentManager content)
         {
-            this.m_texture = content.Load<Texture2D>("Objekte/Obstacles/lakritztextur_flach");
-            this.m_model = content.Load<Model>("Objekte/Obstacles/lakritzblock_flach");
+            this.m_texture = content.Load<Texture2D>("Objekte/Obstacles/obstacletextur");
+            this.m_model = content.Load<Model>("Objekte/Obstacles/obstacle_half");
         }
 
         public void loadSmall(ContentManager content)
@@ -76,7 +76,7 @@ namespace Candyland
 
         public void loadLarge(ContentManager content)
         {
-            this.m_texture = content.Load<Texture2D>("Objekte/Obstacles/lakritztextur_gross");
+            this.m_texture = content.Load<Texture2D>("Objekte/Obstacles/obstacletextur");
             this.m_model = content.Load<Model>("Objekte/Obstacles/lakritzblock_gross");
         }
 
