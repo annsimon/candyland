@@ -95,12 +95,21 @@ namespace Candyland
         public Vector2 getSize() { return size; }
         // several textures so we can animate
         protected Texture2D[] textures;
+        protected Texture2D m_mapTexture;
         protected int textureCount;
         protected int currentTexture = 0;
+
+        protected Effect m_effect;
+        public Effect getEffect() { return m_effect; }
 
         public Texture2D getTexture()
         {
             return textures[currentTexture];
+        }
+
+        public Texture2D getTextureForMap()
+        {
+            return m_mapTexture;
         }
 
         public Billboard()

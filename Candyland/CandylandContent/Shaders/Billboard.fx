@@ -40,6 +40,13 @@ float2 billboardSize;
 float alphaTestDirection = 1.0f;
 float alphaTestThreshold = 0.95f;
 
+bool withFog = false;
+bool fogMapMode = false;
+
+float4 fogColor;
+float fogDensity;
+float fogStart;
+
 //-----------------------------------------------------------------------------
 // Textures.
 //-----------------------------------------------------------------------------
@@ -61,7 +68,8 @@ sampler colorMapSampler = sampler_state
 void VS_BillboardingCameraAligned(in  float4 inPosition  : POSITION,
                                   in  float4 inTexCoord  : TEXCOORD0,
 			                      out float4 outPosition : POSITION,
-			                      out float2 outTexCoord : TEXCOORD0)
+			                      out float2 outTexCoord : TEXCOORD0,
+								  out float outDepth	 : TEXCOORD1)
 {
 	float4x4 worldViewProjection = mul(mul(world, view), projection);
 	
@@ -69,16 +77,20 @@ void VS_BillboardingCameraAligned(in  float4 inPosition  : POSITION,
 	float3 xAxis = float3(view._11, view._21, view._31);
 	float3 yAxis = float3(view._12, view._22, view._32);
 
-	float3 pos = inPosition.xyz + ((offset.x) * xAxis) + (offset.y * yAxis);
+	float3 pos = inPosition.xyz + ((offset.x * billboardSize.x) * xAxis) + (offset.y * billboardSize.y * yAxis);
 
 	outPosition = mul(float4(pos, 1.0f), worldViewProjection);
 	outTexCoord = inTexCoord.xy;
+
+	if( withFog )
+		outDepth = mul(mul(float4(pos, 1.0f), world), view).z;
 }
 
 void VS_BillboardingWorldYAxisAligned(in  float4 inPosition  : POSITION,
                                       in  float4 inTexCoord  : TEXCOORD0,
 			                          out float4 outPosition : POSITION,
-			                          out float2 outTexCoord : TEXCOORD0)
+			                          out float2 outTexCoord : TEXCOORD0,
+									  out float outDepth	 : TEXCOORD1)
 {
 	float4x4 worldViewProjection = mul(mul(world, view), projection);
 	
@@ -86,20 +98,46 @@ void VS_BillboardingWorldYAxisAligned(in  float4 inPosition  : POSITION,
 	float3 xAxis = float3(view._11, view._21, view._31);
 	float3 yAxis = float3(0.0f, 1.0f, 0.0f);
 
-	float3 pos = inPosition.xyz + ((offset.x ) * xAxis) + (offset.y * yAxis);
+	float3 pos = inPosition.xyz + (offset.x * billboardSize.x * xAxis) + (offset.y * billboardSize.y * yAxis);
 
 	outPosition = mul(float4(pos, 1.0f), worldViewProjection);
 	outTexCoord = inTexCoord.xy;
+
+	if( withFog )
+		outDepth = mul(mul(pos, world), view).z;
 }
 
 //-----------------------------------------------------------------------------
 // Pixel shaders.
 //-----------------------------------------------------------------------------
 
+float calculateFogFactor(float distance)
+{
+	float mix = exp( (distance+fogStart) * fogDensity );
+	if( mix > 1 ) mix = 1;
+	if( fogMapMode )
+		if( abs(distance) > 11 ) mix = mix - 0.2f;
+	if( mix < 0 ) mix = 0;
+	return mix;
+}
+
+
 void PS_Billboarding(in  float2 inTexCoord : TEXCOORD0,
+				     in  float inDepth      : TEXCOORD1,
                      out float4 outColor   : COLOR)
 {
 	outColor = tex2D(colorMapSampler, inTexCoord);
+
+	if( withFog )
+	{
+		bool clipColor = false;
+		if(outColor.a < 0.1f)
+			clipColor = true;
+		float mix = calculateFogFactor(inDepth);
+		outColor = mix * outColor + (1.0f - mix) * fogColor;
+		if(clipColor && mix < 0.5f)
+			outColor = float4(0.0f, 0.0f, 0.0f, 0.0f);
+	}
 
 	// Apply the alpha test.
 	clip((outColor.a - alphaTestThreshold) * alphaTestDirection);
