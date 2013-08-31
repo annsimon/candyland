@@ -592,7 +592,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="-" type="platform" x="320" y="150" width="20" height="20">
+  <object name="2.dyn" type="platform" x="320" y="150" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
     <property name="endPositionY" value="-"/>
@@ -1603,6 +1603,19 @@
     <property name="isDoorToLevel" value="-"/>
     <property name="isSlippery" value="-"/>
     <property name="isVisible" value="true"/>
+    <property name="size" value="1"/>
+   </properties>
+  </object>
+  <object name="2.actionActor" type="actionActor" x="380" y="150" width="20" height="20">
+   <properties>
+    <property name="dialog" value=""/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="-"/>
+    <property name="isVisible" value="false"/>
     <property name="size" value="1"/>
    </properties>
   </object>
