@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using SkinnedModel;
 
 namespace Candyland
 {
@@ -39,6 +40,17 @@ namespace Candyland
 
         public override void update()
         {
+            KeyboardState keystate = Keyboard.GetState();
+            if ((keystate.IsKeyDown(Keys.W) || keystate.IsKeyDown(Keys.A) || keystate.IsKeyDown(Keys.D) || keystate.IsKeyDown(Keys.S))
+                  && isthirdpersoncam && !m_updateInfo.candyselected)
+            {
+                animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
+
+            }
+            else
+            {
+                animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, false, Matrix.Identity);
+            }
             base.update();
             fall();
             if(!m_updateInfo.candyselected)
@@ -56,6 +68,10 @@ namespace Candyland
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
             base.load(content);
+
+            AnimationClip clip = m_skinningData.AnimationClips["ArmatureAction"];
+
+            animationPlayer.StartClip(clip);
         }
 
         public override void movementInput(float movex, float movey, float camx, float camy)
