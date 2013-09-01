@@ -19,16 +19,17 @@ namespace Candyland
 
         public Salesman(String id, Vector3 pos, UpdateInfo updateInfo, bool visible, String message)
         {
+            pos = pos - new Vector3(0.0f, 0.47f, 0.0f);
             base.init(id, pos, updateInfo, visible);
             m_text = message;
         }
 
         public override void load(Microsoft.Xna.Framework.Content.ContentManager content)
         {
-            this.m_texture = content.Load<Texture2D>("Objekte/Schokolinse/schokolinsetextur");
+            this.m_texture = content.Load<Texture2D>("NPCs/Salesman/shoptexture");
             this.m_original_texture = this.m_texture;
             this.effect = content.Load<Effect>("Shaders/Shader");
-            this.m_model = content.Load<Model>("Objekte/Schokolinse/schokolinse");
+            this.m_model = content.Load<Model>("NPCs/Salesman/shopguy");
             this.m_original_model = this.m_model;
             // Bounding box is bigger than the model, so that the player can interact, when standing a bit away
             m_boundingBox = new BoundingBox(this.m_position - new Vector3(0.8f,0.5f,0.8f), this.m_position + new Vector3(0.8f,0.5f,0.8f));

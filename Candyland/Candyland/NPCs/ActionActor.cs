@@ -188,7 +188,7 @@ namespace Candyland
             if (this.m_currentAction.getID().Contains("StartChase"))
             {
                 m_updateInfo.alwaysRun = true;
-                moveTo(sAction.getGoal(), 0.5f);
+                moveTo(sAction.getGoal(), 0.048f);
             }
             else
                 moveTo(sAction.getGoal());
