@@ -30,6 +30,12 @@ namespace Candyland
         int preferedScreenWith;
         int preferedScreenHeight;
 
+        // will be set, when first game was started
+        public bool gameIsRunning;
+
+        // content manager for main game content
+        public ContentManager gameContent;
+
         // the scene manager, most stuff happens in there
         SceneManager m_sceneManager;
 
@@ -172,6 +178,7 @@ namespace Candyland
         /// </summary>
         public void RemoveScreen(GameScreen screen)
         {
+            screen.Close();
             screens.Remove(screen);
         }
 
@@ -232,6 +239,8 @@ namespace Candyland
                     return;
                 }
             }
+
+            if (!gameIsRunning) StartNewGame();
             // TODO Load last save game
         }
 
@@ -240,6 +249,14 @@ namespace Candyland
         /// </summary>
         public void StartNewGame()
         {
+            if (gameIsRunning)
+            {
+                while (screens.Count > 0)
+                {
+                    RemoveScreen(screens.Last());
+                }
+            }
+
             // Remove main menu
             if (screens.Count() > 0)
             {
@@ -258,7 +275,10 @@ namespace Candyland
             m_sceneManager = new SceneManager(this);
 
             // Load all content required by the scene
-            m_sceneManager.Load(Content);
+            if (gameContent == null)
+                gameContent = new ContentManager(Game.Services, "Content");
+
+            m_sceneManager.Load(gameContent);
             readyToStartGame = true;
         }
 
