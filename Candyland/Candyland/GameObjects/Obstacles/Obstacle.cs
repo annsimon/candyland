@@ -70,7 +70,7 @@ namespace Candyland
 
         public void loadSmall(ContentManager content)
         {
-            this.m_texture = content.Load<Texture2D>("Objekte/Obstacles/lakritztextur_klein");
+            this.m_texture = content.Load<Texture2D>("Objekte/Obstacles/obstacletextur");
             this.m_model = content.Load<Model>("Objekte/Obstacles/lakritzblock_klein");
         }
 

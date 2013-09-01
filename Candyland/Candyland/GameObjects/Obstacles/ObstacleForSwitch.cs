@@ -24,7 +24,7 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
-            this.m_texture = content.Load<Texture2D>("Objekte/Obstacles/blocktextur");
+            this.m_texture = content.Load<Texture2D>("Objekte/Obstacles/obstacletextur_switch");
             this.m_original_texture = this.m_texture;
             this.effect = content.Load<Effect>("Shaders/Shader");
             this.m_model = content.Load<Model>("Objekte/Obstacles/Movable/blockmovable");

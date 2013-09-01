@@ -135,23 +135,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Objekte\Obstacles\Breakable\blockbreakabletextur.png">
-      <Name>blockbreakabletextur</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="Objekte\Obstacles\lakritztextur.png">
       <Name>lakritztextur</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Objekte\Obstacles\lakritztextur_gross.png">
-      <Name>lakritztextur_gross</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Objekte\Obstacles\lakritztextur_klein.png">
-      <Name>lakritztextur_klein</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -182,16 +167,6 @@
     </Compile>
     <Compile Include="Objekte\Plattformen\plattformtextur_mittel.png">
       <Name>plattformtextur_mittel</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Objekte\Plattformen\Schalter\schaltertextur.png">
-      <Name>schaltertextur</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Objekte\Plattformen\Schalter\schaltertexturinaktiv.png">
-      <Name>schaltertexturinaktiv</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -269,11 +244,6 @@
       <Processor>ModelProcessor</Processor>
       <ProcessorParameters_Scale>0.1</ProcessorParameters_Scale>
     </Compile>
-    <Compile Include="Objekte\Plattformen\Schalter\schalter2.fbx">
-      <Name>schalter2</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>SkinnedModelProcessor</Processor>
-    </Compile>
     <Compile Include="NPCs\Helper\buddyNoAnim.fbx">
       <Name>buddyNoAnim</Name>
       <Importer>FbxImporter</Importer>
@@ -296,6 +266,12 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <ProcessorParameters_Scale>0.15</ProcessorParameters_Scale>
+    </Compile>
+    <Compile Include="Objekte\Obstacles\Breakable\blockbreakable.fbx">
+      <Name>blockbreakable</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.5</ProcessorParameters_Scale>
     </Compile>
     <None Include="README.txt">
       <Name>README</Name>
@@ -565,13 +541,6 @@
   <ItemGroup>
     <Compile Include="Images\DialogImages\DefaultImage.png">
       <Name>DefaultImage</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Objekte\Obstacles\lakritztextur_flach.png">
-      <Name>lakritztextur_flach</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -909,28 +878,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Objekte\Plattformen\Schalter\schalter_permanent_aktiv.png">
-      <Name>schalter_permanent_aktiv</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Objekte\Plattformen\Schalter\schalter_permanent_inaktiv.png">
-      <Name>schalter_permanent_inaktiv</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Objekte\Plattformen\Schalter\zeitschalter.png">
-      <Name>zeitschalter</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Objekte\Plattformen\Schalter\zeitschalteraktiv2.png">
-      <Name>zeitschalteraktiv2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Images\HUD\chaseCareful.png">
       <Name>chaseCareful</Name>
       <Importer>TextureImporter</Importer>
@@ -984,6 +931,95 @@
     </Compile>
     <Compile Include="NPCs\Fee\bonbon_rot.png">
       <Name>bonbon_rot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sfx\Cracking16bit.wav">
+      <Name>Cracking16bit</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sfx\Menu Button8bit.wav">
+      <Name>Menu Button8bit</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sfx\Switch Activate8bit.wav">
+      <Name>Switch Activate8bit</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sfx\Switch Deactivate8bit.wav">
+      <Name>Switch Deactivate8bit</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sfx\Ticking8bit.wav">
+      <Name>Ticking8bit</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sfx\CrackingBlock8bit.wav">
+      <Name>CrackingBlock8bit</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sfx\CrackingPlatform8bit.wav">
+      <Name>CrackingPlatform8bit</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Objekte\Plattformen\Schalter\schalterpermanent_aktiv.png">
+      <Name>schalterpermanent_aktiv</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Objekte\Plattformen\Schalter\schalterpermanent_inaktiv.png">
+      <Name>schalterpermanent_inaktiv</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Objekte\Plattformen\Schalter\schaltertemp_aktiv.png">
+      <Name>schaltertemp_aktiv</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Objekte\Plattformen\Schalter\schaltertemp_inaktiv.png">
+      <Name>schaltertemp_inaktiv</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Objekte\Plattformen\Schalter\zeitschalteraktivtextur.png">
+      <Name>zeitschalteraktivtextur</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Objekte\Plattformen\Schalter\zeitschaltertextur.png">
+      <Name>zeitschaltertextur</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Objekte\Obstacles\obstacletextur_switch.png">
+      <Name>obstacletextur_switch</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Objekte\Obstacles\Breakable\blockmovabletexture.png">
+      <Name>blockmovabletexture</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

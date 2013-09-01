@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using SkinnedModel;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Candyland
 {
@@ -16,6 +17,9 @@ namespace Candyland
     {
         protected bool isBreaking;
         protected double timeSincedSteppedOn;
+        private SoundEffect sound;
+
+        private bool nowStartedBreaking = true;
 
         public BreakingPlatform(String id, Vector3 pos, UpdateInfo updateInfo, bool visible)
         {
@@ -32,6 +36,7 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
+            sound = content.Load<SoundEffect>("Sfx/CrackingPlatform8bit");  
             this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/breakingplatformtextur");
             this.m_original_texture = this.m_texture;
             this.effect = content.Load<Effect>("Shaders/Shader");
@@ -69,10 +74,23 @@ namespace Candyland
         public override void update()
         {
             if (isBreaking)
-                timeSincedSteppedOn += m_updateInfo.gameTime.ElapsedGameTime.TotalSeconds;
+            {
+                // start playing only once
+                if (nowStartedBreaking)
+                {
+                    float volume = 0.2f;
+                    float pitch = 0.0f;
+                    float pan = 0.0f;
+                    sound.Play(volume, pitch, pan);
+                    nowStartedBreaking = false;
+                }
 
+                timeSincedSteppedOn += m_updateInfo.gameTime.ElapsedGameTime.TotalSeconds;
+            }
             if (timeSincedSteppedOn >= GameConstants.breakTime)
+            {
                 this.isVisible = false;
+            }
 
             if (isBreaking && timeSincedSteppedOn < GameConstants.breakTime)
             {
@@ -89,6 +107,7 @@ namespace Candyland
         {
             isBreaking = false;
             timeSincedSteppedOn = 0;
+            nowStartedBreaking = true;
             base.Reset();
         }
     }
