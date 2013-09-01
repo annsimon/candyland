@@ -15,7 +15,7 @@ namespace Candyland
         public GetHelperQuestion(CandyHelper helper, UpdateInfo updateInfo, Vector3 fairyPos)
         {
             m_updateInfo = updateInfo;
-            fairyPosition = fairyPosition;
+            fairyPosition = fairyPos;
             candyHelper = helper;
         }
 

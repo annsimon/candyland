@@ -63,15 +63,16 @@ namespace Candyland
                     // ask to teleport the helper
                     if (isTeleportFairy)
                     {
-                        // only for demonstration, replace with proper dialog and check if teleport really is desired before actually porting
-                        m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen(m_text, "Images/DialogImages/BonbonFairyRed"));
                         CandyGuy guy = (CandyGuy)obj;
                         CandyHelper helper = guy.getCandyHelper();
-                        m_updateInfo.m_screenManager.ActivateNewScreen(new GetHelperQuestion(helper, m_updateInfo, this.m_position));
+                        Vector3 teleportPosition = this.getPosition();
+                        teleportPosition.Y -= 0.5f;
+                        m_updateInfo.m_screenManager.ActivateNewScreen(new TeleportFairyDialog(helper, m_updateInfo, teleportPosition, "Images/DialogImages/BonbonFairyRed"));
+                        
                     }
                     // show fairy message
                     else
-                        m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen(m_text, "Images/DialogImages/BonbonFairy"));
+                        m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen(m_text, "Images/DialogImages/BonbonFairyBlue"));
                 }
             }
             if (obj.GetType() == typeof(CandyHelper))
@@ -81,7 +82,7 @@ namespace Candyland
                     // greet helper
                     if (isTeleportFairy)
                     {
-                        m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen("Hallo, Süßer!", "Images/DialogImages/BonbonFairy"));
+                        m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen("Hallo, Süßer!", "Images/DialogImages/BonbonFairyRed"));
                     }
                     // show fairy message
                     else

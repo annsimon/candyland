@@ -37,9 +37,9 @@ namespace Candyland
         protected Rectangle pictureNPC;
         protected Rectangle TextBox;
 
-        private string Text = "";
-        private string Picture = "Images/DialogImages/DefaultImage";
-        private string[] TextArray;
+        protected string Text = " ";
+        protected string Picture = "Images/DialogImages/DefaultImage";
+        protected string[] TextArray;
 
         protected int numberOfLines;
 
