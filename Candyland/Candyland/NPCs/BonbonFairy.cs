@@ -40,7 +40,7 @@ namespace Candyland
             this.m_model = content.Load<Model>("NPCs/Fee/bonbon");
             this.m_original_model = this.m_model;
             // Bounding box is bigger than the model, so that the player can interact, when standing a bit away
-            m_boundingBox = new BoundingBox(this.m_position - new Vector3(1,1,1), this.m_position + new Vector3(1,1,1));
+            m_boundingBox = new BoundingBox(this.m_position - new Vector3(0.5f, 1, 0.5f), this.m_position + new Vector3(0.5f, 0.2f, 0.5f));
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
             base.load(content);
@@ -66,7 +66,7 @@ namespace Candyland
                         CandyGuy guy = (CandyGuy)obj;
                         CandyHelper helper = guy.getCandyHelper();
                         Vector3 teleportPosition = this.getPosition();
-                        teleportPosition.Y -= 0.5f;
+                        teleportPosition.Y -= 1;
                         m_updateInfo.m_screenManager.ActivateNewScreen(new TeleportFairyDialog(helper, m_updateInfo, teleportPosition, "Images/DialogImages/BonbonFairyRed"));
                         
                     }
