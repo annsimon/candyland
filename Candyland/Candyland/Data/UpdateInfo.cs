@@ -66,8 +66,10 @@ namespace Candyland
 
         public bool actionInProgress = false;
         public bool alwaysRun = false;
+        public bool finaledistance = false;
 
         public Vector3 bossPosition;
+        public Vector3 bossTarget;
 
         // we do not use this after all, probably; remove later!
         //public Dictionary<String, GameObject> currentObjectsToBeCollided { get; set; }
