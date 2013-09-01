@@ -43,7 +43,7 @@ namespace Candyland
                 Vector3 tempdir = new Vector3(dx, dy, dz);
                 tempdir.Normalize();
                 move(tempdir.X * m_moveToSpeed, tempdir.Y * m_moveToSpeed, tempdir.Z * m_moveToSpeed);
-                if (length < m_moveToSpeed+0.01f) istargeting = false;
+                if (length < 0.01f) istargeting = false;
             }
         }
 

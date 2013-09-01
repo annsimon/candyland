@@ -177,8 +177,8 @@ namespace Candyland
                     e.Parameters["materialDiffuse"].SetValue(material.diffuse);
                     e.Parameters["materialSpecular"].SetValue(material.specular);
                     e.Parameters["shiny"].SetValue(material.shiny);
-                    if (textures.ContainsKey(m.GetHashCode()))
-                        e.Parameters["colorMap"].SetValue(textures[-1]);
+                    if (textures.ContainsKey(m.GetHashCode()) && textures[m.GetHashCode()] != null )
+                        e.Parameters["colorMap"].SetValue(textures[m.GetHashCode()]);
                     else
                         e.Parameters["colorMap"].SetValue(textures[-1]);
 

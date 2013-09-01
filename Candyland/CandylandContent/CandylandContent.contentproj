@@ -280,6 +280,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
     </Compile>
+    <Compile Include="NPCs\Salesman\shopguy.fbx">
+      <Name>shopguy</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
     <None Include="README.txt">
       <Name>README</Name>
     </None>
@@ -498,7 +503,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="NPCs\Fee\" />
-    <Folder Include="NPCs\Händler\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Objekte\Obstacles\blockmovabletextur.png">
@@ -933,6 +937,13 @@
     </Compile>
     <Compile Include="Images\HUD\chaseSafe.png">
       <Name>chaseSafe</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NPCs\Salesman\shoptexture.png">
+      <Name>shoptexture</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
