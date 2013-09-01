@@ -266,8 +266,25 @@
     <Compile Include="Objekte\Plattformen\Schalter\schalter2.fbx">
       <Name>schalter2</Name>
       <Importer>FbxImporter</Importer>
+      <Processor>SkinnedModelProcessor</Processor>
+    </Compile>
+    <Compile Include="NPCs\Händler\shopguy.fbx">
+      <Name>shopguy</Name>
+      <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.33</ProcessorParameters_Scale>
+      <ProcessorParameters_Scale>0.4</ProcessorParameters_Scale>
+    </Compile>
+    <Compile Include="Objekte\Plattformen\breakingplatform.fbx">
+      <Name>breakingplatform</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>SkinnedModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.45</ProcessorParameters_Scale>
+    </Compile>
+    <Compile Include="NPCs\Fee\bonbon.fbx">
+      <Name>bonbon</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.3</ProcessorParameters_Scale>
     </Compile>
     <None Include="README.txt">
       <Name>README</Name>
@@ -486,8 +503,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="NPCs\Fee\" />
-    <Folder Include="NPCs\Händler\" />
+    <Compile Include="Objekte\Plattformen\breakingplatformtextur.png">
+      <Name>breakingplatformtextur</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Objekte\Obstacles\blockmovabletextur.png">
@@ -886,6 +906,25 @@
     </Compile>
     <Compile Include="Objekte\Plattformen\Schalter\zeitschalteraktiv2.png">
       <Name>zeitschalteraktiv2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NPCs\Händler\shoptexture.png">
+      <Name>shoptexture</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NPCs\Fee\bonbon_blau.png">
+      <Name>bonbon_blau</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="NPCs\Fee\bonbon_rot.png">
+      <Name>bonbon_rot</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
