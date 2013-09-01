@@ -79,7 +79,7 @@ namespace Candyland
                         m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen(m_text, "Images/DialogImages/BonbonFairyBlue"));
                 }
             }
-            if (obj.GetType() == typeof(CandyHelper))
+            if (obj.GetType() == typeof(CandyHelper) && !m_updateInfo.candyselected)
             {
                 if (m_updateInfo.m_screenManager.Input.Equals(InputState.Continue))
                 {
