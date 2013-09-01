@@ -57,8 +57,12 @@ namespace Candyland
 
         public override void hasCollidedWith(GameObject obj)
         {
+            if (obj.GetType() == typeof(CandyHelper))
+                helperIsClose = true;
+            else
             if(obj.GetType() == typeof(CandyGuy))
             {
+                candyIsClose = true;
                 KeyboardState keyState = Keyboard.GetState();
 
                 if (keyState.IsKeyDown(Keys.B))

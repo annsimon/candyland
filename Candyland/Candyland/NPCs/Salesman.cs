@@ -46,6 +46,7 @@ namespace Candyland
         {
             if(obj.GetType() == typeof(CandyGuy))
             {
+                candyIsClose = true;
                 KeyboardState keyState = Keyboard.GetState();
 
                 if (keyState.IsKeyDown(Keys.B))
