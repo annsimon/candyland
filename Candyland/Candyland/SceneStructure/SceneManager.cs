@@ -58,9 +58,12 @@ namespace Candyland
         // font used for writing tests to screen
         SpriteFont screenFont;
 
+        float distanceToBoss = 0;
+
         Texture2D chocoChip;
         Texture2D keys;
         Texture2D keysFull;
+        Texture2D[] distanceDisplay;
         Texture2D[] skyboxTextures;
         Model skyboxModel;
 
@@ -126,6 +129,12 @@ namespace Candyland
             chocoChip = manager.Load<Texture2D>("Images/HUD/Choco");
             keysFull = manager.Load<Texture2D>("Images/HUD/HudFullWithChange");
             skyboxModel = LoadSkybox(manager, "Skybox/skybox2", out skyboxTextures);
+
+            distanceDisplay = new Texture2D[4];
+            distanceDisplay[0] = manager.Load<Texture2D>("Images/HUD/chaseSafe");
+            distanceDisplay[1] = manager.Load<Texture2D>("Images/HUD/chaseCareful");
+            distanceDisplay[2] = manager.Load<Texture2D>("Images/HUD/chaseDanger");
+            distanceDisplay[3] = manager.Load<Texture2D>("Images/HUD/chaseCritical");
         }
 
         /// <summary>

@@ -118,9 +118,11 @@
         <action_inner>
           <trigger>5.0.1.dyn</trigger>
           <triggered>5.0.1.helperActor</triggered>
-          <id>helperActivated</id>
+          <id>GetHelper</id>
           <oneTimeAction>true</oneTimeAction>
           <subactions>
+            <subaction type="appear" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
+            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Test"/>
             <subaction type="movement" goalX="7" goalY="0,21329" goalZ="0,5" locks="false" text=""/>
             <subaction type="movement" goalX="7" goalY="0,21329" goalZ="1" locks="false" text=""/>
             <subaction type="movement" goalX="7" goalY="0,21329" goalZ="1,5" locks="false" text=""/>
@@ -158,5 +160,47 @@
       </action>
     </level_inner>
   </L5.3>
+
+  <Lchase.0>
+    <level_inner>
+      <action>
+        <action_inner>
+          <trigger>chase.0.9.dyn</trigger>
+          <triggered>chase.0.1.helperActor</triggered>
+          <id>LoseHelper</id>
+          <oneTimeAction>true</oneTimeAction>
+          <subactions>
+            <subaction type="appear" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
+            <subaction type="movement" goalX="7,5" goalY="0,21329" goalZ="2,6" locks="false" text=""/>
+            <subaction type="movement" goalX="8,5" goalY="0,21329" goalZ="2,5" locks="false" text=""/>
+            
+            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="... da komme ich nicht r!ue!ber. Es sieht ganz so aus, als ob du von hier aus alleine weiter musst. !ns!Ich werde mich von der Fee hier zu den Zuckerf!ae!llen bringen lassen. Ich habe geh!oe!rt, dass es da Probleme gibt. Vielleicht kann ich helfen. !ns!Viel Erfolg! !nl!Ich hoffe, wir sehen uns bald wieder."/>
+
+            
+          </subactions>
+        </action_inner>
+      </action>
+      <action>
+        <action_inner>
+          <trigger>chase.0.10.dyn</trigger>
+          <triggered>chase.0.1.bossActor</triggered>
+          <id>StartChase</id>
+          <oneTimeAction>false</oneTimeAction>
+          <subactions>
+            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Was?! Wo kommst du denn her? Denk nicht mal daran, mich aufzuhalten, du hast keine Chance! !ns!(Ziel ist nun, die Lakritze nicht entkommen zu lassen. Daf!ue!r l!ae!uft der Spieler von selbst, muss aber an den verschiedenen Hindernissen vorbeikommen. Die neue Anzeige gibt an, wie gro!ss! die Entfernung zur Lakritze ist. Wird der Abstand zu gro!ss! oder st!ue!rzt der Spieler ab, muss die Vergolgungsjagd neu begonnen werden.)"/>
+            
+            <subaction type="movement" goalX="6,5" goalY="2" goalZ="19,5" locks="false" text=""/>
+            <subaction type="movement" goalX="13,5" goalY="2" goalZ="257,5" locks="false" text=""/>
+
+            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Hahaha, zu langsam! Verfolg mich doch weiter, wenn du dich traust. Nur ein kleiner Sprung durch mein Portal und dein Ende erwartet dich!"/>
+            
+            <subaction type="movement" goalX="13,4" goalY="-1" goalZ="257,7" locks="false" text=""/>
+
+            <subaction type="disappear" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
+          </subactions>
+        </action_inner>
+      </action>
+    </level_inner>
+  </Lchase.0>
   
 </levels>
