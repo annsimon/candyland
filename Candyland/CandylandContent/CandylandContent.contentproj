@@ -125,11 +125,6 @@
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
     </Compile>
-    <Compile Include="NPCs\Helper\partnertextur.png">
-      <Name>partnertextur</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="Objekte\Obstacles\blocktextur.png">
       <Name>blocktextur</Name>
       <Importer>TextureImporter</Importer>
@@ -274,11 +269,6 @@
       <Importer>FbxImporter</Importer>
       <Processor>SkinnedModelProcessor</Processor>
     </Compile>
-    <Compile Include="NPCs\Helper\buddyNoAnim.fbx">
-      <Name>buddyNoAnim</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-    </Compile>
     <Compile Include="NPCs\Salesman\shopguy.fbx">
       <Name>shopguy</Name>
       <Importer>FbxImporter</Importer>
@@ -296,6 +286,12 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <ProcessorParameters_Scale>0.15</ProcessorParameters_Scale>
+    </Compile>
+    <Compile Include="NPCs\HelperActor\buddy.fbx">
+      <Name>buddy</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.2</ProcessorParameters_Scale>
     </Compile>
     <None Include="README.txt">
       <Name>README</Name>
@@ -427,17 +423,6 @@
       <Name>MainText</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
-    </Compile>
-    <Compile Include="NPCs\Helper\partnerneu.fbx">
-      <Name>partnerneu</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.15</ProcessorParameters_Scale>
-    </Compile>
-    <Compile Include="NPCs\Lakritze\lakritz.fbx">
-      <Name>lakritz</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
     </Compile>
     <Compile Include="Objekte\Obstacles\Breakable\chocolatebreakable.fbx">
       <Name>chocolatebreakable</Name>
@@ -984,6 +969,13 @@
     </Compile>
     <Compile Include="NPCs\Fee\bonbon_rot.png">
       <Name>bonbon_rot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NPCs\HelperActor\buddytextur.png">
+      <Name>buddytextur</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

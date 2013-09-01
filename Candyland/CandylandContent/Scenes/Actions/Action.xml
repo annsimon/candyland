@@ -127,8 +127,9 @@
             <subaction type="movement" goalX="7" goalY="0,21329" goalZ="1,5" locks="false" text=""/>
             <subaction type="movement" goalX="7" goalY="0,21329" goalZ="1" locks="false" text=""/>
 
-            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Hi!"/>
-
+            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Hi! Sag mal... kannst du mir helfen? !nl!Ich wurde von meiner Freundin der Fee hier dr!ue!ben hergebracht. Aber jetzt hat sie keine Kraft mehr, mich auch wieder zur!ue!ckzubringen und ich h!ae!nge hier fest. Springen kann ich n!ae!mlich nicht. Daf!ue!r aber solche Bl!oe!cke wie den hier vorne zerst!oe!ren! Ich glaube, oben steht irgendwo ein Zuckerw!ue!rfel, mit dem du das Loch hier zumachen kannst, damit ich vorbeikomme..."/>
+            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="(Von jetzt an kann mit der Taste C zwischen dem Helden und seinem neuen Begleiter gewechselt werden. Mit Leertaste kann der Begleiter einen br!ue!chigen Zuckerw!ue!rfel zerst!oe!ren, wenn er direkt vor ihm steht.) !ns!(Bonbonfeen in rot k!oe!nnen den Begleiter holen, wenn sie vom Helden angesprochen werden.)"/>
+            
             <subaction type="disappear" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
           </subactions>
         </action_inner>
