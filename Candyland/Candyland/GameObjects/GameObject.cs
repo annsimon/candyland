@@ -95,6 +95,9 @@ namespace Candyland
 
         protected bool m_isAnimated = false;
 
+        protected bool candyIsClose = false;
+        protected bool helperIsClose = false;
+
         public class ModelGroupAnimated : ModelGroup
         {
             public AnimationPlayer animationPlayer;
@@ -270,7 +273,26 @@ namespace Candyland
 
         #endregion
 
-        
+        public bool GetInteractable()
+        {
+            if (this is ObstacleBreakable || this is BonbonFairy)
+            {
+                if (!m_updateInfo.candyselected && this.helperIsClose)
+                    return true;
+            }
+            if (this is BonbonFairy || this is Salesman)
+            {
+                if(m_updateInfo.candyselected && this.candyIsClose)
+                    return true;
+            }
+            return false;
+        }
+
+        public void ResetInteractable()
+        {
+            this.candyIsClose = false;
+            this.helperIsClose = false;
+        }
 
         protected void calculateBoundingBox()
         {

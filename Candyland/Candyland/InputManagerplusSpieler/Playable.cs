@@ -22,7 +22,8 @@ namespace Candyland
         protected bool isOnSlipperyGround;
         public bool getIsOnSlippery() { return isOnSlipperyGround; }
 
-
+        protected bool isCloseEnoughToInteract = false;
+        public void setCloseEnoughToInteract() { isCloseEnoughToInteract = true; }
 
         public abstract void uniqueskill();
 
@@ -133,6 +134,7 @@ namespace Candyland
         public override void collide(GameObject obj)
         {
             cam.collideWith(obj);
+            if (obj.GetType() == typeof(BonbonFairy)) collideWithBonbonFairy(obj);
 
             base.collide(obj);
         }
@@ -174,6 +176,14 @@ namespace Candyland
                 obj.hasCollidedWith(this);
             }
             
+        }
+
+        protected void collideWithBonbonFairy(GameObject obj)
+        {
+            if (obj.isVisible && !obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                obj.hasCollidedWith(this);
+            }
         }
 
         protected override void collideWithBreakingPlatform(GameObject obj)

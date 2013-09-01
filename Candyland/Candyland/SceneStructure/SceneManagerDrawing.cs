@@ -18,13 +18,13 @@ namespace Candyland
         {
             CreateShadowMap();            
 
-            DrawModel(player.GetModelGroup(), player.prepareForDrawing());
+            DrawModel(player.GetModelGroup(), player.prepareForDrawing(), false);
             if (GameConstants.boundingBoxRendering)
                 BoundingBoxRenderer.Render(player.getBoundingBox(), m_graphics, m_updateInfo.viewMatrix, m_updateInfo.projectionMatrix, Color.White);
 
             if (m_updateInfo.helperavailable)
             {
-                DrawModel(player2.GetModelGroup(), player2.prepareForDrawing());
+                DrawModel(player2.GetModelGroup(), player2.prepareForDrawing(), false);
                 if (GameConstants.boundingBoxRendering)
                     BoundingBoxRenderer.Render(player2.getBoundingBox(), m_graphics, m_updateInfo.viewMatrix, m_updateInfo.projectionMatrix, Color.White);
             }
@@ -41,7 +41,8 @@ namespace Candyland
             List<GameObject> currentObjects = currArea.GetObjects();
             foreach (GameObject obj in currentObjects)
             {
-                DrawModel(obj.GetModelGroup(), obj.prepareForDrawing());
+                DrawModel(obj.GetModelGroup(), obj.prepareForDrawing(), obj.GetInteractable());
+                obj.ResetInteractable();
                 if (GameConstants.boundingBoxRendering)
                     BoundingBoxRenderer.Render(obj.getBoundingBox(), m_graphics, m_updateInfo.viewMatrix, m_updateInfo.projectionMatrix, Color.White);
             }
@@ -50,7 +51,8 @@ namespace Candyland
                 currentObjects = m_areas[currArea.previousID].GetObjects();
                 foreach (GameObject obj in currentObjects)
                 {
-                    DrawModel(obj.GetModelGroup(), obj.prepareForDrawing());
+                    DrawModel(obj.GetModelGroup(), obj.prepareForDrawing(), obj.GetInteractable());
+                    obj.ResetInteractable();
                 }
             }
             if (m_areas[currentArea].hasNext)
@@ -58,7 +60,8 @@ namespace Candyland
                 currentObjects = m_areas[currArea.nextID].GetObjects();
                 foreach (GameObject obj in currentObjects)
                 {
-                    DrawModel(obj.GetModelGroup(), obj.prepareForDrawing());
+                    DrawModel(obj.GetModelGroup(), obj.prepareForDrawing(), obj.GetInteractable());
+                    obj.ResetInteractable();
                 }
             }
             DrawSkybox();
@@ -134,7 +137,7 @@ namespace Candyland
             m_graphics.RasterizerState = prevRasterizerState;
         }
 
-        private void DrawModel(GameObject.ModelGroup modelGroup, Matrix world)
+        private void DrawModel(GameObject.ModelGroup modelGroup, Matrix world, bool interactable)
         {
             Model model = modelGroup.model;
             if (model == null) return;
@@ -163,6 +166,7 @@ namespace Candyland
                     e.Parameters["shadowMap"].SetValue(m_shadowMap.ShadowMapTexture);
 
                     e.Parameters["world"].SetValue(world * m.ParentBone.Transform);
+                    e.Parameters["interactable"].SetValue(interactable);
 
                     if (m_updateInfo.candyselected)
                         e.Parameters["cameraPos"].SetValue(player.getCameraPos());
@@ -222,6 +226,20 @@ namespace Candyland
                     index = 1;
                 m_spriteBatch.Draw(distanceDisplay[index], new Rectangle(screenWidth/2-47, screenHeight-70,94, 50), Color.White);
             }
+
+            //change variables!!
+            if (m_updateInfo.finaledistance)
+            {
+                int index = 3;
+                if (distanceToBoss > 8)
+                    index = 0;
+                else if (distanceToBoss > 6)
+                    index = 1;
+                else if (distanceToBoss > 4)
+                    index = 2;
+                m_spriteBatch.Draw(distanceDisplay[index], new Rectangle(screenWidth / 2 - 47, screenHeight - 70, 94, 50), Color.White);
+            }
+
 
             if (m_updateInfo.helperavailable)
                 m_spriteBatch.Draw(keysFull, new Rectangle(screenWidth - 252, screenHeight - 70, 242, 60), Color.White);

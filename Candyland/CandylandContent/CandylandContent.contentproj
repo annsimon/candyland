@@ -125,11 +125,6 @@
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
     </Compile>
-    <Compile Include="NPCs\Helper\partnertextur.png">
-      <Name>partnertextur</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="Objekte\Obstacles\blocktextur.png">
       <Name>blocktextur</Name>
       <Importer>TextureImporter</Importer>
@@ -244,11 +239,6 @@
       <Processor>ModelProcessor</Processor>
       <ProcessorParameters_Scale>0.1</ProcessorParameters_Scale>
     </Compile>
-    <Compile Include="NPCs\Helper\buddyNoAnim.fbx">
-      <Name>buddyNoAnim</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-    </Compile>
     <Compile Include="NPCs\Salesman\shopguy.fbx">
       <Name>shopguy</Name>
       <Importer>FbxImporter</Importer>
@@ -273,6 +263,12 @@
       <Processor>ModelProcessor</Processor>
       <ProcessorParameters_Scale>0.5</ProcessorParameters_Scale>
     </Compile>
+    <Compile Include="NPCs\HelperActor\buddy.fbx">
+      <Name>buddy</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.15</ProcessorParameters_Scale>
+    </Compile>
     <None Include="README.txt">
       <Name>README</Name>
     </None>
@@ -281,6 +277,7 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Scenes\Events\EventTest.xml">
       <Name>EventTest</Name>
@@ -403,17 +400,6 @@
       <Name>MainText</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
-    </Compile>
-    <Compile Include="NPCs\Helper\partnerneu.fbx">
-      <Name>partnerneu</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.15</ProcessorParameters_Scale>
-    </Compile>
-    <Compile Include="NPCs\Lakritze\lakritz.fbx">
-      <Name>lakritz</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
     </Compile>
     <Compile Include="Objekte\Obstacles\Breakable\chocolatebreakable.fbx">
       <Name>chocolatebreakable</Name>
@@ -567,6 +553,7 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -575,6 +562,7 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -1020,6 +1008,13 @@
   <ItemGroup>
     <Compile Include="Objekte\Obstacles\Breakable\blockmovabletexture.png">
       <Name>blockmovabletexture</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NPCs\HelperActor\buddytextur.png">
+      <Name>buddytextur</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

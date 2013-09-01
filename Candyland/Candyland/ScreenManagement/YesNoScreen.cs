@@ -133,6 +133,12 @@ namespace Candyland
             }
 
             m_sprite.End();
+
+            // we need the following as spriteBatch.Begin() sets them to None and AlphaBlend
+            // which breaks our model rendering
+            GraphicsDevice m_graphics = ScreenManager.Game.GraphicsDevice;
+            m_graphics.DepthStencilState = DepthStencilState.Default;
+            m_graphics.BlendState = BlendState.Opaque;
         }
     }
 }

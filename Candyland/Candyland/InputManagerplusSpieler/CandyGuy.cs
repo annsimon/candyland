@@ -83,11 +83,12 @@ namespace Candyland
 
         public override void uniqueskill()
         {
-             if (isonground)
+             if (isonground && !isCloseEnoughToInteract)
             {
                 upvelocity = 0.08f;
                 isonground = false;
             }
+             isCloseEnoughToInteract = false;
         }
 
         public override void movementInput(float movex, float movey, float camx, float camy)
@@ -119,21 +120,7 @@ namespace Candyland
         }
 
         #region collision
-        public override void collide(GameObject obj)
-        {
-            // only one to collide with bonbonFairy
-            if (obj.GetType() == typeof(BonbonFairy)) collideWithBonbonFairy(obj);
 
-            base.collide(obj);
-        }
-
-        private void collideWithBonbonFairy(GameObject obj)
-        {
-            if (obj.isVisible && !obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
-            {
-                obj.hasCollidedWith(this);
-            }
-        }
 
         #endregion
 

@@ -40,7 +40,7 @@ namespace Candyland
             this.m_model = content.Load<Model>("NPCs/Fee/bonbon");
             this.m_original_model = this.m_model;
             // Bounding box is bigger than the model, so that the player can interact, when standing a bit away
-            m_boundingBox = new BoundingBox(this.m_position - new Vector3(1,1,1), this.m_position + new Vector3(1,1,1));
+            m_boundingBox = new BoundingBox(this.m_position - new Vector3(0.5f, 1, 0.5f), this.m_position + new Vector3(0.5f, 0.2f, 0.5f));
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
             base.load(content);
@@ -54,22 +54,40 @@ namespace Candyland
         {
             ;
         }
-
         public override void hasCollidedWith(GameObject obj)
         {
+            if (obj.GetType() == typeof(CandyHelper))
+                helperIsClose = true;
+            else
             if(obj.GetType() == typeof(CandyGuy))
-            {
-                KeyboardState keyState = Keyboard.GetState();
-
-                if (keyState.IsKeyDown(Keys.B))
+            {        
+                candyIsClose = true;
+                ((CandyGuy)obj).setCloseEnoughToInteract();
+                if (m_updateInfo.m_screenManager.Input.Equals(InputState.Continue))
                 {
-                    // teleport the helper
+                    // ask to teleport the helper
                     if (isTeleportFairy)
                     {
-                        // only for demonstration, replace with proper dialog and check if teleport really is desired before actually porting
-                        m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen("Hi! Ich kann deinen Kumpel holen.", "Images/DialogImages/BonbonFairyRed"));
                         CandyGuy guy = (CandyGuy)obj;
-                        guy.getCandyHelper().setPosition(this.m_position);
+                        CandyHelper helper = guy.getCandyHelper();
+                        Vector3 teleportPosition = this.getPosition();
+                        teleportPosition.Y -= 1;
+                        m_updateInfo.m_screenManager.ActivateNewScreen(new TeleportFairyDialog(helper, m_updateInfo, teleportPosition, "Images/DialogImages/BonbonFairyRed"));
+                        
+                    }
+                    // show fairy message
+                    else
+                        m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen(m_text, "Images/DialogImages/BonbonFairyBlue"));
+                }
+            }
+            if (obj.GetType() == typeof(CandyHelper) && !m_updateInfo.candyselected)
+            {
+                if (m_updateInfo.m_screenManager.Input.Equals(InputState.Continue))
+                {
+                    // greet helper
+                    if (isTeleportFairy)
+                    {
+                        m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen("Hallo, Süßer!", "Images/DialogImages/BonbonFairyRed"));
                     }
                     // show fairy message
                     else

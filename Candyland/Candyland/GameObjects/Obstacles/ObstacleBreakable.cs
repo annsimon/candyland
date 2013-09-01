@@ -65,12 +65,16 @@ namespace Candyland
 
         public override void hasCollidedWith(GameObject obj)
         {
-            if (obj.GetType() == typeof(CandyHelper)
-                && m_updateInfo.currentpushedKeys.Contains(Microsoft.Xna.Framework.Input.Keys.Space)
-                && !m_updateInfo.candyselected)
+            if (obj.GetType() == typeof(CandyHelper))
             {
-                breakObstacle();
+                helperIsClose = true;
+                if (m_updateInfo.currentpushedKeys.Contains(Microsoft.Xna.Framework.Input.Keys.Space)
+                && !m_updateInfo.candyselected)
+                {
+                    breakObstacle();
+                }
             }
+                
         }
 
         public override void isNotCollidingWith(GameObject obj)
