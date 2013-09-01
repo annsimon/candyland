@@ -51,20 +51,18 @@ namespace Candyland
         {
             ;
         }
-
         public override void hasCollidedWith(GameObject obj)
         {
             if(obj.GetType() == typeof(CandyGuy))
-            {
-                KeyboardState keyState = Keyboard.GetState();
-
-                if (keyState.IsKeyDown(Keys.Space) || keyState.IsKeyDown(Keys.Enter))
+            {               
+                if (m_updateInfo.m_screenManager.Input.Equals(InputState.Continue))
                 {
-                    // teleport the helper
+                    // ask to teleport the helper
                     if (isTeleportFairy)
                     {
                         CandyGuy guy = (CandyGuy)obj;
-                        guy.getCandyHelper().setPosition(this.m_position);
+                        CandyHelper helper = guy.getCandyHelper();
+                        m_updateInfo.m_screenManager.ActivateNewScreen(new GetHelperQuestion(helper, m_updateInfo, this.m_position));
                     }
                     // show fairy message
                     else
@@ -73,9 +71,7 @@ namespace Candyland
             }
             if (obj.GetType() == typeof(CandyHelper))
             {
-                KeyboardState keyState = Keyboard.GetState();
-
-                if (keyState.IsKeyDown(Keys.Space) || keyState.IsKeyDown(Keys.Enter))
+                if (m_updateInfo.m_screenManager.Input.Equals(InputState.Continue))
                 {
                     // greet helper
                     if (isTeleportFairy)

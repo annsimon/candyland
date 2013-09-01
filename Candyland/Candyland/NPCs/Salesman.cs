@@ -49,9 +49,7 @@ namespace Candyland
         {
             if(obj.GetType() == typeof(CandyGuy))
             {
-                KeyboardState keyState = Keyboard.GetState();
-
-                if (keyState.IsKeyDown(Keys.Space) || keyState.IsKeyDown(Keys.Enter))
+                if (m_updateInfo.m_screenManager.Input.Equals(InputState.Continue))
                 {
                     // set as active teleport point, if not already done
                     if (!m_updateInfo.activeTeleports.Contains(m_levelID))
