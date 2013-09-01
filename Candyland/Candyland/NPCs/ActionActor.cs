@@ -152,6 +152,7 @@ namespace Candyland
                 return;
             // action is a one time action
             if (m_actionTracker.actionState.ContainsKey(actionID))
+            {
                 // and has already been performed
                 if (m_actionTracker.actionState[actionID] == true)
                     return;
@@ -162,6 +163,7 @@ namespace Candyland
                     if (ID.Equals("GetHelper"))
                         original_isVisible = false;
                 }
+            }
 
             m_currentAction = m_actions[actionID];
             m_updateInfo.actionInProgress = true;
@@ -213,6 +215,8 @@ namespace Candyland
         public override void Reset()
         {
             base.Reset();
+            foreach (var v in m_actions)
+                v.Value.Reset();
             if (this.ID.Contains("bossActor"))
                 m_updateInfo.bossPosition = m_position;
         }

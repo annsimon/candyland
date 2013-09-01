@@ -288,7 +288,7 @@
           <id>ending</id>
           <oneTimeAction>false</oneTimeAction>
           <subactions>
-            <subaction type="dialog" goalX="2,5" goalY="0" goalZ="9" locks="true" text=" Herlichen Glückwunsch und danke fürs spielen, Candyland ist gerettet!"/>
+            <subaction type="dialog" goalX="2,5" goalY="0" goalZ="9" locks="true" text=" Herzlichen Glückwunsch und danke fürs spielen, Candyland ist gerettet!"/>
           </subactions>
         </action_inner>
       </action>
