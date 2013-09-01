@@ -94,7 +94,7 @@ namespace Candyland
             //Get the direction of the players camera
             float alpha = player.getCameraDir();
 
-            if (!updateinfo.currentguyAreaID.Equals("66"))
+            if (!updateinfo.alwaysRun)
             {
                 if (keystate.IsKeyDown(Keys.W)) dmoveytemp += 1f;
                 if (keystate.IsKeyDown(Keys.S)) dmoveytemp -= 1f;
@@ -194,7 +194,6 @@ namespace Candyland
         }
 
 
-
         public int getInputMode(){return inputMode;}
 
         public void setInputMode(int state)
@@ -202,7 +201,6 @@ namespace Candyland
             if (state <= 2 && 0 <= state) inputMode = state;
             else throw new NotImplementedException();
         }
-
 
     }
 }

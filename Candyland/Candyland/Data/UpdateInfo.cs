@@ -54,6 +54,7 @@ namespace Candyland
         public void switchPlayer() { if(helperavailable) candyselected = !candyselected; }
         public bool helperavailable { get; set; }
         public bool activateHelperNow { get; set; }
+        public bool loseHelperNow { get; set; }
         public void togglehelper() { helperavailable = !helperavailable; }
 
         public List<Keys> currentpushedKeys { get; set; }
@@ -62,6 +63,11 @@ namespace Candyland
         public GameTime gameTime { get; set; }
 
         public ScreenManager m_screenManager { get; set; }
+
+        public bool actionInProgress = false;
+        public bool alwaysRun = false;
+
+        public Vector3 bossPosition;
 
         // we do not use this after all, probably; remove later!
         //public Dictionary<String, GameObject> currentObjectsToBeCollided { get; set; }
@@ -96,6 +102,7 @@ namespace Candyland
             candyselected = true;
             helperavailable = GameConstants.helperAvailableAtGameStart;
             activateHelperNow = false;
+            loseHelperNow = false;
 
             m_screenManager = screenManager;
 

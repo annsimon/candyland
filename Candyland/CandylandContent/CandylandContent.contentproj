@@ -263,11 +263,27 @@
       <Processor>ModelProcessor</Processor>
       <ProcessorParameters_Scale>0.5</ProcessorParameters_Scale>
     </Compile>
+    <Compile Include="NPCs\Lakritze\boss.fbx">
+      <Name>boss</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.1</ProcessorParameters_Scale>
+    </Compile>
     <Compile Include="Objekte\Plattformen\Schalter\schalter2.fbx">
       <Name>schalter2</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <ProcessorParameters_Scale>0.33</ProcessorParameters_Scale>
+    </Compile>
+    <Compile Include="NPCs\Helper\buddyNoAnim.fbx">
+      <Name>buddyNoAnim</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+    <Compile Include="NPCs\Salesman\shopguy.fbx">
+      <Name>shopguy</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
     </Compile>
     <None Include="README.txt">
       <Name>README</Name>
@@ -487,7 +503,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="NPCs\Fee\" />
-    <Folder Include="NPCs\Händler\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Objekte\Obstacles\blockmovabletextur.png">
@@ -871,6 +886,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Images\DialogImages\Boss.png">
+      <Name>Boss</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NPCs\Lakritze\bosstextur.png">
+      <Name>bosstextur</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Objekte\Plattformen\Schalter\schalter_permanent_aktiv.png">
       <Name>schalter_permanent_aktiv</Name>
       <Importer>TextureImporter</Importer>
@@ -888,6 +917,35 @@
     </Compile>
     <Compile Include="Objekte\Plattformen\Schalter\zeitschalteraktiv2.png">
       <Name>zeitschalteraktiv2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\HUD\chaseCareful.png">
+      <Name>chaseCareful</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\HUD\chaseCritical.png">
+      <Name>chaseCritical</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\HUD\chaseDanger.png">
+      <Name>chaseDanger</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\HUD\chaseSafe.png">
+      <Name>chaseSafe</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NPCs\Salesman\shoptexture.png">
+      <Name>shoptexture</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

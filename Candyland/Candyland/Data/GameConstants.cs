@@ -78,18 +78,19 @@ namespace Candyland
         // data regarding the scene
         public const bool helperAvailableAtGameStart = false;
 
-        
-        //public const string sceneFile = @"Content\Scenes\SceneTest2.xml";
-        //public const string eventFile = @"Content\Scenes\Events\EventTest.xml";
-        //public const string actionsFile = @"Content\Scenes\Actions\ActionTest.xml";
-        //public const string startAreaID = "255";
-        //public const string startLevelID = "255.0";
+        /*
+        public const string sceneFile = @"Content\Scenes\SceneTest2.xml";
+        public const string eventFile = @"Content\Scenes\Events\EventTest.xml";
+        public const string actionsFile = @"Content\Scenes\Actions\ActionTest.xml";
+        public const string startAreaID = "255";
+        public const string startLevelID = "255.0";
+         * */
         
         public const string sceneFile = @"Content\Scenes\theWorld.xml";
         public const string eventFile = @"Content\Scenes\Events\Event.xml";
         public const string actionsFile = @"Content\Scenes\Actions\Action.xml";
-        public const string startAreaID = "schieb";
-        public const string startLevelID = "schieb.k2";
+        public const string startAreaID = "0";
+        public const string startLevelID = "0.Korridor";
         
 
 
