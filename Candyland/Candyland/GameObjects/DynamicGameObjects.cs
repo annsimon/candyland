@@ -17,8 +17,15 @@ namespace Candyland
 
         public virtual void moveTo(Vector3 goalpoint)
         {
+            moveTo(goalpoint, GameConstants.slippingSpeed);
+        }
+
+
+        protected float m_moveToSpeed;
+        public virtual void moveTo(Vector3 goalpoint, float speed) {
             istargeting = true;
             target = goalpoint;
+            m_moveToSpeed = speed;
         }
 
         public override void update()
@@ -35,8 +42,8 @@ namespace Candyland
                 float length = (float)Math.Sqrt(dx * dx + dz * dz + dy * dy);
                 Vector3 tempdir = new Vector3(dx, dy, dz);
                 tempdir.Normalize();
-                move(tempdir.X * GameConstants.slippingSpeed, tempdir.Y * GameConstants.slippingSpeed, tempdir.Z * GameConstants.slippingSpeed);
-                if (length < GameConstants.slippingSpeed+0.01f) istargeting = false;
+                move(tempdir.X * m_moveToSpeed, tempdir.Y * m_moveToSpeed, tempdir.Z * m_moveToSpeed);
+                if (length < m_moveToSpeed+0.01f) istargeting = false;
             }
         }
 
