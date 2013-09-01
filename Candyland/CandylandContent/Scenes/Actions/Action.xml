@@ -16,7 +16,7 @@
             <subaction type="movement" goalX="8" goalY="0,7" goalZ="6,5" locks="false" text=""/>
             <subaction type="movement" goalX="8" goalY="0,4" goalZ="6,5" locks="false" text=""/>
             
-            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Hi! !nl! !nl!(Dr!ue!ck Enter oder Leertaste, um weiterzulesen.) !ns!Willkommen in Candyland. Geht es dir gut? !nl!Oft sind die Leute verwirrt, wenn sie hier ankommen... Folg erst einmal einfach diesem Weg hier, er wird dich deinem Ziel n!ae!her bringen. !ns!(Nutze W, A, S und D, um dich zu bewegen und Leertaste, um zu springen. Mit der Maus kann die Kamera gedreht werden.)"/>
+            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Hi! !nl! !nl!(Dr!ue!ck Enter, um weiterzulesen.) !ns!Willkommen in Candyland. Geht es dir gut? !nl!Oft sind die Leute verwirrt, wenn sie hier ankommen... Folg erst einmal einfach diesem Weg hier, er wird dich deinem Ziel n!ae!her bringen. !ns!(Nutze W, A, S und D, um dich zu bewegen und Leertaste, um zu springen. Mit der Maus kann die Kamera gedreht werden.)"/>
             
             <subaction type="disappear" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
           </subactions>
