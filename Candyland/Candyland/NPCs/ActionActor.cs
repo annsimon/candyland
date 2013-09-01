@@ -42,8 +42,6 @@ namespace Candyland
             else
                 m_dialogImage = "Images/DialogImages/AcaHelper";
             base.init(id, position, updateInfo, visible);
-            if (id.Contains("helperActor"))
-                this.original_isVisible = false;
         }
 
         public override void load(ContentManager content)
@@ -58,7 +56,7 @@ namespace Candyland
             this.m_original_texture = this.m_texture;
             this.effect = content.Load<Effect>("Shaders/Shader"); 
             if (this.ID.Contains("helperActor"))
-                this.m_model = content.Load<Model>("NPCs/Helper/buddy");
+                this.m_model = content.Load<Model>("NPCs/Helper/buddyNoAnim");
             else
             if (this.ID.Contains("bossActor"))
                 this.m_model = content.Load<Model>("NPCs/Lakritze/boss");
@@ -77,6 +75,8 @@ namespace Candyland
         public override void update()
         {
             // subAction of type movement is being performed
+            if (m_actionTracker.actionState.ContainsKey("GetHelper") && m_actionTracker.actionState["GetHelper"] == true)
+                this.original_isVisible = false;
             if (!m_updateInfo.actionInProgress)
             {
                 if (m_currentAction != null)
@@ -159,6 +159,8 @@ namespace Candyland
                 else
                 {
                     m_actionTracker.actionState[actionID] = true;
+                    if (ID.Equals("GetHelper"))
+                        original_isVisible = false;
                 }
 
             m_currentAction = m_actions[actionID];

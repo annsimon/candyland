@@ -43,8 +43,8 @@ namespace Candyland
             m_bonusTracker.chocoTotal++;
             m_hasBillboard = true;
             m_updateInfo.objectsWithBillboards.Add(this);
-            m_material.specular = new Vector4(0.6f, 0.6f, 0.6f, 1.0f);
-            m_material.shiny = 4;
+            m_material.specular = new Vector4(0.7f, 0.7f, 0.7f, 1.0f);
+            m_material.shiny = 5;
         }
 
         public override void initialize()

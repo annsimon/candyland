@@ -63,7 +63,7 @@ namespace Candyland
                 {
                     player2.Reset();
                     Vector3 resetPos2 = m_areas[m_updateInfo.currenthelperLevelID.Split('.')[0]].GetCompanionStartingPosition(player2);
-                    resetPos2.Y += 0.6f;
+                    resetPos2.Y += 0.3f;
                     player2.setPosition(resetPos2);
                 }
 

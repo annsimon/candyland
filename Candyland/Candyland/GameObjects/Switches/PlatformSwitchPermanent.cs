@@ -26,6 +26,8 @@ namespace Candyland
 
             this.isActivated = false;
             this.m_switchGroups = new List<SwitchGroup>();
+            m_material.specular = new Vector4(0.6f, 0.6f, 0.6f, 1.0f);
+            m_material.shiny = 4;
         }
 
         public override void load(ContentManager content)

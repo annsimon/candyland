@@ -511,12 +511,12 @@
   <!--- AREA 5 -->
   <area>
     <area_id>5</area_id>
-    <area_prev>0</area_prev>
+    <area_prev>schieb</area_prev>
     <area_next>x</area_next>
     <area_starting_position>
-      <x>0</x>
+      <x>255</x>
       <y>0</y>
-      <z>0</z>
+      <z>255</z>
     </area_starting_position>
     <levels>
       <the_levels>

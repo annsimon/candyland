@@ -121,6 +121,8 @@
           <id>GetHelper</id>
           <oneTimeAction>true</oneTimeAction>
           <subactions>
+            <subaction type="appear" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
+            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Test"/>
             <subaction type="movement" goalX="7" goalY="0,21329" goalZ="0,5" locks="false" text=""/>
             <subaction type="movement" goalX="7" goalY="0,21329" goalZ="1" locks="false" text=""/>
             <subaction type="movement" goalX="7" goalY="0,21329" goalZ="1,5" locks="false" text=""/>
@@ -174,7 +176,7 @@
             
             <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="... da komme ich nicht r!ue!ber. Es sieht ganz so aus, als ob du von hier aus alleine weiter musst. !ns!Ich werde mich von der Fee hier zu den Zuckerf!ae!llen bringen lassen. Ich habe geh!oe!rt, dass es da Probleme gibt. Vielleicht kann ich helfen. !ns!Viel Erfolg! !nl!Ich hoffe, wir sehen uns bald wieder."/>
 
-            <subaction type="disappear" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
+            
           </subactions>
         </action_inner>
       </action>

@@ -275,6 +275,11 @@
       <Processor>ModelProcessor</Processor>
       <ProcessorParameters_Scale>0.33</ProcessorParameters_Scale>
     </Compile>
+    <Compile Include="NPCs\Helper\buddyNoAnim.fbx">
+      <Name>buddyNoAnim</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
     <None Include="README.txt">
       <Name>README</Name>
     </None>
