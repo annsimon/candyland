@@ -56,7 +56,7 @@ namespace Candyland
             this.m_original_texture = this.m_texture;
             this.effect = content.Load<Effect>("Shaders/Shader"); 
             if (this.ID.Contains("helperActor"))
-                this.m_model = content.Load<Model>("NPCs/Helper/buddyNoAnim");
+                this.m_model = content.Load<Model>("NPCs/TutorialGuy/tutorial");
             else
             if (this.ID.Contains("bossActor"))
                 this.m_model = content.Load<Model>("NPCs/Lakritze/boss");
