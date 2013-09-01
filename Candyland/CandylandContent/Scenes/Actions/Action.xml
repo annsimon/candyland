@@ -103,7 +103,7 @@
             <subaction type="movement" goalX="10,5" goalY="0,7" goalZ="15" locks="false" text=""/>
             <subaction type="movement" goalX="10,5" goalY="0,4" goalZ="15" locks="false" text=""/>
 
-            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Solche Zuckerw!ue!rfel wie den da dr!ue!ben kannst du verschieben. Versuch es doch mal. !nl!Und hab keine Angst, falls du mal einen Fehler machst. Ich kann den Ursprungszustand der Umgebung wiederherstellen, wenn du das m!oe!chstest. !ns!(Mit R kann ein Reset ausgel!oe!st werden. Dabei werden alle Objekte zur!ue!ckgesetzt. Bereits eingesammelte Schokolinsen gehen aber nicht verloren.)"/>
+            <subaction type="dialog" goalX="8" goalY="0,5" goalZ="6,5" locks="true" text="Solche Zuckerw!ue!rfel wie den da dr!ue!ben kannst du verschieben. Versuch es doch mal. !nl!Und hab keine Angst, falls du mal einen Fehler machst. Ich kann den Ursprungszustand der Umgebung wiederherstellen, wenn du das m!oe!chstest. !ns!(Mit R kann ein Reset ausgel!oe!st werden. Dabei werden alle Objekte zur!ue!ckgesetzt. Bereits eingesammelte Schokolinsen gehen aber nicht verloren. !ns!Das da vorn ist !ue!brigens eine Bonbonfee, die dir gern Tipps gibt.)"/>
 
             <subaction type="disappear" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>
           </subactions>

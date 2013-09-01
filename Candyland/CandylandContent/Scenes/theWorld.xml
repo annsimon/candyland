@@ -363,21 +363,21 @@
                   <object type="obstacle" id="0.S0.53" is_door_to_area="x" is_door_to_level="x" posX="25,5" posY="0" posZ="23" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="obstacle" id="0.S0.54" is_door_to_area="x" is_door_to_level="x" posX="24,5" posY="0" posZ="23" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
                   <object type="obstacle" id="0.S0.55" is_door_to_area="x" is_door_to_level="x" posX="21" posY="0" posZ="17" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="0.S0.56" is_door_to_area="x" is_door_to_level="x" posX="13" posY="1" posZ="13,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="0.S0.57" is_door_to_area="x" is_door_to_level="x" posX="31" posY="1" posZ="17,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="0.S0.58" is_door_to_area="x" is_door_to_level="x" posX="33,5" posY="1" posZ="15,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="bonbon" id="0.S0.59" is_door_to_area="x" is_door_to_level="x" posX="14" posY="1" posZ="20" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="St!o!rende Zuckerw!u!rfel lassen sich wunderbar durch einen kleinen Schubs !u!ber den Keksrand entsorgen. !nl!Probiers doch mal aus!" />
-                  <object type="bonbon" id="0.S0.60" is_door_to_area="x" is_door_to_level="x" posX="18" posY="1" posZ="18" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="!U!bernimm dich nicht, Kleiner! !nl!Immer sch!o!n einen W!u!rfel nach dem anderen schieben." />
+                  <object type="bonbon" id="0.S0.56" is_door_to_area="x" is_door_to_level="x" posX="14,5" posY="0" posZ="20" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="St!oe!rende Zuckerw!ue!rfel lassen sich wunderbar durch einen kleinen Schubs !ue!ber den Keksrand entsorgen. !nl!Probiers doch mal aus!" />
+                  <object type="bonbon" id="0.S0.57" is_door_to_area="x" is_door_to_level="x" posX="18" posY="0" posZ="18" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="!Ue!bernimm dich nicht, Kleiner! !nl!Immer sch!oe!n einen W!ue!rfel nach dem anderen schieben." />
+                  <object type="platform" id="0.S0.58" is_door_to_area="x" is_door_to_level="x" posX="13" posY="1" posZ="13,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="0.S0.59" is_door_to_area="x" is_door_to_level="x" posX="31" posY="1" posZ="18,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="0.S0.60" is_door_to_area="x" is_door_to_level="x" posX="34" posY="1" posZ="15,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="0.S0.61" is_door_to_area="x" is_door_to_level="x" posX="12,5" posY="1,5" posZ="12,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="0.S0.62" is_door_to_area="x" is_door_to_level="x" posX="31,5" posY="1,5" posZ="17" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="0.S0.62" is_door_to_area="x" is_door_to_level="x" posX="31,5" posY="1,5" posZ="17,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="0.S0.63" is_door_to_area="x" is_door_to_level="x" posX="33" posY="1,5" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="0.S0.64" is_door_to_area="x" is_door_to_level="x" posX="13" posY="2" posZ="11,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="0.S0.65" is_door_to_area="x" is_door_to_level="x" posX="32" posY="2" posZ="16,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="0.S0.66" is_door_to_area="x" is_door_to_level="x" posX="14" posY="2,5" posZ="11,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="0.S0.67" is_door_to_area="x" is_door_to_level="x" posX="15,5" posY="3,5" posZ="9,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="0.S0.68" is_door_to_area="x" is_door_to_level="x" posX="13,5" posY="0,5" posZ="14,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="0.S0.69" is_door_to_area="x" is_door_to_level="x" posX="30,5" posY="0,5" posZ="18" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="0.S0.70" is_door_to_area="x" is_door_to_level="x" posX="34,5" posY="0,5" posZ="15,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="0.S0.69" is_door_to_area="x" is_door_to_level="x" posX="30,5" posY="0,5" posZ="19,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="0.S0.70" is_door_to_area="x" is_door_to_level="x" posX="35" posY="0,5" posZ="15" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="0.S0.71" is_door_to_area="x" is_door_to_level="x" posX="14,5" posY="3" posZ="10,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                 </statics>
               </static_objects>
@@ -1343,7 +1343,7 @@
                   <object type="platform" id="schieb.1.50" is_door_to_area="x" is_door_to_level="x" posX="15" posY="0" posZ="21" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="bonbon" id="schieb.1.51" is_door_to_area="x" is_door_to_level="x" posX="3,5" posY="0" posZ="15,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="Wieder einer von der n!ue!tzlichen Sorte..." />
                   <object type="bonbon" id="schieb.1.52" is_door_to_area="x" is_door_to_level="x" posX="9,5" posY="0" posZ="19,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="Wenn hier jetzt noch ein W!ue!rfel l!ae!ge..." />
-                  <object type="platform" id="schieb.1.53" is_door_to_area="x" is_door_to_level="x" posX="14" posY="1" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.1.53" is_door_to_area="x" is_door_to_level="x" posX="14" posY="0" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                 </statics>
               </static_objects>
             <!--- DYNAMIC-->
@@ -1413,7 +1413,7 @@
                   <object type="platform" id="schieb.0.24" is_door_to_area="x" is_door_to_level="x" posX="19" posY="0" posZ="21,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="obstacle" id="schieb.0.25" is_door_to_area="x" is_door_to_level="x" posX="19" posY="0" posZ="21,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="obstacle" id="schieb.0.26" is_door_to_area="x" is_door_to_level="x" posX="19" posY="0" posZ="20,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
-                  <object type="bonbon" id="schieb.0.27" is_door_to_area="x" is_door_to_level="x" posX="24" posY="0" posZ="18,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="Zuckerw!ue!rfel sind nicht immer nur im Weg. Sie k!oe!nnen auch n!ue!tlich sein!" />
+                  <object type="bonbon" id="schieb.0.27" is_door_to_area="x" is_door_to_level="x" posX="24" posY="0" posZ="18,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="Zuckerw!ue!rfel sind nicht immer nur im Weg. Sie k!oe!nnen auch n!ue!tzlich sein!" />
                   <object type="platform" id="schieb.0.28" is_door_to_area="x" is_door_to_level="x" posX="11,5" posY="1" posZ="12,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="schieb.0.29" is_door_to_area="x" is_door_to_level="x" posX="23" posY="-1" posZ="20" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="schieb.0.30" is_door_to_area="x" is_door_to_level="x" posX="11,5" posY="0,5" posZ="14" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
@@ -1516,14 +1516,12 @@
                   <object type="platform" id="schieb.2.45" is_door_to_area="x" is_door_to_level="x" posX="5" posY="0" posZ="10" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="schieb.2.46" is_door_to_area="x" is_door_to_level="x" posX="4" posY="0" posZ="12" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="schieb.2.47" is_door_to_area="x" is_door_to_level="x" posX="4" posY="0" posZ="9" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="schieb.2.48" is_door_to_area="x" is_door_to_level="x" posX="4" posY="0" posZ="10" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="schieb.2.49" is_door_to_area="x" is_door_to_level="x" posX="4" posY="0" posZ="11" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="schieb.2.50" is_door_to_area="x" is_door_to_level="x" posX="4" posY="0" posZ="13" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="schieb.2.51" is_door_to_area="x" is_door_to_level="x" posX="21" posY="0" posZ="17" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="bonbon" id="schieb.2.52" is_door_to_area="x" is_door_to_level="x" posX="4" posY="0" posZ="23,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="F!ue!r diesen Schalter brauchst du keinen W!ue!rfel." />
-                  <object type="bonbon" id="schieb.2.53" is_door_to_area="x" is_door_to_level="x" posX="2" posY="0" posZ="15,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="Erst Nachdenken und dann schieben. Und achte auf die Reihenfolge, wenn du alle Schokolinsen bekommen willst." />
-                  <object type="platform" id="schieb.2.54" is_door_to_area="x" is_door_to_level="x" posX="15" posY="1" posZ="14" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="schieb.2.55" is_door_to_area="x" is_door_to_level="x" posX="15" posY="0,5" posZ="15,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.2.48" is_door_to_area="x" is_door_to_level="x" posX="4" posY="0" posZ="13" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.2.49" is_door_to_area="x" is_door_to_level="x" posX="21" posY="0" posZ="17" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="bonbon" id="schieb.2.50" is_door_to_area="x" is_door_to_level="x" posX="4" posY="0" posZ="23,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="F!ue!r diesen Schalter brauchst du keinen W!ue!rfel." />
+                  <object type="bonbon" id="schieb.2.51" is_door_to_area="x" is_door_to_level="x" posX="2" posY="0" posZ="15,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="Erst Nachdenken und dann schieben. Und achte auf die Reihenfolge, wenn du alle Schokolinsen bekommen willst." />
+                  <object type="platform" id="schieb.2.52" is_door_to_area="x" is_door_to_level="x" posX="15" posY="1" posZ="14" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.2.53" is_door_to_area="x" is_door_to_level="x" posX="15" posY="0,5" posZ="15,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                 </statics>
               </static_objects>
             <!--- DYNAMIC-->
