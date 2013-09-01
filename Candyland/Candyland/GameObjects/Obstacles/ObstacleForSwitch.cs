@@ -24,6 +24,7 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
+            this.m_texture = content.Load<Texture2D>("Objekte/Obstacles/obstacletextur_switch");
             if (!(this.GetType() == typeof(ObstacleForSwitch)))
             {
                 base.load(content);

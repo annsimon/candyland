@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Audio;
 using System.IO;
 using System.Threading;
 using System.Diagnostics;
@@ -23,6 +24,8 @@ namespace Candyland
 
         ScreenInputManager screenInput;
         InputState input;
+
+        private SoundEffect sound;
 
         // the menus will be optimized for the prefered screen size
         // Ingame text will have a bigger font
@@ -114,6 +117,7 @@ namespace Candyland
 
             screenInput = new ScreenInputManager();
 
+            sound = content.Load<SoundEffect>("Sfx/Menu Button8bit");
             spriteBatch = new SpriteBatch(GraphicsDevice);
             if (isFullScreen) mainText = content.Load<SpriteFont>("Fonts/MainTextFullscreen");
             else mainText = content.Load<SpriteFont>("Fonts/MainText");
@@ -135,6 +139,7 @@ namespace Candyland
                 RemoveScreen(screens.Last());
                 ActivateNewScreen(new MainGame());
                 readyToStartGame = false;
+                
             }
 
             input = screenInput.getInput();
@@ -146,6 +151,13 @@ namespace Candyland
                     screen.Update(gameTime);
                     return;
                 }
+            }
+            if (input.Equals(InputState.Continue))
+            {
+                float volume = 0.5f;
+                float pitch = 0.0f;
+                float pan = 0.0f;
+                sound.Play(volume, pitch, pan);
             }
         }
 

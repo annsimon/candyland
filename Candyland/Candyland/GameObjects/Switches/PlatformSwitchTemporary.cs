@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using SkinnedModel;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Candyland
 {
@@ -14,6 +15,9 @@ namespace Candyland
     /// </summary>
     class PlatformSwitchTemporary : PlatformSwitch
     {
+        private SoundEffect sound1;
+        private SoundEffect sound2;
+
         public PlatformSwitchTemporary(String id, Vector3 pos, UpdateInfo updateInfo, bool visible)
         {
             initialize(id, pos, updateInfo, visible);
@@ -32,12 +36,14 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
-            this.m_activated_texture = content.Load<Texture2D>("Objekte/Plattformen/Schalter/schaltertextur");
-            this.m_notActivated_texture = content.Load<Texture2D>("Objekte/Plattformen/Schalter/schaltertexturinaktiv");
+            sound1 = content.Load<SoundEffect>("Sfx/Switch Activate8bit");
+            sound2 = content.Load<SoundEffect>("Sfx/Switch Deactivate8bit");
+            this.m_activated_texture = content.Load<Texture2D>("Objekte/Plattformen/Schalter/schaltertemp_aktiv");
+            this.m_notActivated_texture = content.Load<Texture2D>("Objekte/Plattformen/Schalter/schaltertemp_inaktiv");
             this.m_texture = this.m_notActivated_texture;
             this.m_original_texture = this.m_texture;
             this.effect = content.Load<Effect>("Shaders/Shader");
-            this.m_model = content.Load<Model>("Objekte/Plattformen/Schalter/schalter2");
+            this.m_model = content.Load<Model>("Objekte/Plattformen/plattform_klein");
             this.m_original_model = this.m_model;
 
             this.calculateBoundingBox();
@@ -63,6 +69,10 @@ namespace Candyland
                 if (!this.isActivated)
                 {
                     this.setActivated(true);
+                    float volume = 0.5f;
+                    float pitch = 0.0f;
+                    float pan = 0.0f;
+                    sound1.Play(volume, pitch, pan);
 
                     this.isTouched = GameConstants.TouchedState.stillTouched;
 
@@ -72,6 +82,10 @@ namespace Candyland
             else if (this.isActivated && this.isTouched == GameConstants.TouchedState.notTouched)
             {
                 this.setActivated(false);
+                float volume = 0.5f;
+                float pitch = 0.0f;
+                float pan = 0.0f;
+                sound2.Play(volume, pitch, pan);
             }
         }
 

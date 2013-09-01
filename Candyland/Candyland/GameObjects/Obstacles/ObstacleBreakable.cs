@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Candyland
 {
@@ -13,6 +14,7 @@ namespace Candyland
     /// </summary>
     class ObstacleBreakable : Obstacle
     {
+        private SoundEffect sound;
 
         public ObstacleBreakable(String id, Vector3 pos, UpdateInfo updateInfo, bool visible)
         {
@@ -28,10 +30,11 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
-            this.m_texture = content.Load<Texture2D>("Objekte/Obstacles/Breakable/blockbreakabletextur");
+            sound = content.Load<SoundEffect>("Sfx/CrackingBlock8bit");
+            this.m_texture = content.Load<Texture2D>("Objekte/Obstacles/Breakable/blockmovabletexture");
             this.m_original_texture = this.m_texture;
             this.effect = content.Load<Effect>("Shaders/Shader");
-            this.m_model = content.Load<Model>("Objekte/Obstacles/Movable/blockmovable");
+            this.m_model = content.Load<Model>("Objekte/Obstacles/Breakable/blockbreakable");
             this.m_original_model = this.m_model;
 
             this.calculateBoundingBox();
@@ -85,6 +88,10 @@ namespace Candyland
         private void breakObstacle()
         {
             // TODO start animation and get rid of Obstacle, so the Player can move forward
+            float volume = 0.3f;
+            float pitch = 0.0f;
+            float pan = 0.0f;
+            sound.Play(volume, pitch, pan);
             isVisible = false;
         }
 

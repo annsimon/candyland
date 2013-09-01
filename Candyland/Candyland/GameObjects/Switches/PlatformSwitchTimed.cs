@@ -5,12 +5,15 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 
 
 namespace Candyland
 {
     class PlatformSwitchTimed : PlatformSwitch
     {
+        private SoundEffect sound1;
+        private SoundEffect sound2;
         protected double m_activeTime;
 
         public PlatformSwitchTimed(String id, Vector3 pos, UpdateInfo updateInfo, bool visible)
@@ -33,8 +36,10 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
-            this.m_activated_texture = content.Load<Texture2D>("Objekte/Plattformen/Schalter/schaltertextur");
-            this.m_notActivated_texture = content.Load<Texture2D>("Objekte/Plattformen/Schalter/schaltertexturinaktiv");
+            sound1 = content.Load<SoundEffect>("Sfx/Ticking8bit");
+            sound2 = content.Load<SoundEffect>("Sfx/Switch Deactivate8bit");
+            this.m_activated_texture = content.Load<Texture2D>("Objekte/Plattformen/Schalter/zeitschalteraktivtextur");
+            this.m_notActivated_texture = content.Load<Texture2D>("Objekte/Plattformen/Schalter/zeitschaltertextur");
             this.m_texture = this.m_notActivated_texture;
             this.m_original_texture = this.m_texture;
             this.effect = content.Load<Effect>("Shaders/Shader");
@@ -65,6 +70,10 @@ namespace Candyland
             {
                 if (!this.isActivated)
                 {
+                    float volume = 0.7f;
+                    float pitch = 0.0f;
+                    float pan = 0.0f;
+                    sound1.Play(volume, pitch, pan);
                     this.setActivated(true);
                     m_activeTime = 0;
                     this.isTouched = GameConstants.TouchedState.stillTouched;
@@ -73,6 +82,10 @@ namespace Candyland
             // Deactivate when timeout
             if ((m_activeTime > GameConstants.switchActiveTime))
             {
+                float volume = 0.5f;
+                float pitch = 0.0f;
+                float pan = 0.0f;
+                sound2.Play(volume, pitch, pan);
                 this.setActivated(false);
             }
         }
