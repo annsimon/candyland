@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using SkinnedModel;
 
 namespace Candyland
 {
@@ -20,6 +21,7 @@ namespace Candyland
 
         public BonbonFairy(String id, Vector3 pos, UpdateInfo updateInfo, bool visible, String message)
         {
+            pos = pos + new Vector3(0.0f, 1.0f, 0.0f);
             base.init(id, pos, updateInfo, visible);
             if (message.Equals("teleport"))
                 isTeleportFairy = true;
@@ -29,16 +31,20 @@ namespace Candyland
 
         public override void load(Microsoft.Xna.Framework.Content.ContentManager content)
         {
-            this.m_texture = content.Load<Texture2D>("Objekte/Schokolinse/schokolinsetextur");
+            this.m_texture = content.Load<Texture2D>("NPCs/Fee/bonbon_rot");
             this.m_original_texture = this.m_texture;
-            this.effect = content.Load<Effect>("Shaders/Toon");
-            this.m_model = content.Load<Model>("Objekte/Schokolinse/schokolinse");
+            this.effect = content.Load<Effect>("Shaders/Shader");
+            this.m_model = content.Load<Model>("NPCs/Fee/bonbon");
             this.m_original_model = this.m_model;
             // Bounding box is bigger than the model, so that the player can interact, when standing a bit away
             m_boundingBox = new BoundingBox(this.m_position - new Vector3(1,1,1), this.m_position + new Vector3(1,1,1));
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
             base.load(content);
+
+            //AnimationClip clip = m_skinningData.AnimationClips["ArmatureAction"];
+
+            //animationPlayer.StartClip(clip);
         }
 
         public override void collide(GameObject obj)
@@ -90,7 +96,7 @@ namespace Candyland
 
         public override void update()
         {
-            ;
+        //animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
         }
     }
 }

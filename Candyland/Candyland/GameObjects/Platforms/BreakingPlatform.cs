@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using SkinnedModel;
 
 namespace Candyland
 {
@@ -31,10 +32,10 @@ namespace Candyland
 
         public override void load(ContentManager content)
         {
-            this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/plattformtextur_klein");
+            this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/breakingplatformtextur");
             this.m_original_texture = this.m_texture;
             this.effect = content.Load<Effect>("Shaders/Shader");
-            this.m_model = content.Load<Model>("Objekte/Plattformen/plattform_klein");
+            this.m_model = content.Load<Model>("Objekte/Plattformen/breakingplatform");
             this.m_original_model = this.m_model;
 
             this.calculateBoundingBox();
@@ -42,6 +43,12 @@ namespace Candyland
             maxOld = m_boundingBox.Max;
 
             base.load(content);
+
+            AnimationClip clip = m_skinningData.AnimationClips["ArmatureAction"];
+
+            animationPlayer.StartClip(clip);
+
+            
         }
 
         public override void hasCollidedWith(GameObject obj)
@@ -56,6 +63,7 @@ namespace Candyland
             {
                 isBreaking = true;
             }
+           
         }
 
         public override void update()
@@ -65,6 +73,16 @@ namespace Candyland
 
             if (timeSincedSteppedOn >= GameConstants.breakTime)
                 this.isVisible = false;
+
+            if (isBreaking && timeSincedSteppedOn < GameConstants.breakTime)
+            {
+                animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
+            }
+            else
+            {
+                animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, false, Matrix.Identity);
+            }
+
         }
 
         public override void Reset()
