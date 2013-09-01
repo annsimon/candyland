@@ -91,7 +91,7 @@ namespace Candyland
             
 
             nowchangingdirection = false;
-            if ((m_position-start).Length() < currentspeed)
+            if ((m_position - start).Length() < currentspeed )
             {
                 nowchangingdirection = true;
                 direction *= -1;

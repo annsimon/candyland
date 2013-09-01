@@ -684,7 +684,20 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="-" type="platform" x="380" y="480" width="20" height="20">
+  <object name="-" type="bonbon" x="280" y="420" width="20" height="20">
+   <properties>
+    <property name="dialog" value="teleport"/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="-"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="1"/>
+   </properties>
+  </object>
+  <object name="-" type="platform" x="260" y="320" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
     <property name="endPositionY" value="-"/>
@@ -695,6 +708,19 @@
     <property name="isSlippery" value="false"/>
     <property name="isVisible" value="true"/>
     <property name="size" value="1"/>
+   </properties>
+  </object>
+  <object name="3.dyn" type="platform" x="380" y="480" width="40" height="40">
+   <properties>
+    <property name="dialog" value=""/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="chase"/>
+    <property name="isDoorToLevel" value="chase.0"/>
+    <property name="isSlippery" value="false"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="2"/>
    </properties>
   </object>
  </objectgroup>
@@ -736,6 +762,19 @@
     <property name="isDoorToArea" value="-"/>
     <property name="isDoorToLevel" value="-"/>
     <property name="isSlippery" value="false"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="1"/>
+   </properties>
+  </object>
+  <object name="-" type="salesman" x="260" y="320" width="20" height="20">
+   <properties>
+    <property name="dialog" value="Die Leute erz!ae!hlen sich schlimme Dinge !ue!ber die Pl!ae!ne der Lakritze. Manche behaupten sogar, dass Candyland nicht wiederzuerkennen w!ae!re, wenn sie ihr Vorhaben umsetzen kann. Aber das kann doch gar nicht sein..."/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="-"/>
     <property name="isVisible" value="true"/>
     <property name="size" value="1"/>
    </properties>
@@ -819,58 +858,6 @@
     <property name="endpositionX" value="-"/>
     <property name="isDoorToArea" value="-"/>
     <property name="isDoorToLevel" value="-"/>
-    <property name="isSlippery" value="false"/>
-    <property name="isVisible" value="true"/>
-    <property name="size" value="1"/>
-   </properties>
-  </object>
-  <object name="-" type="platform" x="260" y="320" width="20" height="20">
-   <properties>
-    <property name="dialog" value=""/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
-    <property name="isSlippery" value="false"/>
-    <property name="isVisible" value="true"/>
-    <property name="size" value="1"/>
-   </properties>
-  </object>
-  <object name="-" type="salesman" x="260" y="320" width="20" height="20">
-   <properties>
-    <property name="dialog" value="Die Leute erz!ae!hlen sich schlimme Dinge !ue!ber die Pl!ae!ne der Lakritze. Manche behaupten sogar, dass Candyland nicht wiederzuerkennen w!ae!re, wenn sie ihr Vorhaben umsetzen kann. Aber das kann doch gar nicht sein..."/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
-    <property name="isSlippery" value="-"/>
-    <property name="isVisible" value="true"/>
-    <property name="size" value="1"/>
-   </properties>
-  </object>
-  <object name="-" type="bonbon" x="280" y="420" width="20" height="20">
-   <properties>
-    <property name="dialog" value="teleport"/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
-    <property name="isSlippery" value="-"/>
-    <property name="isVisible" value="true"/>
-    <property name="size" value="1"/>
-   </properties>
-  </object>
-  <object name="3.dyn" type="platform" x="400" y="480" width="20" height="20">
-   <properties>
-    <property name="dialog" value=""/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="rutschen"/>
-    <property name="isDoorToLevel" value="rutschen.1"/>
     <property name="isSlippery" value="false"/>
     <property name="isVisible" value="true"/>
     <property name="size" value="1"/>
