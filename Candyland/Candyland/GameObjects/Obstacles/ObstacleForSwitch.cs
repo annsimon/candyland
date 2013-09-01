@@ -17,9 +17,9 @@ namespace Candyland
 
         #region initialization
 
-        protected void initialize(string id, Vector3 pos, UpdateInfo updateInfo, bool visible, int size = 1)
+        protected override void initialize(string id, Vector3 pos, UpdateInfo updateInfo, bool visible, int size = 1)
         {
-            base.initialize(id, pos, updateInfo, visible);
+            base.initialize(id, pos, updateInfo, visible, size);
         }
 
         public override void load(ContentManager content)
@@ -37,10 +37,8 @@ namespace Candyland
                 default: loadSmall(content); break;
             }
 
-            this.m_texture = content.Load<Texture2D>("Objekte/Obstacles/blocktextur");
             this.m_original_texture = this.m_texture;
             this.effect = content.Load<Effect>("Shaders/Shader");
-            this.m_model = content.Load<Model>("Objekte/Obstacles/Movable/blockmovable");
             this.m_original_model = this.m_model;
 
             this.calculateBoundingBox();

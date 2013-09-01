@@ -587,7 +587,7 @@
     <property name="isDoorToArea" value="-"/>
     <property name="isDoorToLevel" value="-"/>
     <property name="isSlippery" value="-"/>
-    <property name="isVisible" value="true"/>
+    <property name="isVisible" value="false"/>
     <property name="size" value="1"/>
    </properties>
   </object>
@@ -996,6 +996,19 @@
     <property name="size" value="1"/>
    </properties>
   </object>
+  <object name="-" type="bonbon" x="470" y="360" width="20" height="20">
+   <properties>
+    <property name="dialog" value="Zuckerw!ue!rfel sind nicht immer nur im Weg. Sie k!oe!nnen auch n!ue!tlich sein!"/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="-"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="1"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="2" width="100" height="100">
   <object name="1.choco" type="chocoChip" x="220" y="320" width="20" height="20">
@@ -1022,7 +1035,7 @@
     <property name="isDoorToArea" value="-"/>
     <property name="isDoorToLevel" value="-"/>
     <property name="isSlippery" value="false"/>
-    <property name="isVisible" value="true"/>
+    <property name="isVisible" value="false"/>
     <property name="size" value="1"/>
    </properties>
   </object>

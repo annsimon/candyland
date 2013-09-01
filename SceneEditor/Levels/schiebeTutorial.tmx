@@ -1179,7 +1179,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="-" type="platform" x="610" y="340" width="20" height="20">
+  <object name="-" type="platform" x="610" y="360" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
     <property name="endPositionY" value="-"/>
@@ -1192,7 +1192,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="-" type="platform" x="660" y="300" width="20" height="20">
+  <object name="-" type="platform" x="670" y="300" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
     <property name="endPositionY" value="-"/>
@@ -1259,7 +1259,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="-" type="platform" x="620" y="330" width="20" height="20">
+  <object name="-" type="platform" x="620" y="340" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
     <property name="endPositionY" value="-"/>
@@ -1371,7 +1371,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="-" type="platform" x="600" y="350" width="20" height="20">
+  <object name="-" type="platform" x="600" y="380" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
     <property name="endPositionY" value="-"/>
@@ -1384,7 +1384,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="-" type="platform" x="680" y="300" width="20" height="20">
+  <object name="-" type="platform" x="690" y="290" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
     <property name="endPositionY" value="-"/>
