@@ -52,13 +52,29 @@ namespace Candyland
             {
                 KeyboardState keyState = Keyboard.GetState();
 
-                if (keyState.IsKeyDown(Keys.B))
+                if (keyState.IsKeyDown(Keys.Space) || keyState.IsKeyDown(Keys.Enter))
                 {
                     // teleport the helper
                     if (isTeleportFairy)
                     {
                         CandyGuy guy = (CandyGuy)obj;
                         guy.getCandyHelper().setPosition(this.m_position);
+                    }
+                    // show fairy message
+                    else
+                        m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen(m_text, "Images/DialogImages/BonbonFairy"));
+                }
+            }
+            if (obj.GetType() == typeof(CandyHelper))
+            {
+                KeyboardState keyState = Keyboard.GetState();
+
+                if (keyState.IsKeyDown(Keys.Space) || keyState.IsKeyDown(Keys.Enter))
+                {
+                    // greet helper
+                    if (isTeleportFairy)
+                    {
+                        m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen("Hallo, Süßer!", "Images/DialogImages/BonbonFairy"));
                     }
                     // show fairy message
                     else

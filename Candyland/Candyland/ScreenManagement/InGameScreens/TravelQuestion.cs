@@ -36,9 +36,8 @@ namespace Candyland
             if (enterPressed && answer)
             {
                 m_updateInfo.currentguyLevelID = m_updateInfo.activeTeleports.ElementAt(selectedTeleportIndex);
-                m_updateInfo.currentguyAreaID = m_updateInfo.activeTeleports.ElementAt(selectedTeleportIndex).Substring(0, 1);
-                //m_updateInfo.currenthelperLevelID = m_updateInfo.activeTeleports.ElementAt(activeIndex);
-                //m_updateInfo.currenthelperAreaID = m_updateInfo.activeTeleports.ElementAt(activeIndex).Substring(0, 1);
+                int cutOff = m_updateInfo.activeTeleports.ElementAt(selectedTeleportIndex).LastIndexOf('.');
+                m_updateInfo.currentguyAreaID = m_updateInfo.activeTeleports.ElementAt(selectedTeleportIndex).Substring(0, cutOff);
 
                 m_updateInfo.reset = true;
                 ScreenManager.RemoveScreen(dialogScreen);

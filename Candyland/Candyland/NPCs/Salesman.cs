@@ -16,11 +16,14 @@ namespace Candyland
     {
         // Message the salesman has for the player, when he chooses to talk
         String m_text;
+        string m_levelID;
 
         public Salesman(String id, Vector3 pos, UpdateInfo updateInfo, bool visible, String message)
         {
             base.init(id, pos, updateInfo, visible);
             m_text = message;
+            int cutOff = id.LastIndexOf('.');
+            m_levelID = id.Substring(0, cutOff);
         }
 
         public override void load(Microsoft.Xna.Framework.Content.ContentManager content)
@@ -47,14 +50,14 @@ namespace Candyland
             {
                 KeyboardState keyState = Keyboard.GetState();
 
-                if (keyState.IsKeyDown(Keys.B))
+                if (keyState.IsKeyDown(Keys.Space) || keyState.IsKeyDown(Keys.Enter))
                 {
                     // set as active teleport point, if not already done
-                    if (!m_updateInfo.activeTeleports.Contains(ID))
-                        m_updateInfo.activeTeleports.Add(ID);
+                    if (!m_updateInfo.activeTeleports.Contains(m_levelID))
+                        m_updateInfo.activeTeleports.Add(m_levelID);
                     // greet player
                     CandyGuy guy = (CandyGuy)obj;
-                    m_updateInfo.m_screenManager.ActivateNewScreen(new SalesmanDialogueScreen(m_text, ID, m_updateInfo, guy.getBonusTracker().chocoCount, "Images/DialogImages/BonbonFairy"));
+                    m_updateInfo.m_screenManager.ActivateNewScreen(new SalesmanDialogueScreen(m_text, m_levelID, m_updateInfo, guy.getBonusTracker().chocoCount, "Images/DialogImages/BonbonFairy"));
                 }
             }
         }

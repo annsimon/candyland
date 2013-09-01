@@ -28,6 +28,8 @@ namespace Candyland
         public TravelScreen(string saleID, UpdateInfo info, GameScreen dialogScreen)
         {
             salesmanID = saleID;
+            int cutOff = salesmanID.LastIndexOf('.');
+            salesmanID = salesmanID.Substring(0, cutOff);
             m_updateInfo = info;
             lastScreen = dialogScreen;
         }
@@ -52,7 +54,8 @@ namespace Candyland
                     currentSpotIndex = index;
                 switch (id)
                 {
-                    case "7.0": teleportPositions[index] = (new Vector2(60, 100)); break; //manually set position of map
+                    case "0.Korridor": teleportPositions[index] = (new Vector2(100, 300)); break; //manually set position of map
+                    case "schieb.k2": teleportPositions[index] = (new Vector2(150, 200)); break;
                 }
                 index++;
             }
