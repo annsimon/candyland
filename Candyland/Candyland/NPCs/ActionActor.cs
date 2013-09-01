@@ -47,7 +47,7 @@ namespace Candyland
         public override void load(ContentManager content)
         {
             if (this.ID.Contains("helperActor"))
-                this.m_texture = content.Load<Texture2D>("NPCs/Helper/buddytextur");
+                this.m_texture = content.Load<Texture2D>("NPCs/HelperActor/buddytextur");
             else
             if (this.ID.Contains("bossActor"))
                 this.m_texture = content.Load<Texture2D>("NPCs/Lakritze/bosstextur");
@@ -56,7 +56,7 @@ namespace Candyland
             this.m_original_texture = this.m_texture;
             this.effect = content.Load<Effect>("Shaders/Shader"); 
             if (this.ID.Contains("helperActor"))
-                this.m_model = content.Load<Model>("NPCs/TutorialGuy/tutorial");
+                this.m_model = content.Load<Model>("NPCs/HelperActor/buddy");
             else
             if (this.ID.Contains("bossActor"))
                 this.m_model = content.Load<Model>("NPCs/Lakritze/boss");
