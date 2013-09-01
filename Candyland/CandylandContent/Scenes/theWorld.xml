@@ -1436,9 +1436,9 @@
                   <object type="obstacleForSwitch" id="schieb.0.3.obstacleForSwitch" is_door_to_area="x" is_door_to_level="x" posX="15" posY="0" posZ="20,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="switchPermanent" id="schieb.0.7.switchPermanent" is_door_to_area="x" is_door_to_level="x" posX="20" posY="0" posZ="19,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="chocoChip" id="schieb.0.5.choco" is_door_to_area="x" is_door_to_level="x" posX="15" posY="0" posZ="20,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="actionActor" id="schieb.0.1.actionActor" is_door_to_area="x" is_door_to_level="x" posX="4,5" posY="0" posZ="15,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="False" dialog="" />
                   <object type="platform" id="schieb.0.5.dyn" is_door_to_area="x" is_door_to_level="x" posX="7" posY="1" posZ="11" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="False" dialog="" />
                   <object type="chocoChip" id="schieb.0.0.choco" is_door_to_area="x" is_door_to_level="x" posX="5,5" posY="1" posZ="11" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="actionActor" id="schieb.0.1.actionActor" is_door_to_area="x" is_door_to_level="x" posX="4,5" posY="1" posZ="15,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="False" dialog="" />
                   <object type="chocoChip" id="schieb.0.3.choco" is_door_to_area="x" is_door_to_level="x" posX="23" posY="1" posZ="21" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="obstacleForSwitch" id="schieb.0.4.obstacleForSwitch" is_door_to_area="x" is_door_to_level="x" posX="19" posY="1" posZ="21,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="switchPermanent" id="schieb.0.4.switchPermanent" is_door_to_area="x" is_door_to_level="x" posX="10" posY="1" posZ="11" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
@@ -2661,9 +2661,6 @@
                   <object type="platform" id="255.0.29" is_door_to_area="x" is_door_to_level="x" posX="11" posY="1,5" posZ="13,5" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="255.0.30" is_door_to_area="x" is_door_to_level="x" posX="8" posY="2" posZ="15,5" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="255.0.31" is_door_to_area="x" is_door_to_level="x" posX="6" posY="2,5" posZ="14,5" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="255.0.32" is_door_to_area="x" is_door_to_level="x" posX="-0,5" posY="3" posZ="8" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="255.0.33" is_door_to_area="x" is_door_to_level="x" posX="-3,5" posY="3" posZ="8" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-
                 </statics>
               </static_objects>
             <!--- DYNAMIC-->
@@ -2683,6 +2680,7 @@
                   <object type="movingPlatform" id="255.0.4.movingPlatform" is_door_to_area="x" is_door_to_level="x" posX="7,5" posY="3" posZ="11" endPosX="4,5" endPosY="3" endPosZ="11" size="1" slippery="0" visible="True" dialog="" />
                   <object type="movingPlatform" id="255.0.10.movingPlatform" is_door_to_area="x" is_door_to_level="x" posX="7,5" posY="3" posZ="8" endPosX="7,5" endPosY="4" endPosZ="8" size="1" slippery="0" visible="False" dialog="" />
                   <object type="switchPermanent" id="255.0.0.switchPermanent" is_door_to_area="x" is_door_to_level="x" posX="4,5" posY="3" posZ="15" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="movingPlatform" id="255.0.11.movingPlatform" is_door_to_area="x" is_door_to_level="x" posX="-1,5" posY="3" posZ="8" endPosX="-5" endPosY="3" endPosZ="8" size="1" slippery="0" visible="False" dialog="" />
                   <object type="movingPlatform" id="255.0.12.movingPlatform" is_door_to_area="x" is_door_to_level="x" posX="-3,5" posY="3" posZ="12" endPosX="-3,5" endPosY="3" endPosZ="9" size="1" slippery="0" visible="False" dialog="" />
                   <object type="movingPlatform" id="255.0.13.movingPlatform" is_door_to_area="x" is_door_to_level="x" posX="-3,5" posY="3" posZ="13" endPosX="-3,5" endPosY="5" endPosZ="13" size="1" slippery="0" visible="False" dialog="" />
                   <object type="switchPermanent" id="255.0.1.switchPermanent" is_door_to_area="x" is_door_to_level="x" posX="8,5" posY="4" posZ="8" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />

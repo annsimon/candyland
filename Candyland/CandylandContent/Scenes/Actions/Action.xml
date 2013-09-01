@@ -122,6 +122,10 @@
           <oneTimeAction>true</oneTimeAction>
           <subactions>
             <subaction type="appear" goalX="10" goalY="0" goalZ="0,5" locks="false" text=""/>
+            <subaction type="movement" goalX="4,5" goalY="0,7" goalZ="15,5" locks="false" text=""/>
+            <subaction type="movement" goalX="4,5" goalY="0,4" goalZ="15,5" locks="false" text=""/>
+            <subaction type="movement" goalX="4,5" goalY="0,7" goalZ="15,5" locks="false" text=""/>
+            <subaction type="movement" goalX="4,5" goalY="0,4" goalZ="15,5" locks="false" text=""/>
 
             <subaction type="dialog" goalX="10" goalY="0" goalZ="0,5" locks="true" text="Siehst du die hellen Plattformen da vorn? !nl!Das sind Schalter. Wenn du sie betrittst, werden sie aktiviert und lassen andere S!ue!!ss!igkeiten auftauchen oder verschwinden. !nl!Du solltest immer alle ausprobieren, die du findest. Es kann sich lohnen."/>
 
