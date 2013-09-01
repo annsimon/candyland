@@ -26,10 +26,10 @@ namespace Candyland
 
         public override void load(Microsoft.Xna.Framework.Content.ContentManager content)
         {
-            this.m_texture = content.Load<Texture2D>("NPCs/Händler/shoptexture");
+            this.m_texture = content.Load<Texture2D>("NPCs/Salesman/shoptexture");
             this.m_original_texture = this.m_texture;
             this.effect = content.Load<Effect>("Shaders/Shader");
-            this.m_model = content.Load<Model>("NPCs/Händler/shopguy");
+            this.m_model = content.Load<Model>("NPCs/Salesman/shopguy");
             this.m_original_model = this.m_model;
             // Bounding box is bigger than the model, so that the player can interact, when standing a bit away
             m_boundingBox = new BoundingBox(this.m_position - new Vector3(0.8f,0.5f,0.8f), this.m_position + new Vector3(0.8f,0.5f,0.8f));

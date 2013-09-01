@@ -274,12 +274,6 @@
       <Importer>FbxImporter</Importer>
       <Processor>SkinnedModelProcessor</Processor>
     </Compile>
-    <Compile Include="NPCs\Händler\shopguy.fbx">
-      <Name>shopguy</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.4</ProcessorParameters_Scale>
-    </Compile>
     <Compile Include="NPCs\Helper\buddyNoAnim.fbx">
       <Name>buddyNoAnim</Name>
       <Importer>FbxImporter</Importer>
@@ -289,6 +283,7 @@
       <Name>shopguy</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.4</ProcessorParameters_Scale>
     </Compile>
     <Compile Include="Objekte\Plattformen\breakingplatform.fbx">
       <Name>breakingplatform</Name>
@@ -519,7 +514,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="NPCs\Fee\" />
     <Compile Include="Objekte\Plattformen\breakingplatformtextur.png">
       <Name>breakingplatformtextur</Name>
       <Importer>TextureImporter</Importer>
@@ -965,13 +959,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NPCs\Salesman\shoptexture.png">
-      <Name>shoptexture</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="NPCs\Händler\shoptexture.png">
       <Name>shoptexture</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
