@@ -67,7 +67,7 @@ namespace Candyland
                     if (isTeleportFairy)
                     {
                         // only for demonstration, replace with proper dialog and check if teleport really is desired before actually porting
-                        m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen(m_text, "Images/DialogImages/BonbonFairyRed"));
+                        m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen("Hi! Ich kann deinen Kumpel holen.", "Images/DialogImages/BonbonFairyRed"));
                         CandyGuy guy = (CandyGuy)obj;
                         guy.getCandyHelper().setPosition(this.m_position);
                     }
