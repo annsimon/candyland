@@ -10,20 +10,33 @@ namespace Candyland
 {
     class ObstacleForSwitch : Obstacle
     {
-        public ObstacleForSwitch(String id, Vector3 pos, UpdateInfo updateInfo, bool visible)
+        public ObstacleForSwitch(String id, Vector3 pos, UpdateInfo updateInfo, bool visible, int size)
         {
-            initialize(id, pos, updateInfo, visible);
+            initialize(id, pos, updateInfo, visible, size);
         }
 
         #region initialization
 
-        protected void initialize(string id, Vector3 pos, UpdateInfo updateInfo, bool visible)
+        protected void initialize(string id, Vector3 pos, UpdateInfo updateInfo, bool visible, int size = 1)
         {
             base.initialize(id, pos, updateInfo, visible);
         }
 
         public override void load(ContentManager content)
         {
+            if (!(this.GetType() == typeof(ObstacleForSwitch)))
+            {
+                base.load(content);
+                return;
+            }
+
+            switch (size)
+            {
+                case 0: loadLow(content); break;
+                case 1: loadSmall(content); break;
+                default: loadSmall(content); break;
+            }
+
             this.m_texture = content.Load<Texture2D>("Objekte/Obstacles/blocktextur");
             this.m_original_texture = this.m_texture;
             this.effect = content.Load<Effect>("Shaders/Shader");
