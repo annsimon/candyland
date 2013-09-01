@@ -530,5 +530,77 @@
       </event>
     </level_inner>
   </L5.4>
+
+  <L255.0>
+    <level_inner>
+      <action>
+        <action_inner>
+          <trigger>255.0.0.dyn</trigger>
+          <triggered>255.0.1.bossActor</triggered>
+          <id>endstage1</id>
+          <oneTimeAction>false</oneTimeAction>
+          <subactions>
+            <subaction type="dialog" goalX="0" goalY="0" goalZ="10" locks="true" text=" Was!? !nl! Du Hast es also geschafft mich bis hierhin !nl! zu verfolgen? !ns! Freu dich nicht zu früh, !nl! Noch hast du mich nicht aufgehalten! !ns! Ich werde meine Lakritzmaschine nutzen um dir den Rest zu geben, Hahaha!"/>
+            <subaction type="movement" goalX="20" goalY="7" goalZ="10" locks="false" text=""/>
+            <subaction type="disappear" goalX="20" goalY="7" goalZ="10" locks="false" text=""/>
+          </subactions>
+        </action_inner>
+      </action>
+
+    </level_inner>
+  </L255.0>
+
+
+  <L255.2>
+    <level_inner>
+      <action>
+        <action_inner>
+          <trigger>255.2.4.dyn</trigger>
+          <triggered>255.2.1.bossActor</triggered>
+          <id>2finalstage</id>
+          <oneTimeAction>false</oneTimeAction>
+          <subactions>
+            <subaction type="dialog" goalX="2,5" goalY="0" goalZ="9" locks="true" text=" Nur noch ein kleines Stück und du kannst mir nichts mehr anhaben! !nl! Aber komm mir bloss nicht zu nahe!"/>
+            <subaction type="movement" goalX="5" goalY="16" goalZ="10" locks="false" text=""/>
+          </subactions>
+        </action_inner>
+      </action>
+
+    </level_inner>
+  </L255.2>
+
+
+  <L255.2>
+    <level_inner>
+      <action>
+        <action_inner>
+          <trigger>255.2.4.dyn</trigger>
+          <triggered>255.2.1.bossActor</triggered>
+          <id>2finalstage</id>
+          <oneTimeAction>false</oneTimeAction>
+          <subactions>
+            <subaction type="dialog" goalX="2,5" goalY="0" goalZ="9" locks="true" text=" Nur noch ein kleines Stück und du kannst mir nichts mehr anhaben! !nl! Aber komm mir bloss nicht zu nahe!"/>
+            <subaction type="movement" goalX="5" goalY="16" goalZ="10" locks="false" text=""/>
+          </subactions>
+        </action_inner>
+      </action>
+    </level_inner>
+  </L255.2>
+
+  <L255.3>
+    <level_inner>
+      <action>
+        <action_inner>
+          <trigger>255.3.2.dyn</trigger>
+          <triggered>255.3.1.actionActor</triggered>
+          <id>ending</id>
+          <oneTimeAction>false</oneTimeAction>
+          <subactions>
+            <subaction type="dialog" goalX="2,5" goalY="0" goalZ="9" locks="true" text=" Herlichen Glückwunsch und danke fürs spielen, Candyland ist gerettet!"/>
+          </subactions>
+        </action_inner>
+      </action>
+    </level_inner>
+  </L255.3>
   
 </levels>
