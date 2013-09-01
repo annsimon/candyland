@@ -92,6 +92,9 @@ namespace Candyland
             else
                 sun.Update(m_graphics, player2.getPosition(), gameTime);
 
+
+            player.resetCloseEnoughToInteract();
+
             player.startIntersection();
             player2.startIntersection();
 

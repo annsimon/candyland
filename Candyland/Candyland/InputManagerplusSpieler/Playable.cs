@@ -24,6 +24,7 @@ namespace Candyland
 
         protected bool isCloseEnoughToInteract = false;
         public void setCloseEnoughToInteract() { isCloseEnoughToInteract = true; }
+        public void resetCloseEnoughToInteract() { isCloseEnoughToInteract = false; }
 
         public abstract void uniqueskill();
 
