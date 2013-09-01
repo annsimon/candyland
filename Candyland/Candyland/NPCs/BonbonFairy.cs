@@ -29,9 +29,12 @@ namespace Candyland
 
         public override void load(Microsoft.Xna.Framework.Content.ContentManager content)
         {
-            this.m_texture = content.Load<Texture2D>("Objekte/Schokolinse/schokolinsetextur");
+            if (isTeleportFairy)
+                this.m_texture = content.Load<Texture2D>("Objekte/Schokolinse/schokolinsetextur");
+            else
+                this.m_texture = content.Load<Texture2D>("Objekte/Schokolinse/schokolinsetextur");
             this.m_original_texture = this.m_texture;
-            this.effect = content.Load<Effect>("Shaders/Toon");
+            this.effect = content.Load<Effect>("Shaders/Shader");
             this.m_model = content.Load<Model>("Objekte/Schokolinse/schokolinse");
             this.m_original_model = this.m_model;
             // Bounding box is bigger than the model, so that the player can interact, when standing a bit away
@@ -57,12 +60,13 @@ namespace Candyland
                     // teleport the helper
                     if (isTeleportFairy)
                     {
+                        m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen(m_text, "Images/DialogImages/BonbonFairyRed"));
                         CandyGuy guy = (CandyGuy)obj;
                         guy.getCandyHelper().setPosition(this.m_position);
                     }
                     // show fairy message
                     else
-                        m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen(m_text, "Images/DialogImages/BonbonFairy"));
+                        m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen(m_text, "Images/DialogImages/BonbonFairyBlue"));
                 }
             }
         }

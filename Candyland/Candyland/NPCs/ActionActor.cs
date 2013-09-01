@@ -186,8 +186,12 @@ namespace Candyland
         protected virtual void movement(SubAction sAction)
         {
             if (this.m_currentAction.getID().Contains("StartChase"))
+            {
                 m_updateInfo.alwaysRun = true;
-            moveTo(sAction.getGoal());
+                moveTo(sAction.getGoal(), 0.5f);
+            }
+            else
+                moveTo(sAction.getGoal());
         }
 
         #endregion

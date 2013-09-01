@@ -27,7 +27,7 @@ namespace Candyland
         {
             this.m_texture = content.Load<Texture2D>("Objekte/Schokolinse/schokolinsetextur");
             this.m_original_texture = this.m_texture;
-            this.effect = content.Load<Effect>("Shaders/Toon");
+            this.effect = content.Load<Effect>("Shaders/Shader");
             this.m_model = content.Load<Model>("Objekte/Schokolinse/schokolinse");
             this.m_original_model = this.m_model;
             // Bounding box is bigger than the model, so that the player can interact, when standing a bit away
@@ -54,7 +54,7 @@ namespace Candyland
                         m_updateInfo.activeTeleports.Add(ID);
                     // greet player
                     CandyGuy guy = (CandyGuy)obj;
-                    m_updateInfo.m_screenManager.ActivateNewScreen(new SalesmanDialogueScreen(m_text, ID, m_updateInfo, guy.getBonusTracker().chocoCount, "Images/DialogImages/BonbonFairy"));
+                    m_updateInfo.m_screenManager.ActivateNewScreen(new SalesmanDialogueScreen(m_text, ID, m_updateInfo, guy.getBonusTracker().chocoCount, "Images/DialogImages/Salesman"));
                 }
             }
         }
