@@ -13,6 +13,7 @@ namespace Candyland
         Texture2D caption;
 
         protected SpriteFont font;
+        protected SpriteFont Font;
 
         int screenWidth;
         int screenHeight;
@@ -27,6 +28,8 @@ namespace Candyland
         protected Rectangle MenuBoxT;
         protected Rectangle MenuBoxB;
         protected Rectangle MenuBoxM;
+
+        protected Rectangle TextBox;
 
         protected Texture2D BorderTopLeft;
         protected Texture2D BorderTopRight;
@@ -53,6 +56,9 @@ namespace Candyland
             BorderBottom = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottom");
             BorderMiddle = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogMiddle");
 
+            font = ScreenManager.Font;
+            Font = ScreenManager.Content.Load<SpriteFont>("Fonts/MainTextFullscreen");
+
             screenWidth = game.GraphicsDevice.Viewport.Width;
             screenHeight = game.GraphicsDevice.Viewport.Height;
 
@@ -62,6 +68,8 @@ namespace Candyland
             MakeBorderBox(new Rectangle(offsetX, offsetY, screenWidth - 2 * offsetX, screenHeight - 2 * offsetY),
                 out MenuBoxTL, out MenuBoxT, out MenuBoxTR, out MenuBoxR,
                 out MenuBoxBR, out MenuBoxB, out MenuBoxBL, out MenuBoxL, out MenuBoxM);
+
+            TextBox = new Rectangle(200, 100, screenWidth - 200, screenHeight - 200);
         }
 
         public override void Update(GameTime gameTime)
@@ -95,6 +103,10 @@ namespace Candyland
             m_sprite.Draw(BorderMiddle, MenuBoxM, Color.White);
             if (ScreenManager.isFullscreen) m_sprite.Draw(caption, new Rectangle(MenuBoxL.Left + 5, MenuBoxT.Top + 5, caption.Width, caption.Height), Color.White);
             else m_sprite.Draw(caption, new Rectangle(MenuBoxL.Left + 5, MenuBoxT.Top + 5, (int)(caption.Width * 0.8f), (int)(caption.Height * 0.8f)), Color.White);
+
+            m_sprite.DrawString(Font, "Steuerung", new Vector2(TextBox.X, TextBox.Y), Color.Black);
+            m_sprite.DrawString(font, GameConstants.controlDescription1 , new Vector2(TextBox.X, TextBox.Y + font.LineSpacing * 3), Color.Black);
+            m_sprite.DrawString(font, GameConstants.controlDescription2, new Vector2(TextBox.X + 300, TextBox.Y + font.LineSpacing * 3), Color.Black);
 
             ScreenManager.SpriteBatch.End();
         }

@@ -2,21 +2,20 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework.Input;
 
 namespace Candyland
 {
     class SalesmanDialogueScreen : DialogListeningScreen
     {
         Texture2D OwnTalkBubble;
+        Texture2D buttonTexture;
 
         Rectangle ownDiagBox;
 
         private string option1, option2, option3, option4;
 
         private string Greeting = "Hallo mein Freund";
-        private string Text = "";
-        private string Picture = "Images/DialogImages/Salesman";
-        private string[] TextArray;
         private string[] GreetingArray;
 
         private string salesmanID;
@@ -29,6 +28,23 @@ namespace Candyland
         bool isGreeting = true;
         bool isTimeToAnswer = false;
 
+        protected Rectangle AnswerBoxTL;
+        protected Rectangle AnswerBoxTR;
+        protected Rectangle AnswerBoxBL;
+        protected Rectangle AnswerBoxBR;
+        protected Rectangle AnswerBoxL;
+        protected Rectangle AnswerBoxR;
+        protected Rectangle AnswerBoxT;
+        protected Rectangle AnswerBoxB;
+        protected Rectangle AnswerBoxM;
+
+        // Buttons
+        int buttonWidth;
+        int buttonHeight;
+        int leftAlign = 525;
+        int topAlign = 25;
+        Rectangle selectedButton;
+
         public SalesmanDialogueScreen(string text, string saleID, UpdateInfo info, int chocoCount, string picture)
         {
             this.Text = text;
@@ -36,16 +52,22 @@ namespace Candyland
             salesmanID = saleID;
             m_updateInfo = info;
             chocosCollected = chocoCount;
+            Greeting = GameConstants.tradesmanGreeting;
         }
 
         public override void Open(Game game)
         {
             base.Open(game);
 
+            buttonTexture = ScreenManager.Content.Load<Texture2D>("ScreenTextures/transparent");
             talkingNPC = ScreenManager.Content.Load<Texture2D>(Picture);
             OwnTalkBubble = ScreenManager.Content.Load<Texture2D>("ScreenTextures/talkBubbleOwn");
 
-            ownDiagBox = new Rectangle(screenWidth / 3, 0, screenWidth * 2 / 3, screenHeight * 2 / 3);
+            ownDiagBox = new Rectangle(480, 20, 300, 200);
+
+            MakeBorderBox(ownDiagBox,
+            out AnswerBoxTL, out AnswerBoxT, out AnswerBoxTR, out AnswerBoxR,
+            out AnswerBoxBR, out AnswerBoxB, out AnswerBoxBL, out AnswerBoxL, out AnswerBoxM);
 
             option1 = "Reden";
             option2 = "Einkaufen";
@@ -56,6 +78,11 @@ namespace Candyland
 
             GreetingArray = wrapText(Greeting, font, TextBox, lineCapacity);
             TextArray = wrapText(Text, font, TextBox, lineCapacity);
+
+            buttonWidth = (int)font.MeasureString("Auf Wiedersehen!").X + 20;
+            buttonHeight = font.LineSpacing;
+
+            selectedButton = new Rectangle(leftAlign, topAlign, buttonWidth, buttonHeight);
         }
 
         public override void Update(GameTime gameTime)
@@ -63,14 +90,22 @@ namespace Candyland
             bool enterPressed = false;
 
             // look at input and update button selection
-            switch (ScreenManager.Input)
+            if (isTimeToAnswer)
             {
-                case InputState.Continue: enterPressed = true; break;
-                case InputState.Up: activeIndex--; break;
-                case InputState.Down: activeIndex++; break;
+                switch (ScreenManager.Input)
+                {
+                    case InputState.Continue: enterPressed = true; break;
+                    case InputState.Up: activeIndex--; break;
+                    case InputState.Down: activeIndex++; break;
+                }
+                if (activeIndex >= numberOfOptions) activeIndex = 0;
+                if (activeIndex < 0) activeIndex = numberOfOptions - 1;
             }
-            if (activeIndex >= numberOfOptions) activeIndex = 0;
-            if (activeIndex < 0) activeIndex = numberOfOptions - 1;
+            else
+            {
+                if ((ScreenManager.Input.Equals(InputState.Continue) || ScreenManager.Input.Equals(InputState.Down)) && Keyboard.GetState().IsKeyUp(Keys.Space))
+                    enterPressed = true;
+            }
 
             // Selected Button confirmed by pressing Enter
             if (enterPressed && isTimeToAnswer)
@@ -152,33 +187,32 @@ namespace Candyland
 
             if (isTimeToAnswer)
             {
-                m_sprite.Draw(OwnTalkBubble, ownDiagBox, Color.White);
+                m_sprite.Draw(talkBubbleTopLeft, AnswerBoxTL, Color.White);
+                m_sprite.Draw(talkBubbleTopRight, AnswerBoxTR, Color.White);
+                m_sprite.Draw(talkBubbleBottomLeft, AnswerBoxBL, Color.White);
+                m_sprite.Draw(talkBubbleBottomRight, AnswerBoxBR, Color.White);
+                m_sprite.Draw(talkBubbleLeft, AnswerBoxL, Color.White);
+                m_sprite.Draw(talkBubbleRight, AnswerBoxR, Color.White);
+                m_sprite.Draw(talkBubbleTop, AnswerBoxT, Color.White);
+                m_sprite.Draw(talkBubbleBottom, AnswerBoxB, Color.White);
+                m_sprite.Draw(talkBubbleMiddle, AnswerBoxM, Color.White);
 
                 m_sprite.DrawString(font, option1, new Vector2(leftAlign, topAlign), Color.Black);
                 m_sprite.DrawString(font, option2, new Vector2(leftAlign, topAlign + lineDist ), Color.Black);
                 m_sprite.DrawString(font, option3, new Vector2(leftAlign, topAlign + lineDist * 2), Color.Black);
                 m_sprite.DrawString(font, option4, new Vector2(leftAlign, topAlign + lineDist * 3), Color.Black);
 
-                // Draw active option in different color
-                switch (activeIndex)
-                {
-                    case 0: m_sprite.DrawString(font, option1, new Vector2(leftAlign, topAlign), Color.Green); break;
-                    case 1: m_sprite.DrawString(font, option2, new Vector2(leftAlign, topAlign + lineDist), Color.Green); break;
-                    case 2: m_sprite.DrawString(font, option3, new Vector2(leftAlign, topAlign + lineDist * 2), Color.Green); break;
-                    case 3: m_sprite.DrawString(font, option4, new Vector2(leftAlign, topAlign + lineDist * 3), Color.Green); break;
-                }
+                selectedButton.Y = topAlign + (buttonHeight * activeIndex);
+                m_sprite.Draw(buttonTexture, selectedButton, Color.White);
             }
             //other person is still talking
             else
             {
-                if (canScroll)
+                if (arrowBlink)
                 {
-                    if (arrowBlink)
-                    {
-                        m_sprite.Draw(arrowDown, new Rectangle(DiagBoxBR.Right - 35, DiagBoxBR.Bottom - 30, 30, 15), Color.White);
-                    }
-                    else m_sprite.Draw(arrowDown, new Rectangle(DiagBoxBR.Right - 35, DiagBoxBR.Bottom - 25, 30, 15), Color.White);
+                    m_sprite.Draw(arrowDown, new Rectangle(DiagBoxBR.Right - 35, DiagBoxBR.Bottom - 30, 30, 15), Color.White);
                 }
+                else m_sprite.Draw(arrowDown, new Rectangle(DiagBoxBR.Right - 35, DiagBoxBR.Bottom - 25, 30, 15), Color.White);
             }
             m_sprite.End();
 
