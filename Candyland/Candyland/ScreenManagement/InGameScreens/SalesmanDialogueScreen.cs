@@ -15,7 +15,7 @@ namespace Candyland
 
         private string Greeting = "Hallo mein Freund";
         private string Text = "";
-        private string Picture = "Images/DialogImages/DefaultImage";
+        private string Picture = "Images/DialogImages/Salesman";
         private string[] TextArray;
         private string[] GreetingArray;
 
@@ -29,7 +29,7 @@ namespace Candyland
         bool isGreeting = true;
         bool isTimeToAnswer = false;
 
-        public SalesmanDialogueScreen(string text, string saleID, UpdateInfo info, int chocoCount, string picture = "Images/DialogImages/DefaultImage")
+        public SalesmanDialogueScreen(string text, string saleID, UpdateInfo info, int chocoCount, string picture)
         {
             this.Text = text;
             this.Picture = picture;
@@ -42,6 +42,7 @@ namespace Candyland
         {
             base.Open(game);
 
+            talkingNPC = ScreenManager.Content.Load<Texture2D>(Picture);
             OwnTalkBubble = ScreenManager.Content.Load<Texture2D>("ScreenTextures/talkBubbleOwn");
 
             ownDiagBox = new Rectangle(screenWidth / 3, 0, screenWidth * 2 / 3, screenHeight * 2 / 3);

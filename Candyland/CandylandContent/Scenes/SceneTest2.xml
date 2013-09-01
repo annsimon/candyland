@@ -64,7 +64,7 @@
             <!--- DYNAMIC-->
               <dynamic_objects>
                 <dynamics>
-                  <object type="actionActor" id="255.0.1.actionActor" is_door_to_area="x" is_door_to_level="x" posX="0" posY="0" posZ="10" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="actionActor" id="255.0.1.bossActor" is_door_to_area="x" is_door_to_level="x" posX="0" posY="0" posZ="10" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="255.0.0.dyn" is_door_to_area="x" is_door_to_level="x" posX="-3" posY="0" posZ="9,5" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="255.0.1.dyn" is_door_to_area="x" is_door_to_level="x" posX="-3" posY="0" posZ="11,5" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
                   <object type="movingPlatform" id="255.0.1.movingPlatform" is_door_to_area="x" is_door_to_level="x" posX="3,5" posY="3" posZ="14" endPosX="3,5" endPosY="3" endPosZ="12" size="1" slippery="0" visible="False" dialog="" />
@@ -130,8 +130,8 @@
         <!--- LEVEL 255.2 -->
         <level>
           <level_id>255.2</level_id>
-          <main_start_platform>255.2.0.dyn</main_start_platform>
-          <secondary_start_platform>255.2.0.dyn</secondary_start_platform>
+          <main_start_platform>255.2.4.dyn</main_start_platform>
+          <secondary_start_platform>255.2.4.dyn</secondary_start_platform>
           <level_starting_position>
             <x>12,5</x>
             <y>8,5</y>
@@ -186,7 +186,7 @@
             <!--- DYNAMIC-->
               <dynamic_objects>
                 <dynamics>
-                  <object type="actionActor" id="255.2.1.actionActor" is_door_to_area="x" is_door_to_level="x" posX="2,5" posY="0" posZ="9" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="actionActor" id="255.2.1.bossActor" is_door_to_area="x" is_door_to_level="x" posX="2,5" posY="0" posZ="9" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="255.2.0.dyn" is_door_to_area="x" is_door_to_level="255.1" posX="1" posY="0" posZ="9,5" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="255.2.1.dyn" is_door_to_area="x" is_door_to_level="255.1" posX="1" posY="0" posZ="11,5" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="255.2.2.dyn" is_door_to_area="x" is_door_to_level="255.1" posX="3" posY="0" posZ="11,5" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
@@ -232,6 +232,7 @@
             <!--- DYNAMIC-->
               <dynamic_objects>
                 <dynamics>
+                  <object type="actionActor" id="255.3.1.actionActor" is_door_to_area="x" is_door_to_level="x" posX="2,5" posY="0" posZ="9" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="False" dialog="" />
                   <object type="platform" id="255.3.3" is_door_to_area="x" is_door_to_level="255.2" posX="1,5" posY="8,5" posZ="11" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="255.3.0.dyn" is_door_to_area="x" is_door_to_level="255.2" posX="1,5" posY="8" posZ="9" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="breakingPlatform" id="255.3.0.breaking" is_door_to_area="x" is_door_to_level="x" posX="4,5" posY="9" posZ="13" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />

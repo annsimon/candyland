@@ -186,10 +186,19 @@ namespace Candyland
         protected virtual void movement(SubAction sAction)
         {
             if (this.m_currentAction.getID().Contains("StartChase"))
+            {
                 m_updateInfo.alwaysRun = true;
-            if (this.m_currentAction.getID().Contains("finalstage"))
+                moveTo(sAction.getGoal(), 0.048f);
+            }
+
+            else if (this.m_currentAction.getID().Contains("finalstage"))
+            {
                 m_updateInfo.finaledistance = true;
-            moveTo(sAction.getGoal());
+                moveTo(sAction.getGoal(), 0.006f);
+                m_updateInfo.bossTarget = sAction.getGoal();
+            }
+            else
+                moveTo(sAction.getGoal());
         }
 
         #endregion
