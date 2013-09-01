@@ -190,6 +190,13 @@ namespace Candyland
                 m_updateInfo.alwaysRun = true;
                 moveTo(sAction.getGoal(), 0.048f);
             }
+
+            else if (this.m_currentAction.getID().Contains("finalstage"))
+            {
+                m_updateInfo.finaledistance = true;
+                moveTo(sAction.getGoal(), 0.006f);
+                m_updateInfo.bossTarget = sAction.getGoal();
+            }
             else
                 moveTo(sAction.getGoal());
         }
