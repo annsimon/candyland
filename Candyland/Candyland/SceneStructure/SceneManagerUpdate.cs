@@ -48,6 +48,7 @@ namespace Candyland
                 m_updateInfo.actionInProgress = false;
 
                 m_updateInfo.alwaysRun = false;
+                distanceToBoss = 0.0f;
 
                 // reset player to start position of current level
                 if (m_updateInfo.candyselected || m_updateInfo.currentguyLevelID == m_updateInfo.currenthelperLevelID)
@@ -162,6 +163,20 @@ namespace Candyland
              */
 
             UpdateShadowMap();
+
+            if( m_updateInfo.alwaysRun )
+            {
+                float dx = m_updateInfo.bossPosition.X - player.getPosition().X;
+                float dz = m_updateInfo.bossPosition.Z - player.getPosition().Z;
+                float dy = m_updateInfo.bossPosition.Y - player.getPosition().Y;
+                distanceToBoss = (float)Math.Sqrt(dx * dx + dz * dz + dy * dy);
+
+                if (distanceToBoss > 16)
+                {
+                    m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen("Hahaha, ich hab's dir doch gesagt. Du holst mich nicht mehr ein. Pech gehabt!", "Images/DialogImages/Boss"));
+                    m_updateInfo.reset = true;
+                }
+            }
         }
 
         private void UpdateShadowMap()

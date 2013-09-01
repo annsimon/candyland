@@ -87,7 +87,11 @@ namespace Candyland
                 return;
             }
             if (istargeting)
+            {
                 base.update();
+                if (this.ID.Contains("bossActor"))
+                    m_updateInfo.bossPosition = m_position;
+            }
             else
             {
                 if (m_currentAction == null)
@@ -194,6 +198,8 @@ namespace Candyland
         public override void Reset()
         {
             base.Reset();
+            if (this.ID.Contains("bossActor"))
+                m_updateInfo.bossPosition = m_position;
         }
 
     }
