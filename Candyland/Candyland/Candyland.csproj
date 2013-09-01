@@ -150,6 +150,8 @@
     <Compile Include="SceneStructure\SceneManager.cs" />
     <Compile Include="SceneStructure\SceneManagerDrawing.cs" />
     <Compile Include="SceneStructure\SceneManagerUpdate.cs" />
+    <Compile Include="ScreenManagement\InGameScreens\GetHelperQuestion.cs" />
+    <Compile Include="ScreenManagement\InGameScreens\TeleportFairyDialog.cs" />
     <Compile Include="ScreenManagement\InGameScreens\TravelQuestion.cs" />
     <Compile Include="ScreenManagement\OutGameScreens\BonusScreen.cs" />
     <Compile Include="Data\BonusTile.cs" />

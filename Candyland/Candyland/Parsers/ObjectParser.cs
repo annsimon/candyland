@@ -147,7 +147,16 @@ namespace Candyland
                         Console.WriteLine("Key " + id + " duplicated");
                         continue;
                     }
-                    ObstacleForSwitch obj = new ObstacleForSwitch(id, pos, info, isVisible);
+                    int object_size;
+                    try
+                    {
+                        object_size = int.Parse(node.Attributes["size"].InnerText);
+                    }
+                    catch
+                    {
+                        object_size = 1;
+                    }
+                    ObstacleForSwitch obj = new ObstacleForSwitch(id, pos, info, isVisible, object_size);
                     dynamicObjects.Add(id, obj);
                 }
                 else

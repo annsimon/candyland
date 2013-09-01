@@ -6,6 +6,7 @@ namespace Candyland
     class TitleScreen : GameScreen
     {
         Texture2D texture;
+        int timePastSinceStart = 0;
 
         public override void Open(Game game)
         {
@@ -16,7 +17,10 @@ namespace Candyland
 
         public override void Update(GameTime gameTime)
         {
-            if (ScreenManager.Input.Equals(InputState.Continue))
+            // timeout
+            timePastSinceStart += gameTime.ElapsedGameTime.Milliseconds;
+
+            if (ScreenManager.Input.Equals(InputState.Continue) || timePastSinceStart > 3000)
             {
                 ScreenManager.RemoveScreen(this);
                 ScreenManager.ActivateNewScreen(new MainMenu());
