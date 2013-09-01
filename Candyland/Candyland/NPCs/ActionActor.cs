@@ -187,6 +187,8 @@ namespace Candyland
         {
             if (this.m_currentAction.getID().Contains("StartChase"))
                 m_updateInfo.alwaysRun = true;
+            if (this.m_currentAction.getID().Contains("finalstage"))
+                m_updateInfo.finaledistance = true;
             moveTo(sAction.getGoal());
         }
 

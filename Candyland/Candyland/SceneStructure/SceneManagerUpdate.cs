@@ -47,6 +47,7 @@ namespace Candyland
 
                 m_updateInfo.actionInProgress = false;
 
+                m_updateInfo.finaledistance = false;
                 m_updateInfo.alwaysRun = false;
                 distanceToBoss = 0.0f;
 

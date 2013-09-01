@@ -223,6 +223,19 @@ namespace Candyland
                 m_spriteBatch.Draw(distanceDisplay[index], new Rectangle(screenWidth/2-47, screenHeight-70,94, 50), Color.White);
             }
 
+            //change variables!!
+            if (m_updateInfo.finaledistance)
+            {
+                int index = 0;
+                if (distanceToBoss > 14)
+                    index = 3;
+                else if (distanceToBoss > 12)
+                    index = 2;
+                else if (distanceToBoss > 10)
+                    index = 1;
+                m_spriteBatch.Draw(distanceDisplay[index], new Rectangle(screenWidth / 2 - 47, screenHeight - 70, 94, 50), Color.White);
+            }
+
             if (m_updateInfo.helperavailable)
                 m_spriteBatch.Draw(keysFull, new Rectangle(screenWidth - 252, screenHeight - 70, 242, 60), Color.White);
             else
