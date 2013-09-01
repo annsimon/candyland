@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using System.Threading;
+using Microsoft.Xna.Framework.Content;
 
 namespace Candyland
 {
@@ -10,13 +11,24 @@ namespace Candyland
         // the scene manager, most stuff happens in there
         SceneManager m_sceneManager;
 
+        // has its own content manager
+        ContentManager content;
+
         public override void Open(Game game)
         {
+            // tell screen manager that a game is already running
+            ScreenManager.gameIsRunning = true;
+
             this.isFullscreen = true;
 
             m_sceneManager = ScreenManager.SceneManager;
 
-            Song song = ScreenManager.Content.Load<Song>("Music/bgmusic");  // background music from http://longzijun.wordpress.com/2012/12/26/upbeat-background-music-free-instrumentals/
+            if (content == null)
+                content = ScreenManager.gameContent;
+
+            ScreenManager.gameContent = content;
+
+            Song song = content.Load<Song>("Music/bgmusic");  // background music from http://longzijun.wordpress.com/2012/12/26/upbeat-background-music-free-instrumentals/
             MediaPlayer.Play(song);
             MediaPlayer.IsRepeating = true;
         }
@@ -46,7 +58,8 @@ namespace Candyland
 
         public override void Close()
         {
-            //TODO Unload content;
+            // Unload content
+            content.Unload();
         }
     }
 }

@@ -340,6 +340,17 @@
           </switchGroup>
         </event_inner>
       </event>
+      <event>
+        <event_inner>
+          <triggerable>schieb.4.7.dyn</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>schieb.4.1.switchTimed</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
     </level_inner>
   </Lschieb.4>
 

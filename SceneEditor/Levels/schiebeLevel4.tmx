@@ -565,19 +565,6 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="4.switchTemporary" type="switchTemporary" x="320" y="420" width="20" height="20">
-   <properties>
-    <property name="dialog" value=""/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
-    <property name="isSlippery" value="-"/>
-    <property name="isVisible" value="true"/>
-    <property name="size" value="1"/>
-   </properties>
-  </object>
   <object name="4.choco" type="chocoChip" x="400" y="630" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
@@ -1046,19 +1033,6 @@
     <property name="size" value="2"/>
    </properties>
   </object>
-  <object name="-" type="platform" x="320" y="510" width="20" height="20">
-   <properties>
-    <property name="dialog" value=""/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
-    <property name="isSlippery" value="false"/>
-    <property name="isVisible" value="true"/>
-    <property name="size" value="1"/>
-   </properties>
-  </object>
   <object name="-" type="platform" x="300" y="420" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
@@ -1081,6 +1055,97 @@
     <property name="isDoorToArea" value="-"/>
     <property name="isDoorToLevel" value="-"/>
     <property name="isSlippery" value="false"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="1"/>
+   </properties>
+  </object>
+  <object name="4.switchTemporary" type="switchTemporary" x="320" y="420" width="20" height="20">
+   <properties>
+    <property name="dialog" value=""/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="-"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="1"/>
+   </properties>
+  </object>
+  <object name="7.dyn" type="platform" x="320" y="510" width="20" height="20">
+   <properties>
+    <property name="dialog" value=""/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="false"/>
+    <property name="isVisible" value="false"/>
+    <property name="size" value="1"/>
+   </properties>
+  </object>
+  <object name="1.switchTimed" type="switchTimed" x="260" y="520" width="20" height="20">
+   <properties>
+    <property name="dialog" value=""/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="-"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="1"/>
+   </properties>
+  </object>
+  <object name="-" type="platform" x="260" y="540" width="20" height="20">
+   <properties>
+    <property name="dialog" value=""/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="false"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="1"/>
+   </properties>
+  </object>
+  <object name="-" type="platform" x="260" y="570" width="20" height="20">
+   <properties>
+    <property name="dialog" value=""/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="false"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="1"/>
+   </properties>
+  </object>
+  <object name="3.choco" type="chocoChip" x="260" y="570" width="20" height="20">
+   <properties>
+    <property name="dialog" value=""/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="-"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="1"/>
+   </properties>
+  </object>
+  <object name="-" type="bonbon" x="240" y="520" width="20" height="20">
+   <properties>
+    <property name="dialog" value="Dieser Schalter bleibt nur kurze Zeit aktiv. !nl!Beeil dich also lieber ein bisschen."/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="-"/>
     <property name="isVisible" value="true"/>
     <property name="size" value="1"/>
    </properties>
