@@ -186,6 +186,22 @@ namespace Candyland
                     m_updateInfo.reset = true;
                 }
             }
+
+            
+            if (((m_updateInfo.alwaysRun) || (m_updateInfo.currentguyAreaID == "255")) && !boss)
+            {
+                MediaPlayer.Stop();
+                MediaPlayer.Play(song2); 
+                MediaPlayer.IsRepeating = true;
+                boss = true;
+            }
+            else if (boss && (!m_updateInfo.alwaysRun || m_updateInfo.currentguyAreaID == "255"))
+            {
+                MediaPlayer.Stop();
+                MediaPlayer.Play(song1);
+                MediaPlayer.IsRepeating = true;
+                boss = false;
+            }
         }
 
         private void UpdateShadowMap()

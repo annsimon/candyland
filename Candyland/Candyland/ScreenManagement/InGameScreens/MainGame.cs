@@ -27,10 +27,6 @@ namespace Candyland
                 content = ScreenManager.gameContent;
 
             ScreenManager.gameContent = content;
-
-            Song song = content.Load<Song>("Music/bgmusic");  // background music from http://longzijun.wordpress.com/2012/12/26/upbeat-background-music-free-instrumentals/
-            MediaPlayer.Play(song);
-            MediaPlayer.IsRepeating = true;
         }
 
 
