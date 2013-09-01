@@ -88,18 +88,16 @@ namespace Candyland
             if (!isVisible)
                 return;
 
+            
+
             nowchangingdirection = false;
-            if (Math.Round(m_position.X, 2) == Math.Round(start.X, 2)
-               && Math.Round(m_position.Y, 2) == Math.Round(start.Y, 2)
-               && Math.Round(m_position.Z, 2) == Math.Round(start.Z, 2))
+            if ((m_position-start).Length() < currentspeed)
             {
                 nowchangingdirection = true;
                 direction *= -1;
             }
 
-            else if (Math.Round(m_position.X, 2) == Math.Round(end.X, 2)
-               && Math.Round(m_position.Y, 2) == Math.Round(end.Y, 2)
-               && Math.Round(m_position.Z, 2) == Math.Round(end.Z, 2))
+            else if ((m_position - end).Length() < currentspeed )
             {
                 nowchangingdirection = true;
                 direction *= -1;
