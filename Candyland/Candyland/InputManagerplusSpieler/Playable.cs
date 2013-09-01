@@ -22,7 +22,8 @@ namespace Candyland
         protected bool isOnSlipperyGround;
         public bool getIsOnSlippery() { return isOnSlipperyGround; }
 
-
+        protected bool isCloseEnoughToInteract = false;
+        public void setCloseEnoughToInteract() { isCloseEnoughToInteract = true; }
 
         public abstract void uniqueskill();
 

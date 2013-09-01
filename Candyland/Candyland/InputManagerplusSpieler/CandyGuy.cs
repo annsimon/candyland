@@ -83,11 +83,12 @@ namespace Candyland
 
         public override void uniqueskill()
         {
-             if (isonground)
+             if (isonground && !isCloseEnoughToInteract)
             {
                 upvelocity = 0.08f;
                 isonground = false;
             }
+             isCloseEnoughToInteract = false;
         }
 
         public override void movementInput(float movex, float movey, float camx, float camy)
