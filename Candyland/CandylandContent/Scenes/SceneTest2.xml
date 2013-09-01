@@ -104,7 +104,7 @@
             <!--- STATIC-->
               <static_objects>
                 <statics>
-                  <object type="platform" id="255.1.0" is_door_to_area="x" is_door_to_level="x" posX="15" posY="1" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="255.1.0" is_door_to_area="x" is_door_to_level="x" posX="15" posY="1,5" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="255.1.1" is_door_to_area="x" is_door_to_level="x" posX="1" posY="1" posZ="16,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="255.1.2" is_door_to_area="x" is_door_to_level="x" posX="8" posY="1" posZ="10" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="255.1.3" is_door_to_area="x" is_door_to_level="x" posX="8" posY="1" posZ="16,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
@@ -114,7 +114,8 @@
               <dynamic_objects>
                 <dynamics>
                   <object type="platform" id="255.1.0.dyn" is_door_to_area="x" is_door_to_level="255.0" posX="0,5" posY="0" posZ="9,5" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
-                  <object type="movingPlatform" id="255.1.2.movingPlatform" is_door_to_area="x" is_door_to_level="x" posX="4,5" posY="0" posZ="16,5" endPosX="4,5" endPosY="2" endPosZ="16,5" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="movingPlatform" id="255.1.2.movingPlatform" is_door_to_area="x" is_door_to_level="x" posX="3,5" posY="0" posZ="16,5" endPosX="3,5" endPosY="2" endPosZ="16,5" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="movingPlatform" id="255.1.6.movingPlatform" is_door_to_area="x" is_door_to_level="x" posX="5,5" posY="0" posZ="16,5" endPosX="5,5" endPosY="2" endPosZ="16,5" size="1" slippery="0" visible="True" dialog="" />
                   <object type="movingPlatform" id="255.1.5.movingPlatform" is_door_to_area="x" is_door_to_level="x" posX="10" posY="0" posZ="10" endPosX="10" endPosY="2" endPosZ="10" size="1" slippery="0" visible="True" dialog="" />
                   <object type="movingPlatform" id="255.1.1.movingPlatform" is_door_to_area="x" is_door_to_level="x" posX="1" posY="0,5" posZ="12" endPosX="1" endPosY="0,5" endPosZ="15" size="1" slippery="0" visible="True" dialog="" />
                   <object type="movingPlatform" id="255.1.0.movingPlatform" is_door_to_area="x" is_door_to_level="x" posX="2" posY="0,5" posZ="10" endPosX="3,5" endPosY="0,5" endPosZ="10" size="1" slippery="0" visible="True" dialog="" />
