@@ -56,8 +56,7 @@ namespace Candyland
                         m_updateInfo.activeTeleports.Add(m_levelID);
                     // greet player
                     CandyGuy guy = (CandyGuy)obj;
-                    m_updateInfo.m_screenManager.ActivateNewScreen(new SalesmanDialogueScreen(m_text, m_levelID, m_updateInfo, guy.getBonusTracker().chocoCount, "Images/DialogImages/BonbonFairy"));
-                }
+                    m_updateInfo.m_screenManager.ActivateNewScreen(new SalesmanDialogueScreen(m_text, m_levelID, m_updateInfo, guy.getBonusTracker().chocoCount, "Images/DialogImages/Salesman"));                }
             }
         }
 

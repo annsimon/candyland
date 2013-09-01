@@ -563,11 +563,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\DialogImages\BonbonFairy.png">
-      <Name>BonbonFairy</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="Images\DialogImages\DefaultImage.png">
       <Name>DefaultImage</Name>
       <Importer>TextureImporter</Importer>
@@ -962,6 +957,23 @@
   <ItemGroup>
     <Compile Include="NPCs\Salesman\shoptexture.png">
       <Name>shoptexture</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\DialogImages\BonbonFairyBlue.png">
+      <Name>BonbonFairyBlue</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\DialogImages\BonbonFairyRed.png">
+      <Name>BonbonFairyRed</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\DialogImages\Salesman.png">
+      <Name>Salesman</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

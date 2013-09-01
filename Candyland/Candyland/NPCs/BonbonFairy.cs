@@ -31,7 +31,10 @@ namespace Candyland
 
         public override void load(Microsoft.Xna.Framework.Content.ContentManager content)
         {
-            this.m_texture = content.Load<Texture2D>("NPCs/Fee/bonbon_rot");
+            if (isTeleportFairy)
+                this.m_texture = content.Load<Texture2D>("NPCs/Fee/bonbon_rot");
+            else
+                this.m_texture = content.Load<Texture2D>("NPCs/Fee/bonbon_blau");
             this.m_original_texture = this.m_texture;
             this.effect = content.Load<Effect>("Shaders/Shader");
             this.m_model = content.Load<Model>("NPCs/Fee/bonbon");
@@ -60,6 +63,8 @@ namespace Candyland
                     // ask to teleport the helper
                     if (isTeleportFairy)
                     {
+                        // only for demonstration, replace with proper dialog and check if teleport really is desired before actually porting
+                        m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen(m_text, "Images/DialogImages/BonbonFairyRed"));
                         CandyGuy guy = (CandyGuy)obj;
                         CandyHelper helper = guy.getCandyHelper();
                         m_updateInfo.m_screenManager.ActivateNewScreen(new GetHelperQuestion(helper, m_updateInfo, this.m_position));
@@ -80,7 +85,7 @@ namespace Candyland
                     }
                     // show fairy message
                     else
-                        m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen(m_text, "Images/DialogImages/BonbonFairy"));
+                        m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen(m_text, "Images/DialogImages/BonbonFairyBlue"));
                 }
             }
         }
