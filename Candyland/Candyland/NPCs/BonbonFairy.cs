@@ -56,8 +56,12 @@ namespace Candyland
         }
         public override void hasCollidedWith(GameObject obj)
         {
+            if (obj.GetType() == typeof(CandyHelper))
+                helperIsClose = true;
+            else
             if(obj.GetType() == typeof(CandyGuy))
-            {               
+            {        
+                candyIsClose = true;
                 if (m_updateInfo.m_screenManager.Input.Equals(InputState.Continue))
                 {
                     // ask to teleport the helper

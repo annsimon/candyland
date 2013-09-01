@@ -33,6 +33,8 @@ float texelSize;
 float4 LineColor = float4(0, 0, 0, 1);
 float LineThickness = .03;
 
+bool interactable = false;
+
 //-----------------------------------------------------------------------------
 // Textures.
 //-----------------------------------------------------------------------------
@@ -327,13 +329,15 @@ void PS_ShadedWithShadowsPCF2x2(in  float4 inLightSpacePos  : TEXCOORD0,
 float4 OutlinePixelShader(VertexToPixel input,
 					float inDepth : TEXCOORD5) : COLOR0
 {
+	float4 color = LineColor;
+	if(interactable) color = float4(0.8f, 0.6f, 0.0f, 1.0f);
 	if( withFog )
 	{
 		float mix = calculateFogFactor(inDepth);
-		return mix * LineColor + (1.0 - mix) * fogColor;
+		return mix * color + (1.0 - mix) * fogColor;
 	}
 	else
-		return LineColor;
+		return color;
 }
 
 //-----------------------------------------------------------------------------
