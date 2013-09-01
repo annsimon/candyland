@@ -255,8 +255,7 @@
     <Compile Include="NPCs\Helper\buddy.fbx">
       <Name>buddy</Name>
       <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.2</ProcessorParameters_Scale>
+      <Processor>SkinnedModelProcessor</Processor>
     </Compile>
     <Compile Include="Objekte\Obstacles\obstacle_half.fbx">
       <Name>obstacle_half</Name>
