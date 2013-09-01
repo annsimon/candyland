@@ -179,19 +179,9 @@ namespace Candyland
             }
 
             bool enterPressed = false;
-
-            // look at input and update shop selection
-            switch (ScreenManager.Input)
-            {
-                case InputState.Continue: enterPressed = true; break;
-                case InputState.Left: activeID--; break;
-                case InputState.Right: activeID++; break;
-                case InputState.Up: if(activeID - 4 >= 1)activeID -= 4; break;
-                case InputState.Down: if (activeID + 4 <= numberOfItems) activeID += 4; break;
-            }
-            if (activeID >= numberOfItems) activeID = numberOfItems;
-            if (activeID < 1) activeID = 1;
-
+            if (ScreenManager.Input.Equals(InputState.Continue))
+                enterPressed = true;
+            
             if (enterPressed)
             {
                 if ((m_bonusTracker.chocoCount - m_bonusTracker.chocoChipsSpent) < forSale.ElementAt(activeID - 1).Key)
@@ -199,6 +189,16 @@ namespace Candyland
                 else
                     ScreenManager.ActivateNewScreen(new BuyQuestion(forSale.ElementAt(activeID-1).Value, forSale));
             }
+            // look at input and update shop selection
+            switch (ScreenManager.Input)
+            {
+                case InputState.Left: activeID--; break;
+                case InputState.Right: activeID++; break;
+                case InputState.Up: if(activeID - 4 >= 1)activeID -= 4; break;
+                case InputState.Down: if (activeID + 4 <= numberOfItems) activeID += 4; break;
+            }
+            if (activeID >= numberOfItems) activeID = numberOfItems;
+            if (activeID < 1) activeID = 1;
         }
 
         public override void Draw(GameTime gameTime)

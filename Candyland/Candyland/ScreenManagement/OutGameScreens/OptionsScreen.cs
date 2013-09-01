@@ -69,7 +69,7 @@ namespace Candyland
                 out MenuBoxTL, out MenuBoxT, out MenuBoxTR, out MenuBoxR,
                 out MenuBoxBR, out MenuBoxB, out MenuBoxBL, out MenuBoxL, out MenuBoxM);
 
-            TextBox = new Rectangle(200, 100, screenWidth - 200, screenHeight - 200);
+            TextBox = new Rectangle(240, 50, screenWidth - 200, screenHeight - 200);
         }
 
         public override void Update(GameTime gameTime)
@@ -105,8 +105,8 @@ namespace Candyland
             else m_sprite.Draw(caption, new Rectangle(MenuBoxL.Left + 5, MenuBoxT.Top + 5, (int)(caption.Width * 0.8f), (int)(caption.Height * 0.8f)), Color.White);
 
             m_sprite.DrawString(Font, "Steuerung", new Vector2(TextBox.X, TextBox.Y), Color.Black);
-            m_sprite.DrawString(font, GameConstants.controlDescription1 , new Vector2(TextBox.X, TextBox.Y + font.LineSpacing * 3), Color.Black);
-            m_sprite.DrawString(font, GameConstants.controlDescription2, new Vector2(TextBox.X + 300, TextBox.Y + font.LineSpacing * 3), Color.Black);
+            m_sprite.DrawString(font, GameConstants.controlDescription1 , new Vector2(TextBox.X, TextBox.Y + font.LineSpacing * 2), Color.Black);
+            m_sprite.DrawString(font, GameConstants.controlDescription2, new Vector2(TextBox.X + 300, TextBox.Y + font.LineSpacing * 2), Color.Black);
 
             ScreenManager.SpriteBatch.End();
         }

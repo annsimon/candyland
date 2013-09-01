@@ -89,8 +89,8 @@ namespace Candyland
         public const string sceneFile = @"Content\Scenes\theWorld.xml";
         public const string eventFile = @"Content\Scenes\Events\Event.xml";
         public const string actionsFile = @"Content\Scenes\Actions\Action.xml";
-        public const string startAreaID = "255";
-        public const string startLevelID = "255.0";
+        public const string startAreaID = "0";
+        public const string startLevelID = "0.Tutorial";
         
 
 
@@ -107,9 +107,8 @@ namespace Candyland
         /// </summary>
         /// 
         // Dialogue
-        public const string tradesmanGreeting = "Ah, ein Kunde. Guten Tag, Reisender! Womit kann ich behilflich sein? Kann ich dich für meine Waren begeistern oder suchst du eine Transportmöglichkeit? Oder möchtest du ein paar Neuigkeiten über Candyland hören? Ich höre viel und rede gern :) Hast du z.B. schon von der neuen Bedrohung durch die größenwahnsinnige Lakritze gehört?";
         public const string tradesmanGreeting = "Hallo Reisender! !nl!Bei mir kannst du Neuigkeiten erfahren, Extras kaufen oder dich zu einem meiner Partner teleportieren lassen. !nl!Sag mir einfach was du m!oe!chtest.";
-        public const string controlDescription1 = "Laufen\nSpringen\nKamerabewegung\nInteraktion im Spiel\nMenüauswahl\nZurück\nBestätigen";
-        public const string controlDescription2 = "W, A, S, D\nLeertaste\nMaus\nLeertaste\nW, A, S, D, Pfeiltasten\nEscape, Backspace\nEnter, Leertaste";
+        public const string controlDescription1 = "Laufen\nSpringen\nKamerabewegung\nInteraktion im Spiel\nMenüauswahl\nZurück\nBestätigen\nReset\nCharakterwechsel\nMusik an/aus";
+        public const string controlDescription2 = "W, A, S, D\nLeertaste\nMaus\nLeertaste\nW, A, S, D, Pfeiltasten\nEscape, Backspace\nEnter, Leertaste\nR\nC\nL";
     }
 }
