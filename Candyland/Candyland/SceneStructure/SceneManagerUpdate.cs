@@ -195,7 +195,7 @@ namespace Candyland
                 MediaPlayer.IsRepeating = true;
                 boss = true;
             }
-            else if (boss && (!m_updateInfo.alwaysRun || m_updateInfo.currentguyAreaID == "255"))
+            else if (boss && (!m_updateInfo.alwaysRun && !(m_updateInfo.currentguyAreaID == "255")))
             {
                 MediaPlayer.Stop();
                 MediaPlayer.Play(song1);

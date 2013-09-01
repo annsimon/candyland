@@ -27,7 +27,7 @@ namespace Candyland
         Song song1;
         Song song2;
 
-        Boolean boss = true;
+        Boolean boss = false;
 
         DirectionalLight m_globalLight;
         ShadowMap m_shadowMap;

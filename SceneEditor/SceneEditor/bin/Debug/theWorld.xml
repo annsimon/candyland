@@ -2683,7 +2683,7 @@
               <dynamic_objects>
                 <dynamics>
                   <object type="actionActor" id="255.0.1.bossActor" is_door_to_area="x" is_door_to_level="x" posX="0" posY="0" posZ="10" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="255.0.0.dyn" is_door_to_area="x" is_door_to_level="x" posX="-3" posY="0" posZ="9,5" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="255.0.0.dyn" is_door_to_area="chase" is_door_to_level="chase.0" posX="-3" posY="0" posZ="9,5" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="255.0.1.dyn" is_door_to_area="x" is_door_to_level="x" posX="-3" posY="0" posZ="11,5" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
                   <object type="movingPlatform" id="255.0.1.movingPlatform" is_door_to_area="x" is_door_to_level="x" posX="3,5" posY="3" posZ="14" endPosX="3,5" endPosY="3" endPosZ="12" size="1" slippery="0" visible="False" dialog="" />
                   <object type="movingPlatform" id="255.0.2.movingPlatform" is_door_to_area="x" is_door_to_level="x" posX="3,5" posY="3" posZ="11" endPosX="0,5" endPosY="3" endPosZ="11" size="1" slippery="0" visible="False" dialog="" />
