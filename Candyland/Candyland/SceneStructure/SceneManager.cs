@@ -24,6 +24,10 @@ namespace Candyland
             public Vector3 direction;
             public Vector4 color;
         }
+        Song song1;
+        Song song2;
+
+        Boolean boss = false;
 
         DirectionalLight m_globalLight;
         ShadowMap m_shadowMap;
@@ -129,6 +133,10 @@ namespace Candyland
             chocoChip = manager.Load<Texture2D>("Images/HUD/Choco");
             keysFull = manager.Load<Texture2D>("Images/HUD/HudFullWithChange");
             skyboxModel = LoadSkybox(manager, "Skybox/skybox2", out skyboxTextures);
+
+            song1 = manager.Load<Song>("Music/bgmusic");  // background music from http://longzijun.wordpress.com/2012/12/26/upbeat-background-music-free-instrumentals/
+            song2 = manager.Load<Song>("Music/bossmusic");
+
 
             distanceDisplay = new Texture2D[4];
             distanceDisplay[0] = manager.Load<Texture2D>("Images/HUD/chaseSafe");
