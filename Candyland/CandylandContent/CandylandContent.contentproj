@@ -283,6 +283,7 @@
       <Name>shopguy</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.4</ProcessorParameters_Scale>
     </Compile>
     <Compile Include="Objekte\Plattformen\breakingplatform.fbx">
       <Name>breakingplatform</Name>
