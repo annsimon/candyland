@@ -80,12 +80,9 @@ namespace Candyland
                 }
             }
             // Deactivate when timeout
+
             if ((m_activeTime > GameConstants.switchActiveTime))
             {
-                float volume = 0.5f;
-                float pitch = 0.0f;
-                float pan = 0.0f;
-                sound2.Play(volume, pitch, pan);
                 this.setActivated(false);
             }
         }
