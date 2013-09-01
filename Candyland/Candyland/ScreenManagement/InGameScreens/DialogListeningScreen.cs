@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 
 namespace Candyland
 {
@@ -100,7 +101,7 @@ namespace Candyland
         public override void Update(GameTime gameTime)
         {
             bool enterPressed = false;
-            if(ScreenManager.Input.Equals(InputState.Continue)||ScreenManager.Input.Equals(InputState.Down))
+            if((ScreenManager.Input.Equals(InputState.Continue)||ScreenManager.Input.Equals(InputState.Down) )&& Keyboard.GetState().IsKeyUp(Keys.Space))
                 enterPressed = true;
 
             // Check if text needs scrolling

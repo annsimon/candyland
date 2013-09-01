@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Audio;
 using System.IO;
 using System.Threading;
 using System.Diagnostics;
@@ -24,11 +25,19 @@ namespace Candyland
         ScreenInputManager screenInput;
         InputState input;
 
+        private SoundEffect sound;
+
         // the menus will be optimized for the prefered screen size
         // Ingame text will have a bigger font
         bool isFullScreen;
         int preferedScreenWith;
         int preferedScreenHeight;
+
+        // will be set, when first game was started
+        public bool gameIsRunning;
+
+        // content manager for main game content
+        public ContentManager gameContent;
 
         // the scene manager, most stuff happens in there
         SceneManager m_sceneManager;
@@ -108,6 +117,7 @@ namespace Candyland
 
             screenInput = new ScreenInputManager();
 
+            sound = content.Load<SoundEffect>("Sfx/Menu Button8bit");
             spriteBatch = new SpriteBatch(GraphicsDevice);
             if (isFullScreen) mainText = content.Load<SpriteFont>("Fonts/MainTextFullscreen");
             else mainText = content.Load<SpriteFont>("Fonts/MainText");
@@ -129,6 +139,7 @@ namespace Candyland
                 RemoveScreen(screens.Last());
                 ActivateNewScreen(new MainGame());
                 readyToStartGame = false;
+                
             }
 
             input = screenInput.getInput();
@@ -140,6 +151,13 @@ namespace Candyland
                     screen.Update(gameTime);
                     return;
                 }
+            }
+            if (input.Equals(InputState.Continue))
+            {
+                float volume = 0.5f;
+                float pitch = 0.0f;
+                float pan = 0.0f;
+                sound.Play(volume, pitch, pan);
             }
         }
 
@@ -172,6 +190,7 @@ namespace Candyland
         /// </summary>
         public void RemoveScreen(GameScreen screen)
         {
+            screen.Close();
             screens.Remove(screen);
         }
 
@@ -232,6 +251,8 @@ namespace Candyland
                     return;
                 }
             }
+
+            if (!gameIsRunning) StartNewGame();
             // TODO Load last save game
         }
 
@@ -240,6 +261,14 @@ namespace Candyland
         /// </summary>
         public void StartNewGame()
         {
+            if (gameIsRunning)
+            {
+                while (screens.Count > 0)
+                {
+                    RemoveScreen(screens.Last());
+                }
+            }
+
             // Remove main menu
             if (screens.Count() > 0)
             {
@@ -258,7 +287,10 @@ namespace Candyland
             m_sceneManager = new SceneManager(this);
 
             // Load all content required by the scene
-            m_sceneManager.Load(Content);
+            if (gameContent == null)
+                gameContent = new ContentManager(Game.Services, "Content");
+
+            m_sceneManager.Load(gameContent);
             readyToStartGame = true;
         }
 

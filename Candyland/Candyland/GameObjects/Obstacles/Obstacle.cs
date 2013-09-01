@@ -29,7 +29,7 @@ namespace Candyland
         {
             base.init(id, pos, updateInfo, visible);
             if (size > 0)
-                this.m_position.Y += 0.52f;
+                this.m_position.Y += 0.6f;
             else
                 this.m_position.Y += 0.33f;
             this.m_original_position = this.m_position;
@@ -70,7 +70,7 @@ namespace Candyland
 
         public void loadSmall(ContentManager content)
         {
-            this.m_texture = content.Load<Texture2D>("Objekte/Obstacles/lakritztextur_klein");
+            this.m_texture = content.Load<Texture2D>("Objekte/Obstacles/obstacletextur");
             this.m_model = content.Load<Model>("Objekte/Obstacles/lakritzblock_klein");
         }
 

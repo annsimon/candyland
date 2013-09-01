@@ -340,6 +340,17 @@
           </switchGroup>
         </event_inner>
       </event>
+      <event>
+        <event_inner>
+          <triggerable>schieb.4.7.dyn</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>schieb.4.1.switchTimed</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
     </level_inner>
   </Lschieb.4>
 
@@ -533,19 +544,160 @@
 
   <L255.0>
     <level_inner>
-      <action>
-        <action_inner>
-          <trigger>255.0.0.dyn</trigger>
-          <triggered>255.0.1.bossActor</triggered>
-          <id>endstage1</id>
-          <oneTimeAction>false</oneTimeAction>
-          <subactions>
-            <subaction type="dialog" goalX="0" goalY="0" goalZ="10" locks="true" text=" Was!? !nl! Du Hast es also geschafft mich bis hierhin !nl! zu verfolgen? !ns! Freu dich nicht zu früh, !nl! Noch hast du mich nicht aufgehalten! !ns! Ich werde meine Lakritzmaschine nutzen um dir den Rest zu geben, Hahaha!"/>
-            <subaction type="movement" goalX="20" goalY="7" goalZ="10" locks="false" text=""/>
-            <subaction type="disappear" goalX="20" goalY="7" goalZ="10" locks="false" text=""/>
-          </subactions>
-        </action_inner>
-      </action>
+      <event>
+        <event_inner>
+          <triggerable>255.0.1.movingPlatform</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>255.0.0.switchPermanent</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+      <event>
+        <event_inner>
+          <triggerable>255.0.1.movingPlatform</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>255.0.0.switchPermanent</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+      <event>
+        <event_inner>
+          <triggerable>255.0.2.movingPlatform</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>255.0.0.switchPermanent</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+      <event>
+        <event_inner>
+          <triggerable>255.0.3.movingPlatform</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>255.0.0.switchPermanent</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+      <event>
+        <event_inner>
+          <triggerable>255.0.4.movingPlatform</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>255.0.0.switchPermanent</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+      <event>
+        <event_inner>
+          <triggerable>255.0.5.movingPlatform</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>255.0.0.switchPermanent</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+      <event>
+        <event_inner>
+          <triggerable>255.0.6.movingPlatform</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>255.0.0.switchPermanent</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+      <event>
+        <event_inner>
+          <triggerable>255.0.7.movingPlatform</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>255.0.0.switchPermanent</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+      <event>
+        <event_inner>
+          <triggerable>255.0.8.movingPlatform</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>255.0.0.switchPermanent</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+      <event>
+        <event_inner>
+          <triggerable>255.0.9.movingPlatform</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>255.0.0.switchPermanent</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+      <event>
+        <event_inner>
+          <triggerable>255.0.10.movingPlatform</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>255.0.0.switchPermanent</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+      <event>
+        <event_inner>
+          <triggerable>255.0.11.movingPlatform</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>255.0.1.switchPermanent</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+      <event>
+        <event_inner>
+          <triggerable>255.0.12.movingPlatform</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>255.0.1.switchPermanent</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+      <event>
+        <event_inner>
+          <triggerable>255.0.13.movingPlatform</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>255.0.1.switchPermanent</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
 
     </level_inner>
   </L255.0>
@@ -553,54 +705,39 @@
 
   <L255.2>
     <level_inner>
-      <action>
-        <action_inner>
-          <trigger>255.2.4.dyn</trigger>
-          <triggered>255.2.1.bossActor</triggered>
-          <id>2finalstage</id>
-          <oneTimeAction>false</oneTimeAction>
-          <subactions>
-            <subaction type="dialog" goalX="2,5" goalY="0" goalZ="9" locks="true" text=" Nur noch ein kleines Stück und du kannst mir nichts mehr anhaben! !nl! Aber komm mir bloss nicht zu nahe!"/>
-            <subaction type="movement" goalX="5" goalY="16" goalZ="10" locks="false" text=""/>
-          </subactions>
-        </action_inner>
-      </action>
-
-    </level_inner>
-  </L255.2>
+      <event>
+        <event_inner>
+          <triggerable>255.2.6.dyn</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>255.2.3.switchTemporary</switch_id>
+              <switch_id>255.2.4.switchTemporary</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
 
 
-  <L255.2>
-    <level_inner>
-      <action>
-        <action_inner>
-          <trigger>255.2.4.dyn</trigger>
-          <triggered>255.2.1.bossActor</triggered>
-          <id>2finalstage</id>
-          <oneTimeAction>false</oneTimeAction>
-          <subactions>
-            <subaction type="dialog" goalX="2,5" goalY="0" goalZ="9" locks="true" text=" Nur noch ein kleines Stück und du kannst mir nichts mehr anhaben! !nl! Aber komm mir bloss nicht zu nahe!"/>
-            <subaction type="movement" goalX="5" goalY="16" goalZ="10" locks="false" text=""/>
-          </subactions>
-        </action_inner>
-      </action>
     </level_inner>
   </L255.2>
 
   <L255.3>
     <level_inner>
-      <action>
-        <action_inner>
-          <trigger>255.3.2.dyn</trigger>
-          <triggered>255.3.1.actionActor</triggered>
-          <id>ending</id>
-          <oneTimeAction>false</oneTimeAction>
-          <subactions>
-            <subaction type="dialog" goalX="2,5" goalY="0" goalZ="9" locks="true" text=" Herlichen Glückwunsch und danke fürs spielen, Candyland ist gerettet!"/>
-          </subactions>
-        </action_inner>
-      </action>
+      <event>
+        <event_inner>
+          <triggerable>255.3.1.dyn</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>255.3.0.switchTemporary</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+
     </level_inner>
   </L255.3>
+  
   
 </levels>

@@ -127,7 +127,7 @@ namespace Candyland
             int offsetX = 5;
             int offsetY = 5;
             bonusTileWidth = 120;
-            int tileDist = 10;
+            int tileDist = 8;
             int tileDistTotal = bonusTileWidth + tileDist;
 
             // Big Box
@@ -138,8 +138,8 @@ namespace Candyland
             // Shop Box
             int shopWidth = 4 * tileDistTotal + tileDist + 2 * offsetX;
             int shopHeight =  3 * tileDistTotal + tileDist + 2 * offsetX;
-            shopBox = new Rectangle(bigBox.X + (bigBox.Width - shopWidth) / 2 + offsetX,
-                bigBox.Y + (bigBox.Width - shopWidth) / 2 + offsetY,
+            shopBox = new Rectangle(245,
+                40,
                 shopWidth, shopHeight);
             MakeBorderBox(shopBox,
                 out ShopBoxTL, out ShopBoxT, out ShopBoxTR, out ShopBoxR,
