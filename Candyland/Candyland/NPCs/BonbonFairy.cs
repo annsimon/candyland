@@ -62,6 +62,7 @@ namespace Candyland
             if(obj.GetType() == typeof(CandyGuy))
             {        
                 candyIsClose = true;
+                ((CandyGuy)obj).setCloseEnoughToInteract();
                 if (m_updateInfo.m_screenManager.Input.Equals(InputState.Continue))
                 {
                     // ask to teleport the helper
