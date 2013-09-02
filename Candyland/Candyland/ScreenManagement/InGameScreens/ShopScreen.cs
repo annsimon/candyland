@@ -179,6 +179,9 @@ namespace Candyland
             }
 
             bool enterPressed = false;
+            
+            // count again after buying
+            numberOfItems = forSale.Count;
 
             // look at input and update shop selection
             switch (ScreenManager.Input)
@@ -251,8 +254,10 @@ namespace Candyland
             Color textColor = Color.Black;
             m_sprite.DrawString(font, "Preis", new Vector2(bigBox.Left + offset, bigBox.Top + offset), textColor);
             m_sprite.DrawString(font, forSale.ElementAt(activeID-1).Value.Price.ToString(), new Vector2(bigBox.Left + offset, bigBox.Top + offset + font.LineSpacing), textColor);
-            m_sprite.DrawString(font, "Du hast", new Vector2(bigBox.Left + offset, bigBox.Bottom - 90), textColor);
-            m_sprite.DrawString(font, (chocoCollected - m_bonusTracker.chocoChipsSpent).ToString(), new Vector2(bigBox.Left + offset, bigBox.Bottom - 60), textColor);
+            m_sprite.DrawString(font, "Du hast", new Vector2(bigBox.Left + offset, bigBox.Top + 200), textColor);
+            m_sprite.DrawString(font, (chocoCollected - m_bonusTracker.chocoChipsSpent).ToString(), new Vector2(bigBox.Left + offset, bigBox.Top + 230), textColor);
+        
+            m_sprite.DrawString(font, "Zurück mit\n'Escape'", new Vector2(bigBox.Left + offset, bigBox.Bottom - 90), textColor);
 
             m_sprite.End();
 

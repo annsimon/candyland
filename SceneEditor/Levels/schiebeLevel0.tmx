@@ -892,7 +892,7 @@
   </object>
   <object name="-" type="bonbon" x="470" y="360" width="20" height="20">
    <properties>
-    <property name="dialog" value="Zuckerw!ue!rfel sind nicht immer nur im Weg. Sie k!oe!nnen auch n!ue!tlich sein!"/>
+    <property name="dialog" value="Zuckerw!ue!rfel sind nicht immer nur im Weg. Sie k!oe!nnen auch n!ue!tzlich sein!"/>
     <property name="endPositionY" value="-"/>
     <property name="endPositionZ" value="-"/>
     <property name="endpositionX" value="-"/>

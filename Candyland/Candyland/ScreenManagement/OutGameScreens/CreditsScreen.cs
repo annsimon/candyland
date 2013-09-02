@@ -55,6 +55,8 @@ namespace Candyland
             screenWidth = game.GraphicsDevice.Viewport.Width;
             screenHeight = game.GraphicsDevice.Viewport.Height;
 
+            font = ScreenManager.Font;
+
             int offsetX = 5;
             int offsetY = 5;
 
@@ -94,6 +96,8 @@ namespace Candyland
             m_sprite.Draw(BorderMiddle, MenuBoxM, Color.White);
             if (ScreenManager.isFullscreen) m_sprite.Draw(caption, new Rectangle(MenuBoxL.Left + 5, MenuBoxT.Top + 5, caption.Width, caption.Height), Color.White);
             else m_sprite.Draw(caption, new Rectangle(MenuBoxL.Left + 5, MenuBoxT.Top + 5, (int)(caption.Width * 0.8f), (int)(caption.Height * 0.8f)), Color.White);
+
+            m_sprite.DrawString(font, "Zurück mit\n'Escape'", new Vector2(20, screenHeight - font.LineSpacing * 3), Color.Black);
 
             ScreenManager.SpriteBatch.End();
         }

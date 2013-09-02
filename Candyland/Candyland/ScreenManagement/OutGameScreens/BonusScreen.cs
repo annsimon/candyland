@@ -256,6 +256,8 @@ namespace Candyland
 
             m_sprite.Draw(caption, new Rectangle(MenuBoxL.Left + 5, MenuBoxT.Top + 5, captionWidth, captionHeight), Color.White);
 
+            m_sprite.DrawString(font, "Zurück mit\n'Escape'", new Vector2(20, screenHeight - font.LineSpacing * 3), Color.Black);
+
             ScreenManager.SpriteBatch.End();
         }
 

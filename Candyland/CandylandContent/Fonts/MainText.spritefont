@@ -59,6 +59,10 @@ with.
         <Start>&#x00C4;</Start> <!-- Ä -->
         <End>&#x00FC;</End> <!-- ü -->
       </CharacterRegion>
+      <CharacterRegion>
+        <Start>&#x0009;</Start>
+        <End>&#x009;</End>
+      </CharacterRegion>
     </CharacterRegions>
   </Asset>
 </XnaContent>

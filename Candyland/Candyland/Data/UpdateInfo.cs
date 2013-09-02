@@ -109,6 +109,9 @@ namespace Candyland
             m_screenManager = screenManager;
 
             activeTeleports = new List<string>(10);
+            // Only for testing
+            //activeTeleports.Add("0.Korridor");
+            activeTeleports.Add("5.korridor");
 
             /**********************************************************************/
             graphics = graphicsDevice;
