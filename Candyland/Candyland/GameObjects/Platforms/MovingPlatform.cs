@@ -138,6 +138,7 @@ namespace Candyland
 
         public override void Reset()
         {
+            lastDir = 0;
             base.Reset();
         }
 
