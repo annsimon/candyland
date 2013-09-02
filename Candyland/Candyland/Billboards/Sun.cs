@@ -16,7 +16,7 @@ namespace Candyland
             positions[0] = new Vector3(0, 0, 0);
             Create(graphicsDevice,
                    positions);
-            size = new Vector2(2.0f, 2.0f);
+            size = new Vector2(6.0f, 6.0f);
             textureCount = 1;
             textures = new Texture2D[textureCount];
         }
@@ -31,7 +31,7 @@ namespace Candyland
 
         public void Update( GraphicsDevice graphicsDevice, Vector3 position, GameTime gameTime )
         {
-            positions[0] = position + new Vector3(10, 10, 10);
+            positions[0] = position + new Vector3(30, 30, 30);
             Create(graphicsDevice, positions);
         }
     }
