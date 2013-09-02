@@ -982,7 +982,7 @@
                   <object type="movingPlatform" id="5.4.1.movingPlatform" is_door_to_area="x" is_door_to_level="x" posX="12,5" posY="-1" posZ="9,5" endPosX="12,5" endPosY="2" endPosZ="9,5" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="5.4.2.dyn" is_door_to_area="x" is_door_to_level="5.3" posX="13,5" posY="0" posZ="1" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
                   <object type="breakable" id="5.4.2.breakable" is_door_to_area="x" is_door_to_level="x" posX="16" posY="0" posZ="7,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="5.4.4.dyn" is_door_to_area="x" is_door_to_level="5.korridor" posX="11,5" posY="0" posZ="19,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="5.4.4.dyn" is_door_to_area="x" is_door_to_level="x" posX="11,5" posY="0" posZ="19,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="breakable" id="5.4.3.breakable" is_door_to_area="x" is_door_to_level="x" posX="16" posY="1" posZ="7,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="breakable" id="5.4.4.breakable" is_door_to_area="x" is_door_to_level="x" posX="16" posY="2" posZ="7,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="movableObstacle" id="5.4.4.Mov" is_door_to_area="x" is_door_to_level="x" posX="25,5" posY="2" posZ="24" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
@@ -993,7 +993,7 @@
                   <object type="breakingPlatform" id="5.4.11.breaking" is_door_to_area="x" is_door_to_level="x" posX="26,5" posY="2,5" posZ="18,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="breakingPlatform" id="5.4.27.breaking" is_door_to_area="x" is_door_to_level="x" posX="25,5" posY="2,5" posZ="20,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="breakable" id="5.4.5.breakable" is_door_to_area="x" is_door_to_level="x" posX="16" posY="3" posZ="7,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="5.4.3.dyn" is_door_to_area="x" is_door_to_level="5.korridor" posX="17" posY="3" posZ="19,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="5.4.3.dyn" is_door_to_area="x" is_door_to_level="x" posX="17" posY="3" posZ="19,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="breakingPlatform" id="5.4.10.breaking" is_door_to_area="x" is_door_to_level="x" posX="26,5" posY="3" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="5.4.1.dyn" is_door_to_area="x" is_door_to_level="5.3" posX="15,5" posY="4" posZ="1" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
                   <object type="movableObstacle" id="5.4.1.Mov" is_door_to_area="x" is_door_to_level="x" posX="7,5" posY="4" posZ="4,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
@@ -1707,15 +1707,15 @@
                   <object type="obstacle" id="schieb.3.129" is_door_to_area="x" is_door_to_level="x" posX="15,5" posY="1" posZ="19" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="obstacle" id="schieb.3.130" is_door_to_area="x" is_door_to_level="x" posX="10,5" posY="1" posZ="17" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="obstacle" id="schieb.3.131" is_door_to_area="x" is_door_to_level="x" posX="9,5" posY="1" posZ="17" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
-                  <object type="obstacle" id="schieb.3.132" is_door_to_area="x" is_door_to_level="x" posX="30,5" posY="2" posZ="13" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="schieb.3.133" is_door_to_area="x" is_door_to_level="x" posX="29,5" posY="2" posZ="19" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="schieb.3.134" is_door_to_area="x" is_door_to_level="x" posX="28,5" posY="2" posZ="20" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="schieb.3.135" is_door_to_area="x" is_door_to_level="x" posX="28,5" posY="2" posZ="21" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="schieb.3.136" is_door_to_area="x" is_door_to_level="x" posX="30,5" posY="2" posZ="18" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="schieb.3.137" is_door_to_area="x" is_door_to_level="x" posX="30,5" posY="2" posZ="19" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="schieb.3.138" is_door_to_area="x" is_door_to_level="x" posX="30,5" posY="2" posZ="17" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="schieb.3.139" is_door_to_area="x" is_door_to_level="x" posX="30,5" posY="2" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="schieb.3.140" is_door_to_area="x" is_door_to_level="x" posX="30,5" posY="2" posZ="15" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.3.132" is_door_to_area="x" is_door_to_level="x" posX="29,5" posY="2" posZ="19" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.3.133" is_door_to_area="x" is_door_to_level="x" posX="28,5" posY="2" posZ="20" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.3.134" is_door_to_area="x" is_door_to_level="x" posX="28,5" posY="2" posZ="21" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.3.135" is_door_to_area="x" is_door_to_level="x" posX="30,5" posY="2" posZ="18" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.3.136" is_door_to_area="x" is_door_to_level="x" posX="30,5" posY="2" posZ="19" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.3.137" is_door_to_area="x" is_door_to_level="x" posX="30,5" posY="2" posZ="17" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.3.138" is_door_to_area="x" is_door_to_level="x" posX="30,5" posY="2" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="schieb.3.139" is_door_to_area="x" is_door_to_level="x" posX="30,5" posY="2" posZ="15" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="schieb.3.140" is_door_to_area="x" is_door_to_level="x" posX="30,5" posY="2" posZ="13" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="schieb.3.141" is_door_to_area="x" is_door_to_level="x" posX="27,5" posY="1,5" posZ="22" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="schieb.3.142" is_door_to_area="x" is_door_to_level="x" posX="26,5" posY="1,5" posZ="22" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                 </statics>
@@ -2471,138 +2471,10 @@
       </the_levels>
     </levels>
   </area>
-  <!--- AREA rutschen -->
-  <area>
-    <area_id>rutschen</area_id>
-    <area_prev>x</area_prev>
-    <area_next>x</area_next>
-    <area_starting_position>
-      <x>-285</x>
-      <y>0</y>
-      <z>-156</z>
-    </area_starting_position>
-    <levels>
-      <the_levels>
-        <!--- LEVEL rutschen.1 -->
-        <level>
-          <level_id>rutschen.1</level_id>
-          <main_start_platform>rutschen.1.1.dyn</main_start_platform>
-          <secondary_start_platform>rutschen.1.1.dyn</secondary_start_platform>
-          <level_starting_position>
-            <x>0</x>
-            <y>0</y>
-            <z>0</z>
-          </level_starting_position>
-          <objects>
-            <the_objects>
-            <!--- OBJECTS OF LEVEL rutschen.1 -->
-            <!--- STATIC-->
-              <static_objects>
-                <statics>
-                  <object type="platform" id="rutschen.1.0" is_door_to_area="x" is_door_to_level="x" posX="5,5" posY="0" posZ="13,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.1" is_door_to_area="x" is_door_to_level="x" posX="4,5" posY="0" posZ="11,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.2" is_door_to_area="x" is_door_to_level="x" posX="15,5" posY="0" posZ="7,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.3" is_door_to_area="x" is_door_to_level="x" posX="12,5" posY="0" posZ="8,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.4" is_door_to_area="x" is_door_to_level="x" posX="5,5" posY="0" posZ="12,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="bonbon" id="rutschen.1.5" is_door_to_area="x" is_door_to_level="x" posX="4,5" posY="0" posZ="5,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="Deinen kleinen Freund bringen wir dir hinterher. Geh ruhig allein vor." />
-                  <object type="platform" id="rutschen.1.6" is_door_to_area="x" is_door_to_level="x" posX="11" posY="0" posZ="7" endPosX="" endPosY="" endPosZ="" size="2" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.7" is_door_to_area="x" is_door_to_level="x" posX="7,5" posY="0" posZ="10,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.8" is_door_to_area="x" is_door_to_level="x" posX="11,5" posY="0" posZ="8,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.9" is_door_to_area="x" is_door_to_level="x" posX="10,5" posY="0" posZ="10,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.10" is_door_to_area="x" is_door_to_level="x" posX="7,5" posY="0" posZ="9,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.11" is_door_to_area="x" is_door_to_level="x" posX="7,5" posY="0" posZ="5,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.12" is_door_to_area="x" is_door_to_level="x" posX="8,5" posY="0" posZ="11,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.13" is_door_to_area="x" is_door_to_level="x" posX="3,5" posY="0" posZ="7,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
-                  <object type="obstacle" id="rutschen.1.14" is_door_to_area="x" is_door_to_level="x" posX="10,5" posY="0" posZ="11,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.15" is_door_to_area="x" is_door_to_level="x" posX="11,5" posY="0" posZ="10,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.16" is_door_to_area="x" is_door_to_level="x" posX="9,5" posY="0" posZ="8,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.17" is_door_to_area="x" is_door_to_level="x" posX="16" posY="0" posZ="12" endPosX="" endPosY="" endPosZ="" size="2" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.18" is_door_to_area="x" is_door_to_level="x" posX="10,5" posY="0" posZ="13,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.19" is_door_to_area="x" is_door_to_level="x" posX="12,5" posY="0" posZ="6,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.20" is_door_to_area="x" is_door_to_level="x" posX="10,5" posY="0" posZ="11,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.21" is_door_to_area="x" is_door_to_level="x" posX="6,5" posY="0" posZ="13,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.22" is_door_to_area="x" is_door_to_level="x" posX="8,5" posY="0" posZ="13,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.23" is_door_to_area="x" is_door_to_level="x" posX="17,5" posY="0" posZ="10,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.24" is_door_to_area="x" is_door_to_level="x" posX="7,5" posY="0" posZ="4,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.25" is_door_to_area="x" is_door_to_level="x" posX="9,5" posY="0" posZ="4,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.26" is_door_to_area="x" is_door_to_level="x" posX="4" posY="0" posZ="3" endPosX="" endPosY="" endPosZ="" size="2" slippery="1" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.27" is_door_to_area="x" is_door_to_level="x" posX="12,5" posY="0" posZ="7,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.28" is_door_to_area="x" is_door_to_level="x" posX="9,5" posY="0" posZ="13,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.29" is_door_to_area="x" is_door_to_level="x" posX="15,5" posY="0" posZ="8,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.30" is_door_to_area="x" is_door_to_level="x" posX="17,5" posY="0" posZ="9,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.31" is_door_to_area="x" is_door_to_level="x" posX="4" posY="0" posZ="5" endPosX="" endPosY="" endPosZ="" size="2" slippery="1" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.32" is_door_to_area="x" is_door_to_level="x" posX="9,5" posY="0" posZ="5,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.33" is_door_to_area="x" is_door_to_level="x" posX="14" posY="0" posZ="8" endPosX="" endPosY="" endPosZ="" size="2" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.34" is_door_to_area="x" is_door_to_level="x" posX="7,5" posY="0" posZ="13,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.35" is_door_to_area="x" is_door_to_level="x" posX="17" posY="0" posZ="8" endPosX="" endPosY="" endPosZ="" size="2" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.36" is_door_to_area="x" is_door_to_level="x" posX="13,5" posY="0" posZ="6,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.37" is_door_to_area="x" is_door_to_level="x" posX="11,5" posY="0" posZ="17,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.38" is_door_to_area="x" is_door_to_level="x" posX="4,5" posY="0" posZ="12,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.39" is_door_to_area="x" is_door_to_level="x" posX="11,5" posY="0" posZ="13,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.40" is_door_to_area="x" is_door_to_level="x" posX="13" posY="0" posZ="12" endPosX="" endPosY="" endPosZ="" size="2" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.41" is_door_to_area="x" is_door_to_level="x" posX="9" posY="0" posZ="10" endPosX="" endPosY="" endPosZ="" size="2" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.42" is_door_to_area="x" is_door_to_level="x" posX="13,5" posY="0" posZ="9,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.43" is_door_to_area="x" is_door_to_level="x" posX="6,5" posY="0" posZ="9,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.44" is_door_to_area="x" is_door_to_level="x" posX="6" posY="0" posZ="11" endPosX="" endPosY="" endPosZ="" size="2" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.45" is_door_to_area="x" is_door_to_level="x" posX="4,5" posY="0" posZ="7,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.46" is_door_to_area="x" is_door_to_level="x" posX="9" posY="0" posZ="7" endPosX="" endPosY="" endPosZ="" size="2" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.47" is_door_to_area="x" is_door_to_level="x" posX="14,5" posY="0" posZ="9,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.48" is_door_to_area="x" is_door_to_level="x" posX="8,5" posY="0" posZ="5,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.49" is_door_to_area="x" is_door_to_level="x" posX="8,5" posY="0" posZ="8,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.50" is_door_to_area="x" is_door_to_level="x" posX="6,5" posY="0" posZ="8,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.51" is_door_to_area="x" is_door_to_level="x" posX="5" posY="0" posZ="9" endPosX="" endPosY="" endPosZ="" size="2" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.52" is_door_to_area="x" is_door_to_level="x" posX="8,5" posY="0" posZ="4,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.53" is_door_to_area="x" is_door_to_level="x" posX="7,5" posY="0" posZ="11,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.54" is_door_to_area="x" is_door_to_level="x" posX="17,5" posY="0" posZ="11,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.55" is_door_to_area="x" is_door_to_level="x" posX="11,5" posY="0" posZ="11,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.56" is_door_to_area="x" is_door_to_level="x" posX="8,5" posY="0" posZ="3,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.57" is_door_to_area="x" is_door_to_level="x" posX="17,5" posY="0" posZ="12,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.58" is_door_to_area="x" is_door_to_level="x" posX="3,5" posY="0" posZ="8,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.59" is_door_to_area="x" is_door_to_level="x" posX="14,5" posY="0" posZ="11,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.60" is_door_to_area="x" is_door_to_level="x" posX="18,5" posY="0" posZ="7,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.61" is_door_to_area="x" is_door_to_level="x" posX="11,5" posY="0" posZ="12,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.62" is_door_to_area="x" is_door_to_level="x" posX="4" posY="0" posZ="1" endPosX="" endPosY="" endPosZ="" size="2" slippery="1" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.63" is_door_to_area="x" is_door_to_level="x" posX="4,5" posY="0" posZ="13,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.64" is_door_to_area="x" is_door_to_level="x" posX="18,5" posY="0" posZ="8,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.65" is_door_to_area="x" is_door_to_level="x" posX="7,5" posY="0" posZ="6,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.66" is_door_to_area="x" is_door_to_level="x" posX="11,5" posY="0" posZ="15,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.67" is_door_to_area="x" is_door_to_level="x" posX="2,5" posY="0" posZ="0,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.68" is_door_to_area="x" is_door_to_level="x" posX="2,5" posY="0" posZ="1,5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
-                </statics>
-              </static_objects>
-            <!--- DYNAMIC-->
-              <dynamic_objects>
-                <dynamics>
-                  <object type="movableObstacle" id="rutschen.1.16.Mov" is_door_to_area="x" is_door_to_level="x" posX="18,5" posY="0" posZ="7,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="movableObstacle" id="rutschen.1.9.Mov" is_door_to_area="x" is_door_to_level="x" posX="15,5" posY="0" posZ="7,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="movableObstacle" id="rutschen.1.5.Mov" is_door_to_area="x" is_door_to_level="x" posX="10,5" posY="0" posZ="10,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="movableObstacle" id="rutschen.1.2.Mov" is_door_to_area="x" is_door_to_level="x" posX="5,5" posY="0" posZ="12,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="movableObstacle" id="rutschen.1.12.Mov" is_door_to_area="x" is_door_to_level="x" posX="17,5" posY="0" posZ="12,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="movableObstacle" id="rutschen.1.1.Mov" is_door_to_area="x" is_door_to_level="x" posX="6,5" posY="0" posZ="8,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="movableObstacle" id="rutschen.1.10.Mov" is_door_to_area="x" is_door_to_level="x" posX="14,5" posY="0" posZ="9,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.1.dyn" is_door_to_area="5" is_door_to_level="5.korridor" posX="1" posY="0" posZ="1" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
-                  <object type="movableObstacle" id="rutschen.1.11.Mov" is_door_to_area="x" is_door_to_level="x" posX="18,5" posY="0" posZ="8,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="movableObstacle" id="rutschen.1.13.Mov" is_door_to_area="x" is_door_to_level="x" posX="8,5" posY="0" posZ="8,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="movableObstacle" id="rutschen.1.3.Mov" is_door_to_area="x" is_door_to_level="x" posX="8,5" posY="0" posZ="11,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="movableObstacle" id="rutschen.1.7.Mov" is_door_to_area="x" is_door_to_level="x" posX="13,5" posY="0" posZ="6,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="movableObstacle" id="rutschen.1.6.Mov" is_door_to_area="x" is_door_to_level="x" posX="9,5" posY="0" posZ="5,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="movableObstacle" id="rutschen.1.15.Mov" is_door_to_area="x" is_door_to_level="x" posX="8,5" posY="0" posZ="4,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="movableObstacle" id="rutschen.1.8.Mov" is_door_to_area="x" is_door_to_level="x" posX="12,5" posY="0" posZ="8,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="movableObstacle" id="rutschen.1.4.Mov" is_door_to_area="x" is_door_to_level="x" posX="7,5" posY="0" posZ="9,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="movableObstacle" id="rutschen.1.14.Mov" is_door_to_area="x" is_door_to_level="x" posX="7,5" posY="0" posZ="6,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="rutschen.1.2.dyn" is_door_to_area="chase" is_door_to_level="chase.0" posX="11,5" posY="0" posZ="20" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
-                </dynamics>
-              </dynamic_objects>
-            </the_objects>
-          </objects>
-        </level>
-      </the_levels>
-    </levels>
-  </area>
   <!--- AREA 255 -->
   <area>
     <area_id>255</area_id>
-    <area_prev>chase</area_prev>
+    <area_prev>x</area_prev>
     <area_next>x</area_next>
     <area_starting_position>
       <x>255</x>
@@ -2665,7 +2537,7 @@
               <dynamic_objects>
                 <dynamics>
                   <object type="actionActor" id="255.0.1.bossActor" is_door_to_area="x" is_door_to_level="x" posX="0" posY="0" posZ="10" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="255.0.0.dyn" is_door_to_area="chase" is_door_to_level="chase.0" posX="-3" posY="0" posZ="9,5" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="255.0.0.dyn" is_door_to_area="x" is_door_to_level="x" posX="-3" posY="0" posZ="9,5" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="255.0.1.dyn" is_door_to_area="x" is_door_to_level="x" posX="-3" posY="0" posZ="11,5" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
                   <object type="movingPlatform" id="255.0.1.movingPlatform" is_door_to_area="x" is_door_to_level="x" posX="3,5" posY="3" posZ="14" endPosX="3,5" endPosY="3" endPosZ="12" size="1" slippery="0" visible="False" dialog="" />
                   <object type="movingPlatform" id="255.0.2.movingPlatform" is_door_to_area="x" is_door_to_level="x" posX="3,5" posY="3" posZ="11" endPosX="0,5" endPosY="3" endPosZ="11" size="1" slippery="0" visible="False" dialog="" />
@@ -2678,7 +2550,7 @@
                   <object type="movingPlatform" id="255.0.4.movingPlatform" is_door_to_area="x" is_door_to_level="x" posX="7,5" posY="3" posZ="11" endPosX="4,5" endPosY="3" endPosZ="11" size="1" slippery="0" visible="True" dialog="" />
                   <object type="movingPlatform" id="255.0.10.movingPlatform" is_door_to_area="x" is_door_to_level="x" posX="7,5" posY="3" posZ="8" endPosX="7,5" endPosY="4" endPosZ="8" size="1" slippery="0" visible="False" dialog="" />
                   <object type="switchPermanent" id="255.0.0.switchPermanent" is_door_to_area="x" is_door_to_level="x" posX="4,5" posY="3" posZ="15" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="movingPlatform" id="255.0.11.movingPlatform" is_door_to_area="x" is_door_to_level="x" posX="-1,5" posY="3" posZ="8" endPosX="-5" endPosY="3" endPosZ="8" size="1" slippery="0" visible="False" dialog="" />
+                  <object type="movingPlatform" id="255.0.11.movingPlatform" is_door_to_area="x" is_door_to_level="x" posX="-0,5" posY="3" posZ="8" endPosX="-3,5" endPosY="3" endPosZ="8" size="1" slippery="0" visible="False" dialog="" />
                   <object type="movingPlatform" id="255.0.12.movingPlatform" is_door_to_area="x" is_door_to_level="x" posX="-3,5" posY="3" posZ="12" endPosX="-3,5" endPosY="3" endPosZ="9" size="1" slippery="0" visible="False" dialog="" />
                   <object type="movingPlatform" id="255.0.13.movingPlatform" is_door_to_area="x" is_door_to_level="x" posX="-3,5" posY="3" posZ="13" endPosX="-3,5" endPosY="5" endPosZ="13" size="1" slippery="0" visible="False" dialog="" />
                   <object type="switchPermanent" id="255.0.1.switchPermanent" is_door_to_area="x" is_door_to_level="x" posX="8,5" posY="4" posZ="8" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />

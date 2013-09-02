@@ -137,6 +137,10 @@ namespace Candyland
             song1 = manager.Load<Song>("Music/bgmusic");  // background music from http://longzijun.wordpress.com/2012/12/26/upbeat-background-music-free-instrumentals/
             song2 = manager.Load<Song>("Music/bossmusic");
 
+            MediaPlayer.Play(song1);
+            MediaPlayer.IsRepeating = true;
+            boss = false;
+
 
             distanceDisplay = new Texture2D[4];
             distanceDisplay[0] = manager.Load<Texture2D>("Images/HUD/chaseSafe");
