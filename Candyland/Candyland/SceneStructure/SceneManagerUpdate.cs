@@ -184,7 +184,7 @@ namespace Candyland
                 distanceToBoss = (m_updateInfo.bossPosition - m_updateInfo.bossTarget).Length();
                 if (distanceToBoss < 1)
                 {
-                    m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen("Das wars fuer dich, jetzt steht der entstehung von Lakritzland nichts mehr im wege!", "Images/DialogImages/Boss"));
+                    m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen("Das wars fuer dich, jetzt steht der Entstehung von Lakritzland nichts mehr im Wege!", "Images/DialogImages/Boss"));
                     m_updateInfo.reset = true;
                 }
             }
