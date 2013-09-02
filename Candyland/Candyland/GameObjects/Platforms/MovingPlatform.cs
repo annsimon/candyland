@@ -17,6 +17,7 @@ namespace Candyland
         int sign = 1;
         int m_originalsign = 1;
         bool nowchangingdirection = false;
+        int lastDir = 0;
 
         #endregion
 
@@ -91,16 +92,20 @@ namespace Candyland
             
 
             nowchangingdirection = false;
-            if ((m_position - start).Length() < currentspeed )
+            if (lastDir != 1 && (m_position - start).Length() < currentspeed)
             {
+                float check = (m_position - start).Length();
                 nowchangingdirection = true;
                 direction *= -1;
+                lastDir = 1;
             }
 
-            else if ((m_position - end).Length() < currentspeed )
+            else if (lastDir != 2 && (m_position - end).Length() < currentspeed )
             {
+                float check = (m_position - start).Length();
                 nowchangingdirection = true;
                 direction *= -1;
+                lastDir = 2;
             }
 
             m_position += direction;
@@ -133,6 +138,7 @@ namespace Candyland
 
         public override void Reset()
         {
+            lastDir = 0;
             base.Reset();
         }
 

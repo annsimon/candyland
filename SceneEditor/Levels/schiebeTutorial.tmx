@@ -1164,6 +1164,32 @@
     <property name="size" value="1"/>
    </properties>
   </object>
+  <object name="-" type="bonbon" x="280" y="390" width="20" height="20">
+   <properties>
+    <property name="dialog" value="St!oe!rende Zuckerw!ue!rfel lassen sich wunderbar durch einen kleinen Schubs !ue!ber den Keksrand entsorgen. !nl!Probiers doch mal aus!"/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="-"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="1"/>
+   </properties>
+  </object>
+  <object name="-" type="bonbon" x="350" y="350" width="20" height="20">
+   <properties>
+    <property name="dialog" value="!Ue!bernimm dich nicht, Kleiner! !nl!Immer sch!oe!n einen W!ue!rfel nach dem anderen schieben."/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="-"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="1"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="1" width="100" height="100">
   <object name="-" type="platform" x="250" y="260" width="20" height="20">
@@ -1201,32 +1227,6 @@
     <property name="isDoorToArea" value="-"/>
     <property name="isDoorToLevel" value="-"/>
     <property name="isSlippery" value="false"/>
-    <property name="isVisible" value="true"/>
-    <property name="size" value="1"/>
-   </properties>
-  </object>
-  <object name="-" type="bonbon" x="270" y="390" width="20" height="20">
-   <properties>
-    <property name="dialog" value="St!o!rende Zuckerw!u!rfel lassen sich wunderbar durch einen kleinen Schubs !u!ber den Keksrand entsorgen. !nl!Probiers doch mal aus!"/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
-    <property name="isSlippery" value="-"/>
-    <property name="isVisible" value="true"/>
-    <property name="size" value="1"/>
-   </properties>
-  </object>
-  <object name="-" type="bonbon" x="350" y="350" width="20" height="20">
-   <properties>
-    <property name="dialog" value="!U!bernimm dich nicht, Kleiner! !nl!Immer sch!o!n einen W!u!rfel nach dem anderen schieben."/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
-    <property name="isSlippery" value="-"/>
     <property name="isVisible" value="true"/>
     <property name="size" value="1"/>
    </properties>

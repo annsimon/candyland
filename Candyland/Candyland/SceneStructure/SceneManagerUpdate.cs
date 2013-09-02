@@ -25,15 +25,14 @@ namespace Candyland
 
             if (m_updateInfo.activateHelperNow)
             {
-                player2.Reset();
-                Vector3 resetPos2 = m_areas[m_updateInfo.currenthelperLevelID.Split('.')[0]].GetCompanionStartingPosition(player2);
-                resetPos2.Y -= 0.45f;
-                player2.setPosition(resetPos2);
-                m_updateInfo.helperavailable = true;
-                m_updateInfo.activateHelperNow = false;
                 m_updateInfo.currenthelperAreaID = m_updateInfo.currentguyAreaID;
                 m_updateInfo.currenthelperLevelID = m_updateInfo.currentguyLevelID;
                 m_updateInfo.nexthelperLevelID = m_updateInfo.nextguyLevelID;
+                Vector3 resetPos2 = m_areas[m_updateInfo.currenthelperLevelID.Split('.')[0]].GetCompanionStartingPosition(player2);
+                resetPos2.Y -= 0.42f;
+                player2.setPosition(resetPos2);
+                m_updateInfo.helperavailable = true;
+                m_updateInfo.activateHelperNow = false;
             }
             if (m_updateInfo.loseHelperNow)
             {
@@ -91,6 +90,9 @@ namespace Candyland
                 sun.Update(m_graphics, player.getPosition(), gameTime);
             else
                 sun.Update(m_graphics, player2.getPosition(), gameTime);
+
+
+            player.resetCloseEnoughToInteract();
 
             player.startIntersection();
             player2.startIntersection();
