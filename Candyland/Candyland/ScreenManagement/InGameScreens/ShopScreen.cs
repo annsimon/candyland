@@ -253,7 +253,11 @@ namespace Candyland
 
             Color textColor = Color.Black;
             m_sprite.DrawString(font, "Preis", new Vector2(bigBox.Left + offset, bigBox.Top + offset), textColor);
-            m_sprite.DrawString(font, forSale.ElementAt(activeID-1).Value.Price.ToString(), new Vector2(bigBox.Left + offset, bigBox.Top + offset + font.LineSpacing), textColor);
+            if (forSale.Count != 0)
+            {
+                m_sprite.DrawString(font, forSale.ElementAt(activeID - 1).Value.Price.ToString(), new Vector2(bigBox.Left + offset, bigBox.Top + offset + font.LineSpacing), textColor);
+            }
+            else m_sprite.DrawString(font, "0", new Vector2(bigBox.Left + offset, bigBox.Top + offset + font.LineSpacing), textColor);
             m_sprite.DrawString(font, "Du hast", new Vector2(bigBox.Left + offset, bigBox.Top + 200), textColor);
             m_sprite.DrawString(font, (chocoCollected - m_bonusTracker.chocoChipsSpent).ToString(), new Vector2(bigBox.Left + offset, bigBox.Top + 230), textColor);
         
