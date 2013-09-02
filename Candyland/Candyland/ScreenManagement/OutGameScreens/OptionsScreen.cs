@@ -106,7 +106,7 @@ namespace Candyland
 
             m_sprite.DrawString(Font, "Steuerung", new Vector2(TextBox.X, TextBox.Y), Color.Black);
             m_sprite.DrawString(font, GameConstants.controlDescription1 , new Vector2(TextBox.X, TextBox.Y + font.LineSpacing * 2), Color.Black);
-            m_sprite.DrawString(font, GameConstants.controlDescription2, new Vector2(TextBox.X + 300, TextBox.Y + font.LineSpacing * 2), Color.Black);
+            m_sprite.DrawString(font, GameConstants.controlDescription2, new Vector2(TextBox.X + 305, TextBox.Y + font.LineSpacing * 2), Color.Black);
 
             ScreenManager.SpriteBatch.End();
         }

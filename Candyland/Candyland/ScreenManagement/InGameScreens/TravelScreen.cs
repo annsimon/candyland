@@ -14,6 +14,8 @@ namespace Candyland
         Texture2D currentSpot;
         Texture2D selectedSpot;
 
+        SpriteFont font;
+
         int screenWidth;
         int screenHeight;
 
@@ -52,8 +54,6 @@ namespace Candyland
         public TravelScreen(string saleID, UpdateInfo info, GameScreen dialogScreen)
         {
             salesmanID = saleID;
-            int cutOff = salesmanID.LastIndexOf('.');
-            salesmanID = salesmanID.Substring(0, cutOff);
             m_updateInfo = info;
             lastScreen = dialogScreen;
         }
@@ -64,6 +64,8 @@ namespace Candyland
 
             screenWidth = game.GraphicsDevice.Viewport.Width;
             screenHeight = game.GraphicsDevice.Viewport.Height;
+
+            font = ScreenManager.Font;
 
             background = ScreenManager.Content.Load<Texture2D>("ScreenTextures/travelScreen");
             teleportSpot = ScreenManager.Content.Load<Texture2D>("Images/Map/AvailablePos");
@@ -163,6 +165,8 @@ namespace Candyland
 
                 index++;
             }
+
+            m_sprite.DrawString(font, "Zurück mit\n'Escape'", new Vector2(20, screenHeight - font.LineSpacing * 3), Color.Black);
 
             m_sprite.End();
         }
