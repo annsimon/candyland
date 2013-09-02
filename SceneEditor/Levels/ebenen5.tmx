@@ -914,7 +914,7 @@
     <property name="endPositionZ" value="-"/>
     <property name="endpositionX" value="-"/>
     <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="5.korridor"/>
+    <property name="isDoorToLevel" value="-"/>
     <property name="isSlippery" value="false"/>
     <property name="isVisible" value="true"/>
     <property name="size" value="1"/>
@@ -1575,7 +1575,7 @@
     <property name="endPositionZ" value="-"/>
     <property name="endpositionX" value="-"/>
     <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="5.korridor"/>
+    <property name="isDoorToLevel" value="-"/>
     <property name="isSlippery" value="false"/>
     <property name="isVisible" value="true"/>
     <property name="size" value="1"/>
