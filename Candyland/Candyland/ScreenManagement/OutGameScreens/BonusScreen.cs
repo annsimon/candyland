@@ -39,6 +39,7 @@ namespace Candyland
 
         int activeID = 1;
         int numberOfItems = 0;
+        List<int> activeIDs = new List<int>();
 
         protected Rectangle bigBox;
         protected Rectangle shopBox;
@@ -169,13 +170,26 @@ namespace Candyland
             if (m_bonusTracker != null)
             {
                 paidBonusIDs = new List<string>();
+                int i = 1;
                 foreach (BonusTile bonus in m_bonusTracker.conceptArts)
                 {
                     bonus.Texture = ScreenManager.Content.Load<Texture2D>(bonus.TextureString);
                     if (m_bonusTracker.soldItems.Contains(bonus.ID))
+                    {
                         paidBonusIDs.Add(bonus.ID);
+                        activeIDs.Add(i);
+                    }
+                    i++;
                 }
                 numberOfItems = paidBonusIDs.Count;
+            }
+            try
+            {
+                activeID = activeIDs.First();
+            }
+            catch
+            {
+                activeID = 0;
             }
         }
 
@@ -196,12 +210,12 @@ namespace Candyland
                 case InputState.Left: activeID--; break;
                 case InputState.Right: activeID++; break;
                 case InputState.Up: if (activeID - 4 >= 1) activeID -= 4; break;
-                case InputState.Down: if (activeID + 4 <= numberOfItems) activeID += 4; break;
+                case InputState.Down: if (activeID + 4 <= 12) activeID += 4; break;
             }
-            if (activeID > numberOfItems) activeID = numberOfItems;
+            if (activeID > 12) activeID = 12;
             if (activeID < 1) activeID = 1;
 
-            if (enterPressed && paidBonusIDs.Contains(conceptArts.ElementAt(activeID-1).ID))
+            if (enterPressed && activeIDs.Contains(activeID))
             {
                 if (conceptArts.ElementAt(activeID-1).Texture != null)
                     ScreenManager.ActivateNewScreen(new ShowArtScreen(conceptArts.ElementAt(activeID-1).Texture));
@@ -230,20 +244,23 @@ namespace Candyland
             color12 = gray;
             Color selectColor = Color.GreenYellow;
 
-            switch (activeID)
+            if (activeID != 0 && activeIDs.Contains(activeID))
             {
-                case 1: color1 = selectColor; break;
-                case 2: color2 = selectColor; break;
-                case 3: color3 = selectColor; break;
-                case 4: color4 = selectColor; break;
-                case 5: color5 = selectColor; break;
-                case 6: color6 = selectColor; break;
-                case 7: color7 = selectColor; break;
-                case 8: color8 = selectColor; break;
-                case 9: color9 = selectColor; break;
-                case 10: color10 = selectColor; break;
-                case 11: color11 = selectColor; break;
-                case 12: color12 = selectColor; break;
+                switch (activeID)
+                {
+                    case 1: color1 = selectColor; break;
+                    case 2: color2 = selectColor; break;
+                    case 3: color3 = selectColor; break;
+                    case 4: color4 = selectColor; break;
+                    case 5: color5 = selectColor; break;
+                    case 6: color6 = selectColor; break;
+                    case 7: color7 = selectColor; break;
+                    case 8: color8 = selectColor; break;
+                    case 9: color9 = selectColor; break;
+                    case 10: color10 = selectColor; break;
+                    case 11: color11 = selectColor; break;
+                    case 12: color12 = selectColor; break;
+                }
             }
 
             m_sprite.Begin();
