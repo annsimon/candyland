@@ -198,8 +198,14 @@ namespace Candyland
                 case InputState.Up: if (activeID - 4 >= 1) activeID -= 4; break;
                 case InputState.Down: if (activeID + 4 <= numberOfItems) activeID += 4; break;
             }
-            if (activeID >= numberOfItems) activeID = numberOfItems;
+            if (activeID > numberOfItems) activeID = numberOfItems;
             if (activeID < 1) activeID = 1;
+
+            if (enterPressed && paidBonusIDs.Contains(conceptArts.ElementAt(activeID-1).ID))
+            {
+                if (conceptArts.ElementAt(activeID-1).Texture != null)
+                    ScreenManager.ActivateNewScreen(new ShowArtScreen(conceptArts.ElementAt(activeID-1).Texture));
+            }
         }
 
         public override void Draw(GameTime gameTime)
