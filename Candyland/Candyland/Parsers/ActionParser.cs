@@ -47,9 +47,9 @@ namespace Candyland
                     Vector3 pos = new Vector3(0,0,0);
                     try
                     {
-                        pos.X = float.Parse(node.Attributes["goalX"].InnerText);
-                        pos.Y = float.Parse(node.Attributes["goalY"].InnerText);
-                        pos.Z = float.Parse(node.Attributes["goalZ"].InnerText);
+                        pos.X = float.Parse(node.Attributes["goalX"].InnerText, System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
+                        pos.Y = float.Parse(node.Attributes["goalY"].InnerText, System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
+                        pos.Z = float.Parse(node.Attributes["goalZ"].InnerText, System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
                         pos += levelStart; // add level position for correct global position
                     }
                     catch

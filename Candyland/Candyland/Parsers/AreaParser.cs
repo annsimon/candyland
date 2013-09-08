@@ -38,9 +38,9 @@ namespace Candyland
             {
                 // create Vector3 from contents of "area_starting_position" (x,y,z)
                 Vector3 startPos = new Vector3();
-                startPos.X = float.Parse(start[count].SelectSingleNode("x").InnerText);
-                startPos.Y = float.Parse(start[count].SelectSingleNode("y").InnerText);
-                startPos.Z = float.Parse(start[count].SelectSingleNode("z").InnerText);
+                startPos.X = float.Parse(start[count].SelectSingleNode("x").InnerText, System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
+                startPos.Y = float.Parse(start[count].SelectSingleNode("y").InnerText, System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
+                startPos.Z = float.Parse(start[count].SelectSingleNode("z").InnerText, System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
 
                 // create a new area of id, starting position, update info, camera and the xml in "levels"
                 Area area = new Area(node.InnerText, startPos, info, areaContent[count].InnerXml, bonusTracker, actionTracker);
