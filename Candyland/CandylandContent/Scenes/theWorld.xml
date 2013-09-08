@@ -364,7 +364,7 @@
                   <object type="obstacle" id="0.S0.54" is_door_to_area="x" is_door_to_level="x" posX="24,5" posY="0" posZ="23" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
                   <object type="obstacle" id="0.S0.55" is_door_to_area="x" is_door_to_level="x" posX="21" posY="0" posZ="17" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="bonbon" id="0.S0.56" is_door_to_area="x" is_door_to_level="x" posX="14,5" posY="0" posZ="20" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="St!oe!rende Zuckerw!ue!rfel lassen sich wunderbar durch einen kleinen Schubs !ue!ber den Keksrand entsorgen. !nl!Probiers doch mal aus!" />
-                  <object type="bonbon" id="0.S0.57" is_door_to_area="x" is_door_to_level="x" posX="18" posY="0" posZ="18" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="Nimm dir nicht zu viel vor, Kleiner! !nl!Immer sch!oe!n einen W!ue!rfel nach dem anderen schieben." />
+                  <object type="bonbon" id="0.S0.57" is_door_to_area="x" is_door_to_level="x" posX="18" posY="0" posZ="18" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="!Ue!bernimm dich nicht, Kleiner! !nl!Immer sch!oe!n einen W!ue!rfel nach dem anderen schieben." />
                   <object type="platform" id="0.S0.58" is_door_to_area="x" is_door_to_level="x" posX="13" posY="1" posZ="13,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="0.S0.59" is_door_to_area="x" is_door_to_level="x" posX="31" posY="1" posZ="18,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="0.S0.60" is_door_to_area="x" is_door_to_level="x" posX="34" posY="1" posZ="15,5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
@@ -2552,8 +2552,8 @@
               <dynamic_objects>
                 <dynamics>
                   <object type="actionActor" id="255.0.1.bossActor" is_door_to_area="x" is_door_to_level="x" posX="0" posY="0" posZ="10" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="255.0.0.dyn" is_door_to_area="x" is_door_to_level="x" posX="-3" posY="0" posZ="9,5" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="255.0.1.dyn" is_door_to_area="x" is_door_to_level="x" posX="-3" posY="0" posZ="11,5" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="255.0.0.dyn" is_door_to_area="chase" is_door_to_level="chase.0" posX="-3" posY="0" posZ="9,5" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="255.0.1.dyn" is_door_to_area="chase" is_door_to_level="chase.0" posX="-3" posY="0" posZ="11,5" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
                   <object type="movingPlatform" id="255.0.1.movingPlatform" is_door_to_area="x" is_door_to_level="x" posX="3,5" posY="3" posZ="14" endPosX="3,5" endPosY="3" endPosZ="12" size="1" slippery="0" visible="False" dialog="" />
                   <object type="movingPlatform" id="255.0.2.movingPlatform" is_door_to_area="x" is_door_to_level="x" posX="3,5" posY="3" posZ="11" endPosX="0,5" endPosY="3" endPosZ="11" size="1" slippery="0" visible="False" dialog="" />
                   <object type="movingPlatform" id="255.0.3.movingPlatform" is_door_to_area="x" is_door_to_level="x" posX="4,5" posY="3" posZ="12" endPosX="7,5" endPosY="3" endPosZ="12" size="1" slippery="0" visible="False" dialog="" />

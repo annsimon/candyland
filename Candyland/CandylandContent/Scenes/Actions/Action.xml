@@ -7,7 +7,7 @@
         <action_inner>
           <trigger>0.Tutorial.1.dyn</trigger>
           <triggered>0.Tutorial.1.actionActor</triggered>
-          <id>tutorialAction1</id>
+          <id>firstTutorial</id>
           <oneTimeAction>true</oneTimeAction>
           <subactions>
             <subaction type="appear" goalX="8" goalY="0,5" goalZ="6,5" locks="false" text=""/>

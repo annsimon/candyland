@@ -75,8 +75,6 @@ namespace Candyland
         public override void update()
         {
             // subAction of type movement is being performed
-            if (m_actionTracker.actionState.ContainsKey("GetHelper") && m_actionTracker.actionState["GetHelper"] == true)
-                this.original_isVisible = false;
             if (!m_updateInfo.actionInProgress)
             {
                 if (m_currentAction != null)
@@ -96,6 +94,12 @@ namespace Candyland
             {
                 if (m_currentAction == null)
                     return;
+
+                if (m_currentAction.getID().Equals("GetHelper"))
+                    this.original_isVisible = false;
+                if (m_currentAction.getID().Equals("firstTutorial"))
+                    this.original_isVisible = false;
+
                 SubAction sAction = m_currentAction.getNextSubAction();
                 if (sAction == null)
                 {
