@@ -39,7 +39,7 @@ namespace Candyland
         protected Rectangle TextBox;
 
         protected string Text = " ";
-        protected string Picture = "Images/DialogImages/DefaultImage";
+        protected string Picture = "AcaHelper";
         protected string[] TextArray;
 
         protected int numberOfLines;
@@ -54,26 +54,26 @@ namespace Candyland
 
         public DialogListeningScreen() {}
 
-        public DialogListeningScreen(string text, string picture = "Images/DialogImages/DefaultImage")
+        public DialogListeningScreen(string text, string picture = "AcaHelper")
         {
             this.Text = text;
             this.Picture = picture;
         }
 
-        public override void Open(Game game)
+        public override void Open(Game game, AssetManager assets)
         {
-            talkBubbleTopLeft = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogTopLeft");
-            talkBubbleTopRight = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogTopRight");
-            talkBubbleBottomLeft = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottomLeft");
-            talkBubbleBottomRight = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottomRight");
-            talkBubbleLeft = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogLeft");
-            talkBubbleRight = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogRight");
-            talkBubbleTop = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogTop");
-            talkBubbleBottom = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottom");
-            talkBubbleMiddle = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogMiddle");
+            talkBubbleTopLeft = assets.dialogTL;
+            talkBubbleTopRight = assets.dialogTR;
+            talkBubbleBottomLeft = assets.dialogBL;
+            talkBubbleBottomRight = assets.dialogBR;
+            talkBubbleLeft = assets.dialogL;
+            talkBubbleRight = assets.dialogR;
+            talkBubbleTop = assets.dialogT;
+            talkBubbleBottom = assets.dialogB;
+            talkBubbleMiddle = assets.dialogC;
 
-            arrowDown = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogArrow");
-            talkingNPC = ScreenManager.Content.Load<Texture2D>(Picture);
+            arrowDown = assets.dialogArrow;
+            talkingNPC = assets.dialogImages[Picture];
             font = ScreenManager.Font;
             lineDist = font.LineSpacing;
 

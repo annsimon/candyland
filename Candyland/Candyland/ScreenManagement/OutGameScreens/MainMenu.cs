@@ -55,12 +55,12 @@ namespace Candyland
         protected Texture2D BorderBottom;
         protected Texture2D BorderMiddle;
 
-        public override void Open(Game game)
+        public override void Open(Game game, AssetManager assets)
         {
             this.isFullscreen = true;
 
-            caption = ScreenManager.Content.Load<Texture2D>("Images/Captions/MainMenu");
-            buttonTexture = ScreenManager.Content.Load<Texture2D>("ScreenTextures/transparent");
+            caption = assets.captionMain;
+            buttonTexture = assets.menuSelection;
 
             font = ScreenManager.Font;
 
@@ -76,15 +76,15 @@ namespace Candyland
 
             selectedButton = new Rectangle(leftAlign, topAlign, buttonWidth, buttonHeight);
 
-            BorderTopLeft = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogTopLeft");
-            BorderTopRight = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogTopRight");
-            BorderBottomLeft = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottomLeft");
-            BorderBottomRight = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottomRight");
-            BorderLeft = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogLeft");
-            BorderRight = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogRight");
-            BorderTop = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogTop");
-            BorderBottom = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottom");
-            BorderMiddle = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogMiddle");
+            BorderTopLeft = assets.dialogTL;
+            BorderTopRight = assets.dialogTR;
+            BorderBottomLeft = assets.dialogBL;
+            BorderBottomRight = assets.dialogBR;
+            BorderLeft = assets.dialogL;
+            BorderRight = assets.dialogR;
+            BorderTop = assets.dialogT;
+            BorderBottom = assets.dialogB;
+            BorderMiddle = assets.dialogC;
 
             int offsetX = (screenWidth - buttonWidth)/2 - 100;
             int offsetY = screenHeight/6 - 50;

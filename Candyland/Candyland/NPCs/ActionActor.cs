@@ -35,39 +35,39 @@ namespace Candyland
             m_actionTracker = actionTracker;
             m_actions = new Dictionary<String, Action>();
             if (id.Contains("helperActor"))
-                m_dialogImage = "Images/DialogImages/Helper";
+                m_dialogImage = "Buddy";
             else
             if (id.Contains("bossActor"))
-                m_dialogImage = "Images/DialogImages/Boss";
+                m_dialogImage = "Boss";
             else
-                m_dialogImage = "Images/DialogImages/AcaHelper";
+                m_dialogImage = "AcaHelper";
             base.init(id, position, updateInfo, visible);
         }
 
-        public override void load(ContentManager content)
+        public override void load(ContentManager content, AssetManager assets)
         {
             if (this.ID.Contains("helperActor"))
-                this.m_texture = content.Load<Texture2D>("NPCs/HelperActor/buddytextur");
+                this.m_texture = assets.actionBuddyTexture;
             else
             if (this.ID.Contains("bossActor"))
-                this.m_texture = content.Load<Texture2D>("NPCs/Lakritze/bosstextur");
+                this.m_texture = assets.bossTexture;
             else
-                this.m_texture = content.Load<Texture2D>("NPCs/TutorialGuy/tutorialtexture");
+                this.m_texture = assets.tutorialGuyTexture;
             this.m_original_texture = this.m_texture;
-            this.effect = content.Load<Effect>("Shaders/Shader"); 
+            this.effect = assets.commonShader;
             if (this.ID.Contains("helperActor"))
-                this.m_model = content.Load<Model>("NPCs/HelperActor/buddy");
+                this.m_model = assets.actionBuddy;
             else
             if (this.ID.Contains("bossActor"))
-                this.m_model = content.Load<Model>("NPCs/Lakritze/boss");
+                this.m_model = assets.boss;
             else
-                this.m_model = content.Load<Model>("NPCs/TutorialGuy/tutorial");
+                this.m_model = assets.tutorialGuy;
             this.m_original_model = this.m_model;
             this.calculateBoundingBox();
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
 
-            base.load(content);
+            base.load(content, assets);
         }
 
         #endregion

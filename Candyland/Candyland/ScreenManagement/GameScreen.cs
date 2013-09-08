@@ -50,7 +50,7 @@ namespace Candyland
         /// <summary>
         /// Initialize Screen and Load its Content
         /// </summary>
-        public abstract void Open(Game game);
+        public abstract void Open(Game game, AssetManager assets);
 
         /// <summary>
         /// Reactivate screen

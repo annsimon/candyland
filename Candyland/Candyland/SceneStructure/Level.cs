@@ -62,14 +62,14 @@ namespace Candyland
             }*/
         }
 
-        public void Load(ContentManager manager)
+        public void Load(ContentManager manager, AssetManager assets)
         {
             foreach (var gameObject in m_gameObjects)
-                gameObject.Value.load(manager);
+                gameObject.Value.load(manager, assets);
             foreach (var gameObject in m_switchObjects)
-                gameObject.Value.load(manager);
+                gameObject.Value.load(manager, assets);
             foreach (GameObject staticObject in m_staticObjects)
-                staticObject.load(manager);
+                staticObject.load(manager, assets);
         }
 
         public void Update(GameTime gameTime)

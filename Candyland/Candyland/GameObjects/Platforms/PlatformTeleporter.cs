@@ -25,19 +25,19 @@ namespace Candyland
 
             this.teleportTarget = target;
         }
-        public override void load(ContentManager content)
+        public override void load(ContentManager content, AssetManager assets)
         {
-            this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/Teleport/plattformtextur_porter");
-            this.m_model = content.Load<Model>("Objekte/Plattformen/plattform_klein");
+            this.m_texture = assets.platformTextureTeleport;
+            this.m_model = assets.platformSmall;
 
             this.m_original_texture = this.m_texture;
             this.m_original_model = this.m_model;
 
-            this.effect = content.Load<Effect>("Shaders/Shader");
+            this.effect = assets.commonShader;
             this.calculateBoundingBox();
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
-            base.load(content);
+            base.load(content, assets);
         }
 
         #endregion

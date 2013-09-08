@@ -96,10 +96,14 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AssetManagerModels.cs" />
+    <Compile Include="Assets\AssetManagerTextures.cs" />
+    <Compile Include="Assets\AssetManagerScreenTextures.cs" />
     <Compile Include="Billboards\Billboard.cs" />
     <Compile Include="Billboards\ChocoBB.cs" />
     <Compile Include="Billboards\Sun.cs" />
     <Compile Include="Data\ActionTracker.cs" />
+    <Compile Include="Assets\AssetManager.cs" />
     <Compile Include="Data\BonusTracker.cs" />
     <Compile Include="Data\GameConstants.cs" />
     <Compile Include="Data\SaveGameData.cs" />

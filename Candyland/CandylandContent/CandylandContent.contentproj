@@ -931,18 +931,18 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sfx\Menu Button8bit.wav">
-      <Name>Menu Button8bit</Name>
+    <Compile Include="Sfx\MenuButton8bit.wav">
+      <Name>MenuButton8bit</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
-    <Compile Include="Sfx\Switch Activate8bit.wav">
-      <Name>Switch Activate8bit</Name>
+    <Compile Include="Sfx\SwitchActivate8bit.wav">
+      <Name>SwitchActivate8bit</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
-    <Compile Include="Sfx\Switch Deactivate8bit.wav">
-      <Name>Switch Deactivate8bit</Name>
+    <Compile Include="Sfx\SwitchDeactivate8bit.wav">
+      <Name>SwitchDeactivate8bit</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>

@@ -8,11 +8,11 @@ namespace Candyland
         Texture2D texture;
         int timePastSinceStart = 0;
 
-        public override void Open(Game game)
+        public override void Open(Game game, AssetManager assets)
         {
             this.isFullscreen = true;
 
-            texture = ScreenManager.Content.Load<Texture2D>("ScreenTextures/Main");
+            texture = assets.titleImage;
         }
 
         public override void Update(GameTime gameTime)

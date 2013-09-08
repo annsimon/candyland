@@ -59,20 +59,20 @@ namespace Candyland
         }
 
 
-        public override void load(ContentManager content)
+        public override void load(ContentManager content, AssetManager assets)
         {
-            sound = content.Load<SoundEffect>("Sfx/coin");  // sound when collecting chocochips
-            this.m_texture = content.Load<Texture2D>("Objekte/Schokolinse/schokolinsetextur");
+            sound = assets.chocoSound;  // sound when collecting chocochips
+            this.m_texture = assets.chocoTexture;
             this.m_original_texture = this.m_texture;
-            this.effect = content.Load<Effect>("Shaders/Shader");
-            this.m_model = content.Load<Model>("Objekte/Schokolinse/schokolinse");
+            this.effect = assets.commonShader;
+            this.m_model = assets.choco;
             this.m_original_model = this.m_model;
             this.calculateBoundingBox();
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
             this.m_bb = new ChocoBB(m_updateInfo.graphics, m_position);
-            ((ChocoBB)m_bb).Load(content);
-            base.load(content);
+            ((ChocoBB)m_bb).Load(content, assets);
+            base.load(content, assets);
         }
 
         #endregion

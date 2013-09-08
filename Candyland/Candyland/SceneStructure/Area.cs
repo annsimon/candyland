@@ -42,10 +42,10 @@ namespace Candyland
                 m_allObjects.AddRange(level.Value.getObjects());
         }
         
-        public void Load(ContentManager manager)
+        public void Load(ContentManager manager, AssetManager assets)
         {
             foreach (var lvl in m_levels)
-                lvl.Value.Load(manager);
+                lvl.Value.Load(manager, assets);
         }
 
         public void Update(GameTime gameTime)

@@ -14,7 +14,7 @@ namespace Candyland
         // has its own content manager
         ContentManager content;
 
-        public override void Open(Game game)
+        public override void Open(Game game, AssetManager assets)
         {
             // tell screen manager that a game is already running
             ScreenManager.gameIsRunning = true;

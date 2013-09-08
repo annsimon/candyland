@@ -36,48 +36,48 @@ namespace Candyland
             this.size = size;
         }
 
-        public override void load(ContentManager content)
+        public override void load(ContentManager content, AssetManager assets)
         {
             if (!(this.GetType() == typeof(Obstacle)))
             {
-                base.load(content);
+                base.load(content, assets);
                 return;
             }
 
             switch (size)
             {
-                case 0: loadLow(content); break;
-                case 1: loadSmall(content); break;
-                case 2: loadLarge(content); break;
-                default: loadSmall(content); break;
+                case 0: loadLow(assets); break;
+                case 1: loadSmall(assets); break;
+                case 2: loadLarge(assets); break;
+                default: loadSmall(assets); break;
             }
             this.m_original_texture = this.m_texture;
             this.m_original_model = this.m_model;
 
-            this.effect = content.Load<Effect>("Shaders/Shader");
+            this.effect = assets.commonShader;
 
             this.calculateBoundingBox();
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
-            base.load(content);
+            base.load(content, assets);
         }
 
-        public void loadLow(ContentManager content)
+        public void loadLow(AssetManager assets)
         {
-            this.m_texture = content.Load<Texture2D>("Objekte/Obstacles/obstacletextur");
-            this.m_model = content.Load<Model>("Objekte/Obstacles/obstacle_half");
+            this.m_texture = assets.obstacleTexture;
+            this.m_model = assets.obstacleHalf;
         }
 
-        public void loadSmall(ContentManager content)
+        public void loadSmall(AssetManager assets)
         {
-            this.m_texture = content.Load<Texture2D>("Objekte/Obstacles/obstacletextur");
-            this.m_model = content.Load<Model>("Objekte/Obstacles/lakritzblock_klein");
+            this.m_texture = assets.obstacleTexture;
+            this.m_model = assets.obstacle;
         }
 
-        public void loadLarge(ContentManager content)
+        public void loadLarge(AssetManager assets)
         {
-            this.m_texture = content.Load<Texture2D>("Objekte/Obstacles/obstacletextur");
-            this.m_model = content.Load<Model>("Objekte/Obstacles/lakritzblock_gross");
+            this.m_texture = assets.obstacleTexture;
+            this.m_model = assets.obstacleLarge;
         }
 
         #endregion

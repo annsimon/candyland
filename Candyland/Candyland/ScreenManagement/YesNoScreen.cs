@@ -49,12 +49,12 @@ namespace Candyland
         protected int screenWidth;
         protected int screenHeight;
 
-        public override void Open(Game game)
+        public override void Open(Game game, AssetManager assets)
         {
-            yes = ScreenManager.Content.Load<Texture2D>("Images/Dialog/JaInactive");
-            no = ScreenManager.Content.Load<Texture2D>("Images/Dialog/NeinInactive");
-            yesSelected = ScreenManager.Content.Load<Texture2D>("Images/Dialog/JaActive");
-            noSelected = ScreenManager.Content.Load<Texture2D>("Images/Dialog/NeinActive");
+            yes = assets.yes;
+            no = assets.no;
+            yesSelected = assets.yesActive;
+            noSelected = assets.noActive;
 
             font = ScreenManager.Font;
 
@@ -62,15 +62,15 @@ namespace Candyland
             screenWidth = game.GraphicsDevice.Viewport.Width;
             screenHeight = game.GraphicsDevice.Viewport.Height;
 
-            BorderTopLeft = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogTopLeft");
-            BorderTopRight = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogTopRight");
-            BorderBottomLeft = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottomLeft");
-            BorderBottomRight = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottomRight");
-            BorderLeft = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogLeft");
-            BorderRight = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogRight");
-            BorderTop = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogTop");
-            BorderBottom = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottom");
-            BorderMiddle = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogMiddle");
+            BorderTopLeft = assets.dialogTL;
+            BorderTopRight = assets.dialogTR;
+            BorderBottomLeft = assets.dialogBL;
+            BorderBottomRight = assets.dialogBR;
+            BorderLeft = assets.dialogL;
+            BorderRight = assets.dialogR;
+            BorderTop = assets.dialogT;
+            BorderBottom = assets.dialogB;
+            BorderMiddle = assets.dialogC;
 
             int buttonOffset = 10;
             boxRec = new Rectangle((screenWidth - yes.Width * 2) / 2 - buttonOffset,

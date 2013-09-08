@@ -27,18 +27,18 @@ namespace Candyland
             m_levelID = id.Substring(0, cutOff);
         }
 
-        public override void load(Microsoft.Xna.Framework.Content.ContentManager content)
+        public override void load(Microsoft.Xna.Framework.Content.ContentManager content, AssetManager assets)
         {
-            this.m_texture = content.Load<Texture2D>("NPCs/Salesman/shoptexture");
+            this.m_texture = assets.salesmanTexture;
             this.m_original_texture = this.m_texture;
-            this.effect = content.Load<Effect>("Shaders/Shader");
-            this.m_model = content.Load<Model>("NPCs/Salesman/shopguy");
+            this.effect = assets.commonShader;
+            this.m_model = assets.salesman;
             this.m_original_model = this.m_model;
             // Bounding box is bigger than the model, so that the player can interact, when standing a bit away
             m_boundingBox = new BoundingBox(this.m_position - new Vector3(0.8f,0.5f,0.8f), this.m_position + new Vector3(0.8f,0.5f,0.8f));
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
-            base.load(content);
+            base.load(content, assets);
         }
 
         public override void collide(GameObject obj)
@@ -58,7 +58,8 @@ namespace Candyland
                         m_updateInfo.activeTeleports.Add(m_levelID);
                     // greet player
                     CandyGuy guy = (CandyGuy)obj;
-                    m_updateInfo.m_screenManager.ActivateNewScreen(new SalesmanDialogueScreen(m_text, m_levelID, m_updateInfo, guy.getBonusTracker().chocoCount, "Images/DialogImages/Salesman"));                }
+                    m_updateInfo.m_screenManager.ActivateNewScreen(new SalesmanDialogueScreen(m_text, m_levelID, m_updateInfo, guy.getBonusTracker().chocoCount, "Salesman"));                
+                }
             }
         }
 

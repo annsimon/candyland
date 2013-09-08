@@ -22,9 +22,9 @@ namespace Candyland
             candyHelper = helper;
         }
 
-        public override void Open(Game game)
+        public override void Open(Game game, AssetManager assets)
         {
-            base.Open(game);
+            base.Open(game, assets);
         }
 
         public override void Update(GameTime gameTime)
