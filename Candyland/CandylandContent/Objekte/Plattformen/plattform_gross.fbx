@@ -257,7 +257,7 @@ Objects:  {
 			Property: "LastFrame", "int", "",0
 			Property: "Width", "int", "",0
 			Property: "Height", "int", "",0
-			Property: "Path", "charptr", "", "plattformtextur_gross.png"
+			Property: "Path", "charptr", "", "plattformtextur_klein.png"
 			Property: "StartFrame", "int", "",0
 			Property: "StopFrame", "int", "",0
 			Property: "PlaySpeed", "double", "",1
@@ -268,8 +268,8 @@ Objects:  {
 			Property: "AccessMode", "enum", "",0
 		}
 		UseMipMap: 0
-		Filename: "plattformtextur_gross.png"
-		RelativeFilename: "plattformtextur_gross.png"
+		Filename: "plattformtextur_klein.png"
+		RelativeFilename: "plattformtextur_klein.png"
 	}
 	Texture: "Texture::plattformtextur_gross_png", "TextureVideoClip" {
 		Type: "TextureVideoClip"
@@ -293,8 +293,8 @@ Objects:  {
 			Property: "VideoProperty", "object", ""
 		}
 		Media: "Video::plattformtextur_gross_png"
-		FileName: "plattformtextur_gross.png"
-		RelativeFilename: "plattformtextur_gross.png"
+		FileName: "plattformtextur_klein.png"
+		RelativeFilename: "plattformtextur_klein.png"
 		ModelUVTranslation: 0,0
 		ModelUVScaling: 1,1
 		Texture_Alpha_Source: "None"
