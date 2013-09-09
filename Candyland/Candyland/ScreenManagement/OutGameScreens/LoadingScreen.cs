@@ -140,7 +140,7 @@ namespace Candyland
  	        sentences.Add("Plätzchen werden gebacken");
             sentences.Add("Zuckerwattewolken werden aufgeklopft");
             sentences.Add("Kekse werden abgestaubt");
-            sentences.Add("Pralinen werden mit Nugat gefüllt");
+            sentences.Add("Pralinen werden mit Nougat gefüllt");
             sentences.Add("Zuckerstangen werden gedreht");
             sentences.Add("Bonbons werden eingepackt");
             sentences.Add("Schokolade wird geschmolzen");
