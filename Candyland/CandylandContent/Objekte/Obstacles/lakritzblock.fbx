@@ -4855,7 +4855,7 @@ Objects:  {
 			Property: "LastFrame", "int", "",0
 			Property: "Width", "int", "",0
 			Property: "Height", "int", "",0
-			Property: "Path", "charptr", "", "lakritztextur.png"
+			Property: "Path", "charptr", "", "obstacletextur.png"
 			Property: "StartFrame", "int", "",0
 			Property: "StopFrame", "int", "",0
 			Property: "PlaySpeed", "double", "",1
@@ -4866,8 +4866,8 @@ Objects:  {
 			Property: "AccessMode", "enum", "",0
 		}
 		UseMipMap: 0
-		Filename: "lakritztextur.png"
-		RelativeFilename: "lakritztextur.png"
+		Filename: "obstacletextur.png"
+		RelativeFilename: "obstacletextur.png"
 	}
 	Texture: "Texture::lakritztextur", "TextureVideoClip" {
 		Type: "TextureVideoClip"
@@ -4891,8 +4891,8 @@ Objects:  {
 			Property: "VideoProperty", "object", ""
 		}
 		Media: "Video::lakritztextur"
-		FileName: "lakritztextur.png"
-		RelativeFilename: "lakritztextur.png"
+		FileName: "obstacletextur.png"
+		RelativeFilename: "obstacletextur.png"
 		ModelUVTranslation: 0,0
 		ModelUVScaling: 1,1
 		Texture_Alpha_Source: "None"
