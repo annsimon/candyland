@@ -118,24 +118,24 @@ namespace Candyland
             m_globalLight.rotation = Vector2.Zero;
         }
 
-        public void Load(ContentManager manager)
+        public void Load(ContentManager manager, AssetManager assets)
         {
             foreach (var area in m_areas)
-                area.Value.Load(manager);
+                area.Value.Load(manager, assets);
 
-            player.load(manager);
-            player2.load(manager);
+            player.load(manager, assets);
+            player2.load(manager, assets);
 
-            sun.Load(manager);
+            sun.Load(manager, assets);
 
-            screenFont = manager.Load<SpriteFont>("Fonts/MainText");
-            keys = manager.Load<Texture2D>("Images/HUD/HudFull");
-            chocoChip = manager.Load<Texture2D>("Images/HUD/Choco");
-            keysFull = manager.Load<Texture2D>("Images/HUD/HudFullWithChange");
-            skyboxModel = LoadSkybox(manager, "Skybox/skybox2", out skyboxTextures);
+            screenFont = assets.mainText;
+            keys = assets.hudIcons;
+            chocoChip = assets.chocoChip;
+            keysFull = assets.hudIconsWithCharChange;
+            skyboxModel = LoadSkybox(manager, assets, out skyboxTextures);
 
-            song1 = manager.Load<Song>("Music/bgmusic");  // background music from http://longzijun.wordpress.com/2012/12/26/upbeat-background-music-free-instrumentals/
-            song2 = manager.Load<Song>("Music/bossmusic");
+            song1 = assets.song1;  // background music from http://longzijun.wordpress.com/2012/12/26/upbeat-background-music-free-instrumentals/
+            song2 = assets.song2;
 
             MediaPlayer.Play(song1);
             MediaPlayer.IsRepeating = true;
@@ -143,10 +143,10 @@ namespace Candyland
 
 
             distanceDisplay = new Texture2D[4];
-            distanceDisplay[0] = manager.Load<Texture2D>("Images/HUD/chaseSafe");
-            distanceDisplay[1] = manager.Load<Texture2D>("Images/HUD/chaseCareful");
-            distanceDisplay[2] = manager.Load<Texture2D>("Images/HUD/chaseDanger");
-            distanceDisplay[3] = manager.Load<Texture2D>("Images/HUD/chaseCritical");
+            distanceDisplay[0] = assets.distanceDisplay0;
+            distanceDisplay[1] = assets.distanceDisplay1;
+            distanceDisplay[2] = assets.distanceDisplay2;
+            distanceDisplay[3] = assets.distanceDisplay3;
         }
 
         /// <summary>
@@ -156,17 +156,16 @@ namespace Candyland
         /// <param name="assetName"></param>
         /// <param name="textures"></param>
         /// <returns></returns>
-        private Model LoadSkybox(ContentManager manager, string assetName, out Texture2D[] textures)
+        private Model LoadSkybox(ContentManager manager, AssetManager assets, out Texture2D[] textures)
         {
-
-            Model newModel = manager.Load<Model>(assetName);
+            Model newModel = assets.skybox;
             textures = new Texture2D[newModel.Meshes.Count];
             int i = 0;
             foreach (ModelMesh mesh in newModel.Meshes)
                 foreach (BasicEffect currentEffect in mesh.Effects)
                     textures[i++] = currentEffect.Texture;
 
-            Effect skyboxEffect = manager.Load<Effect>("Skybox/effects");
+            Effect skyboxEffect = assets.skyboxEffect;
             foreach (ModelMesh mesh in newModel.Meshes)
                 foreach (ModelMeshPart meshPart in mesh.MeshParts)
                     meshPart.Effect = skyboxEffect.Clone();

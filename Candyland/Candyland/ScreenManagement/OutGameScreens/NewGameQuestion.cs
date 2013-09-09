@@ -8,9 +8,9 @@ namespace Candyland
 {
     class NewGameQuestion : YesNoScreen
     {
-        public override void Open(Game game)
+        public override void Open(Game game, AssetManager assets)
         {
-            base.Open(game);
+            base.Open(game, assets);
 
             question = "Neues Spiel starten?\nAlter Spielstand geht verloren!";
         }

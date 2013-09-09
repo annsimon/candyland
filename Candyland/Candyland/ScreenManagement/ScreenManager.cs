@@ -21,6 +21,7 @@ namespace Candyland
         SpriteBatch spriteBatch;
         SpriteFont mainText;
         ContentManager content;
+        AssetManager assets;
 
         ScreenInputManager screenInput;
         InputState input;
@@ -98,12 +99,13 @@ namespace Candyland
         /// <summary>
         /// Constructs a new screen manager component.
         /// </summary>
-        public ScreenManager(Game game, bool isFullScreen, int prefWidth, int prefHeight)
+        public ScreenManager(Game game, bool isFullScreen, int prefWidth, int prefHeight, AssetManager assetManager)
             : base(game)
         {
             this.isFullScreen = isFullScreen;
             this.preferedScreenWith = prefWidth;
             this.preferedScreenHeight = prefHeight;
+            assets = assetManager;
         }
 
 
@@ -115,16 +117,18 @@ namespace Candyland
             // Load content belonging to the screen manager.
             content = Game.Content;
 
+            assets.Load(content);
+
             screenInput = new ScreenInputManager();
 
-            sound = content.Load<SoundEffect>("Sfx/Menu Button8bit");
+            sound = assets.menuButtonSound;
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            if (isFullScreen) mainText = content.Load<SpriteFont>("Fonts/MainTextFullscreen");
-            else mainText = content.Load<SpriteFont>("Fonts/MainText");
+            if (isFullScreen) mainText = assets.mainTextFullscreen;
+            else mainText = assets.mainText;
 
             // Open topmost screen
             screens.Last().ScreenState = ScreenState.Active;
-            screens.Last().Open(Game);
+            screens.Last().Open(Game, assets);
         }
 
 
@@ -217,7 +221,7 @@ namespace Candyland
             // Add new screen
             AddScreen(newScreen);
             newScreen.ScreenState = ScreenState.Active;
-            newScreen.Open(Game);
+            newScreen.Open(Game, assets);
         }
 
         /// <summary>
@@ -290,7 +294,7 @@ namespace Candyland
             if (gameContent == null)
                 gameContent = new ContentManager(Game.Services, "Content");
 
-            m_sceneManager.Load(gameContent);
+            m_sceneManager.Load(gameContent, assets);
             readyToStartGame = true;
         }
 

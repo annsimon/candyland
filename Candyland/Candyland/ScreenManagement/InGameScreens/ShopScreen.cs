@@ -96,22 +96,22 @@ namespace Candyland
         }
 
 
-        public override void Open(Game game)
+        public override void Open(Game game, AssetManager assets)
         {
             font = ScreenManager.Font;
 
             screenWidth = game.GraphicsDevice.Viewport.Width;
             screenHeight = game.GraphicsDevice.Viewport.Height;
-            
-            BorderTopLeft = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogTopLeft");
-            BorderTopRight = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogTopRight");
-            BorderBottomLeft = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottomLeft");
-            BorderBottomRight = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottomRight");
-            BorderLeft = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogLeft");
-            BorderRight = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogRight");
-            BorderTop = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogTop");
-            BorderBottom = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottom");
-            BorderMiddle = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogMiddle");
+
+            BorderTopLeft = assets.dialogTL;
+            BorderTopRight = assets.dialogTR;
+            BorderBottomLeft = assets.dialogBL;
+            BorderBottomRight = assets.dialogBR;
+            BorderLeft = assets.dialogL;
+            BorderRight = assets.dialogR;
+            BorderTop = assets.dialogT;
+            BorderBottom = assets.dialogB;
+            BorderMiddle = assets.dialogC;
 
             // What's there to sell?
             m_bonusTracker = ScreenManager.SceneManager.getBonusTracker();
@@ -253,7 +253,11 @@ namespace Candyland
 
             Color textColor = Color.Black;
             m_sprite.DrawString(font, "Preis", new Vector2(bigBox.Left + offset, bigBox.Top + offset), textColor);
-            m_sprite.DrawString(font, forSale.ElementAt(activeID-1).Value.Price.ToString(), new Vector2(bigBox.Left + offset, bigBox.Top + offset + font.LineSpacing), textColor);
+            if (forSale.Count != 0)
+            {
+                m_sprite.DrawString(font, forSale.ElementAt(activeID - 1).Value.Price.ToString(), new Vector2(bigBox.Left + offset, bigBox.Top + offset + font.LineSpacing), textColor);
+            }
+            else m_sprite.DrawString(font, "0", new Vector2(bigBox.Left + offset, bigBox.Top + offset + font.LineSpacing), textColor);
             m_sprite.DrawString(font, "Du hast", new Vector2(bigBox.Left + offset, bigBox.Top + 200), textColor);
             m_sprite.DrawString(font, (chocoCollected - m_bonusTracker.chocoChipsSpent).ToString(), new Vector2(bigBox.Left + offset, bigBox.Top + 230), textColor);
         

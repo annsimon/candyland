@@ -41,7 +41,7 @@ namespace Candyland
         public override void update()
         {
             KeyboardState keystate = Keyboard.GetState();
-            if ((keystate.IsKeyDown(Keys.W) || keystate.IsKeyDown(Keys.A) || keystate.IsKeyDown(Keys.D) || keystate.IsKeyDown(Keys.S))
+            if (!m_updateInfo.locked && (keystate.IsKeyDown(Keys.W) || keystate.IsKeyDown(Keys.A) || keystate.IsKeyDown(Keys.D) || keystate.IsKeyDown(Keys.S))
                   && isthirdpersoncam && !m_updateInfo.candyselected)
             {
                 animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
@@ -59,15 +59,15 @@ namespace Candyland
 
         public override void initialize() { }
 
-        public override void load(ContentManager content)
+        public override void load(ContentManager content, AssetManager assets)
         {
-            effect = content.Load<Effect>("Shaders/Shader");
-            m_texture = content.Load<Texture2D>("NPCs/Helper/buddytextur");
-            m_model = content.Load<Model>("NPCs/Helper/buddy");
+            effect = assets.commonShader;
+            m_texture = assets.buddyTexture;
+            m_model = assets.buddy;
             calculateBoundingBox();
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
-            base.load(content);
+            base.load(content, assets);
 
             AnimationClip clip = m_skinningData.AnimationClips["ArmatureAction"];
 

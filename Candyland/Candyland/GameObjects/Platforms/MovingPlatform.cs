@@ -44,42 +44,24 @@ namespace Candyland
             original_direction = direction;
         }
 
-        public override void load(ContentManager content)
+        public override void load(ContentManager content, AssetManager assets)
         {
             switch (size)
             {
-                case 1: loadSmall(content); break;
-                case 2: loadMedium(content); break;
-                case 3: loadLarge(content); break;
-                default: loadSmall(content); break;
+                case 1: loadSmall(assets); break;
+                case 2: loadMedium(assets); break;
+                case 3: loadLarge(assets); break;
+                default: loadSmall(assets); break;
             }
             this.m_original_texture = this.m_texture;
             this.m_original_model = this.m_model;
 
-            this.effect = content.Load<Effect>("Shaders/Shader");
+            this.effect = assets.commonShader;
             this.calculateBoundingBox();
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
 
-            base.load(content);
-        }
-
-        public override void loadSmall(ContentManager content)
-        {
-            this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/plattformtextur_klein");
-            this.m_model = content.Load<Model>("Objekte/Plattformen/plattform_klein");
-        }
-
-        public override void loadMedium(ContentManager content)
-        {
-            this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/plattformtextur_mittel");
-            this.m_model = content.Load<Model>("Objekte/Plattformen/plattform_mittel");
-        }
-
-        public override void loadLarge(ContentManager content)
-        {
-            this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/plattformtextur_gross");
-            this.m_model = content.Load<Model>("Objekte/Plattformen/plattform_gross");
+            base.load(content, assets);
         }
 
         #endregion
@@ -88,9 +70,7 @@ namespace Candyland
         {
             if (!isVisible)
                 return;
-
             
-
             nowchangingdirection = false;
             if (lastDir != 1 && (m_position - start).Length() < currentspeed)
             {

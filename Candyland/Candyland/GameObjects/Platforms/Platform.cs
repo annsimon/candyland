@@ -80,62 +80,62 @@ namespace Candyland
         }
 
 
-        public override void load(ContentManager content)
+        public override void load(ContentManager content, AssetManager assets)
         {
             if (this.GetType() != typeof(Platform))
             {
-                base.load(content);
+                base.load(content, assets);
                 return;
             }
 
             switch (size)
             {
-                case 1: loadSmall(content); break;
-                case 2: loadMedium(content); break;
-                case 3: loadLarge(content); break;
-                default: loadSmall(content); break;
+                case 1: loadSmall(assets); break;
+                case 2: loadMedium(assets); break;
+                case 3: loadLarge(assets); break;
+                default: loadSmall(assets); break;
             }
             this.m_original_texture = this.m_texture;
             this.m_original_model = this.m_model;
 
-            this.effect = content.Load<Effect>("Shaders/Shader");
+            this.effect = assets.commonShader;
             this.calculateBoundingBox();
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
-            base.load(content);
+            base.load(content, assets);
         }
 
-        public virtual void loadSmall(ContentManager content)
+        public virtual void loadSmall(AssetManager assets)
         {
             switch (slipperyInfo)
             {
-                case 0: this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/plattformtextur_klein"); break;
-                case 1: this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/Slippery/plattformtexturslippery_klein"); break;
-                case 2: this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/Slippery/plattformtexturslippery_klein2"); break;
+                case 0: this.m_texture = assets.platformTexture; break;
+                case 1: this.m_texture = assets.platformTextureSlippery; break;
+                case 2: this.m_texture = assets.platformTextureVerySlippery; break;
             }
-            this.m_model = content.Load<Model>("Objekte/Plattformen/plattform_klein");
+            this.m_model = assets.platformSmall;
         }
 
-        public virtual void loadMedium(ContentManager content)
+        public virtual void loadMedium(AssetManager assets)
         {
             switch (slipperyInfo)
             {
-                case 0: this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/plattformtextur_klein"); break;
-                case 1: this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/Slippery/plattformtexturslippery_klein"); break;
-                case 2: this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/Slippery/plattformtexturslippery_klein2"); break;
+                case 0: this.m_texture = assets.platformTexture; break;
+                case 1: this.m_texture = assets.platformTextureSlippery; break;
+                case 2: this.m_texture = assets.platformTextureVerySlippery; break;
             }
-            this.m_model = content.Load<Model>("Objekte/Plattformen/plattform_mittel");
+            this.m_model = assets.platformMedium;
         }
 
-        public virtual void loadLarge(ContentManager content)
+        public virtual void loadLarge(AssetManager assets)
         {
             switch (slipperyInfo)
             {
-                case 0: this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/plattformtextur_klein"); break;
-                case 1: this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/Slippery/plattformtexturslippery_klein"); break;
-                case 2: this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/Slippery/plattformtexturslippery_klein2"); break;
+                case 0: this.m_texture = assets.platformTexture; break;
+                case 1: this.m_texture = assets.platformTextureSlippery; break;
+                case 2: this.m_texture = assets.platformTextureVerySlippery; break;
             }
-            this.m_model = content.Load<Model>("Objekte/Plattformen/plattform_gross");
+            this.m_model = assets.platformLarge;
         }
 
         #endregion

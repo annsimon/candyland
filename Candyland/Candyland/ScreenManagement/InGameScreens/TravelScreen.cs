@@ -58,7 +58,7 @@ namespace Candyland
             lastScreen = dialogScreen;
         }
 
-        public override void Open(Game game)
+        public override void Open(Game game, AssetManager assets)
         {
             this.isFullscreen = true;
 
@@ -67,20 +67,20 @@ namespace Candyland
 
             font = ScreenManager.Font;
 
-            background = ScreenManager.Content.Load<Texture2D>("ScreenTextures/travelScreen");
-            teleportSpot = ScreenManager.Content.Load<Texture2D>("Images/Map/AvailablePos");
-            currentSpot = ScreenManager.Content.Load<Texture2D>("Images/Map/CurrentPos");
-            selectedSpot = ScreenManager.Content.Load<Texture2D>("Images/Map/SelectedPos");
+            background = assets.map;
+            teleportSpot = assets.pinSelected;
+            currentSpot = assets.pinCurrent;
+            selectedSpot = assets.pinSelected;
 
-            BorderTopLeft = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogTopLeft");
-            BorderTopRight = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogTopRight");
-            BorderBottomLeft = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottomLeft");
-            BorderBottomRight = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottomRight");
-            BorderLeft = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogLeft");
-            BorderRight = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogRight");
-            BorderTop = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogTop");
-            BorderBottom = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottom");
-            BorderMiddle = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogMiddle");
+            BorderTopLeft = assets.dialogTL;
+            BorderTopRight = assets.dialogTR;
+            BorderBottomLeft = assets.dialogBL;
+            BorderBottomRight = assets.dialogBR;
+            BorderLeft = assets.dialogL;
+            BorderRight = assets.dialogR;
+            BorderTop = assets.dialogT;
+            BorderBottom = assets.dialogB;
+            BorderMiddle = assets.dialogC;
 
             int offsetX = 5;
             int offsetY = 5;

@@ -34,20 +34,20 @@ namespace Candyland
             timeSincedSteppedOn = 0;
         }
 
-        public override void load(ContentManager content)
+        public override void load(ContentManager content, AssetManager assets)
         {
-            sound = content.Load<SoundEffect>("Sfx/CrackingPlatform8bit");  
-            this.m_texture = content.Load<Texture2D>("Objekte/Plattformen/breakingplatformtextur");
+            sound = assets.platformBreakSound;
+            this.m_texture = assets.platformTextureBreak;
             this.m_original_texture = this.m_texture;
-            this.effect = content.Load<Effect>("Shaders/Shader");
-            this.m_model = content.Load<Model>("Objekte/Plattformen/breakingplatform");
+            this.effect = assets.commonShader;
+            this.m_model = assets.platformBreaking;
             this.m_original_model = this.m_model;
 
             this.calculateBoundingBox();
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
 
-            base.load(content);
+            base.load(content, assets);
 
             AnimationClip clip = m_skinningData.AnimationClips["ArmatureAction"];
 

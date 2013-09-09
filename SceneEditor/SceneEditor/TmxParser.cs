@@ -31,7 +31,7 @@ namespace SceneEditor
                 if ( name == "BaseLayer")
                     continue;
                 // the layer's name equals the y-position of all objects in that layer
-                String posY = name;
+                String posY = (Convert.ToDouble(name)).ToString(System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
 
                 XmlNodeList objects = layer.ChildNodes;
                 foreach (XmlNode obj in objects)
@@ -61,8 +61,8 @@ namespace SceneEditor
                         slippery = "2";
                     }
                     double offset = Convert.ToDouble(obj.Attributes["width"].InnerText) / 2;
-                    String posX = (Convert.ToDouble(obj.Attributes["x"].InnerText) + offset) / 20 + "";
-                    String posZ = (Convert.ToDouble(obj.Attributes["y"].InnerText) + offset) / 20 + "";
+                    String posX = ((Convert.ToDouble(obj.Attributes["x"].InnerText) + offset) / 20).ToString(System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
+                    String posZ = ((Convert.ToDouble(obj.Attributes["y"].InnerText) + offset) / 20).ToString(System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
                     String endPositionX = "";
                     String endPositionY = "";
                     String endPositionZ = "";
@@ -77,13 +77,13 @@ namespace SceneEditor
                     foreach (XmlNode property in properties)
                     {
                         if (property.Attributes["name"].InnerText == "endpositionX" && property.Attributes["value"].InnerText != "-")
-                            endPositionX = (Convert.ToDouble(property.Attributes["value"].InnerText) + (offset/10)) / 2 + "";
+                            endPositionX = ((Convert.ToDouble(property.Attributes["value"].InnerText) + (offset / 10)) / 2).ToString(System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
                         else
                         if (property.Attributes["name"].InnerText == "endPositionY" && property.Attributes["value"].InnerText != "-")
-                            endPositionY = property.Attributes["value"].InnerText;
+                            endPositionY = (Convert.ToDouble(property.Attributes["value"].InnerText)).ToString(System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
                         else
                         if (property.Attributes["name"].InnerText == "endPositionZ" && property.Attributes["value"].InnerText != "-")
-                            endPositionZ = (Convert.ToDouble(property.Attributes["value"].InnerText) + (offset/10)) / 2 + "";
+                            endPositionZ = ((Convert.ToDouble(property.Attributes["value"].InnerText) + (offset / 10)) / 2).ToString(System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
                         else
                         if (property.Attributes["name"].InnerText == "isDoorToArea")
                             if (property.Attributes["value"].InnerText == "-")

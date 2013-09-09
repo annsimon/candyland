@@ -48,7 +48,7 @@ namespace Candyland
         protected Texture2D BorderBottom;
         protected Texture2D BorderMiddle;
 
-        public override void Open(Game game)
+        public override void Open(Game game, AssetManager assets)
         {
             this.isFullscreen = true;
 
@@ -61,10 +61,10 @@ namespace Candyland
             screenWidth = ScreenManager.Game.GraphicsDevice.Viewport.Width;
             screenHeight = ScreenManager.Game.GraphicsDevice.Viewport.Height;
 
-            background = content.Load<Texture2D>("ScreenTextures/optionsScreen");
+            background = assets.optionsScreen;
 
             loading = new AnimatingSprite();
-            loading.Texture = content.Load<Texture2D>("ScreenTextures/loading");
+            loading.Texture = assets.loadingTexture;
             loading.Animations.Add("load", new Animation(600, 100, 6, 0, 0));
             loading.CurrentAnimation = "load";
             loading.isRepeatable = true;
@@ -73,15 +73,15 @@ namespace Candyland
 
             loading.StartAnimation();
 
-            BorderTopLeft = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogTopLeft");
-            BorderTopRight = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogTopRight");
-            BorderBottomLeft = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottomLeft");
-            BorderBottomRight = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottomRight");
-            BorderLeft = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogLeft");
-            BorderRight = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogRight");
-            BorderTop = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogTop");
-            BorderBottom = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottom");
-            BorderMiddle = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogMiddle");
+            BorderTopLeft = assets.dialogTL;
+            BorderTopRight = assets.dialogTR;
+            BorderBottomLeft = assets.dialogBL;
+            BorderBottomRight = assets.dialogBR;
+            BorderLeft = assets.dialogL;
+            BorderRight = assets.dialogR;
+            BorderTop = assets.dialogT;
+            BorderBottom = assets.dialogB;
+            BorderMiddle = assets.dialogC;
 
             int width = 500;
             int height = 200;

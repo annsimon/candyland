@@ -31,18 +31,18 @@ namespace Candyland
             this.upvelocity = 0;
         }
         
-        public override void load(ContentManager content)
+        public override void load(ContentManager content, AssetManager assets)
         {
-            this.m_texture = content.Load<Texture2D>("Objekte/Obstacles/Movable/blockmovabletextur");
+            this.m_texture = assets.obstacleMoveTexture;
             this.m_original_texture = this.m_texture;
-            this.effect = content.Load<Effect>("Shaders/Shader");
-            this.m_model = content.Load<Model>("Objekte/Obstacles/Movable/blockmovable");
+            this.effect = assets.commonShader;
+            this.m_model = assets.obstacleMovable;
             this.m_original_model = this.m_model;
 
             this.calculateBoundingBox();
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
-            base.load(content);
+            base.load(content, assets);
         }
         #endregion
 

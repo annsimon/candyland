@@ -46,7 +46,7 @@ namespace Candyland
         public override void update()
         {
             KeyboardState keystate = Keyboard.GetState();
-            if ((keystate.IsKeyDown(Keys.W) || keystate.IsKeyDown(Keys.A) || keystate.IsKeyDown(Keys.D) || (keystate.IsKeyDown(Keys.S) && !m_updateInfo.alwaysRun) || (m_updateInfo.alwaysRun && !keystate.IsKeyDown(Keys.S)))
+            if (!m_updateInfo.locked && (keystate.IsKeyDown(Keys.W) || keystate.IsKeyDown(Keys.A) || keystate.IsKeyDown(Keys.D) || (keystate.IsKeyDown(Keys.S) && !m_updateInfo.alwaysRun) || (m_updateInfo.alwaysRun && !keystate.IsKeyDown(Keys.S)))
                   && isthirdpersoncam && m_updateInfo.candyselected && isonground)
             {
                 animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
@@ -64,17 +64,17 @@ namespace Candyland
 
         public override void initialize(){ }
 
-        public override void load(ContentManager content)
+        public override void load(ContentManager content, AssetManager assets)
         {
-            effect = content.Load<Effect>("Shaders/Shader");
-            m_texture = content.Load<Texture2D>("NPCs/Spieler/Candyguytextur");
-            m_model = content.Load<Model>("NPCs/Spieler/candyguy");
+            effect = assets.commonShader;
+            m_texture = assets.heroTexture;
+            m_model = assets.hero;
             // custom made bounding box
             m_boundingBox = new BoundingBox(this.m_position - new Vector3(0.3f, 0.35f, 0.3f), this.m_position + new Vector3(0.3f, 0.25f, 0.3f));
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
 
-            base.load(content);
+            base.load(content, assets);
 
             AnimationClip clip = m_skinningData.AnimationClips["ArmatureAction_001"];
 

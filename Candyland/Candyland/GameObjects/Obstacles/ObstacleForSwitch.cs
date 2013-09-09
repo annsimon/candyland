@@ -22,30 +22,29 @@ namespace Candyland
             base.initialize(id, pos, updateInfo, visible, size);
         }
 
-        public override void load(ContentManager content)
+        public override void load(ContentManager content, AssetManager assets)
         {
-            this.m_texture = content.Load<Texture2D>("Objekte/Obstacles/obstacletextur_switch");
             if (!(this.GetType() == typeof(ObstacleForSwitch)))
             {
-                base.load(content);
+                base.load(content, assets);
                 return;
             }
 
             switch (size)
             {
-                case 0: loadLow(content); break;
-                case 1: loadSmall(content); break;
-                default: loadSmall(content); break;
+                case 0: loadLow(assets); break;
+                case 1: loadSmall(assets); break;
+                default: loadSmall(assets); break;
             }
 
             this.m_original_texture = this.m_texture;
-            this.effect = content.Load<Effect>("Shaders/Shader");
+            this.effect = assets.commonShader;
             this.m_original_model = this.m_model;
 
             this.calculateBoundingBox();
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
-            base.load(content);
+            base.load(content, assets);
         }
 
         #endregion

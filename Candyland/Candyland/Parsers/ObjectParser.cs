@@ -35,9 +35,9 @@ namespace Candyland
             {
                 // create Vector3 from contents of "object_position" (x,y,z)
                 Vector3 pos = new Vector3();
-                pos.X = float.Parse(node.Attributes["posX"].InnerText);
-                pos.Y = float.Parse(node.Attributes["posY"].InnerText);
-                pos.Z = float.Parse(node.Attributes["posZ"].InnerText);
+                pos.X = float.Parse(node.Attributes["posX"].InnerText, System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
+                pos.Y = float.Parse(node.Attributes["posY"].InnerText, System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
+                pos.Z = float.Parse(node.Attributes["posZ"].InnerText, System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
                 pos += lvl_start; // add level position for correct global position
 
                 // get bool value for visible
@@ -96,9 +96,9 @@ namespace Candyland
                     Vector3 endpos = new Vector3(0, 0, 0);
                     try
                     {
-                        endpos.X = float.Parse(node.Attributes["endPosX"].InnerText);
-                        endpos.Y = float.Parse(node.Attributes["endPosY"].InnerText);
-                        endpos.Z = float.Parse(node.Attributes["endPosZ"].InnerText);
+                        endpos.X = float.Parse(node.Attributes["endPosX"].InnerText, System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
+                        endpos.Y = float.Parse(node.Attributes["endPosY"].InnerText, System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
+                        endpos.Z = float.Parse(node.Attributes["endPosZ"].InnerText, System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
                         endpos += lvl_start; // add level position for correct global position
                     }
                     catch { }
@@ -243,9 +243,9 @@ namespace Candyland
                     Vector3 endpos = new Vector3(0, 0, 0);
                     try
                     {
-                        endpos.X = float.Parse(node.Attributes["endPosX"].InnerText);
-                        endpos.Y = float.Parse(node.Attributes["endPosY"].InnerText);
-                        endpos.Z = float.Parse(node.Attributes["endPosZ"].InnerText);
+                        endpos.X = float.Parse(node.Attributes["endPosX"].InnerText, System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
+                        endpos.Y = float.Parse(node.Attributes["endPosY"].InnerText, System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
+                        endpos.Z = float.Parse(node.Attributes["endPosZ"].InnerText, System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
                         endpos += lvl_start; // add level position for correct global position
                     }
                     catch { }
@@ -289,9 +289,9 @@ namespace Candyland
             {
                 // create Vector3 from contents of "object_position" (x,y,z)
                 Vector3 pos = new Vector3();
-                pos.X = float.Parse(node.Attributes["posX"].InnerText);
-                pos.Y = float.Parse(node.Attributes["posY"].InnerText);
-                pos.Z = float.Parse(node.Attributes["posZ"].InnerText);
+                pos.X = float.Parse(node.Attributes["posX"].InnerText, System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
+                pos.Y = float.Parse(node.Attributes["posY"].InnerText, System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
+                pos.Z = float.Parse(node.Attributes["posZ"].InnerText, System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
                 pos += lvl_start; // add level position for correct global position
 
                 // get bool value for visible

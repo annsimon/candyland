@@ -12,6 +12,7 @@ namespace Candyland
     {
         GraphicsDeviceManager graphics;
         ScreenManager screenManager;
+        AssetManager assetManager;
 
         KeyboardState oldState;
         KeyboardState newState;
@@ -25,7 +26,8 @@ namespace Candyland
             Content.RootDirectory = "Content";
 
             // Create the screen manager component.
-            screenManager = new ScreenManager(this, graphics.IsFullScreen, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
+            assetManager = new AssetManager();
+            screenManager = new ScreenManager(this, graphics.IsFullScreen, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight, assetManager);
             Components.Add(screenManager);
 
            // Content.RootDirectory = "CandylandContent"; 
@@ -54,7 +56,6 @@ namespace Candyland
         /// </summary>
         protected override void LoadContent()
         {
-            
         }
 
         /// <summary>

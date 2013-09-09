@@ -158,9 +158,9 @@ namespace Candyland
             this.m_modelTextures = new Dictionary<int, Texture2D>();
         }
 
-        public virtual void load(ContentManager content)
+        public virtual void load(ContentManager content, AssetManager assets)
         {
-            m_material.effect = content.Load<Effect>("Shaders/Shader");
+            m_material.effect = assets.commonShader;
 
             if (m_model == null)
                 return;

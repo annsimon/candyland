@@ -8,7 +8,6 @@ namespace Candyland
 {
     class SalesmanDialogueScreen : DialogListeningScreen
     {
-        Texture2D OwnTalkBubble;
         Texture2D buttonTexture;
 
         Rectangle ownDiagBox;
@@ -55,13 +54,12 @@ namespace Candyland
             Greeting = GameConstants.tradesmanGreeting;
         }
 
-        public override void Open(Game game)
+        public override void Open(Game game, AssetManager assets)
         {
-            base.Open(game);
+            base.Open(game, assets);
 
-            buttonTexture = ScreenManager.Content.Load<Texture2D>("ScreenTextures/transparent");
+            buttonTexture = assets.menuSelection;
             talkingNPC = ScreenManager.Content.Load<Texture2D>(Picture);
-            OwnTalkBubble = ScreenManager.Content.Load<Texture2D>("ScreenTextures/talkBubbleOwn");
 
             ownDiagBox = new Rectangle(480, 20, 300, 200);
 

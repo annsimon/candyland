@@ -88,7 +88,7 @@ namespace Candyland
 
         Color color1, color2, color3, color4, color5, color6, color7, color8, color9, color10, color11, color12;
 
-        public override void Open(Game game)
+        public override void Open(Game game, AssetManager assets)
         {
             this.isFullscreen = true;
             if (ScreenManager.SceneManager != null)
@@ -98,16 +98,16 @@ namespace Candyland
             }
             font = ScreenManager.Font;
 
-            caption = ScreenManager.Content.Load<Texture2D>("Images/Captions/Bonus");
-            BorderTopLeft = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogTopLeft");
-            BorderTopRight = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogTopRight");
-            BorderBottomLeft = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottomLeft");
-            BorderBottomRight = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottomRight");
-            BorderLeft = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogLeft");
-            BorderRight = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogRight");
-            BorderTop = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogTop");
-            BorderBottom = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogBottom");
-            BorderMiddle = ScreenManager.Content.Load<Texture2D>("Images/Dialog/DialogMiddle");
+            caption = assets.captionBonus;
+            BorderTopLeft = assets.dialogTL;
+            BorderTopRight = assets.dialogTR;
+            BorderBottomLeft = assets.dialogBL;
+            BorderBottomRight = assets.dialogBR;
+            BorderLeft = assets.dialogL;
+            BorderRight = assets.dialogR;
+            BorderTop = assets.dialogT;
+            BorderBottom = assets.dialogB;
+            BorderMiddle = assets.dialogC;
 
             screenWidth = game.GraphicsDevice.Viewport.Width;
             screenHeight = game.GraphicsDevice.Viewport.Height;

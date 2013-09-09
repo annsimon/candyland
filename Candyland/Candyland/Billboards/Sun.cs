@@ -21,11 +21,11 @@ namespace Candyland
             textures = new Texture2D[textureCount];
         }
 
-        public void Load(ContentManager manager)
+        public void Load(ContentManager manager, AssetManager assets)
         {
-            m_effect = manager.Load<Effect>("Shaders/Billboard");
+            m_effect = assets.billboardEffect;
             m_effect.CurrentTechnique = m_effect.Techniques["BillboardingCameraAligned"];
-            textures[0] = manager.Load<Texture2D>("Images/Billboards/Sun/Sun1");
+            textures[0] = assets.sun;
             m_mapTexture = textures[0];
         }
 

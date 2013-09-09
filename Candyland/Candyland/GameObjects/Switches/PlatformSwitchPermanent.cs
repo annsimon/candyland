@@ -33,20 +33,20 @@ namespace Candyland
             m_material.shiny = 4;
         }
 
-        public override void load(ContentManager content)
+        public override void load(ContentManager content, AssetManager assets)
         {
-            sound = content.Load<SoundEffect>("Sfx/Switch Activate8bit");
-            this.m_activated_texture = content.Load<Texture2D>("Objekte/Plattformen/Schalter/schalterpermanent_aktiv");
-            this.m_notActivated_texture = content.Load<Texture2D>("Objekte/Plattformen/Schalter/schalterpermanent_inaktiv");
+            this.sound = assets.switchActivateSound;
+            this.m_activated_texture = assets.switchPermanentActiveTexture;
+            this.m_notActivated_texture = assets.switchPermanentTexture;
             this.m_texture = this.m_notActivated_texture;
             this.m_original_texture = this.m_texture;
-            this.effect = content.Load<Effect>("Shaders/Shader");
-            this.m_model = content.Load<Model>("Objekte/Plattformen/plattform_klein");
+            this.effect = assets.commonShader;
+            this.m_model = assets.platformSmall;
             this.m_original_model = this.m_model;
 
             this.calculateBoundingBox();
 
-            base.load(content);
+            base.load(content, assets);
         }
 
         #endregion

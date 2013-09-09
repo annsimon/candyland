@@ -19,9 +19,9 @@ namespace Candyland
             candyHelper = helper;
         }
 
-        public override void Open(Game game)
+        public override void Open(Game game, AssetManager assets)
         {
-            base.Open(game);
+            base.Open(game, assets);
 
             question = "Soll ich deinen kleinen\nFreund für dich holen?";
         }
