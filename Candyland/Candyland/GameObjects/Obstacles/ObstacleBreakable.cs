@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Audio;
+using SkinnedModel;
 
 namespace Candyland
 {
@@ -15,6 +16,9 @@ namespace Candyland
     class ObstacleBreakable : Obstacle
     {
         private SoundEffect sound;
+        protected bool isBreaking;
+        protected double timeSinceBroken;
+        private bool nowStartedBreaking = true;
 
         public ObstacleBreakable(String id, Vector3 pos, UpdateInfo updateInfo, bool visible)
         {
@@ -26,6 +30,7 @@ namespace Candyland
         protected void initialize(string id, Vector3 pos, UpdateInfo updateInfo, bool visible)
         {
             base.initialize(id, pos, updateInfo, visible);
+            this.isBreaking = false;
         }
 
         public override void load(ContentManager content, AssetManager assets)
@@ -41,19 +46,13 @@ namespace Candyland
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
             base.load(content, assets);
+
+            AnimationClip clip = m_skinningData.AnimationClips["ArmatureAction"];
+
+            animationPlayer.StartClip(clip);
         }
 
         #endregion
-
-        public override void update()
-        {
-            if (!isVisible)
-                return;
-            base.update();
-            // let the Object fall, if no collision with lower Objects
-            fall();
-            isonground = false;
-        }
 
         #region collision
 
@@ -65,16 +64,18 @@ namespace Candyland
 
         public override void hasCollidedWith(GameObject obj)
         {
+            if (isBreaking) return;
+
             if (obj.GetType() == typeof(CandyHelper))
             {
                 helperIsClose = true;
                 if (m_updateInfo.currentpushedKeys.Contains(Microsoft.Xna.Framework.Input.Keys.Space)
                 && !m_updateInfo.candyselected)
                 {
-                    breakObstacle();
+                    isBreaking = true;
                 }
             }
-                
+
         }
 
         public override void isNotCollidingWith(GameObject obj)
@@ -83,18 +84,45 @@ namespace Candyland
 
         #endregion
 
-        #region actions
-
-        private void breakObstacle()
+        public override void update()
         {
-            // TODO start animation and get rid of Obstacle, so the Player can move forward
-            float volume = 0.3f;
-            float pitch = 0.0f;
-            float pan = 0.0f;
-            sound.Play(volume, pitch, pan);
-            isVisible = false;
+            if (isBreaking)
+            {
+                // start playing only once
+                if (nowStartedBreaking)
+                {
+                    float volume = 0.2f;
+                    float pitch = 0.0f;
+                    float pan = 0.0f;
+                    sound.Play(volume, pitch, pan);
+                    nowStartedBreaking = false;
+                }
+
+                timeSinceBroken += m_updateInfo.gameTime.ElapsedGameTime.TotalSeconds;
+            }
+            if (timeSinceBroken >= 0.25f)
+            {
+                this.isVisible = false;
+            }
+
+            if (isBreaking && timeSinceBroken < 1)
+            {
+                animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
+            }
+            else
+            {
+                animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, false, Matrix.Identity);
+            }
+
         }
 
-        #endregion
+        public override void Reset()
+        {
+            isBreaking = false;
+            timeSinceBroken = 0;
+            nowStartedBreaking = true;
+            base.Reset();
+        }
+
     }
 }

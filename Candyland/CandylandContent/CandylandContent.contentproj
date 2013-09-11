@@ -260,8 +260,8 @@
     <Compile Include="Objekte\Obstacles\Breakable\blockbreakable.fbx">
       <Name>blockbreakable</Name>
       <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.5</ProcessorParameters_Scale>
+      <Processor>SkinnedModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.55</ProcessorParameters_Scale>
     </Compile>
     <Compile Include="NPCs\HelperActor\buddy.fbx">
       <Name>buddy</Name>

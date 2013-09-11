@@ -16,7 +16,7 @@ namespace Candyland
     class BreakingPlatform : Platform
     {
         protected bool isBreaking;
-        protected double timeSincedSteppedOn;
+        protected double timeSinceSteppedOn;
         private SoundEffect sound;
 
         private bool nowStartedBreaking = true;
@@ -31,7 +31,7 @@ namespace Candyland
             base.init(id, pos, updateInfo, visible);
 
             this.isBreaking = false;
-            timeSincedSteppedOn = 0;
+            timeSinceSteppedOn = 0;
         }
 
         public override void load(ContentManager content, AssetManager assets)
@@ -85,14 +85,14 @@ namespace Candyland
                     nowStartedBreaking = false;
                 }
 
-                timeSincedSteppedOn += m_updateInfo.gameTime.ElapsedGameTime.TotalSeconds;
+                timeSinceSteppedOn += m_updateInfo.gameTime.ElapsedGameTime.TotalSeconds;
             }
-            if (timeSincedSteppedOn >= GameConstants.breakTime)
+            if (timeSinceSteppedOn >= GameConstants.breakTime)
             {
                 this.isVisible = false;
             }
 
-            if (isBreaking && timeSincedSteppedOn < GameConstants.breakTime)
+            if (isBreaking && timeSinceSteppedOn < GameConstants.breakTime)
             {
                 animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
             }
@@ -106,7 +106,7 @@ namespace Candyland
         public override void Reset()
         {
             isBreaking = false;
-            timeSincedSteppedOn = 0;
+            timeSinceSteppedOn = 0;
             nowStartedBreaking = true;
             base.Reset();
         }
