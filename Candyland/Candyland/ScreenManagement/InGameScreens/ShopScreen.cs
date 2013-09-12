@@ -197,7 +197,7 @@ namespace Candyland
 
             if (enterPressed)
             {
-                if ((m_bonusTracker.chocoCount - m_bonusTracker.chocoChipsSpent) < forSale.ElementAt(activeID - 1).Key)
+                if (forSale.Count() == 0 || (m_bonusTracker.chocoCount - m_bonusTracker.chocoChipsSpent) < forSale.ElementAt(activeID - 1).Key)
                     ;// TODO play sound
                 else
                     ScreenManager.ActivateNewScreen(new BuyQuestion(forSale.ElementAt(activeID-1).Value, forSale));
