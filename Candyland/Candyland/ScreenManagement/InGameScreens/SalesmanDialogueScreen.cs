@@ -59,7 +59,7 @@ namespace Candyland
             base.Open(game, assets);
 
             buttonTexture = assets.menuSelection;
-            talkingNPC = ScreenManager.Content.Load<Texture2D>(Picture);
+            talkingNPC = assets.dialogImages["Salesman"];
 
             ownDiagBox = new Rectangle(480, 20, 300, 200);
 

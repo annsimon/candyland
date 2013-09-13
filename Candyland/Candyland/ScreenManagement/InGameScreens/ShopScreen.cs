@@ -203,7 +203,7 @@ namespace Candyland
 
             if (enterPressed)
             {
-                if ((m_bonusTracker.chocoCount - m_bonusTracker.chocoChipsSpent) < forSale.ElementAt(activeID - 1).Key)
+                if (forSale.Count() == 0 || (m_bonusTracker.chocoCount - m_bonusTracker.chocoChipsSpent) < forSale.ElementAt(activeID - 1).Key)
                 {
                     float volume = 0.5f;
                     float pitch = 0.0f;
