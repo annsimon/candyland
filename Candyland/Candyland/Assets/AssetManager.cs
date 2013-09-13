@@ -14,6 +14,7 @@ namespace Candyland
     {
         #region sfx
         public SoundEffect menuButtonSound { get; set; }
+        public SoundEffect menuButtonError { get; set; }
 
         public SoundEffect chocoSound { get; set; }
         public SoundEffect obstacleBreakSound { get; set; }
@@ -47,6 +48,7 @@ namespace Candyland
         public void Load(ContentManager content) 
         {
             menuButtonSound = content.Load<SoundEffect>("Sfx/MenuButton8bit");
+            menuButtonError = content.Load<SoundEffect>("Sfx/MenuError8bit");
             chocoSound = content.Load<SoundEffect>("Sfx/coin");
             obstacleBreakSound = content.Load<SoundEffect>("Sfx/CrackingBlock8bit");
             switchActivateSound = content.Load<SoundEffect>("Sfx/SwitchActivate8bit");

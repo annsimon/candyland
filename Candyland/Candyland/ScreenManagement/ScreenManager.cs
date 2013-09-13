@@ -26,7 +26,7 @@ namespace Candyland
         ScreenInputManager screenInput;
         InputState input;
 
-        private SoundEffect sound;
+        private SoundEffect buttonSound;
 
         // the menus will be optimized for the prefered screen size
         // Ingame text will have a bigger font
@@ -121,7 +121,7 @@ namespace Candyland
 
             screenInput = new ScreenInputManager();
 
-            sound = assets.menuButtonSound;
+            buttonSound = assets.menuButtonSound;
             spriteBatch = new SpriteBatch(GraphicsDevice);
             if (isFullScreen) mainText = assets.mainTextFullscreen;
             else mainText = assets.mainText;
@@ -161,7 +161,7 @@ namespace Candyland
                 float volume = 0.5f;
                 float pitch = 0.0f;
                 float pan = 0.0f;
-                sound.Play(volume, pitch, pan);
+                buttonSound.Play(volume, pitch, pan);
             }
         }
 

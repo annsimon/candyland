@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Media;
 
 namespace Candyland
 {
@@ -86,6 +88,8 @@ namespace Candyland
         private UpdateInfo m_updateInfo;
         private int chocoCollected;
 
+        private SoundEffect errorSound;
+
         #endregion fields
 
         public ShopScreen(string saleID, UpdateInfo info, int chocoCount)
@@ -112,6 +116,8 @@ namespace Candyland
             BorderTop = assets.dialogT;
             BorderBottom = assets.dialogB;
             BorderMiddle = assets.dialogC;
+
+            errorSound = assets.menuButtonError;
 
             // What's there to sell?
             m_bonusTracker = ScreenManager.SceneManager.getBonusTracker();
@@ -198,9 +204,14 @@ namespace Candyland
             if (enterPressed)
             {
                 if ((m_bonusTracker.chocoCount - m_bonusTracker.chocoChipsSpent) < forSale.ElementAt(activeID - 1).Key)
-                    ;// TODO play sound
+                {
+                    float volume = 0.5f;
+                    float pitch = 0.0f;
+                    float pan = 0.0f;
+                    errorSound.Play(volume, pitch, pan);// TODO play sound
+                }
                 else
-                    ScreenManager.ActivateNewScreen(new BuyQuestion(forSale.ElementAt(activeID-1).Value, forSale));
+                    ScreenManager.ActivateNewScreen(new BuyQuestion(forSale.ElementAt(activeID - 1).Value, forSale));
             }
         }
 
