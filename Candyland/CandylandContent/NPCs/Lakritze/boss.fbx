@@ -12,8 +12,8 @@ FBXHeaderExtension:  {
 		Month: 09
 		Day: 14
 		Hour: 13
-		Minute: 27
-		Second: 35
+		Minute: 44
+		Second: 26
 		Millisecond: 0
 	}
 	Creator: "FBX SDK/FBX Plugins build 20070228"
@@ -21,7 +21,7 @@ FBXHeaderExtension:  {
 		FlagPLE: 0
 	}
 }
-CreationTime: "2013-09-14 13:27:35:000"
+CreationTime: "2013-09-14 13:44:26:000"
 Creator: "Blender version 2.66 (sub 1)"
 
 ; Object definitions
@@ -18133,7 +18133,7 @@ Objects:  {
 			Property: "LastFrame", "int", "",0
 			Property: "Width", "int", "",0
 			Property: "Height", "int", "",0
-			Property: "Path", "charptr", "", "bosstextur3.png"
+			Property: "Path", "charptr", "", "bosstextur.png"
 			Property: "StartFrame", "int", "",0
 			Property: "StopFrame", "int", "",0
 			Property: "PlaySpeed", "double", "",1
@@ -18144,8 +18144,8 @@ Objects:  {
 			Property: "AccessMode", "enum", "",0
 		}
 		UseMipMap: 0
-		Filename: "bosstextur3.png"
-		RelativeFilename: "bosstextur3.png"
+		Filename: "bosstextur.png"
+		RelativeFilename: "bosstextur.png"
 	}
 	Texture: "Texture::Lakritztextur", "TextureVideoClip" {
 		Type: "TextureVideoClip"
@@ -18169,8 +18169,8 @@ Objects:  {
 			Property: "VideoProperty", "object", ""
 		}
 		Media: "Video::Lakritztextur"
-		FileName: "bosstextur3.png"
-		RelativeFilename: "bosstextur3.png"
+		FileName: "bosstextur.png"
+		RelativeFilename: "bosstextur.png"
 		ModelUVTranslation: 0,0
 		ModelUVScaling: 1,1
 		Texture_Alpha_Source: "None"
