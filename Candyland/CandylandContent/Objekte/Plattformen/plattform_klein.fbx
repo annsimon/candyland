@@ -220,7 +220,7 @@ Objects:  {
 			}
 		}
 	}
-	Material: "Material::None__plattformtextur_png", "" {
+	Material: "Material::None__plattformtextur_klein_png", "" {
 		Version: 102
 		ShadingModel: "phong"
 		MultiLayer: 0
@@ -250,14 +250,14 @@ Objects:  {
 			Property: "Reflectivity", "double", "",0
 		}
 	}
-	Video: "Video::plattformtextur_png", "Clip" {
+	Video: "Video::plattformtextur_klein_png", "Clip" {
 		Type: "Clip"
 		Properties60:  {
 			Property: "FrameRate", "double", "",0
 			Property: "LastFrame", "int", "",0
 			Property: "Width", "int", "",0
 			Property: "Height", "int", "",0
-			Property: "Path", "charptr", "", "plattformtextur.png"
+			Property: "Path", "charptr", "", "plattformtextur_klein.png"
 			Property: "StartFrame", "int", "",0
 			Property: "StopFrame", "int", "",0
 			Property: "PlaySpeed", "double", "",1
@@ -268,13 +268,13 @@ Objects:  {
 			Property: "AccessMode", "enum", "",0
 		}
 		UseMipMap: 0
-		Filename: "plattformtextur.png"
-		RelativeFilename: "plattformtextur.png"
+		Filename: "plattformtextur_klein.png"
+		RelativeFilename: "plattformtextur_klein.png"
 	}
-	Texture: "Texture::plattformtextur_png", "TextureVideoClip" {
+	Texture: "Texture::plattformtextur_klein_png", "TextureVideoClip" {
 		Type: "TextureVideoClip"
 		Version: 202
-		TextureName: "Texture::plattformtextur_png"
+		TextureName: "Texture::plattformtextur_klein_png"
 		Properties60:  {
 			Property: "Translation", "Vector", "A+",0,0,0
 			Property: "Rotation", "Vector", "A+",0,0,0
@@ -292,9 +292,9 @@ Objects:  {
 			Property: "TextureScalingPivot", "Vector3D", "",0,0,0
 			Property: "VideoProperty", "object", ""
 		}
-		Media: "Video::plattformtextur_png"
-		FileName: "plattformtextur.png"
-		RelativeFilename: "plattformtextur.png"
+		Media: "Video::plattformtextur_klein_png"
+		FileName: "plattformtextur_klein.png"
+		RelativeFilename: "plattformtextur_klein.png"
 		ModelUVTranslation: 0,0
 		ModelUVScaling: 1,1
 		Texture_Alpha_Source: "None"
@@ -347,11 +347,11 @@ Relations:  {
 	}
 	Model: "Model::Camera Switcher", "CameraSwitcher" {
 	}
-	Material: "Material::None__plattformtextur_png", "" {
+	Material: "Material::None__plattformtextur_klein_png", "" {
 	}
-	Texture: "Texture::plattformtextur_png", "TextureVideoClip" {
+	Texture: "Texture::plattformtextur_klein_png", "TextureVideoClip" {
 	}
-	Video: "Video::plattformtextur_png", "Clip" {
+	Video: "Video::plattformtextur_klein_png", "Clip" {
 	}
 }
 
@@ -360,9 +360,9 @@ Relations:  {
 
 Connections:  {
 	Connect: "OO", "Model::Cube", "Model::Scene"
-	Connect: "OO", "Material::None__plattformtextur_png", "Model::Cube"
-	Connect: "OO", "Texture::plattformtextur_png", "Model::Cube"
-	Connect: "OO", "Video::plattformtextur_png", "Texture::plattformtextur_png"
+	Connect: "OO", "Material::None__plattformtextur_klein_png", "Model::Cube"
+	Connect: "OO", "Texture::plattformtextur_klein_png", "Model::Cube"
+	Connect: "OO", "Video::plattformtextur_klein_png", "Texture::plattformtextur_klein_png"
 }
 ;Takes and animation section
 ;----------------------------------------------------
