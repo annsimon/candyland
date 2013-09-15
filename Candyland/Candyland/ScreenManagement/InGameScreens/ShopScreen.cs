@@ -75,6 +75,8 @@ namespace Candyland
         protected Texture2D BorderBottom;
         protected Texture2D BorderMiddle;
 
+        protected Texture2D chocoChip;
+
         SortedList<int, BonusTile> forSale;
         BonusTracker m_bonusTracker;
 
@@ -116,6 +118,8 @@ namespace Candyland
             BorderTop = assets.dialogT;
             BorderBottom = assets.dialogB;
             BorderMiddle = assets.dialogC;
+
+            chocoChip = assets.chocoChip;
 
             errorSound = assets.menuButtonError;
 
@@ -184,10 +188,7 @@ namespace Candyland
                 ScreenManager.ResumeLast(this);
             }
 
-            bool enterPressed = false;
-            
-            // count again after buying
-            numberOfItems = forSale.Count;
+            bool enterPressed = false;         
 
             // look at input and update shop selection
             switch (ScreenManager.Input)
@@ -213,6 +214,9 @@ namespace Candyland
                 else
                     ScreenManager.ActivateNewScreen(new BuyQuestion(forSale.ElementAt(activeID - 1).Value, forSale));
             }
+
+            // count again after buying
+            numberOfItems = forSale.Count;
         }
 
         public override void Draw(GameTime gameTime)
@@ -263,15 +267,21 @@ namespace Candyland
             DrawBonusPictures(m_sprite);
 
             Color textColor = Color.Black;
-            m_sprite.DrawString(font, "Preis", new Vector2(bigBox.Left + offset, bigBox.Top + offset), textColor);
+
+            Vector2 pricePos = new Vector2(bigBox.Left + offset + 10, bigBox.Top + offset + font.LineSpacing);
+            m_sprite.DrawString(font, "Preis", new Vector2(bigBox.Left + offset, bigBox.Top + offset + 5), textColor);
             if (forSale.Count != 0)
             {
-                m_sprite.DrawString(font, forSale.ElementAt(activeID - 1).Value.Price.ToString(), new Vector2(bigBox.Left + offset, bigBox.Top + offset + font.LineSpacing), textColor);
+                m_sprite.DrawString(font, forSale.ElementAt(activeID - 1).Value.Price.ToString(), pricePos, textColor);
             }
-            else m_sprite.DrawString(font, "0", new Vector2(bigBox.Left + offset, bigBox.Top + offset + font.LineSpacing), textColor);
+            else m_sprite.DrawString(font, "0", pricePos, textColor);
+            m_sprite.Draw(chocoChip, new Rectangle((int)pricePos.X + 40, (int)pricePos.Y, 24, 30), Color.White);
             m_sprite.DrawString(font, "Du hast", new Vector2(bigBox.Left + offset, bigBox.Top + 200), textColor);
-            m_sprite.DrawString(font, (chocoCollected - m_bonusTracker.chocoChipsSpent).ToString(), new Vector2(bigBox.Left + offset, bigBox.Top + 230), textColor);
-        
+
+            Vector2 availableChocosPos = new Vector2(bigBox.Left + offset + 10, bigBox.Top + 235);
+            m_sprite.DrawString(font, (chocoCollected - m_bonusTracker.chocoChipsSpent).ToString(), availableChocosPos, textColor);
+            m_sprite.Draw(chocoChip, new Rectangle((int)availableChocosPos.X + 40, (int)availableChocosPos.Y, 24, 30), Color.White);
+
             m_sprite.DrawString(font, "Zurück mit\n'Escape'", new Vector2(bigBox.Left + offset, bigBox.Bottom - 90), textColor);
 
             m_sprite.End();
