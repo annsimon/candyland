@@ -255,7 +255,6 @@
       <Name>bonbon</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.15</ProcessorParameters_Scale>
     </Compile>
     <Compile Include="Objekte\Obstacles\Breakable\blockbreakable.fbx">
       <Name>blockbreakable</Name>
