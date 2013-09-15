@@ -176,7 +176,7 @@ namespace Candyland
 
                 if (distanceToBoss > 16)
                 {
-                    m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen("Hahaha, ich hab's dir doch gesagt. Du holst mich nicht mehr ein. Pech gehabt!", "Images/DialogImages/Boss"));
+                    m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen("Hahaha, ich hab's dir doch gesagt. Du holst mich nicht mehr ein. Pech gehabt!", "Boss"));
                     m_updateInfo.reset = true;
                 }
             }
@@ -185,7 +185,7 @@ namespace Candyland
                 distanceToBoss = (m_updateInfo.bossPosition - m_updateInfo.bossTarget).Length();
                 if (distanceToBoss < 1)
                 {
-                    m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen("Das wars fuer dich, jetzt steht der Entstehung von Lakritzland nichts mehr im Wege!", "Images/DialogImages/Boss"));
+                    m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen("Das wars fuer dich, jetzt steht der Entstehung von Lakritzland nichts mehr im Wege!", "Boss"));
                     m_updateInfo.reset = true;
                 }
             }
