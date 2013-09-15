@@ -1,0 +1,21 @@
+Billboard			http://create.msdn.com/en-US/education/catalog/sample/billboard
+Shader allgemein 		http://www.riemers.net 
+Shadow Mapping		http://www.dhpoware.com/demos/xnaShadowMapping.html 
+Cel Shading 		http://rbwhitaker.wikidot.com/toon-shader
+Bounding Box  		http://www.xnawiki.com/index.php/Rendering_Bounding_Boxes, http://gamedev.stackexchange.com/questions/2438/how-do-i-create-bounding-boxes-with-xna-4-0
+Skybox			http://www.riemers.net/eng/Tutorials/XNA/Csharp/Series2/Skybox.php
+GameStateManagement	http://xbox.create.msdn.com/en-US/education/catalog/sample/game_state_management
+SpriteAnimation		http://algorhymes.wordpress.com/2012/10/02/cxna-handling-2d-animations/
+
+Musik:
+Haupt-Hintergrundmusik  	http://longzijun.wordpress.com/2012/12/26/upbeat-background-music-free-instrumentals/
+Zweite Hintergrundmusik  	http://www.flashkit.com/loops/Ambient/Soundscapes/The_E-calpomat-7339/index.php
+
+Sounds:
+ticken (Zeit)		http://sweetsoundeffects.com/clock-sounds/
+schalter betätigen		http://www.soundjay.com/switch-sounds-2.html
+schalter gelöst		http://www.soundjay.com/switch-sounds-2.html
+breakable obstacle	http://www.soundjay.com/ice-sound-effect.html
+breakable plattform	http://www.soundjay.com/ice-sound-effect.html
+button in dialog klicken	http://www.soundjay.com/button-sounds-3.html
+button "error"		http://www.soundjig.com/pages/soundfx/beeps.html
