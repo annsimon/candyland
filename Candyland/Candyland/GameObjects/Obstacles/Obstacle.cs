@@ -29,9 +29,9 @@ namespace Candyland
         {
             base.init(id, pos, updateInfo, visible);
             if (size > 0)
-                this.m_position.Y += 0.6f;
+                this.m_position.Y += 0.56f;
             else
-                this.m_position.Y += 0.33f;
+                this.m_position.Y += 0.31f;
             this.m_original_position = this.m_position;
             this.size = size;
         }

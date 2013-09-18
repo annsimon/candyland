@@ -32,9 +32,17 @@ namespace Candyland
         /// how many of the collected chips where spent in the shop
         /// </summary>
         public int chocoChipsSpent { get; set; }
-
+        /// <summary>
+        /// list of IDs from all sold bonus items
+        /// </summary>
         public List<string> soldItems { get; set; }
+        /// <summary>
+        /// list of all concept art items
+        /// </summary>
         public List<BonusTile> conceptArts { get; set; }
+        /// <summary>
+        /// list of all bonus level items
+        /// </summary>
         public List<BonusTile> bonusLevel { get; set; }
 
         public BonusTracker()
@@ -44,7 +52,7 @@ namespace Candyland
             chocoTotal = 0;
 
             soldItems = new List<string>(30);
-            conceptArts = new List<BonusTile>();
+            conceptArts = new List<BonusTile>(11);
             bonusLevel = new List<BonusTile>(15);
 
             conceptArts.Add(new BonusTile("CA1", "Cupcakes 1", "Concept Art", 1, "Images/ConceptArt/Cupcakes1"));

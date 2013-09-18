@@ -174,17 +174,19 @@ namespace Candyland
         }
 
         // Save Game
-        public void Save()
+        public void SaveGame()
         {
             // Create the data to save.
             SaveGameData data = new SaveGameData();
-            data.guycurrentAreaID = m_updateInfo.currentguyLevelID.Split('.')[0];
-            data.guycurrentLevelID = m_updateInfo.currentguyLevelID;
-            data.helpercurrentAreaID = m_updateInfo.currenthelperLevelID.Split('.')[0];
-            data.helpercurrentLevelID = m_updateInfo.currenthelperLevelID; 
-            data.chocoChipState = m_bonusTracker.chocoChipState;
-            data.chocoCount = m_bonusTracker.chocoCount;
-            data.chocoTotal = m_bonusTracker.chocoTotal;
+                data.helperIsAvailable = m_updateInfo.helperavailable;
+                data.selectedPlayer = m_updateInfo.candyselected;
+                data.guycurrentLevelID = m_updateInfo.currentguyLevelID;
+                data.helpercurrentLevelID = m_updateInfo.currenthelperLevelID; 
+                data.chocoChipState = m_bonusTracker.chocoChipState;
+                data.chocoCount = m_bonusTracker.chocoCount;
+                data.chocoSpend = m_bonusTracker.chocoChipsSpent;
+                data.soldItems = m_bonusTracker.soldItems;
+                data.actionState = m_actionTracker.actionState;
 
             string filename = "savegame.sav";
 
@@ -198,35 +200,95 @@ namespace Candyland
             }
         }
 
-        // Load savedGame
-        public void Load()
+
+        /// <summary>
+        /// Load savedGame
+        /// </summary>
+        /// <returns>true, if savegame is available</returns>
+        public bool LoadSavegame()
         {
             string filename = "savegame.sav";
 
             XmlReaderSettings settings = new XmlReaderSettings();
             SaveGameData data;
             XmlReader reader;
-            //TODO Needs to be changed to testing if the savefile exists
-            if (true)
-                reader = XmlReader.Create(filename, settings);
-            using (reader)
+
+            try
             {
-                data = IntermediateSerializer.
-                    Deserialize<SaveGameData>
-                    (reader, null);
+                reader = XmlReader.Create(filename, settings);
+                using (reader)
+                {
+                    data = IntermediateSerializer.
+                        Deserialize<SaveGameData>
+                        (reader, null);
+                }
+
+                // Use saved data to put Game into the last saved state
+                    m_updateInfo.helperavailable = data.helperIsAvailable;
+                    m_updateInfo.candyselected = data.selectedPlayer;
+                    m_updateInfo.currentguyAreaID = data.guycurrentLevelID.Split('.')[0];
+                    m_updateInfo.currentguyLevelID = data.guycurrentLevelID;
+                    m_updateInfo.currenthelperAreaID = data.helpercurrentLevelID.Split('.')[0];
+                    m_updateInfo.currenthelperLevelID = data.helpercurrentLevelID;
+                    m_updateInfo.reset = true; //everything should be reset, when game is loaded
+                    m_bonusTracker.chocoChipState = data.chocoChipState;
+                    m_bonusTracker.chocoCount = data.chocoCount;
+                    m_bonusTracker.chocoChipsSpent = data.chocoSpend;
+                    m_bonusTracker.soldItems = data.soldItems;
+                    m_actionTracker.actionState = data.actionState;
+                    // set all collected chocoChips in objectWithBillboards list to invisible
+                    bool isCollected = false;
+                    foreach (GameObject obj in m_updateInfo.objectsWithBillboards)
+                    {
+                        data.chocoChipState.TryGetValue(obj.getID(), out isCollected);
+                        if (isCollected)
+                            obj.isVisible = false;
+                    }
+
+                // Update the world to savegame status
+                foreach (var area in m_areas)
+                    area.Value.Load();
+                return true;
             }
+            catch
+            {
+                return false;
+            }
+        }
 
-            // Use saved data to put Game into the last saved state
-            m_updateInfo.currentguyLevelID = data.guycurrentLevelID;
-            m_updateInfo.currenthelperLevelID = (data.helpercurrentLevelID);
-            m_updateInfo.reset = true; //everything should be reset, when game is loaded
-            m_bonusTracker.chocoChipState = data.chocoChipState;
-            m_bonusTracker.chocoCount = data.chocoCount;
-            m_bonusTracker.chocoTotal = data.chocoTotal;
+        /// <summary>
+        /// When a new game get's started, while another game is still running, content doesn't need to be reloaded
+        /// simply set the necessary data back to their starting values
+        /// </summary>
+        public bool ResetDataForNewGame()
+        {
+            // Set everything back to starting values
+                m_updateInfo.helperavailable = false;
+                m_updateInfo.candyselected = true;
+                m_updateInfo.currentguyAreaID = GameConstants.startAreaID;
+                m_updateInfo.currentguyLevelID = GameConstants.startLevelID;
+                m_updateInfo.currenthelperAreaID = GameConstants.startAreaID;
+                m_updateInfo.currenthelperLevelID = GameConstants.startLevelID;
+                m_updateInfo.reset = true; //everything should be reset, when game is loaded
+                // set all chocoChips to not collected
+                //foreach (string id in m_bonusTracker.chocoChipState.Keys)
+                //{
+                //    m_bonusTracker.chocoChipState[id] = false;
+                //}
+                m_bonusTracker.chocoCount = 0;
+                m_bonusTracker.chocoChipsSpent = 0;
+                m_bonusTracker.soldItems = new List<string>(30);
+                // set all actions to not yet started (false)
+                //foreach (string id in m_actionTracker.actionState.Keys)
+                //{
+                //    m_actionTracker.actionState[id] = false;
+                //}
 
-            // Update ChocoChips to savegame
+            // Set the world back to start
             foreach (var area in m_areas)
                 area.Value.Load();
+
+            return true;
         }
 
         private void CreateShadowMap()

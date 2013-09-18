@@ -231,7 +231,7 @@
       <Name>obstacle_half</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.5</ProcessorParameters_Scale>
+      <ProcessorParameters_Scale>0.48</ProcessorParameters_Scale>
     </Compile>
     <Compile Include="NPCs\Lakritze\boss.fbx">
       <Name>boss</Name>
@@ -420,7 +420,7 @@
       <Name>lakritzblock_klein</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.52</ProcessorParameters_Scale>
+      <ProcessorParameters_Scale>0.485</ProcessorParameters_Scale>
     </Compile>
     <Compile Include="Objekte\Obstacles\Movable\blockmovable.fbx">
       <Name>blockmovable</Name>

@@ -3,11 +3,15 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
 using System.Collections.Generic;
 using System.Threading;
+using System.Xml;
+using Microsoft.Xna.Framework.Content.Pipeline.Serialization.Intermediate;
 
 namespace Candyland
 {
     class MainMenu : GameScreen
     {
+        private bool savegameAvailable;
+
         Texture2D caption;
         Texture2D buttonTexture;
 
@@ -59,6 +63,31 @@ namespace Candyland
         {
             this.isFullscreen = true;
 
+            // Check if a savegame could be loaded
+                string filename = "savegame.sav";
+
+                XmlReaderSettings settings = new XmlReaderSettings();
+                SaveGameData data;
+                XmlReader reader;
+
+                try
+                {
+                    reader = XmlReader.Create(filename, settings);
+                    using (reader)
+                    {
+                        data = IntermediateSerializer.
+                            Deserialize<SaveGameData>
+                            (reader, null);
+                    }
+
+                    savegameAvailable = true;
+                }
+                catch
+                {
+                    savegameAvailable = false;
+                    activeButtonIndex = 1;
+                }
+
             caption = assets.captionMain;
             buttonTexture = assets.menuSelection;
 
@@ -105,8 +134,17 @@ namespace Candyland
                 case InputState.Up: activeButtonIndex--; break;
                 case InputState.Down: activeButtonIndex++; break;
             }
-            if (activeButtonIndex >= numberOfButtons) activeButtonIndex = 0;
-            if (activeButtonIndex < 0) activeButtonIndex = numberOfButtons - 1;
+            // leave out first option "Weiterspielen" if there's no game to continue
+            if (savegameAvailable)
+            {
+                if (activeButtonIndex >= numberOfButtons) activeButtonIndex = 0;
+                if (activeButtonIndex < 0) activeButtonIndex = numberOfButtons - 1;
+            }
+            else
+            {
+                if (activeButtonIndex >= numberOfButtons) activeButtonIndex = 1;
+                if (activeButtonIndex < 1) activeButtonIndex = numberOfButtons - 1;
+            }
 
             // Selected Button confirmed by pressing Enter
             if (enterPressed)
@@ -114,7 +152,11 @@ namespace Candyland
                 switch (activeButtonIndex)
                 {
                     case 0: ScreenManager.ResumeGame(); break;
-                    case 1: ScreenManager.ActivateNewScreen(new NewGameQuestion()); break;
+                    case 1:
+                        {
+                            if (savegameAvailable) ScreenManager.ActivateNewScreen(new NewGameQuestion());
+                            else ScreenManager.StartNewGame(); break;
+                        }
                     case 2: ScreenManager.ActivateNewScreen(new OptionsScreen()); break;
                     case 3: ScreenManager.ActivateNewScreen(new BonusScreen()); break;
                     case 4: ScreenManager.ActivateNewScreen(new CreditsScreen()); break;
@@ -148,8 +190,17 @@ namespace Candyland
             // Draw Option Strings
             Color textColor = Color.Black;
 
-            m_sprite.DrawString(font, play, new Vector2(leftAlign + (buttonWidth - font.MeasureString(play).X) / 2,
-                topAlign - buttonHeight/2), textColor);
+            // Draw first option gray, if not available
+            if (savegameAvailable)
+            {
+                m_sprite.DrawString(font, play, new Vector2(leftAlign + (buttonWidth - font.MeasureString(play).X) / 2,
+                    topAlign - buttonHeight / 2), textColor);
+            }
+            else
+            {
+                m_sprite.DrawString(font, play, new Vector2(leftAlign + (buttonWidth - font.MeasureString(play).X) / 2,
+                    topAlign - buttonHeight / 2), Color.Gray);
+            }
             m_sprite.DrawString(font, newGame, new Vector2(leftAlign + (buttonWidth - font.MeasureString(newGame).X) / 2,
                 topAlign + (buttonHeight)), textColor);
             m_sprite.DrawString(font, options, new Vector2(leftAlign + (buttonWidth - font.MeasureString(options).X) / 2,

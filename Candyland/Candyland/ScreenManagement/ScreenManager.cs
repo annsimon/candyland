@@ -236,7 +236,7 @@ namespace Candyland
             // Go back to recent screen
             GameScreen resumedScreen = screens.Last();
             resumedScreen.ScreenState = ScreenState.Active;
-            resumedScreen.Resume();
+            resumedScreen.Resume(); // Maybe used to manage music starts and stops
         }
 
         /// <summary>
@@ -256,23 +256,11 @@ namespace Candyland
                 }
             }
 
-            if (!gameIsRunning) StartNewGame();
-            // TODO Load last save game
+            if (!gameIsRunning) LoadLastSavegame();
         }
 
-        /// <summary>
-        /// Starts a new game
-        /// </summary>
-        public void StartNewGame()
+        private void LoadLastSavegame()
         {
-            if (gameIsRunning)
-            {
-                while (screens.Count > 0)
-                {
-                    RemoveScreen(screens.Last());
-                }
-            }
-
             // Remove main menu
             if (screens.Count() > 0)
             {
@@ -282,8 +270,38 @@ namespace Candyland
 
             ActivateNewScreen(new LoadingScreen());
 
-            Thread loadingThread = new Thread(LoadingGameContent);
+            Thread loadingThread = new Thread(LoadingGameContentAndSaveGame);
             loadingThread.Start();
+        }
+
+        /// <summary>
+        /// Starts a new game
+        /// </summary>
+        public void StartNewGame()
+        {
+            // Remove main menu
+            if (screens.Count() > 0)
+            {
+                screens.Last().Close();
+                RemoveScreen(screens.Last());
+            }
+
+            // Show loading screen
+            ActivateNewScreen(new LoadingScreen());
+
+            // First case: a game is already running and content has been loaded
+            if (gameIsRunning)
+            {
+                Thread loadingThread = new Thread(GameReset);
+                loadingThread.Start();
+            }
+
+            // Second case: no running game and content needs to be loaded
+            if (!gameIsRunning)
+            {
+                Thread loadingThread = new Thread(LoadingGameContent);
+                loadingThread.Start();
+            }
         }
 
         private void LoadingGameContent()
@@ -295,7 +313,29 @@ namespace Candyland
                 gameContent = new ContentManager(Game.Services, "Content");
 
             m_sceneManager.Load(gameContent, assets);
+
             readyToStartGame = true;
+        }
+
+        private void LoadingGameContentAndSaveGame()
+        {
+            m_sceneManager = new SceneManager(this);
+
+            // Load all content required by the scene
+            if (gameContent == null)
+                gameContent = new ContentManager(Game.Services, "Content");
+
+            m_sceneManager.Load(gameContent, assets);
+
+            readyToStartGame = m_sceneManager.LoadSavegame();
+        }
+
+        /// <summary>
+        /// A new game will be started by using the already loaded content and just reseting some values
+        /// </summary>
+        private void GameReset()
+        {
+            readyToStartGame = m_sceneManager.ResetDataForNewGame();
         }
 
         public bool readyToStartGame { get; set; }

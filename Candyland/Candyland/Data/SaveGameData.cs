@@ -7,13 +7,17 @@ namespace Candyland
 {
     public struct SaveGameData
     {
-        public string guycurrentAreaID;
+        public bool helperIsAvailable;
+        public bool selectedPlayer;
+
         public string guycurrentLevelID;
-        public string helpercurrentAreaID;
         public string helpercurrentLevelID;
 
-        public Dictionary<string, bool> chocoChipState;
         public int chocoCount;
-        public int chocoTotal;
+        public int chocoSpend;
+        public Dictionary<string, bool> chocoChipState;
+        public List<string> soldItems;
+
+        public Dictionary<string, bool> actionState;
     }
 }

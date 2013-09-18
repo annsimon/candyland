@@ -203,6 +203,9 @@ namespace Candyland
                         this.m_updateInfo.currenthelperLevelID = idParts[0] + "." + idParts[1];
                         this.m_updateInfo.nexthelperLevelID = doorToLevelID;
                     }
+
+                    // automatically save the game, when entering a new level
+                    m_updateInfo.m_screenManager.SceneManager.SaveGame();
                 }
                 if (m_triggersActionWithID != null)
                 {

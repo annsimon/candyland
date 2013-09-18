@@ -11,9 +11,6 @@ namespace Candyland
         // the scene manager, most stuff happens in there
         SceneManager m_sceneManager;
 
-        // has its own content manager
-        ContentManager content;
-
         public override void Open(Game game, AssetManager assets)
         {
             // tell screen manager that a game is already running
@@ -22,11 +19,6 @@ namespace Candyland
             this.isFullscreen = true;
 
             m_sceneManager = ScreenManager.SceneManager;
-
-            if (content == null)
-                content = ScreenManager.gameContent;
-
-            ScreenManager.gameContent = content;
         }
 
 
@@ -34,6 +26,9 @@ namespace Candyland
         {
             if (ScreenManager.Input.Equals(InputState.Back))
             {
+                // automatically save the game, when exiting to main menu
+                ScreenManager.SceneManager.SaveGame();
+
                 ScreenManager.ActivateNewScreen(new MainMenu());
             }
 
@@ -54,8 +49,7 @@ namespace Candyland
 
         public override void Close()
         {
-            // Unload content
-            content.Unload();
+
         }
     }
 }
