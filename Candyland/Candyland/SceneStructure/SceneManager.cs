@@ -178,14 +178,19 @@ namespace Candyland
         {
             // Create the data to save.
             SaveGameData data = new SaveGameData();
+            // Player and level
                 data.helperIsAvailable = m_updateInfo.helperavailable;
                 data.selectedPlayer = m_updateInfo.candyselected;
                 data.guycurrentLevelID = m_updateInfo.currentguyLevelID;
                 data.helpercurrentLevelID = m_updateInfo.currenthelperLevelID; 
+            // Teleports
+                data.activatedTeleports = m_updateInfo.activeTeleports;
+            // Bonus
                 data.chocoChipState = m_bonusTracker.chocoChipState;
                 data.chocoCount = m_bonusTracker.chocoCount;
                 data.chocoSpend = m_bonusTracker.chocoChipsSpent;
                 data.soldItems = m_bonusTracker.soldItems;
+            // Actions
                 data.actionState = m_actionTracker.actionState;
 
             string filename = "savegame.sav";
@@ -224,6 +229,8 @@ namespace Candyland
                 }
 
                 // Use saved data to put Game into the last saved state
+
+                // Player and level
                     m_updateInfo.helperavailable = data.helperIsAvailable;
                     m_updateInfo.candyselected = data.selectedPlayer;
                     m_updateInfo.currentguyAreaID = data.guycurrentLevelID.Split('.')[0];
@@ -231,19 +238,23 @@ namespace Candyland
                     m_updateInfo.currenthelperAreaID = data.helpercurrentLevelID.Split('.')[0];
                     m_updateInfo.currenthelperLevelID = data.helpercurrentLevelID;
                     m_updateInfo.reset = true; //everything should be reset, when game is loaded
+                // Teleport points
+                    m_updateInfo.activeTeleports = data.activatedTeleports;
+                // Bonus stuff
                     m_bonusTracker.chocoChipState = data.chocoChipState;
                     m_bonusTracker.chocoCount = data.chocoCount;
                     m_bonusTracker.chocoChipsSpent = data.chocoSpend;
                     m_bonusTracker.soldItems = data.soldItems;
-                    m_actionTracker.actionState = data.actionState;
                     // set all collected chocoChips in objectWithBillboards list to invisible
-                    bool isCollected = false;
-                    foreach (GameObject obj in m_updateInfo.objectsWithBillboards)
-                    {
-                        data.chocoChipState.TryGetValue(obj.getID(), out isCollected);
-                        if (isCollected)
-                            obj.isVisible = false;
-                    }
+                        bool isCollected = false;
+                        foreach (GameObject obj in m_updateInfo.objectsWithBillboards)
+                        {
+                            data.chocoChipState.TryGetValue(obj.getID(), out isCollected);
+                            if (isCollected)
+                                obj.isVisible = false;
+                        }
+                 // Actions
+                    m_actionTracker.actionState = data.actionState;
 
                 // Update the world to savegame status
                 foreach (var area in m_areas)
@@ -263,26 +274,38 @@ namespace Candyland
         public bool ResetDataForNewGame()
         {
             // Set everything back to starting values
-                m_updateInfo.helperavailable = false;
                 m_updateInfo.candyselected = true;
+                m_updateInfo.helperavailable = GameConstants.helperAvailableAtGameStart;
+                m_updateInfo.activateHelperNow = false;
+                m_updateInfo.loseHelperNow = false;
                 m_updateInfo.currentguyAreaID = GameConstants.startAreaID;
                 m_updateInfo.currentguyLevelID = GameConstants.startLevelID;
                 m_updateInfo.currenthelperAreaID = GameConstants.startAreaID;
                 m_updateInfo.currenthelperLevelID = GameConstants.startLevelID;
-                m_updateInfo.reset = true; //everything should be reset, when game is loaded
+                m_updateInfo.reset = true; //everything should be reset for a new game
                 // set all chocoChips to not collected
-                //foreach (string id in m_bonusTracker.chocoChipState.Keys)
-                //{
-                //    m_bonusTracker.chocoChipState[id] = false;
-                //}
+                List<string> chocoIDs = new List<string>(m_bonusTracker.chocoChipState.Keys);
+                foreach (string id in chocoIDs)
+                {
+                    m_bonusTracker.chocoChipState[id] = false;
+                }
                 m_bonusTracker.chocoCount = 0;
                 m_bonusTracker.chocoChipsSpent = 0;
                 m_bonusTracker.soldItems = new List<string>(30);
                 // set all actions to not yet started (false)
-                //foreach (string id in m_actionTracker.actionState.Keys)
-                //{
-                //    m_actionTracker.actionState[id] = false;
-                //}
+                List<string> actionIDs = new List<string>(m_actionTracker.actionState.Keys);
+                foreach (string id in actionIDs)
+                {
+                    m_actionTracker.actionState[id] = false;
+                }
+                // set all chocoChips in objectWithBillboards list to visible
+                foreach (GameObject obj in m_updateInfo.objectsWithBillboards)
+                {
+                    if (obj.GetType() == typeof(ChocoChip))
+                        obj.isVisible = true;
+                }
+                // no teleports available at game start
+                m_updateInfo.activeTeleports = new List<string>(10);
 
             // Set the world back to start
             foreach (var area in m_areas)

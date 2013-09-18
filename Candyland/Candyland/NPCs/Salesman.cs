@@ -53,9 +53,6 @@ namespace Candyland
                 ((CandyGuy)obj).setCloseEnoughToInteract();
                 if (m_updateInfo.m_screenManager.Input.Equals(InputState.Continue))
                 {
-                    // set as active teleport point, if not already done
-                    if (!m_updateInfo.activeTeleports.Contains(m_levelID))
-                        m_updateInfo.activeTeleports.Add(m_levelID);
                     // greet player
                     CandyGuy guy = (CandyGuy)obj;
                     m_updateInfo.m_screenManager.ActivateNewScreen(new SalesmanDialogueScreen(m_text, m_levelID, m_updateInfo, guy.getBonusTracker().chocoCount, "Salesman"));                

@@ -13,6 +13,8 @@ namespace Candyland
         public string guycurrentLevelID;
         public string helpercurrentLevelID;
 
+        public List<string> activatedTeleports;
+
         public int chocoCount;
         public int chocoSpend;
         public Dictionary<string, bool> chocoChipState;

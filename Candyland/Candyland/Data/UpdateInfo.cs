@@ -43,9 +43,13 @@ namespace Candyland
         public bool locked { get; set; }
 
         /// <summary>
-        /// all salesman IDs, which the player has already talked to
+        /// all salesman IDs (equal the level ID they are in), which the player has already talked to
         /// </summary>
         public List<String> activeTeleports { get; set; }
+        /// <summary>
+        /// IDs of all level with a salesman an therefore a teleportation point
+        /// </summary>
+        public List<String> allTeleports { get; set; }
 
         public Matrix viewMatrix { get; set; }
         public Matrix projectionMatrix { get ; set; }
@@ -109,9 +113,10 @@ namespace Candyland
             m_screenManager = screenManager;
 
             activeTeleports = new List<string>(10);
-            // Only for testing
-            //activeTeleports.Add("0.Korridor");
-            //activeTeleports.Add("5.korridor");
+            allTeleports = new List<string>(10);
+                allTeleports.Add("0.Korridor");
+                allTeleports.Add("schieb.k2");
+                allTeleports.Add("5.korridor");
 
             /**********************************************************************/
             graphics = graphicsDevice;

@@ -195,6 +195,10 @@ namespace Candyland
                         this.m_updateInfo.currentguyAreaID = idParts[0];
                         this.m_updateInfo.currentguyLevelID = idParts[0] + "." + idParts[1];
                         this.m_updateInfo.nextguyLevelID = doorToLevelID;
+                        // set as active teleport point, if not already done
+                        if (m_updateInfo.allTeleports.Contains(idParts[0] + "." + idParts[1])
+                            && !m_updateInfo.activeTeleports.Contains(idParts[0] + "." + idParts[1]))
+                            m_updateInfo.activeTeleports.Add(idParts[0] + "." + idParts[1]);
                     }
                     else
                     {
