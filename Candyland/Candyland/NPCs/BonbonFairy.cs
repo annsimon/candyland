@@ -86,11 +86,11 @@ namespace Candyland
                     // greet helper
                     if (isTeleportFairy)
                     {
-                        m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen("Hallo, Süßer!", "Images/DialogImages/BonbonFairyRed"));
+                        m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen("Hallo, Süßer!", "BonbonRed"));
                     }
                     // show fairy message
                     else
-                        m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen(m_text, "Images/DialogImages/BonbonFairyBlue"));
+                        m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen(m_text, "BonbonBlue"));
                 }
             }
         }

@@ -15,6 +15,7 @@ namespace Candyland
         public Model skybox { get; set; }
 
         public Model buddy { get; set; }
+        public Model buddybreaking { get; set; }
         public Model actionBuddy { get; set; }
         public Model hero { get; set; }
         public Model boss { get; set; }
@@ -40,7 +41,8 @@ namespace Candyland
         {
             skybox = content.Load<Model>("Skybox/skybox2");
 
-            buddy = content.Load<Model>("NPCs/Helper/buddy");
+            buddy = content.Load<Model>("NPCs/Helper/buddyrunning");
+            buddybreaking = content.Load<Model>("NPCs/Helper/buddybreaking");
             actionBuddy = content.Load<Model>("NPCs/HelperActor/buddy");
             hero = content.Load<Model>("NPCs/Spieler/candyguy");
             boss = content.Load<Model>("NPCs/Lakritze/boss");

@@ -268,6 +268,16 @@
       <Processor>ModelProcessor</Processor>
       <ProcessorParameters_Scale>0.15</ProcessorParameters_Scale>
     </Compile>
+    <Compile Include="NPCs\Helper\buddybreaking.fbx">
+      <Name>buddybreaking</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>SkinnedModelProcessor</Processor>
+    </Compile>
+    <Compile Include="NPCs\Helper\buddyrunning.fbx">
+      <Name>buddyrunning</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>SkinnedModelProcessor</Processor>
+    </Compile>
     <None Include="README.txt">
       <Name>README</Name>
     </None>
