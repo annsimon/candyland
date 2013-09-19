@@ -52,6 +52,8 @@ namespace Candyland
         protected int lineDist;
         protected int offset = 15;
 
+        int timeSinceDialogstart = 0;
+
         public DialogListeningScreen() {}
 
         public DialogListeningScreen(string text, string picture = "AcaHelper")
@@ -101,7 +103,12 @@ namespace Candyland
         public override void Update(GameTime gameTime)
         {
             bool enterPressed = false;
-            if((ScreenManager.Input.Equals(InputState.Continue)||ScreenManager.Input.Equals(InputState.Down) )&& Keyboard.GetState().IsKeyUp(Keys.Space))
+
+            // Check if enough time has past to continue through dialog with pressing space
+            timeSinceDialogstart += gameTime.ElapsedGameTime.Milliseconds;
+
+            if(((ScreenManager.Input.Equals(InputState.Continue)||ScreenManager.Input.Equals(InputState.Down) ) && Keyboard.GetState().IsKeyUp(Keys.Space))
+                || ( timeSinceDialogstart > GameConstants.spaceLockTime) && ScreenManager.Input.Equals(InputState.Continue))
                 enterPressed = true;
 
             // Check if text needs scrolling

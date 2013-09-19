@@ -33,6 +33,11 @@ namespace Candyland
         /// </summary>
         public const double breakTime = 2;
 
+        /// <summary>
+        /// locking time for space key at dialog opening in milliseconds
+        /// </summary>
+        public const int spaceLockTime = 800;
+
         // material params
         public static Vector4 ambient = new Vector4(0.8f, 0.8f, 0.8f, 1.0f);
         public static Vector4 diffuse = new Vector4(0.4f, 0.4f, 0.4f, 1.0f);
