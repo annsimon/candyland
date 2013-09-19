@@ -32,6 +32,8 @@ namespace Candyland
         #region fonts
         public SpriteFont mainTextFullscreen { get; set; }
         public SpriteFont mainText { get; set; }
+        public SpriteFont mainRegular { get; set; }
+        public SpriteFont smallText { get; set; }
         #endregion
 
         #region effects
@@ -61,6 +63,8 @@ namespace Candyland
 
             mainTextFullscreen = content.Load<SpriteFont>("Fonts/MainTextFullscreen");
             mainText = content.Load<SpriteFont>("Fonts/MainText");
+            mainRegular = content.Load<SpriteFont>("Fonts/MainTextRegular");
+            smallText = content.Load<SpriteFont>("Fonts/smallText");
 
             LoadScreenTextures(content);
 
@@ -72,5 +76,6 @@ namespace Candyland
             billboardEffect = content.Load<Effect>("Shaders/Billboard");
             commonShader = content.Load<Effect>("Shaders/Shader");
         }
+
     }
 }

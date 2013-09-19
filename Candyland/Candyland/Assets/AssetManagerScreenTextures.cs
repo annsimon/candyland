@@ -53,6 +53,8 @@ namespace Candyland
         public Texture2D pinSelected { get; set; }
         public Texture2D pinAvailable { get; set; }
 
+        public Texture2D acagamicsLogo { get; set; }
+
         public Dictionary<String, Texture2D> dialogImages { get; set; }
 
         public void LoadScreenTextures(ContentManager content)
@@ -103,6 +105,8 @@ namespace Candyland
             dialogImages["Buddy"] = content.Load<Texture2D>("Images/DialogImages/Helper");
             dialogImages["Boss"] = content.Load<Texture2D>("Images/DialogImages/Boss");
             dialogImages["Salesman"] = content.Load<Texture2D>("Images/DialogImages/Salesman");
+
+            acagamicsLogo = content.Load<Texture2D>("ScreenTextures/acagamicsLogo");
         }
     }
 }

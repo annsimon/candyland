@@ -20,6 +20,8 @@ namespace Candyland
 
         SpriteBatch spriteBatch;
         SpriteFont mainText;
+        SpriteFont mainRegular;
+        SpriteFont smallText;
         ContentManager content;
         AssetManager assets;
 
@@ -84,6 +86,16 @@ namespace Candyland
             get { return mainText; }
         }
 
+        public SpriteFont FontRegular
+        {
+            get { return mainRegular; }
+        }
+
+        public SpriteFont FontSmall
+        {
+            get { return smallText; }
+        }
+
         public ContentManager Content
         {
             get { return content; }
@@ -125,6 +137,8 @@ namespace Candyland
             spriteBatch = new SpriteBatch(GraphicsDevice);
             if (isFullScreen) mainText = assets.mainTextFullscreen;
             else mainText = assets.mainText;
+            mainRegular = assets.mainRegular;
+            smallText = assets.smallText;
 
             // Open topmost screen
             screens.Last().ScreenState = ScreenState.Active;
