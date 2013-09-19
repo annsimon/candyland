@@ -159,11 +159,7 @@ namespace Candyland
         private Model LoadSkybox(ContentManager manager, AssetManager assets, out Texture2D[] textures)
         {
             Model newModel = assets.skybox;
-            textures = new Texture2D[newModel.Meshes.Count];
-            int i = 0;
-            foreach (ModelMesh mesh in newModel.Meshes)
-                foreach (BasicEffect currentEffect in mesh.Effects)
-                    textures[i++] = currentEffect.Texture;
+            textures = assets.skyboxTextures;
 
             Effect skyboxEffect = assets.skyboxEffect;
             foreach (ModelMesh mesh in newModel.Meshes)

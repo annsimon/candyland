@@ -13,6 +13,7 @@ namespace Candyland
     public partial class AssetManager
     {
         public Model skybox { get; set; }
+        public Texture2D[] skyboxTextures { get; set; }
 
         public Model buddy { get; set; }
         public Model buddybreaking { get; set; }
@@ -40,6 +41,11 @@ namespace Candyland
         public void LoadModels(ContentManager content)
         {
             skybox = content.Load<Model>("Skybox/skybox2");
+            skyboxTextures = new Texture2D[6];
+            int i = 0;
+            foreach (ModelMesh mesh in skybox.Meshes)
+                foreach (BasicEffect currentEffect in mesh.Effects)
+                    skyboxTextures[i++] = currentEffect.Texture;
 
             buddy = content.Load<Model>("NPCs/Helper/buddyrunning");
             buddybreaking = content.Load<Model>("NPCs/Helper/buddybreaking");
