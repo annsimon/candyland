@@ -44,6 +44,8 @@ namespace Candyland
         int topAlign;
         Rectangle selectedButton;
 
+        int timeSinceDialogstart = 0;
+
         public SalesmanDialogueScreen(string text, string saleID, UpdateInfo info, int chocoCount, string picture)
         {
             this.Text = text;
@@ -93,6 +95,13 @@ namespace Candyland
         public override void Update(GameTime gameTime)
         {
             bool enterPressed = false;
+
+            // Check if enough time has past to continue through dialog with pressing space
+            timeSinceDialogstart += gameTime.ElapsedGameTime.Milliseconds;
+
+            if (((ScreenManager.Input.Equals(InputState.Continue) || ScreenManager.Input.Equals(InputState.Down)) && Keyboard.GetState().IsKeyUp(Keys.Space))
+                || (timeSinceDialogstart > GameConstants.spaceLockTime) && ScreenManager.Input.Equals(InputState.Continue))
+                enterPressed = true;
 
             // look at input and update button selection
             if (isTimeToAnswer)
