@@ -59,10 +59,13 @@ namespace Candyland
         protected Texture2D BorderBottom;
         protected Texture2D BorderMiddle;
 
-        public override void Open(Game game, AssetManager assets)
+        public MainMenu()
         {
             this.isFullscreen = true;
+        }
 
+        public override void Open(Game game, AssetManager assets)
+        {
             // Check if a savegame could be loaded
                 string filename = "savegame.sav";
 
@@ -169,7 +172,6 @@ namespace Candyland
         public override void Draw(GameTime gameTime)
         {
             SpriteBatch m_sprite = ScreenManager.SpriteBatch;
-
 
             ScreenManager.GraphicsDevice.Clear(GameConstants.BackgroundColorMenu);
 

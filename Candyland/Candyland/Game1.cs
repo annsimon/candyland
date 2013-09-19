@@ -88,19 +88,6 @@ namespace Candyland
                 else MediaPlayer.Volume = 0;
             }
 
-            //// Save, when F5 was pressed and now released
-            //if (oldState.IsKeyDown(Keys.F5) && newState.IsKeyUp(Keys.F5))
-            //{
-            //    System.Diagnostics.Debug.WriteLine("Saving");
-            //    m_sceneManager.Save();
-            //}
-
-            //// Load last savegame, when F6 was pressed and now released
-            //if (oldState.IsKeyDown(Keys.F6) && newState.IsKeyUp(Keys.F6))
-            //{
-            //    m_sceneManager.Load();
-            //}
-
             // Update saved state.
             oldState = newState;
 

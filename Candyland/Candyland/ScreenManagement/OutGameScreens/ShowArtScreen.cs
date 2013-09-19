@@ -39,13 +39,12 @@ namespace Candyland
 
         public ShowArtScreen(Texture2D img)
         {
+            this.isFullscreen = true;
             image = img;
         }
 
         public override void Open(Game game, AssetManager assets)
         {
-            this.isFullscreen = true;
-
             BorderTopLeft = assets.dialogTL;
             BorderTopRight = assets.dialogTR;
             BorderBottomLeft = assets.dialogBL;

@@ -88,9 +88,13 @@ namespace Candyland
 
         Color color1, color2, color3, color4, color5, color6, color7, color8, color9, color10, color11, color12;
 
-        public override void Open(Game game, AssetManager assets)
+        public BonusScreen()
         {
             this.isFullscreen = true;
+        }
+
+        public override void Open(Game game, AssetManager assets)
+        {
             if (ScreenManager.SceneManager != null)
             {
                 m_bonusTracker = ScreenManager.SceneManager.getBonusTracker();

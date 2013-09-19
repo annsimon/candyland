@@ -156,8 +156,7 @@ namespace Candyland
             {
                 RemoveScreen(screens.Last());
                 ActivateNewScreen(new MainGame());
-                readyToStartGame = false;
-                
+                readyToStartGame = false;               
             }
 
             input = screenInput.getInput();
@@ -296,37 +295,38 @@ namespace Candyland
             // Remove main menu
             if (screens.Count() > 0)
             {
-                screens.Last().Close();
                 RemoveScreen(screens.Last());
             }
 
-            // Show loading screen
-            ActivateNewScreen(new LoadingScreen());
+            // First case: a game is already running and content has been loaded
+            if (gameIsRunning)
+            {
+                // Remove old game
+                RemoveScreen(screens.Last());
 
-            //// First case: a game is already running and content has been loaded
-            //if (gameIsRunning)
-            //{
-            //    Thread loadingThread = new Thread(GameReset);
-            //    loadingThread.Start();
-            //}
+                // Show loading screen
+                ActivateNewScreen(new LoadingScreen());
 
-            //// Second case: no running game and content needs to be loaded
-            //if (!gameIsRunning)
-            //{
                 Thread loadingThread = new Thread(LoadingGameContent);
                 loadingThread.Start();
-            //}
+            }
+
+            // Second case: no running game and content needs to be loaded
+            if (!gameIsRunning)
+            {
+                // Show loading screen
+                ActivateNewScreen(new LoadingScreen());
+
+                Thread loadingThread = new Thread(LoadingGameContent);
+                loadingThread.Start();
+            }
         }
 
         private void LoadingGameContent()
         {
             m_sceneManager = new SceneManager(this);
 
-            // Load all content required by the scene
-            if (gameContent == null)
-                gameContent = new ContentManager(Game.Services, "Content");
-
-            m_sceneManager.Load(gameContent, assets);
+            m_sceneManager.Load(content, assets);
 
             readyToStartGame = true;
         }
@@ -335,11 +335,7 @@ namespace Candyland
         {
             m_sceneManager = new SceneManager(this);
 
-            // Load all content required by the scene
-            if (gameContent == null)
-                gameContent = new ContentManager(Game.Services, "Content");
-
-            m_sceneManager.Load(gameContent, assets);
+            m_sceneManager.Load(content, assets);
 
             readyToStartGame = m_sceneManager.LoadSavegame();
         }

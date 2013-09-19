@@ -48,10 +48,13 @@ namespace Candyland
         protected Texture2D BorderBottom;
         protected Texture2D BorderMiddle;
 
-        public override void Open(Game game, AssetManager assets)
+        public LoadingScreen()
         {
             this.isFullscreen = true;
+        }
 
+        public override void Open(Game game, AssetManager assets)
+        {
             font = assets.mainText;
 
             FillWithText();

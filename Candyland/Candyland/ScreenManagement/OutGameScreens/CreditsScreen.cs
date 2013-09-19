@@ -40,10 +40,13 @@ namespace Candyland
         protected Texture2D BorderBottom;
         protected Texture2D BorderMiddle;
 
-        public override void Open(Game game, AssetManager assets)
+        public CreditsScreen()
         {
             this.isFullscreen = true;
+        }
 
+        public override void Open(Game game, AssetManager assets)
+        {
             caption = assets.captionCredits;
             logo = assets.acagamicsLogo;
             BorderTopLeft = assets.dialogTL;

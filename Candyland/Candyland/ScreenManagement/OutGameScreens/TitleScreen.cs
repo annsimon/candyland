@@ -8,6 +8,11 @@ namespace Candyland
         Texture2D texture;
         int timePastSinceStart = 0;
 
+        public TitleScreen()
+        {
+            this.isFullscreen = true;
+        }
+
         public override void Open(Game game, AssetManager assets)
         {
             this.isFullscreen = true;

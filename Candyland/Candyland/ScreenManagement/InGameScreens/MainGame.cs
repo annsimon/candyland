@@ -11,12 +11,15 @@ namespace Candyland
         // the scene manager, most stuff happens in there
         SceneManager m_sceneManager;
 
+        public MainGame()
+        {
+            this.isFullscreen = true;
+        }
+
         public override void Open(Game game, AssetManager assets)
         {
             // tell screen manager that a game is already running
             ScreenManager.gameIsRunning = true;
-
-            this.isFullscreen = true;
 
             m_sceneManager = ScreenManager.SceneManager;
         }

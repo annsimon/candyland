@@ -41,10 +41,27 @@ namespace Candyland
         protected Texture2D BorderBottom;
         protected Texture2D BorderMiddle;
 
+        // Buttons
+        int buttonWidth;
+        int buttonHeight;
+        int leftAlign;
+        int topAlign;
+        Rectangle selectedButton;
+        int activeTitleButtonIndex = 1;
+        int numOfTitleButtons = 3;
+
+        // Which Menu is used
+        bool insideTitleMenu = true;
+        bool insideGraphics = false;
+        bool insideAudio = false;
+
+        public OptionsScreen()
+        {
+            this.isFullscreen = true;
+        }
+
         public override void Open(Game game, AssetManager assets)
         {
-            isFullscreen = true;
-
             caption = ScreenManager.Content.Load<Texture2D>("Images/Captions/Options");
             BorderTopLeft = assets.dialogTL;
             BorderTopRight = assets.dialogTR;
@@ -72,6 +89,14 @@ namespace Candyland
                 out MenuBoxBR, out MenuBoxB, out MenuBoxBL, out MenuBoxL, out MenuBoxM);
 
             TextBox = new Rectangle(MenuBoxL.Left + 240, MenuBoxT.Top + 60, 600, 280);
+
+            buttonWidth = (int)font.MeasureString("Steuerung").X + 20;
+            buttonHeight = font.LineSpacing;
+
+            leftAlign = MenuBoxL.Right;
+            topAlign = MenuBoxT.Bottom + 140;
+
+            selectedButton = new Rectangle(leftAlign - 10, topAlign, buttonWidth, buttonHeight);
         }
 
         public override void Update(GameTime gameTime)
@@ -79,6 +104,39 @@ namespace Candyland
             if (ScreenManager.Input.Equals(InputState.Back))
             {
                 ScreenManager.ResumeLast(this);
+            }
+
+            bool enterPressed = false;
+
+            // look at input and update button selection
+
+                // Inside title options
+                if (insideTitleMenu)
+                {
+                    switch (ScreenManager.Input)
+                    {
+                        case InputState.Continue: enterPressed = true; break;
+                        case InputState.Up: activeTitleButtonIndex--; break;
+                        case InputState.Down: activeTitleButtonIndex++; break;
+                        case InputState.Right: break;
+                    }
+
+                    if (activeTitleButtonIndex >= numOfTitleButtons) activeTitleButtonIndex = 1;
+                    if (activeTitleButtonIndex < 1) activeTitleButtonIndex = numOfTitleButtons - 1;
+                }  
+
+            // Selected Button confirmed by pressing Enter
+            if (enterPressed)
+            {
+                switch (activeTitleButtonIndex)
+                {
+                    case 0: ScreenManager.ResumeGame(); break;
+                    case 1: ScreenManager.StartNewGame(); break;
+                    case 2: ScreenManager.ActivateNewScreen(new OptionsScreen()); break;
+                    case 3: ScreenManager.ActivateNewScreen(new BonusScreen()); break;
+                    case 4: ScreenManager.ActivateNewScreen(new CreditsScreen()); break;
+                    case 5: ScreenManager.ActivateNewScreen(new EndGameQuestion()); break;
+                }
             }
         }
 
@@ -105,10 +163,10 @@ namespace Candyland
             m_sprite.Draw(BorderMiddle, MenuBoxM, Color.White);
             m_sprite.Draw(caption, new Rectangle(MenuBoxL.Left + 5, MenuBoxT.Top + 5, (int)(caption.Width * 0.8f), (int)(caption.Height * 0.8f)), Color.White);
 
-            int topAlignTitles = MenuBoxT.Bottom + 140;
-            m_sprite.DrawString(Font, "Steuerung", new Vector2(MenuBoxL.Right - 10, topAlignTitles), Color.Black);
-            m_sprite.DrawString(Font, "Grafik", new Vector2(MenuBoxL.Right - 10, topAlignTitles + Font.LineSpacing), Color.Black);
-            m_sprite.DrawString(Font, "Audio", new Vector2(MenuBoxL.Right - 10, topAlignTitles + 2 * Font.LineSpacing), Color.Black);
+            // Draw Title Options
+            m_sprite.DrawString(Font, "Steuerung", new Vector2(leftAlign, topAlign), Color.Black);
+            m_sprite.DrawString(Font, "Grafik", new Vector2(leftAlign, topAlign + Font.LineSpacing), Color.Black);
+            m_sprite.DrawString(Font, "Audio", new Vector2(leftAlign, topAlign + 2 * Font.LineSpacing), Color.Black);
 
             m_sprite.DrawString(font, GameConstants.controlDescription1 , new Vector2(TextBox.X, TextBox.Y), Color.Black);
             m_sprite.DrawString(font, GameConstants.controlDescription2, new Vector2(TextBox.X + 345, TextBox.Y), Color.Black);
