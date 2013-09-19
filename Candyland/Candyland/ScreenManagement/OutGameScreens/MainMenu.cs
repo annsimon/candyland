@@ -91,7 +91,7 @@ namespace Candyland
             caption = assets.captionMain;
             buttonTexture = assets.menuSelection;
 
-            font = ScreenManager.Font;
+            font = assets.mainText;
 
             // Initialize Buttons
             screenWidth = game.GraphicsDevice.Viewport.Width;
@@ -100,10 +100,6 @@ namespace Candyland
             numberOfButtons = 6;
             buttonWidth = (int)font.MeasureString("Spiel beenden").X + 20;
             buttonHeight = font.LineSpacing;
-            leftAlign = (screenWidth - buttonWidth) / 2;
-            topAlign = screenWidth / 6 + 50;
-
-            selectedButton = new Rectangle(leftAlign, topAlign, buttonWidth, buttonHeight);
 
             BorderTopLeft = assets.dialogTL;
             BorderTopRight = assets.dialogTR;
@@ -114,13 +110,18 @@ namespace Candyland
             BorderTop = assets.dialogT;
             BorderBottom = assets.dialogB;
             BorderMiddle = assets.dialogC;
+           
+            int MenuBoxWidth = buttonWidth * 2;
+            int MenuBoxHeight = buttonHeight * 6 + 200;
 
-            int offsetX = (screenWidth - buttonWidth)/2 - 100;
-            int offsetY = screenHeight/6 - 50;
-
-            MakeBorderBox(new Rectangle(offsetX, offsetY, screenWidth - 2 * offsetX, screenHeight - 2 * offsetY),
+            MakeBorderBox(new Rectangle((screenWidth - MenuBoxWidth) / 2, (screenHeight - MenuBoxHeight) / 2, MenuBoxWidth, MenuBoxHeight),
                 out MenuBoxTL, out MenuBoxT, out MenuBoxTR, out MenuBoxR,
                 out MenuBoxBR, out MenuBoxB, out MenuBoxBL, out MenuBoxL, out MenuBoxM);
+
+            leftAlign = (screenWidth - buttonWidth) / 2;
+            topAlign = MenuBoxT.Bottom + 90;
+
+            selectedButton = new Rectangle(leftAlign, topAlign, buttonWidth, buttonHeight);
         }
 
         public override void Update(GameTime gameTime)
@@ -184,8 +185,7 @@ namespace Candyland
             m_sprite.Draw(BorderTop, MenuBoxT, Color.White);
             m_sprite.Draw(BorderBottom, MenuBoxB, Color.White);
             m_sprite.Draw(BorderMiddle, MenuBoxM, Color.White);
-            if(ScreenManager.isFullscreen) m_sprite.Draw(caption, new Rectangle(MenuBoxL.Left + 5, MenuBoxT.Top + 5, caption.Width, caption.Height), Color.White);
-            else m_sprite.Draw(caption, new Rectangle(MenuBoxL.Left + 5, MenuBoxT.Top + 5, (int)(caption.Width * 0.8f), (int)(caption.Height*0.8f)), Color.White);
+            m_sprite.Draw(caption, new Rectangle(MenuBoxL.Left + 5, MenuBoxT.Top + 5, (int)(caption.Width * 0.8f), (int)(caption.Height*0.8f)), Color.White);
 
             // Draw Option Strings
             Color textColor = Color.Black;

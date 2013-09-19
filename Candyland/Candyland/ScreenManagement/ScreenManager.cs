@@ -303,19 +303,19 @@ namespace Candyland
             // Show loading screen
             ActivateNewScreen(new LoadingScreen());
 
-            // First case: a game is already running and content has been loaded
-            if (gameIsRunning)
-            {
-                Thread loadingThread = new Thread(GameReset);
-                loadingThread.Start();
-            }
+            //// First case: a game is already running and content has been loaded
+            //if (gameIsRunning)
+            //{
+            //    Thread loadingThread = new Thread(GameReset);
+            //    loadingThread.Start();
+            //}
 
-            // Second case: no running game and content needs to be loaded
-            if (!gameIsRunning)
-            {
+            //// Second case: no running game and content needs to be loaded
+            //if (!gameIsRunning)
+            //{
                 Thread loadingThread = new Thread(LoadingGameContent);
                 loadingThread.Start();
-            }
+            //}
         }
 
         private void LoadingGameContent()

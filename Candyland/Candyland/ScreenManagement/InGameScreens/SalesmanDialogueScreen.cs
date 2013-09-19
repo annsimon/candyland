@@ -40,8 +40,8 @@ namespace Candyland
         // Buttons
         int buttonWidth;
         int buttonHeight;
-        int leftAlign = 525;
-        int topAlign = 25;
+        int leftAlign;
+        int topAlign;
         Rectangle selectedButton;
 
         public SalesmanDialogueScreen(string text, string saleID, UpdateInfo info, int chocoCount, string picture)
@@ -61,12 +61,6 @@ namespace Candyland
             buttonTexture = assets.menuSelection;
             talkingNPC = assets.dialogImages["Salesman"];
 
-            ownDiagBox = new Rectangle(480, 20, 300, 200);
-
-            MakeBorderBox(ownDiagBox,
-            out AnswerBoxTL, out AnswerBoxT, out AnswerBoxTR, out AnswerBoxR,
-            out AnswerBoxBR, out AnswerBoxB, out AnswerBoxBL, out AnswerBoxL, out AnswerBoxM);
-
             option1 = "Reden";
             option2 = "Einkaufen";
             option3 = "Reisen";
@@ -80,7 +74,20 @@ namespace Candyland
             buttonWidth = (int)font.MeasureString("Auf Wiedersehen!").X + 20;
             buttonHeight = font.LineSpacing;
 
-            selectedButton = new Rectangle(leftAlign, topAlign, buttonWidth, buttonHeight);
+            int offset = 5;
+
+            int ownBoxWidth = buttonWidth + 40;
+            int ownBoxHeight = buttonHeight * 4 + 40;
+            ownDiagBox = new Rectangle(screenWidth - ownBoxWidth - offset, DiagBoxT.Top - ownBoxHeight - 20, ownBoxWidth, ownBoxHeight);
+
+            MakeBorderBox(ownDiagBox,
+            out AnswerBoxTL, out AnswerBoxT, out AnswerBoxTR, out AnswerBoxR,
+            out AnswerBoxBR, out AnswerBoxB, out AnswerBoxBL, out AnswerBoxL, out AnswerBoxM);
+
+            leftAlign = ownDiagBox.X + 30;
+            topAlign = ownDiagBox.Y + 20;
+
+            selectedButton = new Rectangle(leftAlign - 10, topAlign, buttonWidth, buttonHeight);
         }
 
         public override void Update(GameTime gameTime)
@@ -113,7 +120,8 @@ namespace Candyland
                     case 0: scrollIndex = 0; isGreeting = false; isTimeToAnswer = false; break;
                     case 1: this.ScreenState = ScreenState.Hidden;
                         ScreenManager.ActivateNewScreen(new ShopScreen(salesmanID,m_updateInfo, chocosCollected)); break;
-                    case 2: ScreenManager.ActivateNewScreen(new TravelScreen(salesmanID, m_updateInfo, this)); break;
+                    case 2: this.ScreenState = ScreenState.Hidden; 
+                        ScreenManager.ActivateNewScreen(new TravelScreen(salesmanID, m_updateInfo, this)); break;
                     case 3: ScreenManager.ResumeLast(this); break;
                 }
                 return;
@@ -159,9 +167,6 @@ namespace Candyland
 
         public override void Draw(GameTime gameTime)
         {
-            int leftAlign = ownDiagBox.X + ownDiagBox.Width / 5;
-            int topAlign = ownDiagBox.Y + ownDiagBox.Height / 5; 
-
             SpriteBatch m_sprite = ScreenManager.SpriteBatch;
 
             m_sprite.Begin();
@@ -195,10 +200,11 @@ namespace Candyland
                 m_sprite.Draw(talkBubbleBottom, AnswerBoxB, Color.White);
                 m_sprite.Draw(talkBubbleMiddle, AnswerBoxM, Color.White);
 
+                int lineSpace = font.LineSpacing;
                 m_sprite.DrawString(font, option1, new Vector2(leftAlign, topAlign), Color.Black);
-                m_sprite.DrawString(font, option2, new Vector2(leftAlign, topAlign + lineDist ), Color.Black);
-                m_sprite.DrawString(font, option3, new Vector2(leftAlign, topAlign + lineDist * 2), Color.Black);
-                m_sprite.DrawString(font, option4, new Vector2(leftAlign, topAlign + lineDist * 3), Color.Black);
+                m_sprite.DrawString(font, option2, new Vector2(leftAlign, topAlign + lineSpace ), Color.Black);
+                m_sprite.DrawString(font, option3, new Vector2(leftAlign, topAlign + lineSpace * 2), Color.Black);
+                m_sprite.DrawString(font, option4, new Vector2(leftAlign, topAlign + lineSpace * 3), Color.Black);
 
                 selectedButton.Y = topAlign + (buttonHeight * activeIndex);
                 m_sprite.Draw(buttonTexture, selectedButton, Color.White);

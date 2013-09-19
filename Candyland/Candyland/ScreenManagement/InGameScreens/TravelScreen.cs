@@ -65,7 +65,7 @@ namespace Candyland
             screenWidth = game.GraphicsDevice.Viewport.Width;
             screenHeight = game.GraphicsDevice.Viewport.Height;
 
-            font = ScreenManager.Font;
+            font = assets.mainText;
 
             background = assets.map;
             teleportSpot = assets.pinSelected;
@@ -82,12 +82,14 @@ namespace Candyland
             BorderBottom = assets.dialogB;
             BorderMiddle = assets.dialogC;
 
-            int offsetX = 5;
-            int offsetY = 5;
+            int offset = 5;
 
-            MakeBorderBox(new Rectangle(offsetX, offsetY, screenWidth - 2 * offsetX, screenHeight - 2 * offsetY),
-            out MenuBoxTL, out MenuBoxT, out MenuBoxTR, out MenuBoxR,
-            out MenuBoxBR, out MenuBoxB, out MenuBoxBL, out MenuBoxL, out MenuBoxM);
+            int MenuBoxWidth = ScreenManager.PrefScreenWidth - 2 * offset;
+            int MenuBoxHeight = ScreenManager.PrefScreenHeight - 2 * offset;
+
+            MakeBorderBox(new Rectangle((screenWidth - MenuBoxWidth) / 2, (screenHeight - MenuBoxHeight) / 2, MenuBoxWidth, MenuBoxHeight),
+                out MenuBoxTL, out MenuBoxT, out MenuBoxTR, out MenuBoxR,
+                out MenuBoxBR, out MenuBoxB, out MenuBoxBL, out MenuBoxL, out MenuBoxM);
 
             numOfTeleportOptions = m_updateInfo.activeTeleports.Count;
 
@@ -157,11 +159,11 @@ namespace Candyland
             foreach (Vector2 pos in teleportPositions)
             {
                 if(index == currentSpotIndex)
-                    m_sprite.Draw(currentSpot, new Rectangle((int)pos.X, (int)pos.Y, 20, 20), Color.White);
+                    m_sprite.Draw(currentSpot, new Rectangle(MenuBoxL.Left + (int)pos.X, MenuBoxT.Top + (int)pos.Y, 20, 20), Color.White);
                 else if(index == activeIndex)
-                    m_sprite.Draw(selectedSpot, new Rectangle((int)pos.X, (int)pos.Y, 20, 20), Color.White);
+                    m_sprite.Draw(selectedSpot, new Rectangle(MenuBoxL.Left + (int)pos.X, MenuBoxT.Top + (int)pos.Y, 20, 20), Color.White);
                 else
-                    m_sprite.Draw(teleportSpot, new Rectangle((int)pos.X, (int)pos.Y, 20, 20), Color.White);
+                    m_sprite.Draw(teleportSpot, new Rectangle(MenuBoxL.Left + (int)pos.X, MenuBoxT.Top + (int)pos.Y, 20, 20), Color.White);
 
                 index++;
             }
@@ -169,6 +171,12 @@ namespace Candyland
             m_sprite.DrawString(font, "Zurück mit\n'Escape'", new Vector2(20, screenHeight - font.LineSpacing * 3), Color.Black);
 
             m_sprite.End();
+
+            // we need the following as spriteBatch.Begin() sets them to None and AlphaBlend
+            // which breaks our model rendering
+            GraphicsDevice m_graphics = ScreenManager.Game.GraphicsDevice;
+            m_graphics.DepthStencilState = DepthStencilState.Default;
+            m_graphics.BlendState = BlendState.Opaque;
         }
     }
 }

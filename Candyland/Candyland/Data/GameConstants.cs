@@ -108,7 +108,7 @@ namespace Candyland
         /// 
         // Dialogue
         public const string tradesmanGreeting = "Hallo Reisender! !nl!Bei mir kannst du Neuigkeiten erfahren, Extras kaufen oder dich zu einem meiner Partner teleportieren lassen. !nl!Sag mir einfach was du m!oe!chtest.";
-        public const string controlDescription1 = "Laufen\nSpringen\nKamerabewegung\nInteraktion im Spiel\nMenüauswahl\nZurück\nBestätigen\nReset\nCharakterwechsel\nMusik an/aus (Sounds bleiben)";
-        public const string controlDescription2 = "W, A, S, D\nLeertaste\nMaus\nLeertaste\nW, A, S, D, Pfeiltasten\nEscape, Backspace\nEnter, Leertaste\nR\nC\nL";  
+        public const string controlDescription1 = "Laufen\nSpringen, Zerstören, Ansprechen\nKamerabewegung\nLevelreset\nCharakterwechsel\n\nMenüauswahl\nBestätigen\nZurück\nMusik an/aus (Sounds bleiben)";
+        public const string controlDescription2 = "W A S D\nLeertaste\nMaus\nR\nC\n\nW A S D, Pfeiltasten\nLeertaste, Enter\nEscape, Backspace\nL";  
     }
 }

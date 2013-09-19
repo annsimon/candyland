@@ -56,20 +56,22 @@ namespace Candyland
             BorderBottom = assets.dialogB;
             BorderMiddle = assets.dialogC;
 
-            font = ScreenManager.Font;
+            font = assets.mainText;
             Font = assets.mainTextFullscreen;
 
             screenWidth = game.GraphicsDevice.Viewport.Width;
             screenHeight = game.GraphicsDevice.Viewport.Height;
 
-            int offsetX = 5;
-            int offsetY = 5;
+            int offset = 5;
 
-            MakeBorderBox(new Rectangle(offsetX, offsetY, screenWidth - 2 * offsetX, screenHeight - 2 * offsetY),
+            int MenuBoxWidth = ScreenManager.PrefScreenWidth - 2 * offset;
+            int MenuBoxHeight = ScreenManager.PrefScreenHeight - 2 * offset;
+
+            MakeBorderBox(new Rectangle((screenWidth - MenuBoxWidth) / 2, (screenHeight - MenuBoxHeight) / 2, MenuBoxWidth, MenuBoxHeight),
                 out MenuBoxTL, out MenuBoxT, out MenuBoxTR, out MenuBoxR,
                 out MenuBoxBR, out MenuBoxB, out MenuBoxBL, out MenuBoxL, out MenuBoxM);
 
-            TextBox = new Rectangle(240, 50, screenWidth - 200, screenHeight - 200);
+            TextBox = new Rectangle(MenuBoxL.Left + 240, MenuBoxT.Top + 60, 600, 280);
         }
 
         public override void Update(GameTime gameTime)
@@ -101,12 +103,15 @@ namespace Candyland
             m_sprite.Draw(BorderTop, MenuBoxT, Color.White);
             m_sprite.Draw(BorderBottom, MenuBoxB, Color.White);
             m_sprite.Draw(BorderMiddle, MenuBoxM, Color.White);
-            if (ScreenManager.isFullscreen) m_sprite.Draw(caption, new Rectangle(MenuBoxL.Left + 5, MenuBoxT.Top + 5, caption.Width, caption.Height), Color.White);
-            else m_sprite.Draw(caption, new Rectangle(MenuBoxL.Left + 5, MenuBoxT.Top + 5, (int)(caption.Width * 0.8f), (int)(caption.Height * 0.8f)), Color.White);
+            m_sprite.Draw(caption, new Rectangle(MenuBoxL.Left + 5, MenuBoxT.Top + 5, (int)(caption.Width * 0.8f), (int)(caption.Height * 0.8f)), Color.White);
 
-            m_sprite.DrawString(Font, "Steuerung", new Vector2(TextBox.X, TextBox.Y), Color.Black);
-            m_sprite.DrawString(font, GameConstants.controlDescription1 , new Vector2(TextBox.X, TextBox.Y + font.LineSpacing * 2), Color.Black);
-            m_sprite.DrawString(font, GameConstants.controlDescription2, new Vector2(TextBox.X + 305, TextBox.Y + font.LineSpacing * 2), Color.Black);
+            int topAlignTitles = MenuBoxT.Bottom + 140;
+            m_sprite.DrawString(Font, "Steuerung", new Vector2(MenuBoxL.Right - 10, topAlignTitles), Color.Black);
+            m_sprite.DrawString(Font, "Grafik", new Vector2(MenuBoxL.Right - 10, topAlignTitles + Font.LineSpacing), Color.Black);
+            m_sprite.DrawString(Font, "Audio", new Vector2(MenuBoxL.Right - 10, topAlignTitles + 2 * Font.LineSpacing), Color.Black);
+
+            m_sprite.DrawString(font, GameConstants.controlDescription1 , new Vector2(TextBox.X, TextBox.Y), Color.Black);
+            m_sprite.DrawString(font, GameConstants.controlDescription2, new Vector2(TextBox.X + 345, TextBox.Y), Color.Black);
 
             ScreenManager.SpriteBatch.End();
         }

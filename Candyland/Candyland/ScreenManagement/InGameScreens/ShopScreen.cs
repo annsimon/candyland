@@ -104,7 +104,7 @@ namespace Candyland
 
         public override void Open(Game game, AssetManager assets)
         {
-            font = ScreenManager.Font;
+            font = assets.mainText;
 
             screenWidth = game.GraphicsDevice.Viewport.Width;
             screenHeight = game.GraphicsDevice.Viewport.Height;
@@ -136,16 +136,17 @@ namespace Candyland
             }
             
             // layout stuff
-            int offsetX = 5;
-            int offsetY = 5;
+            int offset = 5;
 
             // Big Box
-            bigBox = new Rectangle(offsetX, offsetY, screenWidth - 2 * offsetX, screenHeight - 2 * offsetY);
+            int MenuBoxWidth = ScreenManager.PrefScreenWidth - 2 * offset;
+            int MenuBoxHeight = ScreenManager.PrefScreenHeight - 2 * offset;
+            bigBox = new Rectangle((screenWidth - MenuBoxWidth) / 2, (screenHeight - MenuBoxHeight) / 2, MenuBoxWidth, MenuBoxHeight);
             MakeBorderBox(bigBox,
                 out MenuBoxTL, out MenuBoxT, out MenuBoxTR, out MenuBoxR,
                 out MenuBoxBR, out MenuBoxB, out MenuBoxBL, out MenuBoxL, out MenuBoxM);
             // Shop Box
-            shopBox = new Rectangle(bigBox.X + bigBox.Width / 5, bigBox.Y + 2*offsetY, bigBox.Width * 4 / 5 - 2*offsetX, bigBox.Height - 4 * offsetY);
+            shopBox = new Rectangle(bigBox.X + bigBox.Width / 5, bigBox.Y + 2 * offset, bigBox.Width * 4 / 5 - 2*offset, bigBox.Height - 4 * offset);
             MakeBorderBox(shopBox,
                 out ShopBoxTL, out ShopBoxT, out ShopBoxTR, out ShopBoxR,
                 out ShopBoxBR, out ShopBoxB, out ShopBoxBL, out ShopBoxL, out ShopBoxM);

@@ -59,14 +59,16 @@ namespace Candyland
             screenWidth = game.GraphicsDevice.Viewport.Width;
             screenHeight = game.GraphicsDevice.Viewport.Height;
 
-            font = ScreenManager.Font;
-            fontRegular = ScreenManager.FontRegular;
-            fontSmall = ScreenManager.FontSmall;
+            font = assets.mainText;
+            fontRegular = assets.mainRegular;
+            fontSmall = assets.smallText;
 
-            int offsetX = 5;
-            int offsetY = 5;
+            int offset = 5;
 
-            MakeBorderBox(new Rectangle(offsetX, offsetY, screenWidth - 2 * offsetX, screenHeight - 2 * offsetY),
+            int MenuBoxWidth = ScreenManager.PrefScreenWidth - 2 * offset;
+            int MenuBoxHeight = ScreenManager.PrefScreenHeight - 2 * offset;
+
+            MakeBorderBox(new Rectangle((screenWidth - MenuBoxWidth) / 2, (screenHeight - MenuBoxHeight) / 2, MenuBoxWidth, MenuBoxHeight),
                 out MenuBoxTL, out MenuBoxT, out MenuBoxTR, out MenuBoxR,
                 out MenuBoxBR, out MenuBoxB, out MenuBoxBL, out MenuBoxL, out MenuBoxM);
         }
@@ -101,8 +103,7 @@ namespace Candyland
                 m_sprite.Draw(BorderBottom, MenuBoxB, Color.White);
                 m_sprite.Draw(BorderMiddle, MenuBoxM, Color.White);
 
-            if (ScreenManager.isFullscreen) m_sprite.Draw(caption, new Rectangle(MenuBoxL.Left + 5, MenuBoxT.Top + 5, caption.Width, caption.Height), Color.White);
-            else m_sprite.Draw(caption, new Rectangle(MenuBoxL.Left + 5, MenuBoxT.Top + 5, (int)(caption.Width * 0.8f), (int)(caption.Height * 0.8f)), Color.White);
+                m_sprite.Draw(caption, new Rectangle(MenuBoxL.Left + 5, MenuBoxT.Top + 5, (int)(caption.Width * 0.8f), (int)(caption.Height * 0.8f)), Color.White);
 
             DrawCredits(screenWidth, m_sprite);
                 
@@ -177,7 +178,7 @@ namespace Candyland
             Rectangle RecLogo = new Rectangle(MenuBoxR.Left - LogoSizeX + 5, MenuBoxB.Top - LogoSizeY, LogoSizeX, LogoSizeY);
             m_sprite.Draw(logo, RecLogo, Color.White);
             m_sprite.DrawString(fontSmall, "supported by\nAcagamics e.V.",
-                new Vector2(MenuBoxR.Left - 70, MenuBoxB.Top - 3), textColor);
+                new Vector2(MenuBoxR.Left - 70, MenuBoxB.Top), textColor);
         }
     }
 }

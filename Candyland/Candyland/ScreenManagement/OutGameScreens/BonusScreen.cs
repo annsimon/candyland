@@ -96,7 +96,7 @@ namespace Candyland
                 m_bonusTracker = ScreenManager.SceneManager.getBonusTracker();
                 conceptArts = m_bonusTracker.conceptArts;
             }
-            font = ScreenManager.Font;
+            font = assets.mainText;
 
             caption = assets.captionBonus;
             BorderTopLeft = assets.dialogTL;
@@ -112,35 +112,27 @@ namespace Candyland
             screenWidth = game.GraphicsDevice.Viewport.Width;
             screenHeight = game.GraphicsDevice.Viewport.Height;
 
-            // Changes for fullscreen mode
-            if (!ScreenManager.isFullscreen)
-            {
-                captionWidth = (int)(caption.Width * 0.8f);
-                captionHeight = (int)(caption.Height * 0.8f);
-            }
-            else
-            {
-                captionWidth = caption.Width;
-                captionHeight = caption.Height;
-            }
+            captionWidth = (int)(caption.Width * 0.8f);
+            captionHeight = (int)(caption.Height * 0.8f);
 
             // layout stuff
-            int offsetX = 5;
-            int offsetY = 5;
+            int offset = 5;
+
             bonusTileWidth = 120;
             int tileDist = 8;
             int tileDistTotal = bonusTileWidth + tileDist;
 
             // Big Box
-            bigBox = new Rectangle(offsetX, offsetY, screenWidth - 2 * offsetX, screenHeight - 2 * offsetY);
-            MakeBorderBox(bigBox,
+            int MenuBoxWidth = ScreenManager.PrefScreenWidth - 2 * offset;
+            int MenuBoxHeight = ScreenManager.PrefScreenHeight - 2 * offset;
+            MakeBorderBox(new Rectangle((screenWidth - MenuBoxWidth) / 2, (screenHeight - MenuBoxHeight) / 2, MenuBoxWidth, MenuBoxHeight),
                 out MenuBoxTL, out MenuBoxT, out MenuBoxTR, out MenuBoxR,
                 out MenuBoxBR, out MenuBoxB, out MenuBoxBL, out MenuBoxL, out MenuBoxM);
             // Shop Box
-            int shopWidth = 4 * tileDistTotal + tileDist + 2 * offsetX;
-            int shopHeight =  3 * tileDistTotal + tileDist + 2 * offsetX;
-            shopBox = new Rectangle(245,
-                40,
+            int shopWidth = 4 * tileDistTotal + tileDist + 2 * offset;
+            int shopHeight =  3 * tileDistTotal + tileDist + 2 * offset;
+            shopBox = new Rectangle(MenuBoxL.Left + 245,
+                MenuBoxT.Top + 40,
                 shopWidth, shopHeight);
             MakeBorderBox(shopBox,
                 out ShopBoxTL, out ShopBoxT, out ShopBoxTR, out ShopBoxR,

@@ -52,7 +52,7 @@ namespace Candyland
         {
             this.isFullscreen = true;
 
-            font = ScreenManager.Font;
+            font = assets.mainText;
 
             FillWithText();
 
@@ -127,7 +127,8 @@ namespace Candyland
 
             // Draw rest
 
-            ScreenManager.SpriteBatch.DrawString(font, currentMessage, new Vector2 ((screenWidth - font.MeasureString(currentMessage).X) / 2, screenHeight/2+25), Color.Black);
+            ScreenManager.SpriteBatch.DrawString(font, currentMessage, new Vector2 ((int)((screenWidth - font.MeasureString(currentMessage).X) / 2),
+                screenHeight/2+25), Color.Black);
 
             loading.Draw(ScreenManager.SpriteBatch);
 
