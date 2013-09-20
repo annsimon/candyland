@@ -155,11 +155,21 @@ namespace Candyland
                 {
                     if (animationPlayer != null)
                     {
-                        e.CurrentTechnique = e.Techniques["ShadedWithShadowsAndAnimated2x2PCF"];
+                        switch (m_updateInfo.shadowQuality)
+                        {
+                            case 0: e.CurrentTechnique = e.Techniques["ShadedAndAnimated"]; break;
+                            case 1: e.CurrentTechnique = e.Techniques["ShadedWithShadowsAndAnimated"]; break;
+                            case 2: e.CurrentTechnique = e.Techniques["ShadedWithShadowsAndAnimated2x2PCF"]; break;
+                        }
                         e.Parameters["Bones"].SetValue(animationPlayer.GetSkinTransforms());
                     }
                     else
-                        e.CurrentTechnique = e.Techniques["ShadedWithShadows2x2PCF"];
+                        switch (m_updateInfo.shadowQuality)
+                        {
+                            case 0: e.CurrentTechnique = e.Techniques["Shaded"]; break;
+                            case 1: e.CurrentTechnique = e.Techniques["ShadedWithShadows"]; break;
+                            case 2: e.CurrentTechnique = e.Techniques["ShadedWithShadows2x2PCF"]; break;
+                        }
                     e.Parameters["lightViewProjection"].SetValue(m_shadowMap.LightViewProjectionMatrix);
                     e.Parameters["textureScaleBias"].SetValue(m_shadowMap.TextureScaleBiasMatrix);
                     e.Parameters["depthBias"].SetValue(m_shadowMap.DepthBias);
@@ -256,6 +266,7 @@ namespace Candyland
             m_graphics.BlendState = BlendState.Opaque;
         }
 
+        // this draws a 2D image of the shadow map in a corner of the screen - for debugging only
         private void DrawShadowMap()
         {
             Rectangle rect = new Rectangle();
