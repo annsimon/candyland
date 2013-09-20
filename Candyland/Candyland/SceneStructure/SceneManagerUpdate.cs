@@ -156,16 +156,9 @@ namespace Candyland
             m_areas[m_updateInfo.currentguyLevelID.Split('.')[0]].endIntersection();
             m_areas[m_updateInfo.currenthelperLevelID.Split('.')[0]].endIntersection();
 
-            /*
-            KeyboardState keystate = Keyboard.GetState();
-            if (keystate.IsKeyDown(Keys.D1))
-                m_shadowMap.DepthBias = Math.Min(0.2f, m_shadowMap.DepthBias + 0.0001f);
-
-            if (keystate.IsKeyDown(Keys.D2))
-                m_shadowMap.DepthBias = Math.Max(0.0f, m_shadowMap.DepthBias - 0.0001f);
-             */
-
-            UpdateShadowMap();
+            // only update if in use
+            if( m_updateInfo.shadowQuality != 0 )
+                UpdateShadowMap();
 
             if( m_updateInfo.alwaysRun )
             {

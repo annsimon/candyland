@@ -22,6 +22,9 @@ namespace Candyland
         public string nextguyLevelID;
         public string nexthelperLevelID;
 
+        // value between 0 and 2, 0 means no shadows, 2 means best shadows
+        public int shadowQuality { get; set; }
+
         // if the player is on the last platform before a level change
         // the bool is true and the int tells which level exit it is
         // (this is used to start updating the next level early enough)
@@ -94,6 +97,8 @@ namespace Candyland
             currentguyLevelID = GameConstants.startLevelID;
             currenthelperAreaID = GameConstants.startAreaID;
             currenthelperLevelID = GameConstants.startLevelID;
+
+            shadowQuality = 2;
 
             playerIsOnAreaExit = false;
 
