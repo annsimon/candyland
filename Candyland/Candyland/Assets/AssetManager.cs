@@ -34,6 +34,7 @@ namespace Candyland
         public SpriteFont mainText { get; set; }
         public SpriteFont mainRegular { get; set; }
         public SpriteFont smallText { get; set; }
+        public SpriteFont titleText { get; set; }
         #endregion
 
         #region effects
@@ -65,6 +66,7 @@ namespace Candyland
             mainText = content.Load<SpriteFont>("Fonts/MainText");
             mainRegular = content.Load<SpriteFont>("Fonts/MainTextRegular");
             smallText = content.Load<SpriteFont>("Fonts/smallText");
+            titleText = content.Load<SpriteFont>("Fonts/text18");
 
             LoadScreenTextures(content);
 

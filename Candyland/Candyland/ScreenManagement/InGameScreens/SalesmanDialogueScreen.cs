@@ -99,10 +99,6 @@ namespace Candyland
             // Check if enough time has past to continue through dialog with pressing space
             timeSinceDialogstart += gameTime.ElapsedGameTime.Milliseconds;
 
-            if (((ScreenManager.Input.Equals(InputState.Continue) || ScreenManager.Input.Equals(InputState.Down)) && Keyboard.GetState().IsKeyUp(Keys.Space))
-                || (timeSinceDialogstart > GameConstants.spaceLockTime) && ScreenManager.Input.Equals(InputState.Continue))
-                enterPressed = true;
-
             // look at input and update button selection
             if (isTimeToAnswer)
             {
@@ -115,9 +111,9 @@ namespace Candyland
                 if (activeIndex >= numberOfOptions) activeIndex = 0;
                 if (activeIndex < 0) activeIndex = numberOfOptions - 1;
             }
-            else
+            else if (((ScreenManager.Input.Equals(InputState.Continue) || ScreenManager.Input.Equals(InputState.Down)) && Keyboard.GetState().IsKeyUp(Keys.Space))
+                || (timeSinceDialogstart > GameConstants.spaceLockTime) && ScreenManager.Input.Equals(InputState.Continue))
             {
-                if ((ScreenManager.Input.Equals(InputState.Continue) || ScreenManager.Input.Equals(InputState.Down)) && Keyboard.GetState().IsKeyUp(Keys.Space))
                     enterPressed = true;
             }
 

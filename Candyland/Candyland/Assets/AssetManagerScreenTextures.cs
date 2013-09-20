@@ -16,6 +16,12 @@ namespace Candyland
         public Texture2D hudIconsWithCharChange { get; set; }
         public Texture2D chocoChip { get; set; }
 
+        public Texture2D checkMark { get; set; }
+        public Texture2D slideControl { get; set; }
+        public Texture2D slider { get; set; }
+        public Texture2D sliderSelected { get; set; }
+        public Texture2D sliderArrows { get; set; }
+
         public Texture2D distanceDisplay0 { get; set; }
         public Texture2D distanceDisplay1 { get; set; }
         public Texture2D distanceDisplay2 { get; set; }
@@ -29,6 +35,7 @@ namespace Candyland
         public Texture2D captionMain { get; set; }
         public Texture2D captionCredits { get; set; }
         public Texture2D captionBonus { get; set; }
+        public Texture2D captionOptions { get; set; }
         public Texture2D menuSelection { get; set; }
 
         public Texture2D dialogTL { get; set; }
@@ -63,6 +70,12 @@ namespace Candyland
             hudIconsWithCharChange = content.Load<Texture2D>("Images/HUD/HudFullWithChange");
             chocoChip = content.Load<Texture2D>("Images/HUD/Choco");
 
+            checkMark = content.Load<Texture2D>("ScreenTextures/checkMark");
+            slideControl = content.Load<Texture2D>("ScreenTextures/slideControl");
+            slider = content.Load<Texture2D>("ScreenTextures/slider");
+            sliderSelected = content.Load<Texture2D>("ScreenTextures/sliderSelected");
+            sliderArrows = content.Load<Texture2D>("ScreenTextures/sliderArrows");
+
             distanceDisplay0 = content.Load<Texture2D>("Images/HUD/chaseSafe");
             distanceDisplay1 = content.Load<Texture2D>("Images/HUD/chaseCareful");
             distanceDisplay2 = content.Load<Texture2D>("Images/HUD/chaseDanger");
@@ -76,6 +89,7 @@ namespace Candyland
             captionMain = content.Load<Texture2D>("Images/Captions/MainMenu");
             captionCredits = content.Load<Texture2D>("Images/Captions/Credits");
             captionBonus = content.Load<Texture2D>("Images/Captions/Bonus");
+            captionOptions = content.Load<Texture2D>("Images/Captions/Options");
             menuSelection = content.Load<Texture2D>("ScreenTextures/transparent");
 
             dialogTL = content.Load<Texture2D>("Images/Dialog/DialogTopLeft");
