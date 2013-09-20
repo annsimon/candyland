@@ -447,6 +447,8 @@ namespace Candyland
                     new Vector2(titleEndX+ (TextBox.Width - (int)titleFont.MeasureString("Anzeige").X) / 2, top), Color.Black);
             m_sprite.DrawString(font, "im Fenster", new Vector2(left, top + 2 * lineDist + 5), Color.Black);
             m_sprite.DrawString(font, "als Vollbild", new Vector2(left + 250, top + 2 * lineDist + 5), Color.Black);
+            m_sprite.DrawString(font, "Änderung tritt erst nach Spielneustart ein!",
+                new Vector2(TextBox.Left + 65, top + 4 * lineDist - 10), Color.Black);
             checkBoxFullscreen.Draw(m_sprite);
             checkBoxWindow.Draw(m_sprite);
             // Shadow Options
