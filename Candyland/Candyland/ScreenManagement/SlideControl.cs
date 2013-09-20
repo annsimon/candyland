@@ -26,9 +26,10 @@ namespace Candyland
         private Texture2D sliderSelected;
         private Texture2D arrows;
 
-        public SlideControl(int max, Vector2 pos, AssetManager assets)
+        public SlideControl(int max, int oldValue, Vector2 pos, AssetManager assets)
         {
             maxValue = max;
+            value = oldValue;
             stepSize = 250 / max;
             position = pos;
             font = assets.mainText;

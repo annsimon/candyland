@@ -173,6 +173,9 @@
     <Compile Include="ScreenManagement\OutGameScreens\MainMenu.cs" />
     <Compile Include="ScreenManagement\OutGameScreens\NewGameQuestion.cs" />
     <Compile Include="ScreenManagement\OutGameScreens\OptionsScreen.cs" />
+    <Compile Include="ScreenManagement\OutGameScreens\SaveSettingsAudioQuestion.cs" />
+    <Compile Include="ScreenManagement\OutGameScreens\SaveSettingsGraphicQuestion.cs" />
+    <Compile Include="ScreenManagement\OutGameScreens\SaveSettingsTutorialQuestion.cs" />
     <Compile Include="ScreenManagement\OutGameScreens\ShowArtScreen.cs" />
     <Compile Include="ScreenManagement\ScreenInputManager.cs" />
     <Compile Include="ScreenManagement\ScreenManager.cs" />

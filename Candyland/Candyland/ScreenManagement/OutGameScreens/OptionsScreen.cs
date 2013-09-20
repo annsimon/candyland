@@ -12,6 +12,8 @@ namespace Candyland
     {
         #region fields
 
+        SaveSettingsData settings;
+
         Texture2D caption;
 
         protected SpriteFont font;
@@ -104,6 +106,8 @@ namespace Candyland
 
         public override void Open(Game game, AssetManager assets)
         {
+            settings = ScreenManager.Settings;
+
             caption = assets.captionOptions;
             buttonTexture = assets.menuSelection;
 
@@ -145,14 +149,14 @@ namespace Candyland
 
             selectedButton = new Rectangle(titleLeftAlign - 10, titleTopAlign, buttonWidth, buttonHeight);
 
-            checkBoxFullscreen = new CheckBox(false, new Vector2(TextBox.Left + 315, TextBox.Top + 55), assets, this);
-            checkBoxWindow = new CheckBox(true, new Vector2(TextBox.Left + 65, TextBox.Top + 55), assets, this);
-            slideControlShadow = new SlideControl(3, new Vector2(TextBox.Left + 85, TextBox.Top + 205), assets);
+            checkBoxFullscreen = new CheckBox(settings.isFullscreen, new Vector2(TextBox.Left + 315, TextBox.Top + 55), assets, this);
+            checkBoxWindow = new CheckBox(!settings.isFullscreen, new Vector2(TextBox.Left + 65, TextBox.Top + 55), assets, this);
+            slideControlShadow = new SlideControl(2, settings.shadowQuality, new Vector2(TextBox.Left + 85, TextBox.Top + 205), assets);
 
-            slideControlMusic = new SlideControl(GameConstants.numberOfVolumeSteps, new Vector2(TextBox.Left + 85, TextBox.Top + 55), assets);
-            slideControlSound = new SlideControl(GameConstants.numberOfVolumeSteps, new Vector2(TextBox.Left + 85, TextBox.Top + 205), assets);
+            slideControlMusic = new SlideControl(GameConstants.numberOfVolumeSteps, settings.musicVolume, new Vector2(TextBox.Left + 85, TextBox.Top + 55), assets);
+            slideControlSound = new SlideControl(GameConstants.numberOfVolumeSteps, settings.soundVolume, new Vector2(TextBox.Left + 85, TextBox.Top + 205), assets);
 
-            checkBoxTutorial = new CheckBox(true, new Vector2(TextBox.Left + 65, TextBox.Top + 145), assets, this);
+            checkBoxTutorial = new CheckBox(settings.showTutorial, new Vector2(TextBox.Left + 65, TextBox.Top + 145), assets, this);
 
             saveButton = new Button("Speichern", new Vector2(MenuBoxR.Left - 90, MenuBoxB.Top - 20), assets, this);
             backButton = new Button("Zurück", new Vector2(MenuBoxL.Right - 25, MenuBoxB.Top - 20), assets, this);
@@ -277,7 +281,7 @@ namespace Candyland
                     case 1: checkBoxFullscreen.checkedOff = false; checkBoxWindow.checkedOff = true; break;
                     case 2: checkBoxFullscreen.checkedOff = true; checkBoxWindow.checkedOff = false; break;
                     case 3: if (slideControlShadow.active) slideControlShadow.active = false; else slideControlShadow.active = true; break;
-                    case 4: /*TODO save graphicSettings */ break;
+                    case 4: ScreenManager.ActivateNewScreen(new SaveSettingsGraphicQuestion(checkBoxFullscreen.checkedOff, slideControlShadow.value)); break;
                 }
             }
         }
@@ -454,8 +458,7 @@ namespace Candyland
             {
                 case 0: comment = string_notAny; break;
                 case 1: comment = string_low; break;
-                case 2: comment = string_medium; break;
-                case 3: comment = string_high; break;
+                case 2: comment = string_high; break;
             }
             slideControlShadow.comment = comment;
 
