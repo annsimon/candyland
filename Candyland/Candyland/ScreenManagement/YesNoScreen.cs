@@ -56,7 +56,7 @@ namespace Candyland
             yesSelected = assets.yesActive;
             noSelected = assets.noActive;
 
-            font = ScreenManager.Font;
+            font = assets.titleText;
 
             // Initialize Buttons
             screenWidth = game.GraphicsDevice.Viewport.Width;
