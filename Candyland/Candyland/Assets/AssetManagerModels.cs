@@ -17,6 +17,7 @@ namespace Candyland
 
         public Model buddy { get; set; }
         public Model buddybreaking { get; set; }
+        public Model buddyslip { get; set; }
         public Model actionBuddy { get; set; }
         public Model hero { get; set; }
         public Model heroslipping { get; set; }
@@ -50,6 +51,7 @@ namespace Candyland
 
             buddy = content.Load<Model>("NPCs/Helper/buddyrunning");
             buddybreaking = content.Load<Model>("NPCs/Helper/buddybreaking");
+            buddyslip = content.Load<Model>("NPCs/Helper/buddyrutsch");
             actionBuddy = content.Load<Model>("NPCs/HelperActor/buddy");
             hero = content.Load<Model>("NPCs/Spieler/candyguy");
             heroslipping = content.Load<Model>("NPCs/Spieler/candyguyrutsch");
