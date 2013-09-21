@@ -14,6 +14,8 @@ namespace Candyland
     {
         public Texture2D sun { get; set; }
 
+        public Texture2D teleport { get; set; }
+
         public Texture2D chocoBillboard { get; set; }
         public Texture2D chocoBillboardForMap { get; set; }
 
@@ -49,6 +51,8 @@ namespace Candyland
         public void LoadTextures(ContentManager content)
         {
             sun = content.Load<Texture2D>("Images/Billboards/Sun/Sun1");
+
+            teleport = content.Load<Texture2D>("Images/Billboards/Teleport");
 
             chocoBillboard = content.Load<Texture2D>("Images/Billboards/Choco1");
             chocoBillboardForMap = content.Load<Texture2D>("Images/Billboards/ChocoMap");

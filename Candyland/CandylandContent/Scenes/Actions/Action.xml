@@ -217,8 +217,6 @@
             <subaction type="movement" goalX="13.5" goalY="2" goalZ="257.5" locks="false" text=""/>
 
             <subaction type="dialog" goalX="8" goalY="0.5" goalZ="6.5" locks="true" text="Hahaha, zu langsam! Verfolg mich doch weiter, wenn du dich traust. Nur ein kleiner Sprung durch mein Portal und dein Ende erwartet dich!"/>
-            
-            <subaction type="movement" goalX="13.4" goalY="-1" goalZ="257.7" locks="false" text=""/>
 
             <subaction type="disappear" goalX="8" goalY="0.5" goalZ="6.5" locks="false" text=""/>
           </subactions>

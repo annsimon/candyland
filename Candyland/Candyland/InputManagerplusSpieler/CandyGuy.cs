@@ -103,6 +103,10 @@ namespace Candyland
             }
             else
             {
+                if (isOnSlipperyGround && currentspeed !=0 ) {
+                    movex = direction.X;
+                    movey = direction.Z;
+                }
                 move(movex,0, movey);
                 cam.changeAngle(camx, camy);
             }

@@ -135,11 +135,6 @@ namespace Candyland
             float dmovex =(float) Math.Cos(alpha) * dmovextemp - (float)Math.Sin(alpha) * dmoveytemp;
             float dmovey = (float) Math.Sin(alpha) * dmovextemp + (float) Math.Cos(alpha) * dmoveytemp;
 
-            if (player.getIsOnSlippery()) {
-                Vector3 temp = player.getDirection();
-                dmovex = temp.X;
-                dmovey = temp.Z;
-            }
 
             //move the player
             player.movementInput(dmovex, dmovey, dcamx, dcamy);
