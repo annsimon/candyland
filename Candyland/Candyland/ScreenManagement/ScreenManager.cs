@@ -71,6 +71,7 @@ namespace Candyland
         public SaveSettingsData Settings
         {
             get { return settings; }
+            set { settings = value; }
         }
 
         /// <summary>

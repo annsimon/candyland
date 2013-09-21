@@ -343,7 +343,7 @@ namespace Candyland
                 {
                     case 1: if (slideControlMusic.active) slideControlMusic.active = false; else slideControlMusic.active = true; break;
                     case 2: if (slideControlSound.active) slideControlSound.active = false; else slideControlSound.active = true; break;
-                    case 3: /*TODO save graphicSettings */ break;
+                    case 3: ScreenManager.ActivateNewScreen(new SaveSettingsAudioQuestion(slideControlMusic.value, slideControlSound.value)); break;
                 }
             }
         }
@@ -382,7 +382,7 @@ namespace Candyland
                 switch (activeTutorialOptionIndex)
                 {
                     case 1: if (checkBoxTutorial.checkedOff) checkBoxTutorial.checkedOff = false; else checkBoxTutorial.checkedOff = true; break;
-                    case 2: /*TODO save graphicSettings */ break;
+                    case 2: ScreenManager.ActivateNewScreen(new SaveSettingsTutorialQuestion(checkBoxTutorial.checkedOff)); break;
                 }
             }
         }

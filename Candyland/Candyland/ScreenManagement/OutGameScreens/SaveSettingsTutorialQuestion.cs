@@ -34,6 +34,8 @@ namespace Candyland
 
                 data.showTutorial = showTutorial;
 
+                //TODO ScreenManager.SceneManager.getUpdateInfo(). = showTutorial;
+
                 string filename = "settings.sav";
 
                 // Convert the object to XML data
