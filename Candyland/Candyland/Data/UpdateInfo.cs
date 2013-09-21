@@ -25,6 +25,9 @@ namespace Candyland
         // value between 0 and 2, 0 means no shadows, 2 means best shadows
         public int shadowQuality { get; set; }
 
+        // is tutorial enabled or not?
+        public bool tutorialActive { get; set; }
+
         public int musicVolume { get; set; }
 
         public int soundVolume { get; set; }
@@ -102,6 +105,7 @@ namespace Candyland
             currenthelperLevelID = GameConstants.startLevelID;
 
             shadowQuality = screenManager.Settings.shadowQuality;
+            tutorialActive = screenManager.Settings.showTutorial;
             musicVolume = screenManager.Settings.musicVolume;
             soundVolume = screenManager.Settings.soundVolume;
 

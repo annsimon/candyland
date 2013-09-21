@@ -74,6 +74,8 @@ namespace Candyland
 
         public override void update()
         {
+            if (!m_updateInfo.tutorialActive && !(ID.Contains("bossActor") || ID.Contains("helperActor")))
+                return;
             // subAction of type movement is being performed
             if (!m_updateInfo.actionInProgress)
             {
