@@ -22,6 +22,8 @@ namespace Candyland
 
             // Update gameTime in UpdateInfo
             m_updateInfo.gameTime = gameTime;
+            
+            MediaPlayer.Volume = ((float)m_updateInfo.musicVolume) / 10;
 
             if (m_updateInfo.activateHelperNow)
             {
@@ -187,7 +189,6 @@ namespace Candyland
             if (((m_updateInfo.alwaysRun) || (m_updateInfo.currentguyAreaID == "255")) && !boss)
             {
                 MediaPlayer.Stop();
-                MediaPlayer.Volume = ((float)m_updateInfo.soundVolume) / 10;
                 MediaPlayer.Play(song2); 
                 MediaPlayer.IsRepeating = true;
                 boss = true;
@@ -196,7 +197,6 @@ namespace Candyland
             {
                 MediaPlayer.Stop();
                 MediaPlayer.Play(song1);
-                MediaPlayer.Volume = ((float)m_updateInfo.soundVolume) / 10;
                 MediaPlayer.IsRepeating = true;
                 boss = false;
             }
