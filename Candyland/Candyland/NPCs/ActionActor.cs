@@ -153,8 +153,8 @@ namespace Candyland
 
         public override void Trigger(String actionID)
         {
-            // ignore actions if there is one already in progress
-            if (m_updateInfo.actionInProgress)
+            // ignore actions if there is one already in progress or if they should not be in progress
+            if (m_updateInfo.actionInProgress || (!m_updateInfo.tutorialActive && !(ID.Contains("bossActor") || ID.Contains("helperActor"))))
                 return;
             // action is a one time action
             if (m_actionTracker.actionState.ContainsKey(actionID))
