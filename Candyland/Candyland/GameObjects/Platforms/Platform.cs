@@ -209,7 +209,7 @@ namespace Candyland
                     }
 
                     // automatically save the game, when entering a new level
-                    m_updateInfo.m_screenManager.SceneManager.SaveGame();
+//                    m_updateInfo.m_screenManager.SceneManager.SaveGame();
                 }
                 if (m_triggersActionWithID != null)
                 {
