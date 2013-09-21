@@ -169,6 +169,19 @@ namespace Candyland
 
             input = screenInput.getInput();
 
+            if (input.Equals(InputState.Continue) && 
+                !((screens.Last().GetType() == typeof(MainGame))
+                |(screens.Last().GetType() == typeof(TitleScreen))
+                |(screens.Last().GetType() == typeof(DialogListeningScreen))
+                |(screens.Last().GetType() == typeof(SalesmanDialogueScreen))
+                |(screens.Last().GetType() == typeof(TeleportFairyDialog))
+                |(screens.Last().GetType() == typeof(LoadingScreen))))
+            {
+                float pitch = 0.0f;
+                float pan = 0.0f;
+                buttonSound.Play(((float)settings.soundVolume) / 10, pitch, pan);
+            }
+
             foreach (GameScreen screen in screens)
             {
                 if (screen.ScreenState == ScreenState.Active)
@@ -176,12 +189,6 @@ namespace Candyland
                     screen.Update(gameTime);
                     return;
                 }
-            }
-            if (input.Equals(InputState.Continue))
-            {
-                float pitch = 0.0f;
-                float pan = 0.0f;
-                buttonSound.Play(((float)settings.soundVolume)/10, pitch, pan);
             }
         }
 
