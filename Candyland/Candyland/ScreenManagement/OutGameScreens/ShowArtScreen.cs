@@ -37,6 +37,8 @@ namespace Candyland
         protected Texture2D BorderBottom;
         protected Texture2D BorderMiddle;
 
+        Button backButton;
+
         public ShowArtScreen(Texture2D img)
         {
             this.isFullscreen = true;
@@ -60,19 +62,26 @@ namespace Candyland
 
             font = ScreenManager.Font;
 
-            int offsetX = 5;
-            int offsetY = 5;
+            int offset = 5;
 
-            MakeBorderBox(new Rectangle(offsetX, offsetY, screenWidth - 2 * offsetX, screenHeight - 2 * offsetY),
+            int MenuBoxWidth = ScreenManager.PrefScreenWidth - 2 * offset;
+            int MenuBoxHeight = ScreenManager.PrefScreenHeight - 2 * offset;
+
+            MakeBorderBox(new Rectangle((screenWidth - MenuBoxWidth) / 2, (screenHeight - MenuBoxHeight) / 2, MenuBoxWidth, MenuBoxHeight),
                 out MenuBoxTL, out MenuBoxT, out MenuBoxTR, out MenuBoxR,
                 out MenuBoxBR, out MenuBoxB, out MenuBoxBL, out MenuBoxL, out MenuBoxM);
+
+            backButton = new Button("Zurück", new Vector2(MenuBoxL.Right - 25, MenuBoxB.Top - 20), assets, this);
         }
 
         public override void Update(GameTime gameTime)
         {
-            if (ScreenManager.Input.Equals(InputState.Back))
+            backButton.selected = true;
+
+            switch (ScreenManager.Input)
             {
-                ScreenManager.ResumeLast(this);
+                case InputState.Continue: ScreenManager.ResumeLast(this); break;
+                case InputState.Back: ScreenManager.ResumeLast(this); break;
             }
         }
 
@@ -100,7 +109,7 @@ namespace Candyland
 
             m_sprite.Draw(image, new Rectangle(MenuBoxL.Left + 200, MenuBoxT.Top + 50, (int)(image.Width * 0.3f), (int)(image.Height * 0.3f)), Color.White);
 
-            m_sprite.DrawString(font, "Zurück mit\n'Escape'", new Vector2(20, screenHeight - font.LineSpacing * 3), Color.Black);
+            backButton.Draw(m_sprite);
 
             ScreenManager.SpriteBatch.End();
         }

@@ -40,6 +40,8 @@ namespace Candyland
         protected Texture2D BorderBottom;
         protected Texture2D BorderMiddle;
 
+        Button backButton;
+
         public CreditsScreen()
         {
             this.isFullscreen = true;
@@ -74,13 +76,18 @@ namespace Candyland
             MakeBorderBox(new Rectangle((screenWidth - MenuBoxWidth) / 2, (screenHeight - MenuBoxHeight) / 2, MenuBoxWidth, MenuBoxHeight),
                 out MenuBoxTL, out MenuBoxT, out MenuBoxTR, out MenuBoxR,
                 out MenuBoxBR, out MenuBoxB, out MenuBoxBL, out MenuBoxL, out MenuBoxM);
+
+            backButton = new Button("Zurück", new Vector2(MenuBoxL.Right - 25, MenuBoxB.Top - 20), assets, this);
         }
 
         public override void Update(GameTime gameTime)
         {
-            if (ScreenManager.Input.Equals(InputState.Back))
+            backButton.selected = true;
+
+            switch (ScreenManager.Input)
             {
-                ScreenManager.ResumeLast(this);
+                case InputState.Continue: ScreenManager.ResumeLast(this); break;
+                case InputState.Back: ScreenManager.ResumeLast(this); break;
             }
         }
 
@@ -111,7 +118,7 @@ namespace Candyland
             DrawCredits(screenWidth, m_sprite);
                 
             // Go Back Option
-            m_sprite.DrawString(font, "Zurück mit\n'Escape'", new Vector2(20, screenHeight - font.LineSpacing * 3), Color.Black);
+            backButton.Draw(m_sprite);
 
             ScreenManager.SpriteBatch.End();
         }

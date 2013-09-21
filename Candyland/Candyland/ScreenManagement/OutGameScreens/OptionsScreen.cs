@@ -452,8 +452,8 @@ namespace Candyland
             checkBoxFullscreen.Draw(m_sprite);
             checkBoxWindow.Draw(m_sprite);
             // Shadow Options
-            m_sprite.DrawString(titleFont, "Schattenauflösung",
-                    new Vector2(titleEndX + (TextBox.Width - (int)titleFont.MeasureString("Schattenauflösung").X) / 2, top + 5 * lineDist), Color.Black);
+            m_sprite.DrawString(titleFont, "Schattenqualitität",
+                    new Vector2(titleEndX + (TextBox.Width - (int)titleFont.MeasureString("Schattenqualität").X) / 2, top + 5 * lineDist), Color.Black);
 
             string comment = "";
             switch (slideControlShadow.value)

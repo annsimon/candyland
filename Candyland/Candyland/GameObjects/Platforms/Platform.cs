@@ -192,7 +192,7 @@ namespace Candyland
                     //}
 
                 }
-//                else this.m_updateInfo.playerIsOnAreaExit = false;
+
                 if (this.isDoorToLevel && !m_updateInfo.playerHasTouchedDoorInThisUpdate)
                 {
                     m_updateInfo.playerHasTouchedDoorInThisUpdate = true;
@@ -228,7 +228,7 @@ namespace Candyland
                         this.m_updateInfo.nexthelperLevelID = doorToLevelID;
                     }
                 }
-//                else this.m_updateInfo.playerIsOnLevelExit = false;
+
                 if (m_triggersActionWithID != null)
                 {
                     m_triggersActionOfObject.Trigger(m_triggersActionWithID);

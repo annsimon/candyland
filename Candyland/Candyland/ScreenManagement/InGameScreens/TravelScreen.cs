@@ -51,6 +51,8 @@ namespace Candyland
         protected Texture2D BorderBottom;
         protected Texture2D BorderMiddle;
 
+        Button backButton;
+
         public TravelScreen(string saleID, UpdateInfo info, GameScreen dialogScreen)
         {
             salesmanID = saleID;
@@ -108,6 +110,8 @@ namespace Candyland
                 }
                 index++;
             }
+
+            backButton = new Button("Zurück", new Vector2(MenuBoxL.Right - 25, MenuBoxB.Top - 20), assets, this);
         }
 
         public override void Update(GameTime gameTime)
@@ -168,7 +172,7 @@ namespace Candyland
                 index++;
             }
 
-            m_sprite.DrawString(font, "Zurück mit\n'Escape'", new Vector2(20, screenHeight - font.LineSpacing * 3), Color.Black);
+            backButton.Draw(m_sprite);
 
             m_sprite.End();
 
