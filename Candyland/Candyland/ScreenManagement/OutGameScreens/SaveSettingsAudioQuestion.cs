@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using System.Xml;
 using Microsoft.Xna.Framework.Content.Pipeline.Serialization.Intermediate;
+using Microsoft.Xna.Framework.Media;
 
 namespace Candyland
 {
@@ -38,6 +39,8 @@ namespace Candyland
                 data.soundVolume = soundVolume;
                 ScreenManager.SceneManager.getUpdateInfo().musicVolume = musicVolume;
                 ScreenManager.SceneManager.getUpdateInfo().soundVolume = soundVolume;
+
+                MediaPlayer.Volume = ((float)musicVolume) / 10;
 
                 string filename = "settings.sav";
 

@@ -22,8 +22,6 @@ namespace Candyland
 
             // Update gameTime in UpdateInfo
             m_updateInfo.gameTime = gameTime;
-            
-            MediaPlayer.Volume = ((float)m_updateInfo.musicVolume) / 10;
 
             if (m_updateInfo.activateHelperNow)
             {
@@ -57,7 +55,7 @@ namespace Candyland
                 {
                     player.Reset();
                     Vector3 resetPos = m_areas[m_updateInfo.currentguyLevelID.Split('.')[0]].GetPlayerStartingPosition(player);
-                    resetPos.Y += 0.6f;
+                    resetPos.Y += 0.4f;
                     player.setPosition(resetPos);
                 }
 
@@ -65,7 +63,7 @@ namespace Candyland
                 {
                     player2.Reset();
                     Vector3 resetPos2 = m_areas[m_updateInfo.currenthelperLevelID.Split('.')[0]].GetCompanionStartingPosition(player2);
-                    resetPos2.Y += 0.3f;
+                    resetPos2.Y -= 0.4f;
                     player2.setPosition(resetPos2);
                 }
 
@@ -200,6 +198,51 @@ namespace Candyland
                 MediaPlayer.IsRepeating = true;
                 boss = false;
             }
+        }
+
+        public void UpdateOnce()
+        {
+            // Update gameTime in UpdateInfo
+            GameTime gameTime = new GameTime(new TimeSpan(0), new TimeSpan(0));
+
+            m_updateInfo.gameTime = gameTime;
+
+            m_inputManager.update(player, player2);
+
+            if (m_updateInfo.candyselected || m_updateInfo.currentguyLevelID == m_updateInfo.currenthelperLevelID)
+                player.update();
+            if (!m_updateInfo.candyselected || (m_updateInfo.helperavailable && m_updateInfo.currentguyLevelID == m_updateInfo.currenthelperLevelID))
+                player2.update();
+
+            if (m_updateInfo.candyselected)
+                sun.Update(m_graphics, player.getPosition(), gameTime);
+            else
+                sun.Update(m_graphics, player2.getPosition(), gameTime);
+
+
+            player.resetCloseEnoughToInteract();
+            player2.resetCloseEnoughToInteract();
+
+            player.startIntersection();
+            player2.startIntersection();
+
+
+            // check for Collision between the Player and all Game Objects
+            foreach (var area in m_areas)
+                area.Value.Collide(player);
+            // check for Collision between the Player2 and all Game Objects
+            foreach (var area in m_areas)
+                area.Value.Collide(player2);
+            
+            // update all areas
+            foreach (var area in m_areas)
+                area.Value.UpdateAll(gameTime);
+
+            player.endIntersection();
+            player2.endIntersection();
+
+            m_areas[m_updateInfo.currentguyLevelID.Split('.')[0]].endIntersection();
+            m_areas[m_updateInfo.currenthelperLevelID.Split('.')[0]].endIntersection();
         }
 
         private void UpdateShadowMap()
