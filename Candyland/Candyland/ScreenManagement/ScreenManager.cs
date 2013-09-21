@@ -71,6 +71,7 @@ namespace Candyland
         public SaveSettingsData Settings
         {
             get { return settings; }
+            set { settings = value; }
         }
 
         /// <summary>
@@ -178,10 +179,9 @@ namespace Candyland
             }
             if (input.Equals(InputState.Continue))
             {
-                float volume = 0.5f;
                 float pitch = 0.0f;
                 float pan = 0.0f;
-                buttonSound.Play(volume, pitch, pan);
+                buttonSound.Play(((float)settings.soundVolume)/10, pitch, pan);
             }
         }
 

@@ -37,6 +37,8 @@ namespace Candyland
                 data.isFullscreen = fullscreen;
                 data.shadowQuality = shadowQuality;
 
+                ScreenManager.SceneManager.getUpdateInfo().shadowQuality = shadowQuality;
+
                 string filename = "settings.sav";
 
                 // Convert the object to XML data

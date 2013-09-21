@@ -21,6 +21,7 @@ namespace Candyland
 
         // Class to hold all data for game settings
         SaveSettingsData settingsData;
+        public bool mute;
 
         public Game1()
         {
@@ -50,6 +51,7 @@ namespace Candyland
         {
            // IsMouseVisible = true;
 
+            mute = false;
             // Set start screen
             screenManager.AddScreen(new TitleScreen());
 
@@ -120,8 +122,16 @@ namespace Candyland
             // Controls to Mute background music
             if (newState.IsKeyDown(Keys.L) && newState != oldState)
             {
-                if (MediaPlayer.Volume == 0) MediaPlayer.Volume = 1;
-                else MediaPlayer.Volume = 0;
+                if (!mute)
+                {
+                    MediaPlayer.Volume = 0;
+                    mute = true;
+                }
+                else
+                {
+                    MediaPlayer.Volume = ((float)screenManager.Settings.musicVolume) / 10;
+                    mute = false;
+                }
             }
 
             // Update saved state.

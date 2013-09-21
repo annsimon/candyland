@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Candyland
 {
-    public struct SaveSettingsData
+    public class SaveSettingsData
     {
         public bool isFullscreen;
 
