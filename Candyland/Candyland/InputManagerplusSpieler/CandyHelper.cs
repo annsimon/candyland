@@ -17,11 +17,13 @@ namespace Candyland
     {
         private bool isInAction;
         private float actionTimer;
+        private bool wasOnSlippery;
 
 
         public CandyHelper(Vector3 position, Vector3 direction, float aspectRatio, UpdateInfo info, BonusTracker bonusTracker)
         {
             isInAction = false;
+            wasOnSlippery = false;
             m_updateInfo = info;
             m_bonusTracker = bonusTracker;
             this.m_position = position;
@@ -32,9 +34,9 @@ namespace Candyland
             this.cam = new Camera(position, MathHelper.PiOver4, aspectRatio, 0.1f, GameConstants.cameraFarPlane, m_updateInfo);
             this.currentspeed = 0;
             this.upvelocity = 0;
-            this.modelArray = new Model[2];
-            this.skinningArray = new SkinningData[2];
-            this.clipArray = new AnimationClip[2];
+            this.modelArray = new Model[3];
+            this.skinningArray = new SkinningData[3];
+            this.clipArray = new AnimationClip[3];
 
             this.m_material = new Material();
             this.m_material.ambient = GameConstants.ambient;
@@ -49,6 +51,7 @@ namespace Candyland
         public override void update()
         {
             KeyboardState keystate = Keyboard.GetState();
+
             if (isInAction)
             {
                 animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
@@ -62,7 +65,7 @@ namespace Candyland
                 }
             }
             else if (!m_updateInfo.locked && keystate.IsKeyDown(Keys.Space)
-                  && isthirdpersoncam && !m_updateInfo.candyselected)
+                  && isthirdpersoncam && !m_updateInfo.candyselected && !isOnSlipperyGround)
             {
                 m_model = modelArray[1];
                 animationPlayer.StartClip(clipArray[1]);
@@ -71,15 +74,46 @@ namespace Candyland
                 animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
                 actionTimer++;
             }
-            else if (!m_updateInfo.locked && (keystate.IsKeyDown(Keys.W) || keystate.IsKeyDown(Keys.A) || keystate.IsKeyDown(Keys.D) || keystate.IsKeyDown(Keys.S))
-                  && isthirdpersoncam && !m_updateInfo.candyselected && !keystate.IsKeyDown(Keys.Space)) 
-            {
-                animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
-
-            }
             else
             {
-                animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, false, Matrix.Identity);
+                if (!wasOnSlippery)
+                {
+                    if (!isOnSlipperyGround)
+                    {
+                        if (!m_updateInfo.locked && (keystate.IsKeyDown(Keys.W)
+                            || keystate.IsKeyDown(Keys.A) || keystate.IsKeyDown(Keys.D)
+                            || (keystate.IsKeyDown(Keys.S)))
+                            && isthirdpersoncam && !m_updateInfo.candyselected && isonground)
+                        {
+                            animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
+                        }
+                        else
+                        {
+                            animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, false, Matrix.Identity);
+                        }
+                    }
+                    else
+                    {
+                        m_model = modelArray[2];
+                        animationPlayer.StartClip(clipArray[2]);
+                        wasOnSlippery = true;
+                        animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
+                    }
+                }
+                else
+                {
+                    if (isOnSlipperyGround)
+                    {
+                        animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
+                    }
+                    else
+                    {
+                        m_model = modelArray[0];
+                        animationPlayer.StartClip(clipArray[0]);
+                        wasOnSlippery = false;
+                        animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
+                    }
+                }
             }
             base.update();
             fall();
@@ -95,6 +129,7 @@ namespace Candyland
             m_texture = assets.buddyTexture;
             modelArray[0] = assets.buddy;
             modelArray[1] = assets.buddybreaking;
+            modelArray[2] = assets.buddyslip;
             m_model = modelArray[0];
             calculateBoundingBox();
             minOld = m_boundingBox.Min;
