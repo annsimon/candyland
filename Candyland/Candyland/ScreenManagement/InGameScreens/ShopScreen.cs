@@ -14,6 +14,7 @@ namespace Candyland
         #region fields
 
         SpriteFont font;
+        AssetManager m_assets;
 
         int screenWidth;
         int screenHeight;
@@ -105,6 +106,7 @@ namespace Candyland
         public override void Open(Game game, AssetManager assets)
         {
             font = assets.mainText;
+            m_assets = assets;
 
             screenWidth = game.GraphicsDevice.Viewport.Width;
             screenHeight = game.GraphicsDevice.Viewport.Height;
@@ -301,40 +303,40 @@ namespace Candyland
             int i = 0;
 
             if (i >= forSale.Count) return;
-            forSale.ElementAt(0).Value.Draw(m_sprite, (int)pos1.X + offset, (int)pos1.Y + offset, bonusPictureWidth, bonusPictureWidth, white, font);
+            forSale.ElementAt(0).Value.Draw(m_sprite, (int)pos1.X + offset, (int)pos1.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
             i++;
             if (i >= forSale.Count) return;
-            forSale.ElementAt(1).Value.Draw(m_sprite, (int)pos2.X + offset, (int)pos2.Y + offset, bonusPictureWidth, bonusPictureWidth, white, font);
+            forSale.ElementAt(1).Value.Draw(m_sprite, (int)pos2.X + offset, (int)pos2.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
             i++;
             if (i >= forSale.Count) return;
-            forSale.ElementAt(2).Value.Draw(m_sprite, (int)pos3.X + offset, (int)pos3.Y + offset, bonusPictureWidth, bonusPictureWidth, white, font);
+            forSale.ElementAt(2).Value.Draw(m_sprite, (int)pos3.X + offset, (int)pos3.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
             i++;
             if (i >= forSale.Count) return;
-            forSale.ElementAt(3).Value.Draw(m_sprite, (int)pos4.X + offset, (int)pos4.Y + offset, bonusPictureWidth, bonusPictureWidth, white, font);
+            forSale.ElementAt(3).Value.Draw(m_sprite, (int)pos4.X + offset, (int)pos4.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
             i++;
             if (i >= forSale.Count) return;
-            forSale.ElementAt(4).Value.Draw(m_sprite, (int)pos5.X + offset, (int)pos5.Y + offset, bonusPictureWidth, bonusPictureWidth, white, font);
+            forSale.ElementAt(4).Value.Draw(m_sprite, (int)pos5.X + offset, (int)pos5.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
             i++;
             if (i >= forSale.Count) return;
-            forSale.ElementAt(5).Value.Draw(m_sprite, (int)pos6.X + offset, (int)pos6.Y + offset, bonusPictureWidth, bonusPictureWidth, white, font);
+            forSale.ElementAt(5).Value.Draw(m_sprite, (int)pos6.X + offset, (int)pos6.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
             i++;
             if (i >= forSale.Count) return;
-            forSale.ElementAt(6).Value.Draw(m_sprite, (int)pos7.X + offset, (int)pos7.Y + offset, bonusPictureWidth, bonusPictureWidth, white, font);
+            forSale.ElementAt(6).Value.Draw(m_sprite, (int)pos7.X + offset, (int)pos7.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
             i++;
             if (i >= forSale.Count) return;
-            forSale.ElementAt(7).Value.Draw(m_sprite, (int)pos8.X + offset, (int)pos8.Y + offset, bonusPictureWidth, bonusPictureWidth, white, font);
+            forSale.ElementAt(7).Value.Draw(m_sprite, (int)pos8.X + offset, (int)pos8.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
             i++;
             if (i >= forSale.Count) return;
-            forSale.ElementAt(8).Value.Draw(m_sprite, (int)pos9.X + offset, (int)pos9.Y + offset, bonusPictureWidth, bonusPictureWidth, white, font);
+            forSale.ElementAt(8).Value.Draw(m_sprite, (int)pos9.X + offset, (int)pos9.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
             i++;
             if (i >= forSale.Count) return;
-            forSale.ElementAt(9).Value.Draw(m_sprite, (int)pos10.X + offset, (int)pos10.Y + offset, bonusPictureWidth, bonusPictureWidth, white, font);
+            forSale.ElementAt(9).Value.Draw(m_sprite, (int)pos10.X + offset, (int)pos10.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
             i++;
             if (i >= forSale.Count) return;
-            forSale.ElementAt(10).Value.Draw(m_sprite, (int)pos11.X + offset, (int)pos11.Y + offset, bonusPictureWidth, bonusPictureWidth, white, font);
+            forSale.ElementAt(10).Value.Draw(m_sprite, (int)pos11.X + offset, (int)pos11.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
             i++;
             if (i >= forSale.Count) return;
-            forSale.ElementAt(11).Value.Draw(m_sprite, (int)pos12.X + offset, (int)pos12.Y + offset, bonusPictureWidth, bonusPictureWidth, white, font);
+            forSale.ElementAt(11).Value.Draw(m_sprite, (int)pos12.X + offset, (int)pos12.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
             i++;
         }
 

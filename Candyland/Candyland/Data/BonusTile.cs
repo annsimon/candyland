@@ -17,6 +17,7 @@ namespace Candyland
         Texture2D texture;
         Rectangle rectangle;
         bool sold;
+        SpriteFont font;
 
         #region getter
 
@@ -97,8 +98,9 @@ namespace Candyland
             this.price = price;
         }
 
-        public void Draw(SpriteBatch sprite, int posX, int posY, int width, int height, Color color, SpriteFont font)
+        public void Draw(SpriteBatch sprite, int posX, int posY, int width, int height, Color color, AssetManager asset)
         {
+            font = asset.mainRegular;
             float scalingFactor = (float)width/(float)texture.Width;
             Rectangle rec = new Rectangle(posX,
                 posY /*+ ((height - (int)(texture.Height * scalingFactor)) / 2)*/,
