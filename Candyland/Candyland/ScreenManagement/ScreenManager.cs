@@ -328,6 +328,11 @@ namespace Candyland
 
             m_sceneManager.Load(content, assets);
 
+            // this is one seriously weird thing to do
+            // but it causes breakable obstacles to be visible from the start
+            for (int i = 0; i < 10; i++)
+                m_sceneManager.UpdateOnce();
+
             readyToStartGame = true;
         }
 
@@ -336,6 +341,11 @@ namespace Candyland
             m_sceneManager = new SceneManager(this);
 
             m_sceneManager.Load(content, assets);
+
+            // this is one seriously weird thing to do
+            // but it causes breakable obstacles to be visible from the start
+            for( int i = 0; i < 10; i++ )
+                m_sceneManager.UpdateOnce();
 
             readyToStartGame = m_sceneManager.LoadSavegame();
         }

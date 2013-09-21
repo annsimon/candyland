@@ -68,6 +68,13 @@ namespace Candyland
             }
         }
 
+        public void UpdateAll(GameTime gameTime)
+        {
+            // update all levels
+            foreach (var lvl in m_levels)
+                lvl.Value.Update(gameTime);
+        }
+
         public void Collide(GameObject obj)
         {
             if (obj is CandyGuy) {
