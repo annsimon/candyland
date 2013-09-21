@@ -155,7 +155,10 @@ namespace Candyland
                     movey = direction.Z;
                 }
                 move(movex,0, movey);
-                cam.changeAngle(camx, camy);
+                if (cam.isInThirdP())
+                    cam.changeAngle(camx, camy);
+                else
+                    cam.changeAngle(movex, movey);
             }
         }
 
