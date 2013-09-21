@@ -108,10 +108,9 @@ namespace Candyland
                 m_bonusTracker.chocoChipState[ID] = true;
                 m_bonusTracker.chocoCount++;
                 // sound options
-                float volume = 0.2f;
                 float pitch = 0.0f;
                 float pan = 0.0f;
-                sound.Play(volume, pitch, pan);
+                sound.Play(((float)m_updateInfo.soundVolume) / 10, pitch, pan);
             }
         }
 

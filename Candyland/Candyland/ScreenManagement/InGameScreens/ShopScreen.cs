@@ -207,10 +207,9 @@ namespace Candyland
             {
                 if (forSale.Count() == 0 || (m_bonusTracker.chocoCount - m_bonusTracker.chocoChipsSpent) < forSale.ElementAt(activeID - 1).Key)
                 {
-                    float volume = 0.5f;
                     float pitch = 0.0f;
                     float pan = 0.0f;
-                    errorSound.Play(volume, pitch, pan);// TODO play sound
+                    errorSound.Play(((float)m_updateInfo.soundVolume) / 10, pitch, pan);
                 }
                 else
                     ScreenManager.ActivateNewScreen(new BuyQuestion(forSale.ElementAt(activeID - 1).Value, forSale));

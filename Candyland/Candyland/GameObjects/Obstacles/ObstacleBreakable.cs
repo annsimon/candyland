@@ -91,10 +91,9 @@ namespace Candyland
                 // start playing only once
                 if (nowStartedBreaking)
                 {
-                    float volume = 0.2f;
                     float pitch = 0.0f;
                     float pan = 0.0f;
-                    sound.Play(volume, pitch, pan);
+                    sound.Play(((float)m_updateInfo.soundVolume) / 10, pitch, pan);
                     nowStartedBreaking = false;
                 }
 

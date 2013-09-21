@@ -25,6 +25,9 @@ namespace Candyland
         // value between 0 and 2, 0 means no shadows, 2 means best shadows
         public int shadowQuality { get; set; }
 
+        public int musicVolume { get; set; }
+
+        public int soundVolume { get; set; }
         // if the player is on the last platform before a level change
         // the bool is true and the int tells which level exit it is
         // (this is used to start updating the next level early enough)
@@ -99,6 +102,8 @@ namespace Candyland
             currenthelperLevelID = GameConstants.startLevelID;
 
             shadowQuality = screenManager.Settings.shadowQuality;
+            musicVolume = screenManager.Settings.musicVolume;
+            soundVolume = screenManager.Settings.soundVolume;
 
             playerIsOnAreaExit = false;
 

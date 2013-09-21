@@ -63,10 +63,9 @@ namespace Candyland
             if (!this.isActivated && this.isTouched == GameConstants.TouchedState.touched)
             {
                 this.setActivated(true);
-                float volume = 0.5f;
                 float pitch = 0.0f;
                 float pan = 0.0f;
-                sound.Play(volume, pitch, pan);
+                sound.Play(((float)m_updateInfo.soundVolume) / 10, pitch, pan);
                 this.isTouched = GameConstants.TouchedState.stillTouched;
             }
         }
