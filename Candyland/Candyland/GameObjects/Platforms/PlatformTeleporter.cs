@@ -26,11 +26,13 @@ namespace Candyland
         {
             base.init(id, pos, updateInfo, visible);
 
+            m_hasBillboard = true;
+            m_updateInfo.objectsWithBillboards.Add(this);
             this.teleportTarget = target;
         }
         public override void load(ContentManager content, AssetManager assets)
         {
-            this.m_texture = assets.platformTextureTeleport;
+            this.m_texture = assets.platformTexture;
             this.m_model = assets.platformSmall;
             sound = assets.teleportSound;
 
@@ -41,6 +43,9 @@ namespace Candyland
             this.calculateBoundingBox();
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
+            Vector3 bbPosition = new Vector3(m_position.X, m_position.Y + 0.5f, m_position.Z);
+            this.m_bb = new TeleportBB(m_updateInfo.graphics, bbPosition);
+            ((TeleportBB)m_bb).Load(content, assets);
             base.load(content, assets);
         }
 

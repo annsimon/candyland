@@ -101,6 +101,7 @@
     <Compile Include="Assets\AssetManagerScreenTextures.cs" />
     <Compile Include="Billboards\Billboard.cs" />
     <Compile Include="Billboards\ChocoBB.cs" />
+    <Compile Include="Billboards\TeleportBB.cs" />
     <Compile Include="Billboards\Sun.cs" />
     <Compile Include="Data\ActionTracker.cs" />
     <Compile Include="Assets\AssetManager.cs" />
