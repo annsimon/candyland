@@ -219,9 +219,9 @@ namespace Candyland
             {
                 if (arrowBlink)
                 {
-                    m_sprite.Draw(arrowDown, new Rectangle(DiagBoxBR.Right - 35, DiagBoxBR.Bottom - 30, 30, 15), Color.White);
+                    m_sprite.Draw(arrowDown, new Rectangle(DiagBoxBR.Right - 40, DiagBoxBR.Bottom - 30, 30, 15), Color.White);
                 }
-                else m_sprite.Draw(arrowDown, new Rectangle(DiagBoxBR.Right - 35, DiagBoxBR.Bottom - 25, 30, 15), Color.White);
+                else m_sprite.Draw(arrowDown, new Rectangle(DiagBoxBR.Right - 40, DiagBoxBR.Bottom - 25, 30, 15), Color.White);
             }
             m_sprite.End();
 

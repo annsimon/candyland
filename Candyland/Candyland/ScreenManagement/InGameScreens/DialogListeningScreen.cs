@@ -90,16 +90,17 @@ namespace Candyland
 
             int offset = 5;
             int offsetImage = 10;
-            int yPos = (screenHeight * 2) / 3;
+            int diagHeight = 4 * lineDist + 2 * offset;
+            int yPos = screenHeight - diagHeight - offset;
 
-            MakeBorderBox(new Rectangle(offset, yPos, screenWidth - 2 * offset, screenHeight - yPos - offset),
+            MakeBorderBox(new Rectangle(offset, yPos, screenWidth - 2 * offset, diagHeight),
                 out DiagBoxTL, out DiagBoxT, out DiagBoxTR, out DiagBoxR,
                 out DiagBoxBR, out DiagBoxB, out DiagBoxBL, out DiagBoxL, out DiagBoxM);
 
             pictureNPC = new Rectangle(DiagBoxTL.X + offsetImage, DiagBoxTL.Y + offsetImage, (int)(3.3f * lineDist), (int)(3.75f * lineDist));
-            TextBox = new Rectangle(pictureNPC.Right + offset, pictureNPC.Top + lineDist / 4, screenWidth - pictureNPC.Right - 2 * offset, pictureNPC.Height + offset);
+            TextBox = new Rectangle(pictureNPC.Right + 2 * offset, pictureNPC.Top + lineDist / 4, screenWidth - pictureNPC.Right - 2 * offset, pictureNPC.Height + offset);
 
-            lineCapacity = (TextBox.Height - offset) / font.LineSpacing;
+            lineCapacity = (TextBox.Height - 2 * offset) / font.LineSpacing;
 
             TextArray = wrapText(Text, font, TextBox, lineCapacity);
         }
@@ -176,7 +177,7 @@ namespace Candyland
                 {
                     m_sprite.Draw(arrowDown, new Rectangle(DiagBoxBR.Right - 40, DiagBoxBR.Bottom - 35, 24, 15), Color.White);
                 }
-                else m_sprite.Draw(arrowDown, new Rectangle(DiagBoxBR.Right - 40, DiagBoxBR.Bottom - 32, 24, 15), Color.White);
+                else m_sprite.Draw(arrowDown, new Rectangle(DiagBoxBR.Right - 40, DiagBoxBR.Bottom - 25, 24, 15), Color.White);
             }
 
             m_sprite.End();
