@@ -1100,6 +1100,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Sfx\teleport8bit.wav">
+      <Name>teleport8bit</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sfx\Fanfare8bit.wav">
+      <Name>Fanfare8bit</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Images\Billboards\Teleport.png">
       <Name>Teleport</Name>
       <Importer>TextureImporter</Importer>

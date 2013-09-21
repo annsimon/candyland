@@ -19,6 +19,7 @@ namespace Candyland
 
         private BonusTracker m_bonusTracker;
         private SoundEffect sound;
+        private SoundEffect sound2;
 
         public ChocoChip()
         {
@@ -62,6 +63,7 @@ namespace Candyland
         public override void load(ContentManager content, AssetManager assets)
         {
             sound = assets.chocoSound;  // sound when collecting chocochips
+            sound2 = assets.fanfareSound;
             this.m_texture = assets.chocoTexture;
             this.m_original_texture = this.m_texture;
             this.effect = assets.commonShader;
@@ -100,6 +102,8 @@ namespace Candyland
 
         public override void hasCollidedWith(GameObject obj)
         {
+            float pitch = 0.0f;
+            float pan = 0.0f;
             if (!isCollected && 
                 (obj.GetType() == typeof(CandyGuy) || obj.GetType() == typeof(CandyHelper)))
             {
@@ -108,9 +112,15 @@ namespace Candyland
                 m_bonusTracker.chocoChipState[ID] = true;
                 m_bonusTracker.chocoCount++;
                 // sound options
-                float pitch = 0.0f;
-                float pan = 0.0f;
-                sound.Play(((float)m_updateInfo.soundVolume) / 10, pitch, pan);
+                if (m_bonusTracker.chocoCount == m_bonusTracker.chocoTotal)
+                {
+
+                    sound2.Play(((float)m_updateInfo.soundVolume) / 10, pitch, pan);
+                }
+                else
+                {
+                    sound.Play(((float)m_updateInfo.soundVolume) / 10, pitch, pan);
+                }
             }
         }
 

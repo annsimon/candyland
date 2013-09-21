@@ -90,7 +90,7 @@ namespace Candyland
             if (cam.isInThirdP())
             {
         
-                if ((x != 0 || y != 0 || z!=0))
+                if ((x != 0 || z!=0))
                 {
                     float length = (float)Math.Sqrt(x * x + z * z);     //Calculate length of MovementVector
                     direction = new Vector3(x, 0, z);                   //Movement Vector
@@ -192,6 +192,17 @@ namespace Candyland
             collideWithPlatform(obj);
         }
 
+        protected override void collideWithBreakable(GameObject obj)
+        {
+            if (obj.getBoundingBox().Intersects(m_boundingBox)) currentspeed = 0;
+            base.collideWithBreakable(obj);
+        }
+
+        protected override void collideWithMovable(GameObject obj)
+        {
+            if (obj.getBoundingBox().Intersects(m_boundingBox)) currentspeed = 0;
+            base.collideWithMovable(obj);
+        }
         #endregion
 
     }
