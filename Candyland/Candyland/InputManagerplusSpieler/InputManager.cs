@@ -137,7 +137,10 @@ namespace Candyland
 
 
             //move the player
-            player.movementInput(dmovex, dmovey, dcamx, dcamy);
+            if (player.getIsThirdPersonCam())
+                player.movementInput(dmovex, dmovey, dcamx, dcamy);
+            else
+                player.movementInput(dmovextemp * 0.1f, dmoveytemp * 0.1f, 0, 0);
             //reset mouse to the center of the screen, to rotate freely
             Mouse.SetPosition(screenWidth / 2, screenHeight / 2);
 
