@@ -5,12 +5,15 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Media;
 
 namespace Candyland
 {
     class PlatformTeleporter : Platform
     {
         protected Vector3 teleportTarget;
+        private SoundEffect sound;
 
         public PlatformTeleporter(String id, Vector3 pos, UpdateInfo updateInfo, bool visible, Vector3 target)
         {
@@ -29,6 +32,7 @@ namespace Candyland
         {
             this.m_texture = assets.platformTextureTeleport;
             this.m_model = assets.platformSmall;
+            sound = assets.teleportSound;
 
             this.m_original_texture = this.m_texture;
             this.m_original_model = this.m_model;
@@ -52,6 +56,9 @@ namespace Candyland
                 && obj.getPosition().Z < m_boundingBox.Max.Z
                 && obj.getPosition().Z > m_boundingBox.Min.Z)
             {
+                float pitch = 0.0f;
+                float pan = 0.0f;
+                sound.Play(((float)m_updateInfo.soundVolume) / 10, pitch, pan);
                 obj.setPosition(teleportTarget);
             }
         }
