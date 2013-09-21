@@ -10,6 +10,8 @@ namespace Candyland
 {
     class DialogListeningScreen : GameScreen
     {
+        #region fields
+
         protected Texture2D talkBubbleTopLeft;
         protected Texture2D talkBubbleTopRight;
         protected Texture2D talkBubbleBottomLeft;
@@ -53,6 +55,8 @@ namespace Candyland
         protected int offset = 15;
 
         int timeSinceDialogstart = 0;
+
+        #endregion
 
         public DialogListeningScreen() {}
 

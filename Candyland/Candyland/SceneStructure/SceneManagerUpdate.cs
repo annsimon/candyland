@@ -22,8 +22,6 @@ namespace Candyland
 
             // Update gameTime in UpdateInfo
             m_updateInfo.gameTime = gameTime;
-            
-            MediaPlayer.Volume = ((float)m_updateInfo.musicVolume) / 10;
 
             if (m_updateInfo.activateHelperNow)
             {
