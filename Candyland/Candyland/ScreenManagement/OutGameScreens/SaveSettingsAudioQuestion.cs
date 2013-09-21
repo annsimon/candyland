@@ -37,8 +37,11 @@ namespace Candyland
 
                 data.musicVolume = musicVolume;
                 data.soundVolume = soundVolume;
-                ScreenManager.SceneManager.getUpdateInfo().musicVolume = musicVolume;
-                ScreenManager.SceneManager.getUpdateInfo().soundVolume = soundVolume;
+                if (ScreenManager.SceneManager.getUpdateInfo() != null)
+                {
+                    ScreenManager.SceneManager.getUpdateInfo().musicVolume = musicVolume;
+                    ScreenManager.SceneManager.getUpdateInfo().soundVolume = soundVolume;
+                }
 
                 MediaPlayer.Volume = ((float)musicVolume) / 10;
 

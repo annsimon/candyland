@@ -138,6 +138,7 @@ namespace Candyland
             song2 = assets.song2;
 
             MediaPlayer.Play(song1);
+            MediaPlayer.Volume = (float)m_updateInfo.musicVolume / 10;
             MediaPlayer.IsRepeating = true;
             boss = false;
 

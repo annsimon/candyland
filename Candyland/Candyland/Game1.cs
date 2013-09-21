@@ -81,10 +81,10 @@ namespace Candyland
             {
                 // if no user saved settings, set to default
                 settingsData.isFullscreen = false;
-                settingsData.musicVolume = 1;
+                settingsData.musicVolume = 5;
                 settingsData.shadowQuality = 2;
                 settingsData.showTutorial = true;
-                settingsData.soundVolume = 1;
+                settingsData.soundVolume = 5;
             }
         }
 
