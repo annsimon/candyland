@@ -293,6 +293,11 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
     </Compile>
+    <Compile Include="NPCs\Spieler\candyguyrutsch.fbx">
+      <Name>candyguyrutsch</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>SkinnedModelProcessor</Processor>
+    </Compile>
     <None Include="README.txt">
       <Name>README</Name>
     </None>

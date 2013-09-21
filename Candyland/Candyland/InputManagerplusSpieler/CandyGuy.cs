@@ -18,12 +18,14 @@ namespace Candyland
     {
         CandyHelper m_CandyHelper;
         public CandyHelper getCandyHelper() { return m_CandyHelper; }
+        private bool wasOnSlippery;
 
         public CandyGuy(Vector3 position, Vector3 direction, float aspectRatio, UpdateInfo info, BonusTracker bonusTracker, CandyHelper helper)
         {
             m_updateInfo = info;
             m_bonusTracker = bonusTracker;
             m_CandyHelper = helper;
+            wasOnSlippery = false;
             this.m_position = position;
             this.direction = direction;
             this.m_original_position = this.m_position;
@@ -50,15 +52,45 @@ namespace Candyland
         public override void update()
         {
             KeyboardState keystate = Keyboard.GetState();
-            if (!m_updateInfo.locked && (keystate.IsKeyDown(Keys.W) || keystate.IsKeyDown(Keys.A) || keystate.IsKeyDown(Keys.D) || (keystate.IsKeyDown(Keys.S) && !m_updateInfo.alwaysRun) || (m_updateInfo.alwaysRun && !keystate.IsKeyDown(Keys.S)))
-                  && isthirdpersoncam && m_updateInfo.candyselected && isonground)
-            {
-                animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
 
+            if (!wasOnSlippery)
+            {
+                if (!isOnSlipperyGround)
+                {
+                    if (!m_updateInfo.locked && (keystate.IsKeyDown(Keys.W)
+                    || keystate.IsKeyDown(Keys.A) || keystate.IsKeyDown(Keys.D)
+                    || (keystate.IsKeyDown(Keys.S) && !m_updateInfo.alwaysRun)
+                    || (m_updateInfo.alwaysRun && !keystate.IsKeyDown(Keys.S)))
+                    && isthirdpersoncam && m_updateInfo.candyselected && isonground)
+                    {
+                        animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
+                    }
+                    else
+                    {
+                        animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, false, Matrix.Identity);
+                    }
+                }
+                else
+                {
+                    m_model = modelArray[1];
+                    animationPlayer.StartClip(clipArray[1]);
+                    wasOnSlippery = true;
+                    animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
+                }
             }
             else
             {
-                animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, false, Matrix.Identity);
+                if (isOnSlipperyGround)
+                {
+                    animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
+                }
+                else
+                {
+                    m_model = modelArray[0];
+                    animationPlayer.StartClip(clipArray[0]);
+                    wasOnSlippery = false;
+                    animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
+                }
             }
             base.update();
             fall();
@@ -72,8 +104,9 @@ namespace Candyland
         {
             effect = assets.commonShader;
             m_texture = assets.heroTexture;
-            m_model = assets.hero;
             modelArray[0] = assets.hero;
+            modelArray[1] = assets.heroslipping;
+            m_model = modelArray[0];
             // custom made bounding box
             m_boundingBox = new BoundingBox(this.m_position - new Vector3(0.3f, 0.35f, 0.3f), this.m_position + new Vector3(0.3f, 0.25f, 0.3f));
             minOld = m_boundingBox.Min;
@@ -81,9 +114,40 @@ namespace Candyland
 
             base.load(content, assets);
 
-            AnimationClip clip = m_skinningData.AnimationClips["ArmatureAction_001"];
+            if (m_model == null)
+                return;
 
-            animationPlayer.StartClip(clip);
+            // Look up our custom skinning information.
+            skinningArray[0] = modelArray[0].Tag as SkinningData;
+
+            for (int i = 1; i < modelArray.Length; i++)
+            {
+                foreach (ModelMesh mesh in modelArray[i].Meshes)
+                {
+                    foreach (ModelMeshPart part in mesh.MeshParts)
+                    {
+                        BasicEffect basicEffect = part.Effect as BasicEffect;
+
+                        part.Effect = m_material.effect;
+                    }
+                }
+
+                // Look up our custom skinning information.
+                skinningArray[i] = modelArray[i].Tag as SkinningData;
+
+                if (skinningArray[i] == null)
+                {
+                    return;
+                    throw new InvalidOperationException
+                        ("This model does not contain a SkinningData tag.");
+
+                }
+                clipArray[i] = skinningArray[i].AnimationClips["ArmatureAction_001"];
+            }
+
+            clipArray[0] = skinningArray[0].AnimationClips["ArmatureAction_001"];
+
+            animationPlayer.StartClip(clipArray[0]);
         }
 
         public override void uniqueskill()
