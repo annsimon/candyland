@@ -34,7 +34,7 @@ namespace Candyland
 
                 data.showTutorial = showTutorial;
 
-                if (ScreenManager.SceneManager.getUpdateInfo() != null)
+                if (ScreenManager.SceneManager != null)
                     ScreenManager.SceneManager.getUpdateInfo().tutorialActive = showTutorial;
 
                 string filename = "settings.sav";

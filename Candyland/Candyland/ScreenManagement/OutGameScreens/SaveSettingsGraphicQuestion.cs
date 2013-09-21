@@ -37,7 +37,7 @@ namespace Candyland
                 data.isFullscreen = fullscreen;
                 data.shadowQuality = shadowQuality;
 
-                if (ScreenManager.SceneManager.getUpdateInfo() != null)
+                if (ScreenManager.SceneManager != null)
                     ScreenManager.SceneManager.getUpdateInfo().shadowQuality = shadowQuality;
 
                 string filename = "settings.sav";
