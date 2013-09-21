@@ -32,11 +32,15 @@ namespace Candyland
             this.cam = new Camera(position, MathHelper.PiOver4, aspectRatio, 0.1f, GameConstants.cameraFarPlane, m_updateInfo);
             this.currentspeed = 0;
             this.upvelocity = 0;
+            this.modelArray = new Model[2];
+            this.skinningArray = new SkinningData[2];
+            this.clipArray = new AnimationClip[2];
 
             this.m_material = new Material();
             this.m_material.ambient = GameConstants.ambient;
             this.m_material.diffuse = GameConstants.diffuse;
             this.m_modelTextures = new Dictionary<int, Texture2D>();
+            this.modelArray = new Model[2];
         }
 
         public override void isNotCollidingWith(GameObject obj){ }
@@ -69,6 +73,7 @@ namespace Candyland
             effect = assets.commonShader;
             m_texture = assets.heroTexture;
             m_model = assets.hero;
+            modelArray[0] = assets.hero;
             // custom made bounding box
             m_boundingBox = new BoundingBox(this.m_position - new Vector3(0.3f, 0.35f, 0.3f), this.m_position + new Vector3(0.3f, 0.25f, 0.3f));
             minOld = m_boundingBox.Min;
