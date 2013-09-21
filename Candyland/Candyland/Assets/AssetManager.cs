@@ -23,6 +23,7 @@ namespace Candyland
         public SoundEffect switchTickingSound { get; set; }
         public SoundEffect platformBreakSound { get; set; }
         public SoundEffect teleportSound { get; set; }
+        public SoundEffect fanfareSound { get; set; }
         #endregion
 
         #region songs
@@ -60,6 +61,7 @@ namespace Candyland
             switchTickingSound = content.Load<SoundEffect>("Sfx/Ticking8bit");
             platformBreakSound = content.Load<SoundEffect>("Sfx/CrackingPlatform8bit");
             teleportSound = content.Load<SoundEffect>("Sfx/teleport8bit");
+            fanfareSound = content.Load<SoundEffect>("Sfx/Fanfare8bit");
 
             song1 = content.Load<Song>("Music/bgmusic");
             song2 = content.Load<Song>("Music/bossmusic");

@@ -7,3 +7,5 @@ breakable obstacle	http://www.soundjay.com/ice-sound-effect.html
 breakable plattform	http://www.soundjay.com/ice-sound-effect.html
 button in dialog klicken	http://www.soundjay.com/button-sounds-3.html
 button "error"		http://www.soundjig.com/pages/soundfx/beeps.html
+teleport			http://soundcli.ps/browse/teleport
+fanfare			http://www.freesound.org/people/Robinhood76/sounds/62176/
