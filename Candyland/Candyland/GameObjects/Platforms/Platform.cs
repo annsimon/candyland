@@ -195,6 +195,7 @@ namespace Candyland
 //                else this.m_updateInfo.playerIsOnAreaExit = false;
                 if (this.isDoorToLevel && !m_updateInfo.playerHasTouchedDoorInThisUpdate)
                 {
+                    m_updateInfo.playerHasTouchedDoorInThisUpdate = true;
                     this.m_updateInfo.playerIsOnLevelExit = true;
 
                     if (obj is CandyGuy)
