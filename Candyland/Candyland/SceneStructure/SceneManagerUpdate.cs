@@ -207,6 +207,9 @@ namespace Candyland
 
             m_updateInfo.gameTime = gameTime;
 
+            // not yet touched in this update
+            m_updateInfo.playerHasTouchedDoorInThisUpdate = false;
+
             m_inputManager.update(player, player2);
 
             if (m_updateInfo.candyselected || m_updateInfo.currentguyLevelID == m_updateInfo.currenthelperLevelID)
