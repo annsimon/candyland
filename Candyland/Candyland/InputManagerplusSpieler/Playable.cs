@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using SkinnedModel;
 
 namespace Candyland
 {
@@ -27,6 +28,10 @@ namespace Candyland
         public void resetCloseEnoughToInteract() { isCloseEnoughToInteract = false; }
 
         public abstract void uniqueskill();
+
+        public Model[] modelArray;
+        public SkinningData[] skinningArray;
+        public AnimationClip[] clipArray;
 
         /// <summary>
         /// Moves the Player and the Camera

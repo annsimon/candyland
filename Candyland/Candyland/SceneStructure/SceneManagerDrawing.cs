@@ -220,42 +220,54 @@ namespace Candyland
 
             m_spriteBatch.Begin();
 
-            m_spriteBatch.DrawString(screenFont, m_bonusTracker.chocoCount.ToString()
-               + "/" + m_bonusTracker.chocoTotal.ToString(), new Vector2(50f, 5f), Color.White);
-
-            m_spriteBatch.Draw(chocoChip, new Rectangle(13, 5, 32, 40), Color.White);
-
-            if (m_updateInfo.alwaysRun)
+            if(!player.getIsThirdPersonCam() || !player2.getIsThirdPersonCam() )
             {
-                int index = 0;
-                if (distanceToBoss > 14)
-                    index = 3;
-                else if (distanceToBoss > 12)
-                    index = 2;
-                else if (distanceToBoss > 10)
-                    index = 1;
-                m_spriteBatch.Draw(distanceDisplay[index], new Rectangle(screenWidth/2-47, screenHeight-70,94, 50), Color.White);
+                int offset = 5;
+                int broadSide = 60;
+                int narrowSide = 35;
+                m_spriteBatch.Draw(arrowLeft, new Rectangle(offset, screenHeight / 2 - broadSide / 2, narrowSide, broadSide), Color.White);
+                m_spriteBatch.Draw(arrowRight, new Rectangle(screenWidth - offset - narrowSide, screenHeight / 2 - broadSide / 2, narrowSide, broadSide), Color.White);
+                m_spriteBatch.Draw(arrowUp, new Rectangle(screenWidth/ 2 - broadSide / 2, offset, broadSide, narrowSide), Color.White);
+                m_spriteBatch.Draw(arrowDown, new Rectangle(screenWidth / 2 - broadSide / 2, screenHeight - narrowSide - offset, broadSide, narrowSide), Color.White);
             }
-
-            //change variables!!
-            if (m_updateInfo.finaledistance)
-            {
-                int index = 3;
-                if (distanceToBoss > 8)
-                    index = 0;
-                else if (distanceToBoss > 6)
-                    index = 1;
-                else if (distanceToBoss > 4)
-                    index = 2;
-                m_spriteBatch.Draw(distanceDisplay[index], new Rectangle(screenWidth / 2 - 47, screenHeight - 70, 94, 50), Color.White);
-            }
-
-
-            if (m_updateInfo.helperavailable)
-                m_spriteBatch.Draw(keysFull, new Rectangle(screenWidth - 252, screenHeight - 70, 242, 60), Color.White);
             else
-                m_spriteBatch.Draw(keys, new Rectangle(screenWidth - 187, screenHeight - 70, 177, 60), Color.White);
+            {
+                m_spriteBatch.DrawString(screenFont, m_bonusTracker.chocoCount.ToString()
+                   + "/" + m_bonusTracker.chocoTotal.ToString(), new Vector2(50f, 5f), Color.White);
 
+                m_spriteBatch.Draw(chocoChip, new Rectangle(13, 5, 32, 40), Color.White);
+
+                if (m_updateInfo.alwaysRun)
+                {
+                    int index = 0;
+                    if (distanceToBoss > 14)
+                        index = 3;
+                    else if (distanceToBoss > 12)
+                        index = 2;
+                    else if (distanceToBoss > 10)
+                        index = 1;
+                    m_spriteBatch.Draw(distanceDisplay[index], new Rectangle(screenWidth/2-47, screenHeight-70,94, 50), Color.White);
+                }
+
+                //change variables!!
+                if (m_updateInfo.finaledistance)
+                {
+                    int index = 3;
+                    if (distanceToBoss > 8)
+                        index = 0;
+                    else if (distanceToBoss > 6)
+                        index = 1;
+                    else if (distanceToBoss > 4)
+                        index = 2;
+                    m_spriteBatch.Draw(distanceDisplay[index], new Rectangle(screenWidth / 2 - 47, screenHeight - 70, 94, 50), Color.White);
+                }
+
+
+                if (m_updateInfo.helperavailable)
+                    m_spriteBatch.Draw(keysFull, new Rectangle(screenWidth - 252, screenHeight - 70, 242, 60), Color.White);
+                else
+                    m_spriteBatch.Draw(keys, new Rectangle(screenWidth - 187, screenHeight - 70, 177, 60), Color.White);
+            }
             m_spriteBatch.End();
 
             //DrawShadowMap();

@@ -135,6 +135,9 @@ namespace Candyland
             m_screenManager = screenManager;
 
             activeTeleports = new List<string>(10);
+                activeTeleports.Add("0.Korridor");
+                activeTeleports.Add("schieb.k2");
+                activeTeleports.Add("5.korridor");
             allTeleports = new List<string>(10);
                 allTeleports.Add("0.Korridor");
                 allTeleports.Add("schieb.k2");

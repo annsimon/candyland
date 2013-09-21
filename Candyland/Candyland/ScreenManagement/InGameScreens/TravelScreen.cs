@@ -31,6 +31,8 @@ namespace Candyland
         private GameScreen lastScreen;
 
         // Border
+        protected Rectangle MenuBox;
+
         protected Rectangle MenuBoxTL;
         protected Rectangle MenuBoxTR;
         protected Rectangle MenuBoxBL;
@@ -70,7 +72,7 @@ namespace Candyland
             font = assets.mainText;
 
             background = assets.map;
-            teleportSpot = assets.pinSelected;
+            teleportSpot = assets.pinAvailable;
             currentSpot = assets.pinCurrent;
             selectedSpot = assets.pinSelected;
 
@@ -89,6 +91,8 @@ namespace Candyland
             int MenuBoxWidth = ScreenManager.PrefScreenWidth - 2 * offset;
             int MenuBoxHeight = ScreenManager.PrefScreenHeight - 2 * offset;
 
+            MenuBox = new Rectangle((screenWidth - MenuBoxWidth) / 2, (screenHeight - MenuBoxHeight) / 2, MenuBoxWidth, MenuBoxHeight);
+
             MakeBorderBox(new Rectangle((screenWidth - MenuBoxWidth) / 2, (screenHeight - MenuBoxHeight) / 2, MenuBoxWidth, MenuBoxHeight),
                 out MenuBoxTL, out MenuBoxT, out MenuBoxTR, out MenuBoxR,
                 out MenuBoxBR, out MenuBoxB, out MenuBoxBL, out MenuBoxL, out MenuBoxM);
@@ -104,9 +108,9 @@ namespace Candyland
                     currentSpotIndex = index;
                 switch (id)
                 {
-                    case "0.Korridor": teleportPositions[index] = (new Vector2(100, 300)); break; //manually set position of map
-                    case "schieb.k2": teleportPositions[index] = (new Vector2(150, 200)); break;
-                    case "5.korridor": teleportPositions[index] = (new Vector2(300, 160)); break;
+                    case "0.Korridor": teleportPositions[index] = (new Vector2(160, 310)); break; //manually set position of map
+                    case "schieb.k2": teleportPositions[index] = (new Vector2(180, 100)); break;
+                    case "5.korridor": teleportPositions[index] = (new Vector2(450, 100)); break;
                 }
                 index++;
             }
@@ -127,12 +131,20 @@ namespace Candyland
             switch (ScreenManager.Input)
             {
                 case InputState.Continue: enterPressed = true; break;
-                case InputState.Left: activeIndex--; break;
-                case InputState.Right: activeIndex++; break;
+                case InputState.Left: if (activeIndex == currentSpotIndex + 1) activeIndex -= 2; else activeIndex--; break;
+                case InputState.Right: if (activeIndex == currentSpotIndex - 1) activeIndex += 2; else activeIndex++; break;
             }
-            if (activeIndex == currentSpotIndex) activeIndex++; // current spot can't be selected for travelling
-            if (activeIndex >= numOfTeleportOptions) activeIndex = 0;
-            if (activeIndex < 0) activeIndex = numOfTeleportOptions - 1;
+
+            if (activeIndex == currentSpotIndex) activeIndex++;
+            if (activeIndex > numOfTeleportOptions) activeIndex = 0;
+            if (activeIndex < 0) activeIndex = numOfTeleportOptions;
+
+            if (activeIndex == numOfTeleportOptions) backButton.selected = true;
+            if (activeIndex == numOfTeleportOptions && enterPressed)
+            {
+                ScreenManager.ResumeLast(this);
+                return;
+            }
 
             // Open Question
             if (enterPressed && (activeIndex != currentSpotIndex))
@@ -158,16 +170,19 @@ namespace Candyland
             m_sprite.Draw(BorderBottom, MenuBoxB, Color.White);
             m_sprite.Draw(BorderMiddle, MenuBoxM, Color.White);
 
+            m_sprite.Draw(background, MenuBox, Color.White);
+
             // draw activated teleport positions on map
+            int size = 35;
             int index = 0;
             foreach (Vector2 pos in teleportPositions)
             {
                 if(index == currentSpotIndex)
-                    m_sprite.Draw(currentSpot, new Rectangle(MenuBoxL.Left + (int)pos.X, MenuBoxT.Top + (int)pos.Y, 20, 20), Color.White);
+                    m_sprite.Draw(currentSpot, new Rectangle(MenuBoxL.Left + (int)pos.X, MenuBoxT.Top + (int)pos.Y, size, size), Color.White);
                 else if(index == activeIndex)
-                    m_sprite.Draw(selectedSpot, new Rectangle(MenuBoxL.Left + (int)pos.X, MenuBoxT.Top + (int)pos.Y, 20, 20), Color.White);
+                    m_sprite.Draw(selectedSpot, new Rectangle(MenuBoxL.Left + (int)pos.X, MenuBoxT.Top + (int)pos.Y, size, size), Color.White);
                 else
-                    m_sprite.Draw(teleportSpot, new Rectangle(MenuBoxL.Left + (int)pos.X, MenuBoxT.Top + (int)pos.Y, 20, 20), Color.White);
+                    m_sprite.Draw(teleportSpot, new Rectangle(MenuBoxL.Left + (int)pos.X, MenuBoxT.Top + (int)pos.Y, size, size), Color.White);
 
                 index++;
             }

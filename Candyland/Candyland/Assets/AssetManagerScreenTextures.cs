@@ -60,6 +60,11 @@ namespace Candyland
         public Texture2D pinSelected { get; set; }
         public Texture2D pinAvailable { get; set; }
 
+        public Texture2D mapArrowLeft { get; set; }
+        public Texture2D mapArrowRight { get; set; }
+        public Texture2D mapArrowUp { get; set; }
+        public Texture2D mapArrowDown { get; set; }
+
         public Texture2D acagamicsLogo { get; set; }
 
         public Dictionary<String, Texture2D> dialogImages { get; set; }
@@ -108,10 +113,15 @@ namespace Candyland
             no = content.Load<Texture2D>("Images/Dialog/NeinInactive");
             noActive = content.Load<Texture2D>("Images/Dialog/NeinActive");
 
-            map = content.Load<Texture2D>("ScreenTextures/travelScreen");
+            map = content.Load<Texture2D>("Images/Map/mapSweets");
             pinCurrent = content.Load<Texture2D>("Images/Map/CurrentPos");
             pinSelected = content.Load<Texture2D>("Images/Map/SelectedPos");
             pinAvailable = content.Load<Texture2D>("Images/Map/AvailablePos");
+
+            mapArrowLeft = content.Load<Texture2D>("Images/Map/LeftArrow");
+            mapArrowRight = content.Load<Texture2D>("Images/Map/RightArrow");
+            mapArrowUp = content.Load<Texture2D>("Images/Map/UpArrow");
+            mapArrowDown = content.Load<Texture2D>("Images/Map/BottomArrow");
 
             dialogImages["BonbonRed"] = content.Load<Texture2D>("Images/DialogImages/BonbonFairyRed");
             dialogImages["BonbonBlue"] = content.Load<Texture2D>("Images/DialogImages/BonbonFairyBlue");

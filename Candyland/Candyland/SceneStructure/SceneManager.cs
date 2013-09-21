@@ -71,6 +71,12 @@ namespace Candyland
         Texture2D[] skyboxTextures;
         Model skyboxModel;
 
+        // Map arrows
+        Texture2D arrowLeft;
+        Texture2D arrowRight;
+        Texture2D arrowUp;
+        Texture2D arrowDown;
+
         InputManager m_inputManager;
 
         public SceneManager(ScreenManager screenManager)
@@ -133,6 +139,11 @@ namespace Candyland
             chocoChip = assets.chocoChip;
             keysFull = assets.hudIconsWithCharChange;
             skyboxModel = LoadSkybox(manager, assets, out skyboxTextures);
+
+            arrowLeft = assets.mapArrowLeft;
+            arrowRight = assets.mapArrowRight;
+            arrowUp = assets.mapArrowUp;
+            arrowDown = assets.mapArrowDown;
 
             song1 = assets.song1;  // background music from http://longzijun.wordpress.com/2012/12/26/upbeat-background-music-free-instrumentals/
             song2 = assets.song2;
