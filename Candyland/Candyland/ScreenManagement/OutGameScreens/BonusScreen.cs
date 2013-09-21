@@ -12,6 +12,7 @@ namespace Candyland
         Texture2D caption;
 
         protected SpriteFont font;
+        AssetManager m_assets;
 
         int screenWidth;
         int screenHeight;
@@ -95,6 +96,8 @@ namespace Candyland
 
         public override void Open(Game game, AssetManager assets)
         {
+            m_assets = assets;
+
             if (ScreenManager.SceneManager != null)
             {
                 m_bonusTracker = ScreenManager.SceneManager.getBonusTracker();
@@ -306,40 +309,40 @@ namespace Candyland
             int i = 0;
 
             if (i >= conceptArts.Count) return;
-            conceptArts.ElementAt(0) .Draw(m_sprite, (int)pos1.X + offset, (int)pos1.Y + offset, bonusPictureWidth, bonusPictureWidth, color1, font);
+            conceptArts.ElementAt(0) .Draw(m_sprite, (int)pos1.X + offset, (int)pos1.Y + offset, bonusPictureWidth, bonusPictureWidth, color1, m_assets);
             i++;
             if (i >= conceptArts.Count) return;
-            conceptArts.ElementAt(1) .Draw(m_sprite, (int)pos2.X + offset, (int)pos2.Y + offset, bonusPictureWidth, bonusPictureWidth, color2, font);
+            conceptArts.ElementAt(1) .Draw(m_sprite, (int)pos2.X + offset, (int)pos2.Y + offset, bonusPictureWidth, bonusPictureWidth, color2, m_assets);
             i++;
             if (i >= conceptArts.Count) return;
-            conceptArts.ElementAt(2) .Draw(m_sprite, (int)pos3.X + offset, (int)pos3.Y + offset, bonusPictureWidth, bonusPictureWidth, color3, font);
+            conceptArts.ElementAt(2) .Draw(m_sprite, (int)pos3.X + offset, (int)pos3.Y + offset, bonusPictureWidth, bonusPictureWidth, color3, m_assets);
             i++;
             if (i >= conceptArts.Count) return;
-            conceptArts.ElementAt(3) .Draw(m_sprite, (int)pos4.X + offset, (int)pos4.Y + offset, bonusPictureWidth, bonusPictureWidth, color4, font);
+            conceptArts.ElementAt(3) .Draw(m_sprite, (int)pos4.X + offset, (int)pos4.Y + offset, bonusPictureWidth, bonusPictureWidth, color4, m_assets);
             i++;
             if (i >= conceptArts.Count) return;
-            conceptArts.ElementAt(4) .Draw(m_sprite, (int)pos5.X + offset, (int)pos5.Y + offset, bonusPictureWidth, bonusPictureWidth, color5, font);
+            conceptArts.ElementAt(4) .Draw(m_sprite, (int)pos5.X + offset, (int)pos5.Y + offset, bonusPictureWidth, bonusPictureWidth, color5, m_assets);
             i++;
             if (i >= conceptArts.Count) return;
-            conceptArts.ElementAt(5) .Draw(m_sprite, (int)pos6.X + offset, (int)pos6.Y + offset, bonusPictureWidth, bonusPictureWidth, color6, font);
+            conceptArts.ElementAt(5) .Draw(m_sprite, (int)pos6.X + offset, (int)pos6.Y + offset, bonusPictureWidth, bonusPictureWidth, color6, m_assets);
             i++;
             if (i >= conceptArts.Count) return;
-            conceptArts.ElementAt(6) .Draw(m_sprite, (int)pos7.X + offset, (int)pos7.Y + offset, bonusPictureWidth, bonusPictureWidth, color7, font);
+            conceptArts.ElementAt(6) .Draw(m_sprite, (int)pos7.X + offset, (int)pos7.Y + offset, bonusPictureWidth, bonusPictureWidth, color7, m_assets);
             i++;
             if (i >= conceptArts.Count) return;
-            conceptArts.ElementAt(7) .Draw(m_sprite, (int)pos8.X + offset, (int)pos8.Y + offset, bonusPictureWidth, bonusPictureWidth, color8, font);
+            conceptArts.ElementAt(7) .Draw(m_sprite, (int)pos8.X + offset, (int)pos8.Y + offset, bonusPictureWidth, bonusPictureWidth, color8, m_assets);
             i++;
             if (i >= conceptArts.Count) return;
-            conceptArts.ElementAt(8) .Draw(m_sprite, (int)pos9.X + offset, (int)pos9.Y + offset, bonusPictureWidth, bonusPictureWidth, color9, font);
+            conceptArts.ElementAt(8) .Draw(m_sprite, (int)pos9.X + offset, (int)pos9.Y + offset, bonusPictureWidth, bonusPictureWidth, color9, m_assets);
             i++;
             if (i >= conceptArts.Count) return;
-            conceptArts.ElementAt(9) .Draw(m_sprite, (int)pos10.X + offset, (int)pos10.Y + offset, bonusPictureWidth, bonusPictureWidth, color10, font);
+            conceptArts.ElementAt(9) .Draw(m_sprite, (int)pos10.X + offset, (int)pos10.Y + offset, bonusPictureWidth, bonusPictureWidth, color10, m_assets);
             i++;
             if (i >= conceptArts.Count) return;
-            conceptArts.ElementAt(10) .Draw(m_sprite, (int)pos11.X + offset, (int)pos11.Y + offset, bonusPictureWidth, bonusPictureWidth, color11, font);
+            conceptArts.ElementAt(10) .Draw(m_sprite, (int)pos11.X + offset, (int)pos11.Y + offset, bonusPictureWidth, bonusPictureWidth, color11, m_assets);
             i++;
             if (i >= conceptArts.Count) return;
-            conceptArts.ElementAt(11) .Draw(m_sprite, (int)pos12.X + offset, (int)pos12.Y + offset, bonusPictureWidth, bonusPictureWidth, color12, font);
+            conceptArts.ElementAt(11) .Draw(m_sprite, (int)pos12.X + offset, (int)pos12.Y + offset, bonusPictureWidth, bonusPictureWidth, color12, m_assets);
             i++;
         }
 

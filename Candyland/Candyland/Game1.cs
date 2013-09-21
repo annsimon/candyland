@@ -2,6 +2,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using System.Xml;
+using Microsoft.Xna.Framework.Content.Pipeline.Serialization.Intermediate;
 
 namespace Candyland
 {
@@ -17,17 +19,22 @@ namespace Candyland
         KeyboardState oldState;
         KeyboardState newState;
 
+        // Class to hold all data for game settings
+        SaveSettingsData settingsData;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = 800;
             graphics.PreferredBackBufferHeight = 480;
-            graphics.IsFullScreen = false; 
             Content.RootDirectory = "Content";
 
+            settingsData = new SaveSettingsData();
+            LoadSettings();
+            graphics.IsFullScreen = settingsData.isFullscreen; 
             // Create the screen manager component.
             assetManager = new AssetManager();
-            screenManager = new ScreenManager(this, graphics.IsFullScreen, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight, assetManager);
+            screenManager = new ScreenManager(this, graphics.IsFullScreen, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight, assetManager, settingsData);
             Components.Add(screenManager);
 
            // Content.RootDirectory = "CandylandContent"; 
@@ -43,11 +50,40 @@ namespace Candyland
         {
            // IsMouseVisible = true;
 
+            // Set start screen
             screenManager.AddScreen(new TitleScreen());
 
             BalanceBoard.initialize(this.Window.Handle);
 
             base.Initialize();
+        }
+
+        private void LoadSettings()
+        {
+            string filename = "settings.sav";
+
+            XmlReaderSettings settings = new XmlReaderSettings();
+            XmlReader reader;
+            
+            try
+            {
+                reader = XmlReader.Create(filename, settings);
+                using (reader)
+                {
+                    settingsData = IntermediateSerializer.
+                        Deserialize<SaveSettingsData>
+                        (reader, null);
+                }                
+            }
+            catch
+            {
+                // if no user saved settings, set to default
+                settingsData.isFullscreen = false;
+                settingsData.musicVolume = 1;
+                settingsData.shadowQuality = 2;
+                settingsData.showTutorial = true;
+                settingsData.soundVolume = 1;
+            }
         }
 
         /// <summary>

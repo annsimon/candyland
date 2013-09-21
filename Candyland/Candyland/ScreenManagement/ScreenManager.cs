@@ -24,6 +24,7 @@ namespace Candyland
         SpriteFont smallText;
         ContentManager content;
         AssetManager assets;
+        SaveSettingsData settings;
 
         ScreenInputManager screenInput;
         InputState input;
@@ -65,6 +66,11 @@ namespace Candyland
         public SceneManager SceneManager
         {
             get { return m_sceneManager; }
+        }
+
+        public SaveSettingsData Settings
+        {
+            get { return settings; }
         }
 
         /// <summary>
@@ -111,13 +117,14 @@ namespace Candyland
         /// <summary>
         /// Constructs a new screen manager component.
         /// </summary>
-        public ScreenManager(Game game, bool isFullScreen, int prefWidth, int prefHeight, AssetManager assetManager)
+        public ScreenManager(Game game, bool isFullScreen, int prefWidth, int prefHeight, AssetManager assetManager, SaveSettingsData settings)
             : base(game)
         {
             this.isFullScreen = isFullScreen;
             this.preferedScreenWith = prefWidth;
             this.preferedScreenHeight = prefHeight;
             assets = assetManager;
+            this.settings = settings;
         }
 
 

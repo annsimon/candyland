@@ -98,7 +98,7 @@ namespace Candyland
             currenthelperAreaID = GameConstants.startAreaID;
             currenthelperLevelID = GameConstants.startLevelID;
 
-            shadowQuality = 2;
+            shadowQuality = screenManager.Settings.shadowQuality;
 
             playerIsOnAreaExit = false;
 

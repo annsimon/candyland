@@ -38,6 +38,11 @@ namespace Candyland
         /// </summary>
         public const int spaceLockTime = 800;
 
+        /// <summary>
+        /// determines how precisely volumes can be regulated by the player using options
+        /// </summary>
+        public const int numberOfVolumeSteps = 10;
+
         // material params
         public static Vector4 ambient = new Vector4(0.8f, 0.8f, 0.8f, 1.0f);
         public static Vector4 diffuse = new Vector4(0.4f, 0.4f, 0.4f, 1.0f);

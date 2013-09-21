@@ -107,6 +107,7 @@
     <Compile Include="Data\BonusTracker.cs" />
     <Compile Include="Data\GameConstants.cs" />
     <Compile Include="Data\SaveGameData.cs" />
+    <Compile Include="Data\SaveSettingsData.cs" />
     <Compile Include="Data\UpdateInfo.cs" />
     <Compile Include="GameObjects\DynamicGameObjects.cs" />
     <Compile Include="GameObjects\Obstacles\Obstacle.cs" />
@@ -154,6 +155,8 @@
     <Compile Include="SceneStructure\SceneManager.cs" />
     <Compile Include="SceneStructure\SceneManagerDrawing.cs" />
     <Compile Include="SceneStructure\SceneManagerUpdate.cs" />
+    <Compile Include="ScreenManagement\Button.cs" />
+    <Compile Include="ScreenManagement\CheckBox.cs" />
     <Compile Include="ScreenManagement\InGameScreens\GetHelperQuestion.cs" />
     <Compile Include="ScreenManagement\InGameScreens\TeleportFairyDialog.cs" />
     <Compile Include="ScreenManagement\InGameScreens\TravelQuestion.cs" />
@@ -170,12 +173,16 @@
     <Compile Include="ScreenManagement\OutGameScreens\MainMenu.cs" />
     <Compile Include="ScreenManagement\OutGameScreens\NewGameQuestion.cs" />
     <Compile Include="ScreenManagement\OutGameScreens\OptionsScreen.cs" />
+    <Compile Include="ScreenManagement\OutGameScreens\SaveSettingsAudioQuestion.cs" />
+    <Compile Include="ScreenManagement\OutGameScreens\SaveSettingsGraphicQuestion.cs" />
+    <Compile Include="ScreenManagement\OutGameScreens\SaveSettingsTutorialQuestion.cs" />
     <Compile Include="ScreenManagement\OutGameScreens\ShowArtScreen.cs" />
     <Compile Include="ScreenManagement\ScreenInputManager.cs" />
     <Compile Include="ScreenManagement\ScreenManager.cs" />
     <Compile Include="ScreenManagement\InGameScreens\ShopScreen.cs" />
     <Compile Include="ScreenManagement\OutGameScreens\TitleScreen.cs" />
     <Compile Include="ScreenManagement\InGameScreens\TravelScreen.cs" />
+    <Compile Include="ScreenManagement\SlideControl.cs" />
     <Compile Include="ScreenManagement\YesNoScreen.cs" />
     <Compile Include="ShadowMap.cs" />
     <Compile Include="SpriteAnimation.cs" />

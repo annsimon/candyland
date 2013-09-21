@@ -264,6 +264,7 @@ namespace Candyland
         }
 
         /// <summary>
+        /// NOT USED
         /// When a new game get's started, while another game is still running, content doesn't need to be reloaded
         /// simply set the necessary data back to their starting values
         /// </summary>
@@ -271,7 +272,7 @@ namespace Candyland
         {
             // Set everything back to starting values
                 m_updateInfo.candyselected = true;
-                m_updateInfo.helperavailable = GameConstants.helperAvailableAtGameStart;
+                m_updateInfo.helperavailable = false;
                 m_updateInfo.activateHelperNow = false;
                 m_updateInfo.loseHelperNow = false;
                 m_updateInfo.currentguyAreaID = GameConstants.startAreaID;
