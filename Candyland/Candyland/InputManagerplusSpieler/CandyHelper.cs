@@ -83,11 +83,14 @@ namespace Candyland
                 float length = (float)Math.Sqrt(dx * dx + dz * dz);
                 move(0.8f * dx / length,0, 0.8f * dz / length);
                 if (length < 1) istargeting = false;
-                fall();
             }
             else
             {
-                fall();
+                if (isOnSlipperyGround && currentspeed != 0)
+                {
+                    movex = direction.X;
+                    movey = direction.Z;
+                }
                 move(movex,0, movey);
                 cam.changeAngle(camx, camy);
             }
