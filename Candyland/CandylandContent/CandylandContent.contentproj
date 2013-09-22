@@ -371,7 +371,7 @@
       <Name>lakritzblock_gross</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.66</ProcessorParameters_Scale>
+      <ProcessorParameters_Scale>1.05</ProcessorParameters_Scale>
     </Compile>
     <Compile Include="Objekte\Obstacles\lakritzblock_klein.fbx">
       <Name>lakritzblock_klein</Name>
