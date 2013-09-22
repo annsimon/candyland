@@ -291,7 +291,7 @@ namespace Candyland
 
             Vector2 pricePos = new Vector2(bigBox.Left + offset + 10, bigBox.Top + offset + font.LineSpacing);
             m_sprite.DrawString(font, "Preis", new Vector2(bigBox.Left + offset, bigBox.Top + offset + 5), textColor);
-            if (forSale.Count != 0 && activeID < forSale.Count && activeID > 0)
+            if (forSale.Count != 0 && activeID <= forSale.Count && activeID > 0)
             {
                 m_sprite.DrawString(font, forSale.ElementAt(activeID - 1).Value.Price.ToString(), pricePos, textColor);
             }
