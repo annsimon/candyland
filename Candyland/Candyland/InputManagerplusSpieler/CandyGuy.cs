@@ -82,7 +82,14 @@ namespace Candyland
             {
                 if (isOnSlipperyGround)
                 {
-                    animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
+                    if (currentspeed != 0)
+                    {
+                        animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
+                    }
+                    else
+                    {
+                        animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, false, Matrix.Identity);
+                    }
                 }
                 else
                 {
@@ -152,7 +159,7 @@ namespace Candyland
 
         public override void uniqueskill()
         {
-             if (isonground && !isCloseEnoughToInteract)
+            if (isonground && !isCloseEnoughToInteract && !m_updateInfo.actionInProgress)
             {
                 upvelocity = 0.08f;
                 isonground = false;
