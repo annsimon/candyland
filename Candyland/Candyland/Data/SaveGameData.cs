@@ -17,6 +17,9 @@ namespace Candyland
 
         public int chocoCount;
         public int chocoSpend;
+
+        public Dictionary<string, bool> actionActorVisibility;
+
         public Dictionary<string, bool> chocoChipState;
         public List<string> soldItems;
 

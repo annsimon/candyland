@@ -197,7 +197,7 @@ namespace Candyland
                         }
                         this.m_updateInfo.nextguyLevelID = doorToLevelID;
                     }
-                    else if (!m_updateInfo.helperHasTouchedDoorInThisUpdate)
+                    else if (obj is CandyHelper && !m_updateInfo.helperHasTouchedDoorInThisUpdate)
                     {
                         // update door touched by helper
                         m_updateInfo.helperHasTouchedDoorInThisUpdate = true;

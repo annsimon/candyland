@@ -200,6 +200,7 @@ namespace Candyland
                 data.soldItems = m_bonusTracker.soldItems;
             // Actions
                 data.actionState = m_actionTracker.actionState;
+                data.actionActorVisibility = m_actionTracker.actionActorVisibility;
 
             string filename = "savegame.sav";
 
@@ -263,6 +264,7 @@ namespace Candyland
                         }
                  // Actions
                     m_actionTracker.actionState = data.actionState;
+                    m_actionTracker.actionActorVisibility = data.actionActorVisibility;
 
                 // Update the world to savegame status
                 foreach (var area in m_areas)
