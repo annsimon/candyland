@@ -499,7 +499,7 @@
             <!--- DYNAMIC-->
               <dynamic_objects>
                 <dynamics>
-                  <object type="platform" id="5.0.1.dyn" is_door_to_area="schieb" is_door_to_level="schieb.k1" posX="1" posY="0" posZ="1" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="5.0.1.dyn" is_door_to_area="schieb" is_door_to_level="schieb.k2" posX="1" posY="0" posZ="1" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="5.0.2.dyn" is_door_to_area="schieb" is_door_to_level="schieb.k2" posX="7" posY="0" posZ="1" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
                   <object type="switchTemporary" id="5.0.1.switchTemporary" is_door_to_area="x" is_door_to_level="x" posX="14" posY="0" posZ="7.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="5.0.4.dyn" is_door_to_area="x" is_door_to_level="5.1" posX="18" posY="0" posZ="7.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
@@ -2800,9 +2800,9 @@
     <area_prev>x</area_prev>
     <area_next>x</area_next>
     <area_starting_position>
-      <x>227.5</x>
+      <x>-100</x>
       <y>0</y>
-      <z>54</z>
+      <z>-100</z>
     </area_starting_position>
     <levels>
       <the_levels>
@@ -2931,7 +2931,7 @@
                   <object type="movableObstacle" id="schiebBonus.0.1.Mov" is_door_to_area="x" is_door_to_level="x" posX="19.5" posY="10" posZ="4.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="movableObstacle" id="schiebBonus.0.2.Mov" is_door_to_area="x" is_door_to_level="x" posX="18.5" posY="10" posZ="4.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="movableObstacle" id="schiebBonus.0.3.Mov" is_door_to_area="x" is_door_to_level="x" posX="25" posY="10" posZ="9" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="movingPlatform" id="schiebBonus.0.1.movingPlatform" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="10" posZ="7.5" endPosX="12.5" endPosY="0" endPosZ="4.5" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="movingPlatform" id="schiebBonus.0.1.movingPlatform" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="10" posZ="7.5" endPosX="12.5" endPosY="9" endPosZ="4.5" size="1" slippery="0" visible="True" dialog="" />
                   <object type="movableObstacle" id="schiebBonus.0.4.Mov" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="10" posZ="8.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="switchTemporary" id="schiebBonus.0.2.switchTemporary" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="10" posZ="15.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="schiebBonus.0.3.dyn" is_door_to_area="x" is_door_to_level="x" posX="13" posY="10" posZ="2.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="False" dialog="" />
