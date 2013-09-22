@@ -1137,7 +1137,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="-" type="bonbon" x="240" y="520" width="20" height="20">
+  <object name="-" type="bonbon" x="240" y="500" width="20" height="20">
    <properties>
     <property name="dialog" value="Dieser Schalter bleibt nur kurze Zeit aktiv. !nl!Beeil dich also lieber ein bisschen."/>
     <property name="endPositionY" value="-"/>
@@ -1152,7 +1152,7 @@
   </object>
  </objectgroup>
  <objectgroup name="1" width="100" height="100">
-  <object name="-" type="platform" x="390" y="550" width="20" height="20">
+  <object name="-" type="platform" x="390" y="560" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
     <property name="endPositionY" value="-"/>
@@ -1178,7 +1178,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="-" type="platform" x="390" y="550" width="20" height="20">
+  <object name="-" type="platform" x="390" y="560" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
     <property name="endPositionY" value="-"/>
@@ -1191,7 +1191,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="1.obstacleForSwitch" type="obstacleForSwitch" x="390" y="550" width="20" height="20">
+  <object name="1.obstacleForSwitch" type="obstacleForSwitch" x="390" y="560" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
     <property name="endPositionY" value="-"/>
@@ -1252,19 +1252,6 @@
  </objectgroup>
  <objectgroup name="3" width="100" height="100"/>
  <objectgroup name="0,5" width="100" height="100">
-  <object name="-" type="platform" x="380" y="520" width="20" height="20">
-   <properties>
-    <property name="dialog" value=""/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
-    <property name="isSlippery" value="false"/>
-    <property name="isVisible" value="true"/>
-    <property name="size" value="1"/>
-   </properties>
-  </object>
   <object name="2.dyn" type="platform" x="110" y="290" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
@@ -1278,7 +1265,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="-" type="platform" x="350" y="510" width="20" height="20">
+  <object name="-" type="platform" x="370" y="520" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
     <property name="endPositionY" value="-"/>

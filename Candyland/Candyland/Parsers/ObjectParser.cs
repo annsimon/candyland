@@ -234,10 +234,19 @@ namespace Candyland
                 else
                 if (object_type == "teleportPlatform")
                 {
+                    PlatformTeleporter obj;
                     string id = node.Attributes["id"].InnerText;
                     if (dynamicObjects.ContainsKey(id))
                     {
                         Console.WriteLine("Key " + id + " duplicated");
+                        continue;
+                    }
+                    string text = node.Attributes["dialog"].InnerText;
+                    if (text != null && text.Equals("special"))
+                    {
+                        string targetID = node.Attributes["is_door_to_level"].InnerText;
+                        obj = new PlatformTeleporter(id, pos, info, isVisible, targetID);
+                        dynamicObjects.Add(id, obj);
                         continue;
                     }
                     Vector3 endpos = new Vector3(0, 0, 0);
@@ -249,7 +258,7 @@ namespace Candyland
                         endpos += lvl_start; // add level position for correct global position
                     }
                     catch { }
-                    PlatformTeleporter obj = new PlatformTeleporter(id, pos, info, isVisible, endpos);
+                    obj = new PlatformTeleporter(id, pos, info, isVisible, endpos);
                     dynamicObjects.Add(id, obj);
                 }
                 else

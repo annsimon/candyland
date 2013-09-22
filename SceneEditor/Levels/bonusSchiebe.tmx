@@ -343,60 +343,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="0" width="100" height="100" opacity="0.9">
-  <object name="-" type="platform" x="40" y="60" width="20" height="20">
-   <properties>
-    <property name="dialog" value=""/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
-    <property name="isSlippery" value="false"/>
-    <property name="isVisible" value="true"/>
-    <property name="size" value="1"/>
-   </properties>
-  </object>
-  <object name="-" type="platform" x="60" y="40" width="20" height="20">
-   <properties>
-    <property name="dialog" value=""/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
-    <property name="isSlippery" value="false"/>
-    <property name="isVisible" value="true"/>
-    <property name="size" value="1"/>
-   </properties>
-  </object>
-  <object name="1.teleport" type="teleportPlatform" x="60" y="60" width="20" height="20">
-   <properties>
-    <property name="dialog" value=""/>
-    <property name="endPositionY" value="12"/>
-    <property name="endPositionZ" value="12"/>
-    <property name="endpositionX" value="38"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
-    <property name="isSlippery" value="-"/>
-    <property name="isVisible" value="true"/>
-    <property name="size" value="1"/>
-   </properties>
-  </object>
-  <object name="1.dyn" type="platform" x="0" y="0" width="60" height="60">
-   <properties>
-    <property name="dialog" value=""/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value=""/>
-    <property name="isDoorToLevel" value="schieb.k2"/>
-    <property name="isSlippery" value="false"/>
-    <property name="isVisible" value="true"/>
-    <property name="size" value="3"/>
-   </properties>
-  </object>
- </objectgroup>
+ <objectgroup name="0" width="100" height="100" opacity="0.9"/>
  <objectgroup name="9" width="100" height="100">
   <object name="-" type="platform" x="380" y="210" width="20" height="20">
    <properties>
@@ -417,8 +364,8 @@
     <property name="endPositionY" value="-"/>
     <property name="endPositionZ" value="-"/>
     <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
+    <property name="isDoorToArea" value="schieb"/>
+    <property name="isDoorToLevel" value="schieb.k2"/>
     <property name="isSlippery" value="false"/>
     <property name="isVisible" value="true"/>
     <property name="size" value="1"/>
@@ -426,12 +373,12 @@
   </object>
   <object name="2.teleport" type="teleportPlatform" x="490" y="330" width="20" height="20">
    <properties>
-    <property name="dialog" value=""/>
-    <property name="endPositionY" value="2"/>
-    <property name="endPositionZ" value="3"/>
-    <property name="endpositionX" value="3"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
+    <property name="dialog" value="special"/>
+    <property name="endPositionY" value="5"/>
+    <property name="endPositionZ" value="13"/>
+    <property name="endpositionX" value="58"/>
+    <property name="isDoorToArea" value="schieb"/>
+    <property name="isDoorToLevel" value="schieb.k2"/>
     <property name="isSlippery" value="-"/>
     <property name="isVisible" value="true"/>
     <property name="size" value="1"/>
@@ -1157,7 +1104,7 @@
   <object name="1.movingPlatform" type="movingPlatform" x="240" y="140" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
-    <property name="endPositionY" value="0"/>
+    <property name="endPositionY" value="9"/>
     <property name="endPositionZ" value="8"/>
     <property name="endpositionX" value="24"/>
     <property name="isDoorToArea" value="-"/>
@@ -1787,6 +1734,58 @@
     <property name="isDoorToArea" value="-"/>
     <property name="isDoorToLevel" value="-"/>
     <property name="isSlippery" value="-"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="1"/>
+   </properties>
+  </object>
+  <object name="-" type="platform" x="60" y="40" width="20" height="20">
+   <properties>
+    <property name="dialog" value=""/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="false"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="1"/>
+   </properties>
+  </object>
+  <object name="1.teleport" type="teleportPlatform" x="60" y="60" width="20" height="20">
+   <properties>
+    <property name="dialog" value=""/>
+    <property name="endPositionY" value="12"/>
+    <property name="endPositionZ" value="12"/>
+    <property name="endpositionX" value="38"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="-"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="1"/>
+   </properties>
+  </object>
+  <object name="1.dyn" type="platform" x="0" y="0" width="60" height="60">
+   <properties>
+    <property name="dialog" value=""/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="schieb"/>
+    <property name="isDoorToLevel" value="schieb.k2"/>
+    <property name="isSlippery" value="false"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="3"/>
+   </properties>
+  </object>
+  <object name="-" type="platform" x="40" y="60" width="20" height="20">
+   <properties>
+    <property name="dialog" value=""/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="false"/>
     <property name="isVisible" value="true"/>
     <property name="size" value="1"/>
    </properties>

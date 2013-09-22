@@ -5964,12 +5964,12 @@
   </object>
   <object name="1.teleport" type="teleportPlatform" x="260" y="5140" width="20" height="20">
    <properties>
-    <property name="dialog" value=""/>
+    <property name="dialog" value="special"/>
     <property name="endPositionY" value="257"/>
     <property name="endPositionZ" value="212"/>
     <property name="endpositionX" value="-50"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
+    <property name="isDoorToArea" value="255"/>
+    <property name="isDoorToLevel" value="255.0"/>
     <property name="isSlippery" value="-"/>
     <property name="isVisible" value="true"/>
     <property name="size" value="1"/>

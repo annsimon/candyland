@@ -1580,7 +1580,7 @@
     <property name="size" value="2"/>
    </properties>
   </object>
-  <object name="-" type="bonbon" x="80" y="360" width="20" height="20">
+  <object name="-" type="bonbon" x="80" y="340" width="20" height="20">
    <properties>
     <property name="dialog" value="Ein gelegentlicher Blick auf die Karte schadet nicht."/>
     <property name="endPositionY" value="-"/>
