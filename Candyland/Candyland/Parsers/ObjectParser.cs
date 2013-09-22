@@ -346,6 +346,9 @@ namespace Candyland
                     text = text.Replace("!ue!", "ü");
                     text = text.Replace("!oe!", "ö");
                     text = text.Replace("!ss!", "ß");
+                    text = text.Replace("!Ae!", "Ä");
+                    text = text.Replace("!Ue!", "Ü");
+                    text = text.Replace("!Oe!", "Ö");
                     BonbonFairy obj = new BonbonFairy(node.Attributes["id"].InnerText, pos, info, isVisible, text);
                     objectList.Add(obj);
                 }
@@ -357,6 +360,9 @@ namespace Candyland
                     text = text.Replace("!ue!", "ü");
                     text = text.Replace("!oe!", "ö");
                     text = text.Replace("!ss!", "ß");
+                    text = text.Replace("!Ae!", "Ä");
+                    text = text.Replace("!Ue!", "Ü");
+                    text = text.Replace("!Oe!", "Ö");
                     Salesman obj = new Salesman(node.Attributes["id"].InnerText, pos, info, isVisible, text);
                     objectList.Add(obj);
                 }

@@ -172,45 +172,63 @@ namespace Candyland
                 {
                     this.m_updateInfo.playerIsOnAreaExit = true;
 
-                    if (obj is CandyGuy)
-                    {
-                        this.m_updateInfo.currentguyAreaID = idParts[0];
-                        this.m_updateInfo.currentguyLevelID = idParts[0] + "." + idParts[1];
-                        this.m_updateInfo.nextguyLevelID = doorToLevelID ;
-                    }
-                    else {
-
-                        this.m_updateInfo.currenthelperAreaID = idParts[0];
-                        this.m_updateInfo.currenthelperLevelID = idParts[0] + "." + idParts[1];
-                        this.m_updateInfo.nexthelperLevelID = doorToLevelID;
-                    }
+                    //if (obj is CandyGuy)
+                    //{
+                    //    if (this.m_updateInfo.currentguyAreaID != idParts[0])
+                    //    {
+                    //        this.m_updateInfo.currentguyAreaID = idParts[0];
+                    //        this.m_updateInfo.currentguyLevelID = idParts[0] + "." + idParts[1];
+                    //    }
+                    //    this.m_updateInfo.nextguyLevelID = doorToLevelID;
+                    //}
+                    //else
+                    //{
+                    //    if (this.m_updateInfo.currenthelperAreaID != idParts[0])
+                    //    {
+                    //        this.m_updateInfo.currenthelperAreaID = idParts[0];
+                    //        this.m_updateInfo.currenthelperLevelID = idParts[0] + "." + idParts[1];
+                    //    }
+                    //    this.m_updateInfo.nexthelperLevelID = doorToLevelID;
+                    //}
 
                 }
-                if(this.isDoorToLevel)
+
+                if (this.isDoorToLevel && !m_updateInfo.playerHasTouchedDoorInThisUpdate)
                 {
-                     this.m_updateInfo.playerIsOnLevelExit = true;
+                    m_updateInfo.playerHasTouchedDoorInThisUpdate = true;
+                    this.m_updateInfo.playerIsOnLevelExit = true;
 
                     if (obj is CandyGuy)
                     {
-                        this.m_updateInfo.currentguyAreaID = idParts[0];
-                        this.m_updateInfo.currentguyLevelID = idParts[0] + "." + idParts[1];
+                        if (this.m_updateInfo.currentguyLevelID != (idParts[0] + "." + idParts[1]))
+                        {
+                            this.m_updateInfo.currentguyAreaID = idParts[0];
+                            this.m_updateInfo.currentguyLevelID = idParts[0] + "." + idParts[1];
+
+                            // set as active teleport point, if not already done
+                            if (m_updateInfo.allTeleports.Contains(idParts[0] + "." + idParts[1])
+                                && !m_updateInfo.activeTeleports.Contains(idParts[0] + "." + idParts[1]))
+                                m_updateInfo.activeTeleports.Add(idParts[0] + "." + idParts[1]);
+
+                            // automatically save the game, when entering a new level
+                            m_updateInfo.m_screenManager.SceneManager.SaveGame();
+                        }
                         this.m_updateInfo.nextguyLevelID = doorToLevelID;
-                        // set as active teleport point, if not already done
-                        if (m_updateInfo.allTeleports.Contains(idParts[0] + "." + idParts[1])
-                            && !m_updateInfo.activeTeleports.Contains(idParts[0] + "." + idParts[1]))
-                            m_updateInfo.activeTeleports.Add(idParts[0] + "." + idParts[1]);
                     }
                     else
                     {
+                        if (this.m_updateInfo.currenthelperLevelID != (idParts[0] + "." + idParts[1]))
+                        {
+                            this.m_updateInfo.currenthelperAreaID = idParts[0];
+                            this.m_updateInfo.currenthelperLevelID = idParts[0] + "." + idParts[1];
 
-                        this.m_updateInfo.currenthelperAreaID = idParts[0];
-                        this.m_updateInfo.currenthelperLevelID = idParts[0] + "." + idParts[1];
+                            // automatically save the game, when entering a new level
+                            m_updateInfo.m_screenManager.SceneManager.SaveGame();
+                        }
                         this.m_updateInfo.nexthelperLevelID = doorToLevelID;
                     }
-
-                    // automatically save the game, when entering a new level
-//                    m_updateInfo.m_screenManager.SceneManager.SaveGame();
                 }
+
                 if (m_triggersActionWithID != null)
                 {
                     m_triggersActionOfObject.Trigger(m_triggersActionWithID);

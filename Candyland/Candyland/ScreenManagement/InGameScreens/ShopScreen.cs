@@ -93,6 +93,8 @@ namespace Candyland
 
         private SoundEffect errorSound;
 
+        Button backButton;
+
         #endregion fields
 
         public ShopScreen(string saleID, UpdateInfo info, int chocoCount)
@@ -180,6 +182,8 @@ namespace Candyland
             MakeTileBoxes();
 
             numberOfItems = forSale.Count;
+
+            backButton = new Button("Zurück", new Vector2(MenuBoxL.Right - 25, MenuBoxB.Top - 20), assets, this);
         }
 
 
@@ -189,6 +193,7 @@ namespace Candyland
             if (ScreenManager.Input.Equals(InputState.Back))
             {
                 ScreenManager.ResumeLast(this);
+                return;
             }
 
             bool enterPressed = false;         
@@ -197,16 +202,25 @@ namespace Candyland
             switch (ScreenManager.Input)
             {
                 case InputState.Continue: enterPressed = true; break;
-                case InputState.Left: activeID--; break;
+                case InputState.Left: if(activeID % 4 == 1) activeID = 0; else activeID--; break;
                 case InputState.Right: activeID++; break;
                 case InputState.Up: if(activeID - 4 >= 1)activeID -= 4; break;
                 case InputState.Down: if (activeID + 4 <= numberOfItems) activeID += 4; break;
             }
             if (activeID >= numberOfItems) activeID = numberOfItems;
-            if (activeID < 1) activeID = 1;
+            if (activeID < 0) activeID = 0;
+
+            // higlight back button
+            if (activeID == 0) backButton.selected = true;
 
             if (enterPressed)
             {
+                // Exit with back button
+                if (activeID == 0)
+                {
+                    ScreenManager.ResumeLast(this);
+                    return;
+                }
                 if (forSale.Count() == 0 || (m_bonusTracker.chocoCount - m_bonusTracker.chocoChipsSpent) < forSale.ElementAt(activeID - 1).Key)
                 {
                     float pitch = 0.0f;
@@ -265,6 +279,8 @@ namespace Candyland
             // Draw Border
             DrawBigBox(m_sprite);
 
+            backButton.Draw(m_sprite);
+
             DrawShopBox(m_sprite);
 
             DrawTiles(m_sprite);
@@ -275,7 +291,7 @@ namespace Candyland
 
             Vector2 pricePos = new Vector2(bigBox.Left + offset + 10, bigBox.Top + offset + font.LineSpacing);
             m_sprite.DrawString(font, "Preis", new Vector2(bigBox.Left + offset, bigBox.Top + offset + 5), textColor);
-            if (forSale.Count != 0 && activeID < forSale.Count)
+            if (forSale.Count != 0 && activeID <= forSale.Count && activeID > 0)
             {
                 m_sprite.DrawString(font, forSale.ElementAt(activeID - 1).Value.Price.ToString(), pricePos, textColor);
             }
@@ -286,8 +302,6 @@ namespace Candyland
             Vector2 availableChocosPos = new Vector2(bigBox.Left + offset + 10, bigBox.Top + 235);
             m_sprite.DrawString(font, (chocoCollected - m_bonusTracker.chocoChipsSpent).ToString(), availableChocosPos, textColor);
             m_sprite.Draw(chocoChip, new Rectangle((int)availableChocosPos.X + 40, (int)availableChocosPos.Y, 24, 30), Color.White);
-
-            m_sprite.DrawString(font, "Zurück mit\n'Escape'", new Vector2(bigBox.Left + offset, bigBox.Bottom - 90), textColor);
 
             m_sprite.End();
 

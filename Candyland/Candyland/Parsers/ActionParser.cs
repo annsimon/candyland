@@ -71,6 +71,9 @@ namespace Candyland
                     text = text.Replace("!ue!", "ü");
                     text = text.Replace("!oe!", "ö");
                     text = text.Replace("!ss!", "ß");
+                    text = text.Replace("!Ae!", "Ä");
+                    text = text.Replace("!Ue!", "Ü");
+                    text = text.Replace("!Oe!", "Ö");
 
                     sActions.Add(new SubAction(sActionType, pos,
                                                 text, bool.Parse(node.Attributes["locks"].InnerText)));

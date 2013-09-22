@@ -23,6 +23,9 @@ namespace Candyland
             // Update gameTime in UpdateInfo
             m_updateInfo.gameTime = gameTime;
 
+            // not yet touched in this update
+            m_updateInfo.playerHasTouchedDoorInThisUpdate = false;
+
             if (m_updateInfo.activateHelperNow)
             {
                 m_updateInfo.currenthelperAreaID = m_updateInfo.currentguyAreaID;

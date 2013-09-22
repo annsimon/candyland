@@ -89,6 +89,8 @@ namespace Candyland
 
         Color color1, color2, color3, color4, color5, color6, color7, color8, color9, color10, color11, color12;
 
+        Button backButton;
+
         public BonusScreen()
         {
             this.isFullscreen = true;
@@ -190,6 +192,8 @@ namespace Candyland
             {
                 activeID = 0;
             }
+
+            backButton = new Button("Zurück", new Vector2(MenuBoxL.Right - 25, MenuBoxB.Top - 20), assets, this);
         }
 
         public override void Update(GameTime gameTime)
@@ -206,16 +210,26 @@ namespace Candyland
             switch (ScreenManager.Input)
             {
                 case InputState.Continue: enterPressed = true; break;
-                case InputState.Left: activeID--; break;
+                case InputState.Left: if (activeID % 4 == 1) activeID = 0; else activeID--; break;
                 case InputState.Right: activeID++; break;
                 case InputState.Up: if (activeID - 4 >= 1) activeID -= 4; break;
                 case InputState.Down: if (activeID + 4 <= 12) activeID += 4; break;
             }
             if (activeID > 12) activeID = 12;
-            if (activeID < 1) activeID = 1;
+            if (activeID < 0) activeID = 1;
+
+            // higlight back button
+            if (activeID == 0) backButton.selected = true;
+            // Exit with back button
+            if (enterPressed && activeID == 0)
+            {
+                ScreenManager.ResumeLast(this);
+                return;
+            }
 
             if (enterPressed && activeIDs.Contains(activeID))
             {
+
                 if (conceptArts.ElementAt(activeID-1).Texture != null)
                     ScreenManager.ActivateNewScreen(new ShowArtScreen(conceptArts.ElementAt(activeID-1).Texture));
             }
@@ -223,9 +237,9 @@ namespace Candyland
 
         public override void Draw(GameTime gameTime)
         {
-            int offset = 20;
-
             SpriteBatch m_sprite = ScreenManager.SpriteBatch;
+
+            ScreenManager.GraphicsDevice.Clear(GameConstants.BackgroundColorMenu);
 
             Color gray = Color.Gray;
 
@@ -278,7 +292,7 @@ namespace Candyland
 
             m_sprite.Draw(caption, new Rectangle(MenuBoxL.Left + 5, MenuBoxT.Top + 5, captionWidth, captionHeight), Color.White);
 
-            m_sprite.DrawString(font, "Zurück mit\n'Escape'", new Vector2(20, screenHeight - font.LineSpacing * 3), Color.Black);
+            backButton.Draw(m_sprite);
 
             ScreenManager.SpriteBatch.End();
         }

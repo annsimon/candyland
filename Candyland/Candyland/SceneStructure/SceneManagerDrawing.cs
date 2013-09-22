@@ -222,7 +222,13 @@ namespace Candyland
 
             if(!player.getIsThirdPersonCam() || !player2.getIsThirdPersonCam() )
             {
-                
+                int offset = 5;
+                int broadSide = 60;
+                int narrowSide = 35;
+                m_spriteBatch.Draw(arrowLeft, new Rectangle(offset, screenHeight / 2 - broadSide / 2, narrowSide, broadSide), Color.White);
+                m_spriteBatch.Draw(arrowRight, new Rectangle(screenWidth - offset - narrowSide, screenHeight / 2 - broadSide / 2, narrowSide, broadSide), Color.White);
+                m_spriteBatch.Draw(arrowUp, new Rectangle(screenWidth/ 2 - broadSide / 2, offset, broadSide, narrowSide), Color.White);
+                m_spriteBatch.Draw(arrowDown, new Rectangle(screenWidth / 2 - broadSide / 2, screenHeight - narrowSide - offset, broadSide, narrowSide), Color.White);
             }
             else
             {

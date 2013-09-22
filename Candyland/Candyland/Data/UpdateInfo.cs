@@ -41,6 +41,12 @@ namespace Candyland
         // (this is used to start updating the next area early enough)
         public bool playerIsOnLevelExit { get; set; }
 
+        /// <summary>
+        /// used to have only the first collided platform update level IDs
+        /// otherwise they switch around while two a touched at the same time
+        /// </summary>
+        public bool playerHasTouchedDoorInThisUpdate { get; set; }
+
         // if this is true we are currently processing a reset
         // which moves the player to the level start position
         // and resets the dynamic elements in the level
@@ -113,6 +119,8 @@ namespace Candyland
 
             playerIsOnLevelExit = false;
 
+            playerHasTouchedDoorInThisUpdate = false;
+
             reset = false;
             currentpushedKeys = new List<Keys>();
 
@@ -127,6 +135,9 @@ namespace Candyland
             m_screenManager = screenManager;
 
             activeTeleports = new List<string>(10);
+                activeTeleports.Add("0.Korridor");
+                activeTeleports.Add("schieb.k2");
+                activeTeleports.Add("5.korridor");
             allTeleports = new List<string>(10);
                 allTeleports.Add("0.Korridor");
                 allTeleports.Add("schieb.k2");
