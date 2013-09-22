@@ -139,7 +139,10 @@ namespace Candyland
             }
         }
 
-        // called when a savegame is being loaded to update the isCollected Attribute of the ChocoChips
+        /// <summary>
+        ///  called when a savegame is being loaded to update the isCollected Attribute of the ChocoChips
+        ///  and the original visibility of action actors
+        /// </summary>
         public void Load()
         {
             foreach (var gameObject in m_gameObjects)
@@ -147,6 +150,11 @@ namespace Candyland
                 if (gameObject.Value.GetType() == typeof(ChocoChip))
                 {
                     gameObject.Value.initialize();
+                }
+                if (gameObject.Value.GetType() == typeof(ActionActor))
+                {
+                    ActionActor actor = (ActionActor)gameObject.Value;
+                    actor.SetVisibilityAfterLoadingSavegame();
                 }
             }
             foreach (var gameObject in m_switchObjects)
