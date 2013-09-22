@@ -152,7 +152,7 @@ namespace Candyland
 
         public override void uniqueskill()
         {
-             if (isonground && !isCloseEnoughToInteract)
+            if (isonground && !isCloseEnoughToInteract && !m_updateInfo.actionInProgress)
             {
                 upvelocity = 0.08f;
                 isonground = false;
