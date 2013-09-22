@@ -1833,7 +1833,7 @@
   </object>
   <object name="-" type="salesman" x="240" y="90" width="20" height="20">
    <properties>
-    <property name="dialog" value="In letzter Zeit habe ich einige Leute getroffen. Sie kamen vom anderen Ende unseres Landes und waren auf der Flucht vor einer gro!ss!en Bedrohung. !nl!Um was genau es sich dabei handelt, wei!ss! ich aber nicht..."/>
+    <property name="dialog" value="Bei mir kannst du deine gesammelten Schokolinsen gegen Concept Arts eintauschen, die du im Hauptmen!ue! unter Extras wiederfindest. !ns!Zwischen Gebieten, die du bereits erkundet hast, kannst du mithilfe meiner Br!ue!der und mir hin und her reisen. Sprich uns einfach an!"/>
     <property name="endPositionY" value="-"/>
     <property name="endPositionZ" value="-"/>
     <property name="endpositionX" value="-"/>
