@@ -35,7 +35,7 @@ namespace Candyland
             this.m_model = assets.salesman;
             this.m_original_model = this.m_model;
             // Bounding box is bigger than the model, so that the player can interact, when standing a bit away
-            m_boundingBox = new BoundingBox(this.m_position - new Vector3(0.8f,0.5f,0.8f), this.m_position + new Vector3(0.8f,0.5f,0.8f));
+            m_boundingBox = new BoundingBox(this.m_position - new Vector3(0.5f,0.5f,0.5f), this.m_position + new Vector3(0.5f,0.5f,0.5f));
             minOld = m_boundingBox.Min;
             maxOld = m_boundingBox.Max;
             base.load(content, assets);
