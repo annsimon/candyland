@@ -49,7 +49,7 @@ namespace Candyland
                 foreach (BasicEffect currentEffect in mesh.Effects)
                     skyboxTextures[i++] = currentEffect.Texture;
 
-            buddy = content.Load<Model>("NPCs/Helper/buddyrunning");
+            buddy = content.Load<Model>("NPCs/Helper/buddy");
             buddybreaking = content.Load<Model>("NPCs/Helper/buddybreaking");
             buddyslip = content.Load<Model>("NPCs/Helper/buddyrutsch");
             actionBuddy = content.Load<Model>("NPCs/HelperActor/buddy");
