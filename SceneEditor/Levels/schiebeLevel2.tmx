@@ -1307,7 +1307,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="-" type="bonbon" x="70" y="460" width="20" height="20">
+  <object name="-" type="bonbon" x="70" y="440" width="20" height="20">
    <properties>
     <property name="dialog" value="F!ue!r diesen Schalter brauchst du keinen W!ue!rfel."/>
     <property name="endPositionY" value="-"/>
@@ -1320,7 +1320,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="-" type="bonbon" x="30" y="300" width="20" height="20">
+  <object name="-" type="bonbon" x="20" y="320" width="20" height="20">
    <properties>
     <property name="dialog" value="Erst Nachdenken und dann schieben. Und achte auf die Reihenfolge, wenn du alle Schokolinsen bekommen willst."/>
     <property name="endPositionY" value="-"/>
