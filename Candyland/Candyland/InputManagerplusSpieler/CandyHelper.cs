@@ -104,7 +104,14 @@ namespace Candyland
                 {
                     if (isOnSlipperyGround)
                     {
-                        animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
+                        if (currentspeed != 0)
+                        {
+                            animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
+                        }
+                        else
+                        {
+                            animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, false, Matrix.Identity);
+                        }
                     }
                     else
                     {
