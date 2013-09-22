@@ -1267,7 +1267,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="-" type="bonbon" x="230" y="20" width="20" height="20">
+  <object name="-" type="bonbon" x="190" y="0" width="20" height="20">
    <properties>
     <property name="dialog" value="teleport"/>
     <property name="endPositionY" value="-"/>
@@ -1280,7 +1280,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="-" type="platform" x="250" y="40" width="20" height="20">
+  <object name="-" type="platform" x="170" y="40" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
     <property name="endPositionY" value="-"/>
@@ -1293,7 +1293,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="-" type="platform" x="270" y="40" width="20" height="20">
+  <object name="-" type="platform" x="150" y="40" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
     <property name="endPositionY" value="-"/>
@@ -1306,7 +1306,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="-" type="platform" x="290" y="40" width="20" height="20">
+  <object name="-" type="platform" x="130" y="40" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
     <property name="endPositionY" value="-"/>
@@ -1319,7 +1319,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="-" type="platform" x="270" y="20" width="20" height="20">
+  <object name="-" type="platform" x="150" y="20" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
     <property name="endPositionY" value="-"/>
@@ -1332,7 +1332,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="-" type="platform" x="270" y="60" width="20" height="20">
+  <object name="-" type="platform" x="150" y="60" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
     <property name="endPositionY" value="-"/>
@@ -1345,7 +1345,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="-" type="obstacle" x="270" y="60" width="20" height="20">
+  <object name="-" type="obstacle" x="150" y="60" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
     <property name="endPositionY" value="-"/>
@@ -1358,7 +1358,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="-" type="obstacle" x="270" y="20" width="20" height="20">
+  <object name="-" type="obstacle" x="150" y="20" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
     <property name="endPositionY" value="-"/>
@@ -1371,7 +1371,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="10.teleport" type="teleportPlatform" x="310" y="40" width="20" height="20">
+  <object name="10.teleport" type="teleportPlatform" x="110" y="40" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
     <property name="endPositionY" value="3"/>
@@ -1384,8 +1384,21 @@
     <property name="size" value="1"/>
    </properties>
   </object>
+  <object name="-" type="bonbon" x="230" y="40" width="20" height="20">
+   <properties>
+    <property name="dialog" value="Die S!ue!!ss!igkeitenmaschine wurde von Graeme bedient, als dieses Gebiet entstand."/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="-"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="1"/>
+   </properties>
+  </object>
  </objectgroup>
- <objectgroup name="0.5" width="100" height="100">
+ <objectgroup name="0,5" width="100" height="100">
   <object name="1.breaking" type="breakingPlatform" x="330" y="190" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
@@ -1399,7 +1412,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="-" type="lowObstacle" x="270" y="40" width="20" height="20">
+  <object name="-" type="lowObstacle" x="150" y="40" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
     <property name="endPositionY" value="-"/>
@@ -1414,19 +1427,6 @@
   </object>
  </objectgroup>
  <objectgroup name="1" width="100" height="100">
-  <object name="1.choco" type="chocoChip" x="290" y="320" width="20" height="20">
-   <properties>
-    <property name="dialog" value=""/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
-    <property name="isSlippery" value="-"/>
-    <property name="isVisible" value="false"/>
-    <property name="size" value="1"/>
-   </properties>
-  </object>
   <object name="-" type="platform" x="300" y="430" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
@@ -1454,7 +1454,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="1.5" width="100" height="100">
+ <objectgroup name="1,5" width="100" height="100">
   <object name="-" type="platform" x="420" y="150" width="60" height="60">
    <properties>
     <property name="dialog" value=""/>
@@ -1764,6 +1764,19 @@
     <property name="isDoorToLevel" value="-"/>
     <property name="isSlippery" value="-"/>
     <property name="isVisible" value="true"/>
+    <property name="size" value="1"/>
+   </properties>
+  </object>
+  <object name="1.choco" type="chocoChip" x="280" y="310" width="20" height="20">
+   <properties>
+    <property name="dialog" value=""/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="-"/>
+    <property name="isVisible" value="false"/>
     <property name="size" value="1"/>
    </properties>
   </object>
@@ -2277,4 +2290,5 @@
    </properties>
   </object>
  </objectgroup>
+ <objectgroup name="3" width="100" height="100"/>
 </map>

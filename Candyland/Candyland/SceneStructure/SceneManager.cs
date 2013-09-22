@@ -47,7 +47,7 @@ namespace Candyland
         // the update info, this object is used for communication
         UpdateInfo m_updateInfo;
         public UpdateInfo getUpdateInfo() { return m_updateInfo; }
-
+      
         // the player
         CandyGuy player;
         CandyHelper player2;
