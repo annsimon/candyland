@@ -135,6 +135,30 @@
       </action>
     </level_inner>
   </Lschieb.0>
+
+  <Lschieb.4>
+    <level_inner>
+      <action>
+        <action_inner>
+          <trigger>schieb.4.1.dyn</trigger>
+          <triggered>schieb.4.1.actionActor</triggered>
+          <id>schieb4Action</id>
+          <oneTimeAction>true</oneTimeAction>
+          <subactions>
+            <subaction type="appear" goalX="10" goalY="0" goalZ="0.5" locks="false" text=""/>
+            <subaction type="movement" goalX="2" goalY="0.7" goalZ="15" locks="false" text=""/>
+            <subaction type="movement" goalX="2" goalY="0.4" goalZ="15" locks="true" text=""/>
+            <subaction type="movement" goalX="2" goalY="0.7" goalZ="15" locks="true" text=""/>
+            <subaction type="movement" goalX="2" goalY="0.4" goalZ="15" locks="true" text=""/>
+
+            <subaction type="dialog" goalX="10" goalY="0" goalZ="0.5" locks="true" text="Pass auf das blaue Wassereis auf. Du kannst zwar darauf laufen, Zuckerw!ue!rfel rutschen aber."/>
+
+            <subaction type="disappear" goalX="10" goalY="0" goalZ="0.5" locks="false" text=""/>
+          </subactions>
+        </action_inner>
+      </action>
+    </level_inner>
+  </Lschieb.4>
   
   <L5.0>
     <level_inner>

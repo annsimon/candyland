@@ -29,9 +29,9 @@ namespace Candyland
 
             if (m_updateInfo.activateHelperNow)
             {
-                m_updateInfo.currenthelperAreaID = m_updateInfo.currentguyAreaID;
-                m_updateInfo.currenthelperLevelID = m_updateInfo.currentguyLevelID;
-                m_updateInfo.nexthelperLevelID = m_updateInfo.nextguyLevelID;
+                m_updateInfo.currenthelperAreaID = "5";
+                m_updateInfo.currenthelperLevelID = "5.0";
+                m_updateInfo.nexthelperLevelID = "5.1";
                 Vector3 resetPos2 = m_areas[m_updateInfo.currenthelperLevelID.Split('.')[0]].GetCompanionStartingPosition(player2);
                 resetPos2.Y -= 0.42f;
                 player2.setPosition(resetPos2);

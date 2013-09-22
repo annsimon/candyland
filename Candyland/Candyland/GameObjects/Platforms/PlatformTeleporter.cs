@@ -13,11 +13,19 @@ namespace Candyland
     class PlatformTeleporter : Platform
     {
         protected Vector3 teleportTarget;
+        protected bool m_isSpecial = false;
+        protected String teleportTargetID;
         private SoundEffect sound;
 
+        // regular teleporter -> sends player to a specified position in the level
         public PlatformTeleporter(String id, Vector3 pos, UpdateInfo updateInfo, bool visible, Vector3 target)
         {
             initialize(id, pos, updateInfo, visible, target);
+        }
+        // special teleporter -> sends player to a level
+        public PlatformTeleporter(String id, Vector3 pos, UpdateInfo updateInfo, bool visible, String targetID)
+        {
+            initialize(id, pos, updateInfo, visible, targetID);
         }
 
         #region initialization
@@ -29,6 +37,15 @@ namespace Candyland
             m_hasBillboard = true;
             m_updateInfo.objectsWithBillboards.Add(this);
             this.teleportTarget = target;
+        }
+        public void initialize(String id, Vector3 pos, UpdateInfo updateInfo, bool visible, String targetID)
+        {
+            base.init(id, pos, updateInfo, visible);
+
+            m_hasBillboard = true;
+            m_updateInfo.objectsWithBillboards.Add(this);
+            m_isSpecial = true;
+            this.teleportTargetID = targetID;
         }
         public override void load(ContentManager content, AssetManager assets)
         {
@@ -64,7 +81,18 @@ namespace Candyland
                 float pitch = 0.0f;
                 float pan = 0.0f;
                 sound.Play(((float)m_updateInfo.soundVolume) / 10, pitch, pan);
-                obj.setPosition(teleportTarget);
+                if (m_isSpecial)
+                {
+                    if(obj is CandyGuy)
+                    {
+                        m_updateInfo.currentguyLevelID = teleportTargetID;
+                        m_updateInfo.currentguyAreaID = teleportTargetID.Split('.')[0];
+
+                        m_updateInfo.reset = true;
+                    }
+                }
+                else
+                    obj.setPosition(teleportTarget);
             }
         }
 

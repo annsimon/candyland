@@ -354,76 +354,76 @@
     </level_inner>
   </Lschieb.4>
 
-  <Lschieb.bonus>
+  <LschiebBonus.0>
     <level_inner>
       <event>
         <event_inner>
-          <triggerable>schieb.bonus.1.obstacleForSwitch</triggerable>
+          <triggerable>schiebBonus.0.1.obstacleForSwitch</triggerable>
           <switchGroupType>normal</switchGroupType>
           <switchGroup>
             <switchGroup_inner>
-              <switch_id>schieb.bonus.1.switchTemporary</switch_id>
+              <switch_id>schiebBonus.0.1.switchTemporary</switch_id>
             </switchGroup_inner>
           </switchGroup>
         </event_inner>
       </event>
       <event>
         <event_inner>
-          <triggerable>schieb.bonus.3.dyn</triggerable>
+          <triggerable>schiebBonus.0.3.dyn</triggerable>
           <switchGroupType>normal</switchGroupType>
           <switchGroup>
             <switchGroup_inner>
-              <switch_id>schieb.bonus.1.switchPermanent</switch_id>
+              <switch_id>schiebBonus.0.1.switchPermanent</switch_id>
             </switchGroup_inner>
           </switchGroup>
         </event_inner>
       </event>
       <event>
         <event_inner>
-          <triggerable>schieb.bonus.2.obstacleForSwitch</triggerable>
+          <triggerable>schiebBonus.0.2.obstacleForSwitch</triggerable>
           <switchGroupType>normal</switchGroupType>
           <switchGroup>
             <switchGroup_inner>
-              <switch_id>schieb.bonus.2.switchTemporary</switch_id>
+              <switch_id>schiebBonus.0.2.switchTemporary</switch_id>
             </switchGroup_inner>
           </switchGroup>
         </event_inner>
       </event>
       <event>
         <event_inner>
-          <triggerable>schieb.bonus.3.obstacleForSwitch</triggerable>
+          <triggerable>schiebBonus.0.3.obstacleForSwitch</triggerable>
           <switchGroupType>normal</switchGroupType>
           <switchGroup>
             <switchGroup_inner>
-              <switch_id>schieb.bonus.2.switchTemporary</switch_id>
+              <switch_id>schiebBonus.0.2.switchTemporary</switch_id>
             </switchGroup_inner>
           </switchGroup>
         </event_inner>
       </event>
       <event>
         <event_inner>
-          <triggerable>schieb.bonus.4.dyn</triggerable>
+          <triggerable>schiebBonus.0.4.dyn</triggerable>
           <switchGroupType>normal</switchGroupType>
           <switchGroup>
             <switchGroup_inner>
-              <switch_id>schieb.bonus.3.switchTemporary</switch_id>
+              <switch_id>schiebBonus.0.3.switchTemporary</switch_id>
             </switchGroup_inner>
           </switchGroup>
         </event_inner>
       </event>
       <event>
         <event_inner>
-          <triggerable>schieb.bonus.5.dyn</triggerable>
+          <triggerable>schiebBonus.0.5.dyn</triggerable>
           <switchGroupType>normal</switchGroupType>
           <switchGroup>
             <switchGroup_inner>
-              <switch_id>schieb.bonus.3.switchTemporary</switch_id>
+              <switch_id>schiebBonus.0.3.switchTemporary</switch_id>
             </switchGroup_inner>
           </switchGroup>
         </event_inner>
       </event>
     </level_inner>
-  </Lschieb.bonus>
+  </LschiebBonus.0>
 
   <Lschieb.k2>
     <level_inner>
@@ -541,6 +541,22 @@
       </event>
     </level_inner>
   </L5.4>
+
+  <L5.korridor>
+    <level_inner>
+      <event>
+        <event_inner>
+          <triggerable>5.korridor.3.breaking</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>5.korridor.1.switchPermanent</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+    </level_inner>
+  </L5.korridor>
 
   <L255.0>
     <level_inner>
