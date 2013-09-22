@@ -145,6 +145,7 @@ namespace Candyland
                 allTeleports.Add("0.Korridor");
                 allTeleports.Add("schieb.k2");
                 allTeleports.Add("5.korridor");
+                allTeleports.Add("rutsch.korridor");
 
             /**********************************************************************/
             graphics = graphicsDevice;
