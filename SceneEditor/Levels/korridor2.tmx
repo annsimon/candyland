@@ -764,7 +764,7 @@
   </object>
   <object name="-" type="salesman" x="310" y="10" width="20" height="20">
    <properties>
-    <property name="dialog" value="Viele Bewohner Candylands sind besorgt. Einige sind hier vorbeigekommen und waren auf der Suche nach Freunden und Verwandten. !nl!Ein paar sind bereits zur!ue!ck. Sie haben die Suche aufgegeben. Es scheint als w!ue!rden S!ue!!ss!igkeiten einfach verschwinden. !nl!Daf!ue!r scheint es als w!ue!rden die Lakritzteilchen immer mehr werden."/>
+    <property name="dialog" value="In letzter Zeit habe ich einige Leute getroffen. Sie kamen vom anderen Ende unseres Landes und waren auf der Flucht vor einer gro!ss!en Bedrohung. !nl!Um was genau es sich dabei handelt, wei!ss! ich aber nicht..."/>
     <property name="endPositionY" value="-"/>
     <property name="endPositionZ" value="-"/>
     <property name="endpositionX" value="-"/>

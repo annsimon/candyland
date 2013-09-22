@@ -20,9 +20,16 @@ namespace Candyland
         // actionState is a dictionary that saves action id and if it already has been triggered
         public Dictionary<string, bool> actionState {get; set;}
 
+        /// <summary>
+        /// saves the IDs of action actors whos original visibility has been changed during the game
+        /// and the value it should now be set to
+        /// </summary>
+        public Dictionary<string, bool> actionActorVisibility;
+
         public ActionTracker()
         {
             actionState = new Dictionary<string, bool>();
+            actionActorVisibility = new Dictionary<string, bool>();
         }
 
         // ToDo on load: check if action with actionID "helperActivated" is in dictionary with value "true"

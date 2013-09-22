@@ -24,7 +24,8 @@ namespace Candyland
             m_updateInfo.gameTime = gameTime;
 
             // not yet touched in this update
-            m_updateInfo.playerHasTouchedDoorInThisUpdate = false;
+            m_updateInfo.guyHasTouchedDoorInThisUpdate = false;
+            m_updateInfo.helperHasTouchedDoorInThisUpdate = false;
 
             if (m_updateInfo.activateHelperNow)
             {

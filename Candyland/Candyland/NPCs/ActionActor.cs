@@ -70,6 +70,15 @@ namespace Candyland
             base.load(content, assets);
         }
 
+        public void SetVisibilityAfterLoadingSavegame()
+        {
+            if (m_actionTracker.actionActorVisibility.ContainsKey(this.ID))
+            {
+                this.original_isVisible = m_actionTracker.actionActorVisibility[this.ID];
+                this.isVisible = m_actionTracker.actionActorVisibility[this.ID];
+            }
+        }
+
         #endregion
 
         public override void update()
@@ -98,9 +107,17 @@ namespace Candyland
                     return;
 
                 if (m_currentAction.getID().Equals("GetHelper"))
+                {
                     this.original_isVisible = false;
+                    if(!m_actionTracker.actionActorVisibility.ContainsKey(this.ID))
+                        m_actionTracker.actionActorVisibility.Add(this.ID, false);
+                }
                 if (m_currentAction.getID().Equals("firstTutorial"))
+                {
                     this.original_isVisible = false;
+                    if (!m_actionTracker.actionActorVisibility.ContainsKey(this.ID))
+                        m_actionTracker.actionActorVisibility.Add(this.ID, false);
+                }
 
                 SubAction sAction = m_currentAction.getNextSubAction();
                 if (sAction == null)
@@ -168,7 +185,11 @@ namespace Candyland
                 {
                     m_actionTracker.actionState[actionID] = true;
                     if (ID.Equals("GetHelper"))
-                        original_isVisible = false;
+                    {
+                        this.original_isVisible = false;
+                        if (!m_actionTracker.actionActorVisibility.ContainsKey(this.ID))
+                            m_actionTracker.actionActorVisibility.Add(this.ID, false);
+                    }
                 }
             }
 

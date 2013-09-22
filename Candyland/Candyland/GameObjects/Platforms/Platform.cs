@@ -171,35 +171,17 @@ namespace Candyland
                 if (this.isDoorToArea)
                 {
                     this.m_updateInfo.playerIsOnAreaExit = true;
-
-                    //if (obj is CandyGuy)
-                    //{
-                    //    if (this.m_updateInfo.currentguyAreaID != idParts[0])
-                    //    {
-                    //        this.m_updateInfo.currentguyAreaID = idParts[0];
-                    //        this.m_updateInfo.currentguyLevelID = idParts[0] + "." + idParts[1];
-                    //    }
-                    //    this.m_updateInfo.nextguyLevelID = doorToLevelID;
-                    //}
-                    //else
-                    //{
-                    //    if (this.m_updateInfo.currenthelperAreaID != idParts[0])
-                    //    {
-                    //        this.m_updateInfo.currenthelperAreaID = idParts[0];
-                    //        this.m_updateInfo.currenthelperLevelID = idParts[0] + "." + idParts[1];
-                    //    }
-                    //    this.m_updateInfo.nexthelperLevelID = doorToLevelID;
-                    //}
-
                 }
 
-                if (this.isDoorToLevel && !m_updateInfo.playerHasTouchedDoorInThisUpdate)
+                if (this.isDoorToLevel)
                 {
-                    m_updateInfo.playerHasTouchedDoorInThisUpdate = true;
                     this.m_updateInfo.playerIsOnLevelExit = true;
 
-                    if (obj is CandyGuy)
+                    if (obj is CandyGuy && !m_updateInfo.guyHasTouchedDoorInThisUpdate)
                     {
+                        // update door touched by candyguy
+                        m_updateInfo.guyHasTouchedDoorInThisUpdate = true;
+
                         if (this.m_updateInfo.currentguyLevelID != (idParts[0] + "." + idParts[1]))
                         {
                             this.m_updateInfo.currentguyAreaID = idParts[0];
@@ -215,8 +197,11 @@ namespace Candyland
                         }
                         this.m_updateInfo.nextguyLevelID = doorToLevelID;
                     }
-                    else
+                    else if (obj is CandyHelper && !m_updateInfo.helperHasTouchedDoorInThisUpdate)
                     {
+                        // update door touched by helper
+                        m_updateInfo.helperHasTouchedDoorInThisUpdate = true;
+
                         if (this.m_updateInfo.currenthelperLevelID != (idParts[0] + "." + idParts[1]))
                         {
                             this.m_updateInfo.currenthelperAreaID = idParts[0];
