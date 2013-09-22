@@ -273,11 +273,6 @@
       <Importer>FbxImporter</Importer>
       <Processor>SkinnedModelProcessor</Processor>
     </Compile>
-    <Compile Include="NPCs\Helper\buddyrunning.fbx">
-      <Name>buddyrunning</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>SkinnedModelProcessor</Processor>
-    </Compile>
     <Compile Include="Fonts\MainTextRegular.spritefont">
       <Name>MainTextRegular</Name>
       <Importer>FontDescriptionImporter</Importer>
