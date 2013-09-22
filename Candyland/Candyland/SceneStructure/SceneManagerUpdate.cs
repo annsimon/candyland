@@ -179,7 +179,7 @@ namespace Candyland
                 }
             }
 
-            if (m_updateInfo.finaledistance) {
+            if (m_updateInfo.finaledistance && !m_updateInfo.playerfirst) {
                 distanceToBoss = (m_updateInfo.bossPosition - m_updateInfo.bossTarget).Length();
                 if (distanceToBoss < 1)
                 {

@@ -137,7 +137,7 @@ namespace Candyland
                 switch (sAction.getType())
                 {
                     case GameConstants.SubActionType.appear: appear(); break;
-                    case GameConstants.SubActionType.dialog: m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen(sAction.getText(), m_dialogImage)); break;
+                    case GameConstants.SubActionType.dialog: m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen(sAction.getText(), m_dialogImage));if(this.ID.Equals("255.2.2.actionActor")) m_updateInfo.playerfirst = true; break;
                     case GameConstants.SubActionType.movement: movement(sAction); break;
                     case GameConstants.SubActionType.disappear: disappear(); break;
                 }

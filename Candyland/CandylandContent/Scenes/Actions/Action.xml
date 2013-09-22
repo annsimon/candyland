@@ -302,23 +302,20 @@
           </subactions>
         </action_inner>
       </action>
-    </level_inner>
-  </L255.2>
-
-  <L255.3>
-    <level_inner>
       <action>
         <action_inner>
-          <trigger>255.3.2.dyn</trigger>
-          <triggered>255.3.1.actionActor</triggered>
+          <trigger>255.2.10.dyn</trigger>
+          <triggered>255.2.2.actionActor</triggered>
           <id>ending</id>
           <oneTimeAction>false</oneTimeAction>
           <subactions>
-            <subaction type="dialog" goalX="2.5" goalY="0" goalZ="9" locks="true" text=" Herzlichen Glückwunsch und danke fürs Spielen, Candyland ist gerettet!"/>
+            <subaction type="dialog" goalX="2.5" goalY="0" goalZ="9" locks="true" text=" Du warst schneller, die Maschine ist zerstört!"/>
           </subactions>
         </action_inner>
       </action>
     </level_inner>
-  </L255.3>
+  </L255.2>
+
+ 
   
 </levels>
