@@ -86,7 +86,7 @@ namespace Candyland
         public const int inputManagerMode = InputManager.KEYBOARDMOUSE;
 
         // data regarding the scene
-       /* public const bool helperAvailableAtGameStart = true;
+        /*public const bool helperAvailableAtGameStart = true;
 
         public const string sceneFile = @"Content\Scenes\theWorldPres.xml";
         public const string eventFile = @"Content\Scenes\Events\EventPres.xml";

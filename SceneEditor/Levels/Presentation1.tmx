@@ -1660,7 +1660,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="-" type="platform" x="550" y="310" width="20" height="20">
+  <object name="-" type="platform" x="570" y="310" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
     <property name="endPositionY" value="-"/>
@@ -1686,7 +1686,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="-" type="obstacle" x="550" y="310" width="20" height="20">
+  <object name="-" type="obstacle" x="570" y="310" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
     <property name="endPositionY" value="-"/>
@@ -1699,7 +1699,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="1.switchTemporary" type="switchTemporary" x="530" y="310" width="20" height="20">
+  <object name="1.switchTemporary" type="switchTemporary" x="550" y="310" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
     <property name="endPositionY" value="-"/>
@@ -1773,6 +1773,19 @@
     <property name="isDoorToArea" value="-"/>
     <property name="isDoorToLevel" value="-"/>
     <property name="isSlippery" value="-"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="0"/>
+   </properties>
+  </object>
+  <object name="-" type="verySlipperyPlatform" x="530" y="310" width="20" height="20">
+   <properties>
+    <property name="dialog" value=""/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="2"/>
     <property name="isVisible" value="true"/>
     <property name="size" value="0"/>
    </properties>

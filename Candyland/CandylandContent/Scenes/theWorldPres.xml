@@ -233,13 +233,14 @@
                   <object type="platform" id="0.pres1.88" is_door_to_area="x" is_door_to_level="x" posX="24" posY="2" posZ="14" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="0.pres1.89" is_door_to_area="x" is_door_to_level="x" posX="27" posY="2" posZ="20.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="0.pres1.90" is_door_to_area="x" is_door_to_level="x" posX="25" posY="2" posZ="22.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="0.pres1.91" is_door_to_area="x" is_door_to_level="x" posX="28" posY="2" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="0.pres1.91" is_door_to_area="x" is_door_to_level="x" posX="29" posY="2" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="0.pres1.92" is_door_to_area="x" is_door_to_level="x" posX="24" posY="2" posZ="15" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="obstacle" id="0.pres1.93" is_door_to_area="x" is_door_to_level="x" posX="28" posY="2" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="0.pres1.93" is_door_to_area="x" is_door_to_level="x" posX="29" posY="2" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="0.pres1.94" is_door_to_area="x" is_door_to_level="x" posX="25" posY="2" posZ="16" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="0.pres1.95" is_door_to_area="x" is_door_to_level="x" posX="26" posY="2" posZ="16" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="0.pres1.96" is_door_to_area="x" is_door_to_level="x" posX="24" posY="2" posZ="17" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="obstacle" id="0.pres1.97" is_door_to_area="x" is_door_to_level="x" posX="24" posY="2" posZ="17" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="0.pres1.98" is_door_to_area="x" is_door_to_level="x" posX="27" posY="2" posZ="16" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
                 </statics>
               </static_objects>
             <!--- DYNAMIC-->
@@ -254,7 +255,7 @@
                   <object type="movableObstacle" id="0.pres1.4.Mov" is_door_to_area="x" is_door_to_level="x" posX="22" posY="2" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="movableObstacle" id="0.pres1.6.Mov" is_door_to_area="x" is_door_to_level="x" posX="24" posY="2" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="chocoChip" id="0.pres1.2.choco" is_door_to_area="x" is_door_to_level="x" posX="24" posY="2" posZ="14" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="switchTemporary" id="0.pres1.1.switchTemporary" is_door_to_area="x" is_door_to_level="x" posX="27" posY="2" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="switchTemporary" id="0.pres1.1.switchTemporary" is_door_to_area="x" is_door_to_level="x" posX="28" posY="2" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="obstacleForSwitch" id="0.pres1.1.obstacleForSwitch" is_door_to_area="x" is_door_to_level="x" posX="26" posY="2" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="False" dialog="" />
                   <object type="movingPlatform" id="0.pres1.1.movingPlatform" is_door_to_area="x" is_door_to_level="x" posX="15.5" posY="0.5" posZ="10.5" endPosX="15.5" endPosY="2" endPosZ="10.5" size="1" slippery="0" visible="False" dialog="" />
                 </dynamics>

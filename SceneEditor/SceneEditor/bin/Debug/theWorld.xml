@@ -3457,16 +3457,17 @@
                   <object type="platform" id="bonus.4.85" is_door_to_area="x" is_door_to_level="x" posX="25" posY="2" posZ="22.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="bonus.4.86" is_door_to_area="x" is_door_to_level="x" posX="21" posY="2" posZ="16" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="bonus.4.87" is_door_to_area="x" is_door_to_level="x" posX="26" posY="2" posZ="16" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="obstacle" id="bonus.4.88" is_door_to_area="x" is_door_to_level="x" posX="28" posY="2" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="bonus.4.88" is_door_to_area="x" is_door_to_level="x" posX="29" posY="2" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="bonus.4.89" is_door_to_area="x" is_door_to_level="x" posX="24" posY="2" posZ="17" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="bonus.4.90" is_door_to_area="x" is_door_to_level="x" posX="22" posY="2" posZ="16" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="bonus.4.91" is_door_to_area="x" is_door_to_level="x" posX="28" posY="2" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="bonus.4.91" is_door_to_area="x" is_door_to_level="x" posX="29" posY="2" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="bonus.4.92" is_door_to_area="x" is_door_to_level="x" posX="24" posY="2" posZ="16" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="bonus.4.93" is_door_to_area="x" is_door_to_level="x" posX="25" posY="2" posZ="16" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="bonus.4.94" is_door_to_area="x" is_door_to_level="x" posX="24" posY="2" posZ="14" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="bonus.4.95" is_door_to_area="x" is_door_to_level="x" posX="23" posY="2" posZ="16" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="bonus.4.96" is_door_to_area="x" is_door_to_level="x" posX="24" posY="2" posZ="15" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="obstacle" id="bonus.4.97" is_door_to_area="x" is_door_to_level="x" posX="24" posY="2" posZ="17" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="bonus.4.98" is_door_to_area="x" is_door_to_level="x" posX="27" posY="2" posZ="16" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
                 </statics>
               </static_objects>
             <!--- DYNAMIC-->
@@ -3480,7 +3481,7 @@
                   <object type="movableObstacle" id="bonus.4.1.Mov" is_door_to_area="x" is_door_to_level="x" posX="18" posY="2" posZ="22.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="teleportPlatform" id="bonus.4.1.teleport" is_door_to_area="x" is_door_to_level="0.Korridor" posX="28" posY="2" posZ="21.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="special" />
                   <object type="chocoChip" id="bonus.4.2.choco" is_door_to_area="x" is_door_to_level="x" posX="24" posY="2" posZ="14" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="switchTemporary" id="bonus.4.1.switchTemporary" is_door_to_area="x" is_door_to_level="x" posX="27" posY="2" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="switchTemporary" id="bonus.4.1.switchTemporary" is_door_to_area="x" is_door_to_level="x" posX="28" posY="2" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="movableObstacle" id="bonus.4.4.Mov" is_door_to_area="x" is_door_to_level="x" posX="22" posY="2" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="obstacleForSwitch" id="bonus.4.1.obstacleForSwitch" is_door_to_area="x" is_door_to_level="x" posX="26" posY="2" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="False" dialog="" />
                   <object type="movableObstacle" id="bonus.4.6.Mov" is_door_to_area="x" is_door_to_level="x" posX="24" posY="2" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
