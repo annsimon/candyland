@@ -48,6 +48,7 @@ namespace Candyland
             {
 
                 m_updateInfo.actionInProgress = false;
+                m_updateInfo.helperActionInProgress = false;
                 m_updateInfo.locked = false;
 
                 m_updateInfo.finaledistance = false;
