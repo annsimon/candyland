@@ -389,8 +389,8 @@
     <property name="endPositionY" value="-"/>
     <property name="endPositionZ" value="-"/>
     <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="5"/>
-    <property name="isDoorToLevel" value="5.korridor"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="rutsch.2"/>
     <property name="isSlippery" value="false"/>
     <property name="isVisible" value="true"/>
     <property name="size" value="2"/>
@@ -955,7 +955,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="-" type="platform" x="140" y="100" width="20" height="20">
+  <object name="-" type="platform" x="220" y="100" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
     <property name="endPositionY" value="-"/>
@@ -981,6 +981,45 @@
     <property name="size" value="1"/>
    </properties>
   </object>
+  <object name="-" type="slipperyPlatform" x="220" y="120" width="20" height="20">
+   <properties>
+    <property name="dialog" value=""/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="1"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="0"/>
+   </properties>
+  </object>
+  <object name="-" type="slipperyPlatform" x="180" y="120" width="20" height="20">
+   <properties>
+    <property name="dialog" value=""/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="1"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="0"/>
+   </properties>
+  </object>
+  <object name="-" type="slipperyPlatform" x="140" y="120" width="20" height="20">
+   <properties>
+    <property name="dialog" value=""/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="1"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="0"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="1" width="100" height="100">
   <object name="-" type="slipperyPlatform" x="180" y="200" width="20" height="20">
@@ -996,7 +1035,7 @@
     <property name="size" value="0"/>
    </properties>
   </object>
-  <object name="1.switchTimed" type="switchTimed" x="190" y="320" width="20" height="20">
+  <object name="1.switchTimed" type="switchTimed" x="190" y="350" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
     <property name="endPositionY" value="-"/>
@@ -1009,7 +1048,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="-" type="salesman" x="140" y="100" width="20" height="20">
+  <object name="-" type="salesman" x="220" y="100" width="20" height="20">
    <properties>
     <property name="dialog" value="Pass auf! Ich habe die Lakritze gerade hier vorbeikommen sehen. Sie kann noch nicht so weit gekommen sein."/>
     <property name="endPositionY" value="-"/>
@@ -1197,7 +1236,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="1.breaking" type="breakingPlatform" x="230" y="300" width="20" height="20">
+  <object name="1.breaking" type="breakingPlatform" x="250" y="300" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
     <property name="endPositionY" value="-"/>
@@ -1208,6 +1247,19 @@
     <property name="isSlippery" value="-"/>
     <property name="isVisible" value="false"/>
     <property name="size" value="1"/>
+   </properties>
+  </object>
+  <object name="-" type="slipperyPlatform" x="230" y="340" width="20" height="20">
+   <properties>
+    <property name="dialog" value=""/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="1"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="0"/>
    </properties>
   </object>
  </objectgroup>

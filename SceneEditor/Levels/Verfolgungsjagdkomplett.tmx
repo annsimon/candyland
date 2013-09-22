@@ -1581,8 +1581,8 @@
     <property name="endPositionY" value="-"/>
     <property name="endPositionZ" value="-"/>
     <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="5"/>
-    <property name="isDoorToLevel" value="5.korridor"/>
+    <property name="isDoorToArea" value="rutsch"/>
+    <property name="isDoorToLevel" value="rutsch.korridor"/>
     <property name="isSlippery" value="false"/>
     <property name="isVisible" value="true"/>
    </properties>
