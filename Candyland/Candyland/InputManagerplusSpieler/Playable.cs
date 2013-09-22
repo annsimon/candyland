@@ -203,6 +203,12 @@ namespace Candyland
             base.collideWithBreakable(obj);
         }
 
+        protected override void collideWithObstacle(GameObject obj)
+        {
+            if (obj.getBoundingBox().Intersects(m_boundingBox)) currentspeed = 0;
+            base.collideWithBreakable(obj);
+        }
+
         protected override void collideWithMovable(GameObject obj)
         {
             if (obj.getBoundingBox().Intersects(m_boundingBox)) currentspeed = 0;
