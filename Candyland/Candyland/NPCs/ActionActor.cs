@@ -107,6 +107,7 @@ namespace Candyland
                 {
                     m_currentAction = null;
                     m_updateInfo.actionInProgress = false;
+                    m_updateInfo.helperActionInProgress = false;
                     return;
                 }
 
@@ -173,6 +174,8 @@ namespace Candyland
 
             m_currentAction = m_actions[actionID];
             m_updateInfo.actionInProgress = true;
+            if(!(this.ID.Contains("helperActor")||this.ID.Contains("bossActor")))
+                m_updateInfo.helperActionInProgress = true;
         }
 
         protected virtual void appear()

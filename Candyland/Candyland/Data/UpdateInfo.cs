@@ -84,6 +84,7 @@ namespace Candyland
         public ScreenManager m_screenManager { get; set; }
 
         public bool actionInProgress = false;
+        public bool helperActionInProgress = false;
         public bool alwaysRun = false;
         public bool finaledistance = false;
 
