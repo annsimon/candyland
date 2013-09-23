@@ -110,8 +110,8 @@ namespace Candyland
             sprite.Draw(texture, rec, color);
 
             sprite.DrawString(font, name,
-                new Vector2(posX + ((int)(texture.Width * scalingFactor) - font.MeasureString(name).X) / 2,
-                posY /*+ font.LineSpacing/2*/ + (int)(texture.Height * scalingFactor)), Color.Black);
+                new Vector2(posX + ((int)(texture.Width * scalingFactor) - (int)font.MeasureString(name).X) / 2,
+                posY + 70), Color.Black);
         }
     }
 }

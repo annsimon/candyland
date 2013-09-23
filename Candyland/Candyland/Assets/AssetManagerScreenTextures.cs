@@ -67,6 +67,19 @@ namespace Candyland
 
         public Texture2D acagamicsLogo { get; set; }
 
+        public Texture2D CAcupcake1 { get; set; }
+        public Texture2D CAcupcake2 { get; set; }
+        public Texture2D CAcupcake3 { get; set; }
+        public Texture2D CAcupcake4 { get; set; }
+        public Texture2D CAbonbon { get; set; }
+        public Texture2D CAsalesman { get; set; }
+        public Texture2D CAplatform { get; set; }
+        public Texture2D CAlakritz { get; set; }
+        public Texture2D CAswitch { get; set; }
+        public Texture2D CAacaguy { get; set; }
+        public Texture2D CAplayer { get; set; }
+        public Texture2D CAhelper { get; set; }
+
         public Dictionary<String, Texture2D> dialogImages { get; set; }
 
         public void LoadScreenTextures(ContentManager content)
@@ -131,6 +144,19 @@ namespace Candyland
             dialogImages["Salesman"] = content.Load<Texture2D>("Images/DialogImages/Salesman");
 
             acagamicsLogo = content.Load<Texture2D>("ScreenTextures/acagamicsLogo");
+
+            CAcupcake1 = content.Load<Texture2D>("Images/ConceptArt/Cupcakes1");
+            CAcupcake2 = content.Load<Texture2D>("Images/ConceptArt/Cupcakes2");
+            CAcupcake3 = content.Load<Texture2D>("Images/ConceptArt/Cupcakes3");
+            CAcupcake4 = content.Load<Texture2D>("Images/ConceptArt/Cupcakes4");
+            CAbonbon = content.Load<Texture2D>("Images/ConceptArt/Bonbon");
+            CAsalesman = content.Load<Texture2D>("Images/ConceptArt/Händler");
+            CAplatform = content.Load<Texture2D>("Images/ConceptArt/Plattform");
+            CAlakritz = content.Load<Texture2D>("Images/ConceptArt/Lakritz");
+            CAswitch = content.Load<Texture2D>("Images/ConceptArt/Schalter");
+            CAacaguy = content.Load<Texture2D>("Images/ConceptArt/Acagamicsguy");
+            CAplayer = content.Load<Texture2D>("Images/ConceptArt/Candyguy");
+            CAhelper = content.Load<Texture2D>("Images/ConceptArt/Helper");
         }
     }
 }

@@ -78,7 +78,7 @@ namespace Candyland
 
         protected Texture2D chocoChip;
 
-        SortedList<int, BonusTile> forSale;
+        List<BonusTile> forSale;
         BonusTracker m_bonusTracker;
 
         int bonusTileWidth;
@@ -129,13 +129,27 @@ namespace Candyland
 
             // What's there to sell?
             m_bonusTracker = ScreenManager.SceneManager.getBonusTracker();
-            forSale = new SortedList<int, BonusTile>();
-                        foreach (BonusTile bonus in m_bonusTracker.conceptArts)
+            forSale = new List<BonusTile>();
+            foreach (BonusTile bonus in m_bonusTracker.conceptArts)
             {
                 if(!m_bonusTracker.soldItems.Contains(bonus.ID)) // not yet sold
                 {
-                    forSale.Add(bonus.Price, bonus);
-                    bonus.Texture = ScreenManager.Content.Load<Texture2D>(bonus.TextureString);
+                    forSale.Add(bonus);
+                    switch (bonus.TextureString)
+                    {
+                        case "player": bonus.Texture = assets.CAplayer; break;
+                        case "helper": bonus.Texture = assets.CAhelper; break;
+                        case "aca": bonus.Texture = assets.CAacaguy; break;
+                        case "lakritz": bonus.Texture = assets.CAlakritz; break;
+                        case "platform": bonus.Texture = assets.CAplatform; break;
+                        case "switch": bonus.Texture = assets.CAswitch; break;
+                        case "bonbon": bonus.Texture = assets.CAbonbon; break;
+                        case "salesman": bonus.Texture = assets.CAsalesman; break;
+                        case "cupcake1": bonus.Texture = assets.CAcupcake1; break;
+                        case "cupcake2": bonus.Texture = assets.CAcupcake2; break;
+                        case "cupcake3": bonus.Texture = assets.CAcupcake3; break;
+                        case "cupcake4": bonus.Texture = assets.CAcupcake4; break;
+                    }
                 }
             }
             
@@ -221,14 +235,14 @@ namespace Candyland
                     ScreenManager.ResumeLast(this);
                     return;
                 }
-                if (forSale.Count() == 0 || (m_bonusTracker.chocoCount - m_bonusTracker.chocoChipsSpent) < forSale.ElementAt(activeID - 1).Key)
+                if (forSale.Count() == 0 || (m_bonusTracker.chocoCount - m_bonusTracker.chocoChipsSpent) < forSale[activeID - 1].Price)
                 {
                     float pitch = 0.0f;
                     float pan = 0.0f;
                     errorSound.Play(((float)m_updateInfo.soundVolume) / 10, pitch, pan);
                 }
                 else
-                    ScreenManager.ActivateNewScreen(new BuyQuestion(forSale.ElementAt(activeID - 1).Value, forSale));
+                    ScreenManager.ActivateNewScreen(new BuyQuestion(forSale[activeID - 1], forSale));
             }
 
             // count again after buying
@@ -293,7 +307,7 @@ namespace Candyland
             m_sprite.DrawString(font, "Preis", new Vector2(bigBox.Left + offset, bigBox.Top + offset + 5), textColor);
             if (forSale.Count != 0 && activeID <= forSale.Count && activeID > 0)
             {
-                m_sprite.DrawString(font, forSale.ElementAt(activeID - 1).Value.Price.ToString(), pricePos, textColor);
+                m_sprite.DrawString(font, forSale[activeID - 1].Price.ToString(), pricePos, textColor);
             }
             else m_sprite.DrawString(font, "0", pricePos, textColor);
             m_sprite.Draw(chocoChip, new Rectangle((int)pricePos.X + 40, (int)pricePos.Y, 24, 30), Color.White);
@@ -320,40 +334,40 @@ namespace Candyland
             int i = 0;
 
             if (i >= forSale.Count) return;
-            forSale.ElementAt(0).Value.Draw(m_sprite, (int)pos1.X + offset, (int)pos1.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
+            forSale[0].Draw(m_sprite, (int)pos1.X + offset, (int)pos1.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
             i++;
             if (i >= forSale.Count) return;
-            forSale.ElementAt(1).Value.Draw(m_sprite, (int)pos2.X + offset, (int)pos2.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
+            forSale[1].Draw(m_sprite, (int)pos2.X + offset, (int)pos2.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
             i++;
             if (i >= forSale.Count) return;
-            forSale.ElementAt(2).Value.Draw(m_sprite, (int)pos3.X + offset, (int)pos3.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
+            forSale[2].Draw(m_sprite, (int)pos3.X + offset, (int)pos3.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
             i++;
             if (i >= forSale.Count) return;
-            forSale.ElementAt(3).Value.Draw(m_sprite, (int)pos4.X + offset, (int)pos4.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
+            forSale[3].Draw(m_sprite, (int)pos4.X + offset, (int)pos4.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
             i++;
             if (i >= forSale.Count) return;
-            forSale.ElementAt(4).Value.Draw(m_sprite, (int)pos5.X + offset, (int)pos5.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
+            forSale[4].Draw(m_sprite, (int)pos5.X + offset, (int)pos5.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
             i++;
             if (i >= forSale.Count) return;
-            forSale.ElementAt(5).Value.Draw(m_sprite, (int)pos6.X + offset, (int)pos6.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
+            forSale[5].Draw(m_sprite, (int)pos6.X + offset, (int)pos6.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
             i++;
             if (i >= forSale.Count) return;
-            forSale.ElementAt(6).Value.Draw(m_sprite, (int)pos7.X + offset, (int)pos7.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
+            forSale[6].Draw(m_sprite, (int)pos7.X + offset, (int)pos7.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
             i++;
             if (i >= forSale.Count) return;
-            forSale.ElementAt(7).Value.Draw(m_sprite, (int)pos8.X + offset, (int)pos8.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
+            forSale[7].Draw(m_sprite, (int)pos8.X + offset, (int)pos8.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
             i++;
             if (i >= forSale.Count) return;
-            forSale.ElementAt(8).Value.Draw(m_sprite, (int)pos9.X + offset, (int)pos9.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
+            forSale[8].Draw(m_sprite, (int)pos9.X + offset, (int)pos9.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
             i++;
             if (i >= forSale.Count) return;
-            forSale.ElementAt(9).Value.Draw(m_sprite, (int)pos10.X + offset, (int)pos10.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
+            forSale[9].Draw(m_sprite, (int)pos10.X + offset, (int)pos10.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
             i++;
             if (i >= forSale.Count) return;
-            forSale.ElementAt(10).Value.Draw(m_sprite, (int)pos11.X + offset, (int)pos11.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
+            forSale[10].Draw(m_sprite, (int)pos11.X + offset, (int)pos11.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
             i++;
             if (i >= forSale.Count) return;
-            forSale.ElementAt(11).Value.Draw(m_sprite, (int)pos12.X + offset, (int)pos12.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
+            forSale[11].Draw(m_sprite, (int)pos12.X + offset, (int)pos12.Y + offset, bonusPictureWidth, bonusPictureWidth, white, m_assets);
             i++;
         }
 
