@@ -2804,7 +2804,7 @@
             <!--- DYNAMIC-->
               <dynamic_objects>
                 <dynamics>
-                  <object type="platform" id="rutsch.2.1.dyn" is_door_to_area="x" is_door_to_level="rutsch.1" posX="1" posY="0" posZ="1" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.1.dyn" is_door_to_area="x" is_door_to_level="rutsch.0" posX="1" posY="0" posZ="1" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="rutsch.2.2.dyn" is_door_to_area="x" is_door_to_level="rutsch.korridor" posX="1" posY="0" posZ="19.5" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
                   <object type="switchTemporary" id="rutsch.2.1.switchTemporary" is_door_to_area="x" is_door_to_level="x" posX="1.5" posY="0" posZ="11" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="switchTimed" id="rutsch.2.1.switchTimed" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="2.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
