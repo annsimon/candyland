@@ -10,6 +10,8 @@ namespace Candyland
         public bool helperIsAvailable;
         public bool selectedPlayer;
 
+        public bool playerWon;
+
         public string guycurrentLevelID;
         public string helpercurrentLevelID;
 
