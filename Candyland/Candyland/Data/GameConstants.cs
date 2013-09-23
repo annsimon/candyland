@@ -101,7 +101,7 @@ namespace Candyland
         public const string eventFile = @"Content\Scenes\Events\Event.xml";
         public const string actionsFile = @"Content\Scenes\Actions\Action.xml";
         public const string startAreaID = "schieb";
-        public const string startLevelID = "schieb.0";
+        public const string startLevelID = "schieb.k2";
         
 
 

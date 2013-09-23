@@ -52,24 +52,21 @@ namespace Candyland
             chocoTotal = 0;
 
             soldItems = new List<string>(30);
-            conceptArts = new List<BonusTile>(11);
+            conceptArts = new List<BonusTile>(12);
             bonusLevel = new List<BonusTile>(15);
 
-            conceptArts.Add(new BonusTile("CA1", "Cupcakes 1", "Concept Art", 1, "Images/ConceptArt/Cupcakes1"));
-            conceptArts.Add(new BonusTile("CA2", "Cupcakes 2", "Concept Art", 2, "Images/ConceptArt/Cupcakes2"));
-            conceptArts.Add(new BonusTile("CA3", "Cupcakes 3", "Concept Art", 3, "Images/ConceptArt/Cupcakes3"));
-            conceptArts.Add(new BonusTile("CA4", "Cupcakes 4", "Concept Art", 4, "Images/ConceptArt/Cupcakes4"));
-            //conceptArts.Add(new BonusTile("CA5", "Flower", "Concept Art", 5, "testBonus"));
-            //conceptArts.Add(new BonusTile("CA6", "Flower", "Concept Art", 6, "testBonus"));
-            //conceptArts.Add(new BonusTile("CA7", "Flower", "Concept Art", 7, "testBonus"));
-            //conceptArts.Add(new BonusTile("CA8", "Flower", "Concept Art", 8, "testBonus"));
-            //conceptArts.Add(new BonusTile("CA9", "Flower", "Concept Art", 9, "testBonus"));
-            //conceptArts.Add(new BonusTile("CA10", "Flower", "Concept Art", 10, "testBonus"));
-            //conceptArts.Add(new BonusTile("CA11", "Flower", "Concept Art", 11, "testBonus"));
-            //conceptArts.Add(new BonusTile("CA12", "Flower", "Concept Art", 12, "testBonus"));
-            //conceptArts.Add(new BonusTile("CA13", "Flower", "Concept Art", 13, "testBonus"));
-            //conceptArts.Add(new BonusTile("CA14", "Flower", "Concept Art", 14, "testBonus"));
-            //conceptArts.Add(new BonusTile("CA15", "Flower", "Concept Art", 15, "testBonus"));
+            conceptArts.Add(new BonusTile("CA1", "Acaguy", "Concept Art", 2, "aca"));
+            conceptArts.Add(new BonusTile("CA2", "Bonbon", "Concept Art", 2, "bonbon"));
+            conceptArts.Add(new BonusTile("CA3", "Händler", "Concept Art", 2, "salesman"));
+            conceptArts.Add(new BonusTile("CA4", "Plattform", "Concept Art", 2, "platform"));
+            conceptArts.Add(new BonusTile("CA5", "Schalter", "Concept Art", 2, "switch"));
+            conceptArts.Add(new BonusTile("CA6", "Begleiter", "Concept Art", 3, "helper"));
+            conceptArts.Add(new BonusTile("CA7", "Held", "Concept Art", 3, "player"));
+            conceptArts.Add(new BonusTile("CA8", "Lakritz", "Concept Art", 3, "lakritz"));
+            conceptArts.Add(new BonusTile("CA9", "Cupcakes 1", "Concept Art", 10, "cupcake1"));
+            conceptArts.Add(new BonusTile("CA10", "Cupcakes 2", "Concept Art", 15, "cupcake2"));
+            conceptArts.Add(new BonusTile("CA11", "Cupcakes 3", "Concept Art", 20, "cupcake3"));
+            conceptArts.Add(new BonusTile("CA12", "Cupcakes 4", "Concept Art", 25, "cupcake4"));
         }
 
         public void AddSoldItem(string id)

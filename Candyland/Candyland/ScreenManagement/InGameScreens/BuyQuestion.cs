@@ -9,9 +9,9 @@ namespace Candyland
     class BuyQuestion : YesNoScreen
     {
         private BonusTile shopItem;
-        private SortedList<int, BonusTile> forSale;
+        private List<BonusTile> forSale;
 
-        public BuyQuestion(BonusTile bonus, SortedList<int, BonusTile> saleStuff)
+        public BuyQuestion(BonusTile bonus, List<BonusTile> saleStuff)
         {
             shopItem = bonus;
             forSale = saleStuff;
@@ -25,7 +25,7 @@ namespace Candyland
             if (enterPressed && answer)
             {
                 ScreenManager.SceneManager.getBonusTracker().AddSoldItem(shopItem.ID);
-                forSale.RemoveAt(forSale.IndexOfValue(shopItem));
+                forSale.RemoveAt(forSale.IndexOf(shopItem));
                 ScreenManager.SceneManager.getBonusTracker().chocoChipsSpent += shopItem.Price;
                 ScreenManager.ResumeLast(this);
             }
