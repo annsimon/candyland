@@ -118,6 +118,7 @@ namespace Candyland
         {
             upvelocity = 0;
             cam.changeToThirdPP();
+            cam.resetangle();
         }
 
         public bool isInThirdP() { return cam.isInThirdP(); }

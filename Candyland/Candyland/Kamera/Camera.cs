@@ -60,7 +60,11 @@ namespace Candyland
             boundingSphere = new BoundingSphere(centerposition,0.2f);
             updatevMatrix();
         }
-       
+
+        public void resetangle() {
+            upangle = -0.25f;
+        }
+
         /// <summary>
         /// Returns a float represanting the rotation angle
         /// </summary>
