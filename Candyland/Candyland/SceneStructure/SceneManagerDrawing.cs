@@ -41,7 +41,8 @@ namespace Candyland
             List<GameObject> currentObjects = currArea.GetObjects();
             foreach (GameObject obj in currentObjects)
             {
-                DrawModel(obj.GetModelGroup(), obj.prepareForDrawing(), obj.GetInteractable());
+                if (!(m_updateInfo.playerWon && (obj is ActionActor && obj.getID().Contains("boss"))))
+                    DrawModel(obj.GetModelGroup(), obj.prepareForDrawing(), obj.GetInteractable());
                 obj.ResetInteractable();
                 if (GameConstants.boundingBoxRendering)
                     BoundingBoxRenderer.Render(obj.getBoundingBox(), m_graphics, m_updateInfo.viewMatrix, m_updateInfo.projectionMatrix, Color.White);
@@ -51,7 +52,8 @@ namespace Candyland
                 currentObjects = m_areas[currArea.previousID].GetObjects();
                 foreach (GameObject obj in currentObjects)
                 {
-                    DrawModel(obj.GetModelGroup(), obj.prepareForDrawing(), obj.GetInteractable());
+                    if (!(m_updateInfo.playerWon && (obj is ActionActor && obj.getID().Contains("boss"))))
+                        DrawModel(obj.GetModelGroup(), obj.prepareForDrawing(), obj.GetInteractable());
                     obj.ResetInteractable();
                 }
             }
@@ -60,7 +62,8 @@ namespace Candyland
                 currentObjects = m_areas[currArea.nextID].GetObjects();
                 foreach (GameObject obj in currentObjects)
                 {
-                    DrawModel(obj.GetModelGroup(), obj.prepareForDrawing(), obj.GetInteractable());
+                    if (!(m_updateInfo.playerWon && (obj is ActionActor && obj.getID().Contains("boss"))))
+                        DrawModel(obj.GetModelGroup(), obj.prepareForDrawing(), obj.GetInteractable());
                     obj.ResetInteractable();
                 }
             }

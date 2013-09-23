@@ -189,14 +189,14 @@ namespace Candyland
             }
 
             
-            if (((m_updateInfo.alwaysRun) || (m_updateInfo.currentguyAreaID == "255")) && !boss)
+            if (((m_updateInfo.alwaysRun) || (m_updateInfo.currentguyAreaID == "255" && !m_updateInfo.playerWon)) && !boss)
             {
                 MediaPlayer.Stop();
                 MediaPlayer.Play(song2); 
                 MediaPlayer.IsRepeating = true;
                 boss = true;
             }
-            else if (boss && (!m_updateInfo.alwaysRun && !(m_updateInfo.currentguyAreaID == "255")))
+            else if (boss && !m_updateInfo.alwaysRun && (!(m_updateInfo.currentguyAreaID == "255")||m_updateInfo.playerWon))
             {
                 MediaPlayer.Stop();
                 MediaPlayer.Play(song1);

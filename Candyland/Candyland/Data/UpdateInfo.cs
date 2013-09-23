@@ -88,6 +88,7 @@ namespace Candyland
         public bool helperActionInProgress = false;
         public bool alwaysRun = false;
         public bool finaledistance = false;
+        public bool playerWon = false;
 
         public Vector3 bossPosition;
         public Vector3 bossTarget;
