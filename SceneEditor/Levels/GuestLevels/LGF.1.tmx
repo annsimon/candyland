@@ -1453,6 +1453,45 @@
     <property name="size" value="1"/>
    </properties>
   </object>
+  <object name="-" type="lowObstacle" x="130" y="280" width="20" height="20">
+   <properties>
+    <property name="dialog" value=""/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="-"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="0"/>
+   </properties>
+  </object>
+  <object name="-" type="lowObstacle" x="290" y="280" width="20" height="20">
+   <properties>
+    <property name="dialog" value=""/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="-"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="0"/>
+   </properties>
+  </object>
+  <object name="-" type="lowObstacle" x="170" y="160" width="20" height="20">
+   <properties>
+    <property name="dialog" value=""/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="-"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="0"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="1,5" width="100" height="100">
   <object name="-" type="platform" x="420" y="150" width="60" height="60">
@@ -1764,19 +1803,6 @@
     <property name="isDoorToLevel" value="-"/>
     <property name="isSlippery" value="-"/>
     <property name="isVisible" value="true"/>
-    <property name="size" value="1"/>
-   </properties>
-  </object>
-  <object name="1.choco" type="chocoChip" x="280" y="310" width="20" height="20">
-   <properties>
-    <property name="dialog" value=""/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
-    <property name="isSlippery" value="-"/>
-    <property name="isVisible" value="false"/>
     <property name="size" value="1"/>
    </properties>
   </object>
@@ -2291,4 +2317,19 @@
   </object>
  </objectgroup>
  <objectgroup name="3" width="100" height="100"/>
+ <objectgroup name="2,5" width="100" height="100">
+  <object name="1.choco" type="chocoChip" x="280" y="310" width="20" height="20">
+   <properties>
+    <property name="dialog" value=""/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="-"/>
+    <property name="isVisible" value="false"/>
+    <property name="size" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>
