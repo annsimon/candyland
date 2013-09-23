@@ -101,7 +101,7 @@ namespace Candyland
         public const string eventFile = @"Content\Scenes\Events\Event.xml";
         public const string actionsFile = @"Content\Scenes\Actions\Action.xml";
         public const string startAreaID = "rutsch";
-        public const string startLevelID = "rutsch.2";
+        public const string startLevelID = "rutsch.korridor";
         
 
 

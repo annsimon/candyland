@@ -187,6 +187,7 @@ namespace Candyland
             // Create the data to save.
             SaveGameData data = new SaveGameData();
             // Player and level
+                data.playerWon = m_updateInfo.playerWon;
                 data.helperIsAvailable = m_updateInfo.helperavailable;
                 data.selectedPlayer = m_updateInfo.candyselected;
                 data.guycurrentLevelID = m_updateInfo.currentguyLevelID;
@@ -240,6 +241,7 @@ namespace Candyland
                 // Use saved data to put Game into the last saved state
 
                 // Player and level
+                    m_updateInfo.playerWon = data.playerWon;
                     m_updateInfo.helperavailable = data.helperIsAvailable;
                     m_updateInfo.candyselected = data.selectedPlayer;
                     m_updateInfo.currentguyAreaID = data.guycurrentLevelID.Split('.')[0];
