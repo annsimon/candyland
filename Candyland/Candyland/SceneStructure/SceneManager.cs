@@ -187,6 +187,7 @@ namespace Candyland
             // Create the data to save.
             SaveGameData data = new SaveGameData();
             // Player and level
+                data.playerWon = m_updateInfo.playerWon;
                 data.helperIsAvailable = m_updateInfo.helperavailable;
                 data.selectedPlayer = m_updateInfo.candyselected;
                 data.guycurrentLevelID = m_updateInfo.currentguyLevelID;
@@ -240,6 +241,7 @@ namespace Candyland
                 // Use saved data to put Game into the last saved state
 
                 // Player and level
+                    m_updateInfo.playerWon = data.playerWon;
                     m_updateInfo.helperavailable = data.helperIsAvailable;
                     m_updateInfo.candyselected = data.selectedPlayer;
                     m_updateInfo.currentguyAreaID = data.guycurrentLevelID.Split('.')[0];
@@ -356,18 +358,21 @@ namespace Candyland
             m_shadowMap.Draw(player2.GetModelGroup().model, player2.prepareForDrawing(), null);
 
             foreach (GameObject obj in currentObjects)
-                m_shadowMap.Draw(obj.GetModelGroup().model, obj.prepareForDrawing(), null);
+                if (!(m_updateInfo.playerWon && (obj is ActionActor && obj.getID().Contains("boss"))))
+                    m_shadowMap.Draw(obj.GetModelGroup().model, obj.prepareForDrawing(), null);
             if (m_areas[currentArea].hasPrevious)
             {
                 currentObjects = m_areas[currArea.previousID].GetObjects();
                 foreach (GameObject obj in currentObjects)
-                    m_shadowMap.Draw(obj.GetModelGroup().model, obj.prepareForDrawing(), null);
+                    if(!(m_updateInfo.playerWon && (obj is ActionActor && obj.getID().Contains("boss"))))
+                        m_shadowMap.Draw(obj.GetModelGroup().model, obj.prepareForDrawing(), null);
             }
             if (m_areas[currentArea].hasNext)
             {
                 currentObjects = m_areas[currArea.nextID].GetObjects();
                 foreach (GameObject obj in currentObjects)
-                    m_shadowMap.Draw(obj.GetModelGroup().model, obj.prepareForDrawing(), null);
+                    if (!(m_updateInfo.playerWon && (obj is ActionActor && obj.getID().Contains("boss"))))
+                        m_shadowMap.Draw(obj.GetModelGroup().model, obj.prepareForDrawing(), null);
             }
 
             m_shadowMap.End();

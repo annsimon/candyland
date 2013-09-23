@@ -83,6 +83,8 @@ namespace Candyland
 
         public override void update()
         {
+            if (m_updateInfo.playerWon && ID.Contains("boss") && !istargeting)
+                return;
             if (!m_updateInfo.tutorialActive && !(ID.Contains("bossActor") || ID.Contains("helperActor")))
                 return;
             // subAction of type movement is being performed
@@ -100,6 +102,14 @@ namespace Candyland
                 base.update();
                 if (this.ID.Contains("bossActor"))
                     m_updateInfo.bossPosition = m_position;
+                if (m_updateInfo.playerWon)
+                {
+                    m_currentAction = null;
+                    istargeting = false;
+                    m_updateInfo.locked = false;
+                    m_updateInfo.finaledistance = false;
+                    return;
+                }
             }
             else
             {
@@ -172,7 +182,9 @@ namespace Candyland
         public override void Trigger(String actionID)
         {
             // ignore actions if there is one already in progress or if they should not be in progress
-            if (m_updateInfo.actionInProgress || (!m_updateInfo.tutorialActive && !(ID.Contains("bossActor") || ID.Contains("helperActor"))))
+            if ((m_updateInfo.actionInProgress && !actionID.Equals("ending")) || (!m_updateInfo.tutorialActive && !(ID.Contains("bossActor") || ID.Contains("helperActor") || actionID.Equals("ending"))))
+                return;
+            if (actionID.Contains("stage") && m_updateInfo.playerWon)
                 return;
             // action is a one time action
             if (m_actionTracker.actionState.ContainsKey(actionID))
@@ -195,7 +207,7 @@ namespace Candyland
 
             m_currentAction = m_actions[actionID];
             m_updateInfo.actionInProgress = true;
-            if(!(this.ID.Contains("helperActor")||this.ID.Contains("bossActor")))
+            if (!(this.ID.Contains("helperActor") || this.ID.Contains("bossActor") || actionID.Equals("ending")))
                 m_updateInfo.helperActionInProgress = true;
         }
 
@@ -212,6 +224,8 @@ namespace Candyland
                 m_updateInfo.activateHelperNow = true;
             if (this.m_currentAction.getID().Contains("StartChase"))
                 m_updateInfo.alwaysRun = false;
+            if (this.m_currentAction.getID().Equals("ending"))
+                m_updateInfo.playerWon = true;
             isVisible = false;
         }
 

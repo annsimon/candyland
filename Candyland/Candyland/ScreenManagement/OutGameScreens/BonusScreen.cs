@@ -174,7 +174,21 @@ namespace Candyland
                 int i = 1;
                 foreach (BonusTile bonus in m_bonusTracker.conceptArts)
                 {
-                    bonus.Texture = ScreenManager.Content.Load<Texture2D>(bonus.TextureString);
+                    switch (bonus.TextureString)
+                    {
+                        case "player": bonus.Texture = assets.CAplayer; break;
+                        case "helper": bonus.Texture = assets.CAhelper; break;
+                        case "aca": bonus.Texture = assets.CAacaguy; break;
+                        case "lakritz": bonus.Texture = assets.CAlakritz; break;
+                        case "platform": bonus.Texture = assets.CAplatform; break;
+                        case "switch": bonus.Texture = assets.CAswitch; break;
+                        case "bonbon": bonus.Texture = assets.CAbonbon; break;
+                        case "salesman": bonus.Texture = assets.CAsalesman; break;
+                        case "cupcake1": bonus.Texture = assets.CAcupcake1; break;
+                        case "cupcake2": bonus.Texture = assets.CAcupcake2; break;
+                        case "cupcake3": bonus.Texture = assets.CAcupcake3; break;
+                        case "cupcake4": bonus.Texture = assets.CAcupcake4; break;
+                    }
                     if (m_bonusTracker.soldItems.Contains(bonus.ID))
                     {
                         paidBonusIDs.Add(bonus.ID);

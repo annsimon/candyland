@@ -11,10 +11,21 @@ namespace Candyland
         UpdateInfo m_updateInfo;
         Vector3 fairyPosition;
         CandyHelper candyHelper;
+        bool teleportPossible;
 
         public TeleportFairyDialog(CandyHelper helper, UpdateInfo updateInfo, Vector3 fairyPos, string picture = "Images/DialogImages/DefaultImage")
         {
-            Text = "Wenn du möchtest, kann ich dir deinen kleinen Freund bringen";
+            if (updateInfo.helperavailable)
+            {
+                Text = "Wenn du möchtest, kann ich dir deinen kleinen Freund bringen";
+                teleportPossible = true;
+            }
+            else
+            {
+                Text = "Hallo! Suchst du was?";
+                teleportPossible = false;
+            }
+
             Picture = picture;
 
             m_updateInfo = updateInfo;
@@ -60,8 +71,13 @@ namespace Candyland
                 canScroll = false;
                 if (enterPressed)
                 {
-                    ScreenManager.RemoveScreen(this);
-                    m_updateInfo.m_screenManager.ActivateNewScreen(new GetHelperQuestion(candyHelper, m_updateInfo, fairyPosition));
+                    if (teleportPossible)
+                    {
+                        ScreenManager.RemoveScreen(this);
+                        m_updateInfo.m_screenManager.ActivateNewScreen(new GetHelperQuestion(candyHelper, m_updateInfo, fairyPosition));
+                        return;
+                    }
+                    ScreenManager.ResumeLast(this);
                 }
             }
         }

@@ -95,13 +95,13 @@ namespace Candyland
         public const string startLevelID = "0.0";
         */
         
-        public const bool helperAvailableAtGameStart = true;
+        public const bool helperAvailableAtGameStart = false;
         
         public const string sceneFile = @"Content\Scenes\theWorld.xml";
         public const string eventFile = @"Content\Scenes\Events\Event.xml";
         public const string actionsFile = @"Content\Scenes\Actions\Action.xml";
-        public const string startAreaID = "schieb";
-        public const string startLevelID = "schieb.1";
+        public const string startAreaID = "rutsch";
+        public const string startLevelID = "rutsch.korridor";
         
 
 

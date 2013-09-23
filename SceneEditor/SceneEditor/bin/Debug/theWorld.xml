@@ -387,7 +387,7 @@
   <area>
     <area_id>5</area_id>
     <area_prev>schieb</area_prev>
-    <area_next>chase</area_next>
+    <area_next>rutsch</area_next>
     <area_starting_position>
       <x>229.5</x>
       <y>0</y>
@@ -1144,7 +1144,7 @@
               <dynamic_objects>
                 <dynamics>
                   <object type="platform" id="5.korridor.2.dyn" is_door_to_area="x" is_door_to_level="5.4" posX="11.5" posY="0" posZ="0.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="5.korridor.3.dyn" is_door_to_area="chase" is_door_to_level="chase.0" posX="20" posY="0" posZ="25" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="5.korridor.3.dyn" is_door_to_area="rutsch" is_door_to_level="rutsch.0" posX="20" posY="0" posZ="25" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
                   <object type="teleportPlatform" id="5.korridor.3.teleport" is_door_to_area="x" is_door_to_level="bonus.1" posX="14.5" posY="1.5" posZ="10" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="special" />
                   <object type="teleportPlatform" id="5.korridor.4.teleport" is_door_to_area="x" is_door_to_level="bonus.0" posX="13.5" posY="2" posZ="9" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="special" />
                   <object type="platform" id="5.korridor.1.dyn" is_door_to_area="x" is_door_to_level="5.4" posX="17" posY="3" posZ="0.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
@@ -1819,12 +1819,12 @@
   <!--- AREA chase -->
   <area>
     <area_id>chase</area_id>
-    <area_prev>5</area_prev>
+    <area_prev>rutsch</area_prev>
     <area_next>255</area_next>
     <area_starting_position>
-      <x>277</x>
+      <x>292</x>
       <y>0</y>
-      <z>158.5</z>
+      <z>219.5</z>
     </area_starting_position>
     <levels>
       <the_levels>
@@ -2375,7 +2375,7 @@
             <!--- DYNAMIC-->
               <dynamic_objects>
                 <dynamics>
-                  <object type="platform" id="chase.0.1.dyn" is_door_to_area="5" is_door_to_level="5.korridor" posX="7.5" posY="0" posZ="0.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="chase.0.1.dyn" is_door_to_area="rutsch" is_door_to_level="rutsch.korridor" posX="7.5" posY="0" posZ="0.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="chase.0.8.dyn" is_door_to_area="255" is_door_to_level="255.0" posX="13.5" posY="0" posZ="256.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="chase.0.9.dyn" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="6.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="actionActor" id="chase.0.1.helperActor" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="1.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="False" dialog="" />
@@ -2597,12 +2597,12 @@
   <!--- AREA rutsch -->
   <area>
     <area_id>rutsch</area_id>
-    <area_prev>x</area_prev>
-    <area_next>x</area_next>
+    <area_prev>5</area_prev>
+    <area_next>chase</area_next>
     <area_starting_position>
-      <x>-200</x>
+      <x>285</x>
       <y>0</y>
-      <z>-600</z>
+      <z>156.5</z>
     </area_starting_position>
     <levels>
       <the_levels>
@@ -2622,12 +2622,12 @@
             <!--- STATIC-->
               <static_objects>
                 <statics>
-                  <object type="platform" id="rutsch.0.0" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="13.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutsch.0.1" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="11.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.0.0" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="13.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.0.1" is_door_to_area="x" is_door_to_level="x" posX="3.5" posY="0" posZ="11.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.2" is_door_to_area="x" is_door_to_level="x" posX="15.5" posY="0" posZ="7.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.3" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="8.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutsch.0.4" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="12.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="bonbon" id="rutsch.0.5" is_door_to_area="x" is_door_to_level="x" posX="2.5" posY="0" posZ="5.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="Deinen kleinen Freund bringen wir dir hinterher. Geh ruhig allein vor." />
+                  <object type="platform" id="rutsch.0.4" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="12.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="bonbon" id="rutsch.0.5" is_door_to_area="x" is_door_to_level="x" posX="2.5" posY="0" posZ="5.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="Deinen kleinen Freund bringen wir dir hinterher. Geh ruhig allein vor. Aber vorsicht der Boden hier ist rutschig!" />
                   <object type="platform" id="rutsch.0.6" is_door_to_area="x" is_door_to_level="x" posX="11" posY="0" posZ="7" endPosX="" endPosY="" endPosZ="" size="2" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.7" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="10.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.8" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="8.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
@@ -2635,7 +2635,7 @@
                   <object type="platform" id="rutsch.0.10" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="9.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.11" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="5.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.12" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="11.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutsch.0.13" is_door_to_area="x" is_door_to_level="x" posX="3.5" posY="0" posZ="7.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.0.13" is_door_to_area="x" is_door_to_level="x" posX="2.5" posY="0" posZ="7.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
                   <object type="obstacle" id="rutsch.0.14" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="11.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.15" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="10.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.16" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="8.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
@@ -2643,7 +2643,7 @@
                   <object type="platform" id="rutsch.0.18" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="13.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.19" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="6.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.20" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="11.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
-                  <object type="platform" id="rutsch.0.21" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="13.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.0.21" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="13.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.22" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="13.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.23" is_door_to_area="x" is_door_to_level="x" posX="17.5" posY="0" posZ="10.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.24" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="4.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
@@ -2660,37 +2660,40 @@
                   <object type="platform" id="rutsch.0.35" is_door_to_area="x" is_door_to_level="x" posX="17" posY="0" posZ="8" endPosX="" endPosY="" endPosZ="" size="2" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.36" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="6.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.37" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="17.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
-                  <object type="platform" id="rutsch.0.38" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="12.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.0.38" is_door_to_area="x" is_door_to_level="x" posX="3.5" posY="0" posZ="12.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.39" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="13.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.40" is_door_to_area="x" is_door_to_level="x" posX="13" posY="0" posZ="12" endPosX="" endPosY="" endPosZ="" size="2" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.41" is_door_to_area="x" is_door_to_level="x" posX="9" posY="0" posZ="10" endPosX="" endPosY="" endPosZ="" size="2" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.42" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="9.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutsch.0.43" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="9.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutsch.0.44" is_door_to_area="x" is_door_to_level="x" posX="6" posY="0" posZ="11" endPosX="" endPosY="" endPosZ="" size="2" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutsch.0.45" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="7.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.0.43" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="9.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.0.44" is_door_to_area="x" is_door_to_level="x" posX="5" posY="0" posZ="11" endPosX="" endPosY="" endPosZ="" size="2" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.0.45" is_door_to_area="x" is_door_to_level="x" posX="3.5" posY="0" posZ="7.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.46" is_door_to_area="x" is_door_to_level="x" posX="9" posY="0" posZ="7" endPosX="" endPosY="" endPosZ="" size="2" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.47" is_door_to_area="x" is_door_to_level="x" posX="14.5" posY="0" posZ="9.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.48" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="5.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.49" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="8.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutsch.0.50" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="8.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutsch.0.51" is_door_to_area="x" is_door_to_level="x" posX="5" posY="0" posZ="9" endPosX="" endPosY="" endPosZ="" size="2" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.0.50" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="8.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.0.51" is_door_to_area="x" is_door_to_level="x" posX="4" posY="0" posZ="9" endPosX="" endPosY="" endPosZ="" size="2" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.52" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="4.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.53" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="11.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.54" is_door_to_area="x" is_door_to_level="x" posX="17.5" posY="0" posZ="11.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.55" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="11.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.56" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="3.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.57" is_door_to_area="x" is_door_to_level="x" posX="17.5" posY="0" posZ="12.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
-                  <object type="platform" id="rutsch.0.58" is_door_to_area="x" is_door_to_level="x" posX="3.5" posY="0" posZ="8.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.0.58" is_door_to_area="x" is_door_to_level="x" posX="2.5" posY="0" posZ="8.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.59" is_door_to_area="x" is_door_to_level="x" posX="14.5" posY="0" posZ="11.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.60" is_door_to_area="x" is_door_to_level="x" posX="18.5" posY="0" posZ="7.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.61" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="12.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.62" is_door_to_area="x" is_door_to_level="x" posX="4" posY="0" posZ="1" endPosX="" endPosY="" endPosZ="" size="2" slippery="1" visible="True" dialog="" />
-                  <object type="platform" id="rutsch.0.63" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="13.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.0.63" is_door_to_area="x" is_door_to_level="x" posX="3.5" posY="0" posZ="13.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.64" is_door_to_area="x" is_door_to_level="x" posX="18.5" posY="0" posZ="8.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.65" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="6.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.66" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="15.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.67" is_door_to_area="x" is_door_to_level="x" posX="2.5" posY="0" posZ="0.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.68" is_door_to_area="x" is_door_to_level="x" posX="2.5" posY="0" posZ="1.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.0.69" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="10.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.0.70" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="11.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.0.71" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="13.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
                 </statics>
               </static_objects>
             <!--- DYNAMIC-->
@@ -2699,9 +2702,9 @@
                   <object type="movableObstacle" id="rutsch.0.16.Mov" is_door_to_area="x" is_door_to_level="x" posX="18.5" posY="0" posZ="7.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="movableObstacle" id="rutsch.0.9.Mov" is_door_to_area="x" is_door_to_level="x" posX="15.5" posY="0" posZ="7.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="movableObstacle" id="rutsch.0.5.Mov" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="10.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="movableObstacle" id="rutsch.0.2.Mov" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="12.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="movableObstacle" id="rutsch.0.2.Mov" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="12.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="movableObstacle" id="rutsch.0.12.Mov" is_door_to_area="x" is_door_to_level="x" posX="17.5" posY="0" posZ="12.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="movableObstacle" id="rutsch.0.1.Mov" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="8.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="movableObstacle" id="rutsch.0.1.Mov" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="8.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="movableObstacle" id="rutsch.0.10.Mov" is_door_to_area="x" is_door_to_level="x" posX="14.5" posY="0" posZ="9.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="platform" id="rutsch.0.1.dyn" is_door_to_area="5" is_door_to_level="5.korridor" posX="1" posY="0" posZ="1" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
                   <object type="movableObstacle" id="rutsch.0.11.Mov" is_door_to_area="x" is_door_to_level="x" posX="18.5" posY="0" posZ="8.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
@@ -2713,7 +2716,210 @@
                   <object type="movableObstacle" id="rutsch.0.8.Mov" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="8.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="movableObstacle" id="rutsch.0.4.Mov" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="9.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="movableObstacle" id="rutsch.0.14.Mov" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="6.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="platform" id="rutsch.0.2.dyn" is_door_to_area="chase" is_door_to_level="chase.0" posX="11.5" posY="0" posZ="20" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.0.2.dyn" is_door_to_area="x" is_door_to_level="rutsch.2" posX="11.5" posY="0" posZ="20" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
+                  <object type="chocoChip" id="rutsch.0.1.choco" is_door_to_area="x" is_door_to_level="x" posX="17.5" posY="0" posZ="8.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="chocoChip" id="rutsch.0.2.choco" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="5.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                </dynamics>
+              </dynamic_objects>
+            </the_objects>
+          </objects>
+        </level>
+        <!--- LEVEL rutsch.2 -->
+        <level>
+          <level_id>rutsch.2</level_id>
+          <main_start_platform>rutsch.2.1.dyn</main_start_platform>
+          <secondary_start_platform>rutsch.2.9.dyn</secondary_start_platform>
+          <level_starting_position>
+            <x>12.5</x>
+            <y>0</y>
+            <z>21</z>
+          </level_starting_position>
+          <objects>
+            <the_objects>
+            <!--- OBJECTS OF LEVEL rutsch.2 -->
+            <!--- STATIC-->
+              <static_objects>
+                <statics>
+                  <object type="platform" id="rutsch.2.0" is_door_to_area="x" is_door_to_level="x" posX="15.5" posY="0" posZ="2.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.1" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="3.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.2" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="6.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.3" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="2.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.4" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="2.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.5" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="1.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.6" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="1.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.7" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="12.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.8" is_door_to_area="x" is_door_to_level="x" posX="1.5" posY="0" posZ="7.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.9" is_door_to_area="x" is_door_to_level="x" posX="1.5" posY="0" posZ="6.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.10" is_door_to_area="x" is_door_to_level="x" posX="1.5" posY="0" posZ="5.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.11" is_door_to_area="x" is_door_to_level="x" posX="1.5" posY="0" posZ="4.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.12" is_door_to_area="x" is_door_to_level="x" posX="1.5" posY="0" posZ="3.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.13" is_door_to_area="x" is_door_to_level="x" posX="1.5" posY="0" posZ="2.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.14" is_door_to_area="x" is_door_to_level="x" posX="2.5" posY="0" posZ="1.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.15" is_door_to_area="x" is_door_to_level="x" posX="3.5" posY="0" posZ="1.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.16" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="1.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.17" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="2.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.18" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="2.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.19" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="2.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.20" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="2.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.21" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="2.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.22" is_door_to_area="x" is_door_to_level="x" posX="14.5" posY="0" posZ="2.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="obstacle" id="rutsch.2.23" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="1.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="rutsch.2.24" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="3.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.25" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="6.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.26" is_door_to_area="x" is_door_to_level="x" posX="11" posY="0" posZ="6.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.27" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="8.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.28" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="9.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.29" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="10.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.30" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="11.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.31" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="11.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.32" is_door_to_area="x" is_door_to_level="x" posX="17.5" posY="0" posZ="4.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.33" is_door_to_area="x" is_door_to_level="x" posX="18" posY="0" posZ="6.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.34" is_door_to_area="x" is_door_to_level="x" posX="17.5" posY="0" posZ="8.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.35" is_door_to_area="x" is_door_to_level="x" posX="16" posY="0" posZ="10.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.36" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="12.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.37" is_door_to_area="x" is_door_to_level="x" posX="15" posY="0" posZ="12" endPosX="" endPosY="" endPosZ="" size="2" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.38" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="12.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.39" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="12.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.40" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="12.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.41" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="12.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="obstacle" id="rutsch.2.42" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="11.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.43" is_door_to_area="x" is_door_to_level="x" posX="20.5" posY="0" posZ="18" endPosX="" endPosY="" endPosZ="" size="2" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.44" is_door_to_area="x" is_door_to_level="x" posX="22.5" posY="0" posZ="18" endPosX="" endPosY="" endPosZ="" size="2" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.45" is_door_to_area="x" is_door_to_level="x" posX="22.5" posY="0" posZ="20" endPosX="" endPosY="" endPosZ="" size="2" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.46" is_door_to_area="x" is_door_to_level="x" posX="20.5" posY="0" posZ="20" endPosX="" endPosY="" endPosZ="" size="2" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.47" is_door_to_area="x" is_door_to_level="x" posX="16.5" posY="0" posZ="13" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.48" is_door_to_area="x" is_door_to_level="x" posX="24" posY="0" posZ="19" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.49" is_door_to_area="x" is_door_to_level="x" posX="19" posY="0" posZ="19" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.50" is_door_to_area="x" is_door_to_level="x" posX="20" posY="0" posZ="16.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.51" is_door_to_area="x" is_door_to_level="x" posX="23" posY="0" posZ="21.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="rutsch.2.52" is_door_to_area="x" is_door_to_level="x" posX="1.5" posY="0" posZ="7.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="bonbon" id="rutsch.2.53" is_door_to_area="x" is_door_to_level="x" posX="2.5" posY="0" posZ="0.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="teleport" />
+                  <object type="platform" id="rutsch.2.54" is_door_to_area="x" is_door_to_level="x" posX="1.5" posY="0" posZ="10" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.55" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="12.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.56" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="12.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.57" is_door_to_area="x" is_door_to_level="x" posX="1.5" posY="0" posZ="9" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="obstacle" id="rutsch.2.58" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0.5" posZ="2.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                </statics>
+              </static_objects>
+            <!--- DYNAMIC-->
+              <dynamic_objects>
+                <dynamics>
+                  <object type="platform" id="rutsch.2.1.dyn" is_door_to_area="x" is_door_to_level="rutsch.0" posX="1" posY="0" posZ="1" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.2.dyn" is_door_to_area="x" is_door_to_level="rutsch.korridor" posX="1" posY="0" posZ="19.5" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
+                  <object type="switchTemporary" id="rutsch.2.1.switchTemporary" is_door_to_area="x" is_door_to_level="x" posX="1.5" posY="0" posZ="11" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="switchTimed" id="rutsch.2.1.switchTimed" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="2.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="switchPermanent" id="rutsch.2.1.switchPermanent" is_door_to_area="x" is_door_to_level="x" posX="13" posY="0" posZ="6.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="breakable" id="rutsch.2.1.breakable" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="12.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="breakingPlatform" id="rutsch.2.1.breaking" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="15" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="breakingPlatform" id="rutsch.2.2.breaking" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="15.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="breakingPlatform" id="rutsch.2.3.breaking" is_door_to_area="x" is_door_to_level="x" posX="2.5" posY="0" posZ="15" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="breakingPlatform" id="rutsch.2.4.breaking" is_door_to_area="x" is_door_to_level="x" posX="1" posY="0" posZ="17" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="teleportPlatform" id="rutsch.2.1.teleport" is_door_to_area="x" is_door_to_level="x" posX="16.5" posY="0" posZ="13" endPosX="20" endPosY="2" endPosZ="16.5" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.6.dyn" is_door_to_area="x" is_door_to_level="x" posX="17" posY="0" posZ="9.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="False" dialog="" />
+                  <object type="platform" id="rutsch.2.3.dyn" is_door_to_area="x" is_door_to_level="x" posX="16.5" posY="0" posZ="3.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="False" dialog="" />
+                  <object type="platform" id="rutsch.2.4.dyn" is_door_to_area="x" is_door_to_level="x" posX="18" posY="0" posZ="5.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="False" dialog="" />
+                  <object type="platform" id="rutsch.2.5.dyn" is_door_to_area="x" is_door_to_level="x" posX="18" posY="0" posZ="7.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="False" dialog="" />
+                  <object type="platform" id="rutsch.2.8.dyn" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="1.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="False" dialog="" />
+                  <object type="platform" id="rutsch.2.7.dyn" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="4.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="False" dialog="" />
+                  <object type="chocoChip" id="rutsch.2.2.choco" is_door_to_area="x" is_door_to_level="x" posX="18" posY="0" posZ="6.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="chocoChip" id="rutsch.2.3.choco" is_door_to_area="x" is_door_to_level="x" posX="22" posY="0" posZ="18" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="chocoChip" id="rutsch.2.4.choco" is_door_to_area="x" is_door_to_level="x" posX="21" posY="0" posZ="19" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="chocoChip" id="rutsch.2.5.choco" is_door_to_area="x" is_door_to_level="x" posX="22" posY="0" posZ="20" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.2.9.dyn" is_door_to_area="x" is_door_to_level="x" posX="2.5" posY="0" posZ="0.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="chocoChip" id="rutsch.2.1.choco" is_door_to_area="x" is_door_to_level="x" posX="1.5" posY="1" posZ="7.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                </dynamics>
+              </dynamic_objects>
+            </the_objects>
+          </objects>
+        </level>
+        <!--- LEVEL rutsch.korridor -->
+        <level>
+          <level_id>rutsch.korridor</level_id>
+          <main_start_platform>rutsch.korridor.1.dyn</main_start_platform>
+          <secondary_start_platform>rutsch.korridor.3.dyn</secondary_start_platform>
+          <level_starting_position>
+            <x>13.5</x>
+            <y>0</y>
+            <z>41.5</z>
+          </level_starting_position>
+          <objects>
+            <the_objects>
+            <!--- OBJECTS OF LEVEL rutsch.korridor -->
+            <!--- STATIC-->
+              <static_objects>
+                <statics>
+                  <object type="platform" id="rutsch.korridor.0" is_door_to_area="x" is_door_to_level="x" posX="3.5" posY="0" posZ="1" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.1" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="1.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.2" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="2" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.3" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="2.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.4" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="2.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.5" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="2" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.6" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="1.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.7" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="1" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.8" is_door_to_area="x" is_door_to_level="x" posX="7" posY="0" posZ="1.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.9" is_door_to_area="x" is_door_to_level="x" posX="7" posY="0" posZ="3.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="rutsch.korridor.10" is_door_to_area="x" is_door_to_level="x" posX="7" posY="0" posZ="1.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="rutsch.korridor.11" is_door_to_area="x" is_door_to_level="x" posX="7" posY="0" posZ="3.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="bonbon" id="rutsch.korridor.12" is_door_to_area="x" is_door_to_level="x" posX="2.5" posY="0" posZ="0.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="teleport" />
+                  <object type="platform" id="rutsch.korridor.13" is_door_to_area="x" is_door_to_level="x" posX="2" posY="0" posZ="2.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.14" is_door_to_area="x" is_door_to_level="x" posX="2.5" posY="0" posZ="3.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.15" is_door_to_area="x" is_door_to_level="x" posX="3" posY="0" posZ="4.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.16" is_door_to_area="x" is_door_to_level="x" posX="3.5" posY="0" posZ="5.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.17" is_door_to_area="x" is_door_to_level="x" posX="6" posY="0" posZ="18" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.18" is_door_to_area="x" is_door_to_level="x" posX="3.5" posY="0" posZ="6.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="obstacle" id="rutsch.korridor.19" is_door_to_area="x" is_door_to_level="x" posX="3.5" posY="0" posZ="6.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.20" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="5.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.21" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="5.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="2" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.22" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="5.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.23" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="6.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.24" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="7.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.25" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="8.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.26" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="9.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.27" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="10.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.28" is_door_to_area="x" is_door_to_level="x" posX="3.5" posY="0" posZ="10.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.29" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="11.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.30" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="12.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.31" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="13.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.32" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="14.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.33" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="15.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.34" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="16.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.35" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="18.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.36" is_door_to_area="x" is_door_to_level="x" posX="3.5" posY="0" posZ="19" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.37" is_door_to_area="x" is_door_to_level="x" posX="2.5" posY="0" posZ="19.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.38" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="5.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.39" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="6.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.40" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="6.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.41" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="6.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.42" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="1" posZ="10.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="salesman" id="rutsch.korridor.43" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="1" posZ="5.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="Pass auf! Ich habe die Lakritze gerade hier vorbeikommen sehen. Sie kann noch nicht so weit gekommen sein." />
+                  <object type="obstacle" id="rutsch.korridor.44" is_door_to_area="x" is_door_to_level="x" posX="7" posY="0.5" posZ="2.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.45" is_door_to_area="x" is_door_to_level="x" posX="8" posY="0.5" posZ="10.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.46" is_door_to_area="x" is_door_to_level="x" posX="8" posY="0.5" posZ="16.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.47" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="-1" posZ="10.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.48" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="-1" posZ="10.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.49" is_door_to_area="x" is_door_to_level="x" posX="11" posY="1.5" posZ="10.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.50" is_door_to_area="x" is_door_to_level="x" posX="12" posY="1.5" posZ="10.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.51" is_door_to_area="x" is_door_to_level="x" posX="12" posY="1.5" posZ="11.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.52" is_door_to_area="x" is_door_to_level="x" posX="12" posY="1.5" posZ="12.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.53" is_door_to_area="x" is_door_to_level="x" posX="12" posY="1.5" posZ="13.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.54" is_door_to_area="x" is_door_to_level="x" posX="10" posY="1.5" posZ="13.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.55" is_door_to_area="x" is_door_to_level="x" posX="12" posY="1.5" posZ="17.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="1" visible="True" dialog="" />
+                </statics>
+              </static_objects>
+            <!--- DYNAMIC-->
+              <dynamic_objects>
+                <dynamics>
+                  <object type="platform" id="rutsch.korridor.1.dyn" is_door_to_area="x" is_door_to_level="rutsch.2" posX="1" posY="0" posZ="1" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.2.dyn" is_door_to_area="chase" is_door_to_level="chase.0" posX="1" posY="0" posZ="19.5" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="rutsch.korridor.3.dyn" is_door_to_area="x" is_door_to_level="x" posX="2.5" posY="0" posZ="0.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="chocoChip" id="rutsch.korridor.1.choco" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="1" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="obstacleForSwitch" id="rutsch.korridor.1.obstacleForSwitch" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="18.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="chocoChip" id="rutsch.korridor.2.choco" is_door_to_area="x" is_door_to_level="x" posX="3.5" posY="0" posZ="10.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="chocoChip" id="rutsch.korridor.3.choco" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="18.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="switchTimed" id="rutsch.korridor.1.switchTimed" is_door_to_area="x" is_door_to_level="x" posX="10" posY="1" posZ="18" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="movableObstacle" id="rutsch.korridor.1.Mov" is_door_to_area="x" is_door_to_level="x" posX="11" posY="1.5" posZ="10.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="switchTemporary" id="rutsch.korridor.1.switchTemporary" is_door_to_area="x" is_door_to_level="x" posX="8" posY="1.5" posZ="13.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="breakingPlatform" id="rutsch.korridor.1.breaking" is_door_to_area="x" is_door_to_level="x" posX="13" posY="1.5" posZ="15.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="False" dialog="" />
                 </dynamics>
               </dynamic_objects>
             </the_objects>

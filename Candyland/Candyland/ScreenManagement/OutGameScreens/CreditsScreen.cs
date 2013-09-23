@@ -145,7 +145,7 @@ namespace Candyland
             string art2D = "Svenja Handreck, Anne-Lena Simon";
             string tester = "Simone Bexten, Sebastian Heerwald, Graeme Fitzapack,";
             string tester2 = "Jin, Sebastian Laubmeyer and many more";
-            string specialHelp = "Johannes Jendersie, Sebastian Laubmeyer";
+            string specialHelp = "Graeme Fitzapack, Johannes Jendersie, Sebastian Laubmeyer";
 
                 m_sprite.DrawString(font, headingProg,
                     new Vector2((int)(screenWidth / 2 - (font.MeasureString(headingProg).X / 2)),
