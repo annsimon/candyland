@@ -31,7 +31,7 @@ namespace Candyland
         public override void update()
         {
             // set invisible, when fallen too deep
-            if (m_position.Y < GameConstants.endOfWorld_Y)
+            if (isVisible && m_position.Y < GameConstants.endOfWorld_Y)
                 this.isVisible = false;
             else
             if (istargeting)

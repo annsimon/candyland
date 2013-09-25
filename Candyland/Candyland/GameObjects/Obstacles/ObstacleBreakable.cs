@@ -113,7 +113,7 @@ namespace Candyland
                 animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, false, Matrix.Identity);
             }
             base.update();
-            fall();
+            if(isVisible) fall();
             isonground = false;
         }
 
