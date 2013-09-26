@@ -186,6 +186,11 @@ namespace Candyland
                 return;
             if (actionID.Contains("stage") && m_updateInfo.playerWon)
                 return;
+            if (actionID.Equals("ending"))
+            {
+                m_updateInfo.playerWon = true;
+                m_updateInfo.helperavailable = true; // this is a todo! -> do it in a different way later
+            }
             // action is a one time action
             if (m_actionTracker.actionState.ContainsKey(actionID))
             {
@@ -224,8 +229,6 @@ namespace Candyland
                 m_updateInfo.activateHelperNow = true;
             if (this.m_currentAction.getID().Contains("StartChase"))
                 m_updateInfo.alwaysRun = false;
-            if (this.m_currentAction.getID().Equals("ending"))
-                m_updateInfo.playerWon = true;
             isVisible = false;
         }
 
