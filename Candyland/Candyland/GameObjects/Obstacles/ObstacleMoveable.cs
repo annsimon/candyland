@@ -14,6 +14,7 @@ namespace Candyland
     class ObstacleMoveable : Obstacle
     {
         protected bool isOnSlipperyGround;
+        protected bool hasPushedInThisUpdate;
 
         public ObstacleMoveable(String id, Vector3 pos, UpdateInfo updateInfo, bool visible)
         {
@@ -48,6 +49,8 @@ namespace Candyland
 
         public override void update()
         {
+            hasPushedInThisUpdate = false;
+
             if (!isVisible)
                 return;
             base.update();
@@ -145,9 +148,6 @@ namespace Candyland
              {
                  if (obj.isVisible && !obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
                  {
-                     //does this even make sense? Isn't obj of type ObstacleMovable?
-                     if (!(obj is Playable))
-                         System.Console.WriteLine("collideMovable");
                      if (this.isOnSlipperyGround)
                      {
                          obj.hasCollidedWith(this);
@@ -178,61 +178,91 @@ namespace Candyland
 
         public override void hasCollidedWith(GameObject obj)
         {
-            // getting pushed by the player
-            if (obj.GetType() == typeof(CandyGuy))
-            {
-                // Find out on which boundingbox side the collision occurs
+            // Check from which direction obj is coming
+                Vector3 vecBetweenObstacles = (this.getPosition() - obj.getPosition());
+                Vector3 objVec = obj.getDirection();
+                // Only absolute values interesting for determinating move axis
+                vecBetweenObstacles.X = Math.Abs(vecBetweenObstacles.X);
+                vecBetweenObstacles.Y = Math.Abs(vecBetweenObstacles.Y);
+                vecBetweenObstacles.Z = Math.Abs(vecBetweenObstacles.Z);
+                objVec.X = Math.Abs(objVec.X);
+                objVec.Y = Math.Abs(objVec.Y);
+                objVec.Z = Math.Abs(objVec.Z);
 
-                BoundingBox bbObstacle = m_boundingBox;
-                BoundingBox bbPlayer = obj.getBoundingBox();
-
-                // Obstacle should only be moved, if collided from the side
-
-                    //Test if collison in X direction
-                    if ( ( (bbObstacle.Max.X -bbPlayer.Min.X) < 0.01f ) || ( (bbPlayer.Max.X -bbObstacle.Min.X) < 0.01f ) )
-                    {
-                        this.direction = new Vector3(obj.getDirection().X, 0, 0);
-                        this.direction.Normalize();
-                        if (isOnSlipperyGround)
-                        {
-                            currentspeed = GameConstants.slippingSpeed;
-                        }
-                        move();
-                    }
-                    // Test if collision in Z direction
-                    if (((bbObstacle.Max.Z - bbPlayer.Min.Z) < 0.01f) || ((bbPlayer.Max.Z - bbObstacle.Min.Z) < 0.01f))
-                    {
-                        this.direction = new Vector3(0, 0, obj.getDirection().Z);
-                        this.direction.Normalize();
-                        if (isOnSlipperyGround)
-                        {
-                            currentspeed = GameConstants.slippingSpeed;
-                        }
-                        move();
-                    }
-            }
-
-            // getting pushed by other obstacle
-            if (obj.GetType() == typeof(ObstacleMoveable))
-            {
-                // Check from which direction obj is coming
-                    Vector3 vecBetweenObstacles = (this.getPosition() - obj.getPosition());
-                    Vector3 objVec = obj.getDirection();
-                    // look if both obj.direction equals vecBetweenObstacles
-                    bool rightPushDirection = false;
-                    if (vecBetweenObstacles.X > vecBetweenObstacles.Z && objVec.X > objVec.Z
-                        || vecBetweenObstacles.X < vecBetweenObstacles.Z && objVec.X < objVec.Z)
-                        rightPushDirection = true;
-                    
-                // pushing obstacle is sliding and pushed obstacle is on slippery ground
-                if (obj.getCurrentSpeed() != 0 && this.isOnSlipperyGround && rightPushDirection)
+                // look if both obj.direction equals vecBetweenObstacles
+                bool rightPushDirection = false;
+                bool inXDirection = false;
+                if (vecBetweenObstacles.X > vecBetweenObstacles.Z && objVec.X > objVec.Z)
                 {
-                    float speed = obj.getCurrentSpeed();
-                    this.currentspeed = obj.getCurrentSpeed();
-                    this.direction = obj.getDirection();
-                    obj.setCurrentSpeed(0);
+                    inXDirection = true;
+                    rightPushDirection = true;
                 }
-            }
+                if (vecBetweenObstacles.X < vecBetweenObstacles.Z && objVec.X < objVec.Z)
+                {
+                    inXDirection = false;
+                    rightPushDirection = true;
+                }
+
+                // getting pushed by the player
+                if (obj.GetType() == typeof(CandyGuy))
+                {
+                    // Find out on which boundingbox side the collision occurs
+                    BoundingBox bbObstacle = m_boundingBox;
+                    BoundingBox bbPlayer = obj.getBoundingBox();
+
+                    if (rightPushDirection)
+                    {
+                        // Obstacle should only be moved, if collided from the side
+                        if (inXDirection)
+                        {
+                            //Test if collison in X direction
+                            if (((bbObstacle.Max.X - bbPlayer.Min.X) < 0.01f) || ((bbPlayer.Max.X - bbObstacle.Min.X) < 0.01f))
+                            {
+                                this.direction = new Vector3(obj.getDirection().X, 0, 0);
+                                this.direction.Normalize();
+                                if (isOnSlipperyGround)
+                                {
+                                    currentspeed = GameConstants.slippingSpeed;
+                                }
+                                move();
+                                return;
+                            }
+                        }
+                        else
+                        {
+                            // Test if collision in Z direction
+                            if (((bbObstacle.Max.Z - bbPlayer.Min.Z) < 0.01f) || ((bbPlayer.Max.Z - bbObstacle.Min.Z) < 0.01f))
+                            {
+                                this.direction = new Vector3(0, 0, obj.getDirection().Z);
+                                this.direction.Normalize();
+                                if (isOnSlipperyGround)
+                                {
+                                    currentspeed = GameConstants.slippingSpeed;
+                                }
+                                move();
+                                return;
+                            }
+                        }
+                    }
+                    return;
+                }
+
+                // getting pushed by other obstacle
+                if (obj.GetType() == typeof(ObstacleMoveable))
+                {
+                    // pushing obstacle is sliding and pushed obstacle is on slippery ground
+                    if (obj.getCurrentSpeed() != 0 && this.isOnSlipperyGround && rightPushDirection && !this.hasPushedInThisUpdate)
+                    {
+                        this.currentspeed = obj.getCurrentSpeed();
+                        this.direction = obj.getDirection();
+                        ObstacleMoveable movingObstacle = (ObstacleMoveable)obj;
+                        movingObstacle.hasPushedInThisUpdate = true;
+                        obj.setCurrentSpeed(0);
+                        return;
+                    }
+                    currentspeed = 0;
+                    preventIntersection(obj);
+                }
         }
 
         public override void isNotCollidingWith(GameObject obj)
