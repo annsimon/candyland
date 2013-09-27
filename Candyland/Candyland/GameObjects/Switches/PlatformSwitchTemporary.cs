@@ -17,6 +17,7 @@ namespace Candyland
     {
         private SoundEffect sound1;
         private SoundEffect sound2;
+        protected bool wasTouched = false;
 
         public PlatformSwitchTemporary(String id, Vector3 pos, UpdateInfo updateInfo, bool visible)
         {
@@ -69,23 +70,37 @@ namespace Candyland
                 if (!this.isActivated)
                 {
                     this.setActivated(true);
-                    float pitch = 0.0f;
-                    float pan = 0.0f;
-                    sound1.Play((float)m_updateInfo.soundVolume / 10, pitch, pan);
-
+                    playActivated(true);
                     this.isTouched = GameConstants.TouchedState.stillTouched;
-
+                    this.wasTouched = true;
                 }
             }
             // Deactivate when not touched
-            else if (this.isActivated && this.isTouched == GameConstants.TouchedState.notTouched)
+            else if (this.isActivated && this.isTouched == GameConstants.TouchedState.notTouched
+                     && this.wasTouched)
             {
                 this.setActivated(false);
-                float pitch = 0.0f;
-                float pan = 0.0f;
-                sound2.Play(((float)m_updateInfo.soundVolume) / 10, pitch, pan);
+                playDeactivated(true);
+                this.wasTouched = false;
             }
         }
 
+        public override void playActivated(bool direct)
+        {
+            if (belongsToOrdered && direct)
+                return;
+            float pitch = 0.0f;
+            float pan = 0.0f;
+            sound1.Play((float)m_updateInfo.soundVolume / 10, pitch, pan);
+        }
+
+        public override void playDeactivated(bool direct)
+        {
+            if (belongsToOrdered && direct)
+                return;
+            float pitch = 0.0f;
+            float pan = 0.0f;
+            sound2.Play(((float)m_updateInfo.soundVolume) / 10, pitch, pan);
+        }
     }
 }

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Candyland
 {
@@ -20,6 +22,8 @@ namespace Candyland
         protected GameConstants.TouchedState isTouched = GameConstants.TouchedState.notTouched;
         public GameConstants.TouchedState getTouched() { return this.isTouched; }
         public void setTouched(GameConstants.TouchedState value) { this.isTouched = value; }
+
+        protected SoundEffect m_errorSound;
 
         protected bool isActivated;
         public bool getActivated() { return this.isActivated; }
@@ -45,11 +49,22 @@ namespace Candyland
         }
 
         protected List<SwitchGroup> m_switchGroups;
+        protected bool belongsToOrdered = false;
         public void setGroup( SwitchGroup group )
         {
+            if (group is OrderedSwitchGroup)
+                belongsToOrdered = true;
             m_switchGroups.Add(group);
         }
 
+        #endregion
+
+        #region initialization
+        public override void load(ContentManager content, AssetManager assets)
+        {
+            m_errorSound = assets.menuButtonError;
+            base.load(content, assets);
+        }
         #endregion
 
         #region collision related
@@ -67,8 +82,6 @@ namespace Candyland
                 else
                     isTouched = GameConstants.TouchedState.stillTouched;
             }
-            else if (isTouched == GameConstants.TouchedState.notTouched)
-                isTouched = GameConstants.TouchedState.notTouched;
         }
 
         #endregion
@@ -88,6 +101,21 @@ namespace Candyland
             isTouched = GameConstants.TouchedState.notTouched;
             m_texture = m_notActivated_texture;
             m_modelTextures[-1] = m_notActivated_texture;
+        }
+
+        public virtual void playActivated(bool direct)
+        {
+        }
+
+        public virtual void playDeactivated(bool direct)
+        {
+        }
+
+        public virtual void playError()
+        {
+            float pitch = 0.0f;
+            float pan = 0.0f;
+            m_errorSound.Play(((float)m_updateInfo.soundVolume) / 15, pitch, pan);
         }
 
     }
