@@ -44,10 +44,6 @@ namespace Candyland
             this.m_modelTextures = new Dictionary<int, Texture2D>();
         }
 
-        public override void isNotCollidingWith(GameObject obj) { }
-
-        public override void hasCollidedWith(GameObject obj) { }
-
         public override void update()
         {
             KeyboardState keystate = Keyboard.GetState();
@@ -225,10 +221,6 @@ namespace Candyland
             {
                 preventIntersection(obj);
                 obj.hasCollidedWith(this);
-            }
-            else
-            {
-                obj.isNotCollidingWith(this);
             }
         }
 

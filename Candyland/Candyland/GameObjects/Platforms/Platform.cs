@@ -155,11 +155,6 @@ namespace Candyland
 
         #region collision related
 
-        public override void isNotCollidingWith(GameObject obj)
-        {
-
-        }
-
         public override void hasCollidedWith(GameObject obj)
         {
             obj.getBoundingBox();

@@ -89,18 +89,6 @@ namespace Candyland
             base.update();
         }
 
-        #region collision related
-
-        public override void isNotCollidingWith(GameObject obj)
-        {
-        }
-
-        public override void hasCollidedWith(GameObject obj)
-        {
-        }
-
-        #endregion
-
         public override Matrix prepareForDrawing()
         {
             return base.prepareForDrawing();

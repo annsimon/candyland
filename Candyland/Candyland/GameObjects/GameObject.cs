@@ -123,9 +123,6 @@ namespace Candyland
 
         public abstract void collide(GameObject obj);
 
-        public abstract void hasCollidedWith(GameObject obj);
-        public abstract void isNotCollidingWith(GameObject obj);
-
         #endregion
 
         /// <summary>
@@ -140,6 +137,8 @@ namespace Candyland
         }
 
         #region virtual methods
+
+        public virtual void hasCollidedWith(GameObject obj) { }
 
         public virtual void init(String id, Vector3 pos, UpdateInfo updateInfo, bool visible)
         {

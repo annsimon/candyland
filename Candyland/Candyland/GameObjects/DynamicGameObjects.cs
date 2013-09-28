@@ -155,10 +155,6 @@ namespace Candyland
                 preventIntersection(obj);
                 obj.hasCollidedWith(this);
             }
-            else
-            {
-                obj.isNotCollidingWith(this);
-            }
         }
         protected virtual void collideWithSwitchTemporary(GameObject obj)
         {
@@ -167,10 +163,6 @@ namespace Candyland
                 preventIntersection(obj);
                 obj.hasCollidedWith(this);
             }
-            else
-            {
-                obj.isNotCollidingWith(this);
-            }
         }
         protected virtual void collideWithSwitchTimed(GameObject obj)
         {
@@ -178,10 +170,6 @@ namespace Candyland
             {
                 preventIntersection(obj);
                 obj.hasCollidedWith(this);
-            }
-            else
-            {
-                obj.isNotCollidingWith(this);
             }
         }
         protected virtual void collideWithBreakable(GameObject obj)
@@ -195,14 +183,8 @@ namespace Candyland
         {
             if (obj.isVisible && !obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
             {
-                //if (!(obj is Playable))
-                //    System.Console.WriteLine("collideMovable");
                 preventIntersection(obj);
                 obj.hasCollidedWith(this);
-            }
-            else
-            {
-                obj.isNotCollidingWith(this);
             }
         }
         protected virtual void collideWithChocoChip(GameObject obj)
@@ -224,10 +206,6 @@ namespace Candyland
             if (obj.isVisible && obj.getBoundingBox().Intersects(m_boundingBox))
             {
                 obj.hasCollidedWith(this);
-            }
-            else
-            {
-                obj.isNotCollidingWith(this);
             }
         }
 

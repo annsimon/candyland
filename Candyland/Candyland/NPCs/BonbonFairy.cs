@@ -95,11 +95,6 @@ namespace Candyland
             }
         }
 
-        public override void isNotCollidingWith(GameObject obj)
-        {
-            ;
-        }
-
         public override void update()
         {
         //animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
