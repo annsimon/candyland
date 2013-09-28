@@ -224,18 +224,18 @@ namespace Candyland
             //    return;
             if (obj.getBoundingBox().Intersects(m_boundingBox))
             {
-                float m_minX = Math.Min(m_boundingBox.Min.X, m_boundingBox.Max.X);
-                float m_minY = Math.Min(m_boundingBox.Min.Y, m_boundingBox.Max.Y);
-                float m_minZ = Math.Min(m_boundingBox.Min.Z, m_boundingBox.Max.Z);
-                float m_maxX = Math.Max(m_boundingBox.Min.X, m_boundingBox.Max.X);
-                float m_maxY = Math.Max(m_boundingBox.Min.Y, m_boundingBox.Max.Y);
-                float m_maxZ = Math.Max(m_boundingBox.Min.Z, m_boundingBox.Max.Z);
-                float minX = Math.Min(obj.getBoundingBox().Min.X, obj.getBoundingBox().Max.X);
-                float minY = Math.Min(obj.getBoundingBox().Min.Y, obj.getBoundingBox().Max.Y);
-                float minZ = Math.Min(obj.getBoundingBox().Min.Z, obj.getBoundingBox().Max.Z);
-                float maxX = Math.Max(obj.getBoundingBox().Min.X, obj.getBoundingBox().Max.X);
-                float maxY = Math.Max(obj.getBoundingBox().Min.Y, obj.getBoundingBox().Max.Y);
-                float maxZ = Math.Max(obj.getBoundingBox().Min.Z, obj.getBoundingBox().Max.Z);
+                float m_minX = m_boundingBox.Min.X;
+                float m_minY = m_boundingBox.Min.Y;
+                float m_minZ = m_boundingBox.Min.Z;
+                float m_maxX = m_boundingBox.Max.X;
+                float m_maxY = m_boundingBox.Max.Y;
+                float m_maxZ = m_boundingBox.Max.Z;
+                float minX = obj.getBoundingBox().Min.X;
+                float minY = obj.getBoundingBox().Min.Y;
+                float minZ = obj.getBoundingBox().Min.Z;
+                float maxX = obj.getBoundingBox().Max.X;
+                float maxY = obj.getBoundingBox().Max.Y;
+                float maxZ = obj.getBoundingBox().Max.Z;
 
                 float m_minXold = minOld.X;
                 float m_minYold = minOld.Y;
