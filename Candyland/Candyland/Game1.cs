@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using System.Xml;
 using Microsoft.Xna.Framework.Content.Pipeline.Serialization.Intermediate;
+using System;
 
 namespace Candyland
 {
@@ -19,11 +20,18 @@ namespace Candyland
         KeyboardState oldState;
         KeyboardState newState;
 
+        IntPtr drawsurface;
+        System.Windows.Forms.Form parentForm;
+        System.Windows.Forms.PictureBox pictureBox;
+        System.Windows.Forms.Control gameForm;
+
+
         // Class to hold all data for game settings
         SaveSettingsData settingsData;
         public bool mute;
 
-        public Game1()
+        public Game1(IntPtr _drawSurface, System.Windows.Forms.Form _parentForm,
+            System.Windows.Forms.PictureBox _surfacePictureBox)
         {
             graphics = new GraphicsDeviceManager(this);
 
@@ -47,9 +55,37 @@ namespace Candyland
             screenManager = new ScreenManager(this, graphics.IsFullScreen, 800, 480, assetManager, settingsData);
             Components.Add(screenManager);
 
-           // Content.RootDirectory = "CandylandContent"; 
+
+            //Für WindowsForms
+            this.drawsurface = _drawSurface;
+            this.parentForm = _parentForm;
+            this.pictureBox = _surfacePictureBox;
+            Mouse.WindowHandle = drawsurface;
+            this.gameForm = System.Windows.Forms.Control.FromHandle(this.Window.Handle);
+
+            gameForm.VisibleChanged += new EventHandler(gameForm_VisibleChanged);
+            pictureBox.SizeChanged += new EventHandler(pictureBox_SizeChanged);
+            graphics.PreparingDeviceSettings += new EventHandler<PreparingDeviceSettingsEventArgs>(graphics_PreparingDeviceSettings); 
+            // Content.RootDirectory = "CandylandContent"; 
         }
 
+        private void gameForm_VisibleChanged(object sender, EventArgs e) {
+            if (gameForm.Visible == true) gameForm.Visible = false;
+        }
+
+        private void pictureBox_SizeChanged(object sender, EventArgs e) {
+            if (parentForm.WindowState != System.Windows.Forms.FormWindowState.Minimized) {
+                graphics.PreferredBackBufferWidth = pictureBox.Width;
+                graphics.PreferredBackBufferHeight = pictureBox.Height;
+                graphics.ApplyChanges();
+            }
+        }
+
+        private void graphics_PreparingDeviceSettings(object sender, PreparingDeviceSettingsEventArgs e)
+        {
+            e.GraphicsDeviceInformation.PresentationParameters.DeviceWindowHandle = this.drawsurface;
+
+        }
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
         /// This is where it can query for any required services and load any non-graphic

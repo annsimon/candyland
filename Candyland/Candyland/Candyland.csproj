@@ -89,7 +89,9 @@
       <HintPath>..\..\SkinnedModel\bin\x86\Debug\SkinnedModel.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -110,6 +112,12 @@
     <Compile Include="Data\SaveGameData.cs" />
     <Compile Include="Data\SaveSettingsData.cs" />
     <Compile Include="Data\UpdateInfo.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="GameObjects\DynamicGameObjects.cs" />
     <Compile Include="GameObjects\Obstacles\Obstacle.cs" />
     <Compile Include="GameObjects\Obstacles\ObstacleBreakable.cs" />
@@ -234,7 +242,11 @@
   <ItemGroup>
     <None Include="app.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
   <!--
