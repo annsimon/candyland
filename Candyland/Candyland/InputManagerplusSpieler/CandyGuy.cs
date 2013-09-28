@@ -45,10 +45,6 @@ namespace Candyland
             this.modelArray = new Model[2];
         }
 
-        public override void isNotCollidingWith(GameObject obj){ }
-
-        public override void hasCollidedWith(GameObject obj){ }
-
         public override void update()
         {
             KeyboardState keystate = Keyboard.GetState();

@@ -95,11 +95,6 @@ namespace Candyland
 
         #region collision related
 
-        public override void isNotCollidingWith(GameObject obj)
-        {
-
-        }
-
         public override void hasCollidedWith(GameObject obj)
         {
             float pitch = 0.0f;

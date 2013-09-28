@@ -59,22 +59,5 @@ namespace Candyland
             isonground = false;
         }
 
-        #region collision
-
-        // nothing to do here so far
-
-        #endregion
-
-        #region collision related
-
-        public override void isNotCollidingWith(GameObject obj)
-        {
-        }
-
-        public override void hasCollidedWith(GameObject obj)
-        {
-        }
-
-        #endregion
     }
 }

@@ -78,10 +78,6 @@ namespace Candyland
 
         }
 
-        public override void isNotCollidingWith(GameObject obj)
-        {
-        }
-
         #endregion
 
         public override void update()

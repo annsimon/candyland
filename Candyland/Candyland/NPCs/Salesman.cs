@@ -60,10 +60,6 @@ namespace Candyland
             }
         }
 
-        public override void isNotCollidingWith(GameObject obj)
-        {
-        }
-
         public override void update()
         {
         }
