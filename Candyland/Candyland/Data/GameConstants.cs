@@ -24,6 +24,11 @@ namespace Candyland
         public const float slippingSpeed = 0.03f;
 
         /// <summary>
+        /// this vector is used to avoid further intersection between objects after collision was handled
+        /// </summary>
+        public static Vector3 distanceToKeepBetweenObjects = new Vector3(0.3f, 0.3f, 0.3f);
+
+        /// <summary>
         /// time a timed switch stays activated
         /// </summary>
         public const double switchActiveTime = 4;
