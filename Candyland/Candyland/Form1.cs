@@ -19,6 +19,7 @@ namespace Candyland
         protected override void WndProc(ref Message m)
         {
             base.WndProc(ref m);
+            if(game != null)
             game.wndProc(ref m);
         }
     }
