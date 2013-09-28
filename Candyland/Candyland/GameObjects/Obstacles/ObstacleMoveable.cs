@@ -14,6 +14,7 @@ namespace Candyland
     class ObstacleMoveable : Obstacle
     {
         protected bool isOnSlipperyGround;
+        protected bool onNonSlipperyObject;
         protected bool hasPushedInThisUpdate;
 
         public ObstacleMoveable(String id, Vector3 pos, UpdateInfo updateInfo, bool visible)
@@ -49,6 +50,7 @@ namespace Candyland
 
         public override void update()
         {
+            onNonSlipperyObject = false;
             hasPushedInThisUpdate = false;
 
             if (!isVisible)
@@ -81,15 +83,11 @@ namespace Candyland
                 {
                     preventIntersection(obj);
                     Platform platform = (Platform) obj;
-                    bool centerOnPlattform = false;
-                    if (this.getPosition().X < obj.getBoundingBox().Max.X && this.getPosition().X > obj.getBoundingBox().Min.X
-                        && this.getPosition().Z < obj.getBoundingBox().Max.Z && this.getPosition().Z > obj.getBoundingBox().Min.Z)
-                        centerOnPlattform = true;
-                    if (centerOnPlattform)
+                    if (!onNonSlipperyObject)
                     {
                         switch (platform.getSlippery())
                         {
-                            case 0: isOnSlipperyGround = false; break;
+                            case 0: isOnSlipperyGround = false; onNonSlipperyObject = true; break;
                             case 1: isOnSlipperyGround = true; break;
                             case 2: isOnSlipperyGround = true; break;
                         }
@@ -133,6 +131,12 @@ namespace Candyland
                  {
                      currentspeed = 0;
                      preventIntersection(obj);
+                     // obstacle stands on the other object
+                     if ((this.getBoundingBox().Min.Y - obj.getBoundingBox().Max.Y) < 0.01f)
+                     {
+                         isOnSlipperyGround = false;
+                         onNonSlipperyObject = true;
+                     }
                  }
              }
 
@@ -142,6 +146,12 @@ namespace Candyland
                  {
                      currentspeed = 0;
                      preventIntersection(obj);
+                     // obstacle stands on the other object
+                     if ((this.getBoundingBox().Min.Y - obj.getBoundingBox().Max.Y) < 0.01f)
+                     {
+                         isOnSlipperyGround = false;
+                         onNonSlipperyObject = true;
+                     }
                  }
              }
              protected override void collideWithMovable(GameObject obj)
@@ -155,11 +165,12 @@ namespace Candyland
                      }
                      currentspeed = 0;
                      preventIntersection(obj);
-
-                 }
-                 else
-                 {
-                     obj.isNotCollidingWith(this);
+                     // obstacle stands on the other object
+                     if ((this.getBoundingBox().Min.Y - obj.getBoundingBox().Max.Y) < 0.01f)
+                     {
+                         isOnSlipperyGround = false;
+                         onNonSlipperyObject = true;
+                     }
                  }
              }
 
@@ -169,6 +180,12 @@ namespace Candyland
                  {
                      currentspeed = 0;
                      preventIntersection(obj);
+                     // obstacle stands on the other object
+                     if ((this.getBoundingBox().Min.Y - obj.getBoundingBox().Max.Y) < 0.01f)
+                     {
+                         isOnSlipperyGround = false;
+                         onNonSlipperyObject = true;
+                     }
                  }
              }
 
@@ -263,10 +280,6 @@ namespace Candyland
                     currentspeed = 0;
                     preventIntersection(obj);
                 }
-        }
-
-        public override void isNotCollidingWith(GameObject obj)
-        {
         }
 
         #endregion

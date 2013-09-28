@@ -22,6 +22,7 @@ namespace Candyland
         public bool getIsThirdPersonCam() { return isthirdpersoncam; }
         protected bool isOnSlipperyGround;
         public bool getIsOnSlippery() { return isOnSlipperyGround; }
+        protected bool onNonSlipperyObject;
 
         protected bool isCloseEnoughToInteract = false;
         public void setCloseEnoughToInteract() { isCloseEnoughToInteract = true; }
@@ -59,6 +60,7 @@ namespace Candyland
 
         public override void update()
         {
+            onNonSlipperyObject = false;
             // Reset if Player has fallen down
             if (m_position.Y < GameConstants.endOfWorld_Y) {
                 m_updateInfo.reset = true;
@@ -153,10 +155,6 @@ namespace Candyland
             {
                 obj.hasCollidedWith(this);
             }
-            else
-            {
-                obj.isNotCollidingWith(this);
-            }
         }
 
         // Needs to find out if the ground is slippery for players
@@ -167,16 +165,12 @@ namespace Candyland
             {
                 preventIntersection(obj);
                 Platform platform = (Platform)obj;
-                bool centerOnPlattform = false;
-                if (this.getPosition().X < obj.getBoundingBox().Max.X && this.getPosition().X > obj.getBoundingBox().Min.X
-                    && this.getPosition().Z < obj.getBoundingBox().Max.Z && this.getPosition().Z > obj.getBoundingBox().Min.Z)
-                    centerOnPlattform = true;
-                if (centerOnPlattform)
+                if (!onNonSlipperyObject)
                 {
                     switch (platform.getSlippery())
                     {
-                        case 0: isOnSlipperyGround = false; break;
-                        case 1: isOnSlipperyGround = false; break;
+                        case 0: isOnSlipperyGround = false; onNonSlipperyObject = true; break;
+                        case 1: isOnSlipperyGround = false; onNonSlipperyObject = true; break;
                         case 2: isOnSlipperyGround = true; break;
                     }
                 }
@@ -200,20 +194,62 @@ namespace Candyland
 
         protected override void collideWithBreakable(GameObject obj)
         {
-            if (obj.getBoundingBox().Intersects(m_boundingBox)) currentspeed = 0;
-            base.collideWithBreakable(obj);
+            if (obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                currentspeed = 0;
+                // player stands on the object
+                if ((this.getBoundingBox().Min.Y - obj.getBoundingBox().Max.Y) < 0.01f)
+                {
+                    isOnSlipperyGround = false;
+                    onNonSlipperyObject = true;
+                }
+                base.collideWithBreakable(obj);
+            }
         }
 
         protected override void collideWithObstacle(GameObject obj)
         {
-            if (obj.getBoundingBox().Intersects(m_boundingBox)) currentspeed = 0;
-            base.collideWithBreakable(obj);
+            if (obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                currentspeed = 0;
+                // player stands on the object
+                if ((this.getBoundingBox().Min.Y - obj.getBoundingBox().Max.Y) < 0.01f)
+                {
+                    isOnSlipperyGround = false;
+                    onNonSlipperyObject = true;
+                }
+                base.collideWithBreakable(obj);
+            }
         }
 
         protected override void collideWithMovable(GameObject obj)
         {
-            if (obj.getBoundingBox().Intersects(m_boundingBox)) currentspeed = 0;
-            base.collideWithMovable(obj);
+            if (obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                currentspeed = 0;
+                // player stands on the object
+                if ((this.getBoundingBox().Min.Y - obj.getBoundingBox().Max.Y) < 0.01f)
+                {
+                    isOnSlipperyGround = false;
+                    onNonSlipperyObject = true;
+                }
+                base.collideWithMovable(obj);
+            }
+        }
+
+        protected override void collideWithObstacleForSwitch(GameObject obj)
+        {
+            if (obj.getBoundingBox().Intersects(m_boundingBox))
+            {
+                currentspeed = 0;
+                // player stands on the object
+                if ((this.getBoundingBox().Min.Y - obj.getBoundingBox().Max.Y) < 0.01f)
+                {
+                    isOnSlipperyGround = false;
+                    onNonSlipperyObject = true;
+                }
+                base.collideWithBreakable(obj);
+            }
         }
         #endregion
 

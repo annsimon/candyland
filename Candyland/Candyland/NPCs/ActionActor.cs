@@ -166,10 +166,6 @@ namespace Candyland
         {
         }
 
-        public override void isNotCollidingWith(GameObject obj)
-        {
-        }
-
         #endregion
 
         #region actions
