@@ -500,6 +500,19 @@
     <property name="size" value="1"/>
    </properties>
   </object>
+  <object name="8.teleport" type="teleportPlatform" x="60" y="0" width="20" height="20">
+   <properties>
+    <property name="dialog" value="special"/>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="5.korridor"/>
+    <property name="isSlippery" value="-"/>
+    <property name="isVisible" value="true"/>
+    <property name="size" value="1"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="0,5" width="100" height="100">
   <object name="-" type="platform" x="190" y="230" width="60" height="60">
@@ -989,10 +1002,10 @@
   </object>
   <object name="5.teleport" type="teleportPlatform" x="210" y="390" width="20" height="20">
    <properties>
-    <property name="dialog" value="special"/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
+    <property name="dialog" value=""/>
+    <property name="endPositionY" value="2"/>
+    <property name="endPositionZ" value="0"/>
+    <property name="endpositionX" value="0"/>
     <property name="isDoorToArea" value="-"/>
     <property name="isDoorToLevel" value="5.korridor"/>
     <property name="isSlippery" value="-"/>
