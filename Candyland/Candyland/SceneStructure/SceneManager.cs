@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using System.Xml;
 using Microsoft.Xna.Framework.Content.Pipeline.Serialization.Intermediate;
+using System;
 
 namespace Candyland
 {
@@ -379,5 +380,11 @@ namespace Candyland
             m_graphics.BlendState = oldBS;
         }
 
+
+        public void wndProc(ref System.Windows.Forms.Message mes)
+        {
+            if (m_inputManager != null)
+                m_inputManager.wndProc(ref mes);
+        }
     }
 }

@@ -17,6 +17,7 @@ namespace Candyland
         MouseState oldMouseState;
         KeyboardState oldKeyboardState;
         GamePadState oldGamepadstate;
+        BalanceBoard m_balanceBoard;
 
         public const int KEYBOARDMOUSE = 0; //Bewegungsstates
         public const int GAMEPADONLY = 1;
@@ -33,6 +34,13 @@ namespace Candyland
             screenHeight = graphics.Viewport.Height;
             inputMode = initialInputmode;
             updateinfo = info;
+            m_balanceBoard = new BalanceBoard();
+        }
+
+        public void wndProc(ref System.Windows.Forms.Message mes)
+        {
+            if (m_balanceBoard != null)
+                m_balanceBoard.wndproc(ref mes);
         }
 
         private void movePlayable(Playable player, GamePadState padstate, MouseState mousestate, KeyboardState keystate) 

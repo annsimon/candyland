@@ -372,6 +372,12 @@ namespace Candyland
             readyToStartGame = m_sceneManager.ResetDataForNewGame();
         }
 
+        public void wndProc(ref System.Windows.Forms.Message mes)
+        {
+            if (m_sceneManager != null)
+                m_sceneManager.wndProc(ref mes);
+        }
+
         public bool readyToStartGame { get; set; }
     }
 }

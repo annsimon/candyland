@@ -30,6 +30,7 @@ namespace Candyland
         SaveSettingsData settingsData;
         public bool mute;
 
+
         public Game1(IntPtr _drawSurface, System.Windows.Forms.Form _parentForm,
             System.Windows.Forms.PictureBox _surfacePictureBox)
         {
@@ -100,7 +101,6 @@ namespace Candyland
             // Set start screen
             screenManager.AddScreen(new TitleScreen());
 
-            BalanceBoard.initialize(this.Window.Handle);
 
             base.Initialize();
         }
@@ -183,6 +183,13 @@ namespace Candyland
             oldState = newState;
 
             base.Update(gameTime);
+        }
+
+
+        public void wndProc(ref System.Windows.Forms.Message mes)
+        {
+            if (this.screenManager != null)
+                this.screenManager.wndProc(ref mes);
         }
 
         /// <summary>

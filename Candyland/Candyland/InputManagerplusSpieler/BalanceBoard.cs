@@ -53,6 +53,7 @@ namespace Candyland
                 currentFilteredVal = PointF.Empty;
         }
 
+        
 
         public BalanceBoardState getState(){
 
@@ -68,6 +69,10 @@ namespace Candyland
             return new BalanceBoardState(normedorigin.X - normedPoint.X, normedorigin.Y - normedPoint.Y, connected);
         }
 
+        public void wndproc(ref System.Windows.Forms.Message mes)
+        {
+            medibalancepro.wndproc(mes);
+        }
 
 
         public static void initialize(IntPtr ptr){

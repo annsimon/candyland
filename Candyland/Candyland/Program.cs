@@ -11,13 +11,13 @@ namespace Candyland
         static void Main(string[] args)
         {
             Form1 form = new Form1();
+            BalanceBoard.initialize(form.Handle);
             form.Show();
             form.game = new Game1(
                 form.surface.Handle,
                 form,
                 form.surface);
             form.game.Run();
-
         }
     }
 #endif
