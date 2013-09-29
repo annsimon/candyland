@@ -7,7 +7,7 @@ namespace Candyland
 {
     class BalanceBoardState 
     {
-        public float X {get; private set;}
+        public float X {get;private  set;}
         public float Y {get;private set;}
         public bool isConnected {get;private set;}
 

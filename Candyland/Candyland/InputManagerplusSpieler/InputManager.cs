@@ -159,7 +159,21 @@ namespace Candyland
 
         private void boardMovement(Playable player)
         {
-            throw new NotImplementedException();
+            
+            BalanceBoardState boardstate = m_balanceBoard.getState();
+            //Get the direction of the players camera
+            float alpha = player.getCameraDir();
+
+            //rotate the movementvector to kamerakoordinates
+            float dmovex =  -(float)Math.Sin(alpha) * boardstate.Y;
+            float dmovey =  (float)Math.Cos(alpha) * boardstate.Y;
+
+
+            //move the player
+            
+            player.movementInput(dmovex, dmovey, boardstate.X, 0);
+            
+
         }
 
         private void gamePadMovement(Playable player, GamePadState padstate)

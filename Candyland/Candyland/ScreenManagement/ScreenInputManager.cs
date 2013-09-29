@@ -34,6 +34,7 @@ namespace Candyland
             {
                 case 0: return getKeyboardInput();
                 case 1: return getGamepadInput();
+                case 2: return getKeyboardInput();
             }
             return InputState.None;
         }
