@@ -36,6 +36,8 @@ namespace Candyland
         public Texture2D chocoTexture { get; set; }
 
         public Texture2D platformTexture { get; set; }
+        public Texture2D platformTextureMid { get; set; }
+        public Texture2D platformTextureBig { get; set; }
         public Texture2D platformTextureSlippery { get; set; }
         public Texture2D platformTextureVerySlippery { get; set; }
         public Texture2D platformTextureTeleport { get; set; }
@@ -74,6 +76,8 @@ namespace Candyland
             chocoTexture = content.Load<Texture2D>("Objekte/Schokolinse/schokolinsetextur");
         
             platformTexture = content.Load<Texture2D>("Objekte/Plattformen/plattformtextur_klein");
+            platformTextureMid = content.Load<Texture2D>("Objekte/Plattformen/plattformtextur_mittel");
+            platformTextureBig = content.Load<Texture2D>("Objekte/Plattformen/plattformtextur_gross");
             platformTextureSlippery = content.Load<Texture2D>("Objekte/Plattformen/Slippery/plattformtexturslippery_klein");
             platformTextureVerySlippery = content.Load<Texture2D>("Objekte/Plattformen/Slippery/plattformtexturslippery_klein2");
             platformTextureTeleport = content.Load<Texture2D>("Objekte/Plattformen/Teleport/plattformtextur_porter");
