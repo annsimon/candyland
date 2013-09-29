@@ -1,0 +1,36 @@
+﻿<?xml version="1.0"?>
+<levels>
+  <L1.1>
+    <level_inner>
+    </level_inner>
+  </L1.1>
+
+  <L1.2>
+    <level_inner>
+      <event>
+        <event_inner>
+          <triggerable>1.2.3.dyn</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>1.2.1.switchPermanent</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+      <event>
+        <event_inner>
+          <triggerable>1.2.1.obstacleForSwitch</triggerable>
+          <switchGroupType>normal</switchGroupType>
+          <switchGroup>
+            <switchGroup_inner>
+              <switch_id>1.2.2.switchPermanent</switch_id>
+            </switchGroup_inner>
+          </switchGroup>
+        </event_inner>
+      </event>
+    </level_inner>
+  </L1.2>
+
+
+</levels>
