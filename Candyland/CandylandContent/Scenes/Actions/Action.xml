@@ -292,7 +292,7 @@
           <oneTimeAction>true</oneTimeAction>
           <subactions>
             <subaction type="dialog" goalX="2.5" goalY="0" goalZ="9" locks="true" text=" Du warst schneller, die Maschine ist zerst!oe!rt!"/>
-            <subaction type="disappear" goalX="2.5" goalY="0" goalZ="9" locks="true" text=""/>
+            <subaction type="disappear" goalX="2.5" goalY="0" goalZ="9" locks="false" text=""/>
           </subactions>
         </action_inner>
       </action>

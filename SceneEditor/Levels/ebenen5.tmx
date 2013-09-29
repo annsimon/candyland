@@ -2390,7 +2390,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="7.breaking" type="breakingPlatform" x="660" y="240" width="20" height="20">
+  <object name="7.breaking" type="breakingPlatform" x="670" y="240" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
     <property name="endPositionY" value="-"/>
@@ -2403,7 +2403,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="8.breaking" type="breakingPlatform" x="660" y="280" width="20" height="20">
+  <object name="8.breaking" type="breakingPlatform" x="670" y="280" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
     <property name="endPositionY" value="-"/>
@@ -2468,7 +2468,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="13.breaking" type="breakingPlatform" x="600" y="310" width="20" height="20">
+  <object name="13.breaking" type="breakingPlatform" x="610" y="310" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
     <property name="endPositionY" value="-"/>
@@ -2650,7 +2650,7 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="26.breaking" type="breakingPlatform" x="760" y="340" width="20" height="20">
+  <object name="26.breaking" type="breakingPlatform" x="770" y="340" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
     <property name="endPositionY" value="-"/>
@@ -2743,7 +2743,7 @@
   </object>
  </objectgroup>
  <objectgroup name="4,5" width="100" height="100">
-  <object name="29.breaking" type="breakingPlatform" x="570" y="310" width="20" height="20">
+  <object name="29.breaking" type="breakingPlatform" x="590" y="300" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
     <property name="endPositionY" value="-"/>
