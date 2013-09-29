@@ -1005,11 +1005,11 @@
                   <object type="breakingPlatform" id="5.4.4.breaking" is_door_to_area="x" is_door_to_level="x" posX="23" posY="4" posZ="14.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="breakingPlatform" id="5.4.5.breaking" is_door_to_area="x" is_door_to_level="x" posX="23" posY="4" posZ="10.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="breakingPlatform" id="5.4.6.breaking" is_door_to_area="x" is_door_to_level="x" posX="30" posY="4" posZ="12.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="breakingPlatform" id="5.4.7.breaking" is_door_to_area="x" is_door_to_level="x" posX="33.5" posY="4" posZ="12.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="breakingPlatform" id="5.4.8.breaking" is_door_to_area="x" is_door_to_level="x" posX="33.5" posY="4" posZ="14.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="breakingPlatform" id="5.4.7.breaking" is_door_to_area="x" is_door_to_level="x" posX="34" posY="4" posZ="12.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="breakingPlatform" id="5.4.8.breaking" is_door_to_area="x" is_door_to_level="x" posX="34" posY="4" posZ="14.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="breakingPlatform" id="5.4.9.breaking" is_door_to_area="x" is_door_to_level="x" posX="24" posY="4" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="chocoChip" id="5.4.3.choco" is_door_to_area="x" is_door_to_level="x" posX="35" posY="4" posZ="17.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="breakingPlatform" id="5.4.13.breaking" is_door_to_area="x" is_door_to_level="x" posX="30.5" posY="4" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="breakingPlatform" id="5.4.13.breaking" is_door_to_area="x" is_door_to_level="x" posX="31" posY="4" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="breakingPlatform" id="5.4.28.breaking" is_door_to_area="x" is_door_to_level="x" posX="31.5" posY="4" posZ="18" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="breakingPlatform" id="5.4.14.breaking" is_door_to_area="x" is_door_to_level="x" posX="27.5" posY="4" posZ="14" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="breakingPlatform" id="5.4.15.breaking" is_door_to_area="x" is_door_to_level="x" posX="24" posY="4" posZ="8.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
@@ -1023,9 +1023,9 @@
                   <object type="breakingPlatform" id="5.4.23.breaking" is_door_to_area="x" is_door_to_level="x" posX="37" posY="4" posZ="11.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="breakingPlatform" id="5.4.24.breaking" is_door_to_area="x" is_door_to_level="x" posX="38" posY="4" posZ="13.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="breakingPlatform" id="5.4.25.breaking" is_door_to_area="x" is_door_to_level="x" posX="39" posY="4" posZ="15.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="breakingPlatform" id="5.4.26.breaking" is_door_to_area="x" is_door_to_level="x" posX="38.5" posY="4" posZ="17.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="breakingPlatform" id="5.4.26.breaking" is_door_to_area="x" is_door_to_level="x" posX="39" posY="4" posZ="17.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="movingPlatform" id="5.4.3.movingPlatform" is_door_to_area="x" is_door_to_level="x" posX="34.5" posY="4" posZ="22.5" endPosX="34.5" endPosY="4" endPosZ="19" size="2" slippery="0" visible="False" dialog="" />
-                  <object type="breakingPlatform" id="5.4.29.breaking" is_door_to_area="x" is_door_to_level="x" posX="29" posY="4.5" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="breakingPlatform" id="5.4.29.breaking" is_door_to_area="x" is_door_to_level="x" posX="30" posY="4.5" posZ="15.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="breakable" id="5.4.7.breakable" is_door_to_area="x" is_door_to_level="x" posX="16" posY="5" posZ="7.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                 </dynamics>
               </dynamic_objects>
@@ -3228,6 +3228,7 @@
                   <object type="breakingPlatform" id="bonus.0.4.breaking" is_door_to_area="x" is_door_to_level="x" posX="11" posY="0" posZ="7.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="obstacleForSwitch" id="bonus.0.1.obstacleForSwitch" is_door_to_area="x" is_door_to_level="x" posX="11" posY="0" posZ="15" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="False" dialog="" />
                   <object type="obstacleForSwitch" id="bonus.0.2.obstacleForSwitch" is_door_to_area="x" is_door_to_level="x" posX="11" posY="0" posZ="16.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="False" dialog="" />
+                  <object type="teleportPlatform" id="bonus.0.8.teleport" is_door_to_area="x" is_door_to_level="5.korridor" posX="3.5" posY="0" posZ="0.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="special" />
                   <object type="breakingPlatform" id="bonus.0.3.breaking" is_door_to_area="x" is_door_to_level="x" posX="11" posY="0.5" posZ="6" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="breakingPlatform" id="bonus.0.1.breaking" is_door_to_area="x" is_door_to_level="x" posX="8" posY="0.5" posZ="5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="chocoChip" id="bonus.0.0.choco" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="1" posZ="7" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
@@ -3235,7 +3236,7 @@
                   <object type="teleportPlatform" id="bonus.0.1.teleport" is_door_to_area="x" is_door_to_level="x" posX="15" posY="1.5" posZ="8" endPosX="29" endPosY="4" endPosZ="4" size="1" slippery="0" visible="True" dialog="" />
                   <object type="switchTemporary" id="bonus.0.2.switchTemporary" is_door_to_area="x" is_door_to_level="x" posX="8" posY="1.5" posZ="13" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="switchTemporary" id="bonus.0.1.switchTemporary" is_door_to_area="x" is_door_to_level="x" posX="14" posY="1.5" posZ="13" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="teleportPlatform" id="bonus.0.5.teleport" is_door_to_area="x" is_door_to_level="5.korridor" posX="11" posY="1.5" posZ="20" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="special" />
+                  <object type="teleportPlatform" id="bonus.0.5.teleport" is_door_to_area="x" is_door_to_level="5.korridor" posX="11" posY="1.5" posZ="20" endPosX="0.5" endPosY="2" endPosZ="0.5" size="1" slippery="0" visible="True" dialog="" />
                   <object type="chocoChip" id="bonus.0.7.choco" is_door_to_area="x" is_door_to_level="x" posX="12" posY="1.5" posZ="19" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="chocoChip" id="bonus.0.6.choco" is_door_to_area="x" is_door_to_level="x" posX="11" posY="1.5" posZ="18" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="chocoChip" id="bonus.0.5.choco" is_door_to_area="x" is_door_to_level="x" posX="10" posY="1.5" posZ="19" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
@@ -3404,6 +3405,7 @@
                   <object type="obstacleForSwitch" id="bonus.1.1.obstacleForSwitch" is_door_to_area="x" is_door_to_level="x" posX="15" posY="0" posZ="11.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="obstacleForSwitch" id="bonus.1.2.obstacleForSwitch" is_door_to_area="x" is_door_to_level="x" posX="14" posY="0" posZ="9.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="False" dialog="" />
                   <object type="teleportPlatform" id="bonus.1.10.teleport" is_door_to_area="x" is_door_to_level="x" posX="6" posY="0" posZ="2.5" endPosX="7" endPosY="3" endPosZ="22" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="teleportPlatform" id="bonus.1.12.teleport" is_door_to_area="x" is_door_to_level="5.korridor" posX="13" posY="0" posZ="1.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="special" />
                   <object type="breakingPlatform" id="bonus.1.1.breaking" is_door_to_area="x" is_door_to_level="x" posX="17" posY="0.5" posZ="10" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="obstacleForSwitch" id="bonus.1.3.obstacleForSwitch" is_door_to_area="x" is_door_to_level="x" posX="15.5" posY="1" posZ="22" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="False" dialog="" />
                   <object type="switchPermanent" id="bonus.1.0.switchPermanent" is_door_to_area="x" is_door_to_level="x" posX="25.5" posY="1.5" posZ="9" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
@@ -3419,7 +3421,7 @@
                   <object type="chocoChip" id="bonus.1.7.choco" is_door_to_area="x" is_door_to_level="x" posX="23.5" posY="2" posZ="20.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="chocoChip" id="bonus.1.5.choco" is_door_to_area="x" is_door_to_level="x" posX="25.5" posY="2" posZ="20.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="chocoChip" id="bonus.1.6.choco" is_door_to_area="x" is_door_to_level="x" posX="24.5" posY="2" posZ="21.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="teleportPlatform" id="bonus.1.7.teleport" is_door_to_area="x" is_door_to_level="5.korridor" posX="24.5" posY="2" posZ="22.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="special" />
+                  <object type="teleportPlatform" id="bonus.1.7.teleport" is_door_to_area="x" is_door_to_level="x" posX="24.5" posY="2" posZ="22.5" endPosX="11" endPosY="2" endPosZ="1.5" size="1" slippery="0" visible="True" dialog="" />
                   <object type="chocoChip" id="bonus.1.1.choco" is_door_to_area="x" is_door_to_level="x" posX="14.5" posY="2.5" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="False" dialog="" />
                 </dynamics>
               </dynamic_objects>

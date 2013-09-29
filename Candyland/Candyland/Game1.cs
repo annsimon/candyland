@@ -95,7 +95,7 @@ namespace Candyland
         /// </summary>
         protected override void Initialize()
         {
-           // IsMouseVisible = true;
+            IsMouseVisible = false;
 
             mute = false;
             // Set start screen

@@ -24,6 +24,11 @@ namespace Candyland
         public const float slippingSpeed = 0.03f;
 
         /// <summary>
+        /// this vector is used to avoid further intersection between objects after collision was handled
+        /// </summary>
+        public static Vector3 distanceToKeepBetweenObjects = new Vector3(0.3f, 0.3f, 0.3f);
+
+        /// <summary>
         /// time a timed switch stays activated
         /// </summary>
         public const double switchActiveTime = 4;
@@ -77,7 +82,7 @@ namespace Candyland
         /// <summary>
         /// bounding box rendering on/off
         /// </summary>
-        public const bool boundingBoxRendering = true;
+        public const bool boundingBoxRendering = false;
         public const bool singlestepperOFF = true;
         public const int framerate = 1;
 
@@ -97,11 +102,11 @@ namespace Candyland
 
         public const bool helperAvailableAtGameStart = false;
         
-        public const string sceneFile = @"Content\Scenes\theWorld.xml";
-        public const string eventFile = @"Content\Scenes\Events\Event.xml";
-        public const string actionsFile = @"Content\Scenes\Actions\Action.xml";
-        public const string startAreaID = "rutsch";
-        public const string startLevelID = "rutsch.0";
+        public const string sceneFile = @"Content\Scenes\BalanceBoardWorld.xml";
+        public const string eventFile = @"Content\Scenes\Events\BBEvent.xml";
+        public const string actionsFile = @"Content\Scenes\Actions\BBAction.xml";
+        public const string startAreaID = "1";
+        public const string startLevelID = "1.1";
         
 
 
