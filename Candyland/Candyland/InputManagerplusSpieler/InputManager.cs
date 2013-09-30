@@ -196,7 +196,7 @@ namespace Candyland
                     dmovey *= (maxSpeed / movementScale);
                 }
 
-                player.movementInput(dmovex * amplifyingWalkingSpeedFactor, dmovey * amplifyingWalkingSpeedFactor, 0, 0);
+                player.movementInput(dmovex * amplifyingWalkingSpeedFactor, dmovey * amplifyingWalkingSpeedFactor, camRotation, 0);
             }
             else
                 player.movementInput(0, 0, camRotation, 0);
