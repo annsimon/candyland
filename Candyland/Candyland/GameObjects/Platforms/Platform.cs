@@ -120,7 +120,7 @@ namespace Candyland
         {
             switch (slipperyInfo)
             {
-                case 0: this.m_texture = assets.platformTexture; break;
+                case 0: this.m_texture = assets.platformTextureMid; break;
                 case 1: this.m_texture = assets.platformTextureSlippery; break;
                 case 2: this.m_texture = assets.platformTextureVerySlippery; break;
             }
@@ -131,7 +131,7 @@ namespace Candyland
         {
             switch (slipperyInfo)
             {
-                case 0: this.m_texture = assets.platformTexture; break;
+                case 0: this.m_texture = assets.platformTextureBig; break;
                 case 1: this.m_texture = assets.platformTextureSlippery; break;
                 case 2: this.m_texture = assets.platformTextureVerySlippery; break;
             }
