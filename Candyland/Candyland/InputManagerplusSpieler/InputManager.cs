@@ -170,9 +170,36 @@ namespace Candyland
 
 
             //move the player
-            
-            player.movementInput(dmovex, dmovey, boardstate.X, 0);
-            
+            float amplifyingWalkingSpeedFactor = 5;
+            float camSlow = 0.25f;
+            float camFast = 0.7f;
+            float maxSpeed = 1;
+            float movementScale = Math.Abs(dmovex) + Math.Abs(dmovey);
+            float camRotation = 0;
+
+            // no camera rotation in a small area, then slow and then fast rotation
+            if (Math.Abs(boardstate.X) >= 0.04f)
+            {
+                if(Math.Abs(boardstate.X) >= 0.1f)
+                    camRotation = - boardstate.X * camFast;
+                else
+                    camRotation = - boardstate.X * camSlow;
+            }
+
+            // only move, when input is strong enough, then accelerate up to a maximum speed
+            if (Math.Abs(boardstate.Y) >= 0.05f)
+            {
+                if (movementScale > maxSpeed)
+                {
+                    // put down to max speed
+                    dmovex *= (maxSpeed / movementScale);
+                    dmovey *= (maxSpeed / movementScale);
+                }
+
+                player.movementInput(dmovex * amplifyingWalkingSpeedFactor, dmovey * amplifyingWalkingSpeedFactor, 0, 0);
+            }
+            else
+                player.movementInput(0, 0, camRotation, 0);
 
         }
 
