@@ -29,7 +29,6 @@ namespace Candyland
 
         public Texture2D titleImage { get; set; }
 
-        public Texture2D optionsScreen { get; set; }
         public Texture2D loadingTexture { get; set; }
 
         public Texture2D captionMain { get; set; }
@@ -101,7 +100,6 @@ namespace Candyland
 
             titleImage = content.Load<Texture2D>("ScreenTextures/Main");
 
-            optionsScreen = content.Load<Texture2D>("ScreenTextures/optionsScreen");
             loadingTexture = content.Load<Texture2D>("ScreenTextures/loading");
 
             captionMain = content.Load<Texture2D>("Images/Captions/MainMenu");
