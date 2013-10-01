@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="100" height="530" tilewidth="10" tileheight="10">
+<map version="1.0" orientation="orthogonal" width="100" height="530" tilewidth="10" tileheight="10" backgroundcolor="#ffffff">
  <objectgroup name="BaseLayer" width="100" height="530">
   <properties>
    <property name="Z" value="0"/>
@@ -1059,7 +1059,7 @@
     <property name="isVisible" value="true"/>
    </properties>
   </object>
-  <object name="-" type="platform" x="100" y="1500" width="20" height="20">
+  <object name="-" type="platform" x="140" y="1540" width="20" height="20">
    <properties>
     <property name="endPositionY" value="-"/>
     <property name="endPositionZ" value="-"/>
@@ -1213,7 +1213,7 @@
     <property name="isVisible" value="true"/>
    </properties>
   </object>
-  <object name="-" type="platform" x="100" y="1540" width="20" height="20">
+  <object name="-" type="platform" x="100" y="1580" width="20" height="20">
    <properties>
     <property name="endPositionY" value="-"/>
     <property name="endPositionZ" value="-"/>
@@ -1378,7 +1378,7 @@
     <property name="isVisible" value="true"/>
    </properties>
   </object>
-  <object name="-" type="platform" x="160" y="1740" width="20" height="20">
+  <object name="-" type="platform" x="140" y="1720" width="20" height="20">
    <properties>
     <property name="endPositionY" value="-"/>
     <property name="endPositionZ" value="-"/>
@@ -3864,7 +3864,7 @@
     <property name="isVisible" value="true"/>
    </properties>
   </object>
-  <object name="-" type="platform" x="160" y="3490" width="20" height="20">
+  <object name="-" type="platform" x="160" y="3480" width="20" height="20">
    <properties>
     <property name="endPositionY" value="-"/>
     <property name="endPositionZ" value="-"/>
@@ -3875,7 +3875,7 @@
     <property name="isVisible" value="true"/>
    </properties>
   </object>
-  <object name="-" type="platform" x="160" y="3510" width="20" height="20">
+  <object name="-" type="platform" x="160" y="3500" width="20" height="20">
    <properties>
     <property name="endPositionY" value="-"/>
     <property name="endPositionZ" value="-"/>
@@ -5903,19 +5903,6 @@
     <property name="size" value="1"/>
    </properties>
   </object>
-  <object name="1.bossActor" type="actionActor" x="120" y="380" width="20" height="20">
-   <properties>
-    <property name="dialog" value=""/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
-    <property name="isSlippery" value="-"/>
-    <property name="isVisible" value="true"/>
-    <property name="size" value="1"/>
-   </properties>
-  </object>
   <object name="10.dyn" type="platform" x="120" y="220" width="40" height="40">
    <properties>
     <property name="dialog" value=""/>
@@ -6063,72 +6050,7 @@
     <property name="isVisible" value="true"/>
    </properties>
   </object>
-  <object name="-" type="lowObstacle" x="260" y="4700" width="20" height="20">
-   <properties>
-    <property name="dialog" value=""/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
-    <property name="isSlippery" value="-"/>
-    <property name="isVisible" value="true"/>
-    <property name="size" value="0"/>
-   </properties>
-  </object>
-  <object name="-" type="lowObstacle" x="260" y="4740" width="20" height="20">
-   <properties>
-    <property name="dialog" value=""/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
-    <property name="isSlippery" value="-"/>
-    <property name="isVisible" value="true"/>
-    <property name="size" value="0"/>
-   </properties>
-  </object>
-  <object name="-" type="lowObstacle" x="260" y="4940" width="20" height="20">
-   <properties>
-    <property name="dialog" value=""/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
-    <property name="isSlippery" value="-"/>
-    <property name="isVisible" value="true"/>
-    <property name="size" value="0"/>
-   </properties>
-  </object>
   <object name="-" type="lowObstacle" x="180" y="2940" width="20" height="20">
-   <properties>
-    <property name="dialog" value=""/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
-    <property name="isSlippery" value="-"/>
-    <property name="isVisible" value="true"/>
-    <property name="size" value="0"/>
-   </properties>
-  </object>
-  <object name="-" type="lowObstacle" x="200" y="2500" width="20" height="20">
-   <properties>
-    <property name="dialog" value=""/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
-    <property name="isSlippery" value="-"/>
-    <property name="isVisible" value="true"/>
-    <property name="size" value="0"/>
-   </properties>
-  </object>
-  <object name="-" type="lowObstacle" x="240" y="4340" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
     <property name="endPositionY" value="-"/>
@@ -6154,71 +6076,6 @@
     <property name="size" value="0"/>
    </properties>
   </object>
-  <object name="-" type="lowObstacle" x="260" y="4380" width="20" height="20">
-   <properties>
-    <property name="dialog" value=""/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
-    <property name="isSlippery" value="-"/>
-    <property name="isVisible" value="true"/>
-    <property name="size" value="0"/>
-   </properties>
-  </object>
-  <object name="-" type="lowObstacle" x="200" y="3680" width="20" height="20">
-   <properties>
-    <property name="dialog" value=""/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
-    <property name="isSlippery" value="-"/>
-    <property name="isVisible" value="true"/>
-    <property name="size" value="0"/>
-   </properties>
-  </object>
-  <object name="-" type="lowObstacle" x="200" y="3800" width="20" height="20">
-   <properties>
-    <property name="dialog" value=""/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
-    <property name="isSlippery" value="-"/>
-    <property name="isVisible" value="true"/>
-    <property name="size" value="0"/>
-   </properties>
-  </object>
-  <object name="-" type="lowObstacle" x="220" y="3800" width="20" height="20">
-   <properties>
-    <property name="dialog" value=""/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
-    <property name="isSlippery" value="-"/>
-    <property name="isVisible" value="true"/>
-    <property name="size" value="0"/>
-   </properties>
-  </object>
-  <object name="-" type="lowObstacle" x="220" y="3840" width="20" height="20">
-   <properties>
-    <property name="dialog" value=""/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
-    <property name="isSlippery" value="-"/>
-    <property name="isVisible" value="true"/>
-    <property name="size" value="0"/>
-   </properties>
-  </object>
   <object name="-" type="lowObstacle" x="120" y="2120" width="20" height="20">
    <properties>
     <property name="dialog" value=""/>
@@ -6232,9 +6089,6 @@
     <property name="size" value="0"/>
    </properties>
   </object>
- </objectgroup>
- <objectgroup name="1" width="100" height="530"/>
- <objectgroup name="0,5" width="100" height="530">
   <object name="-" type="platform" x="140" y="80" width="20" height="20">
    <properties>
     <property name="endPositionY" value="-"/>
@@ -6246,5 +6100,205 @@
     <property name="isVisible" value="true"/>
    </properties>
   </object>
+  <object name="-" type="platform" x="100" y="1440" width="20" height="20">
+   <properties>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="false"/>
+    <property name="isVisible" value="true"/>
+   </properties>
+  </object>
+  <object name="-" type="platform" x="140" y="1860" width="20" height="20">
+   <properties>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="false"/>
+    <property name="isVisible" value="true"/>
+   </properties>
+  </object>
+  <object name="-" type="platform" x="160" y="1940" width="20" height="20">
+   <properties>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="false"/>
+    <property name="isVisible" value="true"/>
+   </properties>
+  </object>
+  <object name="-" type="platform" x="180" y="2720" width="20" height="20">
+   <properties>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="false"/>
+    <property name="isVisible" value="true"/>
+   </properties>
+  </object>
+  <object name="-" type="platform" x="160" y="3020" width="20" height="20">
+   <properties>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="false"/>
+    <property name="isVisible" value="true"/>
+   </properties>
+  </object>
+  <object name="-" type="platform" x="200" y="3200" width="20" height="20">
+   <properties>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="false"/>
+    <property name="isVisible" value="true"/>
+   </properties>
+  </object>
+  <object name="-" type="platform" x="180" y="3080" width="20" height="20">
+   <properties>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="false"/>
+    <property name="isVisible" value="true"/>
+   </properties>
+  </object>
+  <object name="-" type="platform" x="180" y="3420" width="20" height="20">
+   <properties>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="false"/>
+    <property name="isVisible" value="true"/>
+   </properties>
+  </object>
+  <object name="-" type="platform" x="160" y="3520" width="20" height="20">
+   <properties>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="false"/>
+    <property name="isVisible" value="true"/>
+   </properties>
+  </object>
+  <object name="-" type="platform" x="180" y="3560" width="20" height="20">
+   <properties>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="false"/>
+    <property name="isVisible" value="true"/>
+   </properties>
+  </object>
+  <object name="-" type="platform" x="200" y="3740" width="20" height="20">
+   <properties>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="false"/>
+    <property name="isVisible" value="true"/>
+   </properties>
+  </object>
+  <object name="-" type="platform" x="240" y="3900" width="20" height="20">
+   <properties>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="false"/>
+    <property name="isVisible" value="true"/>
+   </properties>
+  </object>
+  <object name="-" type="platform" x="240" y="3940" width="20" height="20">
+   <properties>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="false"/>
+    <property name="isVisible" value="true"/>
+   </properties>
+  </object>
+  <object name="-" type="platform" x="260" y="3900" width="20" height="20">
+   <properties>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="false"/>
+    <property name="isVisible" value="true"/>
+   </properties>
+  </object>
+  <object name="-" type="platform" x="260" y="3940" width="20" height="20">
+   <properties>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="false"/>
+    <property name="isVisible" value="true"/>
+   </properties>
+  </object>
+  <object name="-" type="platform" x="260" y="4280" width="20" height="20">
+   <properties>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="false"/>
+    <property name="isVisible" value="true"/>
+   </properties>
+  </object>
+  <object name="-" type="platform" x="240" y="4380" width="20" height="20">
+   <properties>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="false"/>
+    <property name="isVisible" value="true"/>
+   </properties>
+  </object>
+  <object name="-" type="platform" x="260" y="4440" width="20" height="20">
+   <properties>
+    <property name="endPositionY" value="-"/>
+    <property name="endPositionZ" value="-"/>
+    <property name="endpositionX" value="-"/>
+    <property name="isDoorToArea" value="-"/>
+    <property name="isDoorToLevel" value="-"/>
+    <property name="isSlippery" value="false"/>
+    <property name="isVisible" value="true"/>
+   </properties>
+  </object>
  </objectgroup>
+ <objectgroup name="1" width="100" height="530"/>
+ <objectgroup name="0,5" width="100" height="530"/>
 </map>
