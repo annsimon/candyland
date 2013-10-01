@@ -17,7 +17,7 @@ namespace SceneEditor
         List<Area> m_areas;
         AreaGenerator m_areaGenerator;
 
-        string currentFile = "BalanceBoardWorld.xml";
+        string currentFile = "theWorld.xml";
 
         public SceneGenerator()
         {
