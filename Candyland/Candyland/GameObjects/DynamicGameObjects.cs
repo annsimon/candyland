@@ -81,7 +81,6 @@ namespace Candyland
             // may not be called for itself!!!
             if (obj.GetType() == typeof(Platform)) collideWithPlatform(obj);
             if (obj.GetType() == typeof(Obstacle)) collideWithObstacle(obj);
-            if (obj.GetType() == typeof(ObstacleBreakable)) collideWithBreakable(obj);
             if (obj.GetType() == typeof(ObstacleMoveable)) collideWithMovable(obj);
             if (obj.GetType() == typeof(ObstacleForSwitch)) collideWithObstacleForSwitch(obj);
             if (obj.GetType() == typeof(PlatformSwitchPermanent)) collideWithSwitchPermanent(obj);
@@ -91,16 +90,6 @@ namespace Candyland
             if (obj.GetType() == typeof(PlatformTeleporter)) collideWithTeleporter(obj);
             if (obj.GetType() == typeof(MovingPlatform)) collideWithMovingPlatform(obj);
             if (obj.GetType() == typeof(BreakingPlatform)) collideWithBreakingPlatform(obj);
-            if (obj.GetType() == typeof(Salesman)) collideWithSalesman(obj);
-        }
-
-        protected virtual void collideWithSalesman(GameObject obj)
-        {
-            if (obj.isVisible && !obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
-            {
-                preventIntersection(obj);
-                obj.hasCollidedWith(this);
-            }
         }
 
         protected virtual void collideWithBreakingPlatform(GameObject obj)
@@ -170,13 +159,6 @@ namespace Candyland
             {
                 preventIntersection(obj);
                 obj.hasCollidedWith(this);
-            }
-        }
-        protected virtual void collideWithBreakable(GameObject obj)
-        {
-            if (obj.isVisible && !obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
-            {
-                preventIntersection(obj);
             }
         }
         protected virtual void collideWithMovable(GameObject obj)

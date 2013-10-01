@@ -100,7 +100,7 @@ namespace Candyland
             float pitch = 0.0f;
             float pan = 0.0f;
             if (isVisible && !isCollected && 
-                (obj.GetType() == typeof(CandyGuy) || obj.GetType() == typeof(CandyHelper)))
+                (obj.GetType() == typeof(CandyGuy)))
             {
                 isCollected = true;
                 isVisible = false;

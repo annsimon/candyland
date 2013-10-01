@@ -47,7 +47,7 @@ namespace Candyland
 
             if (args.FilteredDataPresent){
                 currentFilteredVal = args.FilteredData;
-                Console.WriteLine(args.FilteredData.ToString());
+               // Console.WriteLine(args.FilteredData.ToString());
         }
             else
                 currentFilteredVal = PointF.Empty;

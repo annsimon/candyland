@@ -182,30 +182,10 @@ namespace Candyland
                             this.m_updateInfo.currentguyAreaID = idParts[0];
                             this.m_updateInfo.currentguyLevelID = idParts[0] + "." + idParts[1];
 
-                            // set as active teleport point, if not already done
-                            if (m_updateInfo.allTeleports.Contains(idParts[0] + "." + idParts[1])
-                                && !m_updateInfo.activeTeleports.Contains(idParts[0] + "." + idParts[1]))
-                                m_updateInfo.activeTeleports.Add(idParts[0] + "." + idParts[1]);
-
                             // automatically save the game, when entering a new level
                             m_updateInfo.m_screenManager.SceneManager.SaveGame();
                         }
                         this.m_updateInfo.nextguyLevelID = doorToLevelID;
-                    }
-                    else if (obj is CandyHelper && !m_updateInfo.helperHasTouchedDoorInThisUpdate)
-                    {
-                        // update door touched by helper
-                        m_updateInfo.helperHasTouchedDoorInThisUpdate = true;
-
-                        if (this.m_updateInfo.currenthelperLevelID != (idParts[0] + "." + idParts[1]))
-                        {
-                            this.m_updateInfo.currenthelperAreaID = idParts[0];
-                            this.m_updateInfo.currenthelperLevelID = idParts[0] + "." + idParts[1];
-
-                            // automatically save the game, when entering a new level
-                            m_updateInfo.m_screenManager.SceneManager.SaveGame();
-                        }
-                        this.m_updateInfo.nexthelperLevelID = doorToLevelID;
                     }
                 }
 

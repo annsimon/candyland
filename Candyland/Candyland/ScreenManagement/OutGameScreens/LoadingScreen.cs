@@ -14,7 +14,6 @@ namespace Candyland
     /// </summary>
     class LoadingScreen : GameScreen
     {
-        Texture2D background;
         int screenWidth;
         int screenHeight;
 
@@ -63,8 +62,6 @@ namespace Candyland
 
             screenWidth = ScreenManager.Game.GraphicsDevice.Viewport.Width;
             screenHeight = ScreenManager.Game.GraphicsDevice.Viewport.Height;
-
-            background = assets.optionsScreen;
 
             loading = new AnimatingSprite();
             loading.Texture = assets.loadingTexture;

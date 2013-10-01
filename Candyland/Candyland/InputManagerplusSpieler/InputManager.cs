@@ -53,7 +53,8 @@ namespace Candyland
                 }
             }
 
-        public void update(Playable candy, Playable helper) {
+        public void update(Playable candy)
+        {
 
             KeyboardState keystate = Keyboard.GetState();
             GamePadState padstate = GamePad.GetState(PlayerIndex.One);
@@ -69,12 +70,8 @@ namespace Candyland
                 /* Menu, Dialogues, nonmovementstuff*/
             }
 
-            if(updateinfo.candyselected && ! updateinfo.locked )
+            if(! updateinfo.locked )
                 movePlayable(candy, padstate, mousestate, keystate);
-            else if(! updateinfo.candyselected && ! updateinfo.locked)
-                movePlayable(helper, padstate, mousestate, keystate);
-
-
         }
         
         /// <summary>
@@ -129,9 +126,6 @@ namespace Candyland
                 && oldKeyboardState != keystate) updateinfo.currentpushedKeys.Add(Keys.LeftAlt);
             if (keystate.IsKeyDown(Keys.Q)
                 && oldKeyboardState != keystate) updateinfo.currentpushedKeys.Add(Keys.Q);
-            if (keystate.IsKeyDown(Keys.C)
-                && oldKeyboardState != keystate
-                &&player.isInThirdP()) updateinfo.switchPlayer();
 
             if (keystate.IsKeyDown(Keys.R)
                  &&  !oldKeyboardState.IsKeyDown(Keys.R)) updateinfo.reset = true;
@@ -164,17 +158,12 @@ namespace Candyland
             //Get the direction of the players camera
             float alpha = player.getCameraDir();
 
-            //rotate the movementvector to kamerakoordinates
-            float dmovex =  -(float)Math.Sin(alpha) * boardstate.Y;
-            float dmovey =  (float)Math.Cos(alpha) * boardstate.Y;
-
 
             //move the player
             float amplifyingWalkingSpeedFactor = 5;
             float camSlow = 0.25f;
             float camFast = 0.7f;
             float maxSpeed = 1;
-            float movementScale = Math.Abs(dmovex) + Math.Abs(dmovey);
             float camRotation = 0;
 
             // no camera rotation in a small area, then slow and then fast rotation
@@ -185,6 +174,52 @@ namespace Candyland
                 else
                     camRotation = - boardstate.X * camSlow;
             }
+
+            bbPlayerMovementWithoutCamera(player, boardstate, alpha, amplifyingWalkingSpeedFactor, maxSpeed, camRotation);
+
+            // bbPlayerMovementInCamDirection(player, boardstate, alpha, amplifyingWalkingSpeedFactor, maxSpeed, camRotation);
+
+        }
+
+        private static void bbPlayerMovementWithoutCamera(Playable player, BalanceBoardState boardstate, float alpha, float amplifyingWalkingSpeedFactor, float maxSpeed, float camRotation)
+        {
+            //rotate the movementvector to kamerakoordinates
+            float dmovex = (float)Math.Cos(alpha) * boardstate.X
+                - (float)Math.Sin(alpha) * boardstate.Y;
+            float dmovey = (float)Math.Sin(alpha) * boardstate.X
+                + (float)Math.Cos(alpha) * boardstate.Y;
+            Console.WriteLine("board.X" + boardstate.X);
+            Console.WriteLine("board.Y" + boardstate.Y);
+            Console.WriteLine("dmovex" + dmovex);
+            Console.WriteLine("dmovey" + dmovey);
+            Console.WriteLine("");
+
+            float movementScale = Math.Abs(dmovex) + Math.Abs(dmovey);
+
+            // only move, when input is strong enough, then accelerate up to a maximum speed
+            if (Math.Abs(boardstate.Y) >= 0.05f)
+            {
+                if (movementScale > maxSpeed)
+                {
+                    // put down to max speed
+                    dmovex *= (maxSpeed / movementScale);
+                    dmovey *= (maxSpeed / movementScale);
+                }
+
+
+                player.movementInput(dmovex * amplifyingWalkingSpeedFactor, dmovey * amplifyingWalkingSpeedFactor, camRotation, 0);
+            }
+            else
+                player.movementInput(0, 0, camRotation, 0);
+        }
+
+        private static void bbPlayerMovementInCamDirection(Playable player, BalanceBoardState boardstate, float alpha, float amplifyingWalkingSpeedFactor, float maxSpeed, float camRotation)
+        {
+            //rotate the movementvector to kamerakoordinates
+            float dmovex = -(float)Math.Sin(alpha) * boardstate.Y;
+            float dmovey = (float)Math.Cos(alpha) * boardstate.Y;
+
+            float movementScale = Math.Abs(dmovex) + Math.Abs(dmovey);
 
             // only move, when input is strong enough, then accelerate up to a maximum speed
             if (Math.Abs(boardstate.Y) >= 0.05f)
@@ -200,7 +235,6 @@ namespace Candyland
             }
             else
                 player.movementInput(0, 0, camRotation, 0);
-
         }
 
         private void gamePadMovement(Playable player, GamePadState padstate)
@@ -218,8 +252,6 @@ namespace Candyland
                 && oldGamepadstate != padstate) updateinfo.currentpushedKeys.Add(Keys.LeftAlt);
             if (padstate.IsButtonDown(Buttons.X)
                 && oldGamepadstate != padstate) updateinfo.currentpushedKeys.Add(Keys.Q);
-            if (padstate.Triggers.Left > 0.7f
-                && oldGamepadstate.Triggers.Left < 0.5f && player.isInThirdP()) updateinfo.switchPlayer();
 
             if (padstate.IsButtonDown(Buttons.LeftShoulder) && padstate.IsButtonDown(Buttons.RightShoulder)) player.Reset();
 

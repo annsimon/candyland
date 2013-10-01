@@ -16,15 +16,12 @@ namespace Candyland
 {
     class CandyGuy : Playable
     {
-        CandyHelper m_CandyHelper;
-        public CandyHelper getCandyHelper() { return m_CandyHelper; }
         private bool wasOnSlippery;
 
-        public CandyGuy(Vector3 position, Vector3 direction, float aspectRatio, UpdateInfo info, BonusTracker bonusTracker, CandyHelper helper)
+        public CandyGuy(Vector3 position, Vector3 direction, float aspectRatio, UpdateInfo info, BonusTracker bonusTracker)
         {
             m_updateInfo = info;
             m_bonusTracker = bonusTracker;
-            m_CandyHelper = helper;
             wasOnSlippery = false;
             this.m_position = position;
             this.direction = direction;
@@ -57,7 +54,7 @@ namespace Candyland
                     || keystate.IsKeyDown(Keys.A) || keystate.IsKeyDown(Keys.D)
                     || (keystate.IsKeyDown(Keys.S) && !m_updateInfo.alwaysRun)
                     || (m_updateInfo.alwaysRun && !keystate.IsKeyDown(Keys.S)))
-                    && isthirdpersoncam && m_updateInfo.candyselected && isonground)
+                    && isthirdpersoncam && isonground)
                     {
                         animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
                     }
@@ -97,7 +94,7 @@ namespace Candyland
             }
             base.update();
             fall();
-            if (m_updateInfo.candyselected)
+
             cam.updatevMatrix();
         }
 

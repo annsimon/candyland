@@ -166,38 +166,7 @@ namespace Candyland
             // Tile Box
             MakeTileBoxes();
 
-            // Look up which Concept Art has already been bought
-            // Only possible if a game has been started before
-            if (m_bonusTracker != null)
-            {
-                paidBonusIDs = new List<string>();
-                int i = 1;
-                foreach (BonusTile bonus in m_bonusTracker.conceptArts)
-                {
-                    switch (bonus.TextureString)
-                    {
-                        case "player": bonus.Texture = assets.CAplayer; break;
-                        case "helper": bonus.Texture = assets.CAhelper; break;
-                        case "aca": bonus.Texture = assets.CAacaguy; break;
-                        case "lakritz": bonus.Texture = assets.CAlakritz; break;
-                        case "platform": bonus.Texture = assets.CAplatform; break;
-                        case "switch": bonus.Texture = assets.CAswitch; break;
-                        case "bonbon": bonus.Texture = assets.CAbonbon; break;
-                        case "salesman": bonus.Texture = assets.CAsalesman; break;
-                        case "cupcake1": bonus.Texture = assets.CAcupcake1; break;
-                        case "cupcake2": bonus.Texture = assets.CAcupcake2; break;
-                        case "cupcake3": bonus.Texture = assets.CAcupcake3; break;
-                        case "cupcake4": bonus.Texture = assets.CAcupcake4; break;
-                    }
-                    if (m_bonusTracker.soldItems.Contains(bonus.ID))
-                    {
-                        paidBonusIDs.Add(bonus.ID);
-                        activeIDs.Add(i);
-                    }
-                    i++;
-                }
-                numberOfItems = paidBonusIDs.Count;
-            }
+
             try
             {
                 activeID = activeIDs.First();
@@ -239,13 +208,6 @@ namespace Candyland
             {
                 ScreenManager.ResumeLast(this);
                 return;
-            }
-
-            if (enterPressed && activeIDs.Contains(activeID))
-            {
-
-                if (conceptArts.ElementAt(activeID-1).Texture != null)
-                    ScreenManager.ActivateNewScreen(new ShowArtScreen(conceptArts.ElementAt(activeID-1).Texture));
             }
         }
 

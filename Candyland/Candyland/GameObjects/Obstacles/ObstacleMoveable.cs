@@ -140,20 +140,6 @@ namespace Candyland
                  }
              }
 
-             protected override void collideWithBreakable(GameObject obj)
-             {
-                 if (obj.isVisible && !obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))
-                 {
-                     currentspeed = 0;
-                     preventIntersection(obj);
-                     // obstacle stands on the other object
-                     if ((this.getBoundingBox().Min.Y - obj.getBoundingBox().Max.Y) < 0.01f)
-                     {
-                         isOnSlipperyGround = false;
-                         onNonSlipperyObject = true;
-                     }
-                 }
-             }
              protected override void collideWithMovable(GameObject obj)
              {
                  if (obj.isVisible && !obj.getID().Equals(this.ID) && obj.getBoundingBox().Intersects(m_boundingBox))

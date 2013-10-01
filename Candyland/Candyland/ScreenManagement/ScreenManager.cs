@@ -173,8 +173,6 @@ namespace Candyland
                 !((screens.Last().GetType() == typeof(MainGame))
                 |(screens.Last().GetType() == typeof(TitleScreen))
                 |(screens.Last().GetType() == typeof(DialogListeningScreen))
-                |(screens.Last().GetType() == typeof(SalesmanDialogueScreen))
-                |(screens.Last().GetType() == typeof(TeleportFairyDialog))
                 |(screens.Last().GetType() == typeof(LoadingScreen))))
             {
                 float pitch = 0.0f;
@@ -362,14 +360,6 @@ namespace Candyland
                 m_sceneManager.UpdateOnce();
 
             readyToStartGame = m_sceneManager.LoadSavegame();
-        }
-
-        /// <summary>
-        /// A new game will be started by using the already loaded content and just reseting some values
-        /// </summary>
-        private void GameReset()
-        {
-            readyToStartGame = m_sceneManager.ResetDataForNewGame();
         }
 
         public void wndProc(ref System.Windows.Forms.Message mes)

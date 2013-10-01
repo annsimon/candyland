@@ -88,7 +88,7 @@ namespace Candyland
 
         public const float cameraFarPlane = 70;
 
-        public const int inputManagerMode = InputManager.GAMEPADBOARD;
+        public const int inputManagerMode = InputManager.KEYBOARDMOUSE;
 
         // data regarding the scene
         /*public const bool helperAvailableAtGameStart = true;

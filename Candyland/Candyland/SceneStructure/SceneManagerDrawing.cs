@@ -22,27 +22,18 @@ namespace Candyland
             if (GameConstants.boundingBoxRendering)
                 BoundingBoxRenderer.Render(player.getBoundingBox(), m_graphics, m_updateInfo.viewMatrix, m_updateInfo.projectionMatrix, Color.White);
 
-            if (m_updateInfo.helperavailable)
-            {
-                DrawModel(player2.GetModelGroup(), player2.prepareForDrawing(), false);
-                if (GameConstants.boundingBoxRendering)
-                    BoundingBoxRenderer.Render(player2.getBoundingBox(), m_graphics, m_updateInfo.viewMatrix, m_updateInfo.projectionMatrix, Color.White);
-            }
             // draw the area the player currently is in and the two
             // adjacent ones
             string currentArea;
 
-            if (m_updateInfo.candyselected)
-                currentArea = m_updateInfo.currentguyLevelID.Split('.')[0];
-            else
-                currentArea = m_updateInfo.currenthelperLevelID.Split('.')[0];
+            currentArea = m_updateInfo.currentguyLevelID.Split('.')[0];
 
+// ANNE fragen
             Area currArea = m_areas[currentArea];
             List<GameObject> currentObjects = currArea.GetObjects();
             foreach (GameObject obj in currentObjects)
             {
-                if (!(m_updateInfo.playerWon && (obj is ActionActor && obj.getID().Contains("boss"))))
-                    DrawModel(obj.GetModelGroup(), obj.prepareForDrawing(), obj.GetInteractable());
+                DrawModel(obj.GetModelGroup(), obj.prepareForDrawing(), obj.GetInteractable());
                 obj.ResetInteractable();
                 if (GameConstants.boundingBoxRendering)
                     BoundingBoxRenderer.Render(obj.getBoundingBox(), m_graphics, m_updateInfo.viewMatrix, m_updateInfo.projectionMatrix, Color.White);
@@ -52,8 +43,7 @@ namespace Candyland
                 currentObjects = m_areas[currArea.previousID].GetObjects();
                 foreach (GameObject obj in currentObjects)
                 {
-                    if (!(m_updateInfo.playerWon && (obj is ActionActor && obj.getID().Contains("boss"))))
-                        DrawModel(obj.GetModelGroup(), obj.prepareForDrawing(), obj.GetInteractable());
+                    DrawModel(obj.GetModelGroup(), obj.prepareForDrawing(), obj.GetInteractable());
                     obj.ResetInteractable();
                 }
             }
@@ -62,8 +52,7 @@ namespace Candyland
                 currentObjects = m_areas[currArea.nextID].GetObjects();
                 foreach (GameObject obj in currentObjects)
                 {
-                    if (!(m_updateInfo.playerWon && (obj is ActionActor && obj.getID().Contains("boss"))))
-                        DrawModel(obj.GetModelGroup(), obj.prepareForDrawing(), obj.GetInteractable());
+                    DrawModel(obj.GetModelGroup(), obj.prepareForDrawing(), obj.GetInteractable());
                     obj.ResetInteractable();
                 }
             }
@@ -108,7 +97,7 @@ namespace Candyland
             billboardEffect.Parameters["fogColor"].SetValue(GameConstants.backgroundColor.ToVector4());
             billboardEffect.Parameters["fogStart"].SetValue(30f);
             billboardEffect.Parameters["fogDensity"].SetValue(0.7f);
-            if (!player.getIsThirdPersonCam() || !player2.getIsThirdPersonCam())
+            if (!player.getIsThirdPersonCam())
             {
                 billboardEffect.Parameters["fogMapMode"].SetValue(true);
                 billboardEffect.Parameters["colorMap"].SetValue(bb.getTextureForMap());
@@ -181,10 +170,8 @@ namespace Candyland
                     e.Parameters["world"].SetValue(world * m.ParentBone.Transform);
                     e.Parameters["interactable"].SetValue(interactable);
 
-                    if (m_updateInfo.candyselected)
-                        e.Parameters["cameraPos"].SetValue(player.getCameraPos());
-                    else
-                        e.Parameters["cameraPos"].SetValue(player2.getCameraPos());
+                    e.Parameters["cameraPos"].SetValue(player.getCameraPos());
+
                     e.Parameters["view"].SetValue(m_updateInfo.viewMatrix);
                     e.Parameters["projection"].SetValue(m_updateInfo.projectionMatrix);
 
@@ -207,7 +194,7 @@ namespace Candyland
                     e.Parameters["fogColor"].SetValue(GameConstants.backgroundColor.ToVector4());
                     e.Parameters["fogStart"].SetValue(30f);
                     e.Parameters["fogDensity"].SetValue(0.7f);
-                    if (!player.getIsThirdPersonCam() || !player2.getIsThirdPersonCam())
+                    if (!player.getIsThirdPersonCam())
                         e.Parameters["fogMapMode"].SetValue(true);
                     else
                         e.Parameters["fogMapMode"].SetValue(false);
@@ -223,7 +210,7 @@ namespace Candyland
 
             m_spriteBatch.Begin();
 
-            if(!player.getIsThirdPersonCam() || !player2.getIsThirdPersonCam() )
+            if(!player.getIsThirdPersonCam())
             {
                 int offset = 5;
                 int broadSide = 60;
@@ -243,33 +230,10 @@ namespace Candyland
                 if (m_updateInfo.alwaysRun)
                 {
                     int index = 0;
-                    if (distanceToBoss > 14)
-                        index = 3;
-                    else if (distanceToBoss > 12)
-                        index = 2;
-                    else if (distanceToBoss > 10)
-                        index = 1;
                     m_spriteBatch.Draw(distanceDisplay[index], new Rectangle(screenWidth/2-47, screenHeight-70,94, 50), Color.White);
                 }
 
-                //change variables!!
-                if (m_updateInfo.finaledistance)
-                {
-                    int index = 3;
-                    if (distanceToBoss > 8)
-                        index = 0;
-                    else if (distanceToBoss > 6)
-                        index = 1;
-                    else if (distanceToBoss > 4)
-                        index = 2;
-                    m_spriteBatch.Draw(distanceDisplay[index], new Rectangle(screenWidth / 2 - 47, screenHeight - 70, 94, 50), Color.White);
-                }
-
-
-                if (m_updateInfo.helperavailable)
-                    m_spriteBatch.Draw(keysFull, new Rectangle(screenWidth - 252, screenHeight - 70, 242, 60), Color.White);
-                else
-                    m_spriteBatch.Draw(keys, new Rectangle(screenWidth - 187, screenHeight - 70, 177, 60), Color.White);
+                m_spriteBatch.Draw(keys, new Rectangle(screenWidth - 187, screenHeight - 70, 177, 60), Color.White);
             }
             m_spriteBatch.End();
 
@@ -312,10 +276,7 @@ namespace Candyland
                 foreach (Effect currentEffect in mesh.Effects)
                 {
                     Matrix worldMatrix;
-                    if( m_updateInfo.candyselected )
-                        worldMatrix = skyboxTransforms[mesh.ParentBone.Index] * Matrix.CreateTranslation(player.getPosition());
-                    else
-                        worldMatrix = skyboxTransforms[mesh.ParentBone.Index] * Matrix.CreateTranslation(player2.getPosition());
+                    worldMatrix = skyboxTransforms[mesh.ParentBone.Index] * Matrix.CreateTranslation(player.getPosition());
 
                     currentEffect.CurrentTechnique = currentEffect.Techniques["Textured"];
                     currentEffect.Parameters["xWorld"].SetValue(worldMatrix);

@@ -64,8 +64,6 @@ namespace Candyland
             // Reset if Player has fallen down
             if (m_position.Y < GameConstants.endOfWorld_Y) {
                 m_updateInfo.reset = true;
-                if (this is CandyGuy) m_updateInfo.candyselected = true;
-                else m_updateInfo.candyselected = false;
             }
                 
         }
@@ -192,21 +190,6 @@ namespace Candyland
             collideWithPlatform(obj);
         }
 
-        protected override void collideWithBreakable(GameObject obj)
-        {
-            if (obj.getBoundingBox().Intersects(m_boundingBox))
-            {
-                currentspeed = 0;
-                // player stands on the object
-                if ((this.getBoundingBox().Min.Y - obj.getBoundingBox().Max.Y) < 0.01f)
-                {
-                    isOnSlipperyGround = false;
-                    onNonSlipperyObject = true;
-                }
-                base.collideWithBreakable(obj);
-            }
-        }
-
         protected override void collideWithObstacle(GameObject obj)
         {
             if (obj.getBoundingBox().Intersects(m_boundingBox))
@@ -218,7 +201,7 @@ namespace Candyland
                     isOnSlipperyGround = false;
                     onNonSlipperyObject = true;
                 }
-                base.collideWithBreakable(obj);
+                base.collideWithObstacle(obj);
             }
         }
 
@@ -248,7 +231,7 @@ namespace Candyland
                     isOnSlipperyGround = false;
                     onNonSlipperyObject = true;
                 }
-                base.collideWithBreakable(obj);
+                base.collideWithObstacle(obj);
             }
         }
         #endregion

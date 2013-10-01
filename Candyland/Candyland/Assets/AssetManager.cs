@@ -55,7 +55,6 @@ namespace Candyland
             menuButtonSound = content.Load<SoundEffect>("Sfx/MenuButton8bit");
             menuButtonError = content.Load<SoundEffect>("Sfx/MenuError8bit");
             chocoSound = content.Load<SoundEffect>("Sfx/coin");
-            obstacleBreakSound = content.Load<SoundEffect>("Sfx/CrackingBlock8bit");
             switchActivateSound = content.Load<SoundEffect>("Sfx/SwitchActivate8bit");
             switchDeactivateSound = content.Load<SoundEffect>("Sfx/SwitchDeactivate8bit");
             switchTickingSound = content.Load<SoundEffect>("Sfx/Ticking8bit");
@@ -64,7 +63,6 @@ namespace Candyland
             fanfareSound = content.Load<SoundEffect>("Sfx/Fanfare8bit");
 
             song1 = content.Load<Song>("Music/bgmusic");
-            song2 = content.Load<Song>("Music/bossmusic");
 
             mainTextFullscreen = content.Load<SpriteFont>("Fonts/MainTextFullscreen");
             mainText = content.Load<SpriteFont>("Fonts/MainText");

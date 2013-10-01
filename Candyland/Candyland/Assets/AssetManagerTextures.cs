@@ -19,18 +19,12 @@ namespace Candyland
         public Texture2D chocoBillboard { get; set; }
         public Texture2D chocoBillboardForMap { get; set; }
 
-        public Texture2D buddyTexture { get; set; }
-        public Texture2D actionBuddyTexture { get; set; }
         public Texture2D heroTexture { get; set; }
-        public Texture2D bossTexture { get; set; }
         public Texture2D tutorialGuyTexture { get; set; }
 
         public Texture2D fairyBlueTexture { get; set; }
-        public Texture2D fairyRedTexture { get; set; }
-        public Texture2D salesmanTexture { get; set; }
 
         public Texture2D obstacleTexture { get; set; }
-        public Texture2D obstacleBreakTexture { get; set; }
         public Texture2D obstacleMoveTexture { get; set; }
 
         public Texture2D chocoTexture { get; set; }
@@ -59,18 +53,12 @@ namespace Candyland
             chocoBillboard = content.Load<Texture2D>("Images/Billboards/Choco1");
             chocoBillboardForMap = content.Load<Texture2D>("Images/Billboards/ChocoMap");
 
-            buddyTexture = content.Load<Texture2D>("NPCs/Helper/buddytextur");
-            actionBuddyTexture = content.Load<Texture2D>("NPCs/HelperActor/buddytextur");
             heroTexture = content.Load<Texture2D>("NPCs/Spieler/Candyguytextur");
-            bossTexture = content.Load<Texture2D>("NPCs/Lakritze/bosstextur");
             tutorialGuyTexture = content.Load<Texture2D>("NPCs/TutorialGuy/tutorialtexture");
 
             fairyBlueTexture = content.Load<Texture2D>("NPCs/Fee/bonbon_blau");
-            fairyRedTexture = content.Load<Texture2D>("NPCs/Fee/bonbon_rot");
-            salesmanTexture = content.Load<Texture2D>("NPCs/Salesman/shoptexture");
 
             obstacleTexture = content.Load<Texture2D>("Objekte/Obstacles/obstacletextur");
-            obstacleBreakTexture = content.Load<Texture2D>("Objekte/Obstacles/Breakable/blockmovabletexture");
             obstacleMoveTexture = content.Load<Texture2D>("Objekte/Obstacles/Movable/blockmovabletextur");
             
             chocoTexture = content.Load<Texture2D>("Objekte/Schokolinse/schokolinsetextur");

@@ -43,83 +43,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ScreenTextures\testScreen.png">
-      <Name>testScreen</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="ScreenTextures\titleScreen.png">
-      <Name>titleScreen</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="ScreenTextures\mainMenu.png">
-      <Name>mainMenu</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="ScreenTextures\creditScreen.png">
-      <Name>creditScreen</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="ScreenTextures\bonusScreen.png">
-      <Name>bonusScreen</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="ScreenTextures\optionsScreen.png">
-      <Name>optionsScreen</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="ScreenTextures\talkBubbleOwn.png">
-      <Name>talkBubbleOwn</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="ScreenTextures\otherTalkBubble.png">
-      <Name>otherTalkBubble</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="ScreenTextures\shopBackground.png">
-      <Name>shopBackground</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="ScreenTextures\travelScreen.png">
-      <Name>travelScreen</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="ScreenTextures\testBonus.png">
-      <Name>testBonus</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Music\bgmusic.mp3">
       <Name>bgmusic</Name>
       <Importer>Mp3Importer</Importer>
@@ -195,11 +118,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Objekte\Wunderkugel\wunderkugeltextur.png">
-      <Name>wunderkugeltextur</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="NPCs\Spieler\candyguy.fbx">
       <Name>candyguy</Name>
       <Importer>FbxImporter</Importer>
@@ -222,28 +140,11 @@
       <Processor>ModelProcessor</Processor>
       <ProcessorParameters_Scale>0.2</ProcessorParameters_Scale>
     </Compile>
-    <Compile Include="NPCs\Helper\buddy.fbx">
-      <Name>buddy</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>SkinnedModelProcessor</Processor>
-    </Compile>
     <Compile Include="Objekte\Obstacles\obstacle_half.fbx">
       <Name>obstacle_half</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <ProcessorParameters_Scale>0.48</ProcessorParameters_Scale>
-    </Compile>
-    <Compile Include="NPCs\Lakritze\boss.fbx">
-      <Name>boss</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.1</ProcessorParameters_Scale>
-    </Compile>
-    <Compile Include="NPCs\Salesman\shopguy.fbx">
-      <Name>shopguy</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.4</ProcessorParameters_Scale>
     </Compile>
     <Compile Include="Objekte\Plattformen\breakingplatform.fbx">
       <Name>breakingplatform</Name>
@@ -256,22 +157,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
     </Compile>
-    <Compile Include="Objekte\Obstacles\Breakable\blockbreakable.fbx">
-      <Name>blockbreakable</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>SkinnedModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.5</ProcessorParameters_Scale>
-    </Compile>
     <Compile Include="NPCs\HelperActor\buddy.fbx">
       <Name>buddy</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <ProcessorParameters_Scale>0.15</ProcessorParameters_Scale>
-    </Compile>
-    <Compile Include="NPCs\Helper\buddybreaking.fbx">
-      <Name>buddybreaking</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>SkinnedModelProcessor</Processor>
     </Compile>
     <Compile Include="Fonts\MainTextRegular.spritefont">
       <Name>MainTextRegular</Name>
@@ -293,26 +183,8 @@
       <Importer>FbxImporter</Importer>
       <Processor>SkinnedModelProcessor</Processor>
     </Compile>
-    <Compile Include="NPCs\Helper\buddyrutsch.fbx">
-      <Name>buddyrutsch</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>SkinnedModelProcessor</Processor>
-    </Compile>
     <None Include="README.txt">
       <Name>README</Name>
-    </None>
-    <None Include="Scenes\Actions\ActionPres.xml">
-      <Name>ActionPres</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Scenes\Events\EventPres.xml">
-      <Name>EventPres</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Compile Include="Sfx\coin.wav">
       <Name>coin</Name>
@@ -356,11 +228,6 @@
       <Name>MainText</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
-    </Compile>
-    <Compile Include="Objekte\Obstacles\Breakable\chocolatebreakable.fbx">
-      <Name>chocolatebreakable</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
     </Compile>
     <Compile Include="Objekte\Obstacles\lakritzblock.fbx">
       <Name>lakritzblock</Name>
@@ -418,12 +285,6 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <ProcessorParameters_Scale>0.2</ProcessorParameters_Scale>
-    </Compile>
-    <Compile Include="Objekte\Wunderkugel\wunderkugelmovable.fbx">
-      <Name>wunderkugelmovable</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.4</ProcessorParameters_Scale>
     </Compile>
     <Compile Include="Shaders\Toon.fx">
       <Name>Toon</Name>
@@ -495,15 +356,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Scenes\theWorld.xml">
-      <Name>theWorld</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Scenes\Actions\Action.xml">
       <Name>Action</Name>
       <Importer>XmlImporter</Importer>
@@ -551,32 +403,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\HUD\CharacterChange.png">
-      <Name>CharacterChange</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Images\HUD\HudFullWithChange.png">
       <Name>HudFullWithChange</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Images\Map\AvailablePos.png">
-      <Name>AvailablePos</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\Map\CurrentPos.png">
-      <Name>CurrentPos</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\Map\SelectedPos.png">
-      <Name>SelectedPos</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -701,28 +529,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\ConceptArt\Cupcakes1.png">
-      <Name>Cupcakes1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\ConceptArt\Cupcakes2.png">
-      <Name>Cupcakes2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\ConceptArt\Cupcakes3.png">
-      <Name>Cupcakes3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\ConceptArt\Cupcakes4.png">
-      <Name>Cupcakes4</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Images\Dialog\DialogArrow.png">
       <Name>DialogArrow</Name>
       <Importer>TextureImporter</Importer>
@@ -773,13 +579,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NPCs\Helper\buddytextur.png">
-      <Name>buddytextur</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Objekte\Obstacles\obstacletextur.png">
       <Name>obstacletextur</Name>
       <Importer>TextureImporter</Importer>
@@ -808,20 +607,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\DialogImages\Boss.png">
-      <Name>Boss</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="NPCs\Lakritze\bosstextur.png">
-      <Name>bosstextur</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Images\HUD\chaseCareful.png">
       <Name>chaseCareful</Name>
       <Importer>TextureImporter</Importer>
@@ -844,25 +629,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NPCs\Salesman\shoptexture.png">
-      <Name>shoptexture</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Images\DialogImages\BonbonFairyBlue.png">
       <Name>BonbonFairyBlue</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\DialogImages\BonbonFairyRed.png">
-      <Name>BonbonFairyRed</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\DialogImages\Salesman.png">
-      <Name>Salesman</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -870,11 +638,6 @@
   <ItemGroup>
     <Compile Include="NPCs\Fee\bonbon_blau.png">
       <Name>bonbon_blau</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="NPCs\Fee\bonbon_rot.png">
-      <Name>bonbon_rot</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -962,24 +725,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Objekte\Obstacles\Breakable\blockmovabletexture.png">
-      <Name>blockmovabletexture</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="NPCs\HelperActor\buddytextur.png">
       <Name>buddytextur</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Music\Bossmusic.mp3">
-      <Name>Bossmusic</Name>
-      <Importer>Mp3Importer</Importer>
-      <Processor>SongProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -1063,11 +812,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Images\Map\mapSweets.png">
-      <Name>mapSweets</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="Images\Map\RightArrow.png">
       <Name>RightArrow</Name>
       <Importer>TextureImporter</Importer>
@@ -1075,56 +819,6 @@
     </Compile>
     <Compile Include="Images\Map\UpArrow.png">
       <Name>UpArrow</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Scenes\theWorldPres.xml">
-      <Name>theWorldPres</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Images\ConceptArt\Acagamicsguy.png">
-      <Name>Acagamicsguy</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\ConceptArt\Bonbon.png">
-      <Name>Bonbon</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\ConceptArt\Candyguy.png">
-      <Name>Candyguy</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\ConceptArt\Helper.png">
-      <Name>Helper</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\ConceptArt\Händler.png">
-      <Name>Händler</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\ConceptArt\Lakritz.png">
-      <Name>Lakritz</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\ConceptArt\Plattform.png">
-      <Name>Plattform</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\ConceptArt\Schalter.png">
-      <Name>Schalter</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

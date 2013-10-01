@@ -46,22 +46,10 @@ namespace Candyland
 
         public override void load(ContentManager content, AssetManager assets)
         {
-            if (this.ID.Contains("helperActor"))
-                this.m_texture = assets.actionBuddyTexture;
-            else
-            if (this.ID.Contains("bossActor"))
-                this.m_texture = assets.bossTexture;
-            else
-                this.m_texture = assets.tutorialGuyTexture;
+            this.m_texture = assets.tutorialGuyTexture;
             this.m_original_texture = this.m_texture;
             this.effect = assets.commonShader;
-            if (this.ID.Contains("helperActor"))
-                this.m_model = assets.actionBuddy;
-            else
-            if (this.ID.Contains("bossActor"))
-                this.m_model = assets.boss;
-            else
-                this.m_model = assets.tutorialGuy;
+            this.m_model = assets.tutorialGuy;
             this.m_original_model = this.m_model;
             this.calculateBoundingBox();
             minOld = m_boundingBox.Min;
@@ -83,10 +71,6 @@ namespace Candyland
 
         public override void update()
         {
-            if (m_updateInfo.playerWon && ID.Contains("boss") && !istargeting)
-                return;
-            if (!m_updateInfo.tutorialActive && !(ID.Contains("bossActor") || ID.Contains("helperActor")))
-                return;
             // subAction of type movement is being performed
             if (!m_updateInfo.actionInProgress)
             {
@@ -100,28 +84,12 @@ namespace Candyland
             if (istargeting)
             {
                 base.update();
-                if (this.ID.Contains("bossActor"))
-                    m_updateInfo.bossPosition = m_position;
-                if (m_updateInfo.playerWon)
-                {
-                    m_currentAction = null;
-                    istargeting = false;
-                    m_updateInfo.locked = false;
-                    m_updateInfo.finaledistance = false;
-                    return;
-                }
             }
             else
             {
                 if (m_currentAction == null)
                     return;
 
-                if (m_currentAction.getID().Equals("GetHelper"))
-                {
-                    this.original_isVisible = false;
-                    if(!m_actionTracker.actionActorVisibility.ContainsKey(this.ID))
-                        m_actionTracker.actionActorVisibility.Add(this.ID, false);
-                }
                 if (m_currentAction.getID().Equals("firstTutorial"))
                 {
                     this.original_isVisible = false;
@@ -147,7 +115,7 @@ namespace Candyland
                 switch (sAction.getType())
                 {
                     case GameConstants.SubActionType.appear: appear(); break;
-                    case GameConstants.SubActionType.dialog: m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen(sAction.getText(), m_dialogImage));if(this.ID.Equals("255.2.2.actionActor")) m_updateInfo.playerfirst = true; break;
+                    case GameConstants.SubActionType.dialog: m_updateInfo.m_screenManager.ActivateNewScreen(new DialogListeningScreen(sAction.getText(), m_dialogImage)); break;
                     case GameConstants.SubActionType.movement: movement(sAction); break;
                     case GameConstants.SubActionType.disappear: disappear(); break;
                 }
@@ -178,15 +146,9 @@ namespace Candyland
         public override void Trigger(String actionID)
         {
             // ignore actions if there is one already in progress or if they should not be in progress
-            if ((m_updateInfo.actionInProgress && !actionID.Equals("ending")) || (!m_updateInfo.tutorialActive && !(ID.Contains("bossActor") || ID.Contains("helperActor") || actionID.Equals("ending"))))
+            if ((m_updateInfo.actionInProgress && !actionID.Equals("ending")) || (!m_updateInfo.tutorialActive || ID.Contains("helperActor") ))
                 return;
-            if (actionID.Contains("stage") && m_updateInfo.playerWon)
-                return;
-            if (actionID.Equals("ending"))
-            {
-                m_updateInfo.playerWon = true;
-                m_updateInfo.helperavailable = true; // this is a todo! -> do it in a different way later
-            }
+
             // action is a one time action
             if (m_actionTracker.actionState.ContainsKey(actionID))
             {
@@ -197,32 +159,22 @@ namespace Candyland
                 else
                 {
                     m_actionTracker.actionState[actionID] = true;
-                    if (ID.Equals("GetHelper"))
-                    {
-                        this.original_isVisible = false;
-                        if (!m_actionTracker.actionActorVisibility.ContainsKey(this.ID))
-                            m_actionTracker.actionActorVisibility.Add(this.ID, false);
-                    }
                 }
             }
 
             m_currentAction = m_actions[actionID];
             m_updateInfo.actionInProgress = true;
-            if (!(this.ID.Contains("helperActor") || this.ID.Contains("bossActor") || actionID.Equals("ending")))
+            if (!(this.ID.Contains("helperActor")))
                 m_updateInfo.helperActionInProgress = true;
         }
 
         protected virtual void appear()
         {
-            if (this.m_currentAction.getID().Contains("LoseHelper"))
-                m_updateInfo.loseHelperNow = true;
             isVisible = true;
         }
 
         protected virtual void disappear()
         {
-            if (this.m_currentAction.getID().Contains("GetHelper"))
-                m_updateInfo.activateHelperNow = true;
             if (this.m_currentAction.getID().Contains("StartChase"))
                 m_updateInfo.alwaysRun = false;
             isVisible = false;
@@ -233,16 +185,7 @@ namespace Candyland
             if (this.m_currentAction.getID().Contains("StartChase"))
             {
                 m_updateInfo.alwaysRun = true;
-                m_updateInfo.bossPosition = m_position;
                 moveTo(sAction.getGoal(), 0.048f);
-            }
-
-            else if (this.m_currentAction.getID().Contains("finalstage"))
-            {
-                m_updateInfo.finaledistance = true;
-                m_updateInfo.bossPosition = m_position;
-                moveTo(sAction.getGoal(), 0.006f);
-                m_updateInfo.bossTarget = sAction.getGoal();
             }
             else
                 moveTo(sAction.getGoal());
@@ -260,8 +203,6 @@ namespace Candyland
             base.Reset();
             foreach (var v in m_actions)
                 v.Value.Reset();
-            if (this.ID.Contains("bossActor"))
-                m_updateInfo.bossPosition = m_position;
         }
 
     }

@@ -29,7 +29,6 @@ namespace Candyland
 
         public Texture2D titleImage { get; set; }
 
-        public Texture2D optionsScreen { get; set; }
         public Texture2D loadingTexture { get; set; }
 
         public Texture2D captionMain { get; set; }
@@ -55,30 +54,12 @@ namespace Candyland
 
         public Texture2D dialogArrow { get; set; }
 
-        public Texture2D map { get; set; }
-        public Texture2D pinCurrent { get; set; }
-        public Texture2D pinSelected { get; set; }
-        public Texture2D pinAvailable { get; set; }
-
         public Texture2D mapArrowLeft { get; set; }
         public Texture2D mapArrowRight { get; set; }
         public Texture2D mapArrowUp { get; set; }
         public Texture2D mapArrowDown { get; set; }
 
         public Texture2D acagamicsLogo { get; set; }
-
-        public Texture2D CAcupcake1 { get; set; }
-        public Texture2D CAcupcake2 { get; set; }
-        public Texture2D CAcupcake3 { get; set; }
-        public Texture2D CAcupcake4 { get; set; }
-        public Texture2D CAbonbon { get; set; }
-        public Texture2D CAsalesman { get; set; }
-        public Texture2D CAplatform { get; set; }
-        public Texture2D CAlakritz { get; set; }
-        public Texture2D CAswitch { get; set; }
-        public Texture2D CAacaguy { get; set; }
-        public Texture2D CAplayer { get; set; }
-        public Texture2D CAhelper { get; set; }
 
         public Dictionary<String, Texture2D> dialogImages { get; set; }
 
@@ -101,7 +82,6 @@ namespace Candyland
 
             titleImage = content.Load<Texture2D>("ScreenTextures/Main");
 
-            optionsScreen = content.Load<Texture2D>("ScreenTextures/optionsScreen");
             loadingTexture = content.Load<Texture2D>("ScreenTextures/loading");
 
             captionMain = content.Load<Texture2D>("Images/Captions/MainMenu");
@@ -126,37 +106,15 @@ namespace Candyland
             no = content.Load<Texture2D>("Images/Dialog/NeinInactive");
             noActive = content.Load<Texture2D>("Images/Dialog/NeinActive");
 
-            map = content.Load<Texture2D>("Images/Map/mapSweets");
-            pinCurrent = content.Load<Texture2D>("Images/Map/CurrentPos");
-            pinSelected = content.Load<Texture2D>("Images/Map/SelectedPos");
-            pinAvailable = content.Load<Texture2D>("Images/Map/AvailablePos");
-
             mapArrowLeft = content.Load<Texture2D>("Images/Map/LeftArrow");
             mapArrowRight = content.Load<Texture2D>("Images/Map/RightArrow");
             mapArrowUp = content.Load<Texture2D>("Images/Map/UpArrow");
             mapArrowDown = content.Load<Texture2D>("Images/Map/BottomArrow");
 
-            dialogImages["BonbonRed"] = content.Load<Texture2D>("Images/DialogImages/BonbonFairyRed");
             dialogImages["BonbonBlue"] = content.Load<Texture2D>("Images/DialogImages/BonbonFairyBlue");
             dialogImages["AcaHelper"] = content.Load<Texture2D>("Images/DialogImages/AcaHelper");
-            dialogImages["Buddy"] = content.Load<Texture2D>("Images/DialogImages/Helper");
-            dialogImages["Boss"] = content.Load<Texture2D>("Images/DialogImages/Boss");
-            dialogImages["Salesman"] = content.Load<Texture2D>("Images/DialogImages/Salesman");
 
             acagamicsLogo = content.Load<Texture2D>("ScreenTextures/acagamicsLogo");
-
-            CAcupcake1 = content.Load<Texture2D>("Images/ConceptArt/Cupcakes1");
-            CAcupcake2 = content.Load<Texture2D>("Images/ConceptArt/Cupcakes2");
-            CAcupcake3 = content.Load<Texture2D>("Images/ConceptArt/Cupcakes3");
-            CAcupcake4 = content.Load<Texture2D>("Images/ConceptArt/Cupcakes4");
-            CAbonbon = content.Load<Texture2D>("Images/ConceptArt/Bonbon");
-            CAsalesman = content.Load<Texture2D>("Images/ConceptArt/Händler");
-            CAplatform = content.Load<Texture2D>("Images/ConceptArt/Plattform");
-            CAlakritz = content.Load<Texture2D>("Images/ConceptArt/Lakritz");
-            CAswitch = content.Load<Texture2D>("Images/ConceptArt/Schalter");
-            CAacaguy = content.Load<Texture2D>("Images/ConceptArt/Acagamicsguy");
-            CAplayer = content.Load<Texture2D>("Images/ConceptArt/Candyguy");
-            CAhelper = content.Load<Texture2D>("Images/ConceptArt/Helper");
         }
     }
 }

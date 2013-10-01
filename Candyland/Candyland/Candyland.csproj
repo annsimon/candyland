@@ -120,7 +120,6 @@
     </Compile>
     <Compile Include="GameObjects\DynamicGameObjects.cs" />
     <Compile Include="GameObjects\Obstacles\Obstacle.cs" />
-    <Compile Include="GameObjects\Obstacles\ObstacleBreakable.cs" />
     <Compile Include="GameObjects\Obstacles\ObstacleForSwitch.cs" />
     <Compile Include="GameObjects\Obstacles\ObstacleMoveable.cs" />
     <Compile Include="GameObjects\Platforms\BreakingPlatform.cs" />
@@ -133,7 +132,6 @@
     <Compile Include="GameObjects\Switches\PlatformSwitchTimed.cs" />
     <Compile Include="InputManagerplusSpieler\BalanceBoard.cs" />
     <Compile Include="InputManagerplusSpieler\BalanceBoardState.cs" />
-    <Compile Include="InputManagerplusSpieler\CandyHelper.cs" />
     <Compile Include="GameObjects\ChocoChip.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameElement.cs" />
@@ -151,7 +149,6 @@
     <Compile Include="MyModel.cs" />
     <Compile Include="NPCs\ActionActor.cs" />
     <Compile Include="NPCs\BonbonFairy.cs" />
-    <Compile Include="NPCs\Salesman.cs" />
     <Compile Include="Parsers\ActionParser.cs" />
     <Compile Include="Parsers\AreaParser.cs" />
     <Compile Include="Parsers\EventParser.cs" />
@@ -166,17 +163,12 @@
     <Compile Include="SceneStructure\SceneManagerUpdate.cs" />
     <Compile Include="ScreenManagement\Button.cs" />
     <Compile Include="ScreenManagement\CheckBox.cs" />
-    <Compile Include="ScreenManagement\InGameScreens\GetHelperQuestion.cs" />
-    <Compile Include="ScreenManagement\InGameScreens\TeleportFairyDialog.cs" />
-    <Compile Include="ScreenManagement\InGameScreens\TravelQuestion.cs" />
     <Compile Include="ScreenManagement\OutGameScreens\BonusScreen.cs" />
     <Compile Include="Data\BonusTile.cs" />
-    <Compile Include="ScreenManagement\InGameScreens\BuyQuestion.cs" />
     <Compile Include="ScreenManagement\OutGameScreens\CreditsScreen.cs" />
     <Compile Include="ScreenManagement\InGameScreens\DialogListeningScreen.cs" />
     <Compile Include="ScreenManagement\OutGameScreens\EndGameQuestion.cs" />
     <Compile Include="ScreenManagement\OutGameScreens\LoadingScreen.cs" />
-    <Compile Include="ScreenManagement\InGameScreens\SalesmanDialogueScreen.cs" />
     <Compile Include="ScreenManagement\GameScreen.cs" />
     <Compile Include="ScreenManagement\InGameScreens\MainGame.cs" />
     <Compile Include="ScreenManagement\OutGameScreens\MainMenu.cs" />
@@ -185,12 +177,9 @@
     <Compile Include="ScreenManagement\OutGameScreens\SaveSettingsAudioQuestion.cs" />
     <Compile Include="ScreenManagement\OutGameScreens\SaveSettingsGraphicQuestion.cs" />
     <Compile Include="ScreenManagement\OutGameScreens\SaveSettingsTutorialQuestion.cs" />
-    <Compile Include="ScreenManagement\OutGameScreens\ShowArtScreen.cs" />
     <Compile Include="ScreenManagement\ScreenInputManager.cs" />
     <Compile Include="ScreenManagement\ScreenManager.cs" />
-    <Compile Include="ScreenManagement\InGameScreens\ShopScreen.cs" />
     <Compile Include="ScreenManagement\OutGameScreens\TitleScreen.cs" />
-    <Compile Include="ScreenManagement\InGameScreens\TravelScreen.cs" />
     <Compile Include="ScreenManagement\SlideControl.cs" />
     <Compile Include="ScreenManagement\YesNoScreen.cs" />
     <Compile Include="ShadowMap.cs" />

@@ -56,16 +56,6 @@ namespace Candyland
                 m_levels[m_updateInfo.currentguyLevelID].Update(gameTime);
             if (m_updateInfo.playerIsOnLevelExit && m_updateInfo.nextguyLevelID != null && m_levels.ContainsKey(m_updateInfo.nextguyLevelID))
                 m_levels[m_updateInfo.nextguyLevelID].Update(gameTime);
-
-            if (m_updateInfo.currentguyLevelID != m_updateInfo.currenthelperLevelID)
-            {
-                if (m_levels.ContainsKey(m_updateInfo.currenthelperLevelID) && m_updateInfo.currenthelperLevelID != m_updateInfo.nextguyLevelID)
-                    m_levels[m_updateInfo.currenthelperLevelID].Update(gameTime);
-                if (m_updateInfo.playerIsOnLevelExit && m_updateInfo.nexthelperLevelID != null && m_levels.ContainsKey(m_updateInfo.nexthelperLevelID)
-                    && m_updateInfo.nexthelperLevelID != m_updateInfo.nextguyLevelID && m_updateInfo.nexthelperLevelID != m_updateInfo.currentguyLevelID)
-                    m_levels[m_updateInfo.nexthelperLevelID].Update(gameTime);
-
-            }
         }
 
         public void UpdateAll(GameTime gameTime)
@@ -77,30 +67,15 @@ namespace Candyland
 
         public void Collide(GameObject obj)
         {
-            if (obj is CandyGuy) {
-
-                if (m_levels.ContainsKey(m_updateInfo.currentguyLevelID))
-                    m_levels[m_updateInfo.currentguyLevelID].Collide(obj);
-                if (m_updateInfo.nextguyLevelID != null && m_levels.ContainsKey(m_updateInfo.nextguyLevelID))
-                    m_levels[m_updateInfo.nextguyLevelID].Collide(obj);
-            }
-            else
-            {
-                if (m_levels.ContainsKey(m_updateInfo.currenthelperLevelID))
-                    m_levels[m_updateInfo.currenthelperLevelID].Collide(obj);
-                if (m_updateInfo.nexthelperLevelID != null && m_levels.ContainsKey(m_updateInfo.nexthelperLevelID))
-                    m_levels[m_updateInfo.nexthelperLevelID].Collide(obj);
-            }
+            if (m_levels.ContainsKey(m_updateInfo.currentguyLevelID))
+                m_levels[m_updateInfo.currentguyLevelID].Collide(obj);
+            if (m_updateInfo.nextguyLevelID != null && m_levels.ContainsKey(m_updateInfo.nextguyLevelID))
+                m_levels[m_updateInfo.nextguyLevelID].Collide(obj);
         }
 
         public Vector3 GetPlayerStartingPosition(Playable player)
         {
                 return m_levels[m_updateInfo.currentguyLevelID].getPlayerStartingPosition();   
-        }
-
-        public Vector3 GetCompanionStartingPosition(Playable player2)
-        {
-            return m_levels[m_updateInfo.currenthelperLevelID].getCompanionStartingPosition();
         }
 
         public List<GameObject> GetObjects()
@@ -110,10 +85,7 @@ namespace Candyland
 
         public void Reset(Playable player)
         {
-            if(player is CandyGuy)
             m_levels[m_updateInfo.currentguyLevelID].Reset();
-            else
-                m_levels[m_updateInfo.currenthelperLevelID].Reset();
         }
 
         public void endIntersection()

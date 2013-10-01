@@ -127,18 +127,6 @@ namespace Candyland
                     dynamicObjects.Add(id, obj);
                 }
                 else
-                if (object_type == "breakable")
-                {
-                    string id = node.Attributes["id"].InnerText;
-                    if (dynamicObjects.ContainsKey(id))
-                    {
-                        Console.WriteLine("Key " + id + " duplicated");
-                        continue;
-                    }
-                    ObstacleBreakable obj = new ObstacleBreakable(id, pos, info, isVisible);
-                    dynamicObjects.Add(id, obj);
-                }
-                else
                 if (object_type == "obstacleForSwitch" || object_type == "obstacleForFalling")
                 {
                     string id = node.Attributes["id"].InnerText;
@@ -359,20 +347,6 @@ namespace Candyland
                     text = text.Replace("!Ue!", "Ü");
                     text = text.Replace("!Oe!", "Ö");
                     BonbonFairy obj = new BonbonFairy(node.Attributes["id"].InnerText, pos, info, isVisible, text);
-                    objectList.Add(obj);
-                }
-                else
-                if (object_type == "salesman")
-                {
-                    string text = node.Attributes["dialog"].InnerText;
-                    text = text.Replace("!ae!", "ä");
-                    text = text.Replace("!ue!", "ü");
-                    text = text.Replace("!oe!", "ö");
-                    text = text.Replace("!ss!", "ß");
-                    text = text.Replace("!Ae!", "Ä");
-                    text = text.Replace("!Ue!", "Ü");
-                    text = text.Replace("!Oe!", "Ö");
-                    Salesman obj = new Salesman(node.Attributes["id"].InnerText, pos, info, isVisible, text);
                     objectList.Add(obj);
                 }
             }

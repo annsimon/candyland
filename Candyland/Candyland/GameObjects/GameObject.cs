@@ -274,14 +274,9 @@ namespace Candyland
 
         public bool GetInteractable()
         {
-            if (this is ObstacleBreakable || this is BonbonFairy)
+            if (this is BonbonFairy)
             {
-                if (!m_updateInfo.candyselected && this.helperIsClose)
-                    return true;
-            }
-            if (this is BonbonFairy || this is Salesman)
-            {
-                if(m_updateInfo.candyselected && this.candyIsClose)
+                if(this.candyIsClose)
                     return true;
             }
             return false;
@@ -290,7 +285,6 @@ namespace Candyland
         public void ResetInteractable()
         {
             this.candyIsClose = false;
-            this.helperIsClose = false;
         }
 
         protected void calculateBoundingBox()
