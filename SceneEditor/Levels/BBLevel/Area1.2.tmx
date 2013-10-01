@@ -1047,33 +1047,6 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="1" width="100" height="100">
-  <object name="-" type="obstacle" x="220" y="240" width="20" height="20">
-   <properties>
-    <property name="dialog" value=""/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
-    <property name="isSlippery" value="-"/>
-    <property name="isVisible" value="true"/>
-    <property name="size" value="1"/>
-   </properties>
-  </object>
-  <object name="-" type="obstacle" x="220" y="260" width="20" height="20">
-   <properties>
-    <property name="dialog" value=""/>
-    <property name="endPositionY" value="-"/>
-    <property name="endPositionZ" value="-"/>
-    <property name="endpositionX" value="-"/>
-    <property name="isDoorToArea" value="-"/>
-    <property name="isDoorToLevel" value="-"/>
-    <property name="isSlippery" value="-"/>
-    <property name="isVisible" value="true"/>
-    <property name="size" value="1"/>
-   </properties>
-  </object>
- </objectgroup>
+ <objectgroup name="1" width="100" height="100"/>
  <objectgroup name="0,5" width="100" height="100"/>
 </map>
