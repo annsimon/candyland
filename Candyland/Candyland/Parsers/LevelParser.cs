@@ -47,7 +47,7 @@ namespace Candyland
                 Level level = new Level(node.InnerText, startPos, info, levelContent[count].InnerXml, bonusTracker, actionTracker);
                 
                 // set start platform for player and companion
-                level.setStartPositions(idStartMain[count].InnerText, idStartSecondary[count].InnerText);
+                level.setStartPositions(idStartMain[count].InnerText);
 
                 // add completed level to level list
                 levelList.Add(node.InnerText, level);

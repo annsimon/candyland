@@ -171,11 +171,10 @@ namespace Candyland
             return m_allGameObjects;
         }
 
-        // called to set the platform the player and companion each start at (for reset)
-        public void setStartPositions(string playerStartID, string companionStartID)
+        // called to set the platform the player
+        public void setStartPositions(string playerStartID)
         {
             m_start_player = (Platform)m_gameObjects[playerStartID];
-            m_start_companion = (Platform)m_gameObjects[companionStartID];
         }
 
         public Vector3 getPlayerStartingPosition()
