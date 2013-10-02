@@ -64,6 +64,7 @@ namespace Candyland
 
         public ScreenManager m_screenManager { get; set; }
 
+        public bool playerIsWalking = false;
         public bool actionInProgress = false;
         public bool helperActionInProgress = false;
         public bool alwaysRun = false;

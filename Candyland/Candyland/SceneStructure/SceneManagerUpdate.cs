@@ -34,7 +34,7 @@ namespace Candyland
                 m_updateInfo.locked = false;
 
                 m_updateInfo.finaledistance = false;
-                m_updateInfo.alwaysRun = false;
+                //m_updateInfo.alwaysRun = false;
 
                 // reset player to start position of current level
                     player.Reset();

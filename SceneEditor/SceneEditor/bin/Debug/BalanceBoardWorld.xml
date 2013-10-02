@@ -15,7 +15,7 @@
         <level>
           <level_id>1.1</level_id>
           <main_start_platform>1.1.1.dyn</main_start_platform>
-          <secondary_start_platform>1.1.1.dyn</secondary_start_platform>
+          <secondary_start_platform>x</secondary_start_platform>
           <level_starting_position>
             <x>0</x>
             <y>0</y>
@@ -74,8 +74,6 @@
                   <object type="obstacle" id="1.1.44" is_door_to_area="x" is_door_to_level="x" posX="6" posY="0" posZ="11" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
                   <object type="obstacle" id="1.1.45" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="12" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
                   <object type="obstacle" id="1.1.46" is_door_to_area="x" is_door_to_level="x" posX="7" posY="0" posZ="13" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
-                  <object type="obstacle" id="1.1.47" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="1" posZ="12.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="obstacle" id="1.1.48" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="1" posZ="13.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                 </statics>
               </static_objects>
             <!--- DYNAMIC-->
@@ -95,7 +93,7 @@
         <level>
           <level_id>1.2</level_id>
           <main_start_platform>1.2.1.dyn</main_start_platform>
-          <secondary_start_platform>1.2.1.dyn</secondary_start_platform>
+          <secondary_start_platform>x</secondary_start_platform>
           <level_starting_position>
             <x>12</x>
             <y>0</y>
@@ -149,8 +147,6 @@
                   <object type="platform" id="1.2.39" is_door_to_area="x" is_door_to_level="x" posX="7" posY="0" posZ="10" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="obstacle" id="1.2.40" is_door_to_area="x" is_door_to_level="x" posX="5" posY="0" posZ="17" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
                   <object type="obstacle" id="1.2.41" is_door_to_area="x" is_door_to_level="x" posX="7" posY="0" posZ="17" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
-                  <object type="obstacle" id="1.2.42" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="1" posZ="12.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
-                  <object type="obstacle" id="1.2.43" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="1" posZ="13.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                 </statics>
               </static_objects>
             <!--- DYNAMIC-->
@@ -165,6 +161,668 @@
                   <object type="obstacleForSwitch" id="1.2.1.obstacleForSwitch" is_door_to_area="x" is_door_to_level="x" posX="3" posY="0" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="switchPermanent" id="1.2.1.switchPermanent" is_door_to_area="x" is_door_to_level="x" posX="6" posY="0" posZ="10" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
                   <object type="switchPermanent" id="1.2.2.switchPermanent" is_door_to_area="x" is_door_to_level="x" posX="5" posY="0" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                </dynamics>
+              </dynamic_objects>
+            </the_objects>
+          </objects>
+        </level>
+        <!--- LEVEL 1.3 -->
+        <level>
+          <level_id>1.3</level_id>
+          <main_start_platform>1.3.1.dyn</main_start_platform>
+          <secondary_start_platform>x</secondary_start_platform>
+          <level_starting_position>
+            <x>24</x>
+            <y>0</y>
+            <z>0</z>
+          </level_starting_position>
+          <objects>
+            <the_objects>
+            <!--- OBJECTS OF LEVEL 1.3 -->
+            <!--- STATIC-->
+              <static_objects>
+                <statics>
+                  <object type="platform" id="1.3.0" is_door_to_area="x" is_door_to_level="x" posX="2.5" posY="0" posZ="19" endPosX="" endPosY="" endPosZ="" size="3" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.3.1" is_door_to_area="x" is_door_to_level="x" posX="9" posY="0" posZ="16" endPosX="" endPosY="" endPosZ="" size="3" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.3.2" is_door_to_area="x" is_door_to_level="x" posX="3" posY="0" posZ="10" endPosX="" endPosY="" endPosZ="" size="3" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.3.3" is_door_to_area="x" is_door_to_level="x" posX="6" posY="0" posZ="10" endPosX="" endPosY="" endPosZ="" size="3" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.3.4" is_door_to_area="x" is_door_to_level="x" posX="9" posY="0" posZ="10" endPosX="" endPosY="" endPosZ="" size="3" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="1.3.5" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="12" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="1.3.6" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="14" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="1.3.7" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="12" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="1.3.8" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="14" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="1.3.9" is_door_to_area="x" is_door_to_level="x" posX="0.5" posY="0" posZ="12" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="1.3.10" is_door_to_area="x" is_door_to_level="x" posX="0.5" posY="0" posZ="14" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="1.3.11" is_door_to_area="x" is_door_to_level="x" posX="8" posY="0" posZ="17" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="1.3.12" is_door_to_area="x" is_door_to_level="x" posX="9" posY="0" posZ="17" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="1.3.13" is_door_to_area="x" is_door_to_level="x" posX="10" posY="0" posZ="17" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="1.3.14" is_door_to_area="x" is_door_to_level="x" posX="10" posY="0" posZ="16" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="1.3.15" is_door_to_area="x" is_door_to_level="x" posX="10" posY="0" posZ="15" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="1.3.16" is_door_to_area="x" is_door_to_level="x" posX="9" posY="0" posZ="9" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="1.3.17" is_door_to_area="x" is_door_to_level="x" posX="3" posY="0" posZ="9" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="1.3.18" is_door_to_area="x" is_door_to_level="x" posX="8" posY="0" posZ="9" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="1.3.19" is_door_to_area="x" is_door_to_level="x" posX="10" posY="0" posZ="9" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="1.3.20" is_door_to_area="x" is_door_to_level="x" posX="7" posY="0" posZ="10" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="1.3.21" is_door_to_area="x" is_door_to_level="x" posX="2" posY="0" posZ="9" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="1.3.22" is_door_to_area="x" is_door_to_level="x" posX="2" posY="0" posZ="11" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="1.3.23" is_door_to_area="x" is_door_to_level="x" posX="7" posY="0" posZ="9" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="1.3.24" is_door_to_area="x" is_door_to_level="x" posX="10" posY="0" posZ="10" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="1.3.25" is_door_to_area="x" is_door_to_level="x" posX="10" posY="0" posZ="11" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="1.3.26" is_door_to_area="x" is_door_to_level="x" posX="5" posY="0" posZ="9" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="1.3.27" is_door_to_area="x" is_door_to_level="x" posX="6" posY="0" posZ="11" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.3.28" is_door_to_area="x" is_door_to_level="x" posX="2.5" posY="0" posZ="17" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.3.29" is_door_to_area="x" is_door_to_level="x" posX="2.5" posY="0" posZ="15" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.3.30" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="17" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.3.31" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="17" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.3.32" is_door_to_area="x" is_door_to_level="x" posX="3.5" posY="0" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.3.33" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="14" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.3.34" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="14" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.3.35" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="13" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.3.36" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="12" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.3.37" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="12" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.3.38" is_door_to_area="x" is_door_to_level="x" posX="3.5" posY="0" posZ="12" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.3.39" is_door_to_area="x" is_door_to_level="x" posX="3.5" posY="0" posZ="13" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.3.40" is_door_to_area="x" is_door_to_level="x" posX="3.5" posY="0" posZ="14" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.3.41" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="13" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.3.42" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.3.43" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="15" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.3.44" is_door_to_area="x" is_door_to_level="x" posX="3.5" posY="0" posZ="17" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="1.3.45" is_door_to_area="x" is_door_to_level="x" posX="3.5" posY="0" posZ="14" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.3.46" is_door_to_area="x" is_door_to_level="x" posX="2.5" posY="0" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.3.47" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="15" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.3.48" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.3.49" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="19" endPosX="" endPosY="" endPosZ="" size="3" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.3.50" is_door_to_area="x" is_door_to_level="x" posX="1.5" posY="0" posZ="15" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.3.51" is_door_to_area="x" is_door_to_level="x" posX="1.5" posY="0" posZ="16" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.3.52" is_door_to_area="x" is_door_to_level="x" posX="1.5" posY="0" posZ="17" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="1.3.53" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="18" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="1.3.54" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="19" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="1.3.55" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="20" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="1.3.56" is_door_to_area="x" is_door_to_level="x" posX="1.5" posY="0" posZ="17.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="1.3.57" is_door_to_area="x" is_door_to_level="x" posX="1.5" posY="0" posZ="18.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="1.3.58" is_door_to_area="x" is_door_to_level="x" posX="1.5" posY="0" posZ="19.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                </statics>
+              </static_objects>
+            <!--- DYNAMIC-->
+              <dynamic_objects>
+                <dynamics>
+                  <object type="platform" id="1.3.1.dyn" is_door_to_area="x" is_door_to_level="1.2" posX="1.5" posY="0" posZ="13" endPosX="" endPosY="" endPosZ="" size="3" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.3.2.dyn" is_door_to_area="x" is_door_to_level="1.4" posX="10.5" posY="0" posZ="13" endPosX="" endPosY="" endPosZ="" size="3" slippery="0" visible="True" dialog="" />
+                  <object type="chocoChip" id="1.3.1.choco" is_door_to_area="x" is_door_to_level="x" posX="4" posY="0" posZ="9" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="chocoChip" id="1.3.3.choco" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="13" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="switchTemporary" id="1.3.1.switchTemporary" is_door_to_area="x" is_door_to_level="x" posX="3.5" posY="0" posZ="15" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="movableObstacle" id="1.3.4.Mov" is_door_to_area="x" is_door_to_level="x" posX="3.5" posY="0" posZ="18" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="movableObstacle" id="1.3.1.Mov" is_door_to_area="x" is_door_to_level="x" posX="3" posY="0" posZ="11" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="movableObstacle" id="1.3.2.Mov" is_door_to_area="x" is_door_to_level="x" posX="4" posY="0" posZ="11" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="movableObstacle" id="1.3.3.Mov" is_door_to_area="x" is_door_to_level="x" posX="5" posY="0" posZ="11" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="chocoChip" id="1.3.2.choco" is_door_to_area="x" is_door_to_level="x" posX="7" posY="2" posZ="14" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="movingPlatform" id="1.3.1.movingPlatform" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="-0.5" posZ="13" endPosX="7.5" endPosY="2" endPosZ="13" size="3" slippery="0" visible="False" dialog="" />
+                </dynamics>
+              </dynamic_objects>
+            </the_objects>
+          </objects>
+        </level>
+        <!--- LEVEL 1.4 -->
+        <level>
+          <level_id>1.4</level_id>
+          <main_start_platform>1.4.1.dyn</main_start_platform>
+          <secondary_start_platform>x</secondary_start_platform>
+          <level_starting_position>
+            <x>0</x>
+            <y>100</y>
+            <z>0</z>
+          </level_starting_position>
+          <objects>
+            <the_objects>
+            <!--- OBJECTS OF LEVEL 1.4 -->
+            <!--- STATIC-->
+              <static_objects>
+                <statics>
+                  <object type="platform" id="1.4.0" is_door_to_area="x" is_door_to_level="x" posX="1.5" posY="0" posZ="36.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.1" is_door_to_area="x" is_door_to_level="x" posX="1.5" posY="0" posZ="37.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.2" is_door_to_area="x" is_door_to_level="x" posX="1.5" posY="0" posZ="38.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.3" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="43.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.4" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="44.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.5" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="44.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.6" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="45.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.7" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="44.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.8" is_door_to_area="x" is_door_to_level="x" posX="3.5" posY="0" posZ="45.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.9" is_door_to_area="x" is_door_to_level="x" posX="3.5" posY="0" posZ="46.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.10" is_door_to_area="x" is_door_to_level="x" posX="3.5" posY="0" posZ="47.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.11" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="47.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.12" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="48.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.13" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="48.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.14" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="49.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.15" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="50.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.16" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="50.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.17" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="51.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.18" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="53.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.19" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="52.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.20" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="51.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.21" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="53.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.22" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="52.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.23" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="54.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.24" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="56.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.25" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="54.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.26" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="55.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.27" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="55.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.28" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="56.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.29" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="57.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.30" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="58.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.31" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="58.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.32" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="59.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.33" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="59.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.34" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="58.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.35" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="60.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.36" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="61.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.37" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="61.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.38" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="62.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.39" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="63.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.40" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="62.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.41" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="64.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.42" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="61.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.43" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="61.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.44" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="62.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.45" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="63.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.46" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="63.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.47" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="64.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.48" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="65.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.49" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="66.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.50" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="66.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.51" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="67.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.52" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="67.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.53" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="68.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.54" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="65.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.55" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="66.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.56" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="66.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.57" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="67.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.58" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="68.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.59" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="68.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.60" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="69.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.61" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="70.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.62" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="71.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.63" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="70.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.64" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="73.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.65" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="77.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.66" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="73.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.67" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="74.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.68" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="74.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.69" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="75.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.70" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="75.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.71" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="76.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.72" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="77.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.73" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="78.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.74" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="78.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.75" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="79.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.76" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="78.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.77" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="80.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.78" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="80.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.79" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="79.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.80" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="78.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.81" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="81.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.82" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="82.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.83" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="82.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.84" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="83.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.85" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="85.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.86" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="86.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.87" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="87.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.88" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="88.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.89" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="83.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.90" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="84.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.91" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="83.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.92" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="85.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.93" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="85.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.94" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="86.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.95" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="89.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.96" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="89.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.97" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="90.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.98" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="89.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.99" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="91.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.100" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="29.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.101" is_door_to_area="x" is_door_to_level="x" posX="3.5" posY="0" posZ="34.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.102" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="14.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.103" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="38.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.104" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="19.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.105" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="14.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.106" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="18.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.107" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="33.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.108" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="13.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.109" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="34.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.110" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="17.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.111" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="38.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.112" is_door_to_area="x" is_door_to_level="x" posX="3.5" posY="0" posZ="35.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.113" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="17.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.114" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="39.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.115" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="23.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.116" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="28.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.117" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="16.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.118" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="30.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.119" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="34.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.120" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="21.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.121" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="39.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.122" is_door_to_area="x" is_door_to_level="x" posX="3.5" posY="0" posZ="36.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.123" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="18.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.124" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="40.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.125" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="14.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.126" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="26.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.127" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="31.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.128" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="20.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.129" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="16.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.130" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="35.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.131" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="29.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.132" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="39.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.133" is_door_to_area="x" is_door_to_level="x" posX="2.5" posY="0" posZ="36.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.134" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="29.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.135" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="13.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.136" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="41.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.137" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="15.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.138" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="24.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.139" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="21.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.140" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="33.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.141" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="25.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.142" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="36.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.143" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="30.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.144" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="33.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.145" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="18.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.146" is_door_to_area="x" is_door_to_level="x" posX="2.5" posY="0" posZ="38.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.147" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="13.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.148" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="41.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.149" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="25.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.150" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="14.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.151" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="32.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.152" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="15.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.153" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="26.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.154" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="36.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.155" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="34.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.156" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="10.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.157" is_door_to_area="x" is_door_to_level="x" posX="3.5" posY="0" posZ="38.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.158" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="22.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.159" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="42.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.160" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="26.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.161" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="17.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.162" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="27.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.163" is_door_to_area="x" is_door_to_level="x" posX="4.5" posY="0" posZ="22.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.164" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="37.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.165" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="94.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.166" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="94.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.167" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="95.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.168" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="96.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.169" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="98.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.170" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="99.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.171" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="99.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.172" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="100.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.173" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="100.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.174" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="101.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.175" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="101.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.176" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="102.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.177" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="99.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.178" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="100.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.179" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="101.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.180" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="101.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.181" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="102.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.182" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="103.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.183" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="104.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.184" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="104.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.185" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="105.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.186" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="105.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.187" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="106.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.188" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="107.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.189" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="103.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.190" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="104.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.191" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="104.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.192" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="105.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.193" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="106.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.194" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="107.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.195" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="108.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.196" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="108.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.197" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="108.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.198" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="109.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.199" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="110.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.200" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="110.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.201" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="111.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.202" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="112.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.203" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="112.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.204" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="113.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.205" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="114.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.206" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="115.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.207" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="113.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.208" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="113.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.209" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="114.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.210" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="114.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.211" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="115.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.212" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="116.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.213" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="117.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.214" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="115.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.215" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="116.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.216" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="117.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.217" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="117.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.218" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="118.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.219" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="119.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.220" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="119.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.221" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="117.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.222" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="118.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.223" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="118.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.224" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="119.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.225" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="120.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.226" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="120.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.227" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="121.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.228" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="121.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.229" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="122.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.230" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="120.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.231" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="121.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.232" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="121.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.233" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="122.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.234" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="123.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.235" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="123.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.236" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="124.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.237" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="125.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.238" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="126.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.239" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="127.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.240" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="127.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.241" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="128.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.242" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="129.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.243" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="129.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.244" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="130.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.245" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="131.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.246" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="132.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.247" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="132.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.248" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="133.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.249" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="134.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.250" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="138.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.251" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="138.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.252" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="138.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.253" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="139.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.254" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="139.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.255" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="140.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.256" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="140.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.257" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="141.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.258" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="142.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.259" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="142.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.260" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="143.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.261" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="144.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.262" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="145.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.263" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="145.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.264" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="146.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.265" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="146.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.266" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="147.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.267" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="148.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.268" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="148.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.269" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="149.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.270" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="149.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.271" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="150.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.272" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="150.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.273" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="152.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.274" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="153.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.275" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="155.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.276" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="156.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.277" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="157.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.278" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="157.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.279" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="157.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.280" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="158.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.281" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="158.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.282" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="159.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.283" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="140.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.284" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="142.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.285" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="143.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.286" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="144.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.287" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="145.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.288" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="145.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.289" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="146.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.290" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="147.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.291" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="148.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.292" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="149.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.293" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="150.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.294" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="152.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.295" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="153.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.296" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="155.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.297" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="156.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.298" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="161.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.299" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="161.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.300" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="162.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.301" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="163.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.302" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="163.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.303" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="163.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.304" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="164.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.305" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="164.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.306" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="165.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.307" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="165.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.308" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="166.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.309" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="166.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.310" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="167.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.311" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="167.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.312" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="168.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.313" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="169.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.314" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="169.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.315" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="170.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.316" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="172.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.317" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="172.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.318" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="173.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.319" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="174.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.320" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="175.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.321" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="177.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.322" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="179.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.323" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="180.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.324" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="180.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.325" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="181.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.326" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="182.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.327" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="182.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.328" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="183.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.329" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="184.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.330" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="185.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.331" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="177.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.332" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="179.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.333" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="189.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.334" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="189.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.335" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="190.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.336" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="190.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.337" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="191.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.338" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="192.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.339" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="193.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.340" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="193.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.341" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="194.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.342" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="196.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.343" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="198.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.344" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="199.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.345" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="198.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.346" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="199.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.347" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="196.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.348" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="194.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.349" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="199.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.350" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="200.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.351" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="201.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.352" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="201.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.353" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="202.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.354" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="202.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.355" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="203.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.356" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="204.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.357" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="205.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.358" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="205.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.359" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="206.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.360" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="206.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.361" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="207.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.362" is_door_to_area="x" is_door_to_level="x" posX="14.5" posY="0" posZ="199.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.363" is_door_to_area="x" is_door_to_level="x" posX="14.5" posY="0" posZ="200.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.364" is_door_to_area="x" is_door_to_level="x" posX="15.5" posY="0" posZ="200.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.365" is_door_to_area="x" is_door_to_level="x" posX="15.5" posY="0" posZ="201.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.366" is_door_to_area="x" is_door_to_level="x" posX="15.5" posY="0" posZ="203.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.367" is_door_to_area="x" is_door_to_level="x" posX="15.5" posY="0" posZ="205.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.368" is_door_to_area="x" is_door_to_level="x" posX="15.5" posY="0" posZ="206.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.369" is_door_to_area="x" is_door_to_level="x" posX="14.5" posY="0" posZ="206.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.370" is_door_to_area="x" is_door_to_level="x" posX="14.5" posY="0" posZ="207.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.371" is_door_to_area="x" is_door_to_level="x" posX="14.5" posY="0" posZ="208.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.372" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="208.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.373" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="208.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.374" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="208.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.375" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="209.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.376" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="209.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.377" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="210.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.378" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="211.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.379" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="212.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.380" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="212.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.381" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="213.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.382" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="215.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.383" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="215.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.384" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="215.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.385" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="216.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.386" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="216.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.387" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="216.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.388" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="217.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.389" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="217.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.390" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="218.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.391" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="218.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.392" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="219.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.393" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="220.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.394" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="221.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.395" is_door_to_area="x" is_door_to_level="x" posX="14.5" posY="0" posZ="221.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.396" is_door_to_area="x" is_door_to_level="x" posX="14.5" posY="0" posZ="223.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.397" is_door_to_area="x" is_door_to_level="x" posX="14.5" posY="0" posZ="224.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.398" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="224.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.399" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="225.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.400" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="225.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.401" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="226.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.402" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="226.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.403" is_door_to_area="x" is_door_to_level="x" posX="15.5" posY="0" posZ="223.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.404" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="227.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.405" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="228.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.406" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="229.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.407" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="230.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.408" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="231.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.409" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="232.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.410" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="232.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.411" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="233.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.412" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="233.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.413" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="234.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.414" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="235.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.415" is_door_to_area="x" is_door_to_level="x" posX="15.5" posY="0" posZ="225.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.416" is_door_to_area="x" is_door_to_level="x" posX="15.5" posY="0" posZ="226.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.417" is_door_to_area="x" is_door_to_level="x" posX="16.5" posY="0" posZ="226.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.418" is_door_to_area="x" is_door_to_level="x" posX="15.5" posY="0" posZ="227.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.419" is_door_to_area="x" is_door_to_level="x" posX="15.5" posY="0" posZ="228.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.420" is_door_to_area="x" is_door_to_level="x" posX="15.5" posY="0" posZ="229.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.421" is_door_to_area="x" is_door_to_level="x" posX="16.5" posY="0" posZ="228.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.422" is_door_to_area="x" is_door_to_level="x" posX="16.5" posY="0" posZ="229.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.423" is_door_to_area="x" is_door_to_level="x" posX="16.5" posY="0" posZ="231.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.424" is_door_to_area="x" is_door_to_level="x" posX="15.5" posY="0" posZ="231.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.425" is_door_to_area="x" is_door_to_level="x" posX="15.5" posY="0" posZ="232.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.426" is_door_to_area="x" is_door_to_level="x" posX="15.5" posY="0" posZ="233.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.427" is_door_to_area="x" is_door_to_level="x" posX="14.5" posY="0" posZ="233.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.428" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="236.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.429" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="237.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.430" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="238.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.431" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="239.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.432" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="241.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.433" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="243.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.434" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="244.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.435" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="245.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.436" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="239.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.437" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="240.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.438" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="240.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.439" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="241.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.440" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="241.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.441" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="242.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.442" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="242.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.443" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="243.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.444" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="243.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.445" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="244.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.446" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="244.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.447" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="245.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.448" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="246.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.449" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="246.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.450" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="247.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.451" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="247.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.452" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="248.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.453" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="248.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.454" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="249.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.455" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="249.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.456" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="250.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.457" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="251.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.458" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="247.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.459" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="248.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.460" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="250.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.461" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="252.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.462" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="253.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.463" is_door_to_area="x" is_door_to_level="x" posX="14.5" posY="0" posZ="240.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.464" is_door_to_area="x" is_door_to_level="x" posX="14.5" posY="0" posZ="239.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.465" is_door_to_area="x" is_door_to_level="x" posX="15.5" posY="0" posZ="240.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.466" is_door_to_area="x" is_door_to_level="x" posX="15.5" posY="0" posZ="241.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.467" is_door_to_area="x" is_door_to_level="x" posX="16.5" posY="0" posZ="241.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.468" is_door_to_area="x" is_door_to_level="x" posX="16.5" posY="0" posZ="242.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.469" is_door_to_area="x" is_door_to_level="x" posX="17.5" posY="0" posZ="242.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.470" is_door_to_area="x" is_door_to_level="x" posX="17.5" posY="0" posZ="243.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.471" is_door_to_area="x" is_door_to_level="x" posX="18.5" posY="0" posZ="243.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.472" is_door_to_area="x" is_door_to_level="x" posX="18.5" posY="0" posZ="244.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.473" is_door_to_area="x" is_door_to_level="x" posX="19.5" posY="0" posZ="244.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.474" is_door_to_area="x" is_door_to_level="x" posX="19.5" posY="0" posZ="245.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.475" is_door_to_area="x" is_door_to_level="x" posX="19.5" posY="0" posZ="246.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.476" is_door_to_area="x" is_door_to_level="x" posX="18.5" posY="0" posZ="246.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.477" is_door_to_area="x" is_door_to_level="x" posX="18.5" posY="0" posZ="247.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.478" is_door_to_area="x" is_door_to_level="x" posX="17.5" posY="0" posZ="247.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.479" is_door_to_area="x" is_door_to_level="x" posX="17.5" posY="0" posZ="248.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.480" is_door_to_area="x" is_door_to_level="x" posX="16.5" posY="0" posZ="249.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.481" is_door_to_area="x" is_door_to_level="x" posX="15.5" posY="0" posZ="250.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.482" is_door_to_area="x" is_door_to_level="x" posX="15.5" posY="0" posZ="251.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.483" is_door_to_area="x" is_door_to_level="x" posX="11.5" posY="0" posZ="252.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.484" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="252.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.485" is_door_to_area="x" is_door_to_level="x" posX="15.5" posY="0" posZ="252.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.486" is_door_to_area="x" is_door_to_level="x" posX="14.5" posY="0" posZ="252.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.487" is_door_to_area="x" is_door_to_level="x" posX="14.5" posY="0" posZ="253.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.488" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="253.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.489" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="254.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.490" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="254.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.491" is_door_to_area="x" is_door_to_level="x" posX="14.5" posY="0" posZ="254.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.492" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="255.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.493" is_door_to_area="x" is_door_to_level="x" posX="16.5" posY="0" posZ="248.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.494" is_door_to_area="x" is_door_to_level="x" posX="15.5" posY="0" posZ="249.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.495" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="3.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.496" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="9.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.497" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="1.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.498" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="2.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.499" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="2.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="bonbon" id="1.4.500" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="2.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="Tut mir leid, ab hier musst du alleine weiter..." />
+                  <object type="platform" id="1.4.501" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="7.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.502" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="5.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.503" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="8.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.504" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="251.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.505" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="249.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.506" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="246.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.507" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="135.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.508" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="137.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.509" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="92.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.510" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="186.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.511" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="188.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="1.4.512" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="147.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="1.4.513" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="217.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="obstacle" id="1.4.514" is_door_to_area="x" is_door_to_level="x" posX="6.5" posY="0" posZ="106.5" endPosX="" endPosY="" endPosZ="" size="0" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.515" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="4.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.516" is_door_to_area="x" is_door_to_level="x" posX="5.5" posY="0" posZ="72.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.517" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="93.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.518" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="97.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.519" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="136.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.520" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="151.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.521" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="160.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.522" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="154.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.523" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="171.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.524" is_door_to_area="x" is_door_to_level="x" posX="8.5" posY="0" posZ="176.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.525" is_door_to_area="x" is_door_to_level="x" posX="9.5" posY="0" posZ="178.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.526" is_door_to_area="x" is_door_to_level="x" posX="10.5" posY="0" posZ="187.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.527" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="195.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.528" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="197.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.529" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="195.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.530" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="197.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.531" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="214.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.532" is_door_to_area="x" is_door_to_level="x" posX="12.5" posY="0" posZ="219.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.533" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="222.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                </statics>
+              </static_objects>
+            <!--- DYNAMIC-->
+              <dynamic_objects>
+                <dynamics>
+                  <object type="platform" id="1.4.1.dyn" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="0.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.8.dyn" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="256.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.9.dyn" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="6.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="True" dialog="" />
+                  <object type="actionActor" id="1.4.1.helperActor" is_door_to_area="x" is_door_to_level="x" posX="7.5" posY="0" posZ="1.5" endPosX="" endPosY="" endPosZ="" size="1" slippery="0" visible="False" dialog="" />
+                  <object type="platform" id="1.4.10.dyn" is_door_to_area="x" is_door_to_level="x" posX="7" posY="0" posZ="12" endPosX="" endPosY="" endPosZ="" size="2" slippery="0" visible="True" dialog="" />
+                  <object type="platform" id="1.4.18.dyn" is_door_to_area="x" is_door_to_level="x" posX="13.5" posY="0" posZ="257.5" endPosX="-24.5" endPosY="257" endPosZ="106.5" size="1" slippery="0" visible="True" dialog="" />
                 </dynamics>
               </dynamic_objects>
             </the_objects>

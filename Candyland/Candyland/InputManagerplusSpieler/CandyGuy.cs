@@ -46,21 +46,30 @@ namespace Candyland
         {
             KeyboardState keystate = Keyboard.GetState();
 
+            // Choose animation
             if (!wasOnSlippery)
             {
                 if (!isOnSlipperyGround)
                 {
-                    if (!m_updateInfo.locked && (keystate.IsKeyDown(Keys.W)
-                    || keystate.IsKeyDown(Keys.A) || keystate.IsKeyDown(Keys.D)
-                    || (keystate.IsKeyDown(Keys.S) && !m_updateInfo.alwaysRun)
-                    || (m_updateInfo.alwaysRun && !keystate.IsKeyDown(Keys.S)))
-                    && isthirdpersoncam && isonground)
+                    if (GameConstants.inputManagerMode.Equals(InputManager.KEYBOARDMOUSE))
                     {
-                        animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
+                        if (!m_updateInfo.locked && (keystate.IsKeyDown(Keys.W)
+                        || keystate.IsKeyDown(Keys.A) || keystate.IsKeyDown(Keys.D)
+                        || (keystate.IsKeyDown(Keys.S) && !m_updateInfo.alwaysRun)
+                        || (m_updateInfo.alwaysRun && !keystate.IsKeyDown(Keys.S)))
+                        && isthirdpersoncam && isonground)
+                        {
+                            animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
+                        }
+                        else
+                        {
+                            animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, false, Matrix.Identity);
+                        }
                     }
                     else
                     {
-                        animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, false, Matrix.Identity);
+                        if (m_updateInfo.playerIsWalking) animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, true, Matrix.Identity);
+                        else animationPlayer.Update(m_updateInfo.gameTime.ElapsedGameTime, false, Matrix.Identity);
                     }
                 }
                 else

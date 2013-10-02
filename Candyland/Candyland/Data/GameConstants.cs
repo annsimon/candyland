@@ -89,26 +89,13 @@ namespace Candyland
         public const float cameraFarPlane = 70;
 
         public const int inputManagerMode = InputManager.KEYBOARDMOUSE;
-
-        // data regarding the scene
-        /*public const bool helperAvailableAtGameStart = true;
-
-        public const string sceneFile = @"Content\Scenes\theWorldPres.xml";
-        public const string eventFile = @"Content\Scenes\Events\EventPres.xml";
-        public const string actionsFile = @"Content\Scenes\Actions\ActionPres.xml";
-        public const string startAreaID = "0";
-        public const string startLevelID = "0.0";
-        */
-
-        public const bool helperAvailableAtGameStart = false;
         
         public const string sceneFile = @"Content\Scenes\BalanceBoardWorld.xml";
         public const string eventFile = @"Content\Scenes\Events\BBEvent.xml";
         public const string actionsFile = @"Content\Scenes\Actions\BBAction.xml";
         public const string startAreaID = "1";
         public const string startLevelID = "1.1";
-        
-
+       
 
         /// <summary>
         /// Background color for full screen menu screens
@@ -123,7 +110,6 @@ namespace Candyland
         /// </summary>
         /// 
         // Dialogue
-        public const string tradesmanGreeting = "Hallo Reisender! !nl!Bei mir kannst du Neuigkeiten erfahren, Extras kaufen oder dich zu einem meiner Partner teleportieren lassen. !nl!Sag mir einfach was du m!oe!chtest.";
         public const string controlDescription1 = "Laufen\nSpringen, Zerstören, Ansprechen\nKamerabewegung\nLevelreset\nCharakterwechsel\n\nMenüauswahl\nBestätigen\nZurück\nMusik an/aus (Sounds bleiben)";
         public const string controlDescription2 = "W A S D\nLeertaste\nMaus\nR\nC\n\nW A S D, Pfeiltasten\nLeertaste, Enter\nEscape, Backspace\nL";  
     }
