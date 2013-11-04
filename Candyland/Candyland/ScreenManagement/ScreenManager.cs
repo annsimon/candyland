@@ -31,6 +31,8 @@ namespace Candyland
 
         private SoundEffect buttonSound;
 
+        private bool exceptionWhileLoading = false;
+
         // the menus will be optimized for the prefered screen size
         // Ingame text will have a bigger font
         bool isFullScreen;
@@ -159,6 +161,10 @@ namespace Candyland
         /// </summary>
         public override void Update(GameTime gameTime)
         {
+            // there was an exception and we have to terminate the game
+            if (exceptionWhileLoading)
+                throw new Exception("Exception while loading!");
+
             // when loading thread has finished its work, start the game
             if (readyToStartGame)
             {
@@ -338,30 +344,54 @@ namespace Candyland
 
         private void LoadingGameContent()
         {
-            m_sceneManager = new SceneManager(this);
+            try
+            {
+                m_sceneManager = new SceneManager(this);
 
-            m_sceneManager.Load(content, assets);
+                m_sceneManager.Load(content, assets);
 
-            // this is one seriously weird thing to do
-            // but it causes breakable obstacles to be visible from the start
-            for (int i = 0; i < 10; i++)
-                m_sceneManager.UpdateOnce();
+                // this is one seriously weird thing to do
+                // but it causes breakable obstacles to be visible from the start
+                for (int i = 0; i < 10; i++)
+                    m_sceneManager.UpdateOnce();
 
-            readyToStartGame = true;
+                readyToStartGame = true;
+            }
+            catch (Exception ex)
+            {
+                using (StreamWriter outfile = new StreamWriter("log.txt"))
+                {
+                    outfile.Write("Game closed with Exception: \n");
+                    outfile.Write(ex.ToString());
+                }
+                exceptionWhileLoading = true;
+            }
         }
 
         private void LoadingGameContentAndSaveGame()
         {
-            m_sceneManager = new SceneManager(this);
+            try
+            {
+                m_sceneManager = new SceneManager(this);
 
-            m_sceneManager.Load(content, assets);
+                m_sceneManager.Load(content, assets);
 
-            // this is one seriously weird thing to do
-            // but it causes breakable obstacles to be visible from the start
-            for( int i = 0; i < 10; i++ )
-                m_sceneManager.UpdateOnce();
+                // this is one seriously weird thing to do
+                // but it causes breakable obstacles to be visible from the start
+                for (int i = 0; i < 10; i++)
+                    m_sceneManager.UpdateOnce();
 
-            readyToStartGame = m_sceneManager.LoadSavegame();
+                readyToStartGame = m_sceneManager.LoadSavegame();
+            }
+            catch (Exception ex)
+            {
+                using (StreamWriter outfile = new StreamWriter("log.txt"))
+                {
+                    outfile.Write("Game closed with Exception: \n");
+                    outfile.Write(ex.ToString());
+                }
+                exceptionWhileLoading = true;
+            }
         }
 
         /// <summary>
